@@ -1,0 +1,35 @@
+= Vulkan-Registry
+
+The https://github.com/KhronosGroup/Vulkan-Registry[Vulkan-Registry]
+repository contains the Vulkan API and Extension Registry, including
+generated specifications and reference pages, and reference cards.
+The sources for these documents are found in the separate
+https://github.com/KhronosGroup/Vulkan-Docs[Vulkan-Docs] repository.
+Vulkan-Registry is used only as a backing store for the web view of the
+registry at https://registry.khronos.org/vulkan/ .
+Commits to the main branch of Vulkan-Registry will be reflected in the web
+view.
+
+This is a new repository as of 2024-12-13, although it serves the same
+purpose as the previous
+https://github.com/KhronosGroup/Vulkan-WebRegistry[Vulkan-Web-Registry]
+repository.
+That repository had grown to enormous size after more than 300
+revisions of the Vulkan specifications.
+
+We have now moved to a new publishing model where the registry only contains
+HTML and PDF versions of the 'latest' (currently Vulkan 1.4) specification,
+with all extensions included.
+The previous version-specific forms of the specification are now longer
+published, and the registry redirects the old URLs to the 'latest' HTML and
+PDF documents.
+The previous 'chunked' (one page/chapter) form of the specification has been
+retired in favor of the https://docs.vulkan.org/[Vulkan Documentation Site],
+and the registry redirects the old chunked links to the corresponding pages
+of the documentation site.
+
+This form of the registry repository should grow much more slowly than the
+old Vulkan-Web-Registry.
+However, if you need to clone this repository for some reason, it may be a
+good idea to make a shallow clone if you don't require the entire repository
+history.
