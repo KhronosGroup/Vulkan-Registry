@@ -4,7 +4,7 @@ $static_title = 'Khronos Vulkan Registry';
 include_once("../../assets/static_pages/khr_page_top.php");
 ?>
 
-<p> The Vulkan registry contains formatted specifications of the Vulkan API,
+<p> Tthe Vulkan registry contains formatted specifications of the Vulkan API,
     header files, API reference pages, the reference card, and related
     documentation. The registry also links to the GitHub repository where
     the sources for these documents can be found. </p>
