@@ -869,6 +869,11 @@ store the binary, nothing is written to <code>pPipelineBinaryData</code> and
 <code>VK_SUCCESS</code>.</p>
 </div>
 <div class="paragraph">
+<p>If the call returns one of the success return codes, the pipeline binary key
+is written to <code>pPipelineBinaryKey</code>, regardless of whether
+<code>pPipelineBinaryData</code> is <code>NULL</code> or not.</p>
+</div>
+<div class="paragraph">
 <p>If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-pipelineBinaryCompressedData" target="_blank" rel="noopener">pipelineBinaryCompressedData</a> is
 <code>VK_FALSE</code>, implementations <strong class="purple">should</strong> not return compressed pipeline
 binary data to the application.</p>

@@ -853,11 +853,11 @@ size in bytes used by any shader in the pipeline.</p>
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>maxPipelineRayPayloadSize</code> is calculated as the maximum number of bytes
-used by any block declared in the <code>RayPayloadKHR</code> or
+<p><code>maxPipelineRayPayloadSize</code> is calculated as the maximum size of the
+block (in bytes) declared in the <code>RayPayloadKHR</code> or
 <code>IncomingRayPayloadKHR</code> storage classes.
-<code>maxPipelineRayHitAttributeSize</code> is calculated as the maximum number of
-bytes used by any block declared in the <code>HitAttributeKHR</code> storage class.
+<code>maxPipelineRayHitAttributeSize</code> is calculated as the maximum size of
+any block (in bytes) declared in the <code>HitAttributeKHR</code> storage class.
 As variables in these storage classes do not have explicit offsets, the size
 should be calculated as if each variable has a
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-alignment-requirements" target="_blank" rel="noopener">scalar alignment</a> equal to the largest

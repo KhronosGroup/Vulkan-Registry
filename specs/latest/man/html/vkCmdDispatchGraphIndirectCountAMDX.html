@@ -934,12 +934,30 @@ command, then the image view&#8217;s <code>levelCount</code> and <code>layerCoun
 <strong class="purple">must</strong> be 1</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDispatchGraphIndirectCountAMDX-unnormalizedCoordinates-09636" href="#VUID-vkCmdDispatchGraphIndirectCountAMDX-unnormalizedCoordinates-09636"></a> <span class="vuid">VUID-vkCmdDispatchGraphIndirectCountAMDX-unnormalizedCoordinates-09636</span><br>
+<p><a id="VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08609" href="#VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08609"></a> <span class="vuid">VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08609</span><br>
 
 If a <a href="VkSampler.html">VkSampler</a> created with <code>unnormalizedCoordinates</code> equal to
 <code>VK_TRUE</code> is used to sample a <a href="VkImageView.html">VkImageView</a> as a result of this
 command, then the image view&#8217;s <code>viewType</code> <strong class="purple">must</strong> be
 <code>VK_IMAGE_VIEW_TYPE_1D</code> or <code>VK_IMAGE_VIEW_TYPE_2D</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08610" href="#VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08610"></a> <span class="vuid">VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08610</span><br>
+
+If a <a href="VkSampler.html">VkSampler</a> created with <code>unnormalizedCoordinates</code> equal to
+<code>VK_TRUE</code> is used to sample a <a href="VkImageView.html">VkImageView</a> as a result of this
+command, then the sampler <strong class="purple">must</strong> not be used with any of the SPIR-V
+<code>OpImageSample*</code> or <code>OpImageSparseSample*</code> instructions with
+<code>ImplicitLod</code>, <code>Dref</code> or <code>Proj</code> in their name</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08611" href="#VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08611"></a> <span class="vuid">VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08611</span><br>
+
+If a <a href="VkSampler.html">VkSampler</a> created with <code>unnormalizedCoordinates</code> equal to
+<code>VK_TRUE</code> is used to sample a <a href="VkImageView.html">VkImageView</a> as a result of this
+command, then the sampler <strong class="purple">must</strong> not be used with any of the SPIR-V
+<code>OpImageSample*</code> or <code>OpImageSparseSample*</code> instructions that includes a
+LOD bias or any offset values</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDispatchGraphIndirectCountAMDX-None-06479" href="#VUID-vkCmdDispatchGraphIndirectCountAMDX-None-06479"></a> <span class="vuid">VUID-vkCmdDispatchGraphIndirectCountAMDX-None-06479</span><br>
@@ -1191,44 +1209,6 @@ there
 <strong class="purple">must</strong> not have been any calls to dynamic state setting commands for any
 state specified statically in the <a href="VkPipeline.html">VkPipeline</a> object bound to the
 pipeline bind point used by this command, since that pipeline was bound</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08609" href="#VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08609"></a> <span class="vuid">VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08609</span><br>
-
-If the <a href="VkPipeline.html">VkPipeline</a> object bound to the pipeline bind point used by
-this command
-or any <a href="VkShaderEXT.html">VkShaderEXT</a> bound to a stage corresponding to the pipeline
-bind point used by this command
-accesses a <a href="VkSampler.html">VkSampler</a> object that uses unnormalized coordinates,
-that sampler <strong class="purple">must</strong> not be used to sample from any <a href="VkImage.html">VkImage</a> with a
-<a href="VkImageView.html">VkImageView</a> of the type <code>VK_IMAGE_VIEW_TYPE_3D</code>,
-<code>VK_IMAGE_VIEW_TYPE_CUBE</code>, <code>VK_IMAGE_VIEW_TYPE_1D_ARRAY</code>,
-<code>VK_IMAGE_VIEW_TYPE_2D_ARRAY</code> or
-<code>VK_IMAGE_VIEW_TYPE_CUBE_ARRAY</code>, in any shader stage</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08610" href="#VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08610"></a> <span class="vuid">VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08610</span><br>
-
-If the <a href="VkPipeline.html">VkPipeline</a> object bound to the pipeline bind point used by
-this command
-or any <a href="VkShaderEXT.html">VkShaderEXT</a> bound to a stage corresponding to the pipeline
-bind point used by this command
-accesses a <a href="VkSampler.html">VkSampler</a> object that uses unnormalized coordinates,
-that sampler <strong class="purple">must</strong> not be used with any of the SPIR-V <code>OpImageSample*</code>
-or <code>OpImageSparseSample*</code> instructions with <code>ImplicitLod</code>, <code>Dref</code>
-or <code>Proj</code> in their name, in any shader stage</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08611" href="#VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08611"></a> <span class="vuid">VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08611</span><br>
-
-If the <a href="VkPipeline.html">VkPipeline</a> object bound to the pipeline bind point used by
-this command
-or any <a href="VkShaderEXT.html">VkShaderEXT</a> bound to a stage corresponding to the pipeline
-bind point used by this command
-accesses a <a href="VkSampler.html">VkSampler</a> object that uses unnormalized coordinates,
-that sampler <strong class="purple">must</strong> not be used with any of the SPIR-V <code>OpImageSample*</code>
-or <code>OpImageSparseSample*</code> instructions that includes a LOD bias or any
-offset values, in any shader stage</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08607" href="#VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08607"></a> <span class="vuid">VUID-vkCmdDispatchGraphIndirectCountAMDX-None-08607</span><br>

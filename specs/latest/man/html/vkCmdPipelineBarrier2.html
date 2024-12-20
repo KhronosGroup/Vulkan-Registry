@@ -1074,6 +1074,18 @@ respective <code>dstStageMask</code> member of the element of the
 queue family that was used to create the command pool that
 <code>commandBuffer</code> was allocated from</p>
 </li>
+<li>
+<p><a id="VUID-vkCmdPipelineBarrier2-srcQueueFamilyIndex-10387" href="#VUID-vkCmdPipelineBarrier2-srcQueueFamilyIndex-10387"></a> <span class="vuid">VUID-vkCmdPipelineBarrier2-srcQueueFamilyIndex-10387</span><br>
+
+If a buffer or image memory barrier specifies a
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers" target="_blank" rel="noopener">queue family ownership transfer
+operation</a>, either the <code>srcQueueFamilyIndex</code> or
+<code>dstQueueFamilyIndex</code> member of the element of the
+<code>pBufferMemoryBarriers</code> or <code>pImageMemoryBarriers</code> members of
+<code>pDependencyInfo</code> and the queue family index that was used to create
+the command pool that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> be
+equal</p>
+</li>
 </ul>
 </div>
 </div>
