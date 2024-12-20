@@ -30,6 +30,7 @@ of the documentation site.
 
 This form of the registry repository should grow much more slowly than the
 old Vulkan-Web-Registry.
+
 However, if you need to clone this repository for some reason, it may be a
 good idea to make a shallow clone if you don't require the entire repository
 history.
