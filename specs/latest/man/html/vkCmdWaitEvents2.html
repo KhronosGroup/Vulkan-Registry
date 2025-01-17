@@ -1013,6 +1013,12 @@ include pipeline stages valid for the queue family that was used to
 create the command pool that <code>commandBuffer</code> was allocated from</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdWaitEvents2-dependencyFlags-10394" href="#VUID-vkCmdWaitEvents2-dependencyFlags-10394"></a> <span class="vuid">VUID-vkCmdWaitEvents2-dependencyFlags-10394</span><br>
+
+The <code>dependencyFlags</code> member of any element of <code>pDependencyInfo</code>
+<strong class="purple">must</strong> be <code>0</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdWaitEvents2-dependencyFlags-03844" href="#VUID-vkCmdWaitEvents2-dependencyFlags-03844"></a> <span class="vuid">VUID-vkCmdWaitEvents2-dependencyFlags-03844</span><br>
 
 If <code>vkCmdWaitEvents2</code> is being called inside a render pass instance,
@@ -1026,6 +1032,14 @@ include <code>VK_PIPELINE_STAGE_2_HOST_BIT</code></p>
 
 <code>commandBuffer</code>&#8217;s current device mask <strong class="purple">must</strong> include exactly one
 physical device</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdWaitEvents2-maintenance8-10205" href="#VUID-vkCmdWaitEvents2-maintenance8-10205"></a> <span class="vuid">VUID-vkCmdWaitEvents2-maintenance8-10205</span><br>
+
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance8" target="_blank" rel="noopener"><code>maintenance8</code></a> feature is not
+enabled, The <code>dependencyFlags</code> members of any element of
+<code>pDependencyInfos</code> <strong class="purple">must</strong> not include
+<code>VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR</code></p>
 </li>
 </ul>
 </div>
@@ -1145,7 +1159,7 @@ Fixes and changes should be made to the Specification, not directly.</p>
 <h2 id="_copyright"><a class="anchor" href="#_copyright"></a>Copyright</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright 2014-2024 The Khronos Group Inc.</p>
+<p>Copyright 2014-2025 The Khronos Group Inc.</p>
 </div>
 <div class="paragraph">
 <p>SPDX-License-Identifier: CC-BY-4.0</p>

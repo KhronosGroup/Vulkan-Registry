@@ -818,6 +818,8 @@ specifying behavior of the pipeline cache, are:</p>
 typedef enum VkPipelineCacheCreateFlagBits {
   // Provided by VK_VERSION_1_3
     VK_PIPELINE_CACHE_CREATE_EXTERNALLY_SYNCHRONIZED_BIT = 0x00000001,
+  // Provided by VK_KHR_maintenance8
+    VK_PIPELINE_CACHE_CREATE_INTERNALLY_SYNCHRONIZED_MERGE_BIT_KHR = 0x00000008,
   // Provided by VK_EXT_pipeline_creation_cache_control
     VK_PIPELINE_CACHE_CREATE_EXTERNALLY_SYNCHRONIZED_BIT_EXT = VK_PIPELINE_CACHE_CREATE_EXTERNALLY_SYNCHRONIZED_BIT,
 } VkPipelineCacheCreateFlagBits;</code></pre>
@@ -837,6 +839,14 @@ that all commands that modify the created <a href="VkPipelineCache.html">VkPipel
 When set, the implementation <strong class="purple">may</strong> skip any unnecessary processing needed
 to support simultaneous modification from multiple threads where
 allowed.</p>
+</li>
+<li>
+<p><code>VK_PIPELINE_CACHE_CREATE_INTERNALLY_SYNCHRONIZED_MERGE_BIT_KHR</code>
+specifies that when the created <a href="VkPipelineCache.html">VkPipelineCache</a> is used as the
+<code>dstCache</code> parameter of <a href="vkMergePipelineCaches.html">vkMergePipelineCaches</a>, it does not
+need to be <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fundamentals-threadingbehavior" target="_blank" rel="noopener">externally synchronized</a>.
+This flag is mutually exclusive with
+<code>VK_PIPELINE_CACHE_CREATE_EXTERNALLY_SYNCHRONIZED_BIT</code>.</p>
 </li>
 </ul>
 </div>
@@ -866,7 +876,7 @@ Fixes and changes should be made to the Specification, not directly.</p>
 <h2 id="_copyright"><a class="anchor" href="#_copyright"></a>Copyright</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright 2014-2024 The Khronos Group Inc.</p>
+<p>Copyright 2014-2025 The Khronos Group Inc.</p>
 </div>
 <div class="paragraph">
 <p>SPDX-License-Identifier: CC-BY-4.0</p>

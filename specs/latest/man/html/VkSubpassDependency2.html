@@ -1129,6 +1129,12 @@ equal to <code>dstSubpass</code></p>
 If <code>dependencyFlags</code> does not include
 <code>VK_DEPENDENCY_VIEW_LOCAL_BIT</code>, <code>viewOffset</code> <strong class="purple">must</strong> be <code>0</code></p>
 </li>
+<li>
+<p><a id="VUID-VkSubpassDependency2-dependencyFlags-10204" href="#VUID-VkSubpassDependency2-dependencyFlags-10204"></a> <span class="vuid">VUID-VkSubpassDependency2-dependencyFlags-10204</span><br>
+
+<code>dependencyFlags</code> <strong class="purple">must</strong> not include
+<code>VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -1200,7 +1206,7 @@ Fixes and changes should be made to the Specification, not directly.</p>
 <h2 id="_copyright"><a class="anchor" href="#_copyright"></a>Copyright</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright 2014-2024 The Khronos Group Inc.</p>
+<p>Copyright 2014-2025 The Khronos Group Inc.</p>
 </div>
 <div class="paragraph">
 <p>SPDX-License-Identifier: CC-BY-4.0</p>

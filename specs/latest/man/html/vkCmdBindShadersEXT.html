@@ -941,40 +941,6 @@ in <code>pStages</code> is not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>,
 <strong class="purple">must</strong> be <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a></p>
 </li>
 <li>
-<p><a id="VUID-vkCmdBindShadersEXT-pShaders-08474" href="#VUID-vkCmdBindShadersEXT-pShaders-08474"></a> <span class="vuid">VUID-vkCmdBindShadersEXT-pShaders-08474</span><br>
-
-If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tessellationShader" target="_blank" rel="noopener"><code>tessellationShader</code></a> feature
-is not enabled, and <code>pStages</code> contains
-<code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> or
-<code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code>, and <code>pShaders</code> is
-not <code>NULL</code>, the same index or indices in <code>pShaders</code> <strong class="purple">must</strong> be
-<a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBindShadersEXT-pShaders-08475" href="#VUID-vkCmdBindShadersEXT-pShaders-08475"></a> <span class="vuid">VUID-vkCmdBindShadersEXT-pShaders-08475</span><br>
-
-If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-geometryShader" target="_blank" rel="noopener"><code>geometryShader</code></a> feature is not
-enabled, and <code>pStages</code> contains <code>VK_SHADER_STAGE_GEOMETRY_BIT</code>,
-and <code>pShaders</code> is not <code>NULL</code>, the same index in <code>pShaders</code> <strong class="purple">must</strong>
-be <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBindShadersEXT-pShaders-08490" href="#VUID-vkCmdBindShadersEXT-pShaders-08490"></a> <span class="vuid">VUID-vkCmdBindShadersEXT-pShaders-08490</span><br>
-
-If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-taskShader" target="_blank" rel="noopener"><code>taskShader</code></a> feature is not enabled,
-and <code>pStages</code> contains <code>VK_SHADER_STAGE_TASK_BIT_EXT</code>, and
-<code>pShaders</code> is not <code>NULL</code>, the same index in <code>pShaders</code> <strong class="purple">must</strong> be
-<a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBindShadersEXT-pShaders-08491" href="#VUID-vkCmdBindShadersEXT-pShaders-08491"></a> <span class="vuid">VUID-vkCmdBindShadersEXT-pShaders-08491</span><br>
-
-If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-meshShader" target="_blank" rel="noopener"><code>meshShader</code></a> feature is not enabled,
-and <code>pStages</code> contains <code>VK_SHADER_STAGE_MESH_BIT_EXT</code>, and
-<code>pShaders</code> is not <code>NULL</code>, the same index in <code>pShaders</code> <strong class="purple">must</strong> be
-<a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a></p>
-</li>
-<li>
 <p><a id="VUID-vkCmdBindShadersEXT-pShaders-08476" href="#VUID-vkCmdBindShadersEXT-pShaders-08476"></a> <span class="vuid">VUID-vkCmdBindShadersEXT-pShaders-08476</span><br>
 
 If <code>pStages</code> contains <code>VK_SHADER_STAGE_COMPUTE_BIT</code>, the
@@ -1118,7 +1084,7 @@ Fixes and changes should be made to the Specification, not directly.</p>
 <h2 id="_copyright"><a class="anchor" href="#_copyright"></a>Copyright</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright 2014-2024 The Khronos Group Inc.</p>
+<p>Copyright 2014-2025 The Khronos Group Inc.</p>
 </div>
 <div class="paragraph">
 <p>SPDX-License-Identifier: CC-BY-4.0</p>

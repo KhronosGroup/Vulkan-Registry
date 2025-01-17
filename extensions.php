@@ -13,6 +13,7 @@
     <li> <a href="specs/latest/man/html/VK_KHR_create_renderpass2.html"> VK_KHR_create_renderpass2 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_dedicated_allocation.html"> VK_KHR_dedicated_allocation </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_deferred_host_operations.html"> VK_KHR_deferred_host_operations </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_depth_clamp_zero_one.html"> VK_KHR_depth_clamp_zero_one </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_depth_stencil_resolve.html"> VK_KHR_depth_stencil_resolve </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_descriptor_update_template.html"> VK_KHR_descriptor_update_template </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_device_group.html"> VK_KHR_device_group </a> </li>
@@ -56,6 +57,7 @@
     <li> <a href="specs/latest/man/html/VK_KHR_maintenance5.html"> VK_KHR_maintenance5 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_maintenance6.html"> VK_KHR_maintenance6 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_maintenance7.html"> VK_KHR_maintenance7 </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_maintenance8.html"> VK_KHR_maintenance8 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_map_memory2.html"> VK_KHR_map_memory2 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_multiview.html"> VK_KHR_multiview </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_performance_query.html"> VK_KHR_performance_query </a> </li>
@@ -285,6 +287,7 @@
     <li> <a href="specs/latest/man/html/VK_ANDROID_external_format_resolve.html"> VK_ANDROID_external_format_resolve </a> </li>
     <li> <a href="specs/latest/man/html/VK_ANDROID_external_memory_android_hardware_buffer.html"> VK_ANDROID_external_memory_android_hardware_buffer </a> </li>
     <li> <b>  ARM Extensions (ARM Limited)  </b> </li>
+    <li> <a href="specs/latest/man/html/VK_ARM_pipeline_opacity_micromap.html"> VK_ARM_pipeline_opacity_micromap </a> </li>
     <li> <a href="specs/latest/man/html/VK_ARM_rasterization_order_attachment_access.html"> VK_ARM_rasterization_order_attachment_access </a> </li>
     <li> <a href="specs/latest/man/html/VK_ARM_render_pass_striped.html"> VK_ARM_render_pass_striped </a> </li>
     <li> <a href="specs/latest/man/html/VK_ARM_scheduling_controls.html"> VK_ARM_scheduling_controls </a> </li>

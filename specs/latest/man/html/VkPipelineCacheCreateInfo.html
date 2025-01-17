@@ -885,6 +885,21 @@ If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.htm
 <strong class="purple">must</strong> not include
 <code>VK_PIPELINE_CACHE_CREATE_EXTERNALLY_SYNCHRONIZED_BIT</code></p>
 </li>
+<li>
+<p><a id="VUID-VkPipelineCacheCreateInfo-maintenance8-10200" href="#VUID-VkPipelineCacheCreateInfo-maintenance8-10200"></a> <span class="vuid">VUID-VkPipelineCacheCreateInfo-maintenance8-10200</span><br>
+
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance8" target="_blank" rel="noopener"><code>maintenance8</code></a> feature is not
+enabled, <code>flags</code> <strong class="purple">must</strong> not include
+<code>VK_PIPELINE_CACHE_CREATE_INTERNALLY_SYNCHRONIZED_MERGE_BIT_KHR</code></p>
+</li>
+<li>
+<p><a id="VUID-VkPipelineCacheCreateInfo-flags-10201" href="#VUID-VkPipelineCacheCreateInfo-flags-10201"></a> <span class="vuid">VUID-VkPipelineCacheCreateInfo-flags-10201</span><br>
+
+If <code>flags</code> includes
+<code>VK_PIPELINE_CACHE_CREATE_EXTERNALLY_SYNCHRONIZED_BIT</code>, it <strong class="purple">must</strong> not
+include
+<code>VK_PIPELINE_CACHE_CREATE_INTERNALLY_SYNCHRONIZED_MERGE_BIT_KHR</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -940,7 +955,7 @@ Fixes and changes should be made to the Specification, not directly.</p>
 <h2 id="_copyright"><a class="anchor" href="#_copyright"></a>Copyright</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright 2014-2024 The Khronos Group Inc.</p>
+<p>Copyright 2014-2025 The Khronos Group Inc.</p>
 </div>
 <div class="paragraph">
 <p>SPDX-License-Identifier: CC-BY-4.0</p>

@@ -868,7 +868,11 @@ specifying the regions to copy.</p>
 image to the destination region of the destination image.
 If any of the specified regions in <code>srcImage</code> overlaps in memory with
 any of the specified regions in <code>dstImage</code>, values read from those
-overlapping regions are undefined.</p>
+overlapping regions are undefined.
+If any region accesses a depth aspect in <code>dstImage</code>
+and the <code><a href="VK_EXT_depth_range_unrestricted.html">VK_EXT_depth_range_unrestricted</a></code> extension is not enabled,
+values copied from <code>srcBuffer</code> outside of the range <span class="eq">[0,1]</span> will be
+written as undefined values to the destination image.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-requiring-sampler-ycbcr-conversion" target="_blank" rel="noopener">Multi-planar images</a> <strong class="purple">can</strong>
@@ -926,6 +930,28 @@ If <code>commandBuffer</code> is an unprotected command buffer and
 If <code>commandBuffer</code> is a protected command buffer and
 <a href="#limits-protectedNoFault"><code>protectedNoFault</code></a> is not supported,
 <code>dstImage</code> <strong class="purple">must</strong> not be an unprotected image</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyImage-commandBuffer-10217" href="#VUID-vkCmdCopyImage-commandBuffer-10217"></a> <span class="vuid">VUID-vkCmdCopyImage-commandBuffer-10217</span><br>
+
+If the queue family used to create the <a href="VkCommandPool.html">VkCommandPool</a> which
+<code>commandBuffer</code> was allocated from does not support
+<code>VK_QUEUE_GRAPHICS_BIT</code>, for each element of <code>pRegions</code>, where
+the <code>aspectMask</code> member of <code>srcSubresource</code> is
+<code>VK_IMAGE_ASPECT_COLOR_BIT</code>, the <code>aspectMask</code> of
+<code>dstSubresource</code> <strong class="purple">must</strong> not be <code>VK_IMAGE_ASPECT_DEPTH_BIT</code> or
+<code>VK_IMAGE_ASPECT_STENCIL_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyImage-commandBuffer-10218" href="#VUID-vkCmdCopyImage-commandBuffer-10218"></a> <span class="vuid">VUID-vkCmdCopyImage-commandBuffer-10218</span><br>
+
+If the queue family used to create the <a href="VkCommandPool.html">VkCommandPool</a> which
+<code>commandBuffer</code> was allocated from does not support
+<code>VK_QUEUE_GRAPHICS_BIT</code>, for each element of <code>pRegions</code>, where
+the <code>aspectMask</code> member of <code>dstSubresource</code> is
+<code>VK_IMAGE_ASPECT_COLOR_BIT</code> then the <code>aspectMask</code> of
+<code>srcSubresource</code> <strong class="purple">must</strong> not be <code>VK_IMAGE_ASPECT_DEPTH_BIT</code> or
+<code>VK_IMAGE_ASPECT_STENCIL_BIT</code></p>
 </li>
 </ul>
 </div>
@@ -1039,11 +1065,26 @@ of <code>commandBuffer</code>&#8217;s command pool&#8217;s queue family, as desc
 <li>
 <p><a id="VUID-vkCmdCopyImage-srcImage-01551" href="#VUID-vkCmdCopyImage-srcImage-01551"></a> <span class="vuid">VUID-vkCmdCopyImage-srcImage-01551</span><br>
 
-If neither <code>srcImage</code> nor <code>dstImage</code> has a
-<a href="#formats-requiring-sampler-ycbcr-conversion">multi-planar image
-format</a> then for each element of <code>pRegions</code>,
-<code>srcSubresource.aspectMask</code> and <code>dstSubresource.aspectMask</code>
-<strong class="purple">must</strong> match</p>
+    If neither <code>srcImage</code> nor <code>dstImage</code> has a
+    <a href="#formats-requiring-sampler-ycbcr-conversion">multi-planar image
+    format</a>
+and the <a href="#features-maintenance8"><code>maintenance8</code></a> feature is not enabled
+    then for each element of <code>pRegions</code>, <code>srcSubresource.aspectMask</code>
+    and <code>dstSubresource.aspectMask</code> <strong class="purple">must</strong> match</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyImage-srcSubresource-10214" href="#VUID-vkCmdCopyImage-srcSubresource-10214"></a> <span class="vuid">VUID-vkCmdCopyImage-srcSubresource-10214</span><br>
+
+If <code>srcSubresource.aspectMask</code> is <code>VK_IMAGE_ASPECT_COLOR_BIT</code>,
+then <code>dstSubresource.aspectMask</code> <strong class="purple">must</strong> not contain both
+<code>VK_IMAGE_ASPECT_DEPTH_BIT</code> and <code>VK_IMAGE_ASPECT_STENCIL_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyImage-dstSubresource-10215" href="#VUID-vkCmdCopyImage-dstSubresource-10215"></a> <span class="vuid">VUID-vkCmdCopyImage-dstSubresource-10215</span><br>
+
+If <code>dstSubresource.aspectMask</code> is <code>VK_IMAGE_ASPECT_COLOR_BIT</code>,
+then <code>srSubresource.aspectMask</code> <strong class="purple">must</strong> not contain both
+<code>VK_IMAGE_ASPECT_DEPTH_BIT</code> and <code>VK_IMAGE_ASPECT_STENCIL_BIT</code>.</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdCopyImage-srcImage-08713" href="#VUID-vkCmdCopyImage-srcImage-08713"></a> <span class="vuid">VUID-vkCmdCopyImage-srcImage-08713</span><br>
@@ -1076,6 +1117,42 @@ If <code>dstImage</code> has a
 and the <code>srcImage</code> does not have a multi-planar image format, then
 for each element of <code>pRegions</code>, <code>srcSubresource.aspectMask</code>
 <strong class="purple">must</strong> be <code>VK_IMAGE_ASPECT_COLOR_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyImage-srcSubresource-10209" href="#VUID-vkCmdCopyImage-srcSubresource-10209"></a> <span class="vuid">VUID-vkCmdCopyImage-srcSubresource-10209</span><br>
+
+If <code>srcSubresource.aspectMask</code> is <code>VK_IMAGE_ASPECT_COLOR_BIT</code>
+and <code>dstSubresource.aspectMask</code> is <code>VK_IMAGE_ASPECT_DEPTH_BIT</code>
+or <code>VK_IMAGE_ASPECT_STENCIL_BIT</code>, then
+<a href="#features-maintenance8"><code>maintenance8</code></a> <strong class="purple">must</strong> be enabled</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyImage-srcSubresource-10210" href="#VUID-vkCmdCopyImage-srcSubresource-10210"></a> <span class="vuid">VUID-vkCmdCopyImage-srcSubresource-10210</span><br>
+
+If <code>srcSubresource.aspectMask</code> is <code>VK_IMAGE_ASPECT_DEPTH_BIT</code> or
+<code>VK_IMAGE_ASPECT_STENCIL_BIT</code> and <code>dstSubresource.aspectMask</code> is
+<code>VK_IMAGE_ASPECT_COLOR_BIT</code>, then
+<a href="#features-maintenance8"><code>maintenance8</code></a> <strong class="purple">must</strong> be enabled</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyImage-srcSubresource-10211" href="#VUID-vkCmdCopyImage-srcSubresource-10211"></a> <span class="vuid">VUID-vkCmdCopyImage-srcSubresource-10211</span><br>
+
+If <code>srcSubresource.aspectMask</code> is <code>VK_IMAGE_ASPECT_COLOR_BIT</code>
+and <code>dstSubresource.aspectMask</code> is <code>VK_IMAGE_ASPECT_DEPTH_BIT</code>
+or <code>VK_IMAGE_ASPECT_STENCIL_BIT</code>, then the <a href="VkFormat.html">VkFormat</a> values of
+<code>srcImage</code> and <code>dstImage</code> <strong class="purple">must</strong> be compatible according to
+<a href="#formats-compatible-zs-color">the list of compatible depth-stencil and
+color formats</a></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyImage-srcSubresource-10212" href="#VUID-vkCmdCopyImage-srcSubresource-10212"></a> <span class="vuid">VUID-vkCmdCopyImage-srcSubresource-10212</span><br>
+
+If <code>srcSubresource.aspectMask</code> is <code>VK_IMAGE_ASPECT_DEPTH_BIT</code> or
+<code>VK_IMAGE_ASPECT_STENCIL_BIT</code> and <code>dstSubresource.aspectMask</code> is
+<code>VK_IMAGE_ASPECT_COLOR_BIT</code>, then the <a href="VkFormat.html">VkFormat</a> values of
+<code>srcImage</code> and <code>dstImage</code> <strong class="purple">must</strong> be compatible according to
+<a href="#formats-compatible-zs-color">the list of compatible depth-stencil and
+color formats</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdCopyImage-apiVersion-07932" href="#VUID-vkCmdCopyImage-apiVersion-07932"></a> <span class="vuid">VUID-vkCmdCopyImage-apiVersion-07932</span><br>
@@ -1625,7 +1702,7 @@ Fixes and changes should be made to the Specification, not directly.</p>
 <h2 id="_copyright"><a class="anchor" href="#_copyright"></a>Copyright</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright 2014-2024 The Khronos Group Inc.</p>
+<p>Copyright 2014-2025 The Khronos Group Inc.</p>
 </div>
 <div class="paragraph">
 <p>SPDX-License-Identifier: CC-BY-4.0</p>

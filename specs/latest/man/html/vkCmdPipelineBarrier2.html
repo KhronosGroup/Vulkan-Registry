@@ -1056,8 +1056,10 @@ command pool that <code>commandBuffer</code> was allocated from</p>
 <p><a id="VUID-vkCmdPipelineBarrier2-srcStageMask-09675" href="#VUID-vkCmdPipelineBarrier2-srcStageMask-09675"></a> <span class="vuid">VUID-vkCmdPipelineBarrier2-srcStageMask-09675</span><br>
 
 If a buffer or image memory barrier does not specify an
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-acquire" target="_blank" rel="noopener">acquire operation</a>, the
-respective <code>srcStageMask</code> member of the element of the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-acquire" target="_blank" rel="noopener">acquire operation</a>,
+or if it does but <code>pDependencyInfo-&gt;dependencyFlags</code> includes
+<code>VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR</code>,
+the respective <code>srcStageMask</code> member of the element of the
 <code>pBufferMemoryBarriers</code> or <code>pImageMemoryBarriers</code> members of
 <code>pDependencyInfo</code> <strong class="purple">must</strong> only include pipeline stages valid for the
 queue family that was used to create the command pool that
@@ -1067,8 +1069,10 @@ queue family that was used to create the command pool that
 <p><a id="VUID-vkCmdPipelineBarrier2-dstStageMask-09676" href="#VUID-vkCmdPipelineBarrier2-dstStageMask-09676"></a> <span class="vuid">VUID-vkCmdPipelineBarrier2-dstStageMask-09676</span><br>
 
 If a buffer or image memory barrier does not specify an
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-release" target="_blank" rel="noopener">release operation</a>, the
-respective <code>dstStageMask</code> member of the element of the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-release" target="_blank" rel="noopener">release operation</a>,
+or if it does but <code>pDependencyInfo-&gt;dependencyFlags</code> includes
+<code>VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR</code>,
+the respective <code>dstStageMask</code> member of the element of the
 <code>pBufferMemoryBarriers</code> or <code>pImageMemoryBarriers</code> members of
 <code>pDependencyInfo</code> <strong class="purple">must</strong> only include pipeline stages valid for the
 queue family that was used to create the command pool that
@@ -1193,7 +1197,7 @@ Fixes and changes should be made to the Specification, not directly.</p>
 <h2 id="_copyright"><a class="anchor" href="#_copyright"></a>Copyright</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright 2014-2024 The Khronos Group Inc.</p>
+<p>Copyright 2014-2025 The Khronos Group Inc.</p>
 </div>
 <div class="paragraph">
 <p>SPDX-License-Identifier: CC-BY-4.0</p>

@@ -883,6 +883,28 @@ If <code>commandBuffer</code> is a protected command buffer and
 <a href="#limits-protectedNoFault"><code>protectedNoFault</code></a> is not supported,
 <code>dstImage</code> <strong class="purple">must</strong> not be an unprotected image</p>
 </li>
+<li>
+<p><a id="VUID-vkCmdCopyImage2-commandBuffer-10217" href="#VUID-vkCmdCopyImage2-commandBuffer-10217"></a> <span class="vuid">VUID-vkCmdCopyImage2-commandBuffer-10217</span><br>
+
+If the queue family used to create the <a href="VkCommandPool.html">VkCommandPool</a> which
+<code>commandBuffer</code> was allocated from does not support
+<code>VK_QUEUE_GRAPHICS_BIT</code>, for each element of <code>pCopyImageInfo-&gt;pRegions</code>, where
+the <code>aspectMask</code> member of <code>srcSubresource</code> is
+<code>VK_IMAGE_ASPECT_COLOR_BIT</code>, the <code>aspectMask</code> of
+<code>dstSubresource</code> <strong class="purple">must</strong> not be <code>VK_IMAGE_ASPECT_DEPTH_BIT</code> or
+<code>VK_IMAGE_ASPECT_STENCIL_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyImage2-commandBuffer-10218" href="#VUID-vkCmdCopyImage2-commandBuffer-10218"></a> <span class="vuid">VUID-vkCmdCopyImage2-commandBuffer-10218</span><br>
+
+If the queue family used to create the <a href="VkCommandPool.html">VkCommandPool</a> which
+<code>commandBuffer</code> was allocated from does not support
+<code>VK_QUEUE_GRAPHICS_BIT</code>, for each element of <code>pCopyImageInfo-&gt;pRegions</code>, where
+the <code>aspectMask</code> member of <code>dstSubresource</code> is
+<code>VK_IMAGE_ASPECT_COLOR_BIT</code> then the <code>aspectMask</code> of
+<code>srcSubresource</code> <strong class="purple">must</strong> not be <code>VK_IMAGE_ASPECT_DEPTH_BIT</code> or
+<code>VK_IMAGE_ASPECT_STENCIL_BIT</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -996,7 +1018,7 @@ Fixes and changes should be made to the Specification, not directly.</p>
 <h2 id="_copyright"><a class="anchor" href="#_copyright"></a>Copyright</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright 2014-2024 The Khronos Group Inc.</p>
+<p>Copyright 2014-2025 The Khronos Group Inc.</p>
 </div>
 <div class="paragraph">
 <p>SPDX-License-Identifier: CC-BY-4.0</p>

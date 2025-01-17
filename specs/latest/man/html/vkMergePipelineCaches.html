@@ -876,6 +876,13 @@ prune duplicate entries.</p>
 
 <code>dstCache</code> <strong class="purple">must</strong> not appear in the list of source caches</p>
 </li>
+<li>
+<p><a id="VUID-vkMergePipelineCaches-dstCache-10202" href="#VUID-vkMergePipelineCaches-dstCache-10202"></a> <span class="vuid">VUID-vkMergePipelineCaches-dstCache-10202</span><br>
+
+Host access to <code>dstCache</code> <strong class="purple">must</strong> be externally synchronized
+if it was not created with
+<code>VK_PIPELINE_CACHE_CREATE_INTERNALLY_SYNCHRONIZED_MERGE_BIT_KHR</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -908,18 +915,6 @@ prune duplicate entries.</p>
 <li>
 <p><a id="VUID-vkMergePipelineCaches-pSrcCaches-parent" href="#VUID-vkMergePipelineCaches-pSrcCaches-parent"></a> <span class="vuid">VUID-vkMergePipelineCaches-pSrcCaches-parent</span><br>
  Each element of <code>pSrcCaches</code> <strong class="purple">must</strong> have been created, allocated, or retrieved from <code>device</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Host Synchronization</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Host access to <code>dstCache</code> <strong class="purple">must</strong> be externally synchronized</p>
 </li>
 </ul>
 </div>
@@ -983,7 +978,7 @@ Fixes and changes should be made to the Specification, not directly.</p>
 <h2 id="_copyright"><a class="anchor" href="#_copyright"></a>Copyright</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright 2014-2024 The Khronos Group Inc.</p>
+<p>Copyright 2014-2025 The Khronos Group Inc.</p>
 </div>
 <div class="paragraph">
 <p>SPDX-License-Identifier: CC-BY-4.0</p>

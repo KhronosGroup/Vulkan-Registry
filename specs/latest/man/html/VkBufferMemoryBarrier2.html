@@ -908,14 +908,14 @@ operation</a> for that range.</p>
 <div class="paragraph">
 <p>The first <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes" target="_blank" rel="noopener">synchronization scope</a> and
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes" target="_blank" rel="noopener">access scope</a> described by
-this structure include only operations and memory accesses specified by
-<code>srcStageMask</code> and <code>srcAccessMask</code>.</p>
+this structure include only operations and memory accesses specified by the
+source stage mask and the source access mask.</p>
 </div>
 <div class="paragraph">
 <p>The second <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes" target="_blank" rel="noopener">synchronization scope</a>
 and <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes" target="_blank" rel="noopener">access scope</a> described
 by this structure include only operations and memory accesses specified by
-<code>dstStageMask</code> and <code>dstAccessMask</code>.</p>
+the destination stage mask and the destination access mask.</p>
 </div>
 <div class="paragraph">
 <p>Both <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes" target="_blank" rel="noopener">access scopes</a> are
@@ -930,13 +930,17 @@ ownership transfer operation</a>.
 When executed on a queue in the family identified by
 <code>srcQueueFamilyIndex</code>, this barrier defines a
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-release" target="_blank" rel="noopener">queue family release operation</a>
-for the specified buffer range, and the second synchronization scope does
-not apply to this operation.
+for the specified buffer range, and
+if <a href="VkDependencyInfoKHR.html">VkDependencyInfoKHR</a>::<code>dependencyFlags</code> did not include
+<code>VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR</code>,
+the second synchronization scope does not apply to this operation.
 When executed on a queue in the family identified by
 <code>dstQueueFamilyIndex</code>, this barrier defines a
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-acquire" target="_blank" rel="noopener">queue family acquire operation</a>
-for the specified buffer range, and the first synchronization scope does not
-apply to this operation.</p>
+for the specified buffer range, and
+if <a href="VkDependencyInfoKHR.html">VkDependencyInfoKHR</a>::<code>dependencyFlags</code> did not include
+<code>VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR</code>,
+the first synchronization scope does not apply to this operation.</p>
 </div>
 <div class="paragraph">
 <p>A <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers" target="_blank" rel="noopener">queue family ownership transfer
@@ -1924,14 +1928,6 @@ or
 a valid queue family</p>
 </li>
 <li>
-<p><a id="VUID-VkBufferMemoryBarrier2-srcQueueFamilyIndex-04087" href="#VUID-VkBufferMemoryBarrier2-srcQueueFamilyIndex-04087"></a> <span class="vuid">VUID-VkBufferMemoryBarrier2-srcQueueFamilyIndex-04087</span><br>
-
-If <code>srcQueueFamilyIndex</code> is not equal to <code>dstQueueFamilyIndex</code>,
-at least one of <code>srcQueueFamilyIndex</code> or <code>dstQueueFamilyIndex</code>
-<strong class="purple">must</strong> not be <code>VK_QUEUE_FAMILY_EXTERNAL</code>
-or <code>VK_QUEUE_FAMILY_FOREIGN_EXT</code></p>
-</li>
-<li>
 <p><a id="VUID-VkBufferMemoryBarrier2-None-09097" href="#VUID-VkBufferMemoryBarrier2-None-09097"></a> <span class="vuid">VUID-VkBufferMemoryBarrier2-None-09097</span><br>
 
     
@@ -1987,7 +1983,7 @@ If either <code>srcStageMask</code> or <code>dstStageMask</code> includes
 </li>
 <li>
 <p><a id="VUID-VkBufferMemoryBarrier2-pNext-pNext" href="#VUID-VkBufferMemoryBarrier2-pNext-pNext"></a> <span class="vuid">VUID-VkBufferMemoryBarrier2-pNext-pNext</span><br>
- <code>pNext</code> <strong class="purple">must</strong> be <code>NULL</code> or a pointer to a valid instance of <a href="VkExternalMemoryAcquireUnmodifiedEXT.html">VkExternalMemoryAcquireUnmodifiedEXT</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkExternalMemoryAcquireUnmodifiedEXT.html">VkExternalMemoryAcquireUnmodifiedEXT</a> or <a href="VkMemoryBarrierAccessFlags3KHR.html">VkMemoryBarrierAccessFlags3KHR</a></p>
 </li>
 <li>
 <p><a id="VUID-VkBufferMemoryBarrier2-sType-unique" href="#VUID-VkBufferMemoryBarrier2-sType-unique"></a> <span class="vuid">VUID-VkBufferMemoryBarrier2-sType-unique</span><br>
@@ -2043,7 +2039,7 @@ Fixes and changes should be made to the Specification, not directly.</p>
 <h2 id="_copyright"><a class="anchor" href="#_copyright"></a>Copyright</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright 2014-2024 The Khronos Group Inc.</p>
+<p>Copyright 2014-2025 The Khronos Group Inc.</p>
 </div>
 <div class="paragraph">
 <p>SPDX-License-Identifier: CC-BY-4.0</p>

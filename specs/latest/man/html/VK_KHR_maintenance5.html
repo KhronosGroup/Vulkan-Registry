@@ -860,6 +860,9 @@ or<br>
 <p>Interacts with VK_VERSION_1_4</p>
 </li>
 <li>
+<p>Interacts with VK_ARM_pipeline_opacity_micromap</p>
+</li>
+<li>
 <p>Interacts with VK_EXT_attachment_feedback_loop_layout</p>
 </li>
 <li>
@@ -1381,6 +1384,23 @@ treating 1D images as 2D images with a height of 1.</p>
 </ul>
 </div>
 <div class="paragraph">
+<p>If <a href="VK_ARM_pipeline_opacity_micromap.html">VK_ARM_pipeline_opacity_micromap</a> is supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Extending <a href="VkPipelineCreateFlagBits2.html">VkPipelineCreateFlagBits2</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_PIPELINE_CREATE_2_DISALLOW_OPACITY_MICROMAP_BIT_ARM</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p>If <a href="VK_EXT_attachment_feedback_loop_layout.html">VK_EXT_attachment_feedback_loop_layout</a> is supported:</p>
 </div>
 <div class="ulist">
@@ -1853,7 +1873,7 @@ Fixes and changes should be made to the generator scripts, not directly.</p>
 <h2 id="_copyright"><a class="anchor" href="#_copyright"></a>Copyright</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright 2014-2024 The Khronos Group Inc.</p>
+<p>Copyright 2014-2025 The Khronos Group Inc.</p>
 </div>
 <div class="paragraph">
 <p>SPDX-License-Identifier: CC-BY-4.0</p>

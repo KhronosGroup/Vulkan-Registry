@@ -1305,14 +1305,32 @@ be less than or equal to the <code>arrayLayers</code> specified in
 <code>flags</code> containing <code>VK_IMAGE_CREATE_SUBSAMPLED_BIT_EXT</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdBlitImage-maintenance8-10207" href="#VUID-vkCmdBlitImage-maintenance8-10207"></a> <span class="vuid">VUID-vkCmdBlitImage-maintenance8-10207</span><br>
+
+If the <a href="#features-maintenance8"><code>maintenance8</code></a> feature is enabled
+and <code>srcImage</code> is of type <code>VK_IMAGE_TYPE_3D</code>, then for each
+element of <code>pRegions</code>, <code>srcSubresource.baseArrayLayer</code> <strong class="purple">must</strong> be
+<code>0</code>, and <code>srcSubresource.layerCount</code> <strong class="purple">must</strong> be <code>1</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBlitImage-maintenance8-10208" href="#VUID-vkCmdBlitImage-maintenance8-10208"></a> <span class="vuid">VUID-vkCmdBlitImage-maintenance8-10208</span><br>
+
+If the <a href="#features-maintenance8"><code>maintenance8</code></a> feature is enabled
+and <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_3D</code>, then for each
+element of <code>pRegions</code>, <code>dstSubresource.baseArrayLayer</code> <strong class="purple">must</strong> be
+<code>0</code>, and <code>dstSubresource.layerCount</code> <strong class="purple">must</strong> be <code>1</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdBlitImage-srcImage-00240" href="#VUID-vkCmdBlitImage-srcImage-00240"></a> <span class="vuid">VUID-vkCmdBlitImage-srcImage-00240</span><br>
 
-If either <code>srcImage</code> or <code>dstImage</code> is of type
-<code>VK_IMAGE_TYPE_3D</code>, then for each element of <code>pRegions</code>,
-<code>srcSubresource.baseArrayLayer</code> and
-<code>dstSubresource.baseArrayLayer</code> <strong class="purple">must</strong> each be <code>0</code>, and
-<code>srcSubresource.layerCount</code> and <code>dstSubresource.layerCount</code>
-<strong class="purple">must</strong> each be <code>1</code></p>
+    If
+the <a href="#features-maintenance8"><code>maintenance8</code></a> feature is not enabled and
+    either <code>srcImage</code> or <code>dstImage</code> is of type
+    <code>VK_IMAGE_TYPE_3D</code>, then for each element of <code>pRegions</code>,
+    <code>srcSubresource.baseArrayLayer</code> and
+    <code>dstSubresource.baseArrayLayer</code> <strong class="purple">must</strong> each be <code>0</code>, and
+    <code>srcSubresource.layerCount</code> and <code>dstSubresource.layerCount</code>
+    <strong class="purple">must</strong> each be <code>1</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBlitImage-aspectMask-00241" href="#VUID-vkCmdBlitImage-aspectMask-00241"></a> <span class="vuid">VUID-vkCmdBlitImage-aspectMask-00241</span><br>
@@ -1543,7 +1561,7 @@ Fixes and changes should be made to the Specification, not directly.</p>
 <h2 id="_copyright"><a class="anchor" href="#_copyright"></a>Copyright</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright 2014-2024 The Khronos Group Inc.</p>
+<p>Copyright 2014-2025 The Khronos Group Inc.</p>
 </div>
 <div class="paragraph">
 <p>SPDX-License-Identifier: CC-BY-4.0</p>

@@ -998,10 +998,10 @@ is interpreted as follows:</p>
 <li>
 <p>the elements of <code>FeatureEnabled</code> are bitmasks where bit index
 <span class="eq">j</span> of element <span class="eq">i</span> corresponds to <code>FeatureEnabled[i][j]</code> as
-defined in section 6.8.13 of the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1" target="_blank" rel="noopener">AV1 Specification</a>;</p>
+defined in section 5.9.14 of the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1" target="_blank" rel="noopener">AV1 Specification</a>;</p>
 </li>
 <li>
-<p><code>FeatureData</code> is interpreted as defined in section 6.8.13 of the
+<p><code>FeatureData</code> is interpreted as defined in section 5.9.14 of the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1" target="_blank" rel="noopener">AV1 Specification</a>;</p>
 </li>
 </ul>
@@ -1031,6 +1031,24 @@ element <span class="eq">i</span> of <code>loop_filter_mode_deltas</code> as def
 <li>
 <p>all other members of <code>StdVideoAV1LoopFilter</code> are interpreted as
 defined in section 6.8.10 of the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1" target="_blank" rel="noopener">AV1 Specification</a>;</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the syntax elements corresponding to <code>loop_filter_ref_deltas</code> and
+<code>loop_filter_mode_deltas</code> are not present or otherwise defined according
+to section 5.9.11 of the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1" target="_blank" rel="noopener">AV1 Specification</a>, the application
+should specify the previous values, as defined in section 6.8.10 of the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1" target="_blank" rel="noopener">AV1 Specification</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 </ul>
 </div>
@@ -1201,7 +1219,7 @@ Fixes and changes should be made to the Specification, not directly.</p>
 <h2 id="_copyright"><a class="anchor" href="#_copyright"></a>Copyright</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright 2014-2024 The Khronos Group Inc.</p>
+<p>Copyright 2014-2025 The Khronos Group Inc.</p>
 </div>
 <div class="paragraph">
 <p>SPDX-License-Identifier: CC-BY-4.0</p>

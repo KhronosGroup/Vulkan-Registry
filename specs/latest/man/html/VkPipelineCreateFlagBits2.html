@@ -895,6 +895,8 @@ static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_PROTECTED_ACCESS_ONL
 static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_RAY_TRACING_DISPLACEMENT_MICROMAP_BIT_NV = 0x10000000ULL;
 // Provided by VK_KHR_maintenance5 with VK_EXT_descriptor_buffer
 static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_DESCRIPTOR_BUFFER_BIT_EXT = 0x20000000ULL;
+// Provided by VK_KHR_maintenance5 with VK_ARM_pipeline_opacity_micromap, VK_ARM_pipeline_opacity_micromap
+static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_DISALLOW_OPACITY_MICROMAP_BIT_ARM = 0x2000000000ULL;
 // Provided by VK_KHR_pipeline_binary
 static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_CAPTURE_DATA_BIT_KHR = 0x80000000ULL;
 // Provided by VK_EXT_device_generated_commands
@@ -1131,6 +1133,11 @@ that the pipeline will be used in a render pass that is begun with
 <p><code>VK_PIPELINE_CREATE_2_EXECUTION_GRAPH_BIT_AMDX</code> specifies that the
 pipeline will be used in an <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#executiongraphs" target="_blank" rel="noopener">execution graph</a></p>
 </li>
+<li>
+<p><code>VK_PIPELINE_CREATE_2_DISALLOW_OPACITY_MICROMAP_BIT_ARM</code> specifies
+that the pipeline <strong class="purple">must</strong> not be used with acceleration structures which
+reference an opacity micromap array.</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -1200,7 +1207,7 @@ Fixes and changes should be made to the Specification, not directly.</p>
 <h2 id="_copyright"><a class="anchor" href="#_copyright"></a>Copyright</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright 2014-2024 The Khronos Group Inc.</p>
+<p>Copyright 2014-2025 The Khronos Group Inc.</p>
 </div>
 <div class="paragraph">
 <p>SPDX-License-Identifier: CC-BY-4.0</p>
