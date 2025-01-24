@@ -938,32 +938,33 @@ not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, then <code>plane</code> <s
 
 If the <code>pNext</code> chain includes a <a href="VkExportMetalTextureInfoEXT.html">VkExportMetalTextureInfoEXT</a>
 structure, and if the <a href="VkImage.html">VkImage</a> in its <code>image</code> member does not
-have a multi-planar format, then its <code>plane</code> member <strong class="purple">must</strong> be
-<code>VK_IMAGE_ASPECT_PLANE_0_BIT</code></p>
+have a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-multiplanar" target="_blank" rel="noopener">multi-planar format</a>, then its
+<code>plane</code> member <strong class="purple">must</strong> be <code>VK_IMAGE_ASPECT_PLANE_0_BIT</code></p>
 </li>
 <li>
 <p><a id="VUID-VkExportMetalObjectsInfoEXT-pNext-06800" href="#VUID-VkExportMetalObjectsInfoEXT-pNext-06800"></a> <span class="vuid">VUID-VkExportMetalObjectsInfoEXT-pNext-06800</span><br>
 
 If the <code>pNext</code> chain includes a <a href="VkExportMetalTextureInfoEXT.html">VkExportMetalTextureInfoEXT</a>
 structure, and if the <a href="VkImage.html">VkImage</a> in its <code>image</code> member has a
-multi-planar format with only two planes, then its <code>plane</code> member
-<strong class="purple">must</strong> not be <code>VK_IMAGE_ASPECT_PLANE_2_BIT</code></p>
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-multiplanar" target="_blank" rel="noopener">multi-planar format</a> with only two planes, then
+its <code>plane</code> member <strong class="purple">must</strong> not be <code>VK_IMAGE_ASPECT_PLANE_2_BIT</code></p>
 </li>
 <li>
 <p><a id="VUID-VkExportMetalObjectsInfoEXT-pNext-06801" href="#VUID-VkExportMetalObjectsInfoEXT-pNext-06801"></a> <span class="vuid">VUID-VkExportMetalObjectsInfoEXT-pNext-06801</span><br>
 
 If the <code>pNext</code> chain includes a <a href="VkExportMetalTextureInfoEXT.html">VkExportMetalTextureInfoEXT</a>
 structure, and if the <a href="VkImageView.html">VkImageView</a> in its <code>imageView</code> member
-does not have a multi-planar format, then its <code>plane</code> member <strong class="purple">must</strong>
-be <code>VK_IMAGE_ASPECT_PLANE_0_BIT</code></p>
+does not have a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-multiplanar" target="_blank" rel="noopener">multi-planar format</a>, then its
+<code>plane</code> member <strong class="purple">must</strong> be <code>VK_IMAGE_ASPECT_PLANE_0_BIT</code></p>
 </li>
 <li>
 <p><a id="VUID-VkExportMetalObjectsInfoEXT-pNext-06802" href="#VUID-VkExportMetalObjectsInfoEXT-pNext-06802"></a> <span class="vuid">VUID-VkExportMetalObjectsInfoEXT-pNext-06802</span><br>
 
 If the <code>pNext</code> chain includes a <a href="VkExportMetalTextureInfoEXT.html">VkExportMetalTextureInfoEXT</a>
 structure, and if the <a href="VkImageView.html">VkImageView</a> in its <code>imageView</code> member
-has a multi-planar format with only two planes, then its <code>plane</code>
-member <strong class="purple">must</strong> not be <code>VK_IMAGE_ASPECT_PLANE_2_BIT</code></p>
+has a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-multiplanar" target="_blank" rel="noopener">multi-planar format</a> with only two planes,
+then its <code>plane</code> member <strong class="purple">must</strong> not be
+<code>VK_IMAGE_ASPECT_PLANE_2_BIT</code></p>
 </li>
 <li>
 <p><a id="VUID-VkExportMetalObjectsInfoEXT-pNext-06803" href="#VUID-VkExportMetalObjectsInfoEXT-pNext-06803"></a> <span class="vuid">VUID-VkExportMetalObjectsInfoEXT-pNext-06803</span><br>

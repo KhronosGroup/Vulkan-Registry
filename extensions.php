@@ -115,6 +115,7 @@
     <li> <a href="specs/latest/man/html/VK_KHR_video_encode_quantization_map.html"> VK_KHR_video_encode_quantization_map </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_video_encode_queue.html"> VK_KHR_video_encode_queue </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_video_maintenance1.html"> VK_KHR_video_maintenance1 </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_video_maintenance2.html"> VK_KHR_video_maintenance2 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_video_queue.html"> VK_KHR_video_queue </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_vulkan_memory_model.html"> VK_KHR_vulkan_memory_model </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_wayland_surface.html"> VK_KHR_wayland_surface </a> </li>
@@ -166,6 +167,7 @@
     <li> <a href="specs/latest/man/html/VK_EXT_external_memory_acquire_unmodified.html"> VK_EXT_external_memory_acquire_unmodified </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_external_memory_dma_buf.html"> VK_EXT_external_memory_dma_buf </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_external_memory_host.html"> VK_EXT_external_memory_host </a> </li>
+    <li> <a href="specs/latest/man/html/VK_EXT_external_memory_metal.html"> VK_EXT_external_memory_metal </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_filter_cubic.html"> VK_EXT_filter_cubic </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_fragment_density_map.html"> VK_EXT_fragment_density_map </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_fragment_density_map2.html"> VK_EXT_fragment_density_map2 </a> </li>

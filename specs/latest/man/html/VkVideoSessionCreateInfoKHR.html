@@ -921,6 +921,21 @@ If <code>flags</code> includes
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-videoMaintenance1" target="_blank" rel="noopener"><code>videoMaintenance1</code></a> <strong class="purple">must</strong> be enabled</p>
 </li>
 <li>
+<p><a id="VUID-VkVideoSessionCreateInfoKHR-flags-10398" href="#VUID-VkVideoSessionCreateInfoKHR-flags-10398"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-flags-10398</span><br>
+
+If <code>flags</code> includes
+<code>VK_VIDEO_SESSION_CREATE_INLINE_SESSION_PARAMETERS_BIT_KHR</code>, then
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-videoMaintenance2" target="_blank" rel="noopener"><code>videoMaintenance2</code></a> <strong class="purple">must</strong> be enabled</p>
+</li>
+<li>
+<p><a id="VUID-VkVideoSessionCreateInfoKHR-flags-10399" href="#VUID-VkVideoSessionCreateInfoKHR-flags-10399"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-flags-10399</span><br>
+
+If <code>flags</code> includes
+<code>VK_VIDEO_SESSION_CREATE_INLINE_SESSION_PARAMETERS_BIT_KHR</code>, then
+<code>pVideoProfile-&gt;videoCodecOperation</code> <strong class="purple">must</strong> specify a decode
+operation</p>
+</li>
+<li>
 <p><a id="VUID-VkVideoSessionCreateInfoKHR-flags-10264" href="#VUID-VkVideoSessionCreateInfoKHR-flags-10264"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-flags-10264</span><br>
 
 If <code>flags</code> includes

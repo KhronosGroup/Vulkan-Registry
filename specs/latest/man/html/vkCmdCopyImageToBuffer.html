@@ -1239,11 +1239,10 @@ For each element of <code>pRegions</code>, <code>imageSubresource.aspectMask</co
 <li>
 <p><a id="VUID-vkCmdCopyImageToBuffer-srcImage-07981" href="#VUID-vkCmdCopyImageToBuffer-srcImage-07981"></a> <span class="vuid">VUID-vkCmdCopyImageToBuffer-srcImage-07981</span><br>
 
-If <code>srcImage</code> has a
-<a href="#formats-requiring-sampler-ycbcr-conversion">multi-planar image
+If <code>srcImage</code> has a <a href="#formats-multiplanar">multi-planar
 format</a>, then for each element of <code>pRegions</code>,
 <code>imageSubresource.aspectMask</code> <strong class="purple">must</strong> be a single valid
-<a href="#formats-planes-image-aspect">multi-planar aspect mask</a> bit</p>
+<a href="#formats-multiplanar-image-aspect">multi-planar aspect mask</a> bit</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdCopyImageToBuffer-srcImage-07983" href="#VUID-vkCmdCopyImageToBuffer-srcImage-07983"></a> <span class="vuid">VUID-vkCmdCopyImageToBuffer-srcImage-07983</span><br>
@@ -1286,19 +1285,18 @@ than or equal to <span class="eq">2<sup>31</sup>-1</span></p>
 <p><a id="VUID-vkCmdCopyImageToBuffer-srcImage-07975" href="#VUID-vkCmdCopyImageToBuffer-srcImage-07975"></a> <span class="vuid">VUID-vkCmdCopyImageToBuffer-srcImage-07975</span><br>
 
 If <code>srcImage</code> does not have either a depth/stencil format
-or a <a href="#formats-requiring-sampler-ycbcr-conversion">multi-planar format</a>,
+or a <a href="#formats-multiplanar">multi-planar format</a>,
 then for each element of <code>pRegions</code>, <code>bufferOffset</code> <strong class="purple">must</strong> be a
 multiple of the <a href="#formats-compatibility-classes">texel block size</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdCopyImageToBuffer-srcImage-07976" href="#VUID-vkCmdCopyImageToBuffer-srcImage-07976"></a> <span class="vuid">VUID-vkCmdCopyImageToBuffer-srcImage-07976</span><br>
 
-If <code>srcImage</code> has a
-<a href="#formats-requiring-sampler-ycbcr-conversion">multi-planar format</a>, then
-for each element of <code>pRegions</code>, <code>bufferOffset</code> <strong class="purple">must</strong> be a
-multiple of the element size of the compatible format for the format and
-the <code>aspectMask</code> of the <code>imageSubresource</code> as defined in
-<a href="#formats-compatible-planes">[formats-compatible-planes]</a></p>
+If <code>srcImage</code> has a <a href="#formats-multiplanar">multi-planar
+format</a>, then for each element of <code>pRegions</code>, <code>bufferOffset</code>
+<strong class="purple">must</strong> be a multiple of the element size of the compatible format for the
+format and the <code>aspectMask</code> of the <code>imageSubresource</code> as defined
+in <a href="#formats-compatible-planes">[formats-compatible-planes]</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdCopyImageToBuffer-srcImage-07978" href="#VUID-vkCmdCopyImageToBuffer-srcImage-07978"></a> <span class="vuid">VUID-vkCmdCopyImageToBuffer-srcImage-07978</span><br>

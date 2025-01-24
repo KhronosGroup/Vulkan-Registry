@@ -1079,7 +1079,7 @@ be less than or equal to the <code>arrayLayers</code> specified in
 <li>
 <p><a id="VUID-VkBlitImageInfo2-dstSubresource-01708" href="#VUID-VkBlitImageInfo2-dstSubresource-01708"></a> <span class="vuid">VUID-VkBlitImageInfo2-dstSubresource-01708</span><br>
 
-If <code>srcSubresource.layerCount</code> is not
+If <code>dstSubresource.layerCount</code> is not
 <code>VK_REMAINING_ARRAY_LAYERS</code>,
 <span class="eq"><code>dstSubresource.baseArrayLayer</code> + 
 <code>dstSubresource.layerCount</code></span> of each element of <code>pRegions</code> <strong class="purple">must</strong>
@@ -1229,8 +1229,8 @@ If any element of <code>pRegions</code> contains
 
 If any element of <code>pRegions</code> contains
 <a href="VkCopyCommandTransformInfoQCOM.html">VkCopyCommandTransformInfoQCOM</a> in its <code>pNext</code> chain, then
-<code>srcImage</code> <strong class="purple">must</strong> not have a
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-requiring-sampler-ycbcr-conversion" target="_blank" rel="noopener">multi-planar format</a></p>
+<code>srcImage</code> <strong class="purple">must</strong> not have a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-multiplanar" target="_blank" rel="noopener">multi-planar
+format</a></p>
 </li>
 <li>
 <p><a id="VUID-VkBlitImageInfo2-filter-09204" href="#VUID-VkBlitImageInfo2-filter-09204"></a> <span class="vuid">VUID-VkBlitImageInfo2-filter-09204</span><br>

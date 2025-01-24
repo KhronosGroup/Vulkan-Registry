@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>VK_KHR_maintenance8(3)</title>
+<title>VK_EXT_external_memory_metal(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,10 +796,10 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>VK_KHR_maintenance8(3) Manual Page</h1>
+<h1>VK_EXT_external_memory_metal(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>VK_KHR_maintenance8 - device extension</p>
+<p>VK_EXT_external_memory_metal - device extension</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -809,7 +809,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_registered_extension_number"><a class="anchor" href="#_registered_extension_number"></a>Registered Extension Number</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>575</p>
+<p>603</p>
 </div>
 </div>
 </div>
@@ -825,7 +825,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_ratification_status"><a class="anchor" href="#_ratification_status"></a>Ratification Status</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Ratified</p>
+<p>Not ratified</p>
 </div>
 </div>
 </div>
@@ -835,7 +835,9 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
-<p><a href="#versions-1.1">Vulkan Version 1.1</a><br></p>
+<p><a href="VK_KHR_external_memory.html">VK_KHR_external_memory</a><br>
+or<br>
+<a href="#versions-1.1">Vulkan Version 1.1</a><br></p>
 </div>
 </div>
 </div>
@@ -847,7 +849,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <div class="ulist">
 <ul>
 <li>
-<p>Mike Blumenkrantz <a href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=[VK_KHR_maintenance8] @zmike%0A*Here describe the issue or question you have about the VK_KHR_maintenance8 extension*" target="_blank" rel="nofollow noopener"><span class="icon black">[GitHub&#93;</span>zmike</a></p>
+<p>Aitor Camacho Larrondo <a href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=[VK_EXT_external_memory_metal] @aitor-lunarg%0A*Here describe the issue or question you have about the VK_EXT_external_memory_metal extension*" target="_blank" rel="nofollow noopener"><span class="icon black">[GitHub&#93;</span>aitor-lunarg</a></p>
 </li>
 </ul>
 </div>
@@ -857,7 +859,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_extension_proposal"><a class="anchor" href="#_extension_proposal"></a>Extension Proposal</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_KHR_maintenance8.adoc">VK_KHR_maintenance8</a></p>
+<p><a href="https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_EXT_external_memory_metal.adoc">VK_EXT_external_memory_metal</a></p>
 </div>
 </div>
 </div>
@@ -868,57 +870,18 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <dl>
 <dt class="hdlist1"><strong>Last Modified Date</strong></dt>
 <dd>
-<p>2025-01-07</p>
+<p>2024-07-18</p>
 </dd>
-<dt class="hdlist1"><strong>Interactions and External Dependencies</strong></dt>
+<dt class="hdlist1"><strong>IP Status</strong></dt>
+<dd>
+<p>No known IP claims.</p>
+</dd>
 <dt class="hdlist1"><strong>Contributors</strong></dt>
 <dd>
 <div class="ulist">
 <ul>
 <li>
-<p>Jon Leech, Khronos</p>
-</li>
-<li>
-<p>Mike Blumenkrantz, Valve</p>
-</li>
-<li>
-<p>Spencer Fricke, LunarG</p>
-</li>
-<li>
-<p>Jan-Harald Fredriksen, ARM</p>
-</li>
-<li>
-<p>Piers Daniell, NVIDIA</p>
-</li>
-<li>
-<p>Matthew Netsch, Qualcomm</p>
-</li>
-<li>
-<p>Ricardo Garcia, Igalia</p>
-</li>
-<li>
-<p>Lionel Landwerlin, Intel</p>
-</li>
-<li>
-<p>Rick Hammerstone, Qualcomm</p>
-</li>
-<li>
-<p>Daniel Story, Nintendo</p>
-</li>
-<li>
-<p>Hans-Kristian Arntzen, Valve</p>
-</li>
-<li>
-<p>Caterina Shablia, Collabora</p>
-</li>
-<li>
-<p>Georg Lehmann, Valve</p>
-</li>
-<li>
-<p>Shahbaz Youssefi, Google</p>
-</li>
-<li>
-<p>Tobias Hector, AMD</p>
+<p>Aitor Camacho Larrondo, LunarG Inc.</p>
 </li>
 </ul>
 </div>
@@ -931,40 +894,25 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_KHR_maintenance8.html">VK_KHR_maintenance8</a> adds a collection of minor features, none of
-which would warrant an entire extension of their own.</p>
+<p>An application may wish to reference device memory in multiple Vulkan device
+instances, in multiple processes, and/or in Metal API.
+This extension enables an application to export and import Metal handles
+from Vulkan memory objects such that the underlying resources can be
+referenced outside the scope of the Vulkan device instance that created
+them.</p>
 </div>
-<div class="paragraph">
-<p>The new features are as follows:</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_new_commands"><a class="anchor" href="#_new_commands"></a>New Commands</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Allow copies between depth/stencil and &#8220;matching&#8221; color attachments</p>
+<p><a href="vkGetMemoryMetalHandleEXT.html">vkGetMemoryMetalHandleEXT</a></p>
 </li>
 <li>
-<p>Allow <code>dstCache</code> in <code>vkMergePipelineCaches</code> to be implicitly
-synchronized.</p>
-</li>
-<li>
-<p>Require src/dst sync scopes to work when doing queue family ownership
-transfers</p>
-</li>
-<li>
-<p>Support <code>Offset</code> (as an alternative to <code>ConstOffset</code>) image operand in
-texture sampling and fetch operations</p>
-</li>
-<li>
-<p>Use the SPIR-V definition of <code>OpSRem</code> and <code>OpSMod</code>, making these
-operations produce well-defined results for negative operands</p>
-</li>
-<li>
-<p>Loosen layer restrictions when blitting from 3D images to other image
-types</p>
-</li>
-<li>
-<p>Add space for an additional 64 access flags for use with
-VkMemoryBarrier2, VkBufferMemoryBarrier2, and VkImageMemoryBarrier2</p>
+<p><a href="vkGetMemoryMetalHandlePropertiesEXT.html">vkGetMemoryMetalHandlePropertiesEXT</a></p>
 </li>
 </ul>
 </div>
@@ -976,48 +924,20 @@ VkMemoryBarrier2, VkBufferMemoryBarrier2, and VkImageMemoryBarrier2</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Extending <a href="VkMemoryBarrier2.html">VkMemoryBarrier2</a>, <a href="VkBufferMemoryBarrier2.html">VkBufferMemoryBarrier2</a>, <a href="VkImageMemoryBarrier2.html">VkImageMemoryBarrier2</a>:</p>
+<p><a href="VkMemoryGetMetalHandleInfoEXT.html">VkMemoryGetMetalHandleInfoEXT</a></p>
+</li>
+<li>
+<p><a href="VkMemoryMetalHandlePropertiesEXT.html">VkMemoryMetalHandlePropertiesEXT</a></p>
+</li>
+<li>
+<p>Extending <a href="VkMemoryAllocateInfo.html">VkMemoryAllocateInfo</a>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="VkMemoryBarrierAccessFlags3KHR.html">VkMemoryBarrierAccessFlags3KHR</a></p>
+<p><a href="VkImportMemoryMetalHandleInfoEXT.html">VkImportMemoryMetalHandleInfoEXT</a></p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Extending <a href="VkPhysicalDeviceFeatures2.html">VkPhysicalDeviceFeatures2</a>, <a href="VkDeviceCreateInfo.html">VkDeviceCreateInfo</a>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="VkPhysicalDeviceMaintenance8FeaturesKHR.html">VkPhysicalDeviceMaintenance8FeaturesKHR</a></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_new_enums"><a class="anchor" href="#_new_enums"></a>New Enums</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="VkAccessFlagBits3KHR.html">VkAccessFlagBits3KHR</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_new_bitmasks"><a class="anchor" href="#_new_bitmasks"></a>New Bitmasks</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="VkAccessFlags3KHR.html">VkAccessFlags3KHR</a></p>
 </li>
 </ul>
 </div>
@@ -1029,27 +949,23 @@ VkMemoryBarrier2, VkBufferMemoryBarrier2, and VkImageMemoryBarrier2</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VK_KHR_MAINTENANCE_8_EXTENSION_NAME</code></p>
+<p><code>VK_EXT_EXTERNAL_MEMORY_METAL_EXTENSION_NAME</code></p>
 </li>
 <li>
-<p><code>VK_KHR_MAINTENANCE_8_SPEC_VERSION</code></p>
+<p><code>VK_EXT_EXTERNAL_MEMORY_METAL_SPEC_VERSION</code></p>
 </li>
 <li>
-<p>Extending <a href="VkDependencyFlagBits.html">VkDependencyFlagBits</a>:</p>
+<p>Extending <a href="VkExternalMemoryHandleTypeFlagBits.html">VkExternalMemoryHandleTypeFlagBits</a>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR</code></p>
-</li>
-</ul>
-</div>
+<p><code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLBUFFER_BIT_EXT</code></p>
 </li>
 <li>
-<p>Extending <a href="VkPipelineCacheCreateFlagBits.html">VkPipelineCacheCreateFlagBits</a>:</p>
-<div class="ulist">
-<ul>
+<p><code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLHEAP_BIT_EXT</code></p>
+</li>
 <li>
-<p><code>VK_PIPELINE_CACHE_CREATE_INTERNALLY_SYNCHRONIZED_MERGE_BIT_KHR</code></p>
+<p><code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLTEXTURE_BIT_EXT</code></p>
 </li>
 </ul>
 </div>
@@ -1059,23 +975,18 @@ VkMemoryBarrier2, VkBufferMemoryBarrier2, and VkImageMemoryBarrier2</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VK_STRUCTURE_TYPE_MEMORY_BARRIER_ACCESS_FLAGS_3_KHR</code></p>
+<p><code>VK_STRUCTURE_TYPE_IMPORT_MEMORY_METAL_HANDLE_INFO_EXT</code></p>
 </li>
 <li>
-<p><code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_8_FEATURES_KHR</code></p>
+<p><code>VK_STRUCTURE_TYPE_MEMORY_GET_METAL_HANDLE_INFO_EXT</code></p>
+</li>
+<li>
+<p><code>VK_STRUCTURE_TYPE_MEMORY_METAL_HANDLE_PROPERTIES_EXT</code></p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_issues"><a class="anchor" href="#_issues"></a>Issues</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>None.</p>
 </div>
 </div>
 </div>
@@ -1085,7 +996,7 @@ VkMemoryBarrier2, VkBufferMemoryBarrier2, and VkImageMemoryBarrier2</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Revision 1, 2024-06-20 (Jon Leech)</p>
+<p>Revision 1, 2024-07-18 (Aitor Camacho Larrondo)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1110,7 +1021,7 @@ VkMemoryBarrier2, VkBufferMemoryBarrier2, and VkImageMemoryBarrier2</p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_KHR_maintenance8" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_external_memory_metal" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
 <p>This page is a generated document.

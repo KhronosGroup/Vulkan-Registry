@@ -856,8 +856,8 @@ returned layout is valid for <a href="https://registry.khronos.org/vulkan/specs/
 <div class="paragraph">
 <p>If the image&#8217;s
 tiling is <code>VK_IMAGE_TILING_LINEAR</code> and its
-format is a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-requiring-sampler-ycbcr-conversion" target="_blank" rel="noopener">multi-planar
-format</a>, then <code>vkGetImageSubresourceLayout</code> describes one
+format is a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-multiplanar" target="_blank" rel="noopener">multi-planar format</a>, then
+<code>vkGetImageSubresourceLayout</code> describes one
 <em>format plane</em>
 of the image.
 If the image&#8217;s tiling is <code>VK_IMAGE_TILING_DRM_FORMAT_MODIFIER_EXT</code>, then
@@ -914,8 +914,7 @@ The <code>arrayLayer</code> member of <code>pSubresource</code> <strong class="p
 <p><a id="VUID-vkGetImageSubresourceLayout-format-08886" href="#VUID-vkGetImageSubresourceLayout-format-08886"></a> <span class="vuid">VUID-vkGetImageSubresourceLayout-format-08886</span><br>
 
 If <code>format</code> of the <code>image</code> is a color format
-that is not a <a href="#formats-requiring-sampler-ycbcr-conversion">multi-planar
-image format</a>,
+that is not a <a href="#formats-multiplanar">multi-planar format</a>,
 and <code>tiling</code> of the <code>image</code> is
 <code>VK_IMAGE_TILING_LINEAR</code> or <code>VK_IMAGE_TILING_OPTIMAL</code>, the
 <code>aspectMask</code> member of <code>pSubresource</code> <strong class="purple">must</strong> be
@@ -947,11 +946,9 @@ not contain <code>VK_IMAGE_ASPECT_DEPTH_BIT</code> or
 <p><a id="VUID-vkGetImageSubresourceLayout-tiling-08717" href="#VUID-vkGetImageSubresourceLayout-tiling-08717"></a> <span class="vuid">VUID-vkGetImageSubresourceLayout-tiling-08717</span><br>
 
 If the <code>tiling</code> of the <code>image</code> is
-<code>VK_IMAGE_TILING_LINEAR</code> and has a
-<a href="#formats-requiring-sampler-ycbcr-conversion">multi-planar image
-format</a>, then the <code>aspectMask</code> member of <code>pSubresource</code> <strong class="purple">must</strong>
-be a single valid <a href="#formats-planes-image-aspect">multi-planar aspect
-mask</a> bit</p>
+<code>VK_IMAGE_TILING_LINEAR</code> and has a <a href="#formats-multiplanar">multi-planar format</a>, then the <code>aspectMask</code> member of
+<code>pSubresource</code> <strong class="purple">must</strong> be a single valid
+<a href="#formats-multiplanar-image-aspect">multi-planar aspect mask</a> bit</p>
 </li>
 <li>
 <p><a id="VUID-vkGetImageSubresourceLayout-image-09432" href="#VUID-vkGetImageSubresourceLayout-image-09432"></a> <span class="vuid">VUID-vkGetImageSubresourceLayout-image-09432</span><br>

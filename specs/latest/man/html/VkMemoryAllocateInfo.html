@@ -888,6 +888,10 @@ value</p>
 <li>
 <p><a href="VkImportScreenBufferInfoQNX.html">VkImportScreenBufferInfoQNX</a> with a non-<code>NULL</code> <code>buffer</code> value</p>
 </li>
+<li>
+<p><a href="VkImportMemoryMetalHandleInfoEXT.html">VkImportMemoryMetalHandleInfoEXT</a> with a non-zero <code>handleType</code>
+value</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -895,6 +899,12 @@ value</p>
 <code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_BIT</code>,
 <code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_KMT_BIT</code>, or
 <code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT</code>,
+<code>allocationSize</code> is ignored.
+The implementation <strong class="purple">must</strong> query the size of these allocations from the OS.</p>
+</div>
+<div class="paragraph">
+<p>If the parameters define an import operation and the external handle type is
+<code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLTEXTURE_BIT_EXT</code>,
 <code>allocationSize</code> is ignored.
 The implementation <strong class="purple">must</strong> query the size of these allocations from the OS.</p>
 </div>
@@ -1384,6 +1394,32 @@ of <code>image</code> and the QNX Screen buffer&#8217;s <code>_screen_buffer</co
 identical</p>
 </li>
 <li>
+<p><a id="VUID-VkMemoryAllocateInfo-pNext-10395" href="#VUID-VkMemoryAllocateInfo-pNext-10395"></a> <span class="vuid">VUID-VkMemoryAllocateInfo-pNext-10395</span><br>
+
+If the parameters define an import operation and the external handle is
+a <code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLTEXTURE_BIT_EXT</code>, then
+<code>pNext</code> <strong class="purple">must</strong> include a <a href="VkMemoryDedicatedAllocateInfo.html">VkMemoryDedicatedAllocateInfo</a> with
+<code>image</code> that is not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a></p>
+</li>
+<li>
+<p><a id="VUID-VkMemoryAllocateInfo-pNext-10396" href="#VUID-VkMemoryAllocateInfo-pNext-10396"></a> <span class="vuid">VUID-VkMemoryAllocateInfo-pNext-10396</span><br>
+
+If the parameters define an import operation, the external handle is a
+Metal MTLTexture, and the <code>pNext</code> chain includes a
+<a href="VkMemoryDedicatedAllocateInfo.html">VkMemoryDedicatedAllocateInfo</a> structure with <code>image</code> that is
+not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, the width, height, array layer dimensions, and
+mipmap levels of <code>image</code> and the Metal MTLTexture&#8217;s <strong class="purple">must</strong> be
+identical</p>
+</li>
+<li>
+<p><a id="VUID-VkMemoryAllocateInfo-pNext-10397" href="#VUID-VkMemoryAllocateInfo-pNext-10397"></a> <span class="vuid">VUID-VkMemoryAllocateInfo-pNext-10397</span><br>
+
+If the parameters define an import operation, the external handle is a
+Metal MTLTexture, and the <code>pNext</code> chain includes a
+<a href="VkMemoryDedicatedAllocateInfo.html">VkMemoryDedicatedAllocateInfo</a> structure with <code>image</code> that is
+not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, <code>allocationSize</code> <strong class="purple">must</strong> be <code>0</code></p>
+</li>
+<li>
 <p><a id="VUID-VkMemoryAllocateInfo-opaqueCaptureAddress-03329" href="#VUID-VkMemoryAllocateInfo-opaqueCaptureAddress-03329"></a> <span class="vuid">VUID-VkMemoryAllocateInfo-opaqueCaptureAddress-03329</span><br>
 
 If
@@ -1470,7 +1506,7 @@ If the <code>pNext</code> chain includes a
 </li>
 <li>
 <p><a id="VUID-VkMemoryAllocateInfo-pNext-pNext" href="#VUID-VkMemoryAllocateInfo-pNext-pNext"></a> <span class="vuid">VUID-VkMemoryAllocateInfo-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkDedicatedAllocationMemoryAllocateInfoNV.html">VkDedicatedAllocationMemoryAllocateInfoNV</a>, <a href="VkExportMemoryAllocateInfo.html">VkExportMemoryAllocateInfo</a>, <a href="VkExportMemoryAllocateInfoNV.html">VkExportMemoryAllocateInfoNV</a>, <a href="VkExportMemoryWin32HandleInfoKHR.html">VkExportMemoryWin32HandleInfoKHR</a>, <a href="VkExportMemoryWin32HandleInfoNV.html">VkExportMemoryWin32HandleInfoNV</a>, <a href="VkExportMetalObjectCreateInfoEXT.html">VkExportMetalObjectCreateInfoEXT</a>, <a href="VkImportAndroidHardwareBufferInfoANDROID.html">VkImportAndroidHardwareBufferInfoANDROID</a>, <a href="VkImportMemoryBufferCollectionFUCHSIA.html">VkImportMemoryBufferCollectionFUCHSIA</a>, <a href="VkImportMemoryFdInfoKHR.html">VkImportMemoryFdInfoKHR</a>, <a href="VkImportMemoryHostPointerInfoEXT.html">VkImportMemoryHostPointerInfoEXT</a>, <a href="VkImportMemoryWin32HandleInfoKHR.html">VkImportMemoryWin32HandleInfoKHR</a>, <a href="VkImportMemoryWin32HandleInfoNV.html">VkImportMemoryWin32HandleInfoNV</a>, <a href="VkImportMemoryZirconHandleInfoFUCHSIA.html">VkImportMemoryZirconHandleInfoFUCHSIA</a>, <a href="VkImportMetalBufferInfoEXT.html">VkImportMetalBufferInfoEXT</a>, <a href="VkImportScreenBufferInfoQNX.html">VkImportScreenBufferInfoQNX</a>, <a href="VkMemoryAllocateFlagsInfo.html">VkMemoryAllocateFlagsInfo</a>, <a href="VkMemoryDedicatedAllocateInfo.html">VkMemoryDedicatedAllocateInfo</a>, <a href="VkMemoryOpaqueCaptureAddressAllocateInfo.html">VkMemoryOpaqueCaptureAddressAllocateInfo</a>, or <a href="VkMemoryPriorityAllocateInfoEXT.html">VkMemoryPriorityAllocateInfoEXT</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkDedicatedAllocationMemoryAllocateInfoNV.html">VkDedicatedAllocationMemoryAllocateInfoNV</a>, <a href="VkExportMemoryAllocateInfo.html">VkExportMemoryAllocateInfo</a>, <a href="VkExportMemoryAllocateInfoNV.html">VkExportMemoryAllocateInfoNV</a>, <a href="VkExportMemoryWin32HandleInfoKHR.html">VkExportMemoryWin32HandleInfoKHR</a>, <a href="VkExportMemoryWin32HandleInfoNV.html">VkExportMemoryWin32HandleInfoNV</a>, <a href="VkExportMetalObjectCreateInfoEXT.html">VkExportMetalObjectCreateInfoEXT</a>, <a href="VkImportAndroidHardwareBufferInfoANDROID.html">VkImportAndroidHardwareBufferInfoANDROID</a>, <a href="VkImportMemoryBufferCollectionFUCHSIA.html">VkImportMemoryBufferCollectionFUCHSIA</a>, <a href="VkImportMemoryFdInfoKHR.html">VkImportMemoryFdInfoKHR</a>, <a href="VkImportMemoryHostPointerInfoEXT.html">VkImportMemoryHostPointerInfoEXT</a>, <a href="VkImportMemoryMetalHandleInfoEXT.html">VkImportMemoryMetalHandleInfoEXT</a>, <a href="VkImportMemoryWin32HandleInfoKHR.html">VkImportMemoryWin32HandleInfoKHR</a>, <a href="VkImportMemoryWin32HandleInfoNV.html">VkImportMemoryWin32HandleInfoNV</a>, <a href="VkImportMemoryZirconHandleInfoFUCHSIA.html">VkImportMemoryZirconHandleInfoFUCHSIA</a>, <a href="VkImportMetalBufferInfoEXT.html">VkImportMetalBufferInfoEXT</a>, <a href="VkImportScreenBufferInfoQNX.html">VkImportScreenBufferInfoQNX</a>, <a href="VkMemoryAllocateFlagsInfo.html">VkMemoryAllocateFlagsInfo</a>, <a href="VkMemoryDedicatedAllocateInfo.html">VkMemoryDedicatedAllocateInfo</a>, <a href="VkMemoryOpaqueCaptureAddressAllocateInfo.html">VkMemoryOpaqueCaptureAddressAllocateInfo</a>, or <a href="VkMemoryPriorityAllocateInfoEXT.html">VkMemoryPriorityAllocateInfoEXT</a></p>
 </li>
 <li>
 <p><a id="VUID-VkMemoryAllocateInfo-sType-unique" href="#VUID-VkMemoryAllocateInfo-sType-unique"></a> <span class="vuid">VUID-VkMemoryAllocateInfo-sType-unique</span><br>

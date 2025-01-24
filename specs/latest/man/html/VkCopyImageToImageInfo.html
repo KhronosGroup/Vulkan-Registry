@@ -1201,11 +1201,10 @@ For each element of <code>pRegions</code>, <code>srcSubresource.aspectMask</code
 <li>
 <p><a id="VUID-VkCopyImageToImageInfo-srcImage-07981" href="#VUID-VkCopyImageToImageInfo-srcImage-07981"></a> <span class="vuid">VUID-VkCopyImageToImageInfo-srcImage-07981</span><br>
 
-If <code>srcImage</code> has a
-<a href="#formats-requiring-sampler-ycbcr-conversion">multi-planar image
+If <code>srcImage</code> has a <a href="#formats-multiplanar">multi-planar
 format</a>, then for each element of <code>pRegions</code>,
 <code>srcSubresource.aspectMask</code> <strong class="purple">must</strong> be a single valid
-<a href="#formats-planes-image-aspect">multi-planar aspect mask</a> bit</p>
+<a href="#formats-multiplanar-image-aspect">multi-planar aspect mask</a> bit</p>
 </li>
 <li>
 <p><a id="VUID-VkCopyImageToImageInfo-srcImage-07983" href="#VUID-VkCopyImageToImageInfo-srcImage-07983"></a> <span class="vuid">VUID-VkCopyImageToImageInfo-srcImage-07983</span><br>
@@ -1515,11 +1514,10 @@ For each element of <code>pRegions</code>, <code>dstSubresource.aspectMask</code
 <li>
 <p><a id="VUID-VkCopyImageToImageInfo-dstImage-07981" href="#VUID-VkCopyImageToImageInfo-dstImage-07981"></a> <span class="vuid">VUID-VkCopyImageToImageInfo-dstImage-07981</span><br>
 
-If <code>dstImage</code> has a
-<a href="#formats-requiring-sampler-ycbcr-conversion">multi-planar image
+If <code>dstImage</code> has a <a href="#formats-multiplanar">multi-planar
 format</a>, then for each element of <code>pRegions</code>,
 <code>dstSubresource.aspectMask</code> <strong class="purple">must</strong> be a single valid
-<a href="#formats-planes-image-aspect">multi-planar aspect mask</a> bit</p>
+<a href="#formats-multiplanar-image-aspect">multi-planar aspect mask</a> bit</p>
 </li>
 <li>
 <p><a id="VUID-VkCopyImageToImageInfo-dstImage-07983" href="#VUID-VkCopyImageToImageInfo-dstImage-07983"></a> <span class="vuid">VUID-VkCopyImageToImageInfo-dstImage-07983</span><br>

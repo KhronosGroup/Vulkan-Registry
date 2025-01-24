@@ -825,6 +825,8 @@ typedef enum VkVideoSessionCreateFlagBitsKHR {
     VK_VIDEO_SESSION_CREATE_ALLOW_ENCODE_QUANTIZATION_DELTA_MAP_BIT_KHR = 0x00000008,
   // Provided by VK_KHR_video_encode_quantization_map
     VK_VIDEO_SESSION_CREATE_ALLOW_ENCODE_EMPHASIS_MAP_BIT_KHR = 0x00000010,
+  // Provided by VK_KHR_video_decode_queue with VK_KHR_video_maintenance2
+    VK_VIDEO_SESSION_CREATE_INLINE_SESSION_PARAMETERS_BIT_KHR = 0x00000020,
 } VkVideoSessionCreateFlagBitsKHR;</code></pre>
 </div>
 </div>
@@ -884,6 +886,12 @@ specifies that the video session <strong class="purple">can</strong> be used to 
 <p><code>VK_VIDEO_SESSION_CREATE_ALLOW_ENCODE_EMPHASIS_MAP_BIT_KHR</code>
 specifies that the video session <strong class="purple">can</strong> be used to encode pictures with
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-emphasis-map" target="_blank" rel="noopener">emphasis maps</a>.</p>
+</li>
+<li>
+<p><code>VK_VIDEO_SESSION_CREATE_INLINE_SESSION_PARAMETERS_BIT_KHR</code>
+specifies that the application <strong class="purple">can</strong> specify video session parameters
+inline with video decode operations instead of sourcing them from the
+bound <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-session-parameters" target="_blank" rel="noopener">video session parameters</a> object.</p>
 </li>
 </ul>
 </div>

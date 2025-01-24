@@ -3168,7 +3168,8 @@ If the <a href="#features-geometryStreams"><code>geometryStreams</code></a> feat
 enabled, and
 a shader object is bound to the <code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage
 or
-a graphics pipeline is bound which was created with the
+a graphics pipeline is bound which was created with both a
+<code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage and the
 <code>VK_DYNAMIC_STATE_RASTERIZATION_STREAM_EXT</code> dynamic state enabled,
 then <a href="vkCmdSetRasterizationStreamEXT.html">vkCmdSetRasterizationStreamEXT</a> <strong class="purple">must</strong> have been called and not
 subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
@@ -4076,27 +4077,6 @@ stages <strong class="purple">must</strong> have a valid <code>VkShaderEXT</code
 have no <code>VkShaderEXT</code> bound</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDrawIndirect-None-08694" href="#VUID-vkCmdDrawIndirect-None-08694"></a> <span class="vuid">VUID-vkCmdDrawIndirect-None-08694</span><br>
-
-If there is no bound graphics pipeline, and both the
-<a href="#features-taskShader"><code>taskShader</code></a> and <a href="#features-meshShader"><code>meshShader</code></a> features are enabled, and a valid <code>VkShaderEXT</code>
-is bound the to the <code>VK_SHADER_STAGE_MESH_BIT_EXT</code> stage, and that
-<code>VkShaderEXT</code> was created without the
-<code>VK_SHADER_CREATE_NO_TASK_SHADER_BIT_EXT</code> flag, a valid
-<code>VkShaderEXT</code> <strong class="purple">must</strong> be bound to the
-<code>VK_SHADER_STAGE_TASK_BIT_EXT</code> stage</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawIndirect-None-08695" href="#VUID-vkCmdDrawIndirect-None-08695"></a> <span class="vuid">VUID-vkCmdDrawIndirect-None-08695</span><br>
-
-If there is no bound graphics pipeline, and both the
-<a href="#features-taskShader"><code>taskShader</code></a> and <a href="#features-meshShader"><code>meshShader</code></a> features are enabled, and a valid <code>VkShaderEXT</code>
-is bound the to the <code>VK_SHADER_STAGE_MESH_BIT_EXT</code> stage, and that
-<code>VkShaderEXT</code> was created with the
-<code>VK_SHADER_CREATE_NO_TASK_SHADER_BIT_EXT</code> flag, there <strong class="purple">must</strong> be no
-<code>VkShaderEXT</code> bound to the <code>VK_SHADER_STAGE_TASK_BIT_EXT</code> stage</p>
-</li>
-<li>
 <p><a id="VUID-vkCmdDrawIndirect-None-08696" href="#VUID-vkCmdDrawIndirect-None-08696"></a> <span class="vuid">VUID-vkCmdDrawIndirect-None-08696</span><br>
 
 If there is no bound graphics pipeline, and a valid <code>VkShaderEXT</code> is
@@ -4424,7 +4404,8 @@ or
     there is a shader object bound to the
     <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage
 or
-    the bound graphics pipeline state was created with the
+    the bound graphics pipeline state was created with both a
+    <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage and the
     <code>VK_DYNAMIC_STATE_PATCH_CONTROL_POINTS_EXT</code> dynamic state enabled,
     and the <a href="#dynamic-state-current-value">current value</a> of
     <code>primitiveTopology</code> is <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code>, then
@@ -4483,7 +4464,8 @@ stages</p>
 If
 a shader object is bound to the
 <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> stage or
-a graphics pipeline is bound which was created with the
+a graphics pipeline is bound which was created with both a
+<code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> stage and the
 <code>VK_DYNAMIC_STATE_TESSELLATION_DOMAIN_ORIGIN_EXT</code> dynamic state
 enabled, then <a href="vkCmdSetTessellationDomainOriginEXT.html">vkCmdSetTessellationDomainOriginEXT</a> <strong class="purple">must</strong> have been
 called and not subsequently <a href="#dynamic-state-lifetime">invalidated</a> in

@@ -880,8 +880,7 @@ multiple of 6, the last cube map in the array <strong class="purple">must</stron
 <p><code>aspectMask</code> <strong class="purple">must</strong> be only <code>VK_IMAGE_ASPECT_COLOR_BIT</code>,
 <code>VK_IMAGE_ASPECT_DEPTH_BIT</code> or <code>VK_IMAGE_ASPECT_STENCIL_BIT</code> if
 <code>format</code> is a color, depth-only or stencil-only format,
-respectively, except if <code>format</code> is a
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-requiring-sampler-ycbcr-conversion" target="_blank" rel="noopener">multi-planar format</a>.
+respectively, except if <code>format</code> is a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-multiplanar" target="_blank" rel="noopener">multi-planar format</a>.
 If using a depth/stencil format with both depth and stencil components,
 <code>aspectMask</code> <strong class="purple">must</strong> include at least one of
 <code>VK_IMAGE_ASPECT_DEPTH_BIT</code> and <code>VK_IMAGE_ASPECT_STENCIL_BIT</code>, and
@@ -919,10 +918,9 @@ Y′C<sub>B</sub>C<sub>R</sub> conversion</a> is enabled in the sampler, the <co
 </div>
 <div class="paragraph">
 <p>When creating a <code>VkImageView</code>, if sampler Y′C<sub>B</sub>C<sub>R</sub> conversion is not
-enabled in the sampler and the image <code>format</code> is
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-requiring-sampler-ycbcr-conversion" target="_blank" rel="noopener">multi-planar</a>, the image <strong class="purple">must</strong>
-have been created with <code>VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT</code>, and the
-<code>aspectMask</code> of the <code>VkImageView</code>&#8217;s <code>subresourceRange</code> <strong class="purple">must</strong> be
+enabled in the sampler and the image <code>format</code> is <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-multiplanar" target="_blank" rel="noopener">multi-planar format</a>, the image <strong class="purple">must</strong> have been created with
+<code>VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT</code>, and the <code>aspectMask</code> of the
+<code>VkImageView</code>&#8217;s <code>subresourceRange</code> <strong class="purple">must</strong> be
 <code>VK_IMAGE_ASPECT_PLANE_0_BIT</code>, <code>VK_IMAGE_ASPECT_PLANE_1_BIT</code> or
 <code>VK_IMAGE_ASPECT_PLANE_2_BIT</code>.</p>
 </div>

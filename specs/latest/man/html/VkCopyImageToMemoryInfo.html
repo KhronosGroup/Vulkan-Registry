@@ -1197,11 +1197,10 @@ For each element of <code>pRegions</code>, <code>imageSubresource.aspectMask</co
 <li>
 <p><a id="VUID-VkCopyImageToMemoryInfo-srcImage-07981" href="#VUID-VkCopyImageToMemoryInfo-srcImage-07981"></a> <span class="vuid">VUID-VkCopyImageToMemoryInfo-srcImage-07981</span><br>
 
-If <code>srcImage</code> has a
-<a href="#formats-requiring-sampler-ycbcr-conversion">multi-planar image
+If <code>srcImage</code> has a <a href="#formats-multiplanar">multi-planar
 format</a>, then for each element of <code>pRegions</code>,
 <code>imageSubresource.aspectMask</code> <strong class="purple">must</strong> be a single valid
-<a href="#formats-planes-image-aspect">multi-planar aspect mask</a> bit</p>
+<a href="#formats-multiplanar-image-aspect">multi-planar aspect mask</a> bit</p>
 </li>
 <li>
 <p><a id="VUID-VkCopyImageToMemoryInfo-srcImage-07983" href="#VUID-VkCopyImageToMemoryInfo-srcImage-07983"></a> <span class="vuid">VUID-VkCopyImageToMemoryInfo-srcImage-07983</span><br>

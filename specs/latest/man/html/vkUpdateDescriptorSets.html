@@ -885,6 +885,13 @@ the <code>VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT</code> or
 <code>VK_DESCRIPTOR_BINDING_UPDATE_UNUSED_WHILE_PENDING_BIT</code> bits set,
 that command buffer becomes <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#commandbuffers-lifecycle" target="_blank" rel="noopener">invalid</a>.</p>
 </div>
+<div class="paragraph">
+<p>Copying a descriptor from a descriptor set does not constitute a use of the
+referenced resource or view, as it is the reference itself that is copied.
+Applications <strong class="purple">can</strong> copy a descriptor referencing a destroyed resource, and it
+<strong class="purple">can</strong> copy an undefined descriptor.
+The destination descriptor becomes undefined in both cases.</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage</div>

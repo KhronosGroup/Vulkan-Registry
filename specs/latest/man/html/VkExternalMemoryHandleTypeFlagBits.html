@@ -838,6 +838,12 @@ typedef enum VkExternalMemoryHandleTypeFlagBits {
     VK_EXTERNAL_MEMORY_HANDLE_TYPE_RDMA_ADDRESS_BIT_NV = 0x00001000,
   // Provided by VK_QNX_external_memory_screen_buffer
     VK_EXTERNAL_MEMORY_HANDLE_TYPE_SCREEN_BUFFER_BIT_QNX = 0x00004000,
+  // Provided by VK_EXT_external_memory_metal
+    VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLBUFFER_BIT_EXT = 0x00010000,
+  // Provided by VK_EXT_external_memory_metal
+    VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLTEXTURE_BIT_EXT = 0x00020000,
+  // Provided by VK_EXT_external_memory_metal
+    VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLHEAP_BIT_EXT = 0x00040000,
   // Provided by VK_KHR_external_memory_capabilities
     VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT_KHR = VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT,
   // Provided by VK_KHR_external_memory_capabilities
@@ -968,6 +974,18 @@ Vulkan memory object.</p>
 See <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-external-qnx-screen-buffer" target="_blank" rel="noopener">QNX Screen Buffer</a> for more
 details of this handle type.</p>
 </li>
+<li>
+<p><code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLBUFFER_BIT_EXT</code> is a handle to a
+<code>MTLResource</code> holding a <code>MTLBuffer</code>.</p>
+</li>
+<li>
+<p><code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLTEXTURE_BIT_EXT</code> is a handle to a
+<code>MTLResource</code> holding a <code>MTLTexture</code>.</p>
+</li>
+<li>
+<p><code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLHEAP_BIT_EXT</code> is a handle to a
+<code>MTLResource</code> holding a <code>MTLHeap</code>.</p>
+</li>
 </ul>
 </div>
 <div style="page-break-after: always;"></div>
@@ -1059,6 +1077,21 @@ following table:</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No restriction</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No restriction</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLBUFFER_BIT_EXT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No restriction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must match</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLTEXTURE_BIT_EXT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No restriction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must match</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLHEAP_BIT_EXT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No restriction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Must match</p></td>
+</tr>
 </tbody>
 </table>
 <div class="admonitionblock note">
@@ -1106,7 +1139,7 @@ prevent incompatible usage of dma-bufs (such as
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_VERSION_1_1.html">VK_VERSION_1_1</a>, <a href="VkExternalMemoryHandleTypeFlags.html">VkExternalMemoryHandleTypeFlags</a>, <a href="VkImportMemoryFdInfoKHR.html">VkImportMemoryFdInfoKHR</a>, <a href="VkImportMemoryHostPointerInfoEXT.html">VkImportMemoryHostPointerInfoEXT</a>, <a href="VkImportMemoryWin32HandleInfoKHR.html">VkImportMemoryWin32HandleInfoKHR</a>, <a href="VkImportMemoryZirconHandleInfoFUCHSIA.html">VkImportMemoryZirconHandleInfoFUCHSIA</a>, <a href="VkMemoryGetFdInfoKHR.html">VkMemoryGetFdInfoKHR</a>, <a href="VkMemoryGetRemoteAddressInfoNV.html">VkMemoryGetRemoteAddressInfoNV</a>, <a href="VkMemoryGetWin32HandleInfoKHR.html">VkMemoryGetWin32HandleInfoKHR</a>, <a href="VkMemoryGetZirconHandleInfoFUCHSIA.html">VkMemoryGetZirconHandleInfoFUCHSIA</a>, <a href="VkPhysicalDeviceExternalBufferInfo.html">VkPhysicalDeviceExternalBufferInfo</a>, <a href="VkPhysicalDeviceExternalImageFormatInfo.html">VkPhysicalDeviceExternalImageFormatInfo</a>, <a href="vkGetMemoryFdPropertiesKHR.html">vkGetMemoryFdPropertiesKHR</a>, <a href="vkGetMemoryHostPointerPropertiesEXT.html">vkGetMemoryHostPointerPropertiesEXT</a>, <a href="vkGetMemoryWin32HandlePropertiesKHR.html">vkGetMemoryWin32HandlePropertiesKHR</a>, <a href="vkGetMemoryZirconHandlePropertiesFUCHSIA.html">vkGetMemoryZirconHandlePropertiesFUCHSIA</a></p>
+<p><a href="VK_VERSION_1_1.html">VK_VERSION_1_1</a>, <a href="VkExternalMemoryHandleTypeFlags.html">VkExternalMemoryHandleTypeFlags</a>, <a href="VkImportMemoryFdInfoKHR.html">VkImportMemoryFdInfoKHR</a>, <a href="VkImportMemoryHostPointerInfoEXT.html">VkImportMemoryHostPointerInfoEXT</a>, <a href="VkImportMemoryMetalHandleInfoEXT.html">VkImportMemoryMetalHandleInfoEXT</a>, <a href="VkImportMemoryWin32HandleInfoKHR.html">VkImportMemoryWin32HandleInfoKHR</a>, <a href="VkImportMemoryZirconHandleInfoFUCHSIA.html">VkImportMemoryZirconHandleInfoFUCHSIA</a>, <a href="VkMemoryGetFdInfoKHR.html">VkMemoryGetFdInfoKHR</a>, <a href="VkMemoryGetMetalHandleInfoEXT.html">VkMemoryGetMetalHandleInfoEXT</a>, <a href="VkMemoryGetRemoteAddressInfoNV.html">VkMemoryGetRemoteAddressInfoNV</a>, <a href="VkMemoryGetWin32HandleInfoKHR.html">VkMemoryGetWin32HandleInfoKHR</a>, <a href="VkMemoryGetZirconHandleInfoFUCHSIA.html">VkMemoryGetZirconHandleInfoFUCHSIA</a>, <a href="VkPhysicalDeviceExternalBufferInfo.html">VkPhysicalDeviceExternalBufferInfo</a>, <a href="VkPhysicalDeviceExternalImageFormatInfo.html">VkPhysicalDeviceExternalImageFormatInfo</a>, <a href="vkGetMemoryFdPropertiesKHR.html">vkGetMemoryFdPropertiesKHR</a>, <a href="vkGetMemoryHostPointerPropertiesEXT.html">vkGetMemoryHostPointerPropertiesEXT</a>, <a href="vkGetMemoryMetalHandlePropertiesEXT.html">vkGetMemoryMetalHandlePropertiesEXT</a>, <a href="vkGetMemoryWin32HandlePropertiesKHR.html">vkGetMemoryWin32HandlePropertiesKHR</a>, <a href="vkGetMemoryZirconHandlePropertiesFUCHSIA.html">vkGetMemoryZirconHandlePropertiesFUCHSIA</a></p>
 </div>
 </div>
 </div>

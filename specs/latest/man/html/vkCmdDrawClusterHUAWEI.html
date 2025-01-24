@@ -3162,7 +3162,8 @@ If the <a href="#features-geometryStreams"><code>geometryStreams</code></a> feat
 enabled, and
 a shader object is bound to the <code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage
 or
-a graphics pipeline is bound which was created with the
+a graphics pipeline is bound which was created with both a
+<code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage and the
 <code>VK_DYNAMIC_STATE_RASTERIZATION_STREAM_EXT</code> dynamic state enabled,
 then <a href="vkCmdSetRasterizationStreamEXT.html">vkCmdSetRasterizationStreamEXT</a> <strong class="purple">must</strong> have been called and not
 subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
@@ -4070,27 +4071,6 @@ stages <strong class="purple">must</strong> have a valid <code>VkShaderEXT</code
 have no <code>VkShaderEXT</code> bound</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDrawClusterHUAWEI-None-08694" href="#VUID-vkCmdDrawClusterHUAWEI-None-08694"></a> <span class="vuid">VUID-vkCmdDrawClusterHUAWEI-None-08694</span><br>
-
-If there is no bound graphics pipeline, and both the
-<a href="#features-taskShader"><code>taskShader</code></a> and <a href="#features-meshShader"><code>meshShader</code></a> features are enabled, and a valid <code>VkShaderEXT</code>
-is bound the to the <code>VK_SHADER_STAGE_MESH_BIT_EXT</code> stage, and that
-<code>VkShaderEXT</code> was created without the
-<code>VK_SHADER_CREATE_NO_TASK_SHADER_BIT_EXT</code> flag, a valid
-<code>VkShaderEXT</code> <strong class="purple">must</strong> be bound to the
-<code>VK_SHADER_STAGE_TASK_BIT_EXT</code> stage</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawClusterHUAWEI-None-08695" href="#VUID-vkCmdDrawClusterHUAWEI-None-08695"></a> <span class="vuid">VUID-vkCmdDrawClusterHUAWEI-None-08695</span><br>
-
-If there is no bound graphics pipeline, and both the
-<a href="#features-taskShader"><code>taskShader</code></a> and <a href="#features-meshShader"><code>meshShader</code></a> features are enabled, and a valid <code>VkShaderEXT</code>
-is bound the to the <code>VK_SHADER_STAGE_MESH_BIT_EXT</code> stage, and that
-<code>VkShaderEXT</code> was created with the
-<code>VK_SHADER_CREATE_NO_TASK_SHADER_BIT_EXT</code> flag, there <strong class="purple">must</strong> be no
-<code>VkShaderEXT</code> bound to the <code>VK_SHADER_STAGE_TASK_BIT_EXT</code> stage</p>
-</li>
-<li>
 <p><a id="VUID-vkCmdDrawClusterHUAWEI-None-08696" href="#VUID-vkCmdDrawClusterHUAWEI-None-08696"></a> <span class="vuid">VUID-vkCmdDrawClusterHUAWEI-None-08696</span><br>
 
 If there is no bound graphics pipeline, and a valid <code>VkShaderEXT</code> is
@@ -4261,6 +4241,27 @@ The <code>pipelineStatistics</code> member used to create any active
 <code>VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_CONTROL_SHADER_PATCHES_BIT</code>,
 or
 <code>VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_EVALUATION_SHADER_INVOCATIONS_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawClusterHUAWEI-None-08694" href="#VUID-vkCmdDrawClusterHUAWEI-None-08694"></a> <span class="vuid">VUID-vkCmdDrawClusterHUAWEI-None-08694</span><br>
+
+If there is no bound graphics pipeline, and both the
+<a href="#features-taskShader"><code>taskShader</code></a> and <a href="#features-meshShader"><code>meshShader</code></a> features are enabled, and a valid <code>VkShaderEXT</code>
+is bound the to the <code>VK_SHADER_STAGE_MESH_BIT_EXT</code> stage, and that
+<code>VkShaderEXT</code> was created without the
+<code>VK_SHADER_CREATE_NO_TASK_SHADER_BIT_EXT</code> flag, a valid
+<code>VkShaderEXT</code> <strong class="purple">must</strong> be bound to the
+<code>VK_SHADER_STAGE_TASK_BIT_EXT</code> stage</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawClusterHUAWEI-None-08695" href="#VUID-vkCmdDrawClusterHUAWEI-None-08695"></a> <span class="vuid">VUID-vkCmdDrawClusterHUAWEI-None-08695</span><br>
+
+If there is no bound graphics pipeline, and both the
+<a href="#features-taskShader"><code>taskShader</code></a> and <a href="#features-meshShader"><code>meshShader</code></a> features are enabled, and a valid <code>VkShaderEXT</code>
+is bound the to the <code>VK_SHADER_STAGE_MESH_BIT_EXT</code> stage, and that
+<code>VkShaderEXT</code> was created with the
+<code>VK_SHADER_CREATE_NO_TASK_SHADER_BIT_EXT</code> flag, there <strong class="purple">must</strong> be no
+<code>VkShaderEXT</code> bound to the <code>VK_SHADER_STAGE_TASK_BIT_EXT</code> stage</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawClusterHUAWEI-None-07819" href="#VUID-vkCmdDrawClusterHUAWEI-None-07819"></a> <span class="vuid">VUID-vkCmdDrawClusterHUAWEI-None-07819</span><br>

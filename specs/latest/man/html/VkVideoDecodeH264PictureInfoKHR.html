@@ -964,6 +964,8 @@ specified, then the corresponding picture reference associated with the
 <dd>
 <p>The members of the <code>StdVideoDecodeH264PictureInfo</code> structure pointed to
 by <code>pStdPictureInfo</code> are used to select the active parameter sets to use
+from the specified <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#decode-h264-inline-parameter-sets" target="_blank" rel="noopener">inline parameter
+sets</a> or
 from the bound video session parameters object, as follows:</p>
 <div class="ulist">
 <ul>
@@ -983,6 +985,15 @@ constructed from
 </div>
 </dd>
 </dl>
+</div>
+<div class="paragraph">
+<p>If the bound video session was created with
+<code>VK_VIDEO_SESSION_CREATE_INLINE_SESSION_PARAMETERS_BIT_KHR</code> and any of
+the active parameter sets are specified
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#decode-h264-inline-parameter-sets" target="_blank" rel="noopener">inline</a>, then the corresponding inline
+parameter set is used.
+Otherwise, the parameter set in question is sourced from the bound video
+session parameters object.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">

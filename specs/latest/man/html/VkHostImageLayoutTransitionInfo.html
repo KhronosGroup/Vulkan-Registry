@@ -991,10 +991,11 @@ If <code>image</code> has a color format and is not <em>disjoint</em>, then the
 <li>
 <p><a id="VUID-VkHostImageLayoutTransitionInfo-image-01672" href="#VUID-VkHostImageLayoutTransitionInfo-image-01672"></a> <span class="vuid">VUID-VkHostImageLayoutTransitionInfo-image-01672</span><br>
 
-If <code>image</code> has a multi-planar format and the image is <em>disjoint</em>,
-then the <code>aspectMask</code> member of <code>subresourceRange</code> <strong class="purple">must</strong> include
-at least one <a href="#formats-planes-image-aspect">multi-planar aspect mask</a>
-bit or <code>VK_IMAGE_ASPECT_COLOR_BIT</code></p>
+If <code>image</code> has a <a href="#formats-multiplanar">multi-planar format</a> and
+the image is <em>disjoint</em>, then the <code>aspectMask</code> member of
+<code>subresourceRange</code> <strong class="purple">must</strong> include at least one
+<a href="#formats-multiplanar-image-aspect">multi-planar aspect mask</a> bit or
+<code>VK_IMAGE_ASPECT_COLOR_BIT</code></p>
 </li>
 <li>
 <p><a id="VUID-VkHostImageLayoutTransitionInfo-image-03320" href="#VUID-VkHostImageLayoutTransitionInfo-image-03320"></a> <span class="vuid">VUID-VkHostImageLayoutTransitionInfo-image-03320</span><br>
