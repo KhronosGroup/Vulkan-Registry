@@ -945,6 +945,12 @@ Pipeline Stack</a>.</p>
 structure, <a href="VkPipelineCreateFlags2CreateInfo.html">VkPipelineCreateFlags2CreateInfo</a>::<code>flags</code> from that
 structure is used instead of <code>flags</code> from this structure.</p>
 </div>
+<div class="paragraph">
+<p>If the <code>pNext</code> chain includes a
+<a href="VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV.html">VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV</a>
+structure, then that structure controls whether cluster acceleration
+structures are allowed in this ray tracing pipeline.</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage</div>
@@ -1312,7 +1318,7 @@ bit set</p>
 </li>
 <li>
 <p><a id="VUID-VkRayTracingPipelineCreateInfoKHR-pNext-pNext" href="#VUID-VkRayTracingPipelineCreateInfoKHR-pNext-pNext"></a> <span class="vuid">VUID-VkRayTracingPipelineCreateInfoKHR-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkPipelineBinaryInfoKHR.html">VkPipelineBinaryInfoKHR</a>, <a href="VkPipelineCreateFlags2CreateInfo.html">VkPipelineCreateFlags2CreateInfo</a>, <a href="VkPipelineCreationFeedbackCreateInfo.html">VkPipelineCreationFeedbackCreateInfo</a>, or <a href="VkPipelineRobustnessCreateInfo.html">VkPipelineRobustnessCreateInfo</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkPipelineBinaryInfoKHR.html">VkPipelineBinaryInfoKHR</a>, <a href="VkPipelineCreateFlags2CreateInfo.html">VkPipelineCreateFlags2CreateInfo</a>, <a href="VkPipelineCreationFeedbackCreateInfo.html">VkPipelineCreationFeedbackCreateInfo</a>, <a href="VkPipelineRobustnessCreateInfo.html">VkPipelineRobustnessCreateInfo</a>, or <a href="VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV.html">VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV</a></p>
 </li>
 <li>
 <p><a id="VUID-VkRayTracingPipelineCreateInfoKHR-sType-unique" href="#VUID-VkRayTracingPipelineCreateInfoKHR-sType-unique"></a> <span class="vuid">VUID-VkRayTracingPipelineCreateInfoKHR-sType-unique</span><br>

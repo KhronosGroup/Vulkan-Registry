@@ -818,6 +818,10 @@ typedef enum VkGeometryTypeKHR {
     VK_GEOMETRY_TYPE_TRIANGLES_KHR = 0,
     VK_GEOMETRY_TYPE_AABBS_KHR = 1,
     VK_GEOMETRY_TYPE_INSTANCES_KHR = 2,
+  // Provided by VK_NV_ray_tracing_linear_swept_spheres
+    VK_GEOMETRY_TYPE_SPHERES_NV = 1000429004,
+  // Provided by VK_NV_ray_tracing_linear_swept_spheres
+    VK_GEOMETRY_TYPE_LINEAR_SWEPT_SPHERES_NV = 1000429005,
   // Provided by VK_NV_ray_tracing
     VK_GEOMETRY_TYPE_TRIANGLES_NV = VK_GEOMETRY_TYPE_TRIANGLES_KHR,
   // Provided by VK_NV_ray_tracing
@@ -843,15 +847,23 @@ typedef VkGeometryTypeKHR VkGeometryTypeNV;</code></pre>
 <ul>
 <li>
 <p><code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code> specifies a geometry type
-consisting of triangles.</p>
+consisting of <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#ray-tracing-triangle-primitive" target="_blank" rel="noopener">triangles</a>.</p>
 </li>
 <li>
 <p><code>VK_GEOMETRY_TYPE_AABBS_KHR</code> specifies a geometry type consisting of
-axis-aligned bounding boxes.</p>
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aabb-primitive" target="_blank" rel="noopener">axis-aligned bounding boxes</a>.</p>
 </li>
 <li>
 <p><code>VK_GEOMETRY_TYPE_INSTANCES_KHR</code> specifies a geometry type
 consisting of acceleration structure instances.</p>
+</li>
+<li>
+<p><code>VK_GEOMETRY_TYPE_SPHERES_NV</code> specifies a geometry type consisting
+of <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#sphere-primitive" target="_blank" rel="noopener">spheres</a>.</p>
+</li>
+<li>
+<p><code>VK_GEOMETRY_TYPE_LINEAR_SWEPT_SPHERES_NV</code> specifies a geometry type
+consisting of <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#linear-swept-sphere-primitive" target="_blank" rel="noopener">linear swept spheres</a>.</p>
 </li>
 </ul>
 </div>

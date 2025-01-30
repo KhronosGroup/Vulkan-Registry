@@ -819,6 +819,8 @@ typedef enum VkOpacityMicromapSpecialIndexEXT {
     VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_OPAQUE_EXT = -2,
     VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_TRANSPARENT_EXT = -3,
     VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_OPAQUE_EXT = -4,
+  // Provided by VK_EXT_opacity_micromap with VK_NV_cluster_acceleration_structure
+    VK_OPACITY_MICROMAP_SPECIAL_INDEX_CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP_NV = -5,
 } VkOpacityMicromapSpecialIndexEXT;</code></pre>
 </div>
 </div>
@@ -844,6 +846,14 @@ specifies that the entire triangle is unknown-transparent.</p>
 <li>
 <p><code>VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_OPAQUE_EXT</code>
 specifies that the entire triangle is unknown-opaque.</p>
+</li>
+<li>
+<p><code>VK_OPACITY_MICROMAP_SPECIAL_INDEX_CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP_NV</code>
+specifies that <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#ray-opacity-micromap" target="_blank" rel="noopener">Opacity Micromap</a> will be
+disabled for this triangle and opacity value will be picked from
+<a href="VkClusterAccelerationStructureBuildTriangleClusterInfoNV.html">VkClusterAccelerationStructureBuildTriangleClusterInfoNV</a>::<code>baseGeometryIndexAndGeometryFlags</code>
+instead.
+Note that this special index is only valid for <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#cluster-geometry" target="_blank" rel="noopener">Cluster Geometry</a>.</p>
 </li>
 </ul>
 </div>

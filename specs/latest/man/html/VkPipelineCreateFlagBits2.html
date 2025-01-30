@@ -831,6 +831,10 @@ static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_PROTECTED_ACCESS_ONL
 // Provided by VK_AMDX_shader_enqueue with VK_KHR_maintenance5 or VK_VERSION_1_4
 static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_EXECUTION_GRAPH_BIT_AMDX = 0x100000000ULL;
 #endif
+// Provided by VK_KHR_ray_tracing_pipeline
+static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_RAY_TRACING_SKIP_BUILT_IN_PRIMITIVES_BIT_KHR = 0x00001000ULL;
+// Provided by VK_NV_ray_tracing_linear_swept_spheres
+static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_RAY_TRACING_ALLOW_SPHERES_AND_LINEAR_SWEPT_SPHERES_BIT_NV = 0x200000000ULL;
 // Provided by VK_EXT_legacy_dithering with (VK_KHR_dynamic_rendering or VK_VERSION_1_3) and (VK_KHR_maintenance5 or VK_VERSION_1_4)
 static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_ENABLE_LEGACY_DITHERING_BIT_EXT = 0x400000000ULL;
 // Provided by VK_KHR_maintenance5
@@ -1017,8 +1021,14 @@ consisting entirely of zeros.</p>
 </li>
 <li>
 <p><code>VK_PIPELINE_CREATE_2_RAY_TRACING_SKIP_TRIANGLES_BIT_KHR</code> specifies
-that triangle primitives will be skipped during traversal using
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-pipeline-trace-ray" target="_blank" rel="noopener">pipeline trace ray</a> instructions.</p>
+that all built-in primitives
+including triangles, spheres and LSS primitives
+will be skipped during traversal using <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-pipeline-trace-ray" target="_blank" rel="noopener">pipeline trace ray</a> instructions.</p>
+</li>
+<li>
+<p><code>VK_PIPELINE_CREATE_2_RAY_TRACING_SKIP_BUILT_IN_PRIMITIVES_BIT_KHR</code>
+is an alias for
+<code>VK_PIPELINE_CREATE_2_RAY_TRACING_SKIP_TRIANGLES_BIT_KHR</code>.</p>
 </li>
 <li>
 <p><code>VK_PIPELINE_CREATE_2_RAY_TRACING_SKIP_AABBS_BIT_KHR</code> specifies that
@@ -1029,6 +1039,12 @@ AABB primitives will be skipped during traversal using
 <p><code>VK_PIPELINE_CREATE_2_RAY_TRACING_SHADER_GROUP_HANDLE_CAPTURE_REPLAY_BIT_KHR</code>
 specifies that the shader group handles <strong class="purple">can</strong> be saved and reused on a
 subsequent run (e.g. for trace capture and replay).</p>
+</li>
+<li>
+<p><code>VK_PIPELINE_CREATE_2_RAY_TRACING_ALLOW_SPHERES_AND_LINEAR_SWEPT_SPHERES_BIT_NV</code>
+specifies that the pipeline is allowed to use spheres or linear swept
+spheres as a geometry type in the acceleration structures.
+Using this flag <strong class="purple">may</strong> affect performance.</p>
 </li>
 <li>
 <p><code>VK_PIPELINE_CREATE_2_INDIRECT_BINDABLE_BIT_NV</code> specifies that the

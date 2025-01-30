@@ -902,6 +902,64 @@ from <a href="VkAccelerationStructureGeometryAabbsDataKHR.html">VkAccelerationSt
 starting at an offset of <code>primitiveOffset</code>.</p>
 </li>
 <li>
+<p>For geometries of type <code>VK_GEOMETRY_TYPE_SPHERES_NV</code>,
+<code>primitiveCount</code> is the number of spheres to be built, where each
+sphere is treated as 1 vertex.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If the geometry uses indices, <code>primitiveCount</code> indices are consumed
+from
+<a href="VkAccelerationStructureGeometrySpheresDataNV.html">VkAccelerationStructureGeometrySpheresDataNV</a>::<code>indexData</code>,
+starting at an offset of <code>primitiveOffset</code>.
+The value of <code>firstVertex</code> is added to the index values before
+fetching vertices and radii.</p>
+</li>
+<li>
+<p>If the geometry does not use indices, <code>primitiveCount</code> vertices and
+radii are consumed from
+<a href="VkAccelerationStructureGeometrySpheresDataNV.html">VkAccelerationStructureGeometrySpheresDataNV</a>::<code>vertexData</code>,
+starting at an offset of <span class="eq"><code>primitiveOffset</code> + 
+<a href="VkAccelerationStructureGeometrySpheresDataNV.html">VkAccelerationStructureGeometrySpheresDataNV</a>::<code>vertexStride</code>
+× <code>firstVertex</code></span> and
+<a href="VkAccelerationStructureGeometrySpheresDataNV.html">VkAccelerationStructureGeometrySpheresDataNV</a>::<code>radiusData</code>,
+starting at an offset of <span class="eq"><code>primitiveOffset</code> + 
+<a href="VkAccelerationStructureGeometrySpheresDataNV.html">VkAccelerationStructureGeometrySpheresDataNV</a>::<code>radiusStride</code>
+× <code>firstVertex</code></span> respectively.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>For geometries of type <code>VK_GEOMETRY_TYPE_LINEAR_SWEPT_SPHERES_NV</code>,
+<code>primitiveCount</code> is the number of LSS primitives to be built, where
+each LSS primitive is treated as 2 vertices.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If the geometry uses indices, <span class="eq"><code>primitiveCount</code> × 2</span>
+indices are consumed from
+<a href="VkAccelerationStructureGeometryLinearSweptSpheresDataNV.html">VkAccelerationStructureGeometryLinearSweptSpheresDataNV</a>::<code>indexData</code>,
+starting at an offset of <code>primitiveOffset</code>.
+The value of <code>firstVertex</code> is added to the index values before
+fetching vertices and radii.</p>
+</li>
+<li>
+<p>If the geometry does not use indices, <span class="eq"><code>primitiveCount</code> ×
+2</span> vertices and radii are consumed from
+<a href="VkAccelerationStructureGeometryLinearSweptSpheresDataNV.html">VkAccelerationStructureGeometryLinearSweptSpheresDataNV</a>::<code>vertexData</code>,
+starting at an offset of <span class="eq"><code>primitiveOffset</code> + 
+<a href="VkAccelerationStructureGeometryLinearSweptSpheresDataNV.html">VkAccelerationStructureGeometryLinearSweptSpheresDataNV</a>::<code>vertexStride</code>
+× <code>firstVertex</code></span> and
+<a href="VkAccelerationStructureGeometryLinearSweptSpheresDataNV.html">VkAccelerationStructureGeometryLinearSweptSpheresDataNV</a>::<code>radiusData</code>,
+starting at an offset of <span class="eq"><code>primitiveOffset</code> + 
+<a href="VkAccelerationStructureGeometryLinearSweptSpheresDataNV.html">VkAccelerationStructureGeometryLinearSweptSpheresDataNV</a>::<code>radiusStride</code>
+× <code>firstVertex</code></span> respectively.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p>For geometries of type <code>VK_GEOMETRY_TYPE_INSTANCES_KHR</code>,
 <code>primitiveCount</code> is the number of acceleration structures.
 <code>primitiveCount</code> <a href="VkAccelerationStructureInstanceKHR.html">VkAccelerationStructureInstanceKHR</a>
@@ -917,6 +975,15 @@ starting at an offset of <code>primitiveOffset</code>.</p>
 <div class="title">Valid Usage</div>
 <div class="ulist">
 <ul>
+<li>
+<p><a id="VUID-VkAccelerationStructureBuildRangeInfoKHR-vertexData-10418" href="#VUID-VkAccelerationStructureBuildRangeInfoKHR-vertexData-10418"></a> <span class="vuid">VUID-VkAccelerationStructureBuildRangeInfoKHR-vertexData-10418</span><br>
+
+The number of vertices consumed from
+<a href="VkAccelerationStructureGeometryTrianglesDataKHR.html">VkAccelerationStructureGeometryTrianglesDataKHR</a>::<code>vertexData</code>
+<strong class="purple">must</strong> be less than or equal to
+<span class="eq"><a href="VkAccelerationStructureGeometryTrianglesDataKHR.html">VkAccelerationStructureGeometryTrianglesDataKHR</a>::<code>maxVertex</code>
++ 1</span></p>
+</li>
 <li>
 <p><a id="VUID-VkAccelerationStructureBuildRangeInfoKHR-primitiveOffset-03656" href="#VUID-VkAccelerationStructureBuildRangeInfoKHR-primitiveOffset-03656"></a> <span class="vuid">VUID-VkAccelerationStructureBuildRangeInfoKHR-primitiveOffset-03656</span><br>
 

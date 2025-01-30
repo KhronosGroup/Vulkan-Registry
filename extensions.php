@@ -335,10 +335,12 @@
     <li> <b>  NV Extensions (NVIDIA Corporation)  </b> </li>
     <li> <a href="specs/latest/man/html/VK_NV_acquire_winrt_display.html"> VK_NV_acquire_winrt_display </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_clip_space_w_scaling.html"> VK_NV_clip_space_w_scaling </a> </li>
+    <li> <a href="specs/latest/man/html/VK_NV_cluster_acceleration_structure.html"> VK_NV_cluster_acceleration_structure </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_command_buffer_inheritance.html"> VK_NV_command_buffer_inheritance </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_compute_shader_derivatives.html"> VK_NV_compute_shader_derivatives </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_cooperative_matrix.html"> VK_NV_cooperative_matrix </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_cooperative_matrix2.html"> VK_NV_cooperative_matrix2 </a> </li>
+    <li> <a href="specs/latest/man/html/VK_NV_cooperative_vector.html"> VK_NV_cooperative_vector </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_copy_memory_indirect.html"> VK_NV_copy_memory_indirect </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_corner_sampled_image.html"> VK_NV_corner_sampled_image </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_coverage_reduction_mode.html"> VK_NV_coverage_reduction_mode </a> </li>
@@ -371,11 +373,13 @@
     <li> <a href="specs/latest/man/html/VK_NV_memory_decompression.html"> VK_NV_memory_decompression </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_mesh_shader.html"> VK_NV_mesh_shader </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_optical_flow.html"> VK_NV_optical_flow </a> </li>
+    <li> <a href="specs/latest/man/html/VK_NV_partitioned_acceleration_structure.html"> VK_NV_partitioned_acceleration_structure </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_per_stage_descriptor_set.html"> VK_NV_per_stage_descriptor_set </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_present_barrier.html"> VK_NV_present_barrier </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_raw_access_chains.html"> VK_NV_raw_access_chains </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_ray_tracing.html"> VK_NV_ray_tracing </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_ray_tracing_invocation_reorder.html"> VK_NV_ray_tracing_invocation_reorder </a> </li>
+    <li> <a href="specs/latest/man/html/VK_NV_ray_tracing_linear_swept_spheres.html"> VK_NV_ray_tracing_linear_swept_spheres </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_ray_tracing_motion_blur.html"> VK_NV_ray_tracing_motion_blur </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_ray_tracing_validation.html"> VK_NV_ray_tracing_validation </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_representative_fragment_test.html"> VK_NV_representative_fragment_test </a> </li>

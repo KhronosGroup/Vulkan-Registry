@@ -1871,6 +1871,46 @@ whether or not the feature is enabled.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint32_t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxVerticesPerCluster</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-clusterAccelerationStructure" target="_blank" rel="noopener"><code>clusterAccelerationStructure</code></a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint32_t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxTrianglesPerCluster</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-clusterAccelerationStructure" target="_blank" rel="noopener"><code>clusterAccelerationStructure</code></a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint32_t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clusterScratchByteAlignment</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-clusterAccelerationStructure" target="_blank" rel="noopener"><code>clusterAccelerationStructure</code></a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint32_t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clusterByteAlignment</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-clusterAccelerationStructure" target="_blank" rel="noopener"><code>clusterAccelerationStructure</code></a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint32_t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clusterTemplateByteAlignment</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-clusterAccelerationStructure" target="_blank" rel="noopener"><code>clusterAccelerationStructure</code></a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint32_t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clusterBottomLevelByteAlignment</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-clusterAccelerationStructure" target="_blank" rel="noopener"><code>clusterAccelerationStructure</code></a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint32_t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clusterTemplateBoundsByteAlignment</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-clusterAccelerationStructure" target="_blank" rel="noopener"><code>clusterAccelerationStructure</code></a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint32_t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxClusterGeometryIndex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-clusterAccelerationStructure" target="_blank" rel="noopener"><code>clusterAccelerationStructure</code></a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint32_t</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>shaderGroupHandleSize</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="VK_NV_ray_tracing.html">VK_NV_ray_tracing</a></code>, <code><a href="VK_KHR_ray_tracing_pipeline.html">VK_KHR_ray_tracing_pipeline</a></code></p></td>
 </tr>
@@ -1943,6 +1983,11 @@ whether or not the feature is enabled.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint32_t</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxRayHitAttributeSize</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="VK_KHR_ray_tracing_pipeline.html">VK_KHR_ray_tracing_pipeline</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint32_t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxPartitionCount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-partitionedAccelerationStructure" target="_blank" rel="noopener"><code>partitionedAccelerationStructure</code></a></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint64_t</code></p></td>
@@ -2418,6 +2463,16 @@ whether or not the feature is enabled.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="VkBool32.html">VkBool32</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>shaderSignedZeroInfNanPreserveFloat16</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderFloat16" target="_blank" rel="noopener"><code>shaderFloat16</code></a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="VkBool32.html">VkBool32</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cooperativeVectorTrainingFloat16Accumulation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="VkBool32.html">VkBool32</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cooperativeVectorTrainingFloat32Accumulation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 </tr>
 </tbody>
 </table>
@@ -3991,6 +4046,54 @@ whether or not the feature is enabled.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxVerticesPerCluster</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">256</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxTrianglesPerCluster</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">256</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clusterScratchByteAlignment</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">256</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clusterByteAlignment</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">128</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clusterTemplateByteAlignment</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clusterBottomLevelByteAlignment</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">256</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clusterTemplateBoundsByteAlignment</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxClusterGeometryIndex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2<sup>24</sup>-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxDescriptorSetAccelerationStructures</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
@@ -4030,6 +4133,12 @@ whether or not the feature is enabled.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxRayHitAttributeSize</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxPartitionCount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2<sup>24</sup>-1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
 </tr>
 <tr>
@@ -4691,6 +4800,12 @@ whether or not the feature is enabled.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="eq"><code>maxComputeSharedMemorySize</code> / 2</span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">max</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxCooperativeVectorComponents</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">128</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
 </tr>
 </tbody>
 </table>

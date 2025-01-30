@@ -1721,6 +1721,131 @@ alignment is the number of columns/rows multiplied by the component
 size)</p>
 </li>
 <li>
+<p><a id="VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulNV-10089" href="#VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulNV-10089"></a> <span class="vuid">VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulNV-10089</span><br>
+
+For <code>OpCooperativeVectorMatrixMulNV</code> and
+<code>OpCooperativeVectorMatrixMulAddNV</code>, the following <strong class="purple">must</strong> be satisfied
+by the same entry in the <a href="VkCooperativeVectorPropertiesNV.html">VkCooperativeVectorPropertiesNV</a> array
+returned by <a href="vkGetPhysicalDeviceCooperativeVectorPropertiesNV.html">vkGetPhysicalDeviceCooperativeVectorPropertiesNV</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The component type of <code>Input</code> <strong class="purple">must</strong> match
+<a href="VkCooperativeVectorPropertiesNV.html">VkCooperativeVectorPropertiesNV</a>::<code>inputType</code></p>
+</li>
+<li>
+<p>The <code>InputInterpretation</code> <strong class="purple">must</strong> match
+<a href="VkCooperativeVectorPropertiesNV.html">VkCooperativeVectorPropertiesNV</a>::<code>inputInterpretation</code></p>
+</li>
+<li>
+<p>The <code>MatrixInterpretation</code> <strong class="purple">must</strong> match
+<a href="VkCooperativeVectorPropertiesNV.html">VkCooperativeVectorPropertiesNV</a>::<code>matrixInterpretation</code></p>
+</li>
+<li>
+<p>For <code>OpCooperativeVectorMatrixMulAddNV</code>, the <code>BiasInterpretation</code>
+<strong class="purple">must</strong> match
+<a href="VkCooperativeVectorPropertiesNV.html">VkCooperativeVectorPropertiesNV</a>::<code>biasInterpretation</code></p>
+</li>
+<li>
+<p>The <code>Result</code> <code>Type</code> <strong class="purple">must</strong> match
+<a href="VkCooperativeVectorPropertiesNV.html">VkCooperativeVectorPropertiesNV</a>::<code>resultType</code></p>
+</li>
+<li>
+<p>If <code>Transpose</code> is true,
+<a href="VkCooperativeVectorPropertiesNV.html">VkCooperativeVectorPropertiesNV</a>::<code>transpose</code> <strong class="purple">must</strong> be
+<code>VK_TRUE</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulNV-10090" href="#VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulNV-10090"></a> <span class="vuid">VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulNV-10090</span><br>
+
+For <code>OpCooperativeVectorMatrixMulNV</code> and
+<code>OpCooperativeVectorMatrixMulAddNV</code>, if <code>MatrixInterpretation</code> is
+either <code>VK_COMPONENT_TYPE_FLOAT_E4M3_NV</code> or
+<code>VK_COMPONENT_TYPE_FLOAT_E5M2_NV</code> then <code>MemoryLayout</code> <strong class="purple">must</strong> be
+either <code>VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_INFERENCING_OPTIMAL_NV</code>
+or <code>VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_TRAINING_OPTIMAL_NV</code></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-cooperativeVectorSupportedStages-10091" href="#VUID-RuntimeSpirv-cooperativeVectorSupportedStages-10091"></a> <span class="vuid">VUID-RuntimeSpirv-cooperativeVectorSupportedStages-10091</span><br>
+
+<code>OpTypeCooperativeVectorNV</code> and <code>OpCooperativeVector*</code>
+instructions <strong class="purple">must</strong> not be used in shader stages not included in
+<a href="VkPhysicalDeviceCooperativeVectorPropertiesNV.html">VkPhysicalDeviceCooperativeVectorPropertiesNV</a>::<code>cooperativeVectorSupportedStages</code></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpCooperativeVectorReduceSumAccumulateNV-10092" href="#VUID-RuntimeSpirv-OpCooperativeVectorReduceSumAccumulateNV-10092"></a> <span class="vuid">VUID-RuntimeSpirv-OpCooperativeVectorReduceSumAccumulateNV-10092</span><br>
+
+For <code>OpCooperativeVectorReduceSumAccumulateNV</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The component type of <code>V</code> <strong class="purple">must</strong> be either 16- or 32-bit
+floating-point</p>
+</li>
+<li>
+<p>If the component type of <code>V</code> is 16-bit floating-point,
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-cooperativeVectorTrainingFloat16Accumulation" target="_blank" rel="noopener"><code>cooperativeVectorTrainingFloat16Accumulation</code></a> <strong class="purple">must</strong> be supported</p>
+</li>
+<li>
+<p>If the component type of <code>V</code> is 32-bit floating-point,
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-cooperativeVectorTrainingFloat32Accumulation" target="_blank" rel="noopener"><code>cooperativeVectorTrainingFloat32Accumulation</code></a> <strong class="purple">must</strong> be supported</p>
+</li>
+<li>
+<p>The pointer&#8217;s storage class <strong class="purple">must</strong> be <code>StorageBuffer</code> or
+<code>PhysicalStorageBuffer</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpCooperativeVectorOuterProductAccumulateNV-10093" href="#VUID-RuntimeSpirv-OpCooperativeVectorOuterProductAccumulateNV-10093"></a> <span class="vuid">VUID-RuntimeSpirv-OpCooperativeVectorOuterProductAccumulateNV-10093</span><br>
+
+For <code>OpCooperativeVectorOuterProductAccumulateNV</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MatrixInterpretation</code> must be <code>VK_COMPONENT_TYPE_FLOAT16_KHR</code>
+or <code>VK_COMPONENT_TYPE_FLOAT32_KHR</code></p>
+</li>
+<li>
+<p>If <code>MatrixInterpretation</code> is <code>VK_COMPONENT_TYPE_FLOAT16_KHR</code>,
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-cooperativeVectorTrainingFloat16Accumulation" target="_blank" rel="noopener"><code>cooperativeVectorTrainingFloat16Accumulation</code></a> <strong class="purple">must</strong> be supported</p>
+</li>
+<li>
+<p>If <code>MatrixInterpretation</code> is <code>VK_COMPONENT_TYPE_FLOAT32_KHR</code>,
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-cooperativeVectorTrainingFloat32Accumulation" target="_blank" rel="noopener"><code>cooperativeVectorTrainingFloat32Accumulation</code></a> <strong class="purple">must</strong> be supported</p>
+</li>
+<li>
+<p>The component types of <code>A</code> and <code>B</code> <strong class="purple">must</strong> be 16-bit floating-point</p>
+</li>
+<li>
+<p>The matrix layout <strong class="purple">must</strong> be training-optimal</p>
+</li>
+<li>
+<p>The pointer&#8217;s storage class <strong class="purple">must</strong> be <code>StorageBuffer</code> or
+<code>PhysicalStorageBuffer</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-maxCooperativeVectorComponents-10094" href="#VUID-RuntimeSpirv-maxCooperativeVectorComponents-10094"></a> <span class="vuid">VUID-RuntimeSpirv-maxCooperativeVectorComponents-10094</span><br>
+
+<code>OpTypeCooperativeVector</code> instructions <strong class="purple">must</strong> have <code>Component</code>
+<code>Count</code> less than or equal to
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxCooperativeVectorComponents" target="_blank" rel="noopener"><code>maxCooperativeVectorComponents</code></a></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpTypeCooperativeVector-10095" href="#VUID-RuntimeSpirv-OpTypeCooperativeVector-10095"></a> <span class="vuid">VUID-RuntimeSpirv-OpTypeCooperativeVector-10095</span><br>
+
+<code>OpTypeCooperativeVector</code> instructions <strong class="purple">must</strong> have <code>Component</code>
+<code>Type</code> that is any supported type reported by
+<a href="vkGetPhysicalDeviceCooperativeVectorPropertiesNV.html">vkGetPhysicalDeviceCooperativeVectorPropertiesNV</a></p>
+</li>
+<li>
 <p><a id="VUID-RuntimeSpirv-MeshNV-07113" href="#VUID-RuntimeSpirv-MeshNV-07113"></a> <span class="vuid">VUID-RuntimeSpirv-MeshNV-07113</span><br>
 
 For mesh shaders using the <code>MeshNV</code> <code>Execution</code> <code>Model</code> the
@@ -1933,6 +2058,45 @@ to at least the lesser of 16 bytes or the natural alignment of a row or
 column (depending on <code>ColumnMajor</code>) of the matrix (where the natural
 alignment is the number of columns/rows multiplied by the component
 size)</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulNV-10096" href="#VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulNV-10096"></a> <span class="vuid">VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulNV-10096</span><br>
+
+For <code>OpCooperativeVectorMatrixMulNV</code> and
+<code>OpCooperativeVectorMatrixMulAddNV</code> instructions using non-optimal
+layouts, the <code>Stride</code> operand <strong class="purple">must</strong> be aligned to 16 bytes</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulNV-10097" href="#VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulNV-10097"></a> <span class="vuid">VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulNV-10097</span><br>
+
+For <code>OpCooperativeVectorMatrixMulNV</code> and
+<code>OpCooperativeVectorMatrixMulAddNV</code> instructions, the <code>Matrix</code> and
+<code>MatrixOffset</code> <strong class="purple">must</strong> be aligned to 64 bytes</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulAddNV-10098" href="#VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulAddNV-10098"></a> <span class="vuid">VUID-RuntimeSpirv-OpCooperativeVectorMatrixMulAddNV-10098</span><br>
+
+For <code>OpCooperativeVectorMatrixMulAddNV</code> instructions, the <code>Bias</code>
+and <code>BiasOffset</code> <strong class="purple">must</strong> be aligned to 16 bytes</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpCooperativeVectorLoadNV-10099" href="#VUID-RuntimeSpirv-OpCooperativeVectorLoadNV-10099"></a> <span class="vuid">VUID-RuntimeSpirv-OpCooperativeVectorLoadNV-10099</span><br>
+
+For <code>OpCooperativeVectorLoadNV</code> and <code>OpCooperativeVectorStoreNV</code>
+instructions, the <code>Pointer</code> and <code>Offset</code> <strong class="purple">must</strong> be aligned to 16
+bytes</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpCooperativeVectorReduceSumAccumulateNV-10100" href="#VUID-RuntimeSpirv-OpCooperativeVectorReduceSumAccumulateNV-10100"></a> <span class="vuid">VUID-RuntimeSpirv-OpCooperativeVectorReduceSumAccumulateNV-10100</span><br>
+
+For <code>OpCooperativeVectorReduceSumAccumulateNV</code> instructions, the
+<code>Pointer</code> and <code>Offset</code> <strong class="purple">must</strong> be aligned to 16 bytes</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpCooperativeVectorOuterProductAccumulateNV-10101" href="#VUID-RuntimeSpirv-OpCooperativeVectorOuterProductAccumulateNV-10101"></a> <span class="vuid">VUID-RuntimeSpirv-OpCooperativeVectorOuterProductAccumulateNV-10101</span><br>
+
+For <code>OpCooperativeVectorOuterProductAccumulateNV</code> instructions, the
+<code>Pointer</code> and <code>Offset</code> <strong class="purple">must</strong> be aligned to 64 bytes</p>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-shaderSampleRateInterpolationFunctions-06325" href="#VUID-RuntimeSpirv-shaderSampleRateInterpolationFunctions-06325"></a> <span class="vuid">VUID-RuntimeSpirv-shaderSampleRateInterpolationFunctions-06325</span><br>

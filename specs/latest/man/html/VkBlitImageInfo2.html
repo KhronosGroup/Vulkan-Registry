@@ -1098,7 +1098,8 @@ be less than or equal to the <code>arrayLayers</code> specified in
 If the <a href="#features-maintenance8"><code>maintenance8</code></a> feature is enabled
 and <code>srcImage</code> is of type <code>VK_IMAGE_TYPE_3D</code>, then for each
 element of <code>pRegions</code>, <code>srcSubresource.baseArrayLayer</code> <strong class="purple">must</strong> be
-<code>0</code>, and <code>srcSubresource.layerCount</code> <strong class="purple">must</strong> be <code>1</code></p>
+<code>0</code>, and <code>srcSubresource.layerCount</code> and
+<code>dstSubresource.layerCount</code> <strong class="purple">must</strong> each be <code>1</code></p>
 </li>
 <li>
 <p><a id="VUID-VkBlitImageInfo2-maintenance8-10208" href="#VUID-VkBlitImageInfo2-maintenance8-10208"></a> <span class="vuid">VUID-VkBlitImageInfo2-maintenance8-10208</span><br>
@@ -1106,7 +1107,26 @@ element of <code>pRegions</code>, <code>srcSubresource.baseArrayLayer</code> <st
 If the <a href="#features-maintenance8"><code>maintenance8</code></a> feature is enabled
 and <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_3D</code>, then for each
 element of <code>pRegions</code>, <code>dstSubresource.baseArrayLayer</code> <strong class="purple">must</strong> be
-<code>0</code>, and <code>dstSubresource.layerCount</code> <strong class="purple">must</strong> be <code>1</code></p>
+<code>0</code>, and <code>srcSubresource.layerCount</code> and
+<code>dstSubresource.layerCount</code> <strong class="purple">must</strong> each be <code>1</code></p>
+</li>
+<li>
+<p><a id="VUID-VkBlitImageInfo2-maintenance8-10579" href="#VUID-VkBlitImageInfo2-maintenance8-10579"></a> <span class="vuid">VUID-VkBlitImageInfo2-maintenance8-10579</span><br>
+
+If the <a href="#features-maintenance8"><code>maintenance8</code></a> feature is enabled
+and <code>srcImage</code> is not of type <code>VK_IMAGE_TYPE_3D</code>, then for each
+element of <code>pRegions</code>, the absolute difference of the <code>z</code> member
+of each member of <code>dstOffsets</code> <strong class="purple">must</strong> equal
+<code>srcSubresource.layerCount</code></p>
+</li>
+<li>
+<p><a id="VUID-VkBlitImageInfo2-maintenance8-10580" href="#VUID-VkBlitImageInfo2-maintenance8-10580"></a> <span class="vuid">VUID-VkBlitImageInfo2-maintenance8-10580</span><br>
+
+If the <a href="#features-maintenance8"><code>maintenance8</code></a> feature is enabled
+and <code>dstImage</code> is not of type <code>VK_IMAGE_TYPE_3D</code>, then for each
+element of <code>pRegions</code>, the absolute difference of the <code>z</code> member
+of each member of <code>srcOffsets</code> <strong class="purple">must</strong> equal
+<code>dstSubresource.layerCount</code></p>
 </li>
 <li>
 <p><a id="VUID-VkBlitImageInfo2-srcImage-00240" href="#VUID-VkBlitImageInfo2-srcImage-00240"></a> <span class="vuid">VUID-VkBlitImageInfo2-srcImage-00240</span><br>

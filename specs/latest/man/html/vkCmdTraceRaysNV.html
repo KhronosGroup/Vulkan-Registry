@@ -1691,6 +1691,13 @@ object</p>
 <code>depth</code> <strong class="purple">must</strong> be less than or equal to
 <code>VkPhysicalDeviceLimits</code>::<code>maxComputeWorkGroupCount</code>[2]</p>
 </li>
+<li>
+<p><a id="VUID-vkCmdTraceRaysNV-allowClusterAccelerationStructure-10577" href="#VUID-vkCmdTraceRaysNV-allowClusterAccelerationStructure-10577"></a> <span class="vuid">VUID-vkCmdTraceRaysNV-allowClusterAccelerationStructure-10577</span><br>
+
+If the traced geometry contains a cluster acceleration structure, then
+<a href="VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV.html">VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV</a>::<code>allowClusterAccelerationStructure</code>
+<strong class="purple">must</strong> have been set for that pipeline</p>
+</li>
 </ul>
 </div>
 </div>
