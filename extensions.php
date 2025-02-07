@@ -376,6 +376,7 @@
     <li> <a href="specs/latest/man/html/VK_NV_partitioned_acceleration_structure.html"> VK_NV_partitioned_acceleration_structure </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_per_stage_descriptor_set.html"> VK_NV_per_stage_descriptor_set </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_present_barrier.html"> VK_NV_present_barrier </a> </li>
+    <li> <a href="specs/latest/man/html/VK_NV_present_metering.html"> VK_NV_present_metering </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_raw_access_chains.html"> VK_NV_raw_access_chains </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_ray_tracing.html"> VK_NV_ray_tracing </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_ray_tracing_invocation_reorder.html"> VK_NV_ray_tracing_invocation_reorder </a> </li>

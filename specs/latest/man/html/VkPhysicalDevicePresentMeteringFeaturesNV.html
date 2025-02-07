@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>vkCreateHeadlessSurfaceEXT(3)</title>
+<title>VkPhysicalDevicePresentMeteringFeaturesNV(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,10 +796,10 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>vkCreateHeadlessSurfaceEXT(3) Manual Page</h1>
+<h1>VkPhysicalDevicePresentMeteringFeaturesNV(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>vkCreateHeadlessSurfaceEXT - Create a headless slink:VkSurfaceKHR object</p>
+<p>VkPhysicalDevicePresentMeteringFeaturesNV - Structure describing whether the present metering features can be supported by an implementation</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -809,41 +809,38 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To create a headless <code>VkSurfaceKHR</code> object, call:</p>
+<p>The <code>VkPhysicalDevicePresentMeteringFeaturesNV</code> structure is defined as:</p>
 </div>
-<div id="vkCreateHeadlessSurfaceEXT" class="listingblock">
+<div id="VkPhysicalDevicePresentMeteringFeaturesNV" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_EXT_headless_surface
-VkResult vkCreateHeadlessSurfaceEXT(
-    VkInstance                                  instance,
-    const VkHeadlessSurfaceCreateInfoEXT*       pCreateInfo,
-    const VkAllocationCallbacks*                pAllocator,
-    VkSurfaceKHR*                               pSurface);</code></pre>
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_NV_present_metering
+typedef struct VkPhysicalDevicePresentMeteringFeaturesNV {
+    VkStructureType    sType;
+    void*              pNext;
+    VkBool32           presentMetering;
+} VkPhysicalDevicePresentMeteringFeaturesNV;</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h2>
+<h2 id="_members"><a class="anchor" href="#_members"></a>Members</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This structure describes the following features:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>instance</code> is the instance to associate the surface with.</p>
+<p><code>sType</code> is a <a href="VkStructureType.html">VkStructureType</a> value identifying this structure.</p>
 </li>
 <li>
-<p><code>pCreateInfo</code> is a pointer to a <a href="VkHeadlessSurfaceCreateInfoEXT.html">VkHeadlessSurfaceCreateInfoEXT</a>
-structure containing parameters affecting the creation of the surface
-object.</p>
+<p><code>pNext</code> is <code>NULL</code> or a pointer to a structure extending this
+structure.</p>
 </li>
 <li>
-<p><code>pAllocator</code> is the allocator used for host memory allocated for the
-surface object when there is no more specific allocator available (see
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-allocation" target="_blank" rel="noopener">Memory Allocation</a>).</p>
-</li>
-<li>
-<p><code>pSurface</code> is a pointer to a <a href="VkSurfaceKHR.html">VkSurfaceKHR</a> handle in which the
-created surface object is returned.</p>
+<p><a id="features-presentMetering"></a> <code>presentMetering</code> indicates whether the
+implementation supports present metering capability.</p>
 </li>
 </ul>
 </div>
@@ -852,60 +849,24 @@ created surface object is returned.</p>
 <div class="sect1">
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>If the <code>VkPhysicalDevicePresentMeteringFeaturesNV</code> structure is included in the <code>pNext</code> chain of the
+<a href="VkPhysicalDeviceFeatures2.html">VkPhysicalDeviceFeatures2</a> structure passed to
+<a href="vkGetPhysicalDeviceFeatures2.html">vkGetPhysicalDeviceFeatures2</a>, it is filled in to indicate whether each
+corresponding feature is supported.
+<code>VkPhysicalDevicePresentMeteringFeaturesNV</code> <strong class="purple">can</strong> also be used in the <code>pNext</code> chain of
+<a href="VkDeviceCreateInfo.html">VkDeviceCreateInfo</a> to selectively enable these features.</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage (Implicit)</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-vkCreateHeadlessSurfaceEXT-instance-parameter" href="#VUID-vkCreateHeadlessSurfaceEXT-instance-parameter"></a> <span class="vuid">VUID-vkCreateHeadlessSurfaceEXT-instance-parameter</span><br>
- <code>instance</code> <strong class="purple">must</strong> be a valid <a href="VkInstance.html">VkInstance</a> handle</p>
-</li>
-<li>
-<p><a id="VUID-vkCreateHeadlessSurfaceEXT-pCreateInfo-parameter" href="#VUID-vkCreateHeadlessSurfaceEXT-pCreateInfo-parameter"></a> <span class="vuid">VUID-vkCreateHeadlessSurfaceEXT-pCreateInfo-parameter</span><br>
- <code>pCreateInfo</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkHeadlessSurfaceCreateInfoEXT.html">VkHeadlessSurfaceCreateInfoEXT</a> structure</p>
-</li>
-<li>
-<p><a id="VUID-vkCreateHeadlessSurfaceEXT-pAllocator-parameter" href="#VUID-vkCreateHeadlessSurfaceEXT-pAllocator-parameter"></a> <span class="vuid">VUID-vkCreateHeadlessSurfaceEXT-pAllocator-parameter</span><br>
- If <code>pAllocator</code> is not <code>NULL</code>, <code>pAllocator</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkAllocationCallbacks.html">VkAllocationCallbacks</a> structure</p>
-</li>
-<li>
-<p><a id="VUID-vkCreateHeadlessSurfaceEXT-pSurface-parameter" href="#VUID-vkCreateHeadlessSurfaceEXT-pSurface-parameter"></a> <span class="vuid">VUID-vkCreateHeadlessSurfaceEXT-pSurface-parameter</span><br>
- <code>pSurface</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkSurfaceKHR.html">VkSurfaceKHR</a> handle</p>
+<p><a id="VUID-VkPhysicalDevicePresentMeteringFeaturesNV-sType-sType" href="#VUID-VkPhysicalDevicePresentMeteringFeaturesNV-sType-sType"></a> <span class="vuid">VUID-VkPhysicalDevicePresentMeteringFeaturesNV-sType-sType</span><br>
+ <code>sType</code> <strong class="purple">must</strong> be <code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_METERING_FEATURES_NV</code></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Return Codes</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">On success, this command returns</dt>
-<dd>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_SUCCESS</code></p>
-</li>
-</ul>
-</div>
-</dd>
-<dt class="hdlist1">On failure, this command returns</dt>
-<dd>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_ERROR_OUT_OF_HOST_MEMORY</code></p>
-</li>
-<li>
-<p><code>VK_ERROR_OUT_OF_DEVICE_MEMORY</code></p>
-</li>
-</ul>
-</div>
-</dd>
-</dl>
 </div>
 </div>
 </div>
@@ -915,7 +876,7 @@ created surface object is returned.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_EXT_headless_surface.html">VK_EXT_headless_surface</a>, <a href="VkAllocationCallbacks.html">VkAllocationCallbacks</a>, <a href="VkHeadlessSurfaceCreateInfoEXT.html">VkHeadlessSurfaceCreateInfoEXT</a>, <a href="VkInstance.html">VkInstance</a>, <a href="VkSurfaceKHR.html">VkSurfaceKHR</a></p>
+<p><a href="VK_NV_present_metering.html">VK_NV_present_metering</a>, <a href="VkBool32.html">VkBool32</a>, <a href="VkStructureType.html">VkStructureType</a></p>
 </div>
 </div>
 </div>
@@ -923,7 +884,7 @@ created surface object is returned.</p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCreateHeadlessSurfaceEXT" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDevicePresentMeteringFeaturesNV" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

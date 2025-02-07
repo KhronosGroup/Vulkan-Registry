@@ -2975,6 +2975,15 @@ test is enabled and the
 to create the pipeline <strong class="purple">must</strong> not be <code>VK_FORMAT_UNDEFINED</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDrawMultiEXT-flags-10582" href="#VUID-vkCmdDrawMultiEXT-flags-10582"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-flags-10582</span><br>
+
+If the current render pass instance was begun with
+<a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>, its <a href="VkRenderingInfo.html">VkRenderingInfo</a>::<code>flags</code>
+parameter <strong class="purple">must</strong> not have
+<code>VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT</code> set
+unless <code>VK_RENDERING_CONTENTS_INLINE_BIT_KHR</code> is also set</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDrawMultiEXT-primitivesGeneratedQueryWithRasterizerDiscard-06708" href="#VUID-vkCmdDrawMultiEXT-primitivesGeneratedQueryWithRasterizerDiscard-06708"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-primitivesGeneratedQueryWithRasterizerDiscard-06708</span><br>
 
 If the <a href="#features-primitivesGeneratedQueryWithRasterizerDiscard"><code>primitivesGeneratedQueryWithRasterizerDiscard</code></a> feature is not

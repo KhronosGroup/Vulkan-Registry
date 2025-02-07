@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>vkCreateHeadlessSurfaceEXT(3)</title>
+<title>VkSetPresentConfigNV(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,10 +796,10 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>vkCreateHeadlessSurfaceEXT(3) Manual Page</h1>
+<h1>VkSetPresentConfigNV(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>vkCreateHeadlessSurfaceEXT - Create a headless slink:VkSurfaceKHR object</p>
+<p>VkSetPresentConfigNV - Structure specifying present metering configuration</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -809,41 +809,44 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To create a headless <code>VkSurfaceKHR</code> object, call:</p>
+<p>Present Metering evenly paces out the next <code>numFramesPerBatch</code>
+<a href="vkQueuePresentKHR.html">vkQueuePresentKHR</a> presents.
+This gives smoother pacing between presents in applications with frame
+generation integrations.</p>
 </div>
-<div id="vkCreateHeadlessSurfaceEXT" class="listingblock">
+<div class="paragraph">
+<p>The <code>VkSetPresentConfigNV</code> structure is defined as:</p>
+</div>
+<div id="VkSetPresentConfigNV" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_EXT_headless_surface
-VkResult vkCreateHeadlessSurfaceEXT(
-    VkInstance                                  instance,
-    const VkHeadlessSurfaceCreateInfoEXT*       pCreateInfo,
-    const VkAllocationCallbacks*                pAllocator,
-    VkSurfaceKHR*                               pSurface);</code></pre>
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_NV_present_metering
+typedef struct VkSetPresentConfigNV {
+    VkStructureType    sType;
+    const void*        pNext;
+    uint32_t           numFramesPerBatch;
+    uint32_t           presentConfigFeedback;
+} VkSetPresentConfigNV;</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h2>
+<h2 id="_members"><a class="anchor" href="#_members"></a>Members</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><code>instance</code> is the instance to associate the surface with.</p>
+<p><code>sType</code> is a <a href="VkStructureType.html">VkStructureType</a> value identifying this structure.</p>
 </li>
 <li>
-<p><code>pCreateInfo</code> is a pointer to a <a href="VkHeadlessSurfaceCreateInfoEXT.html">VkHeadlessSurfaceCreateInfoEXT</a>
-structure containing parameters affecting the creation of the surface
-object.</p>
+<p><code>pNext</code> is <code>NULL</code> or a pointer to a structure extending this
+structure.</p>
 </li>
 <li>
-<p><code>pAllocator</code> is the allocator used for host memory allocated for the
-surface object when there is no more specific allocator available (see
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-allocation" target="_blank" rel="noopener">Memory Allocation</a>).</p>
+<p><code>numFramesPerBatch</code> is the number of frames to batch</p>
 </li>
 <li>
-<p><code>pSurface</code> is a pointer to a <a href="VkSurfaceKHR.html">VkSurfaceKHR</a> handle in which the
-created surface object is returned.</p>
+<p><code>presentConfigFeedback</code> will return the success or error status</p>
 </li>
 </ul>
 </div>
@@ -852,60 +855,37 @@ created surface object is returned.</p>
 <div class="sect1">
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The metering configuration applies to all swapchains in the array in
+<a href="VkPresentInfoKHR.html">VkPresentInfoKHR</a>.
+The configuration specified by <code>VkSetPresentConfigNV</code> applies to the
+next <code>numFramesPerBatch</code> calls to <a href="vkQueuePresentKHR.html">vkQueuePresentKHR</a> and needs to
+be updated every <code>numFramesPerBatch</code> presents.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Valid Usage</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a id="VUID-VkSetPresentConfigNV-numFramesPerBatch-10581" href="#VUID-VkSetPresentConfigNV-numFramesPerBatch-10581"></a> <span class="vuid">VUID-VkSetPresentConfigNV-numFramesPerBatch-10581</span><br>
+
+<code>numFramesPerBatch</code> <strong class="purple">must</strong> not be larger than 8</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage (Implicit)</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-vkCreateHeadlessSurfaceEXT-instance-parameter" href="#VUID-vkCreateHeadlessSurfaceEXT-instance-parameter"></a> <span class="vuid">VUID-vkCreateHeadlessSurfaceEXT-instance-parameter</span><br>
- <code>instance</code> <strong class="purple">must</strong> be a valid <a href="VkInstance.html">VkInstance</a> handle</p>
-</li>
-<li>
-<p><a id="VUID-vkCreateHeadlessSurfaceEXT-pCreateInfo-parameter" href="#VUID-vkCreateHeadlessSurfaceEXT-pCreateInfo-parameter"></a> <span class="vuid">VUID-vkCreateHeadlessSurfaceEXT-pCreateInfo-parameter</span><br>
- <code>pCreateInfo</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkHeadlessSurfaceCreateInfoEXT.html">VkHeadlessSurfaceCreateInfoEXT</a> structure</p>
-</li>
-<li>
-<p><a id="VUID-vkCreateHeadlessSurfaceEXT-pAllocator-parameter" href="#VUID-vkCreateHeadlessSurfaceEXT-pAllocator-parameter"></a> <span class="vuid">VUID-vkCreateHeadlessSurfaceEXT-pAllocator-parameter</span><br>
- If <code>pAllocator</code> is not <code>NULL</code>, <code>pAllocator</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkAllocationCallbacks.html">VkAllocationCallbacks</a> structure</p>
-</li>
-<li>
-<p><a id="VUID-vkCreateHeadlessSurfaceEXT-pSurface-parameter" href="#VUID-vkCreateHeadlessSurfaceEXT-pSurface-parameter"></a> <span class="vuid">VUID-vkCreateHeadlessSurfaceEXT-pSurface-parameter</span><br>
- <code>pSurface</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkSurfaceKHR.html">VkSurfaceKHR</a> handle</p>
+<p><a id="VUID-VkSetPresentConfigNV-sType-sType" href="#VUID-VkSetPresentConfigNV-sType-sType"></a> <span class="vuid">VUID-VkSetPresentConfigNV-sType-sType</span><br>
+ <code>sType</code> <strong class="purple">must</strong> be <code>VK_STRUCTURE_TYPE_SET_PRESENT_CONFIG_NV</code></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Return Codes</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">On success, this command returns</dt>
-<dd>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_SUCCESS</code></p>
-</li>
-</ul>
-</div>
-</dd>
-<dt class="hdlist1">On failure, this command returns</dt>
-<dd>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_ERROR_OUT_OF_HOST_MEMORY</code></p>
-</li>
-<li>
-<p><code>VK_ERROR_OUT_OF_DEVICE_MEMORY</code></p>
-</li>
-</ul>
-</div>
-</dd>
-</dl>
 </div>
 </div>
 </div>
@@ -915,7 +895,7 @@ created surface object is returned.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_EXT_headless_surface.html">VK_EXT_headless_surface</a>, <a href="VkAllocationCallbacks.html">VkAllocationCallbacks</a>, <a href="VkHeadlessSurfaceCreateInfoEXT.html">VkHeadlessSurfaceCreateInfoEXT</a>, <a href="VkInstance.html">VkInstance</a>, <a href="VkSurfaceKHR.html">VkSurfaceKHR</a></p>
+<p><a href="VK_NV_present_metering.html">VK_NV_present_metering</a>, <a href="VkStructureType.html">VkStructureType</a></p>
 </div>
 </div>
 </div>
@@ -923,7 +903,7 @@ created surface object is returned.</p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCreateHeadlessSurfaceEXT" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSetPresentConfigNV" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

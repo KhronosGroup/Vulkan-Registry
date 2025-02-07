@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>vkCreateHeadlessSurfaceEXT(3)</title>
+<title>VK_NV_present_metering(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,111 +796,93 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>vkCreateHeadlessSurfaceEXT(3) Manual Page</h1>
+<h1>VK_NV_present_metering(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>vkCreateHeadlessSurfaceEXT - Create a headless slink:VkSurfaceKHR object</p>
+<p>VK_NV_present_metering - device extension</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
 <!--ChunkedSearchboxMarker-->
 <div id="content" class="loadable" ><script>hideLoadableContent();</script>
 <div class="sect1">
-<h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
+<h2 id="_registered_extension_number"><a class="anchor" href="#_registered_extension_number"></a>Registered Extension Number</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To create a headless <code>VkSurfaceKHR</code> object, call:</p>
-</div>
-<div id="vkCreateHeadlessSurfaceEXT" class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_EXT_headless_surface
-VkResult vkCreateHeadlessSurfaceEXT(
-    VkInstance                                  instance,
-    const VkHeadlessSurfaceCreateInfoEXT*       pCreateInfo,
-    const VkAllocationCallbacks*                pAllocator,
-    VkSurfaceKHR*                               pSurface);</code></pre>
-</div>
+<p>614</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h2>
+<h2 id="_revision"><a class="anchor" href="#_revision"></a>Revision</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>1</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ratification_status"><a class="anchor" href="#_ratification_status"></a>Ratification Status</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Not ratified</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extension_and_version_dependencies"><a class="anchor" href="#_extension_and_version_dependencies"></a>Extension and Version Dependencies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>None</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>instance</code> is the instance to associate the surface with.</p>
-</li>
-<li>
-<p><code>pCreateInfo</code> is a pointer to a <a href="VkHeadlessSurfaceCreateInfoEXT.html">VkHeadlessSurfaceCreateInfoEXT</a>
-structure containing parameters affecting the creation of the surface
-object.</p>
-</li>
-<li>
-<p><code>pAllocator</code> is the allocator used for host memory allocated for the
-surface object when there is no more specific allocator available (see
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-allocation" target="_blank" rel="noopener">Memory Allocation</a>).</p>
-</li>
-<li>
-<p><code>pSurface</code> is a pointer to a <a href="VkSurfaceKHR.html">VkSurfaceKHR</a> handle in which the
-created surface object is returned.</p>
+<p><strong>This is a <em>provisional</em> extension and <strong class="purple">must</strong> be used with caution.
+See the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#boilerplate-provisional-header" target="_blank" rel="noopener">description</a> of provisional header files for enablement and stability details.</strong></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<h2 id="_contact"><a class="anchor" href="#_contact"></a>Contact</h2>
 <div class="sectionbody">
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Valid Usage (Implicit)</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-vkCreateHeadlessSurfaceEXT-instance-parameter" href="#VUID-vkCreateHeadlessSurfaceEXT-instance-parameter"></a> <span class="vuid">VUID-vkCreateHeadlessSurfaceEXT-instance-parameter</span><br>
- <code>instance</code> <strong class="purple">must</strong> be a valid <a href="VkInstance.html">VkInstance</a> handle</p>
-</li>
-<li>
-<p><a id="VUID-vkCreateHeadlessSurfaceEXT-pCreateInfo-parameter" href="#VUID-vkCreateHeadlessSurfaceEXT-pCreateInfo-parameter"></a> <span class="vuid">VUID-vkCreateHeadlessSurfaceEXT-pCreateInfo-parameter</span><br>
- <code>pCreateInfo</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkHeadlessSurfaceCreateInfoEXT.html">VkHeadlessSurfaceCreateInfoEXT</a> structure</p>
-</li>
-<li>
-<p><a id="VUID-vkCreateHeadlessSurfaceEXT-pAllocator-parameter" href="#VUID-vkCreateHeadlessSurfaceEXT-pAllocator-parameter"></a> <span class="vuid">VUID-vkCreateHeadlessSurfaceEXT-pAllocator-parameter</span><br>
- If <code>pAllocator</code> is not <code>NULL</code>, <code>pAllocator</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkAllocationCallbacks.html">VkAllocationCallbacks</a> structure</p>
-</li>
-<li>
-<p><a id="VUID-vkCreateHeadlessSurfaceEXT-pSurface-parameter" href="#VUID-vkCreateHeadlessSurfaceEXT-pSurface-parameter"></a> <span class="vuid">VUID-vkCreateHeadlessSurfaceEXT-pSurface-parameter</span><br>
- <code>pSurface</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkSurfaceKHR.html">VkSurfaceKHR</a> handle</p>
+<p>Charles Hansen <a href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=[VK_NV_present_metering] @chansen%0A*Here describe the issue or question you have about the VK_NV_present_metering extension*" target="_blank" rel="nofollow noopener"><span class="icon black">[GitHub&#93;</span>chansen</a></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Return Codes</div>
+<div class="sect1">
+<h2 id="_other_extension_metadata"><a class="anchor" href="#_other_extension_metadata"></a>Other Extension Metadata</h2>
+<div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1">On success, this command returns</dt>
+<dt class="hdlist1"><strong>Last Modified Date</strong></dt>
 <dd>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_SUCCESS</code></p>
-</li>
-</ul>
-</div>
+<p>2025-01-08</p>
 </dd>
-<dt class="hdlist1">On failure, this command returns</dt>
+<dt class="hdlist1"><strong>Provisional</strong></dt>
+<dd>
+<p>*This extension is <em>provisional</em> and <strong class="purple">should</strong> not be used in production
+applications.
+The functionality defined by this extension <strong class="purple">may</strong> change in ways that break
+backwards compatibility between revisions, and before the final release of
+the non-provisional version of this extension.</p>
+</dd>
+<dt class="hdlist1"><strong>Contributors</strong></dt>
 <dd>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VK_ERROR_OUT_OF_HOST_MEMORY</code></p>
+<p>Charles Hansen, NVIDIA</p>
 </li>
 <li>
-<p><code>VK_ERROR_OUT_OF_DEVICE_MEMORY</code></p>
+<p>Lionel Duc, NVIDIA</p>
 </li>
 </ul>
 </div>
@@ -909,13 +891,101 @@ created surface object is returned.</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This extension is used to evenly meter presents.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_structures"><a class="anchor" href="#_new_structures"></a>New Structures</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Extending <a href="VkPhysicalDeviceFeatures2.html">VkPhysicalDeviceFeatures2</a>, <a href="VkDeviceCreateInfo.html">VkDeviceCreateInfo</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="VkPhysicalDevicePresentMeteringFeaturesNV.html">VkPhysicalDevicePresentMeteringFeaturesNV</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Extending <a href="VkPresentInfoKHR.html">VkPresentInfoKHR</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="VkSetPresentConfigNV.html">VkSetPresentConfigNV</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_enum_constants"><a class="anchor" href="#_new_enum_constants"></a>New Enum Constants</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_NV_PRESENT_METERING_EXTENSION_NAME</code></p>
+</li>
+<li>
+<p><code>VK_NV_PRESENT_METERING_SPEC_VERSION</code></p>
+</li>
+<li>
+<p>Extending <a href="VkStructureType.html">VkStructureType</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_METERING_FEATURES_NV</code></p>
+</li>
+<li>
+<p><code>VK_STRUCTURE_TYPE_SET_PRESENT_CONFIG_NV</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_issues"><a class="anchor" href="#_issues"></a>Issues</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_version_history"><a class="anchor" href="#_version_history"></a>Version History</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Revision 1, 2025-01-08 (Charles Hansen)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Internal revisions</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_EXT_headless_surface.html">VK_EXT_headless_surface</a>, <a href="VkAllocationCallbacks.html">VkAllocationCallbacks</a>, <a href="VkHeadlessSurfaceCreateInfoEXT.html">VkHeadlessSurfaceCreateInfoEXT</a>, <a href="VkInstance.html">VkInstance</a>, <a href="VkSurfaceKHR.html">VkSurfaceKHR</a></p>
+<p>No cross-references are available</p>
 </div>
 </div>
 </div>
@@ -923,11 +993,11 @@ created surface object is returned.</p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCreateHeadlessSurfaceEXT" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_NV_present_metering" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
-<p>This page is extracted from the Vulkan Specification.
-Fixes and changes should be made to the Specification, not directly.</p>
+<p>This page is a generated document.
+Fixes and changes should be made to the generator scripts, not directly.</p>
 </div>
 </div>
 </div>
