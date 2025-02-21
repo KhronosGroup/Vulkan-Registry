@@ -898,7 +898,8 @@ The variable decorated with <code>ViewportIndex</code> within the <code>Fragment
 <p><a id="VUID-ViewportIndex-ViewportIndex-04408" href="#VUID-ViewportIndex-ViewportIndex-04408"></a> <span class="vuid">VUID-ViewportIndex-ViewportIndex-04408</span><br>
 
 The variable decorated with <code>ViewportIndex</code> <strong class="purple">must</strong> be declared as a
-scalar 32-bit integer value</p>
+scalar 32-bit integer value for all supported execution models except
+<code>MeshEXT</code></p>
 </li>
 <li>
 <p><a id="VUID-ViewportIndex-ViewportIndex-07060" href="#VUID-ViewportIndex-ViewportIndex-07060"></a> <span class="vuid">VUID-ViewportIndex-ViewportIndex-07060</span><br>
@@ -906,6 +907,27 @@ scalar 32-bit integer value</p>
 The variable decorated with <code>ViewportIndex</code> within the <code>MeshEXT</code>
 <code>Execution</code> <code>Model</code> <strong class="purple">must</strong> also be decorated with the <code>PerPrimitiveEXT</code>
 decoration</p>
+</li>
+<li>
+<p><a id="VUID-ViewportIndex-ViewportIndex-10601" href="#VUID-ViewportIndex-ViewportIndex-10601"></a> <span class="vuid">VUID-ViewportIndex-ViewportIndex-10601</span><br>
+
+<code>ViewportIndex</code> within the <code>MeshEXT</code> <code>Execution</code> <code>Model</code> <strong class="purple">must</strong>
+decorate a scalar boolean member of a structure decorated as <code>Block</code>,
+or decorate a variable of type <code>OpTypeArray</code> of boolean values.</p>
+</li>
+<li>
+<p><a id="VUID-ViewportIndex-ViewportIndex-10602" href="#VUID-ViewportIndex-ViewportIndex-10602"></a> <span class="vuid">VUID-ViewportIndex-ViewportIndex-10602</span><br>
+
+If <code>ViewportIndex</code> is declared as an array of boolean values, the
+size of the array <strong class="purple">must</strong> match the value specified by
+<code>OutputPrimitivesEXT</code></p>
+</li>
+<li>
+<p><a id="VUID-ViewportIndex-ViewportIndex-10603" href="#VUID-ViewportIndex-ViewportIndex-10603"></a> <span class="vuid">VUID-ViewportIndex-ViewportIndex-10603</span><br>
+
+If <code>ViewportIndex</code> decorates a member of a structure, the variable
+declaration of the containing <code>Block</code> type <strong class="purple">must</strong> have an array size
+that matches the value specified by <code>OutputPrimitivesEXT</code></p>
 </li>
 </ul>
 </div>

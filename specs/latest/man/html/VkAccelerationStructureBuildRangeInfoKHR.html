@@ -999,8 +999,21 @@ geometry uses indices, the offset <code>primitiveOffset</code> from
 For geometries of type <code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, if the
 geometry does not use indices, the offset <code>primitiveOffset</code> from
 <a href="VkAccelerationStructureGeometryTrianglesDataKHR.html">VkAccelerationStructureGeometryTrianglesDataKHR</a>::<code>vertexData</code>
-<strong class="purple">must</strong> be a multiple of the component size of
-<a href="VkAccelerationStructureGeometryTrianglesDataKHR.html">VkAccelerationStructureGeometryTrianglesDataKHR</a>::<code>vertexFormat</code></p>
+<strong class="purple">must</strong> be a multiple of:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats" target="_blank" rel="noopener">size of the format</a> specified in
+<a href="VkAccelerationStructureGeometryTrianglesDataKHR.html">VkAccelerationStructureGeometryTrianglesDataKHR</a>::<code>vertexFormat</code>,
+if that format is a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-packed" target="_blank" rel="noopener">packed format</a></p>
+</li>
+<li>
+<p>the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats" target="_blank" rel="noopener">component size</a> of the
+<a href="VkAccelerationStructureGeometryTrianglesDataKHR.html">VkAccelerationStructureGeometryTrianglesDataKHR</a>::<code>vertexFormat</code>,
+if that format is not a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-packed" target="_blank" rel="noopener">packed format</a></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><a id="VUID-VkAccelerationStructureBuildRangeInfoKHR-transformOffset-03658" href="#VUID-VkAccelerationStructureBuildRangeInfoKHR-transformOffset-03658"></a> <span class="vuid">VUID-VkAccelerationStructureBuildRangeInfoKHR-transformOffset-03658</span><br>

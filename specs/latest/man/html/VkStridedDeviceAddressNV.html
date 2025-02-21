@@ -833,7 +833,10 @@ typedef struct VkStridedDeviceAddressNV {
 zero if the region is unused.</p>
 </li>
 <li>
-<p><code>strideInBytes</code> is the byte stride between consecutive elements.</p>
+<p><code>strideInBytes</code> is the byte stride between consecutive elements.
+Only the bottom 32 bits are used.
+The field is 64 bits to ensure consistent alignment across all
+containing structures.</p>
 </li>
 </ul>
 </div>

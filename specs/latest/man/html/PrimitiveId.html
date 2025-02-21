@@ -946,7 +946,8 @@ The variable decorated with <code>PrimitiveId</code> within the <code>MeshEXT</c
 <p><a id="VUID-PrimitiveId-PrimitiveId-04337" href="#VUID-PrimitiveId-PrimitiveId-04337"></a> <span class="vuid">VUID-PrimitiveId-PrimitiveId-04337</span><br>
 
 The variable decorated with <code>PrimitiveId</code> <strong class="purple">must</strong> be declared as a
-scalar 32-bit integer value</p>
+scalar 32-bit integer value for all supported execution models except
+<code>MeshEXT</code></p>
 </li>
 <li>
 <p><a id="VUID-PrimitiveId-PrimitiveId-07040" href="#VUID-PrimitiveId-PrimitiveId-07040"></a> <span class="vuid">VUID-PrimitiveId-PrimitiveId-07040</span><br>
@@ -954,6 +955,28 @@ scalar 32-bit integer value</p>
 The variable decorated with <code>PrimitiveId</code> within the <code>MeshEXT</code>
 <code>Execution</code> <code>Model</code> <strong class="purple">must</strong> also be decorated with the <code>PerPrimitiveEXT</code>
 decoration</p>
+</li>
+<li>
+<p><a id="VUID-PrimitiveId-PrimitiveId-10595" href="#VUID-PrimitiveId-PrimitiveId-10595"></a> <span class="vuid">VUID-PrimitiveId-PrimitiveId-10595</span><br>
+
+<code>PrimitiveId</code> within the <code>MeshEXT</code> <code>Execution</code> <code>Model</code> <strong class="purple">must</strong> decorate
+a scalar 32-bit integer member of a structure decorated as <code>Block</code>,
+or decorate a variable of type <code>OpTypeArray</code> of 32-bit integer
+values.</p>
+</li>
+<li>
+<p><a id="VUID-PrimitiveId-PrimitiveId-10596" href="#VUID-PrimitiveId-PrimitiveId-10596"></a> <span class="vuid">VUID-PrimitiveId-PrimitiveId-10596</span><br>
+
+If <code>PrimitiveId</code> is declared as an array of 32-bit integer values,
+within the <code>MeshEXT</code> <code>Execution</code> <code>Model</code>, size of the array <strong class="purple">must</strong> match
+the value specified by <code>OutputPrimitivesEXT</code></p>
+</li>
+<li>
+<p><a id="VUID-PrimitiveId-PrimitiveId-10597" href="#VUID-PrimitiveId-PrimitiveId-10597"></a> <span class="vuid">VUID-PrimitiveId-PrimitiveId-10597</span><br>
+
+If <code>PrimitiveId</code> decorates a member of a structure, the variable
+declaration of the containing <code>Block</code> type <strong class="purple">must</strong> have an array size
+that matches the value specified by <code>OutputPrimitivesEXT</code></p>
 </li>
 </ul>
 </div>

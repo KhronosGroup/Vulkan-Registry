@@ -905,7 +905,8 @@ The variable decorated with <code>Layer</code> within the <code>Fragment</code>
 <p><a id="VUID-Layer-Layer-04276" href="#VUID-Layer-Layer-04276"></a> <span class="vuid">VUID-Layer-Layer-04276</span><br>
 
 The variable decorated with <code>Layer</code> <strong class="purple">must</strong> be declared as a scalar
-32-bit integer value</p>
+32-bit integer value for all supported execution models except
+<code>MeshEXT</code>.</p>
 </li>
 <li>
 <p><a id="VUID-Layer-Layer-07039" href="#VUID-Layer-Layer-07039"></a> <span class="vuid">VUID-Layer-Layer-07039</span><br>
@@ -913,6 +914,27 @@ The variable decorated with <code>Layer</code> <strong class="purple">must</stro
 The variable decorated with <code>Layer</code> within the <code>MeshEXT</code>
 <code>Execution</code> <code>Model</code> <strong class="purple">must</strong> also be decorated with the <code>PerPrimitiveEXT</code>
 decoration</p>
+</li>
+<li>
+<p><a id="VUID-Layer-Layer-10592" href="#VUID-Layer-Layer-10592"></a> <span class="vuid">VUID-Layer-Layer-10592</span><br>
+
+<code>Layer</code> within the <code>MeshEXT</code> <code>Execution</code> <code>Model</code> <strong class="purple">must</strong> decorate a
+scalar 32-bit integer member of a structure decorated as <code>Block</code>, or
+decorate a variable of type <code>OpTypeArray</code> of scalar 32-bit integer
+values.</p>
+</li>
+<li>
+<p><a id="VUID-Layer-Layer-10593" href="#VUID-Layer-Layer-10593"></a> <span class="vuid">VUID-Layer-Layer-10593</span><br>
+
+If <code>Layer</code> is declared as an array of boolean values, the size of the
+array <strong class="purple">must</strong> match the value specified by <code>OutputPrimitivesEXT</code></p>
+</li>
+<li>
+<p><a id="VUID-Layer-Layer-10594" href="#VUID-Layer-Layer-10594"></a> <span class="vuid">VUID-Layer-Layer-10594</span><br>
+
+If <code>Layer</code> decorates a member of a structure, the variable
+declaration of the containing <code>Block</code> type <strong class="purple">must</strong> have an array size
+that matches the value specified by <code>OutputPrimitivesEXT</code></p>
 </li>
 </ul>
 </div>

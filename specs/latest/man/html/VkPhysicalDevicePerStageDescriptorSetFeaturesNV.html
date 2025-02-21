@@ -870,8 +870,10 @@ chained off those structures' <code>pNext</code> instead.</p>
 <a href="VkPhysicalDeviceFeatures2.html">VkPhysicalDeviceFeatures2</a> structure passed to
 <a href="vkGetPhysicalDeviceFeatures2.html">vkGetPhysicalDeviceFeatures2</a>, it is filled in to indicate whether each
 corresponding feature is supported.
-<code>VkPhysicalDevicePerStageDescriptorSetFeaturesNV</code> <strong class="purple">can</strong> also be used in the <code>pNext</code> chain of
-<a href="VkDeviceCreateInfo.html">VkDeviceCreateInfo</a> to selectively enable these features.</p>
+If the application wishes to use a <a href="VkDevice.html">VkDevice</a> with any features
+described by <code>VkPhysicalDevicePerStageDescriptorSetFeaturesNV</code>, it <strong class="purple">must</strong> add an instance of the structure,
+with the desired feature members set to <code>VK_TRUE</code>, to the <code>pNext</code>
+chain of <a href="VkDeviceCreateInfo.html">VkDeviceCreateInfo</a> when creating the <a href="VkDevice.html">VkDevice</a>.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
