@@ -856,22 +856,22 @@ typedef enum VkAccessFlagBits {
     VK_ACCESS_FRAGMENT_DENSITY_MAP_READ_BIT_EXT = 0x01000000,
   // Provided by VK_KHR_fragment_shading_rate
     VK_ACCESS_FRAGMENT_SHADING_RATE_ATTACHMENT_READ_BIT_KHR = 0x00800000,
-  // Provided by VK_NV_device_generated_commands
-    VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_NV = 0x00020000,
-  // Provided by VK_NV_device_generated_commands
-    VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_NV = 0x00040000,
+  // Provided by VK_EXT_device_generated_commands
+    VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_EXT = 0x00020000,
+  // Provided by VK_EXT_device_generated_commands
+    VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_EXT = 0x00040000,
   // Provided by VK_NV_shading_rate_image
     VK_ACCESS_SHADING_RATE_IMAGE_READ_BIT_NV = VK_ACCESS_FRAGMENT_SHADING_RATE_ATTACHMENT_READ_BIT_KHR,
   // Provided by VK_NV_ray_tracing
     VK_ACCESS_ACCELERATION_STRUCTURE_READ_BIT_NV = VK_ACCESS_ACCELERATION_STRUCTURE_READ_BIT_KHR,
   // Provided by VK_NV_ray_tracing
     VK_ACCESS_ACCELERATION_STRUCTURE_WRITE_BIT_NV = VK_ACCESS_ACCELERATION_STRUCTURE_WRITE_BIT_KHR,
+  // Provided by VK_NV_device_generated_commands
+    VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_NV = VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_EXT,
+  // Provided by VK_NV_device_generated_commands
+    VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_NV = VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_EXT,
   // Provided by VK_KHR_synchronization2
     VK_ACCESS_NONE_KHR = VK_ACCESS_NONE,
-  // Provided by VK_EXT_device_generated_commands
-    VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_EXT = VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_NV,
-  // Provided by VK_EXT_device_generated_commands
-    VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_EXT = VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_NV,
 } VkAccessFlagBits;</code></pre>
 </div>
 </div>
@@ -1352,14 +1352,6 @@ perform that type of access.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_ACCESS_2_CONDITIONAL_RENDERING_READ_BIT_EXT</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_PIPELINE_STAGE_2_CONDITIONAL_RENDERING_BIT_EXT</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_ACCESS_2_COMMAND_PREPROCESS_READ_BIT_NV</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_NV</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_ACCESS_2_COMMAND_PREPROCESS_WRITE_BIT_NV</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_NV</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_ACCESS_2_COMMAND_PREPROCESS_READ_BIT_EXT</code></p></td>

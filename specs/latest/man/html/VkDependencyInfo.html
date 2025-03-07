@@ -899,6 +899,28 @@ family ownership transfer operations</a> and
 </div>
 <div class="sidebarblock">
 <div class="content">
+<div class="title">Valid Usage</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a id="VUID-VkDependencyInfo-pMemoryBarriers-10605" href="#VUID-VkDependencyInfo-pMemoryBarriers-10605"></a> <span class="vuid">VUID-VkDependencyInfo-pMemoryBarriers-10605</span><br>
+
+For each element of <code>pMemoryBarriers</code>, the <code>sType</code> value of each
+structure in the <code>pNext</code> chain <strong class="purple">must</strong> be unique</p>
+</li>
+<li>
+<p><a id="VUID-VkDependencyInfo-pMemoryBarriers-10606" href="#VUID-VkDependencyInfo-pMemoryBarriers-10606"></a> <span class="vuid">VUID-VkDependencyInfo-pMemoryBarriers-10606</span><br>
+
+For each element of <code>pMemoryBarriers</code>, <code>pNext</code> <strong class="purple">must</strong> be either
+<code>NULL</code> or a pointer to a valid instance of
+<a href="VkMemoryBarrierAccessFlags3KHR.html">VkMemoryBarrierAccessFlags3KHR</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="title">Valid Usage (Implicit)</div>
 <div class="ulist">
 <ul>

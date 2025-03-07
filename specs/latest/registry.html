@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.309,</span>
-<span id="revdate">2025-02-21 10:18:30Z</span>
-<br><span id="revremark">from git branch: github-main commit: 43d153dd7f9f5e8b9f79d26d868c82a82b9ef80b</span>
+<span id="revnumber">version 1.4.310,</span>
+<span id="revdate">2025-03-07 12:45:53Z</span>
+<br><span id="revremark">from git branch: github-main commit: ab5fa3690263718c4c4dc8f7110ba4a52528e063</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2282,9 +2282,9 @@ such structure has explicit validity.</p>
 <code>VkVideoFormatPropertiesKHR</code>, and structures extending or members of
 any of those structures.
 Specifies the type of a device limit.
-This type describes how a value might be compared with the value of a
+This type describes how a value should be compared with the value of a
 member in order to check whether it fits the limit.
-Valid values:</p>
+Valid <code>limittype</code> values are:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -2295,7 +2295,7 @@ They may also apply to arrays and <code>VkExtent*D</code>.</p>
 <p><code>"not"</code> specifies a feature is supported when false.</p>
 </li>
 <li>
-<p><code>"pot"</code> denotes a value that has to be a power of two value.
+<p><code>"pot"</code> denotes a value that must be a power of two.
 They may also apply to arrays and <code>VkExtent*D</code>.</p>
 </li>
 <li>
@@ -2306,17 +2306,17 @@ They may also apply to arrays and <code>VkExtent*D</code>.</p>
 <p><code>"bits"</code> corresponds to the bits precision of an implementation.</p>
 </li>
 <li>
-<p><code>"bitmask"</code> corresponds to bitmasks and <code>VkBool32</code>, where set bits
-indicate the presence of a capability</p>
+<p><code>"bitmask"</code> corresponds to bitmasks, where set bits indicate the
+presence of a capability.</p>
 </li>
 <li>
-<p><code>"range"</code> specifies a [min, max] range</p>
+<p><code>"range"</code> specifies a [min, max] range.</p>
 </li>
 <li>
 <p><code>"struct"</code> means that the member&#8217;s fields should be compared.</p>
 </li>
 <li>
-<p><code>"exact"</code> specifies a limit that must be a specific value.</p>
+<p><code>"exact"</code> specifies a limit that must exactly match the member value.</p>
 </li>
 <li>
 <p><code>"noauto"</code> limits cannot be trivially compared.
@@ -6028,6 +6028,10 @@ Changes to the <code>.xml</code> files and Python scripts are logged in GitHub h
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2025-02-19 - Clean up description of the <code>member</code> <code>limittype</code>
+<code>"exact"</code> value (internal MR 7142).</p>
+</li>
 <li>
 <p>2024-11-12 - Add <code>extension</code> <code>nofeatures</code> attribute to identify
 extensions which are known to not have <a href="#tag-required-feature">individual <code>feature</code> tags</a> (internal issue 3946).</p>

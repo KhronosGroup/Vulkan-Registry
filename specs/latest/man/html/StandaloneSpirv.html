@@ -948,6 +948,13 @@ in the fragment execution model</p>
 <code>OpMemoryBarrier</code> <strong class="purple">must</strong> include at least one <code>Storage</code> <code>Class</code></p>
 </li>
 <li>
+<p><a id="VUID-StandaloneSpirv-OpControlBarrier-10609" href="#VUID-StandaloneSpirv-OpControlBarrier-10609"></a> <span class="vuid">VUID-StandaloneSpirv-OpControlBarrier-10609</span><br>
+
+If the semantics for <code>OpControlBarrier</code> includes at least one
+<code>Storage</code> <code>Class</code>, then it <strong class="purple">must</strong> include one of <code>Acquire</code>, <code>Release</code>,
+<code>AcquireRelease</code>, or <code>SequentiallyConsistent</code> memory semantics</p>
+</li>
+<li>
 <p><a id="VUID-StandaloneSpirv-OpControlBarrier-04650" href="#VUID-StandaloneSpirv-OpControlBarrier-04650"></a> <span class="vuid">VUID-StandaloneSpirv-OpControlBarrier-04650</span><br>
 
 If the semantics for <code>OpControlBarrier</code> includes one of <code>Acquire</code>,

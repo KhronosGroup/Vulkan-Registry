@@ -847,12 +847,12 @@ typedef enum VkPipelineStageFlagBits {
     VK_PIPELINE_STAGE_FRAGMENT_DENSITY_PROCESS_BIT_EXT = 0x00800000,
   // Provided by VK_KHR_fragment_shading_rate
     VK_PIPELINE_STAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR = 0x00400000,
-  // Provided by VK_NV_device_generated_commands
-    VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_NV = 0x00020000,
   // Provided by VK_EXT_mesh_shader
     VK_PIPELINE_STAGE_TASK_SHADER_BIT_EXT = 0x00080000,
   // Provided by VK_EXT_mesh_shader
     VK_PIPELINE_STAGE_MESH_SHADER_BIT_EXT = 0x00100000,
+  // Provided by VK_EXT_device_generated_commands
+    VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_EXT = 0x00020000,
   // Provided by VK_NV_shading_rate_image
     VK_PIPELINE_STAGE_SHADING_RATE_IMAGE_BIT_NV = VK_PIPELINE_STAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR,
   // Provided by VK_NV_ray_tracing
@@ -863,10 +863,10 @@ typedef enum VkPipelineStageFlagBits {
     VK_PIPELINE_STAGE_TASK_SHADER_BIT_NV = VK_PIPELINE_STAGE_TASK_SHADER_BIT_EXT,
   // Provided by VK_NV_mesh_shader
     VK_PIPELINE_STAGE_MESH_SHADER_BIT_NV = VK_PIPELINE_STAGE_MESH_SHADER_BIT_EXT,
+  // Provided by VK_NV_device_generated_commands
+    VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_NV = VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_EXT,
   // Provided by VK_KHR_synchronization2
     VK_PIPELINE_STAGE_NONE_KHR = VK_PIPELINE_STAGE_NONE,
-  // Provided by VK_EXT_device_generated_commands
-    VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_EXT = VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_NV,
 } VkPipelineStageFlagBits;</code></pre>
 </div>
 </div>

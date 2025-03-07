@@ -1465,6 +1465,19 @@ device address containing a value obtained from
 <a href="vkGetAccelerationStructureDeviceAddressKHR.html">vkGetAccelerationStructureDeviceAddressKHR</a> or <code>0</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdBuildAccelerationStructuresIndirectKHR-pInfos-10607" href="#VUID-vkCmdBuildAccelerationStructuresIndirectKHR-pInfos-10607"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresIndirectKHR-pInfos-10607</span><br>
+
+For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
+<code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
+<code>VK_GEOMETRY_TYPE_INSTANCES_KHR</code>, if
+<code>VK_GEOMETRY_INSTANCE_DISABLE_OPACITY_MICROMAPS_EXT</code> is set in
+<a href="VkAccelerationStructureInstanceKHR.html">VkAccelerationStructureInstanceKHR</a>::<code>flags</code> then
+<code>geometry.instances.data.deviceAddress</code> <strong class="purple">must</strong> refer to an
+acceleration structure that was built with
+<code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_EXT</code>
+set in <a href="VkAccelerationStructureBuildGeometryInfoKHR.html">VkAccelerationStructureBuildGeometryInfoKHR</a>::<code>flags</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresIndirectKHR-commandBuffer-09547" href="#VUID-vkCmdBuildAccelerationStructuresIndirectKHR-commandBuffer-09547"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresIndirectKHR-commandBuffer-09547</span><br>
 
 <code>commandBuffer</code> <strong class="purple">must</strong> not be a protected command buffer</p>

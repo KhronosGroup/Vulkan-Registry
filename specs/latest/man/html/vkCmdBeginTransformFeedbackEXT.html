@@ -852,6 +852,14 @@ to start capturing vertex data.
 If the byte offset stored to the counter buffer location was done using
 <a href="vkCmdEndTransformFeedbackEXT.html">vkCmdEndTransformFeedbackEXT</a> it can be used to resume transform
 feedback from the previous location.
+In that case, a pipeline barrier is required between the calls to
+<code>vkCmdEndTransformFeedbackEXT</code> and
+<code>vkCmdBeginTransformFeedbackEXT</code>, with
+<code>VK_PIPELINE_STAGE_TRANSFORM_FEEDBACK_BIT_EXT</code> as the source and
+destination stages,
+<code>VK_ACCESS_TRANSFORM_FEEDBACK_COUNTER_WRITE_BIT_EXT</code> as the source
+access and <code>VK_ACCESS_TRANSFORM_FEEDBACK_COUNTER_READ_BIT_EXT</code> as
+the destination access.
 If <code>pCounterBuffers</code> is <code>NULL</code>, then transform feedback will start
 capturing vertex data to byte offset zero in all bound transform
 feedback buffers.
