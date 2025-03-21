@@ -847,10 +847,10 @@ typedef enum VkImageCreateFlagBits {
     VK_IMAGE_CREATE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_BIT_EXT = 0x00040000,
   // Provided by VK_EXT_image_2d_view_of_3d
     VK_IMAGE_CREATE_2D_VIEW_COMPATIBLE_BIT_EXT = 0x00020000,
-  // Provided by VK_QCOM_fragment_density_map_offset
-    VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_QCOM = 0x00008000,
   // Provided by VK_KHR_video_maintenance1
     VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR = 0x00100000,
+  // Provided by VK_EXT_fragment_density_map_offset
+    VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_EXT = 0x00008000,
   // Provided by VK_KHR_bind_memory2 with VK_KHR_device_group
     VK_IMAGE_CREATE_SPLIT_INSTANCE_BIND_REGIONS_BIT_KHR = VK_IMAGE_CREATE_SPLIT_INSTANCE_BIND_REGIONS_BIT,
   // Provided by VK_KHR_maintenance1
@@ -863,6 +863,8 @@ typedef enum VkImageCreateFlagBits {
     VK_IMAGE_CREATE_DISJOINT_BIT_KHR = VK_IMAGE_CREATE_DISJOINT_BIT,
   // Provided by VK_KHR_bind_memory2
     VK_IMAGE_CREATE_ALIAS_BIT_KHR = VK_IMAGE_CREATE_ALIAS_BIT,
+  // Provided by VK_QCOM_fragment_density_map_offset
+    VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_QCOM = VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_EXT,
 } VkImageCreateFlagBits;</code></pre>
 </div>
 </div>
@@ -1016,8 +1018,8 @@ the image is stored as a render pass attachment.</p>
 </div>
 </li>
 <li>
-<p><code>VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_QCOM</code> specifies
-that an image <strong class="purple">can</strong> be used in a render pass with non-zero
+<p><code>VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_EXT</code> specifies that
+an image <strong class="purple">can</strong> be used in a render pass with non-zero
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-fragmentdensitymapoffsets" target="_blank" rel="noopener">fragment density map offsets</a>.
 In a render pass with non-zero offsets, fragment density map
 attachments, input attachments, color attachments, depth/stencil

@@ -899,8 +899,8 @@ Therefore, if the returned <code>drmFormatModifier</code> is
 <code>DRM_FORMAT_MOD_LINEAR</code>, then <code>drmFormatModifierPlaneCount</code> <strong class="purple">must</strong>
 equal the <em>format planecount</em>, and <code>drmFormatModifierTilingFeatures</code>
 <strong class="purple">must</strong> be identical to the
-<a href="VkFormatProperties2.html">VkFormatProperties2</a>::<code>linearTilingFeatures</code> returned in the same
-<code>pNext</code> chain.</p>
+<a href="VkFormatProperties2.html">VkFormatProperties2</a>::<code>formatProperties.linearTilingFeatures</code>
+returned in the same <code>pNext</code> chain.</p>
 </div>
 <div class="paragraph">
 <p>If an image is <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-linear-resource" target="_blank" rel="noopener">non-linear</a>, then the partition

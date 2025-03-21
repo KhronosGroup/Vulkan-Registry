@@ -862,10 +862,10 @@ implementation <strong class="purple">should</strong> return the smallest alignm
 </div>
 <div class="paragraph">
 <p>If an implementation needs to disable image compression for
-<code>maximumRequestedAlignment</code> to be honored -
-where a larger alignment would enable image compression -
-the implementation <strong class="purple">should</strong> not use <code>maximumRequestedAlignment</code>, and
-<strong class="purple">should</strong> return the smallest alignment which does not compromise compression.
+<code>maximumRequestedAlignment</code> to be honored - where a larger alignment
+would enable image compression - the implementation <strong class="purple">should</strong> not use
+<code>maximumRequestedAlignment</code>, and <strong class="purple">should</strong> return the smallest alignment
+which does not compromise compression.
 If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-imageCompressionControl" target="_blank" rel="noopener"><code>imageCompressionControl</code></a>
 feature is enabled, the application <strong class="purple">can</strong> chain a
 <a href="VkImageCompressionControlEXT.html">VkImageCompressionControlEXT</a> with

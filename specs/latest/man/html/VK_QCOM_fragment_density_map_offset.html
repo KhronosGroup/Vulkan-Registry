@@ -817,7 +817,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_revision"><a class="anchor" href="#_revision"></a>Revision</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>2</p>
+<p>3</p>
 </div>
 </div>
 </div>
@@ -842,6 +842,20 @@ and<br>
 <a href="VK_EXT_fragment_density_map.html">VK_EXT_fragment_density_map</a><br></p>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deprecation_state"><a class="anchor" href="#_deprecation_state"></a>Deprecation State</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><em>Promoted</em> to
+<a href="VK_EXT_fragment_density_map_offset.html">VK_EXT_fragment_density_map_offset</a>
+extension</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -885,6 +899,9 @@ and<br>
 <li>
 <p>Manan Katwala, Qualcomm Technologies, Inc.</p>
 </li>
+<li>
+<p>Connor Abbott, Valve Corporation</p>
+</li>
 </ul>
 </div>
 </dd>
@@ -897,8 +914,10 @@ and<br>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This extension allows an application to specify offsets to a fragment
-density map attachment, changing the framebuffer location where density
-values are applied to without having to regenerate the fragment density map.</p>
+density map attachment, changing the location where the fragment density map
+is applied to the framebuffer.
+This is helpful for eye-tracking use cases where the fovea needs to be moved
+around the framebuffer to match the eye pose.</p>
 </div>
 </div>
 </div>
@@ -928,7 +947,7 @@ values are applied to without having to regenerate the fragment density map.</p>
 </div>
 </li>
 <li>
-<p>Extending <a href="VkSubpassEndInfo.html">VkSubpassEndInfo</a>:</p>
+<p>Extending <a href="VkSubpassEndInfo.html">VkSubpassEndInfo</a>, <a href="VkRenderingEndInfoEXT.html">VkRenderingEndInfoEXT</a>:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -990,10 +1009,8 @@ values are applied to without having to regenerate the fragment density map.</p>
 <div class="paragraph">
 <p>If the fragment density map size is larger than framebuffer size /
 <code>minFragmentDensityTexelSize</code>, then offsets may be applied with
-<a href="VkSubpassFragmentDensityMapOffsetEndInfoQCOM.html">VkSubpassFragmentDensityMapOffsetEndInfoQCOM</a> to shift the framebuffer
-inside of the density map image.
-This is helpful if apps want to reuse the same density map image to track
-content without editing the image.</p>
+<a href="VkSubpassFragmentDensityMapOffsetEndInfoQCOM.html">VkSubpassFragmentDensityMapOffsetEndInfoQCOM</a> to shift the fragment
+density map.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1037,7 +1054,7 @@ vkCmdBeginRenderPass2(commandBuffer, &amp;renderPassBeginInfo, pSubpassBeginInfo
 
      fdmImageRegion = fdmImage * texelSize = 2048x2048
 
-   This means that the framebuffer (1024x1024) can be shifted up to 1024x1024
+   This means that the fragment density map can be shifted up to 1024x1024
    before the density values are clamped to edge of map
 */
 VkSubpassFragmentDensityMapOffsetEndInfoQCOM offsetInfo =
@@ -1062,6 +1079,17 @@ vkCmdEndRenderPass2(VkCommandBuffer commandBuffer, &amp;subpassEndInfo);</code><
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>Revision 3, 2025-03-20 (Connor Abbott/Matthew Netsch)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix clamp equation and clarify the offsets are FDM relative (editorial
+only)</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p>Revision 2, 2024-06-17 (Matthew Netsch)</p>
 <div class="ulist">

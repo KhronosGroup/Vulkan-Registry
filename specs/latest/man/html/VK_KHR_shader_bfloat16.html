@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>VkPartitionedAccelerationStructureWriteInstanceDataNV(3)</title>
+<title>VK_KHR_shader_bfloat16(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,148 +796,258 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>VkPartitionedAccelerationStructureWriteInstanceDataNV(3) Manual Page</h1>
+<h1>VK_KHR_shader_bfloat16(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>VkPartitionedAccelerationStructureWriteInstanceDataNV - Structure describing instance data to write in PTLAS</p>
+<p>VK_KHR_shader_bfloat16 - device extension</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
 <!--ChunkedSearchboxMarker-->
 <div id="content" class="loadable" ><script>hideLoadableContent();</script>
 <div class="sect1">
-<h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
+<h2 id="_registered_extension_number"><a class="anchor" href="#_registered_extension_number"></a>Registered Extension Number</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <a href="VkPartitionedAccelerationStructureWriteInstanceDataNV.html">VkPartitionedAccelerationStructureWriteInstanceDataNV</a> structure is
-defined as:</p>
+<p>142</p>
 </div>
-<div id="VkPartitionedAccelerationStructureWriteInstanceDataNV" class="listingblock">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_revision"><a class="anchor" href="#_revision"></a>Revision</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>1</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ratification_status"><a class="anchor" href="#_ratification_status"></a>Ratification Status</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ratified</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extension_and_version_dependencies"><a class="anchor" href="#_extension_and_version_dependencies"></a>Extension and Version Dependencies</h2>
+<div class="sectionbody">
+<div class="openblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_NV_partitioned_acceleration_structure
-typedef struct VkPartitionedAccelerationStructureWriteInstanceDataNV {
-    VkTransformMatrixKHR                                 transform;
-    float                                                explicitAABB[6];
-    uint32_t                                             instanceID;
-    uint32_t                                             instanceMask;
-    uint32_t                                             instanceContributionToHitGroupIndex;
-    VkPartitionedAccelerationStructureInstanceFlagsNV    instanceFlags;
-    uint32_t                                             instanceIndex;
-    uint32_t                                             partitionIndex;
-    VkDeviceAddress                                      accelerationStructure;
-} VkPartitionedAccelerationStructureWriteInstanceDataNV;</code></pre>
+<div class="paragraph">
+<p><a href="VK_KHR_get_physical_device_properties2.html">VK_KHR_get_physical_device_properties2</a><br>
+or<br>
+<a href="#versions-1.1">Vulkan Version 1.1</a><br></p>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_members"><a class="anchor" href="#_members"></a>Members</h2>
+<h2 id="_api_interactions"><a class="anchor" href="#_api_interactions"></a>API Interactions</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><code>transform</code> is a <a href="VkTransformMatrixKHR.html">VkTransformMatrixKHR</a> structure describing the
-transformation to be applied to the instance in PTLAS.</p>
-</li>
-<li>
-<p><code>explicitAABB</code> specifies an axis aligned bounding box representing
-the maximum extent of any vertex within the used acceleration structure
-after applying the instance-to-world transformation.
-The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#ptlas-partition-translation" target="_blank" rel="noopener">partition translation</a> is not
-applied to the bounding box.</p>
-</li>
-<li>
-<p><code>instanceID</code> is a user specified constant assigned to an instance in
-the PTLAS.</p>
-</li>
-<li>
-<p><code>instanceMask</code> is a 8-bit mask assigned to the instance that <strong class="purple">may</strong> be
-used to include or reject group of instances.</p>
-</li>
-<li>
-<p><code>instanceContributionToHitGroupIndex</code> is a 24-bit per application
-specified instance value added in the indexing into the shader binding
-table to fetch the hit group to use.</p>
-</li>
-<li>
-<p><code>instanceFlags</code> is a bitmask of
-<a href="VkPartitionedAccelerationStructureInstanceFlagsNV.html">VkPartitionedAccelerationStructureInstanceFlagsNV</a> specifying flags
-an instance in the PTLAS.</p>
-</li>
-<li>
-<p><code>instanceIndex</code> is the index of the instance within the PTLAS.</p>
-</li>
-<li>
-<p><code>partitionIndex</code> is the index of the partition to which this
-instance belongs.
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#ptlas-global-partition" target="_blank" rel="noopener">Global partitions</a> are referred to by
-<code>VK_PARTITIONED_ACCELERATION_STRUCTURE_PARTITION_INDEX_GLOBAL_NV</code>.</p>
-</li>
-<li>
-<p><code>accelerationStructure</code> is the device address of the bottom level
-acceleration structure or a clustered bottom level acceleration
-structure that is being instanced.
-This instance is disabled if the device address is <code>0</code>.</p>
+<p>Interacts with VK_KHR_cooperative_matrix</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_spir_v_dependencies"><a class="anchor" href="#_spir_v_dependencies"></a>SPIR-V Dependencies</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.khronos.org/SPIRV-Registry/extensions/KHR/SPV_KHR_bfloat16.html">SPV_KHR_bfloat16</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_contact"><a class="anchor" href="#_contact"></a>Contact</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Tobias Hector <a href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=[VK_KHR_shader_bfloat16] @tobski%0A*Here describe the issue or question you have about the VK_KHR_shader_bfloat16 extension*" target="_blank" rel="nofollow noopener"><span class="icon black">[GitHub&#93;</span>tobski</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extension_proposal"><a class="anchor" href="#_extension_proposal"></a>Extension Proposal</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_KHR_shader_bfloat16.adoc">VK_KHR_shader_bfloat16</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_extension_metadata"><a class="anchor" href="#_other_extension_metadata"></a>Other Extension Metadata</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Last Modified Date</strong></dt>
+<dd>
+<p>2024-04-09</p>
+</dd>
+<dt class="hdlist1"><strong>IP Status</strong></dt>
+<dd>
+<p>No known IP claims.</p>
+</dd>
+<dt class="hdlist1"><strong>Contributors</strong></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Tobias Hector, AMD</p>
+</li>
+<li>
+<p>Stu Smith, AMD</p>
+</li>
+<li>
+<p>Jeff Bolz, Nvidia</p>
+</li>
+<li>
+<p>Kévin Petit, Arm</p>
+</li>
+<li>
+<p>David Neto, Google</p>
+</li>
+<li>
+<p>Graeme Leese, Broadcom</p>
+</li>
+<li>
+<p>Ruihao Zhang, Qualcomm</p>
+</li>
+<li>
+<p>Mark Sheppard, Imagination</p>
+</li>
+<li>
+<p>Ben Ashbaugh, Intel</p>
+</li>
+<li>
+<p>Dmitry Sidorov, Intel</p>
+</li>
+<li>
+<p>Victor Mustya, Intel</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Valid Usage</div>
+<div class="paragraph">
+<p>This extension enables support for bfloat16 (&#8220;brain float&#8221;) operations in
+shaders as defined in <code>SPV_KHR_bfloat16</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_structures"><a class="anchor" href="#_new_structures"></a>New Structures</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceMask-10566" href="#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceMask-10566"></a> <span class="vuid">VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceMask-10566</span><br>
-
-The most significant 24 bits of <code>instanceMask</code> <strong class="purple">must</strong> be <code>0</code></p>
-</li>
+<p>Extending <a href="VkPhysicalDeviceFeatures2.html">VkPhysicalDeviceFeatures2</a>, <a href="VkDeviceCreateInfo.html">VkDeviceCreateInfo</a>:</p>
+<div class="ulist">
+<ul>
 <li>
-<p><a id="VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceContributionToHitGroupIndex-10567" href="#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceContributionToHitGroupIndex-10567"></a> <span class="vuid">VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceContributionToHitGroupIndex-10567</span><br>
-
-The most significant 8 bits of <code>instanceContributionToHitGroupIndex</code>
-<strong class="purple">must</strong> be <code>0</code></p>
+<p><a href="VkPhysicalDeviceShaderBfloat16FeaturesKHR.html">VkPhysicalDeviceShaderBfloat16FeaturesKHR</a></p>
 </li>
-<li>
-<p><a id="VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceIndex-10568" href="#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceIndex-10568"></a> <span class="vuid">VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceIndex-10568</span><br>
-
-<code>instanceIndex</code> <strong class="purple">must</strong> be less than
-<a href="VkBuildPartitionedAccelerationStructureInfoNV.html">VkBuildPartitionedAccelerationStructureInfoNV</a>::<code>input</code>::<code>instanceCount</code></p>
-</li>
-<li>
-<p><a id="VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-partitionIndex-10569" href="#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-partitionIndex-10569"></a> <span class="vuid">VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-partitionIndex-10569</span><br>
-
-<code>partitionIndex</code> <strong class="purple">must</strong> be less than
-<a href="VkBuildPartitionedAccelerationStructureInfoNV.html">VkBuildPartitionedAccelerationStructureInfoNV</a>::<code>input</code>::<code>partitionCount</code></p>
-</li>
-<li>
-<p><a id="VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-explicitAABB-10570" href="#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-explicitAABB-10570"></a> <span class="vuid">VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-explicitAABB-10570</span><br>
-
-<code>explicitAABB</code> <strong class="purple">must</strong> be a valid bounding box if instance was created
-with flag
-<code>VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_ENABLE_EXPLICIT_BOUNDING_BOX_NV</code>
-set</p>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Valid Usage (Implicit)</div>
+<div class="sect1">
+<h2 id="_new_enum_constants"><a class="anchor" href="#_new_enum_constants"></a>New Enum Constants</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceFlags-parameter" href="#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceFlags-parameter"></a> <span class="vuid">VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceFlags-parameter</span><br>
- <code>instanceFlags</code> <strong class="purple">must</strong> be a valid combination of <a href="VkPartitionedAccelerationStructureInstanceFlagBitsNV.html">VkPartitionedAccelerationStructureInstanceFlagBitsNV</a> values</p>
+<p><code>VK_KHR_SHADER_BFLOAT16_EXTENSION_NAME</code></p>
+</li>
+<li>
+<p><code>VK_KHR_SHADER_BFLOAT16_SPEC_VERSION</code></p>
+</li>
+<li>
+<p>Extending <a href="VkStructureType.html">VkStructureType</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_BFLOAT16_FEATURES_KHR</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If <a href="VK_KHR_cooperative_matrix.html">VK_KHR_cooperative_matrix</a> is supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Extending <a href="VkComponentTypeKHR.html">VkComponentTypeKHR</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_COMPONENT_TYPE_BFLOAT16_KHR</code></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_new_spir_v_capabilities"><a class="anchor" href="#_new_spir_v_capabilities"></a>New SPIR-V Capabilities</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#spirvenv-capabilities-table-BFloat16TypeKHR" target="_blank" rel="noopener">BFloat16TypeKHR</a></p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#spirvenv-capabilities-table-BFloat16DotProductKHR" target="_blank" rel="noopener">BFloat16DotProductKHR</a></p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#spirvenv-capabilities-table-BFloat16CooperativeMatrixKHR" target="_blank" rel="noopener">BFloat16CooperativeMatrixKHR</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_version_history"><a class="anchor" href="#_version_history"></a>Version History</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Revision 1, 2024-04-09 (Stu Smith)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Initial draft</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -945,7 +1055,7 @@ set</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_NV_partitioned_acceleration_structure.html">VK_NV_partitioned_acceleration_structure</a>, <a href="VkDeviceAddress.html">VkDeviceAddress</a>, <a href="VkPartitionedAccelerationStructureInstanceFlagsNV.html">VkPartitionedAccelerationStructureInstanceFlagsNV</a>, <a href="VkTransformMatrixKHR.html">VkTransformMatrixKHR</a></p>
+<p>No cross-references are available</p>
 </div>
 </div>
 </div>
@@ -953,11 +1063,11 @@ set</p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPartitionedAccelerationStructureWriteInstanceDataNV" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_KHR_shader_bfloat16" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
-<p>This page is extracted from the Vulkan Specification.
-Fixes and changes should be made to the Specification, not directly.</p>
+<p>This page is a generated document.
+Fixes and changes should be made to the generator scripts, not directly.</p>
 </div>
 </div>
 </div>

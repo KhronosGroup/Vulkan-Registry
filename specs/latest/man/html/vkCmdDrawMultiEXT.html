@@ -1295,10 +1295,10 @@ image view&#8217;s <code>viewType</code> <strong class="purple">must</strong> ma
 <li>
 <p><a id="VUID-vkCmdDrawMultiEXT-format-07753" href="#VUID-vkCmdDrawMultiEXT-format-07753"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-format-07753</span><br>
 
-If a <a href="VkImageView.html">VkImageView</a> is accessed as a result of this command, then the
-<a href="#formats-numericformat">numeric type</a> of the image view&#8217;s <code>format</code>
-and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class="purple">must</strong>
-match</p>
+If a <a href="VkImageView.html">VkImageView</a> or <a href="VkBufferView.html">VkBufferView</a> is accessed as a result of
+this command, then the <a href="#formats-numericformat">numeric type</a> of the
+view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the
+<code>OpTypeImage</code> <strong class="purple">must</strong> match</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMultiEXT-OpImageWrite-08795" href="#VUID-vkCmdDrawMultiEXT-OpImageWrite-08795"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-OpImageWrite-08795</span><br>
@@ -3792,10 +3792,10 @@ the bound graphics pipeline state was created with the
 <code>VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_ENABLE_EXT</code> state enabled, and if
 <code>sampleLocationsEnable</code> was <code>VK_TRUE</code> in the last call to
 <a href="vkCmdSetSampleLocationsEnableEXT.html">vkCmdSetSampleLocationsEnableEXT</a>, then the
-<code>sampleLocationsInfo.sampleLocationGridSize.width</code> in the last call
-to <a href="vkCmdSetSampleLocationsEXT.html">vkCmdSetSampleLocationsEXT</a> <strong class="purple">must</strong> evenly divide
-<a href="VkMultisamplePropertiesEXT.html">VkMultisamplePropertiesEXT</a>::<code>sampleLocationGridSize.width</code> as
-returned by <a href="vkGetPhysicalDeviceMultisamplePropertiesEXT.html">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a
+<code>sampleLocationsInfo.maxSampleLocationGridSize.width</code> in the last
+call to <a href="vkCmdSetSampleLocationsEXT.html">vkCmdSetSampleLocationsEXT</a> <strong class="purple">must</strong> evenly divide
+<a href="VkMultisamplePropertiesEXT.html">VkMultisamplePropertiesEXT</a>::<code>maxSampleLocationGridSize.width</code>
+as returned by <a href="vkGetPhysicalDeviceMultisamplePropertiesEXT.html">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a
 <code>samples</code> parameter equaling <code>rasterizationSamples</code></p>
 </li>
 <li>
@@ -3809,10 +3809,10 @@ the bound graphics pipeline state was created with the
 <code>VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_ENABLE_EXT</code> state enabled, and if
 <code>sampleLocationsEnable</code> was <code>VK_TRUE</code> in the last call to
 <a href="vkCmdSetSampleLocationsEnableEXT.html">vkCmdSetSampleLocationsEnableEXT</a>, then the
-<code>sampleLocationsInfo.sampleLocationGridSize.height</code> in the last call
-to <a href="vkCmdSetSampleLocationsEXT.html">vkCmdSetSampleLocationsEXT</a> <strong class="purple">must</strong> evenly divide
-<a href="VkMultisamplePropertiesEXT.html">VkMultisamplePropertiesEXT</a>::<code>sampleLocationGridSize.height</code> as
-returned by <a href="vkGetPhysicalDeviceMultisamplePropertiesEXT.html">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a
+<code>sampleLocationsInfo.maxSampleLocationGridSize.height</code> in the last
+call to <a href="vkCmdSetSampleLocationsEXT.html">vkCmdSetSampleLocationsEXT</a> <strong class="purple">must</strong> evenly divide
+<a href="VkMultisamplePropertiesEXT.html">VkMultisamplePropertiesEXT</a>::<code>maxSampleLocationGridSize.height</code>
+as returned by <a href="vkGetPhysicalDeviceMultisamplePropertiesEXT.html">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a
 <code>samples</code> parameter equaling <code>rasterizationSamples</code></p>
 </li>
 <li>
@@ -3837,8 +3837,8 @@ If the bound graphics pipeline state was created with the
 <code>sampleLocationsEnable</code> is <code>VK_TRUE</code>, then
 <code>sampleLocationsInfo.sampleLocationGridSize.width</code> <strong class="purple">must</strong> evenly
 divide
-<a href="VkMultisamplePropertiesEXT.html">VkMultisamplePropertiesEXT</a>::<code>sampleLocationGridSize.width</code> as
-returned by <a href="vkGetPhysicalDeviceMultisamplePropertiesEXT.html">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a
+<a href="VkMultisamplePropertiesEXT.html">VkMultisamplePropertiesEXT</a>::<code>maxSampleLocationGridSize.width</code>
+as returned by <a href="vkGetPhysicalDeviceMultisamplePropertiesEXT.html">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a
 <code>samples</code> parameter equaling the value of <code>rasterizationSamples</code>
 in the last call to <a href="vkCmdSetRasterizationSamplesEXT.html">vkCmdSetRasterizationSamplesEXT</a></p>
 </li>
@@ -3852,8 +3852,8 @@ If the bound graphics pipeline state was created with the
 <code>sampleLocationsEnable</code> is <code>VK_TRUE</code>, then
 <code>sampleLocationsInfo.sampleLocationGridSize.height</code> <strong class="purple">must</strong> evenly
 divide
-<a href="VkMultisamplePropertiesEXT.html">VkMultisamplePropertiesEXT</a>::<code>sampleLocationGridSize.height</code> as
-returned by <a href="vkGetPhysicalDeviceMultisamplePropertiesEXT.html">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a
+<a href="VkMultisamplePropertiesEXT.html">VkMultisamplePropertiesEXT</a>::<code>maxSampleLocationGridSize.height</code>
+as returned by <a href="vkGetPhysicalDeviceMultisamplePropertiesEXT.html">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a
 <code>samples</code> parameter equaling the value of <code>rasterizationSamples</code>
 in the last call to <a href="vkCmdSetRasterizationSamplesEXT.html">vkCmdSetRasterizationSamplesEXT</a></p>
 </li>
@@ -4131,13 +4131,15 @@ stages whose shaders which did not create a shader with the
 <p><a id="VUID-vkCmdDrawMultiEXT-None-08878" href="#VUID-vkCmdDrawMultiEXT-None-08878"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-08878</span><br>
 
 All bound graphics shader objects <strong class="purple">must</strong> have been created with identical
-or identically defined push constant ranges</p>
+or <a href="#glossary-identically-defined">identically defined</a> push constant
+ranges</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMultiEXT-None-08879" href="#VUID-vkCmdDrawMultiEXT-None-08879"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-08879</span><br>
 
 All bound graphics shader objects <strong class="purple">must</strong> have been created with identical
-or identically defined arrays of descriptor set layouts</p>
+or <a href="#glossary-identically-defined">identically defined</a> arrays of
+descriptor set layouts</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMultiEXT-colorAttachmentCount-09372" href="#VUID-vkCmdDrawMultiEXT-colorAttachmentCount-09372"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-colorAttachmentCount-09372</span><br>

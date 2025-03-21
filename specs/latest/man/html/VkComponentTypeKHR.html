@@ -826,6 +826,8 @@ typedef enum VkComponentTypeKHR {
     VK_COMPONENT_TYPE_UINT16_KHR = 8,
     VK_COMPONENT_TYPE_UINT32_KHR = 9,
     VK_COMPONENT_TYPE_UINT64_KHR = 10,
+  // Provided by VK_KHR_cooperative_matrix with VK_KHR_shader_bfloat16
+    VK_COMPONENT_TYPE_BFLOAT16_KHR = 1000141000,
   // Provided by VK_NV_cooperative_vector
     VK_COMPONENT_TYPE_SINT8_PACKED_NV = 1000491000,
   // Provided by VK_NV_cooperative_vector
@@ -918,6 +920,10 @@ typedef VkComponentTypeKHR VkComponentTypeNV;</code></pre>
 <li>
 <p><code>VK_COMPONENT_TYPE_UINT64_KHR</code> corresponds to SPIR-V <code>OpTypeInt</code>
 64 0/1.</p>
+</li>
+<li>
+<p><code>VK_COMPONENT_TYPE_BFLOAT16_KHR</code> corresponds to SPIR-V
+<code>OpTypeFloat</code> 16 BFloat16KHR.</p>
 </li>
 <li>
 <p><code>VK_COMPONENT_TYPE_SINT8_PACKED_NV</code> corresponds to four 8-bit signed

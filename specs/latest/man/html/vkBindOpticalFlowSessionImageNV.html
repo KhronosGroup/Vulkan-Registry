@@ -809,7 +809,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To bind a vulkan image to an optical flow session object, call:</p>
+<p>To bind a Vulkan image to an optical flow session object, call:</p>
 </div>
 <div id="vkBindOpticalFlowSessionImageNV" class="listingblock">
 <div class="content">
@@ -846,9 +846,10 @@ bound.</p>
 <p><code>view</code> is a <a href="VkImageView.html">VkImageView</a> to be bound.</p>
 </li>
 <li>
-<p>layout <strong class="purple">must</strong> specify the layout that the image subresources accessible
-from <code>view</code> will be in at the time the optical flow vectors are
-calculated with <a href="vkCmdOpticalFlowExecuteNV.html">vkCmdOpticalFlowExecuteNV</a> on a <code>VkDevice</code>.</p>
+<p><code>layout</code> <strong class="purple">must</strong> specify the layout that the image subresources
+accessible from <code>view</code> will be in at the time the optical flow
+vectors are calculated with <a href="vkCmdOpticalFlowExecuteNV.html">vkCmdOpticalFlowExecuteNV</a> on a
+<code>VkDevice</code>.</p>
 </li>
 </ul>
 </div>

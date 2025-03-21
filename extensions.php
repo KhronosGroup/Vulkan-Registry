@@ -78,6 +78,7 @@
     <li> <a href="specs/latest/man/html/VK_KHR_sampler_ycbcr_conversion.html"> VK_KHR_sampler_ycbcr_conversion </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_separate_depth_stencil_layouts.html"> VK_KHR_separate_depth_stencil_layouts </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_shader_atomic_int64.html"> VK_KHR_shader_atomic_int64 </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_shader_bfloat16.html"> VK_KHR_shader_bfloat16 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_shader_clock.html"> VK_KHR_shader_clock </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_shader_draw_parameters.html"> VK_KHR_shader_draw_parameters </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_shader_expect_assume.html"> VK_KHR_shader_expect_assume </a> </li>
@@ -171,6 +172,7 @@
     <li> <a href="specs/latest/man/html/VK_EXT_filter_cubic.html"> VK_EXT_filter_cubic </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_fragment_density_map.html"> VK_EXT_fragment_density_map </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_fragment_density_map2.html"> VK_EXT_fragment_density_map2 </a> </li>
+    <li> <a href="specs/latest/man/html/VK_EXT_fragment_density_map_offset.html"> VK_EXT_fragment_density_map_offset </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_fragment_shader_interlock.html"> VK_EXT_fragment_shader_interlock </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_frame_boundary.html"> VK_EXT_frame_boundary </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_full_screen_exclusive.html"> VK_EXT_full_screen_exclusive </a> </li>

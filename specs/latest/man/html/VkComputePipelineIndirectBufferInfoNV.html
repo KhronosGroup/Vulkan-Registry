@@ -889,8 +889,8 @@ The pipeline creation flags in
 <p><a id="VUID-VkComputePipelineIndirectBufferInfoNV-deviceAddress-09011" href="#VUID-VkComputePipelineIndirectBufferInfoNV-deviceAddress-09011"></a> <span class="vuid">VUID-VkComputePipelineIndirectBufferInfoNV-deviceAddress-09011</span><br>
 
 <code>deviceAddress</code> <strong class="purple">must</strong> be aligned to the
-<a href="VkMemoryRequirements2.html">VkMemoryRequirements2</a>::<code>alignment</code>, as returned by
-<a href="vkGetPipelineIndirectMemoryRequirementsNV.html">vkGetPipelineIndirectMemoryRequirementsNV</a></p>
+<a href="VkMemoryRequirements2.html">VkMemoryRequirements2</a>::<code>memoryRequirements.alignment</code>, as
+returned by <a href="vkGetPipelineIndirectMemoryRequirementsNV.html">vkGetPipelineIndirectMemoryRequirementsNV</a></p>
 </li>
 <li>
 <p><a id="VUID-VkComputePipelineIndirectBufferInfoNV-deviceAddress-09012" href="#VUID-VkComputePipelineIndirectBufferInfoNV-deviceAddress-09012"></a> <span class="vuid">VUID-VkComputePipelineIndirectBufferInfoNV-deviceAddress-09012</span><br>
@@ -903,8 +903,8 @@ created with usage <code>VK_BUFFER_USAGE_TRANSFER_DST_BIT</code> and
 <p><a id="VUID-VkComputePipelineIndirectBufferInfoNV-size-09013" href="#VUID-VkComputePipelineIndirectBufferInfoNV-size-09013"></a> <span class="vuid">VUID-VkComputePipelineIndirectBufferInfoNV-size-09013</span><br>
 
 <code>size</code> <strong class="purple">must</strong> be greater than or equal to the
-<a href="VkMemoryRequirements2.html">VkMemoryRequirements2</a>::<code>size</code>, as returned by
-<a href="vkGetPipelineIndirectMemoryRequirementsNV.html">vkGetPipelineIndirectMemoryRequirementsNV</a></p>
+<a href="VkMemoryRequirements2.html">VkMemoryRequirements2</a>::<code>memoryRequirements.size</code>, as returned
+by <a href="vkGetPipelineIndirectMemoryRequirementsNV.html">vkGetPipelineIndirectMemoryRequirementsNV</a></p>
 </li>
 <li>
 <p><a id="VUID-VkComputePipelineIndirectBufferInfoNV-pipelineDeviceAddressCaptureReplay-09014" href="#VUID-VkComputePipelineIndirectBufferInfoNV-pipelineDeviceAddressCaptureReplay-09014"></a> <span class="vuid">VUID-VkComputePipelineIndirectBufferInfoNV-pipelineDeviceAddressCaptureReplay-09014</span><br>

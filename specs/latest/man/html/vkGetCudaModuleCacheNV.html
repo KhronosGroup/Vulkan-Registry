@@ -893,6 +893,27 @@ architecture, this cache <strong class="purple">may</strong> become invalid.</p>
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This query does not behave consistently with the behavior described in
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fundamentals-binaryresults" target="_blank" rel="noopener">Opaque Binary Data Results</a>, for historical
+reasons.</p>
+</div>
+<div class="paragraph">
+<p>If the amount of data available is larger than the passed <code>pDataSize</code>,
+the query returns a <code>VK_INCOMPLETE</code> success status instead of a
+<code>VK_ERROR_NOT_ENOUGH_SPACE_KHR</code> error status.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage (Implicit)</div>

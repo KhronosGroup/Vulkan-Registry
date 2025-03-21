@@ -1831,6 +1831,13 @@ The <code>Storage</code> <code>Class</code> of the <code>Pointer</code> operand 
 <code>PhysicalStorageBuffer</code></p>
 </li>
 <li>
+<p><a id="VUID-StandaloneSpirv-OpTypeFloat-10370" href="#VUID-StandaloneSpirv-OpTypeFloat-10370"></a> <span class="vuid">VUID-StandaloneSpirv-OpTypeFloat-10370</span><br>
+
+Variables with a type of <code>OpTypeFloat</code> and an encoding of
+<code>BFloat16KHR</code> <strong class="purple">must</strong> not be declared with a <code>Storage</code> <code>Class</code> of
+<code>Input</code> or <code>Output</code></p>
+</li>
+<li>
 <p><a id="VUID-StandaloneSpirv-UniformBufferArrayDynamicIndexing-10127" href="#VUID-StandaloneSpirv-UniformBufferArrayDynamicIndexing-10127"></a> <span class="vuid">VUID-StandaloneSpirv-UniformBufferArrayDynamicIndexing-10127</span><br>
 
 If the <code>UniformBufferArrayDynamicIndexing</code> capability is not

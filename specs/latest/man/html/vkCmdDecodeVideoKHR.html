@@ -928,8 +928,8 @@ picture.</p>
 <div id="decode-ref-pic-setup" class="paragraph">
 <p>Specifying a valid <a href="VkVideoReferenceSlotInfoKHR.html">VkVideoReferenceSlotInfoKHR</a> structure in
 <code>pDecodeInfo-&gt;pSetupReferenceSlot</code> is always required, unless the video
-session was created with <a href="VkVideoSessionCreateInfoKHR.html">VkVideoSessionCreateInfoKHR</a>::<code>maxDpbSlot</code>
-equal to zero.
+session was created with
+<a href="VkVideoSessionCreateInfoKHR.html">VkVideoSessionCreateInfoKHR</a>::<code>maxDpbSlots</code> equal to zero.
 However, the DPB slot identified by
 <code>pDecodeInfo-&gt;pSetupReferenceSlot-&gt;slotIndex</code> is only
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#dpb-slot-states" target="_blank" rel="noopener">activated</a> with the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#reconstructed-picture" target="_blank" rel="noopener">reconstructed

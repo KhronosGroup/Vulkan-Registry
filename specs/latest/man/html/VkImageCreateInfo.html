@@ -1789,7 +1789,7 @@ handle types specified in
 If the <code>pNext</code> chain includes a
 <a href="VkExternalMemoryImageCreateInfoNV.html">VkExternalMemoryImageCreateInfoNV</a> structure, its <code>handleTypes</code>
 member <strong class="purple">must</strong> only contain bits that are also in
-<a href="VkExternalImageFormatPropertiesNV.html">VkExternalImageFormatPropertiesNV</a>::<code>externalMemoryProperties.compatibleHandleTypes</code>,
+<a href="VkExternalImageFormatPropertiesNV.html">VkExternalImageFormatPropertiesNV</a>::<code>externalMemoryFeatures.compatibleHandleTypes</code>,
 as returned by <a href="vkGetPhysicalDeviceExternalImageFormatPropertiesNV.html">vkGetPhysicalDeviceExternalImageFormatPropertiesNV</a>
 with <code>format</code>, <code>imageType</code>, <code>tiling</code>, <code>usage</code>, and
 <code>flags</code> equal to those in this structure, and with

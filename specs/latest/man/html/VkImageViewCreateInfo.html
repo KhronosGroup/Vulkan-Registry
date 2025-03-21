@@ -981,8 +981,9 @@ create the sampler <strong class="purple">must</strong> be passed to <a href="vk
 <a href="VkSamplerYcbcrConversionInfo.html">VkSamplerYcbcrConversionInfo</a> included in the <code>pNext</code> chain of
 <a href="VkImageViewCreateInfo.html">VkImageViewCreateInfo</a>.
 Conversely, if a <a href="VkSamplerYcbcrConversion.html">VkSamplerYcbcrConversion</a> object is passed to
-<a href="vkCreateImageView.html">vkCreateImageView</a>, an identically defined
-<a href="VkSamplerYcbcrConversion.html">VkSamplerYcbcrConversion</a> object <strong class="purple">must</strong> be used when sampling the image.</p>
+<a href="vkCreateImageView.html">vkCreateImageView</a>, an <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically
+defined</a> <a href="VkSamplerYcbcrConversion.html">VkSamplerYcbcrConversion</a> object <strong class="purple">must</strong> be used when sampling
+the image.</p>
 </div>
 <div id="image-views-requiring-sampler-ycbcr-conversion" class="paragraph">
 <p>If the image has a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-multiplanar" target="_blank" rel="noopener">multi-planar format</a>,

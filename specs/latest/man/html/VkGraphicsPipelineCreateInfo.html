@@ -1818,8 +1818,8 @@ If the pipeline requires <a href="https://registry.khronos.org/vulkan/specs/late
 included in the <code>pNext</code> chain of <code>pMultisampleState</code> is
 <code>VK_TRUE</code>, <code>sampleLocationsInfo.sampleLocationGridSize.width</code>
 <strong class="purple">must</strong> evenly divide
-<a href="VkMultisamplePropertiesEXT.html">VkMultisamplePropertiesEXT</a>::<code>sampleLocationGridSize.width</code> as
-returned by <a href="vkGetPhysicalDeviceMultisamplePropertiesEXT.html">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a
+<a href="VkMultisamplePropertiesEXT.html">VkMultisamplePropertiesEXT</a>::<code>maxSampleLocationGridSize.width</code>
+as returned by <a href="vkGetPhysicalDeviceMultisamplePropertiesEXT.html">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a
 <code>samples</code> parameter equaling <code>rasterizationSamples</code></p>
 </li>
 <li>
@@ -1832,8 +1832,8 @@ the included in the <code>pNext</code> chain of <code>pMultisampleState</code> i
 <code>VK_TRUE</code> or <code>VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_ENABLE_EXT</code> is
 used, <code>sampleLocationsInfo.sampleLocationGridSize.height</code> <strong class="purple">must</strong>
 evenly divide
-<a href="VkMultisamplePropertiesEXT.html">VkMultisamplePropertiesEXT</a>::<code>sampleLocationGridSize.height</code> as
-returned by <a href="vkGetPhysicalDeviceMultisamplePropertiesEXT.html">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a
+<a href="VkMultisamplePropertiesEXT.html">VkMultisamplePropertiesEXT</a>::<code>maxSampleLocationGridSize.height</code>
+as returned by <a href="vkGetPhysicalDeviceMultisamplePropertiesEXT.html">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a
 <code>samples</code> parameter equaling <code>rasterizationSamples</code></p>
 </li>
 <li>
@@ -3385,7 +3385,8 @@ another element includes
 <code>VK_GRAPHICS_PIPELINE_LIBRARY_FRAGMENT_SHADER_BIT_EXT</code>, and the
 <code>layout</code> specified by either library was not created with
 <code>VK_PIPELINE_LAYOUT_CREATE_INDEPENDENT_SETS_BIT_EXT</code>, then the
-<code>layout</code> used by each library <strong class="purple">must</strong> be <em>identically defined</em></p>
+<code>layout</code> used by each library <strong class="purple">must</strong> be
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically defined</a></p>
 </li>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-flags-06614" href="#VUID-VkGraphicsPipelineCreateInfo-flags-06614"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-flags-06614</span><br>
@@ -3424,8 +3425,9 @@ of <a href="VkPipelineLibraryCreateInfoKHR.html">VkPipelineLibraryCreateInfoKHR<
 other subset, and <code>layout</code> was created with
 <code>VK_PIPELINE_LAYOUT_CREATE_INDEPENDENT_SETS_BIT_EXT</code>, elements of
 the <code>pSetLayouts</code> array which <code>layout</code> was created with that are
-not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> <strong class="purple">must</strong> be <em>identically defined</em> to the element
-at the same index of <code>pSetLayouts</code> used to create the library&#8217;s
+not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> <strong class="purple">must</strong> be
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically defined</a> to the element at
+the same index of <code>pSetLayouts</code> used to create the library&#8217;s
 <code>layout</code></p>
 </li>
 <li>
@@ -3439,9 +3441,10 @@ another element includes
 <code>layout</code> specified by either library was created with
 <code>VK_PIPELINE_LAYOUT_CREATE_INDEPENDENT_SETS_BIT_EXT</code>, elements of
 the <code>pSetLayouts</code> array which either <code>layout</code> was created with
-that are not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> <strong class="purple">must</strong> be <em>identically defined</em> to the
-element at the same index of <code>pSetLayouts</code> used to create the other
-library&#8217;s <code>layout</code></p>
+that are not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> <strong class="purple">must</strong> be
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically defined</a> to the element at
+the same index of <code>pSetLayouts</code> used to create the other library&#8217;s
+<code>layout</code></p>
 </li>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-flags-06618" href="#VUID-VkGraphicsPipelineCreateInfo-flags-06618"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-flags-06618</span><br>
@@ -3466,7 +3469,7 @@ another element includes
 <code>VK_GRAPHICS_PIPELINE_LIBRARY_FRAGMENT_SHADER_BIT_EXT</code>, any
 descriptor set layout <em>N</em> specified by <code>layout</code> in both libraries
 which include bindings accessed by shader stages in each <strong class="purple">must</strong> be
-<em>identically defined</em></p>
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically defined</a></p>
 </li>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-flags-06620" href="#VUID-VkGraphicsPipelineCreateInfo-flags-06620"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-flags-06620</span><br>
@@ -3478,7 +3481,7 @@ only one of
 element of <a href="VkPipelineLibraryCreateInfoKHR.html">VkPipelineLibraryCreateInfoKHR</a>::<code>pLibraries</code>
 includes the other flag, push constants specified in <code>layout</code> in
 both this pipeline and the library which are available to shader stages
-in each <strong class="purple">must</strong> be <em>identically defined</em></p>
+in each <strong class="purple">must</strong> be <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically defined</a></p>
 </li>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-pLibraries-06621" href="#VUID-VkGraphicsPipelineCreateInfo-pLibraries-06621"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-pLibraries-06621</span><br>
@@ -3490,7 +3493,7 @@ another element includes
 <code>VK_GRAPHICS_PIPELINE_LIBRARY_FRAGMENT_SHADER_BIT_EXT</code>, push
 constants specified in <code>layout</code> in both this pipeline and the
 library which are available to shader stages in each <strong class="purple">must</strong> be
-<em>identically defined</em></p>
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically defined</a></p>
 </li>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-flags-06679" href="#VUID-VkGraphicsPipelineCreateInfo-flags-06679"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-flags-06679</span><br>
@@ -3709,7 +3712,8 @@ If <a href="VkGraphicsPipelineLibraryCreateInfoEXT.html">VkGraphicsPipelineLibra
 <code>pMultisampleState</code> that was not <code>NULL</code>, and an element of
 <a href="VkPipelineLibraryCreateInfoKHR.html">VkPipelineLibraryCreateInfoKHR</a>::<code>pLibraries</code> was created with
 <code>VK_GRAPHICS_PIPELINE_LIBRARY_FRAGMENT_OUTPUT_INTERFACE_BIT_EXT</code>,
-<code>pMultisampleState</code> <strong class="purple">must</strong> be <em>identically defined</em> to that used to
+<code>pMultisampleState</code> <strong class="purple">must</strong> be
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically defined</a> to that used to
 create the library</p>
 </li>
 <li>
@@ -3721,7 +3725,8 @@ was created with
 <code>pMultisampleState</code> that was not <code>NULL</code>, and if
 <a href="VkGraphicsPipelineLibraryCreateInfoEXT.html">VkGraphicsPipelineLibraryCreateInfoEXT</a>::<code>flags</code> includes
 <code>VK_GRAPHICS_PIPELINE_LIBRARY_FRAGMENT_OUTPUT_INTERFACE_BIT_EXT</code>,
-<code>pMultisampleState</code> <strong class="purple">must</strong> be <em>identically defined</em> to that used to
+<code>pMultisampleState</code> <strong class="purple">must</strong> be
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically defined</a> to that used to
 create the library</p>
 </li>
 <li>
@@ -3735,7 +3740,7 @@ of <a href="VkPipelineLibraryCreateInfoKHR.html">VkPipelineLibraryCreateInfoKHR<
 with
 <code>VK_GRAPHICS_PIPELINE_LIBRARY_FRAGMENT_OUTPUT_INTERFACE_BIT_EXT</code>,
 the <code>pMultisampleState</code> used to create each library <strong class="purple">must</strong> be
-<em>identically defined</em></p>
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically defined</a></p>
 </li>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-pLibraries-06636" href="#VUID-VkGraphicsPipelineCreateInfo-pLibraries-06636"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-pLibraries-06636</span><br>
@@ -3748,7 +3753,7 @@ a value of <code>pMultisampleState-&gt;sampleShadingEnable</code> equal
 <a href="VkPipelineLibraryCreateInfoKHR.html">VkPipelineLibraryCreateInfoKHR</a>::<code>pLibraries</code> was created with
 <code>VK_GRAPHICS_PIPELINE_LIBRARY_FRAGMENT_SHADER_BIT_EXT</code>, the
 <code>pMultisampleState</code> used to create each library <strong class="purple">must</strong> be
-<em>identically defined</em></p>
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically defined</a></p>
 </li>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-flags-06637" href="#VUID-VkGraphicsPipelineCreateInfo-flags-06637"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-flags-06637</span><br>
@@ -3758,7 +3763,8 @@ If <a href="VkGraphicsPipelineLibraryCreateInfoEXT.html">VkGraphicsPipelineLibra
 <code>pMultisampleState-&gt;sampleShadingEnable</code> is <code>VK_TRUE</code>, and an
 element of <a href="VkPipelineLibraryCreateInfoKHR.html">VkPipelineLibraryCreateInfoKHR</a>::<code>pLibraries</code> was
 created with <code>VK_GRAPHICS_PIPELINE_LIBRARY_FRAGMENT_SHADER_BIT_EXT</code>,
-<code>pMultisampleState</code> <strong class="purple">must</strong> be <em>identically defined</em> to that used to
+<code>pMultisampleState</code> <strong class="purple">must</strong> be
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically defined</a> to that used to
 create the library</p>
 </li>
 <li>
@@ -3771,7 +3777,8 @@ a value of <code>pMultisampleState-&gt;sampleShadingEnable</code> equal
 <code>VK_TRUE</code>, and if
 <a href="VkGraphicsPipelineLibraryCreateInfoEXT.html">VkGraphicsPipelineLibraryCreateInfoEXT</a>::<code>flags</code> includes
 <code>VK_GRAPHICS_PIPELINE_LIBRARY_FRAGMENT_SHADER_BIT_EXT</code>,
-<code>pMultisampleState</code> <strong class="purple">must</strong> be <em>identically defined</em> to that used to
+<code>pMultisampleState</code> <strong class="purple">must</strong> be
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically defined</a> to that used to
 create the library</p>
 </li>
 <li>
@@ -4467,8 +4474,8 @@ state</a>, <code>renderPass</code> is <a href="VK_NULL_HANDLE.html">VK_NULL_HAND
 <a href="VkExternalFormatANDROID.html">VkExternalFormatANDROID</a>::<code>externalFormat</code> is not <code>0</code>, and
 <code>pDynamicState-&gt;pDynamicStates</code> does not include
 <code>VK_DYNAMIC_STATE_FRAGMENT_SHADING_RATE_KHR</code>,
-<a href="VkPipelineFragmentShadingRateStateCreateInfoKHR.html">VkPipelineFragmentShadingRateStateCreateInfoKHR</a>::<code>width</code> <strong class="purple">must</strong>
-be <code>1</code></p>
+<a href="VkPipelineFragmentShadingRateStateCreateInfoKHR.html">VkPipelineFragmentShadingRateStateCreateInfoKHR</a>::<code>fragmentSize.width</code>
+<strong class="purple">must</strong> be <code>1</code></p>
 </li>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-externalFormatResolve-09307" href="#VUID-VkGraphicsPipelineCreateInfo-externalFormatResolve-09307"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-externalFormatResolve-09307</span><br>
@@ -4480,7 +4487,7 @@ state</a>, <code>renderPass</code> is <a href="VK_NULL_HANDLE.html">VK_NULL_HAND
 <a href="VkExternalFormatANDROID.html">VkExternalFormatANDROID</a>::<code>externalFormat</code> is not <code>0</code>, and
 <code>pDynamicState-&gt;pDynamicStates</code> does not include
 <code>VK_DYNAMIC_STATE_FRAGMENT_SHADING_RATE_KHR</code>,
-<a href="VkPipelineFragmentShadingRateStateCreateInfoKHR.html">VkPipelineFragmentShadingRateStateCreateInfoKHR</a>::<code>height</code>
+<a href="VkPipelineFragmentShadingRateStateCreateInfoKHR.html">VkPipelineFragmentShadingRateStateCreateInfoKHR</a>::<code>fragmentSize.height</code>
 <strong class="purple">must</strong> be <code>1</code></p>
 </li>
 <li>
@@ -4552,8 +4559,8 @@ state</a>, <code>renderPass</code> is not <a href="VK_NULL_HANDLE.html">VK_NULL_
 includes an external format resolve attachment, and
 <code>pDynamicState-&gt;pDynamicStates</code> does not include
 <code>VK_DYNAMIC_STATE_FRAGMENT_SHADING_RATE_KHR</code>,
-<a href="VkPipelineFragmentShadingRateStateCreateInfoKHR.html">VkPipelineFragmentShadingRateStateCreateInfoKHR</a>::<code>width</code> <strong class="purple">must</strong>
-be <code>1</code></p>
+<a href="VkPipelineFragmentShadingRateStateCreateInfoKHR.html">VkPipelineFragmentShadingRateStateCreateInfoKHR</a>::<code>fragmentSize.width</code>
+<strong class="purple">must</strong> be <code>1</code></p>
 </li>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-externalFormatResolve-09316" href="#VUID-VkGraphicsPipelineCreateInfo-externalFormatResolve-09316"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-externalFormatResolve-09316</span><br>
@@ -4565,7 +4572,7 @@ state</a>, <code>renderPass</code> is not <a href="VK_NULL_HANDLE.html">VK_NULL_
 includes an external format resolve attachment, and
 <code>pDynamicState-&gt;pDynamicStates</code> does not include
 <code>VK_DYNAMIC_STATE_FRAGMENT_SHADING_RATE_KHR</code>,
-<a href="VkPipelineFragmentShadingRateStateCreateInfoKHR.html">VkPipelineFragmentShadingRateStateCreateInfoKHR</a>::<code>height</code>
+<a href="VkPipelineFragmentShadingRateStateCreateInfoKHR.html">VkPipelineFragmentShadingRateStateCreateInfoKHR</a>::<code>fragmentSize.height</code>
 <strong class="purple">must</strong> be <code>1</code></p>
 </li>
 <li>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>VkPartitionedAccelerationStructureWriteInstanceDataNV(3)</title>
+<title>VkRenderPassFragmentDensityMapOffsetEndInfoEXT(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,10 +796,10 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>VkPartitionedAccelerationStructureWriteInstanceDataNV(3) Manual Page</h1>
+<h1>VkRenderPassFragmentDensityMapOffsetEndInfoEXT(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>VkPartitionedAccelerationStructureWriteInstanceDataNV - Structure describing instance data to write in PTLAS</p>
+<p>VkRenderPassFragmentDensityMapOffsetEndInfoEXT - Structure specifying fragment density map offset subpass end information</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -808,24 +808,35 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <div class="sect1">
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
+<div id="renderpass-fragmentdensitymapoffsets" class="paragraph">
+<p>If the <a href="VkSubpassEndInfo.html">VkSubpassEndInfo</a>::<code>pNext</code> chain
+or <a href="VkRenderingEndInfoEXT.html">VkRenderingEndInfoEXT</a>::<code>pNext</code> chain
+includes a <code>VkRenderPassFragmentDensityMapOffsetEndInfoEXT</code> structure,
+then that structure includes an array of fragment density map offsets per
+layer for the render pass.</p>
+</div>
 <div class="paragraph">
-<p>The <a href="VkPartitionedAccelerationStructureWriteInstanceDataNV.html">VkPartitionedAccelerationStructureWriteInstanceDataNV</a> structure is
+<p>The <code>VkRenderPassFragmentDensityMapOffsetEndInfoEXT</code> structure is
 defined as:</p>
 </div>
-<div id="VkPartitionedAccelerationStructureWriteInstanceDataNV" class="listingblock">
+<div id="VkRenderPassFragmentDensityMapOffsetEndInfoEXT" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_NV_partitioned_acceleration_structure
-typedef struct VkPartitionedAccelerationStructureWriteInstanceDataNV {
-    VkTransformMatrixKHR                                 transform;
-    float                                                explicitAABB[6];
-    uint32_t                                             instanceID;
-    uint32_t                                             instanceMask;
-    uint32_t                                             instanceContributionToHitGroupIndex;
-    VkPartitionedAccelerationStructureInstanceFlagsNV    instanceFlags;
-    uint32_t                                             instanceIndex;
-    uint32_t                                             partitionIndex;
-    VkDeviceAddress                                      accelerationStructure;
-} VkPartitionedAccelerationStructureWriteInstanceDataNV;</code></pre>
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_EXT_fragment_density_map_offset
+typedef struct VkRenderPassFragmentDensityMapOffsetEndInfoEXT {
+    VkStructureType      sType;
+    const void*          pNext;
+    uint32_t             fragmentDensityOffsetCount;
+    const VkOffset2D*    pFragmentDensityOffsets;
+} VkRenderPassFragmentDensityMapOffsetEndInfoEXT;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or the equivalent:</p>
+</div>
+<div id="VkSubpassFragmentDensityMapOffsetEndInfoQCOM" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_QCOM_fragment_density_map_offset
+typedef VkRenderPassFragmentDensityMapOffsetEndInfoEXT VkSubpassFragmentDensityMapOffsetEndInfoQCOM;</code></pre>
 </div>
 </div>
 </div>
@@ -836,48 +847,19 @@ typedef struct VkPartitionedAccelerationStructureWriteInstanceDataNV {
 <div class="ulist">
 <ul>
 <li>
-<p><code>transform</code> is a <a href="VkTransformMatrixKHR.html">VkTransformMatrixKHR</a> structure describing the
-transformation to be applied to the instance in PTLAS.</p>
+<p><code>sType</code> is a <a href="VkStructureType.html">VkStructureType</a> value identifying this structure.</p>
 </li>
 <li>
-<p><code>explicitAABB</code> specifies an axis aligned bounding box representing
-the maximum extent of any vertex within the used acceleration structure
-after applying the instance-to-world transformation.
-The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#ptlas-partition-translation" target="_blank" rel="noopener">partition translation</a> is not
-applied to the bounding box.</p>
+<p><code>pNext</code> is <code>NULL</code> or a pointer to a structure extending this
+structure.</p>
 </li>
 <li>
-<p><code>instanceID</code> is a user specified constant assigned to an instance in
-the PTLAS.</p>
+<p><code>fragmentDensityOffsetCount</code> is the number of offsets being
+specified.</p>
 </li>
 <li>
-<p><code>instanceMask</code> is a 8-bit mask assigned to the instance that <strong class="purple">may</strong> be
-used to include or reject group of instances.</p>
-</li>
-<li>
-<p><code>instanceContributionToHitGroupIndex</code> is a 24-bit per application
-specified instance value added in the indexing into the shader binding
-table to fetch the hit group to use.</p>
-</li>
-<li>
-<p><code>instanceFlags</code> is a bitmask of
-<a href="VkPartitionedAccelerationStructureInstanceFlagsNV.html">VkPartitionedAccelerationStructureInstanceFlagsNV</a> specifying flags
-an instance in the PTLAS.</p>
-</li>
-<li>
-<p><code>instanceIndex</code> is the index of the instance within the PTLAS.</p>
-</li>
-<li>
-<p><code>partitionIndex</code> is the index of the partition to which this
-instance belongs.
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#ptlas-global-partition" target="_blank" rel="noopener">Global partitions</a> are referred to by
-<code>VK_PARTITIONED_ACCELERATION_STRUCTURE_PARTITION_INDEX_GLOBAL_NV</code>.</p>
-</li>
-<li>
-<p><code>accelerationStructure</code> is the device address of the bottom level
-acceleration structure or a clustered bottom level acceleration
-structure that is being instanced.
-This instance is disabled if the device address is <code>0</code>.</p>
+<p><code>pFragmentDensityOffsets</code> is a pointer to an array of
+<a href="VkOffset2D.html">VkOffset2D</a> structs, each of which describes the offset per layer.</p>
 </li>
 </ul>
 </div>
@@ -886,41 +868,119 @@ This instance is disabled if the device address is <code>0</code>.</p>
 <div class="sect1">
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The array elements are given per <code>layer</code> as defined by
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fragmentdensitymap-fetch-density-value" target="_blank" rel="noopener">Fetch Density Value</a>, where
+<span class="eq">index = layer</span>.
+Each <span class="eq">(x,y)</span> offset is in framebuffer pixels and shifts the fetch of the
+fragment density map by that amount.
+Offsets can be positive or negative.</p>
+</div>
+<div class="paragraph">
+<p>Offset values specified for any subpass that is not the last subpass in the
+render pass are ignored.
+If neither the <a href="VkSubpassEndInfo.html">VkSubpassEndInfo</a>::<code>pNext</code> chain for the last
+subpass of a render pass nor the <a href="VkRenderingEndInfoEXT.html">VkRenderingEndInfoEXT</a>::<code>pNext</code>
+chain of a dynamic render pass include
+<code>VkRenderPassFragmentDensityMapOffsetEndInfoEXT</code>, or if
+<code>fragmentDensityOffsetCount</code> is zero, then the offset <span class="eq">(0,0)</span> is
+used for <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fragmentdensitymap-fetch-density-value" target="_blank" rel="noopener">Fetch Density Value</a>.</p>
+</div>
+<div class="paragraph">
+<p>If the render pass instance was begun with
+<code>VK_RENDERING_SUSPENDING_BIT</code>, then any
+<code>VkRenderPassFragmentDensityMapOffsetEndInfoEXT</code> structure is ignored.
+If the render pass instance was begun with <code>VK_RENDERING_RESUMING_BIT</code>
+but not <code>VK_RENDERING_SUSPENDING_BIT</code>, then the offsets in
+<code>VkRenderPassFragmentDensityMapOffsetEndInfoEXT</code> apply to all of the
+preceding suspended render pass instances in
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-submission-order" target="_blank" rel="noopener">submission order</a>.</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceMask-10566" href="#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceMask-10566"></a> <span class="vuid">VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceMask-10566</span><br>
+<p><a id="VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-fragmentDensityMapOffsets-06503" href="#VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-fragmentDensityMapOffsets-06503"></a> <span class="vuid">VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-fragmentDensityMapOffsets-06503</span><br>
 
-The most significant 24 bits of <code>instanceMask</code> <strong class="purple">must</strong> be <code>0</code></p>
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-fragmentDensityMapOffset" target="_blank" rel="noopener"><code>fragmentDensityMapOffset</code></a> feature is not enabled or fragment
+density map is not enabled in the render pass,
+<code>fragmentDensityOffsetCount</code> <strong class="purple">must</strong> equal <code>0</code></p>
 </li>
 <li>
-<p><a id="VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceContributionToHitGroupIndex-10567" href="#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceContributionToHitGroupIndex-10567"></a> <span class="vuid">VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceContributionToHitGroupIndex-10567</span><br>
+<p><a id="VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-fragmentDensityMapAttachment-06504" href="#VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-fragmentDensityMapAttachment-06504"></a> <span class="vuid">VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-fragmentDensityMapAttachment-06504</span><br>
 
-The most significant 8 bits of <code>instanceContributionToHitGroupIndex</code>
-<strong class="purple">must</strong> be <code>0</code></p>
+If
+<a href="VkRenderPassFragmentDensityMapCreateInfoEXT.html">VkRenderPassFragmentDensityMapCreateInfoEXT</a>::<code>fragmentDensityMapAttachment</code>
+is not <code>VK_ATTACHMENT_UNUSED</code> and was not created with
+<code>VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_EXT</code>,
+<code>fragmentDensityOffsetCount</code> <strong class="purple">must</strong> equal <code>0</code></p>
 </li>
 <li>
-<p><a id="VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceIndex-10568" href="#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceIndex-10568"></a> <span class="vuid">VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceIndex-10568</span><br>
+<p><a id="VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pDepthStencilAttachment-06505" href="#VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pDepthStencilAttachment-06505"></a> <span class="vuid">VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pDepthStencilAttachment-06505</span><br>
 
-<code>instanceIndex</code> <strong class="purple">must</strong> be less than
-<a href="VkBuildPartitionedAccelerationStructureInfoNV.html">VkBuildPartitionedAccelerationStructureInfoNV</a>::<code>input</code>::<code>instanceCount</code></p>
+If the depth or stencil attachments for the render pass are used and
+were not created with
+<code>VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_EXT</code>,
+<code>fragmentDensityOffsetCount</code> <strong class="purple">must</strong> equal <code>0</code></p>
 </li>
 <li>
-<p><a id="VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-partitionIndex-10569" href="#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-partitionIndex-10569"></a> <span class="vuid">VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-partitionIndex-10569</span><br>
+<p><a id="VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pInputAttachments-06506" href="#VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pInputAttachments-06506"></a> <span class="vuid">VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pInputAttachments-06506</span><br>
 
-<code>partitionIndex</code> <strong class="purple">must</strong> be less than
-<a href="VkBuildPartitionedAccelerationStructureInfoNV.html">VkBuildPartitionedAccelerationStructureInfoNV</a>::<code>input</code>::<code>partitionCount</code></p>
+If any used input attachments for the render pass were not created with
+<code>VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_EXT</code>,
+<code>fragmentDensityOffsetCount</code> <strong class="purple">must</strong> equal <code>0</code></p>
 </li>
 <li>
-<p><a id="VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-explicitAABB-10570" href="#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-explicitAABB-10570"></a> <span class="vuid">VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-explicitAABB-10570</span><br>
+<p><a id="VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pColorAttachments-06507" href="#VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pColorAttachments-06507"></a> <span class="vuid">VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pColorAttachments-06507</span><br>
 
-<code>explicitAABB</code> <strong class="purple">must</strong> be a valid bounding box if instance was created
-with flag
-<code>VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_ENABLE_EXPLICIT_BOUNDING_BOX_NV</code>
-set</p>
+If any used color attachments for the render pass were not created with
+<code>VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_EXT</code>,
+<code>fragmentDensityOffsetCount</code> <strong class="purple">must</strong> equal <code>0</code></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pResolveAttachments-06508" href="#VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pResolveAttachments-06508"></a> <span class="vuid">VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pResolveAttachments-06508</span><br>
+
+If any used resolve attachments for the render pass were not created
+with <code>VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_EXT</code>,
+<code>fragmentDensityOffsetCount</code> <strong class="purple">must</strong> equal <code>0</code></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pPreserveAttachments-06509" href="#VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pPreserveAttachments-06509"></a> <span class="vuid">VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pPreserveAttachments-06509</span><br>
+
+If any used preserve attachments for the render pass were not created
+with <code>VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_EXT</code>,
+<code>fragmentDensityOffsetCount</code> <strong class="purple">must</strong> equal <code>0</code></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-fragmentDensityOffsetCount-06510" href="#VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-fragmentDensityOffsetCount-06510"></a> <span class="vuid">VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-fragmentDensityOffsetCount-06510</span><br>
+
+If <code>fragmentDensityOffsetCount</code> is not <code>0</code> and multiview is enabled
+for the render pass, <code>fragmentDensityOffsetCount</code> <strong class="purple">must</strong> equal the
+<code>layerCount</code> that was specified in creating the fragment density map
+attachment view</p>
+</li>
+<li>
+<p><a id="VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-fragmentDensityOffsetCount-06511" href="#VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-fragmentDensityOffsetCount-06511"></a> <span class="vuid">VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-fragmentDensityOffsetCount-06511</span><br>
+
+If <code>fragmentDensityOffsetCount</code> is not <code>0</code> and multiview is not
+enabled for the render pass, <code>fragmentDensityOffsetCount</code> <strong class="purple">must</strong>
+equal <code>1</code></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-x-06512" href="#VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-x-06512"></a> <span class="vuid">VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-x-06512</span><br>
+
+The <code>x</code> component of each element of <code>pFragmentDensityOffsets</code>
+<strong class="purple">must</strong> be an integer multiple of
+<code>fragmentDensityOffsetGranularity.width</code></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-y-06513" href="#VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-y-06513"></a> <span class="vuid">VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-y-06513</span><br>
+
+The <code>y</code> component of each element of <code>pFragmentDensityOffsets</code>
+<strong class="purple">must</strong> be an integer multiple of
+<code>fragmentDensityOffsetGranularity.height</code></p>
 </li>
 </ul>
 </div>
@@ -932,8 +992,12 @@ set</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceFlags-parameter" href="#VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceFlags-parameter"></a> <span class="vuid">VUID-VkPartitionedAccelerationStructureWriteInstanceDataNV-instanceFlags-parameter</span><br>
- <code>instanceFlags</code> <strong class="purple">must</strong> be a valid combination of <a href="VkPartitionedAccelerationStructureInstanceFlagBitsNV.html">VkPartitionedAccelerationStructureInstanceFlagBitsNV</a> values</p>
+<p><a id="VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-sType-sType" href="#VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-sType-sType"></a> <span class="vuid">VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-sType-sType</span><br>
+ <code>sType</code> <strong class="purple">must</strong> be <code>VK_STRUCTURE_TYPE_RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_EXT</code></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pFragmentDensityOffsets-parameter" href="#VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pFragmentDensityOffsets-parameter"></a> <span class="vuid">VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pFragmentDensityOffsets-parameter</span><br>
+ If <code>fragmentDensityOffsetCount</code> is not <code>0</code>, <code>pFragmentDensityOffsets</code> <strong class="purple">must</strong> be a valid pointer to an array of <code>fragmentDensityOffsetCount</code> <a href="VkOffset2D.html">VkOffset2D</a> structures</p>
 </li>
 </ul>
 </div>
@@ -945,7 +1009,7 @@ set</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_NV_partitioned_acceleration_structure.html">VK_NV_partitioned_acceleration_structure</a>, <a href="VkDeviceAddress.html">VkDeviceAddress</a>, <a href="VkPartitionedAccelerationStructureInstanceFlagsNV.html">VkPartitionedAccelerationStructureInstanceFlagsNV</a>, <a href="VkTransformMatrixKHR.html">VkTransformMatrixKHR</a></p>
+<p><a href="VK_EXT_fragment_density_map_offset.html">VK_EXT_fragment_density_map_offset</a>, <a href="VkOffset2D.html">VkOffset2D</a>, <a href="VkStructureType.html">VkStructureType</a></p>
 </div>
 </div>
 </div>
@@ -953,7 +1017,7 @@ set</p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPartitionedAccelerationStructureWriteInstanceDataNV" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRenderPassFragmentDensityMapOffsetEndInfoEXT" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

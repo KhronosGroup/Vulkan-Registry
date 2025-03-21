@@ -1283,10 +1283,10 @@ image view&#8217;s <code>viewType</code> <strong class="purple">must</strong> ma
 <li>
 <p><a id="VUID-vkCmdDispatch-format-07753" href="#VUID-vkCmdDispatch-format-07753"></a> <span class="vuid">VUID-vkCmdDispatch-format-07753</span><br>
 
-If a <a href="VkImageView.html">VkImageView</a> is accessed as a result of this command, then the
-<a href="#formats-numericformat">numeric type</a> of the image view&#8217;s <code>format</code>
-and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class="purple">must</strong>
-match</p>
+If a <a href="VkImageView.html">VkImageView</a> or <a href="VkBufferView.html">VkBufferView</a> is accessed as a result of
+this command, then the <a href="#formats-numericformat">numeric type</a> of the
+view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the
+<code>OpTypeImage</code> <strong class="purple">must</strong> match</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDispatch-OpImageWrite-08795" href="#VUID-vkCmdDispatch-OpImageWrite-08795"></a> <span class="vuid">VUID-vkCmdDispatch-OpImageWrite-08795</span><br>

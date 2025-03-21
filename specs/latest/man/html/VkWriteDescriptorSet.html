@@ -1175,7 +1175,8 @@ If <code>descriptorType</code> is
 <code>VkSamplerYcbcrConversionInfo</code> structure in its <code>pNext</code> chain,
 then <code>dstSet</code> <strong class="purple">must</strong> have been allocated with a layout that included
 immutable samplers for <code>dstBinding</code>, and the corresponding immutable
-sampler <strong class="purple">must</strong> have been created with an <em>identically defined</em>
+sampler <strong class="purple">must</strong> have been created with an
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically defined</a>
 <code>VkSamplerYcbcrConversionInfo</code> object</p>
 </li>
 <li>
@@ -1188,9 +1189,9 @@ allocated with a layout that included immutable samplers for
 <code>pImageInfo</code> which corresponds to an immutable sampler that enables
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#samplers-YCbCr-conversion" target="_blank" rel="noopener">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a> <strong class="purple">must</strong> have been
 created with a <code>VkSamplerYcbcrConversionInfo</code> structure in its
-<code>pNext</code> chain with an <em>identically defined</em>
-<code>VkSamplerYcbcrConversionInfo</code> to the corresponding immutable
-sampler</p>
+<code>pNext</code> chain with an <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-identically-defined" target="_blank" rel="noopener">identically
+defined</a> <code>VkSamplerYcbcrConversionInfo</code> to the corresponding
+immutable sampler</p>
 </li>
 <li>
 <p><a id="VUID-VkWriteDescriptorSet-descriptorType-09506" href="#VUID-VkWriteDescriptorSet-descriptorType-09506"></a> <span class="vuid">VUID-VkWriteDescriptorSet-descriptorType-09506</span><br>
