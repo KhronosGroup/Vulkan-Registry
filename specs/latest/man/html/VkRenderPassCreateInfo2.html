@@ -1184,6 +1184,24 @@ If any element of <code>pResolveAttachments</code> of any element of
 <a href="VkRenderPassFragmentDensityMapCreateInfoEXT.html">VkRenderPassFragmentDensityMapCreateInfoEXT</a>::<code>fragmentDensityMapAttachment-&gt;attachment</code>
 <strong class="purple">must</strong> be <code>VK_ATTACHMENT_UNUSED</code></p>
 </li>
+<li>
+<p><a id="VUID-VkRenderPassCreateInfo2-pResolveAttachments-10650" href="#VUID-VkRenderPassCreateInfo2-pResolveAttachments-10650"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-pResolveAttachments-10650</span><br>
+
+If any element of <code>pResolveAttachments</code> of any element of
+<code>pSubpasses</code> references an attachment description with a format of
+<code>VK_FORMAT_UNDEFINED</code>,
+<code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> <strong class="purple">must</strong> not be included
+in <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderPassCreateInfo2-fragmentDensityMapAttachment-10651" href="#VUID-VkRenderPassCreateInfo2-fragmentDensityMapAttachment-10651"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-fragmentDensityMapAttachment-10651</span><br>
+
+If
+<a href="VkRenderPassFragmentDensityMapCreateInfoEXT.html">VkRenderPassFragmentDensityMapCreateInfoEXT</a>::<code>fragmentDensityMapAttachment</code>
+is not <code>VK_ATTACHMENT_UNUSED</code>,
+<code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> <strong class="purple">must</strong> not be included
+in <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -1199,7 +1217,7 @@ If any element of <code>pResolveAttachments</code> of any element of
 </li>
 <li>
 <p><a id="VUID-VkRenderPassCreateInfo2-pNext-pNext" href="#VUID-VkRenderPassCreateInfo2-pNext-pNext"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkRenderPassCreationControlEXT.html">VkRenderPassCreationControlEXT</a>, <a href="VkRenderPassCreationFeedbackCreateInfoEXT.html">VkRenderPassCreationFeedbackCreateInfoEXT</a>, or <a href="VkRenderPassFragmentDensityMapCreateInfoEXT.html">VkRenderPassFragmentDensityMapCreateInfoEXT</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkRenderPassCreationControlEXT.html">VkRenderPassCreationControlEXT</a>, <a href="VkRenderPassCreationFeedbackCreateInfoEXT.html">VkRenderPassCreationFeedbackCreateInfoEXT</a>, <a href="VkRenderPassFragmentDensityMapCreateInfoEXT.html">VkRenderPassFragmentDensityMapCreateInfoEXT</a>, or <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a></p>
 </li>
 <li>
 <p><a id="VUID-VkRenderPassCreateInfo2-sType-unique" href="#VUID-VkRenderPassCreateInfo2-sType-unique"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-sType-unique</span><br>

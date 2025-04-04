@@ -1273,6 +1273,13 @@ The pointers of any <code>Input</code> or <code>Output</code>
 not contain any <code>PhysicalStorageBuffer</code> <code>Storage</code> <code>Class</code> pointers</p>
 </li>
 <li>
+<p><a id="VUID-StandaloneSpirv-None-10684" href="#VUID-StandaloneSpirv-None-10684"></a> <span class="vuid">VUID-StandaloneSpirv-None-10684</span><br>
+
+All variables <strong class="purple">must</strong> have valid explicit layout decorations
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-explicit-layout-decorations" target="_blank" rel="noopener">as described in Shader
+Interfaces</a></p>
+</li>
+<li>
 <p><a id="VUID-StandaloneSpirv-GLSLShared-04669" href="#VUID-StandaloneSpirv-GLSLShared-04669"></a> <span class="vuid">VUID-StandaloneSpirv-GLSLShared-04669</span><br>
 
 The <code>GLSLShared</code> and <code>GLSLPacked</code> decorations <strong class="purple">must</strong> not be used</p>
@@ -1419,11 +1426,12 @@ any-hit, closest hit, miss, fragment, vertex, tessellation evaluation,
 or geometry shaders, the execution Scope <strong class="purple">must</strong> be <code>Subgroup</code></p>
 </li>
 <li>
-<p><a id="VUID-StandaloneSpirv-LocalSize-06426" href="#VUID-StandaloneSpirv-LocalSize-06426"></a> <span class="vuid">VUID-StandaloneSpirv-LocalSize-06426</span><br>
+<p><a id="VUID-StandaloneSpirv-None-10685" href="#VUID-StandaloneSpirv-None-10685"></a> <span class="vuid">VUID-StandaloneSpirv-None-10685</span><br>
 
-For each compute shader entry point, either a <code>LocalSize</code> or
-<code>LocalSizeId</code> <code>Execution</code> <code>Mode</code>, or an object decorated with the
-<code>WorkgroupSize</code> decoration <strong class="purple">must</strong> be specified</p>
+For each compute shader entry point, either a
+<code>TileShadingRateQCOM</code>,
+<code>LocalSize</code>, or <code>LocalSizeId</code> <code>Execution</code> <code>Mode</code>, or an object
+decorated with the <code>WorkgroupSize</code> decoration <strong class="purple">must</strong> be specified</p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-DerivativeGroupQuadsNV-04684" href="#VUID-StandaloneSpirv-DerivativeGroupQuadsNV-04684"></a> <span class="vuid">VUID-StandaloneSpirv-DerivativeGroupQuadsNV-04684</span><br>
@@ -1897,7 +1905,80 @@ If the <code>StorageTexelBufferArrayDynamicIndexing</code> capability is not
 declared, and an instruction accesses memory through a storage texel
 buffer, the storage texel buffer through which that memory is accessed
 <strong class="purple">must</strong> be determined by <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-constant-integral-expression" target="_blank" rel="noopener">constant
-integral expressions</a></p>
+integral expressions</a> <code>PhysicalStorageBuffer</code>.</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-TileShadingQCOM-10686" href="#VUID-StandaloneSpirv-TileShadingQCOM-10686"></a> <span class="vuid">VUID-StandaloneSpirv-TileShadingQCOM-10686</span><br>
+
+<code>TileShadingQCOM</code> capability <strong class="purple">must</strong> not be enabled in any stage other
+than compute or fragment</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-Execution-10687" href="#VUID-StandaloneSpirv-Execution-10687"></a> <span class="vuid">VUID-StandaloneSpirv-Execution-10687</span><br>
+
+<code>Execution</code> <code>Mode</code> <code>NonCoherentTileAttachmentReadQCOM</code> <strong class="purple">must</strong>
+not be used in any stage other than fragment</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-Execution-10688" href="#VUID-StandaloneSpirv-Execution-10688"></a> <span class="vuid">VUID-StandaloneSpirv-Execution-10688</span><br>
+
+<code>Execution</code> <code>Mode</code> <code>TileShadingRateQCOM</code> <strong class="purple">must</strong> not be used in
+any stage other than compute</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-TileAttachmentQCOM-10689" href="#VUID-StandaloneSpirv-TileAttachmentQCOM-10689"></a> <span class="vuid">VUID-StandaloneSpirv-TileAttachmentQCOM-10689</span><br>
+
+If the <code>TileAttachmentQCOM</code> <code>Storage</code> <code>Class</code> is used, the
+<code>TileShadingQCOM</code> capability <strong class="purple">must</strong> be enabled</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-NonCoherentTileAttachmentReadQCOM-10690" href="#VUID-StandaloneSpirv-NonCoherentTileAttachmentReadQCOM-10690"></a> <span class="vuid">VUID-StandaloneSpirv-NonCoherentTileAttachmentReadQCOM-10690</span><br>
+
+If the <code>NonCoherentTileAttachmentReadQCOM</code> <code>Execution</code> <code>Mode</code>
+is used, the <code>TileShadingQCOM</code> capability <strong class="purple">must</strong> be enabled</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-TileShadingRateQCOM-10691" href="#VUID-StandaloneSpirv-TileShadingRateQCOM-10691"></a> <span class="vuid">VUID-StandaloneSpirv-TileShadingRateQCOM-10691</span><br>
+
+If the <code>TileShadingRateQCOM</code> <code>Execution</code> <code>Mode</code> is used, the
+<code>TileShadingQCOM</code> capability <strong class="purple">must</strong> be enabled</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-TileShadingRateQCOM-10692" href="#VUID-StandaloneSpirv-TileShadingRateQCOM-10692"></a> <span class="vuid">VUID-StandaloneSpirv-TileShadingRateQCOM-10692</span><br>
+
+If the <code>TileShadingRateQCOM</code> <code>Execution</code> <code>Mode</code> is used,
+<code>LocalSize</code> and <code>LocalSizeId</code> <code>Execution</code> <code>Mode</code> <strong class="purple">must</strong> not be
+specified</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-OpTypeImage-10693" href="#VUID-StandaloneSpirv-OpTypeImage-10693"></a> <span class="vuid">VUID-StandaloneSpirv-OpTypeImage-10693</span><br>
+
+<code>OpTypeImage</code> variables in the <code>TileAttachmentQCOM</code> <code>Storage</code>
+<code>Class</code> <strong class="purple">must</strong> have <code>Dim</code> equal to <code>2D</code></p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-OpTypeImage-10694" href="#VUID-StandaloneSpirv-OpTypeImage-10694"></a> <span class="vuid">VUID-StandaloneSpirv-OpTypeImage-10694</span><br>
+
+<code>OpTypeImage</code> variables in the <code>TileAttachmentQCOM</code> <code>Storage</code>
+<code>Class</code> <strong class="purple">must</strong> <code>Sampled</code> equal to <code>1</code> or <code>2</code></p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-TileAttachmentQCOM-10695" href="#VUID-StandaloneSpirv-TileAttachmentQCOM-10695"></a> <span class="vuid">VUID-StandaloneSpirv-TileAttachmentQCOM-10695</span><br>
+
+Any variable in the <code>TileAttachmentQCOM</code> <code>Storage</code> <code>Class</code>
+<strong class="purple">must</strong> be decorated with <code>DescriptorSet</code> and <code>Binding</code></p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-TileAttachmentQCOM-10696" href="#VUID-StandaloneSpirv-TileAttachmentQCOM-10696"></a> <span class="vuid">VUID-StandaloneSpirv-TileAttachmentQCOM-10696</span><br>
+
+Any variable in the <code>TileAttachmentQCOM</code> <code>Storage</code> <code>Class</code>
+<strong class="purple">must</strong> not be decorated with <code>Component</code> decoration</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-TileAttachmentQCOM-10697" href="#VUID-StandaloneSpirv-TileAttachmentQCOM-10697"></a> <span class="vuid">VUID-StandaloneSpirv-TileAttachmentQCOM-10697</span><br>
+
+An OpTypeImage variables in the <code>TileAttachmentQCOM</code> <code>Storage</code>
+<code>Class</code> <strong class="purple">must</strong> not be consumed by an <code>OpImageQuery*</code> instruction</p>
 </li>
 </ul>
 </div>

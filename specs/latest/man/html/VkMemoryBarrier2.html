@@ -1352,6 +1352,24 @@ If <code>srcAccessMask</code> includes
 <code>VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT</code>, or one of
 <code>VK_PIPELINE_STAGE_*_SHADER_BIT</code> stages</p>
 </li>
+<li>
+<p><a id="VUID-VkMemoryBarrier2-srcAccessMask-10670" href="#VUID-VkMemoryBarrier2-srcAccessMask-10670"></a> <span class="vuid">VUID-VkMemoryBarrier2-srcAccessMask-10670</span><br>
+
+If <code>srcAccessMask</code> includes
+<code>VK_ACCESS_2_SHADER_TILE_ATTACHMENT_READ_BIT_QCOM</code>,
+<code>srcStageMask</code> <strong class="purple">must</strong> include
+<code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code> or
+<code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code>.</p>
+</li>
+<li>
+<p><a id="VUID-VkMemoryBarrier2-srcAccessMask-10671" href="#VUID-VkMemoryBarrier2-srcAccessMask-10671"></a> <span class="vuid">VUID-VkMemoryBarrier2-srcAccessMask-10671</span><br>
+
+If <code>srcAccessMask</code> includes
+<code>VK_ACCESS_2_SHADER_TILE_ATTACHMENT_WRITE_BIT_QCOM</code>,
+<code>srcStageMask</code> <strong class="purple">must</strong> include
+<code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code> or
+<code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code>.</p>
+</li>
 </ul>
 </div>
 <div class="ulist">
@@ -1814,6 +1832,24 @@ If <code>dstAccessMask</code> includes
 <strong class="purple">must</strong> include <code>VK_PIPELINE_STAGE_2_ALL_GRAPHICS_BIT</code>,
 <code>VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT</code>, or one of
 <code>VK_PIPELINE_STAGE_*_SHADER_BIT</code> stages</p>
+</li>
+<li>
+<p><a id="VUID-VkMemoryBarrier2-dstAccessMask-10670" href="#VUID-VkMemoryBarrier2-dstAccessMask-10670"></a> <span class="vuid">VUID-VkMemoryBarrier2-dstAccessMask-10670</span><br>
+
+If <code>dstAccessMask</code> includes
+<code>VK_ACCESS_2_SHADER_TILE_ATTACHMENT_READ_BIT_QCOM</code>,
+<code>dstStageMask</code> <strong class="purple">must</strong> include
+<code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code> or
+<code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code>.</p>
+</li>
+<li>
+<p><a id="VUID-VkMemoryBarrier2-dstAccessMask-10671" href="#VUID-VkMemoryBarrier2-dstAccessMask-10671"></a> <span class="vuid">VUID-VkMemoryBarrier2-dstAccessMask-10671</span><br>
+
+If <code>dstAccessMask</code> includes
+<code>VK_ACCESS_2_SHADER_TILE_ATTACHMENT_WRITE_BIT_QCOM</code>,
+<code>dstStageMask</code> <strong class="purple">must</strong> include
+<code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code> or
+<code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code>.</p>
 </li>
 </ul>
 </div>

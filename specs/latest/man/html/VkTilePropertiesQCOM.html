@@ -843,7 +843,8 @@ describing the width and height of a tile in pixels, and depth
 corresponding to the number of slices the tile spans.</p>
 </li>
 <li>
-<p><code>apronSize</code> is the dimension of the apron.</p>
+<p><code>apronSize</code> is the dimension of the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-tile-shading-aprons" target="_blank" rel="noopener">apron</a>.</p>
 </li>
 <li>
 <p><code>origin</code> is the top-left corner of the first tile in attachment
@@ -860,20 +861,10 @@ space.</p>
 <p>All tiles will be tightly packed around the first tile, with edges being
 multiples of tile width and/or height from the origin.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>Reported value for <code>apronSize</code> will be zero and its functionality will
-be described in a future extension.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>#ifdef::VK_QCOM_tile_shading[] The <code>tileSize</code> is guaranteed to be a
+multiple of <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-tileGranularity" target="_blank" rel="noopener"><code>tileGranularity</code></a>.
+#endif::VK_QCOM_tile_shading[]</p>
 </div>
 <div class="sidebarblock">
 <div class="content">

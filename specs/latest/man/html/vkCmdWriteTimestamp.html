@@ -899,35 +899,12 @@ Timestamps written by this command <strong class="purple">must</strong> be in th
 <a href="VkTimeDomainKHR.html" target="_blank" rel="noopener">time domain</a>.
 If an overflow occurs, the timestamp value <strong class="purple">must</strong> wrap back to zero.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Comparisons between timestamps should be done between timestamps where they
-are guaranteed to not decrease.
-For example, subtracting an older timestamp from a newer one to determine
-the execution time of a sequence of commands is only a reliable measurement
-if the two timestamp writes were performed in the same
-submission, or if the writes were performed on the same logical device and
-<code><a href="VK_KHR_calibrated_timestamps.html">VK_KHR_calibrated_timestamps</a></code>
-or
-<code><a href="VK_EXT_calibrated_timestamps.html">VK_EXT_calibrated_timestamps</a></code>
-is enabled.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>If <code>vkCmdWriteTimestamp</code> is called while executing a render pass
 instance that has multiview enabled, the timestamp uses <span class="eq">N</span> consecutive
 query indices in the query pool (starting at <code>query</code>) where <span class="eq">N</span> is
-the number of bits set in the view mask of the subpass the command is
-executed in.
+the number of bits set in the view mask of the subpass or dynamic render
+pass the command is executed in.
 The resulting query values are determined by an implementation-dependent
 choice of one of the following behaviors:</p>
 </div>
@@ -935,24 +912,19 @@ choice of one of the following behaviors:</p>
 <ul>
 <li>
 <p>The first query is a timestamp value and (if more than one bit is set in
-the view mask) zero is written to the remaining queries.
-If two timestamps are written in the same subpass, the sum of the
-execution time of all views between those commands is the difference
-between the first query written by each command.</p>
+the view mask) zero is written to the remaining queries.</p>
 </li>
 <li>
-<p>All <span class="eq">N</span> queries are timestamp values.
-If two timestamps are written in the same subpass, the sum of the
-execution time of all views between those commands is the sum of the
-difference between corresponding queries written by each command.
-The difference between corresponding queries <strong class="purple">may</strong> be the execution time
-of a single view.</p>
+<p>All <span class="eq">N</span> queries are timestamp values.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In either case, the application <strong class="purple">can</strong> sum the differences between all <span class="eq">N</span>
-queries to determine the total execution time.</p>
+<p>Either way, if two timestamps are written in the same subpass or dynamic
+render pass with multiview enabled, each of the <span class="eq">N</span> consecutive queries
+written for a timestamp <strong class="purple">must</strong> not have a lower value than the queries with
+corresponding indices written by the timestamp that happens-before unless
+the value overflows the maximum supported integer bit width of the query.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1069,6 +1041,13 @@ If <code>vkCmdWriteTimestamp</code> is called within a render pass instance,
 the sum of <code>query</code> and the number of bits set in the current
 subpass&#8217;s view mask <strong class="purple">must</strong> be less than or equal to the number of queries
 in <code>queryPool</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdWriteTimestamp-None-10640" href="#VUID-vkCmdWriteTimestamp-None-10640"></a> <span class="vuid">VUID-vkCmdWriteTimestamp-None-10640</span><br>
+
+This command <strong class="purple">must</strong> not be recorded when
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model" target="_blank" rel="noopener">per-tile execution model</a> is
+enabled</p>
 </li>
 </ul>
 </div>

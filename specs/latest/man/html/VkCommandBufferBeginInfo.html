@@ -927,6 +927,37 @@ the <code>subpass</code> member of <code>pInheritanceInfo</code> <strong class="
 subpass index within the <code>renderPass</code> member of
 <code>pInheritanceInfo</code></p>
 </li>
+<li>
+<p><a id="VUID-VkCommandBufferBeginInfo-flags-10617" href="#VUID-VkCommandBufferBeginInfo-flags-10617"></a> <span class="vuid">VUID-VkCommandBufferBeginInfo-flags-10617</span><br>
+
+If <code>flags</code> contains
+<code>VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT</code>
+, the <code>renderPass</code> member of <code>pInheritanceInfo</code> is not
+<a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>,
+and <code>renderPass</code> was created with <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-tile-shading" target="_blank" rel="noopener">tile
+shading enabled</a>, <code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code>
+<strong class="purple">must</strong> be included in
+<a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code></p>
+</li>
+<li>
+<p><a id="VUID-VkCommandBufferBeginInfo-flags-10618" href="#VUID-VkCommandBufferBeginInfo-flags-10618"></a> <span class="vuid">VUID-VkCommandBufferBeginInfo-flags-10618</span><br>
+
+If <code>flags</code> does not contain
+<code>VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT</code>
+, the <code>renderPass</code> member of <code>pInheritanceInfo</code> is
+<a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>,
+or <code>renderPass</code> was not created with tile shading enabled,
+<code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> <strong class="purple">must</strong> not be included
+in <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code></p>
+</li>
+<li>
+<p><a id="VUID-VkCommandBufferBeginInfo-flags-10619" href="#VUID-VkCommandBufferBeginInfo-flags-10619"></a> <span class="vuid">VUID-VkCommandBufferBeginInfo-flags-10619</span><br>
+
+If <code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> is included in
+<a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code>,
+<a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>tileApronSize</code> <strong class="purple">must</strong>
+be equal to the <code>tileApronSize</code> used to create <code>renderPass</code></p>
+</li>
 </ul>
 </div>
 </div>

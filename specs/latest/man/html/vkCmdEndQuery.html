@@ -928,6 +928,13 @@ If called within a subpass of a render pass instance, the corresponding
 <code>vkCmdBeginQuery</code>* command <strong class="purple">must</strong> have been called previously within
 the same subpass</p>
 </li>
+<li>
+<p><a id="VUID-vkCmdEndQuery-None-10682" href="#VUID-vkCmdEndQuery-None-10682"></a> <span class="vuid">VUID-vkCmdEndQuery-None-10682</span><br>
+
+This command <strong class="purple">must</strong> not be recorded when
+<a href="#renderpass-per-tile-execution-model">per-tile execution model</a> is
+enabled</p>
+</li>
 </ul>
 </div>
 </div>

@@ -870,6 +870,13 @@ If <code>vkCmdBeginQuery</code>* was called within a subpass of the render
 pass, the corresponding <code>vkCmdEndQuery</code>* <strong class="purple">must</strong> have been called
 subsequently within the same subpass</p>
 </li>
+<li>
+<p><a id="VUID-vkCmdEndRenderPass-None-10653" href="#VUID-vkCmdEndRenderPass-None-10653"></a> <span class="vuid">VUID-vkCmdEndRenderPass-None-10653</span><br>
+
+This command <strong class="purple">must</strong> not be recorded when
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model" target="_blank" rel="noopener">per-tile execution model</a> is
+enabled</p>
+</li>
 </ul>
 </div>
 </div>

@@ -946,6 +946,20 @@ either <code>imageResolveMode</code> is
 <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, <code>resolveImageView</code> <strong class="purple">must</strong> be in the layout
 specified by <code>resolveImageLayout</code></p>
 </li>
+<li>
+<p><a id="VUID-vkCmdBeginRendering-flags-10641" href="#VUID-vkCmdBeginRendering-flags-10641"></a> <span class="vuid">VUID-vkCmdBeginRendering-flags-10641</span><br>
+
+If <code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> is included in
+<a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code>,
+<code>commandBuffer</code> <strong class="purple">must</strong> not have been created with
+<code>VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBeginRendering-flags-10642" href="#VUID-vkCmdBeginRendering-flags-10642"></a> <span class="vuid">VUID-vkCmdBeginRendering-flags-10642</span><br>
+
+<a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code> <strong class="purple">must</strong> not
+include <code>VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM</code></p>
+</li>
 </ul>
 </div>
 </div>

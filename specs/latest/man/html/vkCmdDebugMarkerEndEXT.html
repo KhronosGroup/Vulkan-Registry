@@ -864,6 +864,13 @@ outstanding <a href="vkCmdDebugMarkerBeginEXT.html">vkCmdDebugMarkerBeginEXT</a>
 <code>commandBuffer</code> that has not previously been ended by a call to
 <a href="vkCmdDebugMarkerEndEXT.html">vkCmdDebugMarkerEndEXT</a></p>
 </li>
+<li>
+<p><a id="VUID-vkCmdDebugMarkerEndEXT-None-10615" href="#VUID-vkCmdDebugMarkerEndEXT-None-10615"></a> <span class="vuid">VUID-vkCmdDebugMarkerEndEXT-None-10615</span><br>
+
+This command <strong class="purple">must</strong> not be recorded when
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model" target="_blank" rel="noopener">per-tile execution model</a> is
+enabled</p>
+</li>
 </ul>
 </div>
 </div>

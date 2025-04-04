@@ -1074,6 +1074,14 @@ specified in the <code>framebuffer</code> member of <code>pRenderPassBegin</code
 <code>VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT</code> or
 <code>VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT</code></p>
 </li>
+<li>
+<p><a id="VUID-vkCmdBeginRenderPass2-flags-10652" href="#VUID-vkCmdBeginRenderPass2-flags-10652"></a> <span class="vuid">VUID-vkCmdBeginRenderPass2-flags-10652</span><br>
+
+If <code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> was included in the
+<a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code> used to create
+the <code>renderPass</code>, <code>commandBuffer</code> <strong class="purple">must</strong> not have been created
+with <code>VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT</code></p>
+</li>
 </ul>
 </div>
 </div>

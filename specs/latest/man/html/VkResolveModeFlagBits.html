@@ -896,6 +896,19 @@ and the chroma sample rate of the resolved image.</p>
 <p>If no resolve mode is otherwise specified, <code>VK_RESOLVE_MODE_AVERAGE_BIT</code>
 is used.</p>
 </div>
+<div class="paragraph">
+<p>If <code>VK_RESOLVE_MODE_AVERAGE_BIT</code> is used, and the source format is a
+floating-point or normalized type, the sample values for each pixel are
+resolved with implementation-defined numerical precision.</p>
+</div>
+<div class="paragraph">
+<p>If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-numericformat" target="_blank" rel="noopener">numeric format</a> of the resolve attachment
+uses sRGB encoding, the implementation <strong class="purple">should</strong> convert samples from
+nonlinear to linear before averaging samples as described in the &#8220;sRGB
+EOTF&#8221; section of the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#data-format" target="_blank" rel="noopener">Khronos Data Format Specification</a>.
+In this case, the implementation <strong class="purple">must</strong> convert the linear averaged value to
+nonlinear before writing the resolved result to resolve attachment.</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>

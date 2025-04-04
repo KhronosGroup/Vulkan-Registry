@@ -931,6 +931,13 @@ For each buffer handle in the <code>pCounterBuffers</code> array that is not
 containing
 <code>VK_BUFFER_USAGE_TRANSFORM_FEEDBACK_COUNTER_BUFFER_BIT_EXT</code></p>
 </li>
+<li>
+<p><a id="VUID-vkCmdEndTransformFeedbackEXT-None-10657" href="#VUID-vkCmdEndTransformFeedbackEXT-None-10657"></a> <span class="vuid">VUID-vkCmdEndTransformFeedbackEXT-None-10657</span><br>
+
+This command <strong class="purple">must</strong> not be recorded when
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model" target="_blank" rel="noopener">per-tile execution model</a> is
+enabled</p>
+</li>
 </ul>
 </div>
 </div>

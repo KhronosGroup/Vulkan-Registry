@@ -357,6 +357,7 @@
     <li> <a href="specs/latest/man/html/VK_NV_displacement_micromap.html"> VK_NV_displacement_micromap </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_display_stereo.html"> VK_NV_display_stereo </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_extended_sparse_address_space.html"> VK_NV_extended_sparse_address_space </a> </li>
+    <li> <a href="specs/latest/man/html/VK_NV_external_compute_queue.html"> VK_NV_external_compute_queue </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_external_memory.html"> VK_NV_external_memory </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_external_memory_capabilities.html"> VK_NV_external_memory_capabilities </a> </li>
     <li> <a href="specs/latest/man/html/VK_NV_external_memory_rdma.html"> VK_NV_external_memory_rdma </a> </li>
@@ -413,6 +414,7 @@
     <li> <a href="specs/latest/man/html/VK_QCOM_render_pass_transform.html"> VK_QCOM_render_pass_transform </a> </li>
     <li> <a href="specs/latest/man/html/VK_QCOM_rotated_copy_commands.html"> VK_QCOM_rotated_copy_commands </a> </li>
     <li> <a href="specs/latest/man/html/VK_QCOM_tile_properties.html"> VK_QCOM_tile_properties </a> </li>
+    <li> <a href="specs/latest/man/html/VK_QCOM_tile_shading.html"> VK_QCOM_tile_shading </a> </li>
     <li> <a href="specs/latest/man/html/VK_QCOM_ycbcr_degamma.html"> VK_QCOM_ycbcr_degamma </a> </li>
     <li> <b>  QNX Extensions (BlackBerry Limited)  </b> </li>
     <li> <a href="specs/latest/man/html/VK_QNX_external_memory_screen_buffer.html"> VK_QNX_external_memory_screen_buffer </a> </li>

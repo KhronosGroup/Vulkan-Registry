@@ -1226,16 +1226,6 @@ state specified statically in the <a href="VkPipeline.html">VkPipeline</a> objec
 pipeline bind point used by this command, since that pipeline was bound</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDrawIndirectByteCountEXT-None-08607" href="#VUID-vkCmdDrawIndirectByteCountEXT-None-08607"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-None-08607</span><br>
-
-If the <a href="#features-shaderObject"><code>shaderObject</code></a> feature is enabled,
-either a valid pipeline <strong class="purple">must</strong> be bound to the pipeline bind point used
-by this command, or a valid combination of valid and
-<a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> shader objects <strong class="purple">must</strong> be bound to every supported
-shader stage corresponding to the pipeline bind point used by this
-command</p>
-</li>
-<li>
 <p><a id="VUID-vkCmdDrawIndirectByteCountEXT-uniformBuffers-06935" href="#VUID-vkCmdDrawIndirectByteCountEXT-uniformBuffers-06935"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-uniformBuffers-06935</span><br>
 
 If any stage of the <a href="VkPipeline.html">VkPipeline</a> object bound to the pipeline bind
@@ -1288,23 +1278,6 @@ If <code>commandBuffer</code> is an unprotected command buffer and
 <a href="#limits-protectedNoFault"><code>protectedNoFault</code></a> is not supported,
 any resource accessed by <a href="#shaders-binding">bound shaders</a> <strong class="purple">must</strong> not be
 a protected resource</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawIndirectByteCountEXT-None-06550" href="#VUID-vkCmdDrawIndirectByteCountEXT-None-06550"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-None-06550</span><br>
-
-If <a href="#shaders-binding">a bound shader</a> accesses a <a href="VkSampler.html">VkSampler</a> or
-<a href="VkImageView.html">VkImageView</a> object that enables
-<a href="#samplers-YCbCr-conversion">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object
-<strong class="purple">must</strong> only be used with <code>OpImageSample*</code> or <code>OpImageSparseSample*</code>
-instructions</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawIndirectByteCountEXT-ConstOffset-06551" href="#VUID-vkCmdDrawIndirectByteCountEXT-ConstOffset-06551"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-ConstOffset-06551</span><br>
-
-If <a href="#shaders-binding">a bound shader</a> accesses a <a href="VkSampler.html">VkSampler</a> or
-<a href="VkImageView.html">VkImageView</a> object that enables
-<a href="#samplers-YCbCr-conversion">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object
-<strong class="purple">must</strong> not use the <code>ConstOffset</code> and <code>Offset</code> operands</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawIndirectByteCountEXT-viewType-07752" href="#VUID-vkCmdDrawIndirectByteCountEXT-viewType-07752"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-viewType-07752</span><br>
@@ -1512,6 +1485,24 @@ If a descriptor with type equal to any of
 <code>VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT</code> is accessed as a result of
 this command, all image subresources identified by that descriptor <strong class="purple">must</strong>
 be in the image layout identified when the descriptor was written</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawIndirectByteCountEXT-None-10678" href="#VUID-vkCmdDrawIndirectByteCountEXT-None-10678"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-None-10678</span><br>
+
+If this command is recorded inside a <a href="#renderpass-tile-shading">tile
+shading render pass</a> instance, the stages corresponding to the pipeline
+bind point used by this command <strong class="purple">must</strong> only include
+<code>VK_SHADER_STAGE_VERTEX_BIT</code>, <code>VK_SHADER_STAGE_FRAGMENT_BIT</code>,
+and/or <code>VK_SHADER_STAGE_COMPUTE_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawIndirectByteCountEXT-None-10679" href="#VUID-vkCmdDrawIndirectByteCountEXT-None-10679"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-None-10679</span><br>
+
+If this command is recorded where
+<a href="#renderpass-per-tile-execution-model">per-tile execution model</a> is
+enabled, there <strong class="purple">must</strong> be no access to any image while the image was be
+transitioned to the
+<code>VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT</code> layout</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawIndirectByteCountEXT-renderPass-02684" href="#VUID-vkCmdDrawIndirectByteCountEXT-renderPass-02684"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-renderPass-02684</span><br>
@@ -4094,6 +4085,40 @@ If dynamic state was inherited from
 in the current command buffer prior to this drawing command</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDrawIndirectByteCountEXT-None-08684" href="#VUID-vkCmdDrawIndirectByteCountEXT-None-08684"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-None-08684</span><br>
+
+If there is no bound graphics pipeline, <code>vkCmdBindShadersEXT</code> <strong class="purple">must</strong>
+have been called in the current command buffer with <code>pStages</code> with
+an element of <code>VK_SHADER_STAGE_VERTEX_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawIndirectByteCountEXT-None-08685" href="#VUID-vkCmdDrawIndirectByteCountEXT-None-08685"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-None-08685</span><br>
+
+If there is no bound graphics pipeline, and the
+<a href="#features-tessellationShader"><code>tessellationShader</code></a> feature is
+enabled, <code>vkCmdBindShadersEXT</code> <strong class="purple">must</strong> have been called in the current
+command buffer with <code>pStages</code> with an element of
+<code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawIndirectByteCountEXT-None-08686" href="#VUID-vkCmdDrawIndirectByteCountEXT-None-08686"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-None-08686</span><br>
+
+If there is no bound graphics pipeline, and the
+<a href="#features-tessellationShader"><code>tessellationShader</code></a> feature is
+enabled, <code>vkCmdBindShadersEXT</code> <strong class="purple">must</strong> have been called in the current
+command buffer with <code>pStages</code> with an element of
+<code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawIndirectByteCountEXT-None-08687" href="#VUID-vkCmdDrawIndirectByteCountEXT-None-08687"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-None-08687</span><br>
+
+If there is no bound graphics pipeline, and the
+<a href="#features-geometryShader"><code>geometryShader</code></a> feature is enabled,
+<code>vkCmdBindShadersEXT</code> <strong class="purple">must</strong> have been called in the current command
+buffer with <code>pStages</code> with an element of
+<code>VK_SHADER_STAGE_GEOMETRY_BIT</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDrawIndirectByteCountEXT-None-08688" href="#VUID-vkCmdDrawIndirectByteCountEXT-None-08688"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-None-08688</span><br>
 
 If there is no bound graphics pipeline, <code>vkCmdBindShadersEXT</code> <strong class="purple">must</strong>
@@ -4253,6 +4278,14 @@ If the bound graphics pipeline was created with
 <code>VK_PIPELINE_CREATE_2_ENABLE_LEGACY_DITHERING_BIT_EXT</code>, the current
 render pass <strong class="purple">must</strong> have begun with <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a> with the
 <code>VK_RENDERING_ENABLE_LEGACY_DITHERING_BIT_EXT</code> flag</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawIndirectByteCountEXT-None-10677" href="#VUID-vkCmdDrawIndirectByteCountEXT-None-10677"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-None-10677</span><br>
+
+If the <a href="#renderpass-per-tile-execution-model">per-tile execution model</a>
+is enabled, the
+<a href="#features-tileShadingPerTileDraw">tileShadingPerTileDraw</a> feature <strong class="purple">must</strong>
+be enabled</p>
 </li>
 </ul>
 </div>
@@ -4519,40 +4552,6 @@ a graphics pipeline is bound which was created with both a
 enabled, then <a href="vkCmdSetTessellationDomainOriginEXT.html">vkCmdSetTessellationDomainOriginEXT</a> <strong class="purple">must</strong> have been
 called and not subsequently <a href="#dynamic-state-lifetime">invalidated</a> in
 the current command buffer prior to this drawing command</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawIndirectByteCountEXT-None-08684" href="#VUID-vkCmdDrawIndirectByteCountEXT-None-08684"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-None-08684</span><br>
-
-If there is no bound graphics pipeline, <code>vkCmdBindShadersEXT</code> <strong class="purple">must</strong>
-have been called in the current command buffer with <code>pStages</code> with
-an element of <code>VK_SHADER_STAGE_VERTEX_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawIndirectByteCountEXT-None-08685" href="#VUID-vkCmdDrawIndirectByteCountEXT-None-08685"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-None-08685</span><br>
-
-If there is no bound graphics pipeline, and the
-<a href="#features-tessellationShader"><code>tessellationShader</code></a> feature is
-enabled, <code>vkCmdBindShadersEXT</code> <strong class="purple">must</strong> have been called in the current
-command buffer with <code>pStages</code> with an element of
-<code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawIndirectByteCountEXT-None-08686" href="#VUID-vkCmdDrawIndirectByteCountEXT-None-08686"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-None-08686</span><br>
-
-If there is no bound graphics pipeline, and the
-<a href="#features-tessellationShader"><code>tessellationShader</code></a> feature is
-enabled, <code>vkCmdBindShadersEXT</code> <strong class="purple">must</strong> have been called in the current
-command buffer with <code>pStages</code> with an element of
-<code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawIndirectByteCountEXT-None-08687" href="#VUID-vkCmdDrawIndirectByteCountEXT-None-08687"></a> <span class="vuid">VUID-vkCmdDrawIndirectByteCountEXT-None-08687</span><br>
-
-If there is no bound graphics pipeline, and the
-<a href="#features-geometryShader"><code>geometryShader</code></a> feature is enabled,
-<code>vkCmdBindShadersEXT</code> <strong class="purple">must</strong> have been called in the current command
-buffer with <code>pStages</code> with an element of
-<code>VK_SHADER_STAGE_GEOMETRY_BIT</code></p>
 </li>
 </ul>
 </div>

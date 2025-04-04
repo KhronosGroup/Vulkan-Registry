@@ -1017,6 +1017,38 @@ If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.htm
 is not supported, <code>images</code> <strong class="purple">must</strong> not be
 <code>VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_ROBUST_IMAGE_ACCESS_2</code></p>
 </li>
+<li>
+<p><a id="VUID-VkPipelineRobustnessCreateInfo-storageBuffers-10636" href="#VUID-VkPipelineRobustnessCreateInfo-storageBuffers-10636"></a> <span class="vuid">VUID-VkPipelineRobustnessCreateInfo-storageBuffers-10636</span><br>
+
+If <code>storageBuffers</code> is
+<code>VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS</code> or
+<code>VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_2</code>, and
+either <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-descriptorBindingStorageBufferUpdateAfterBind" target="_blank" rel="noopener"><code>descriptorBindingStorageBufferUpdateAfterBind</code></a> or
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-descriptorBindingStorageTexelBufferUpdateAfterBind" target="_blank" rel="noopener"><code>descriptorBindingStorageTexelBufferUpdateAfterBind</code></a> is enabled on
+the device, <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-robustBufferAccessUpdateAfterBind" target="_blank" rel="noopener"><code>robustBufferAccessUpdateAfterBind</code></a> <strong class="purple">must</strong> be <code>VK_TRUE</code></p>
+</li>
+<li>
+<p><a id="VUID-VkPipelineRobustnessCreateInfo-uniformBuffers-10637" href="#VUID-VkPipelineRobustnessCreateInfo-uniformBuffers-10637"></a> <span class="vuid">VUID-VkPipelineRobustnessCreateInfo-uniformBuffers-10637</span><br>
+
+If <code>uniformBuffers</code> is
+<code>VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS</code> or
+<code>VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_2</code>, and
+either
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-descriptorBindingInlineUniformBlockUpdateAfterBind" target="_blank" rel="noopener"><code>descriptorBindingInlineUniformBlockUpdateAfterBind</code></a>,
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-descriptorBindingUniformBufferUpdateAfterBind" target="_blank" rel="noopener"><code>descriptorBindingUniformBufferUpdateAfterBind</code></a> or
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-descriptorBindingUniformTexelBufferUpdateAfterBind" target="_blank" rel="noopener"><code>descriptorBindingUniformTexelBufferUpdateAfterBind</code></a> is enabled on
+the device, <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-robustBufferAccessUpdateAfterBind" target="_blank" rel="noopener"><code>robustBufferAccessUpdateAfterBind</code></a> <strong class="purple">must</strong> be <code>VK_TRUE</code></p>
+</li>
+<li>
+<p><a id="VUID-VkPipelineRobustnessCreateInfo-images-10638" href="#VUID-VkPipelineRobustnessCreateInfo-images-10638"></a> <span class="vuid">VUID-VkPipelineRobustnessCreateInfo-images-10638</span><br>
+
+If <code>images</code> is
+<code>VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_ROBUST_IMAGE_ACCESS</code> or
+<code>VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_ROBUST_IMAGE_ACCESS_2</code>, and
+either <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-descriptorBindingStorageImageUpdateAfterBind" target="_blank" rel="noopener"><code>descriptorBindingStorageImageUpdateAfterBind</code></a> or
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-descriptorBindingSampledImageUpdateAfterBind" target="_blank" rel="noopener"><code>descriptorBindingSampledImageUpdateAfterBind</code></a> is enabled on the
+device, <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-robustBufferAccessUpdateAfterBind" target="_blank" rel="noopener"><code>robustBufferAccessUpdateAfterBind</code></a> <strong class="purple">must</strong> be <code>VK_TRUE</code></p>
+</li>
 </ul>
 </div>
 </div>

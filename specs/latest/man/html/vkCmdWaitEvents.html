@@ -1277,6 +1277,13 @@ physical device</p>
 Elements of <code>pEvents</code> <strong class="purple">must</strong> not have been signaled by
 <a href="vkCmdSetEvent2.html">vkCmdSetEvent2</a></p>
 </li>
+<li>
+<p><a id="VUID-vkCmdWaitEvents-None-10655" href="#VUID-vkCmdWaitEvents-None-10655"></a> <span class="vuid">VUID-vkCmdWaitEvents-None-10655</span><br>
+
+This command <strong class="purple">must</strong> not be recorded when
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model" target="_blank" rel="noopener">per-tile execution model</a> is
+enabled</p>
+</li>
 </ul>
 </div>
 </div>

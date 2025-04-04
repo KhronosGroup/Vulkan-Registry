@@ -941,7 +941,9 @@ be enabled on a device simultaneously with
 <code>descriptorBindingUniformTexelBufferUpdateAfterBind</code>, and/or
 <code>descriptorBindingStorageTexelBufferUpdateAfterBind</code>.
 If this is <code>VK_FALSE</code>, then either <code>robustBufferAccess</code> <strong class="purple">must</strong> be
-disabled or all of these update-after-bind features <strong class="purple">must</strong> be disabled.</p>
+disabled or all of these update-after-bind features <strong class="purple">must</strong> be disabled.
+Similarly, if this property is <code>VK_FALSE</code>, robustness <strong class="purple">must</strong> not be
+enabled through the <a href="VkPipelineRobustnessCreateInfo.html">VkPipelineRobustnessCreateInfo</a> mechanism.</p>
 </li>
 <li>
 <p><a id="extension-limits-quadDivergentImplicitLod"></a>

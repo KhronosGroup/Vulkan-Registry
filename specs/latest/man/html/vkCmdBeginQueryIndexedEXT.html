@@ -1029,6 +1029,13 @@ or <code>VK_QUERY_TYPE_VIDEO_ENCODE_FEEDBACK_KHR</code>,
 then there <strong class="purple">must</strong> be no bound video session</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdBeginQueryIndexedEXT-None-10681" href="#VUID-vkCmdBeginQueryIndexedEXT-None-10681"></a> <span class="vuid">VUID-vkCmdBeginQueryIndexedEXT-None-10681</span><br>
+
+This command <strong class="purple">must</strong> not be recorded when
+<a href="#renderpass-per-tile-execution-model">per-tile execution model</a> is
+enabled</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdBeginQueryIndexedEXT-queryPool-04753" href="#VUID-vkCmdBeginQueryIndexedEXT-queryPool-04753"></a> <span class="vuid">VUID-vkCmdBeginQueryIndexedEXT-queryPool-04753</span><br>
 
 If the <code>queryPool</code> was created with the same <code>queryType</code> as that

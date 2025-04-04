@@ -3069,6 +3069,220 @@ If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#li
 modes <strong class="purple">must</strong> not be used in the <code>MeshEXT</code>, <code>MeshNV</code>, <code>TaskEXT</code>,
 or <code>TaskNV</code> <code>Execution</code> <code>Model</code></p>
 </li>
+<li>
+<p><a id="VUID-RuntimeSpirv-TileShadingQCOM-10698" href="#VUID-RuntimeSpirv-TileShadingQCOM-10698"></a> <span class="vuid">VUID-RuntimeSpirv-TileShadingQCOM-10698</span><br>
+
+<code>TileShadingQCOM</code> capability <strong class="purple">must</strong> not be declared in the compute
+stage unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShading" target="_blank" rel="noopener">tileShading</a> feature is enabled</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-TileShadingQCOM-10699" href="#VUID-RuntimeSpirv-TileShadingQCOM-10699"></a> <span class="vuid">VUID-RuntimeSpirv-TileShadingQCOM-10699</span><br>
+
+The <code>TileShadingQCOM</code> capability <strong class="purple">must</strong> not be declared in the
+fragment stage unless the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShadingFragmentStage" target="_blank" rel="noopener">tileShadingFragmentStage</a> feature
+is enabled</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-TileShadingQCOM-10700" href="#VUID-RuntimeSpirv-TileShadingQCOM-10700"></a> <span class="vuid">VUID-RuntimeSpirv-TileShadingQCOM-10700</span><br>
+
+A shader that enables SPIR-V capability <code>TileShadingQCOM</code> <strong class="purple">must</strong> not
+be invoked outside a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-tile-shading" target="_blank" rel="noopener">tile shading render
+pass</a></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-TileShadingQCOM-10701" href="#VUID-RuntimeSpirv-TileShadingQCOM-10701"></a> <span class="vuid">VUID-RuntimeSpirv-TileShadingQCOM-10701</span><br>
+
+A compute shader that enables SPIR-V capability <code>TileShadingQCOM</code>
+<strong class="purple">must</strong> only be invoked inside those portions of a command buffer where
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model" target="_blank" rel="noopener">per-tile execution model</a> is
+enabled</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-x-10702" href="#VUID-RuntimeSpirv-x-10702"></a> <span class="vuid">VUID-RuntimeSpirv-x-10702</span><br>
+
+In compute shaders that enables SPIR-V capability <code>TileShadingQCOM</code>,
+the <code>x</code> size in <code>TileShadingRateQCOM</code> <strong class="purple">must</strong> be less than or equal
+to
+<a href="VkPhysicalDeviceTileShadingPropertiesQCOM.html">VkPhysicalDeviceTileShadingPropertiesQCOM</a>::<code>maxTileShadingRate</code>::<code>x</code></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-y-10703" href="#VUID-RuntimeSpirv-y-10703"></a> <span class="vuid">VUID-RuntimeSpirv-y-10703</span><br>
+
+In compute shaders that enables SPIR-V capability <code>TileShadingQCOM</code>,
+the <code>y</code> size in <code>TileShadingRateQCOM</code> <strong class="purple">must</strong> be less than or equal
+to
+<a href="VkPhysicalDeviceTileShadingPropertiesQCOM.html">VkPhysicalDeviceTileShadingPropertiesQCOM</a>::<code>maxTileShadingRate</code>::<code>y</code></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-z-10704" href="#VUID-RuntimeSpirv-z-10704"></a> <span class="vuid">VUID-RuntimeSpirv-z-10704</span><br>
+
+In compute shaders that enables SPIR-V capability <code>TileShadingQCOM</code>,
+the <code>z</code> size in <code>TileShadingRateQCOM</code> <strong class="purple">must</strong> be less than or equal
+to <a href="VkTilePropertiesQCOM.html">VkTilePropertiesQCOM</a>::<code>tileSize</code>::<code>z</code></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-tileSize-10705" href="#VUID-RuntimeSpirv-tileSize-10705"></a> <span class="vuid">VUID-RuntimeSpirv-tileSize-10705</span><br>
+
+In compute shaders that enables SPIR-V capability <code>TileShadingQCOM</code>,
+<span class="eq"><a href="VkTilePropertiesQCOM.html">VkTilePropertiesQCOM</a>::<code>tileSize</code>::<code>z</code> %
+<code>TileShadingRateQCOM</code>::<code>z</code></span> <strong class="purple">must</strong> equal <code>0</code></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpImage-10706" href="#VUID-RuntimeSpirv-OpImage-10706"></a> <span class="vuid">VUID-RuntimeSpirv-OpImage-10706</span><br>
+
+An <code>OpImage</code> with <code>Storage</code> <code>Class</code> <code>TileAttachmentQCOM</code>
+<strong class="purple">must</strong> not be consumed by <code>OpImageTexelPointer</code> unless the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShadingFragmentStage" target="_blank" rel="noopener">tileShadingAtomicOps</a> feature is
+enabled</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpTypeImage-10707" href="#VUID-RuntimeSpirv-OpTypeImage-10707"></a> <span class="vuid">VUID-RuntimeSpirv-OpTypeImage-10707</span><br>
+
+An <code>OpTypeImage</code> with <code>Storage</code> <code>Class</code> <code>TileAttachmentQCOM</code>
+<strong class="purple">must</strong> not be backed by a view equivalent to the color attachment of the
+current subpass instance unless the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShadingColorAttachments" target="_blank" rel="noopener">tileShadingColorAttachments</a>
+feature is enabled</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpTypeImage-10708" href="#VUID-RuntimeSpirv-OpTypeImage-10708"></a> <span class="vuid">VUID-RuntimeSpirv-OpTypeImage-10708</span><br>
+
+An <code>OpTypeImage</code> with <code>Storage</code> <code>Class</code> <code>TileAttachmentQCOM</code>
+<strong class="purple">must</strong> not be backed by a view equivalent to the depth aspect of the
+depth/stencil attachment of the current subpass instance unless the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShadingDepthAttachments" target="_blank" rel="noopener">tileShadingDepthAttachments</a></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpTypeImage-10709" href="#VUID-RuntimeSpirv-OpTypeImage-10709"></a> <span class="vuid">VUID-RuntimeSpirv-OpTypeImage-10709</span><br>
+
+An <code>OpTypeImage</code> with <code>Storage</code> <code>Class</code> <code>TileAttachmentQCOM</code>
+<strong class="purple">must</strong> not be backed by a view equivalent to the stencil aspect of the
+depth/stencil attachment of the current subpass instance unless the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShadingStencilAttachments" target="_blank" rel="noopener">tileShadingStencilAttachments</a>
+feature is enabled</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpTypeImage-10710" href="#VUID-RuntimeSpirv-OpTypeImage-10710"></a> <span class="vuid">VUID-RuntimeSpirv-OpTypeImage-10710</span><br>
+
+An <code>OpTypeImage</code> with <code>Storage</code> <code>Class</code> <code>TileAttachmentQCOM</code>
+<strong class="purple">must</strong> not be backed by a view equivalent to the input attachment of the
+current subpass instance unless the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShadingInputAttachments" target="_blank" rel="noopener">tileShadingInputAttachments</a>
+feature is enabled</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpTypeSampledImage-10711" href="#VUID-RuntimeSpirv-OpTypeSampledImage-10711"></a> <span class="vuid">VUID-RuntimeSpirv-OpTypeSampledImage-10711</span><br>
+
+An <code>OpTypeSampledImage</code> with <code>Storage</code> <code>Class</code>
+<code>TileAttachmentQCOM</code> <strong class="purple">must</strong> not be backed by a view equivalent to an
+attachment of the current subpass instance unless the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShadingSampledAttachments" target="_blank" rel="noopener">tileShadingSampledAttachments</a>
+feature is enabled</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-tileShadingImageProcessing-10712" href="#VUID-RuntimeSpirv-tileShadingImageProcessing-10712"></a> <span class="vuid">VUID-RuntimeSpirv-tileShadingImageProcessing-10712</span><br>
+
+If an <code>OpTypeSampledImage</code> with <code>Storage</code> <code>Class</code>
+<code>TileAttachmentQCOM</code> is consumed by any argument of the following
+operations,
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShadingImageProcessing" target="_blank" rel="noopener"><code>tileShadingImageProcessing</code></a>
+<strong class="purple">must</strong> be enabled:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>OpImageSampleWeightedQCOM</code></p>
+</li>
+<li>
+<p><code>OpImageBoxFilterQCOM</code></p>
+</li>
+<li>
+<p><code>OpImageBlockMatch*QCOM</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-Coordinate-10713" href="#VUID-RuntimeSpirv-Coordinate-10713"></a> <span class="vuid">VUID-RuntimeSpirv-Coordinate-10713</span><br>
+
+The <code>Coordinate</code> operand of any <code>OpImageRead</code>,
+<code>OpImageSparseRead</code>, <code>OpImageWrite</code>, or <code>OpImageTexelPointer</code>
+instruction that consumes an <code>OpTypeImage</code> with an image <code>Storage</code>
+<code>Class</code> <code>TileAttachmentQCOM</code> <strong class="purple">must</strong> not result in any texels
+accessed outside the boundaries of the current tile, computed as
+described in <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-tile-shading-offset-validation" target="_blank" rel="noopener">Tile
+Attachments</a></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-Coordinate-10714" href="#VUID-RuntimeSpirv-Coordinate-10714"></a> <span class="vuid">VUID-RuntimeSpirv-Coordinate-10714</span><br>
+
+The <code>Coordinate</code> operand(s) of any of the following instructions that
+consumes an <code>OpTypeSampledImage</code> with an image of <code>Storage</code>
+<code>Class</code> <code>TileAttachmentQCOM</code> <strong class="purple">must</strong> not result in any texels
+accessed outside boundaries of the current tile, computed as described
+in <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-tile-shading-offset-validation" target="_blank" rel="noopener">Tile Attachments</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>OpImageSample*</code></p>
+</li>
+<li>
+<p><code>OpImageSparseSample*</code></p>
+</li>
+<li>
+<p><code>OpImageFetch</code></p>
+</li>
+<li>
+<p><code>OpImageSparseFetch</code></p>
+</li>
+<li>
+<p><code>OpImage*Gather</code></p>
+</li>
+<li>
+<p><code>OpImageSparse*Gather</code></p>
+</li>
+<li>
+<p><code>OpImageSampleWeightedQCOM</code></p>
+</li>
+<li>
+<p><code>OpImageBoxFilterQCOM</code></p>
+</li>
+<li>
+<p><code>OpImageBlockMatch*QCOM</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-None-10715" href="#VUID-RuntimeSpirv-None-10715"></a> <span class="vuid">VUID-RuntimeSpirv-None-10715</span><br>
+
+If a <a href="VkSampler.html">VkSampler</a> object that enables
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#samplers-YCbCr-conversion" target="_blank" rel="noopener">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a> is accessed in
+a shader, both the sampler and image accessed <strong class="purple">must</strong> be determined by
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#glossary-constant-integral-expression" target="_blank" rel="noopener">constant integral expressions</a></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-None-10716" href="#VUID-RuntimeSpirv-None-10716"></a> <span class="vuid">VUID-RuntimeSpirv-None-10716</span><br>
+
+If a <a href="VkSampler.html">VkSampler</a> object that enables
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#samplers-YCbCr-conversion" target="_blank" rel="noopener">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a> is statically
+used, it <strong class="purple">must</strong> only be used with <code>OpImageSample*</code> or
+<code>OpImageSparseSample*</code> instructions</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpImage-10717" href="#VUID-RuntimeSpirv-OpImage-10717"></a> <span class="vuid">VUID-RuntimeSpirv-OpImage-10717</span><br>
+
+An <code>OpImage</code> instruction <strong class="purple">must</strong> not be used on a <a href="VkSampler.html">VkSampler</a>
+object that enables <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#samplers-YCbCr-conversion" target="_blank" rel="noopener">sampler Y′C<sub>B</sub>C<sub>R</sub>
+conversion</a></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-ConstOffset-10718" href="#VUID-RuntimeSpirv-ConstOffset-10718"></a> <span class="vuid">VUID-RuntimeSpirv-ConstOffset-10718</span><br>
+
+If a <a href="VkSampler.html">VkSampler</a> object that enables
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#samplers-YCbCr-conversion" target="_blank" rel="noopener">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a> is statically
+used, it <strong class="purple">must</strong> not use the <code>ConstOffset</code> or <code>Offset</code> operands</p>
+</li>
 </ul>
 </div>
 </div>

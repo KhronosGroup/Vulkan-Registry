@@ -1113,20 +1113,20 @@ element of <code>pRegions</code>, <code>dstSubresource.baseArrayLayer</code> <st
 <li>
 <p><a id="VUID-VkBlitImageInfo2-maintenance8-10579" href="#VUID-VkBlitImageInfo2-maintenance8-10579"></a> <span class="vuid">VUID-VkBlitImageInfo2-maintenance8-10579</span><br>
 
-If the <a href="#features-maintenance8"><code>maintenance8</code></a> feature is enabled
-and <code>srcImage</code> is not of type <code>VK_IMAGE_TYPE_3D</code>, then for each
-element of <code>pRegions</code>, the absolute difference of the <code>z</code> member
-of each member of <code>dstOffsets</code> <strong class="purple">must</strong> equal
-<code>srcSubresource.layerCount</code></p>
+If the <a href="#features-maintenance8"><code>maintenance8</code></a> feature is enabled,
+<code>dstImage</code> is <code>VK_IMAGE_TYPE_3D</code>, and <code>srcImage</code> is not of
+type <code>VK_IMAGE_TYPE_3D</code>, then for each element of <code>pRegions</code>,
+the absolute difference of the <code>z</code> member of each member of
+<code>dstOffsets</code> <strong class="purple">must</strong> equal <code>srcSubresource.layerCount</code></p>
 </li>
 <li>
 <p><a id="VUID-VkBlitImageInfo2-maintenance8-10580" href="#VUID-VkBlitImageInfo2-maintenance8-10580"></a> <span class="vuid">VUID-VkBlitImageInfo2-maintenance8-10580</span><br>
 
-If the <a href="#features-maintenance8"><code>maintenance8</code></a> feature is enabled
-and <code>dstImage</code> is not of type <code>VK_IMAGE_TYPE_3D</code>, then for each
-element of <code>pRegions</code>, the absolute difference of the <code>z</code> member
-of each member of <code>srcOffsets</code> <strong class="purple">must</strong> equal
-<code>dstSubresource.layerCount</code></p>
+If the <a href="#features-maintenance8"><code>maintenance8</code></a> feature is enabled,
+<code>srcImage</code> is <code>VK_IMAGE_TYPE_3D</code>, and <code>dstImage</code> is not of
+type <code>VK_IMAGE_TYPE_3D</code>, then for each element of <code>pRegions</code>,
+the absolute difference of the <code>z</code> member of each member of
+<code>srcOffsets</code> <strong class="purple">must</strong> equal <code>dstSubresource.layerCount</code></p>
 </li>
 <li>
 <p><a id="VUID-VkBlitImageInfo2-srcImage-00240" href="#VUID-VkBlitImageInfo2-srcImage-00240"></a> <span class="vuid">VUID-VkBlitImageInfo2-srcImage-00240</span><br>

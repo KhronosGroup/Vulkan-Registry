@@ -1446,6 +1446,57 @@ mapping state specified by <a href="VkRenderingInputAttachmentIndexInfo.html">Vk
 the inheritance info of each element of <code>pCommandBuffers</code> and in the
 current state of <code>commandBuffer</code> <strong class="purple">must</strong> match</p>
 </li>
+<li>
+<p><a id="VUID-vkCmdExecuteCommands-pCommandBuffers-10620" href="#VUID-vkCmdExecuteCommands-pCommandBuffers-10620"></a> <span class="vuid">VUID-vkCmdExecuteCommands-pCommandBuffers-10620</span><br>
+
+If this command is being recorded within a render pass instance with
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-tile-shading" target="_blank" rel="noopener">tile shading</a> enabled, all elements of
+<code>pCommandBuffers</code> <strong class="purple">must</strong> have been recorded with
+<code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> included in
+<a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdExecuteCommands-pCommandBuffers-10621" href="#VUID-vkCmdExecuteCommands-pCommandBuffers-10621"></a> <span class="vuid">VUID-vkCmdExecuteCommands-pCommandBuffers-10621</span><br>
+
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model" target="_blank" rel="noopener">per-tile execution model</a>
+is enabled, all elements of <code>pCommandBuffers</code> <strong class="purple">must</strong> have been
+recorded with
+<code>VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM</code> included
+in <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdExecuteCommands-tileApronSize-10622" href="#VUID-vkCmdExecuteCommands-tileApronSize-10622"></a> <span class="vuid">VUID-vkCmdExecuteCommands-tileApronSize-10622</span><br>
+
+If this command is being recorded within a render pass instance, the
+<code>tileApronSize</code> used to create the render pass instance <strong class="purple">must</strong> equal
+the <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>tileApronSize</code>
+used to record all elements of <code>pCommandBuffers</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdExecuteCommands-pCommandBuffers-10623" href="#VUID-vkCmdExecuteCommands-pCommandBuffers-10623"></a> <span class="vuid">VUID-vkCmdExecuteCommands-pCommandBuffers-10623</span><br>
+
+If any element of <code>pCommandBuffers</code> was recorded with
+<code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> included in
+<a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code>, this command
+<strong class="purple">must</strong> be recorded in a render pass that has tile shading enabled</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdExecuteCommands-pCommandBuffers-10624" href="#VUID-vkCmdExecuteCommands-pCommandBuffers-10624"></a> <span class="vuid">VUID-vkCmdExecuteCommands-pCommandBuffers-10624</span><br>
+
+If any element of <code>pCommandBuffers</code> was recorded with
+<code>VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM</code> included
+in <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code>,
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-per-tile-execution-model" target="_blank" rel="noopener">per-tile execution model</a> <strong class="purple">must</strong>
+be enabled</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdExecuteCommands-tileApronSize-10625" href="#VUID-vkCmdExecuteCommands-tileApronSize-10625"></a> <span class="vuid">VUID-vkCmdExecuteCommands-tileApronSize-10625</span><br>
+
+If this command is not being recorded into a render pass instance, the
+<a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>tileApronSize</code> that
+was recorded into all elements of <code>pCommandBuffers</code> <strong class="purple">must</strong> equal
+<code>(0,0)</code></p>
+</li>
 </ul>
 </div>
 </div>

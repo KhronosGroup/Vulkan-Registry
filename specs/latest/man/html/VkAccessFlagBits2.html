@@ -847,6 +847,10 @@ static const VkAccessFlagBits2 VK_ACCESS_2_VIDEO_DECODE_WRITE_BIT_KHR = 0x100000
 static const VkAccessFlagBits2 VK_ACCESS_2_VIDEO_ENCODE_READ_BIT_KHR = 0x2000000000ULL;
 // Provided by VK_KHR_video_encode_queue
 static const VkAccessFlagBits2 VK_ACCESS_2_VIDEO_ENCODE_WRITE_BIT_KHR = 0x4000000000ULL;
+// Provided by VK_QCOM_tile_shading
+static const VkAccessFlagBits2 VK_ACCESS_2_SHADER_TILE_ATTACHMENT_READ_BIT_QCOM = 0x8000000000000ULL;
+// Provided by VK_QCOM_tile_shading
+static const VkAccessFlagBits2 VK_ACCESS_2_SHADER_TILE_ATTACHMENT_WRITE_BIT_QCOM = 0x10000000000000ULL;
 // Provided by VK_KHR_synchronization2
 static const VkAccessFlagBits2 VK_ACCESS_2_NONE_KHR = 0ULL;
 // Provided by VK_KHR_synchronization2
@@ -1033,6 +1037,9 @@ is equivalent to the logical OR of:</p>
 </li>
 <li>
 <p><code>VK_ACCESS_2_SHADER_STORAGE_READ_BIT</code></p>
+</li>
+<li>
+<p><code>VK_ACCESS_2_SHADER_TILE_ATTACHMENT_READ_BIT_QCOM</code></p>
 </li>
 </ul>
 </div>
@@ -1284,6 +1291,20 @@ Such access occurs in the
 <code>VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT</code> and
 <code>VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR</code> pipeline
 stages.</p>
+</li>
+<li>
+<p><code>VK_ACCESS_2_SHADER_TILE_ATTACHMENT_READ_BIT_QCOM</code> specifies read
+access to a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-tile-shading-attachment-access" target="_blank" rel="noopener">tile
+attachment</a>.
+Such access occurs in the <code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code>
+or <code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code> pipeline stages.</p>
+</li>
+<li>
+<p><code>VK_ACCESS_2_SHADER_TILE_ATTACHMENT_WRITE_BIT_QCOM</code> specifies write
+access to a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-tile-shading-attachment-access" target="_blank" rel="noopener">tile
+attachment</a>.
+Such access occurs in the <code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code>
+or <code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code> pipeline stages.</p>
 </li>
 </ul>
 </div>

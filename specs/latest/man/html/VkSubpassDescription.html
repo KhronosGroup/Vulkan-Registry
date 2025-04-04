@@ -1108,6 +1108,15 @@ If the <code>attachment</code> member of an element of
 <code>VK_IMAGE_LAYOUT_READ_ONLY_OPTIMAL_KHR</code></p>
 </li>
 <li>
+<p><a id="VUID-VkSubpassDescription-flags-10683" href="#VUID-VkSubpassDescription-flags-10683"></a> <span class="vuid">VUID-VkSubpassDescription-flags-10683</span><br>
+
+If <code>flags</code> includes
+<code>VK_SUBPASS_DESCRIPTION_TILE_SHADING_APRON_BIT_QCOM</code>, the render
+pass <strong class="purple">must</strong> have been created with a
+<a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>tileApronSize</code> greater
+than <code>(0,0)</code></p>
+</li>
+<li>
 <p><a id="VUID-VkSubpassDescription-pipelineBindPoint-04952" href="#VUID-VkSubpassDescription-pipelineBindPoint-04952"></a> <span class="vuid">VUID-VkSubpassDescription-pipelineBindPoint-04952</span><br>
 
 <code>pipelineBindPoint</code> <strong class="purple">must</strong> be <code>VK_PIPELINE_BIND_POINT_GRAPHICS</code>

@@ -2474,6 +2474,26 @@ whether or not the feature is enabled.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cooperativeVectorTrainingFloat32Accumulation</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint32_t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxApronSize</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShadingApron" target="_blank" rel="noopener"><code>tileShadingApron</code></a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="VkBool32.html">VkBool32</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>preferNonCoherent</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShading" target="_blank" rel="noopener"><code>tileShading</code></a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 × <code>uint32_t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tileGranularity</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShading" target="_blank" rel="noopener"><code>tileShading</code></a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 × <code>uint32_t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxTileShadingRate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShadingDispatchTile" target="_blank" rel="noopener"><code>tileShadingDispatchTile</code></a></code></p></td>
+</tr>
 </tbody>
 </table>
 <table id="limits-required" class="tableblock frame-all grid-all stretch">
@@ -4813,6 +4833,30 @@ whether or not the feature is enabled.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxCooperativeVectorComponents</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">128</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxApronSize</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>preferNonCoherent</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">implementation-dependent</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tileGranularity</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(16,16)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxTileShadingRate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(8,8)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
 </tr>
 </tbody>
