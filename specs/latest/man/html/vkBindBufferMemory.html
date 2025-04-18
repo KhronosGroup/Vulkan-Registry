@@ -886,19 +886,41 @@ allowed in the <code>memoryTypeBits</code> member of the
 <code>vkGetBufferMemoryRequirements</code> with <code>buffer</code></p>
 </li>
 <li>
-<p><a id="VUID-vkBindBufferMemory-memoryOffset-01036" href="#VUID-vkBindBufferMemory-memoryOffset-01036"></a> <span class="vuid">VUID-vkBindBufferMemory-memoryOffset-01036</span><br>
+<p><a id="VUID-vkBindBufferMemory-None-10739" href="#VUID-vkBindBufferMemory-None-10739"></a> <span class="vuid">VUID-vkBindBufferMemory-None-10739</span><br>
 
+If <code>memory</code> was not allocated from a memory heap with the
+<code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property set,
 <code>memoryOffset</code> <strong class="purple">must</strong> be an integer multiple of the <code>alignment</code>
 member of the <code>VkMemoryRequirements</code> structure returned from a call
 to <code>vkGetBufferMemoryRequirements</code> with <code>buffer</code></p>
 </li>
 <li>
-<p><a id="VUID-vkBindBufferMemory-size-01037" href="#VUID-vkBindBufferMemory-size-01037"></a> <span class="vuid">VUID-vkBindBufferMemory-size-01037</span><br>
+<p><a id="VUID-vkBindBufferMemory-memory-10740" href="#VUID-vkBindBufferMemory-memory-10740"></a> <span class="vuid">VUID-vkBindBufferMemory-memory-10740</span><br>
 
-The <code>size</code> member of the <code>VkMemoryRequirements</code> structure
-returned from a call to <code>vkGetBufferMemoryRequirements</code> with
-<code>buffer</code> <strong class="purple">must</strong> be less than or equal to the size of <code>memory</code>
-minus <code>memoryOffset</code></p>
+If <code>memory</code> was allocated from a memory heap with the
+<code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property set,
+<code>memoryOffset</code> <strong class="purple">must</strong> be an integer multiple of the <code>alignment</code>
+member of the <code>VkTileMemoryRequirementsQCOM</code> structure returned from
+a call to <code>vkGetBufferMemoryRequirements</code> with <code>buffer</code></p>
+</li>
+<li>
+<p><a id="VUID-vkBindBufferMemory-None-10741" href="#VUID-vkBindBufferMemory-None-10741"></a> <span class="vuid">VUID-vkBindBufferMemory-None-10741</span><br>
+
+If <code>memory</code> was not allocated from a memory heap with the
+<code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property set,
+<code>size</code> member of the <code>VkMemoryRequirements</code> structure returned
+from a call to <code>vkGetBufferMemoryRequirements</code> with <code>buffer</code>
+<strong class="purple">must</strong> be less than or equal to the size of <code>memory</code> minus
+<code>memoryOffset</code></p>
+</li>
+<li>
+<p><a id="VUID-vkBindBufferMemory-memory-10742" href="#VUID-vkBindBufferMemory-memory-10742"></a> <span class="vuid">VUID-vkBindBufferMemory-memory-10742</span><br>
+
+If <code>memory</code> was allocated from a memory heap with the
+<code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property set, <code>size</code>
+member of the <code>VkTileMemoryRequirementsQCOM</code> structure returned from
+a call to <code>vkGetBufferMemoryRequirements</code> with <code>buffer</code> <strong class="purple">must</strong> be
+less than or equal to the size of <code>memory</code> minus <code>memoryOffset</code></p>
 </li>
 <li>
 <p><a id="VUID-vkBindBufferMemory-buffer-01444" href="#VUID-vkBindBufferMemory-buffer-01444"></a> <span class="vuid">VUID-vkBindBufferMemory-buffer-01444</span><br>

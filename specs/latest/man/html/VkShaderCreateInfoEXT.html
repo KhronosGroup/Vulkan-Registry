@@ -856,8 +856,9 @@ shader stage.</p>
 </li>
 <li>
 <p><code>nextStage</code> is a bitmask of <a href="VkShaderStageFlagBits.html">VkShaderStageFlagBits</a> specifying
-zero or stages which <strong class="purple">may</strong> be used as a logically next bound stage when
-drawing with the shader bound.</p>
+which stages <strong class="purple">may</strong> be used as a logically next bound stage when drawing
+with the shader bound.
+A value of zero indicates this shader stage <strong class="purple">must</strong> be the last one.</p>
 </li>
 <li>
 <p><code>codeType</code> is a <a href="VkShaderCodeTypeEXT.html">VkShaderCodeTypeEXT</a> value specifying the type
@@ -880,7 +881,9 @@ by <code>pSetLayouts</code>.</p>
 </li>
 <li>
 <p><code>pSetLayouts</code> is a pointer to an array of
-<a href="VkDescriptorSetLayout.html">VkDescriptorSetLayout</a> objects used by the shader stage.</p>
+<a href="VkDescriptorSetLayout.html">VkDescriptorSetLayout</a> objects used by the shader stage.
+The implementation <strong class="purple">must</strong> not access these objects outside of the
+duration of the command this structure is passed to.</p>
 </li>
 <li>
 <p><code>pushConstantRangeCount</code> is the number of push constant ranges

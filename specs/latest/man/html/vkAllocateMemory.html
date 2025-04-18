@@ -962,6 +962,15 @@ The overallocation behavior <strong class="purple">can</strong> be specified thr
 <code><a href="VK_AMD_memory_overallocation_behavior.html">VK_AMD_memory_overallocation_behavior</a></code> extension.</p>
 </div>
 <div class="paragraph">
+<p>If the <code>memoryTypeIndex</code> belongs to a heap with the
+<code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> bit included in its properties,
+this allocation is backed by tile memory, which is an on device cache.
+Unlike other heaps, allocations out of the tile memory will always have a
+starting address at the start of the heap and its contents are aliased with
+all other <a href="VkDeviceMemory.html">VkDeviceMemory</a> objects bound to the same range while
+executing within the same <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-tile-heaps" target="_blank" rel="noopener"><em>tile memory scope</em></a>.</p>
+</div>
+<div class="paragraph">
 <p>If the
 <a href="VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT.html">VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT</a>::<code>pageableDeviceLocalMemory</code>
 feature is enabled, memory allocations made from a heap that includes
@@ -1020,6 +1029,14 @@ identify a memory type supporting
 There <strong class="purple">must</strong> be less than
 <code>VkPhysicalDeviceLimits</code>::<code>maxMemoryAllocationCount</code> device
 memory allocations currently allocated on the device</p>
+</li>
+<li>
+<p><a id="VUID-VkTileMemoryBindInfoQCOM-memoryTypeIndex" href="#VUID-VkTileMemoryBindInfoQCOM-memoryTypeIndex"></a> <span class="vuid">VUID-VkTileMemoryBindInfoQCOM-memoryTypeIndex</span><br>
+
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileMemoryHeap" target="_blank" rel="noopener"><code>tileMemoryHeap</code></a> feature is not
+enabled, <code>pAllocateInfo-&gt;memoryTypeIndex</code> <strong class="purple">must</strong> not identify a
+memory type that corresponds to a <a href="VkMemoryHeap.html">VkMemoryHeap</a> with the
+<code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property</p>
 </li>
 </ul>
 </div>

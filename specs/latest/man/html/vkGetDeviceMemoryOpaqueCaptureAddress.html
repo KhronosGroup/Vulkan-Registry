@@ -886,8 +886,14 @@ specify them during replay.</p>
 <li>
 <p><a id="VUID-vkGetDeviceMemoryOpaqueCaptureAddress-None-03334" href="#VUID-vkGetDeviceMemoryOpaqueCaptureAddress-None-03334"></a> <span class="vuid">VUID-vkGetDeviceMemoryOpaqueCaptureAddress-None-03334</span><br>
 
-The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddress" target="_blank" rel="noopener"><code>bufferDeviceAddress</code></a> feature
-<strong class="purple">must</strong> be enabled</p>
+The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddress" target="_blank" rel="noopener"><code>bufferDeviceAddress</code></a> and
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddressCaptureReplay" target="_blank" rel="noopener"><code>bufferDeviceAddressCaptureReplay</code></a> features <strong class="purple">must</strong> be enabled</p>
+</li>
+<li>
+<p><a id="VUID-vkGetDeviceMemoryOpaqueCaptureAddress-pInfo-10727" href="#VUID-vkGetDeviceMemoryOpaqueCaptureAddress-pInfo-10727"></a> <span class="vuid">VUID-vkGetDeviceMemoryOpaqueCaptureAddress-pInfo-10727</span><br>
+
+<code>pInfo</code>::<code>memory</code> <strong class="purple">must</strong> have been allocated using the
+<code>VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT</code> flag</p>
 </li>
 <li>
 <p><a id="VUID-vkGetDeviceMemoryOpaqueCaptureAddress-device-03335" href="#VUID-vkGetDeviceMemoryOpaqueCaptureAddress-device-03335"></a> <span class="vuid">VUID-vkGetDeviceMemoryOpaqueCaptureAddress-device-03335</span><br>

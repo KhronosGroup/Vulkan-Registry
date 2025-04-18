@@ -877,9 +877,7 @@ fragment density map by that amount.
 Offsets can be positive or negative.</p>
 </div>
 <div class="paragraph">
-<p>Offset values specified for any subpass that is not the last subpass in the
-render pass are ignored.
-If neither the <a href="VkSubpassEndInfo.html">VkSubpassEndInfo</a>::<code>pNext</code> chain for the last
+<p>If neither the <a href="VkSubpassEndInfo.html">VkSubpassEndInfo</a>::<code>pNext</code> chain for the last
 subpass of a render pass nor the <a href="VkRenderingEndInfoEXT.html">VkRenderingEndInfoEXT</a>::<code>pNext</code>
 chain of a dynamic render pass include
 <code>VkRenderPassFragmentDensityMapOffsetEndInfoEXT</code>, or if
@@ -981,6 +979,12 @@ The <code>x</code> component of each element of <code>pFragmentDensityOffsets</c
 The <code>y</code> component of each element of <code>pFragmentDensityOffsets</code>
 <strong class="purple">must</strong> be an integer multiple of
 <code>fragmentDensityOffsetGranularity.height</code></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pFragmentDensityOffsets-10730" href="#VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pFragmentDensityOffsets-10730"></a> <span class="vuid">VUID-VkRenderPassFragmentDensityMapOffsetEndInfoEXT-pFragmentDensityOffsets-10730</span><br>
+
+Each element of <code>pFragmentDensityOffsets</code> must be identical for
+every <a href="vkCmdEndRendering2EXT.html">vkCmdEndRendering2EXT</a> call made in a render pass.</p>
 </li>
 </ul>
 </div>

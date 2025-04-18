@@ -1450,6 +1450,15 @@ this command, all image subresources identified by that descriptor <strong class
 be in the image layout identified when the descriptor was written</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDispatchIndirect-commandBuffer-10746" href="#VUID-vkCmdDispatchIndirect-commandBuffer-10746"></a> <span class="vuid">VUID-vkCmdDispatchIndirect-commandBuffer-10746</span><br>
+
+The <code>VkDeviceMemory</code> object allocated from a <code>VkMemoryHeap</code> with
+the <code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property that is bound to
+a resource accessed as a result of this command <strong class="purple">must</strong> be the active
+bound <a href="#memory-bind-tile-memory">bound tile memory object</a> in
+<code>commandBuffer</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDispatchIndirect-None-10678" href="#VUID-vkCmdDispatchIndirect-None-10678"></a> <span class="vuid">VUID-vkCmdDispatchIndirect-None-10678</span><br>
 
 If this command is recorded inside a <a href="#renderpass-tile-shading">tile
@@ -1510,6 +1519,12 @@ If any recorded command in the current subpass will write to an image
 subresource as a <a href="#renderpass-tile-shading-attachment-access">tile
 attachment</a>, this command <strong class="purple">must</strong> not read from the memory backing that
 image subresource in any other way than as a tile attachment</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDispatchIndirect-None-10743" href="#VUID-vkCmdDispatchIndirect-None-10743"></a> <span class="vuid">VUID-vkCmdDispatchIndirect-None-10743</span><br>
+
+If there is no bound compute pipeline, a valid <code>VkShaderEXT</code> <strong class="purple">must</strong>
+be bound to the <code>VK_SHADER_STAGE_COMPUTE_BIT</code> stage</p>
 </li>
 </ul>
 </div>

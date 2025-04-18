@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>VkQueue(3)</title>
+<title>VkTileMemoryRequirementsQCOM(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,10 +796,10 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>VkQueue(3) Manual Page</h1>
+<h1>VkTileMemoryRequirementsQCOM(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>VkQueue - Opaque handle to a queue object</p>
+<p>VkTileMemoryRequirementsQCOM - Structure specifying tile memory requirements</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -809,21 +809,75 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Creating a logical device also creates the queues associated with that
-device.
-The queues to create are described by a set of <a href="VkDeviceQueueCreateInfo.html">VkDeviceQueueCreateInfo</a>
-structures that are passed to <a href="vkCreateDevice.html">vkCreateDevice</a> in
-<code>pQueueCreateInfos</code>.
-Queues <strong class="purple">cannot</strong> be independently destroyed, and are instead destroyed with
-the <a href="VkDevice.html">VkDevice</a> that they were created from.</p>
+<p>To determine the tile memory allocation requirements of a buffer or image
+resource, add a <code>VkTileMemoryRequirementsQCOM</code> structure to the
+<code>pNext</code> chain of the <code>VkMemoryRequirements2</code> structure passed as the
+<code>pMemoryRequirements</code> parameter of <a href="vkGetBufferMemoryRequirements2.html">vkGetBufferMemoryRequirements2</a>
+or <a href="vkGetImageMemoryRequirements2.html">vkGetImageMemoryRequirements2</a>, respectively.
+The <code>VkTileMemoryRequirementsQCOM</code> structure is defined as:</p>
+</div>
+<div id="VkTileMemoryRequirementsQCOM" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_QCOM_tile_memory_heap
+typedef struct VkTileMemoryRequirementsQCOM {
+    VkStructureType    sType;
+    void*              pNext;
+    VkDeviceSize       size;
+    VkDeviceSize       alignment;
+} VkTileMemoryRequirementsQCOM;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_members"><a class="anchor" href="#_members"></a>Members</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>sType</code> is a <a href="VkStructureType.html">VkStructureType</a> value identifying this structure.</p>
+</li>
+<li>
+<p><code>pNext</code> is <code>NULL</code> or a pointer to a structure extending this
+structure.</p>
+</li>
+<li>
+<p><code>size</code> size is the size, in bytes, of the tile memory allocation
+required for the resource.</p>
+</li>
+<li>
+<p><code>alignment</code> is the alignment, in bytes, of the offset within the
+tile memory allocation required for the resource.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>size</code> and <code>alignment</code> <strong class="purple">must</strong> be used when the resource is bound
+to a <a href="VkDeviceMemory.html">VkDeviceMemory</a> object that was allocated from a
+<a href="VkMemoryType.html">VkMemoryType</a> that has a <code>heapIndex</code> that corresponds to a
+<a href="VkMemoryHeap.html">VkMemoryHeap</a> with the <code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code>
+property.</p>
 </div>
 <div class="paragraph">
-<p>Queues are represented by <code>VkQueue</code> handles:</p>
+<p>If the resource cannot be bound to tile memory, then <code>size</code> and
+<code>alignment</code> is filled with zero by the implementation.</p>
 </div>
-<div id="VkQueue" class="listingblock">
+<div class="sidebarblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_VERSION_1_0
-VK_DEFINE_HANDLE(VkQueue)</code></pre>
+<div class="title">Valid Usage (Implicit)</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a id="VUID-VkTileMemoryRequirementsQCOM-sType-sType" href="#VUID-VkTileMemoryRequirementsQCOM-sType-sType"></a> <span class="vuid">VUID-VkTileMemoryRequirementsQCOM-sType-sType</span><br>
+ <code>sType</code> <strong class="purple">must</strong> be <code>VK_STRUCTURE_TYPE_TILE_MEMORY_REQUIREMENTS_QCOM</code></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -832,7 +886,7 @@ VK_DEFINE_HANDLE(VkQueue)</code></pre>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_DEFINE_HANDLE.html">VK_DEFINE_HANDLE</a>, <a href="VK_VERSION_1_0.html">VK_VERSION_1_0</a>, <a href="VkExportMetalCommandQueueInfoEXT.html">VkExportMetalCommandQueueInfoEXT</a>, <a href="VkExternalComputeQueueCreateInfoNV.html">VkExternalComputeQueueCreateInfoNV</a>, <a href="vkGetDeviceQueue.html">vkGetDeviceQueue</a>, <a href="vkGetDeviceQueue2.html">vkGetDeviceQueue2</a>, <a href="vkGetQueueCheckpointData2NV.html">vkGetQueueCheckpointData2NV</a>, <a href="vkGetQueueCheckpointDataNV.html">vkGetQueueCheckpointDataNV</a>, <a href="vkQueueBeginDebugUtilsLabelEXT.html">vkQueueBeginDebugUtilsLabelEXT</a>, <a href="vkQueueBindSparse.html">vkQueueBindSparse</a>, <a href="vkQueueEndDebugUtilsLabelEXT.html">vkQueueEndDebugUtilsLabelEXT</a>, <a href="vkQueueInsertDebugUtilsLabelEXT.html">vkQueueInsertDebugUtilsLabelEXT</a>, <a href="vkQueueNotifyOutOfBandNV.html">vkQueueNotifyOutOfBandNV</a>, <a href="vkQueuePresentKHR.html">vkQueuePresentKHR</a>, <a href="vkQueueSetPerformanceConfigurationINTEL.html">vkQueueSetPerformanceConfigurationINTEL</a>, <a href="vkQueueSubmit.html">vkQueueSubmit</a>, <a href="vkQueueSubmit2.html">vkQueueSubmit2</a>, <a href="vkQueueSubmit2KHR.html">vkQueueSubmit2KHR</a>, <a href="vkQueueWaitIdle.html">vkQueueWaitIdle</a></p>
+<p><a href="VK_QCOM_tile_memory_heap.html">VK_QCOM_tile_memory_heap</a>, <a href="VkDeviceSize.html">VkDeviceSize</a>, <a href="VkStructureType.html">VkStructureType</a></p>
 </div>
 </div>
 </div>
@@ -840,7 +894,7 @@ VK_DEFINE_HANDLE(VkQueue)</code></pre>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkQueue" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkTileMemoryRequirementsQCOM" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

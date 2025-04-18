@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>VkQueue(3)</title>
+<title>VkTileMemoryBindInfoQCOM(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,10 +796,10 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>VkQueue(3) Manual Page</h1>
+<h1>VkTileMemoryBindInfoQCOM(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>VkQueue - Opaque handle to a queue object</p>
+<p>VkTileMemoryBindInfoQCOM - Structure specifying tile memory to bind</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -809,21 +809,83 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Creating a logical device also creates the queues associated with that
-device.
-The queues to create are described by a set of <a href="VkDeviceQueueCreateInfo.html">VkDeviceQueueCreateInfo</a>
-structures that are passed to <a href="vkCreateDevice.html">vkCreateDevice</a> in
-<code>pQueueCreateInfos</code>.
-Queues <strong class="purple">cannot</strong> be independently destroyed, and are instead destroyed with
-the <a href="VkDevice.html">VkDevice</a> that they were created from.</p>
+<p>The <code>VkTileMemoryBindInfoQCOM</code> structure is defined as:</p>
+</div>
+<div id="VkTileMemoryBindInfoQCOM" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_QCOM_tile_memory_heap
+typedef struct VkTileMemoryBindInfoQCOM {
+    VkStructureType    sType;
+    const void*        pNext;
+    VkDeviceMemory     memory;
+} VkTileMemoryBindInfoQCOM;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_members"><a class="anchor" href="#_members"></a>Members</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>memory</code> is the tile memory object to be bound.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>memory</code> is used to bind this memory object to tile memory for all
+subsequent commands in the <code>commandBuffer</code>.
+Tile memory contents for ranges in the heap outside the bound <code>memory</code>
+are discarded and become undefined for the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-tile-heaps" target="_blank" rel="noopener">active
+<em>tile memory scope</em></a> if an action command is executed.</p>
 </div>
 <div class="paragraph">
-<p>Queues are represented by <code>VkQueue</code> handles:</p>
+<p>For secondary command buffers executing within a render pass instance, the
+active bound tile memory object is provided with this structure included in
+the <code>pNext</code> chain of <code>VkCommandBufferInheritanceInfo</code>.</p>
 </div>
-<div id="VkQueue" class="listingblock">
+<div class="paragraph">
+<p>If this structure was not specified since recording started for
+<code>commandBuffer</code>, no tile memory is bound to the command buffer and all
+contents become undefined for the <em>tile memory scope</em> if an action command
+is executed.</p>
+</div>
+<div class="sidebarblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_VERSION_1_0
-VK_DEFINE_HANDLE(VkQueue)</code></pre>
+<div class="title">Valid Usage</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a id="VUID-VkTileMemoryBindInfoQCOM-memory-10726" href="#VUID-VkTileMemoryBindInfoQCOM-memory-10726"></a> <span class="vuid">VUID-VkTileMemoryBindInfoQCOM-memory-10726</span><br>
+
+<code>memory</code> <strong class="purple">must</strong> have been allocated from a <a href="VkMemoryHeap.html">VkMemoryHeap</a> with
+the <code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Valid Usage (Implicit)</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a id="VUID-VkTileMemoryBindInfoQCOM-sType-sType" href="#VUID-VkTileMemoryBindInfoQCOM-sType-sType"></a> <span class="vuid">VUID-VkTileMemoryBindInfoQCOM-sType-sType</span><br>
+ <code>sType</code> <strong class="purple">must</strong> be <code>VK_STRUCTURE_TYPE_TILE_MEMORY_BIND_INFO_QCOM</code></p>
+</li>
+<li>
+<p><a id="VUID-VkTileMemoryBindInfoQCOM-memory-parameter" href="#VUID-VkTileMemoryBindInfoQCOM-memory-parameter"></a> <span class="vuid">VUID-VkTileMemoryBindInfoQCOM-memory-parameter</span><br>
+ <code>memory</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceMemory.html">VkDeviceMemory</a> handle</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -832,7 +894,7 @@ VK_DEFINE_HANDLE(VkQueue)</code></pre>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_DEFINE_HANDLE.html">VK_DEFINE_HANDLE</a>, <a href="VK_VERSION_1_0.html">VK_VERSION_1_0</a>, <a href="VkExportMetalCommandQueueInfoEXT.html">VkExportMetalCommandQueueInfoEXT</a>, <a href="VkExternalComputeQueueCreateInfoNV.html">VkExternalComputeQueueCreateInfoNV</a>, <a href="vkGetDeviceQueue.html">vkGetDeviceQueue</a>, <a href="vkGetDeviceQueue2.html">vkGetDeviceQueue2</a>, <a href="vkGetQueueCheckpointData2NV.html">vkGetQueueCheckpointData2NV</a>, <a href="vkGetQueueCheckpointDataNV.html">vkGetQueueCheckpointDataNV</a>, <a href="vkQueueBeginDebugUtilsLabelEXT.html">vkQueueBeginDebugUtilsLabelEXT</a>, <a href="vkQueueBindSparse.html">vkQueueBindSparse</a>, <a href="vkQueueEndDebugUtilsLabelEXT.html">vkQueueEndDebugUtilsLabelEXT</a>, <a href="vkQueueInsertDebugUtilsLabelEXT.html">vkQueueInsertDebugUtilsLabelEXT</a>, <a href="vkQueueNotifyOutOfBandNV.html">vkQueueNotifyOutOfBandNV</a>, <a href="vkQueuePresentKHR.html">vkQueuePresentKHR</a>, <a href="vkQueueSetPerformanceConfigurationINTEL.html">vkQueueSetPerformanceConfigurationINTEL</a>, <a href="vkQueueSubmit.html">vkQueueSubmit</a>, <a href="vkQueueSubmit2.html">vkQueueSubmit2</a>, <a href="vkQueueSubmit2KHR.html">vkQueueSubmit2KHR</a>, <a href="vkQueueWaitIdle.html">vkQueueWaitIdle</a></p>
+<p><a href="VK_QCOM_tile_memory_heap.html">VK_QCOM_tile_memory_heap</a>, <a href="VkDeviceMemory.html">VkDeviceMemory</a>, <a href="VkStructureType.html">VkStructureType</a>, <a href="vkCmdBindTileMemoryQCOM.html">vkCmdBindTileMemoryQCOM</a></p>
 </div>
 </div>
 </div>
@@ -840,7 +902,7 @@ VK_DEFINE_HANDLE(VkQueue)</code></pre>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkQueue" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkTileMemoryBindInfoQCOM" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

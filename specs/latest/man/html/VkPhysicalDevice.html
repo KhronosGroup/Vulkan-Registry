@@ -817,6 +817,10 @@ A logical device represents an instance of that implementation with its own
 state and resources independent of other logical devices.</p>
 </div>
 <div class="paragraph">
+<p>Physical devices <strong class="purple">cannot</strong> be independently destroyed, and are instead
+destroyed with the <a href="VkInstance.html">VkInstance</a> that they were retrieved from.</p>
+</div>
+<div class="paragraph">
 <p>Physical devices are represented by <code>VkPhysicalDevice</code> handles:</p>
 </div>
 <div id="VkPhysicalDevice" class="listingblock">

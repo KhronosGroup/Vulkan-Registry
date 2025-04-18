@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>VkQueue(3)</title>
+<title>vkCmdBindTileMemoryQCOM(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,10 +796,10 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>VkQueue(3) Manual Page</h1>
+<h1>vkCmdBindTileMemoryQCOM(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>VkQueue - Opaque handle to a queue object</p>
+<p>vkCmdBindTileMemoryQCOM - Bind tile memory to a command buffer</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -809,21 +809,124 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Creating a logical device also creates the queues associated with that
-device.
-The queues to create are described by a set of <a href="VkDeviceQueueCreateInfo.html">VkDeviceQueueCreateInfo</a>
-structures that are passed to <a href="vkCreateDevice.html">vkCreateDevice</a> in
-<code>pQueueCreateInfos</code>.
-Queues <strong class="purple">cannot</strong> be independently destroyed, and are instead destroyed with
-the <a href="VkDevice.html">VkDevice</a> that they were created from.</p>
+<p>To bind a range of tile memory to the command buffer, call:</p>
 </div>
-<div class="paragraph">
-<p>Queues are represented by <code>VkQueue</code> handles:</p>
-</div>
-<div id="VkQueue" class="listingblock">
+<div id="vkCmdBindTileMemoryQCOM" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_VERSION_1_0
-VK_DEFINE_HANDLE(VkQueue)</code></pre>
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_QCOM_tile_memory_heap
+void vkCmdBindTileMemoryQCOM(
+    VkCommandBuffer                             commandBuffer,
+    const VkTileMemoryBindInfoQCOM*             pTileMemoryBindInfo);</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>commandBuffer</code> is the command buffer that the tile memory will be
+bound to.</p>
+</li>
+<li>
+<p><code>pTileMemoryBindInfo</code> is <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> or a pointer to a
+<a href="VkTileMemoryBindInfoQCOM.html">VkTileMemoryBindInfoQCOM</a> structure defining how tile memory is
+bound.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Calling <a href="vkCmdBindTileMemoryQCOM.html">vkCmdBindTileMemoryQCOM</a> when <code>pTileMemoryBindInfo</code> is
+<a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> is equivalent to binding no tile memory to the command
+buffer.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Valid Usage (Implicit)</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a id="VUID-vkCmdBindTileMemoryQCOM-commandBuffer-parameter" href="#VUID-vkCmdBindTileMemoryQCOM-commandBuffer-parameter"></a> <span class="vuid">VUID-vkCmdBindTileMemoryQCOM-commandBuffer-parameter</span><br>
+ <code>commandBuffer</code> <strong class="purple">must</strong> be a valid <a href="VkCommandBuffer.html">VkCommandBuffer</a> handle</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBindTileMemoryQCOM-pTileMemoryBindInfo-parameter" href="#VUID-vkCmdBindTileMemoryQCOM-pTileMemoryBindInfo-parameter"></a> <span class="vuid">VUID-vkCmdBindTileMemoryQCOM-pTileMemoryBindInfo-parameter</span><br>
+ If <code>pTileMemoryBindInfo</code> is not <code>NULL</code>, <code>pTileMemoryBindInfo</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkTileMemoryBindInfoQCOM.html">VkTileMemoryBindInfoQCOM</a> structure</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBindTileMemoryQCOM-commandBuffer-recording" href="#VUID-vkCmdBindTileMemoryQCOM-commandBuffer-recording"></a> <span class="vuid">VUID-vkCmdBindTileMemoryQCOM-commandBuffer-recording</span><br>
+ <code>commandBuffer</code> <strong class="purple">must</strong> be in the <a href="#commandbuffers-lifecycle">recording state</a></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBindTileMemoryQCOM-commandBuffer-cmdpool" href="#VUID-vkCmdBindTileMemoryQCOM-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBindTileMemoryQCOM-commandBuffer-cmdpool</span><br>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBindTileMemoryQCOM-renderpass" href="#VUID-vkCmdBindTileMemoryQCOM-renderpass"></a> <span class="vuid">VUID-vkCmdBindTileMemoryQCOM-renderpass</span><br>
+ This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBindTileMemoryQCOM-videocoding" href="#VUID-vkCmdBindTileMemoryQCOM-videocoding"></a> <span class="vuid">VUID-vkCmdBindTileMemoryQCOM-videocoding</span><br>
+ This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Host Synchronization</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Host access to <code>commandBuffer</code> <strong class="purple">must</strong> be externally synchronized</p>
+</li>
+<li>
+<p>Host access to the <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> be externally synchronized</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Command Properties</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><a href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
+<th class="tableblock halign-left valign-top"><a href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
+<th class="tableblock halign-left valign-top"><a href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
+<th class="tableblock halign-left valign-top"><a href="#VkQueueFlagBits">Supported Queue Types</a></th>
+<th class="tableblock halign-left valign-top"><a href="#fundamentals-queueoperation-command-types">Command Type</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Primary<br>
+Secondary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
+Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">State</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -832,7 +935,7 @@ VK_DEFINE_HANDLE(VkQueue)</code></pre>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_DEFINE_HANDLE.html">VK_DEFINE_HANDLE</a>, <a href="VK_VERSION_1_0.html">VK_VERSION_1_0</a>, <a href="VkExportMetalCommandQueueInfoEXT.html">VkExportMetalCommandQueueInfoEXT</a>, <a href="VkExternalComputeQueueCreateInfoNV.html">VkExternalComputeQueueCreateInfoNV</a>, <a href="vkGetDeviceQueue.html">vkGetDeviceQueue</a>, <a href="vkGetDeviceQueue2.html">vkGetDeviceQueue2</a>, <a href="vkGetQueueCheckpointData2NV.html">vkGetQueueCheckpointData2NV</a>, <a href="vkGetQueueCheckpointDataNV.html">vkGetQueueCheckpointDataNV</a>, <a href="vkQueueBeginDebugUtilsLabelEXT.html">vkQueueBeginDebugUtilsLabelEXT</a>, <a href="vkQueueBindSparse.html">vkQueueBindSparse</a>, <a href="vkQueueEndDebugUtilsLabelEXT.html">vkQueueEndDebugUtilsLabelEXT</a>, <a href="vkQueueInsertDebugUtilsLabelEXT.html">vkQueueInsertDebugUtilsLabelEXT</a>, <a href="vkQueueNotifyOutOfBandNV.html">vkQueueNotifyOutOfBandNV</a>, <a href="vkQueuePresentKHR.html">vkQueuePresentKHR</a>, <a href="vkQueueSetPerformanceConfigurationINTEL.html">vkQueueSetPerformanceConfigurationINTEL</a>, <a href="vkQueueSubmit.html">vkQueueSubmit</a>, <a href="vkQueueSubmit2.html">vkQueueSubmit2</a>, <a href="vkQueueSubmit2KHR.html">vkQueueSubmit2KHR</a>, <a href="vkQueueWaitIdle.html">vkQueueWaitIdle</a></p>
+<p><a href="VK_QCOM_tile_memory_heap.html">VK_QCOM_tile_memory_heap</a>, <a href="VkCommandBuffer.html">VkCommandBuffer</a>, <a href="VkTileMemoryBindInfoQCOM.html">VkTileMemoryBindInfoQCOM</a></p>
 </div>
 </div>
 </div>
@@ -840,7 +943,7 @@ VK_DEFINE_HANDLE(VkQueue)</code></pre>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkQueue" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdBindTileMemoryQCOM" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

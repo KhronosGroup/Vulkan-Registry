@@ -847,7 +847,9 @@ structure.</p>
 <li>
 <p><code>renderPass</code> is a render pass defining what render passes the
 framebuffer will be compatible with.
-See <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-compatibility" target="_blank" rel="noopener">Render Pass Compatibility</a> for details.</p>
+See <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-compatibility" target="_blank" rel="noopener">Render Pass Compatibility</a> for details.
+The implementation <strong class="purple">must</strong> not access this object outside of the duration
+of the command this structure is passed to.</p>
 </li>
 <li>
 <p><code>attachmentCount</code> is the number of attachments.</p>

@@ -852,7 +852,9 @@ environment in which the pipeline will be used.
 The pipeline <strong class="purple">must</strong> only be used with a render pass instance compatible
 with the one provided.
 See <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-compatibility" target="_blank" rel="noopener">Render Pass Compatibility</a> for more
-information.</p>
+information.
+The implementation <strong class="purple">must</strong> not access this object outside of the duration
+of the command this structure is passed to.</p>
 </li>
 <li>
 <p><code>subpass</code> is the index of the subpass in the render pass where this

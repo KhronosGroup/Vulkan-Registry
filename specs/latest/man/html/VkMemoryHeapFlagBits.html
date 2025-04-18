@@ -819,6 +819,8 @@ typedef enum VkMemoryHeapFlagBits {
     VK_MEMORY_HEAP_DEVICE_LOCAL_BIT = 0x00000001,
   // Provided by VK_VERSION_1_1
     VK_MEMORY_HEAP_MULTI_INSTANCE_BIT = 0x00000002,
+  // Provided by VK_QCOM_tile_memory_heap
+    VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM = 0x00000008,
   // Provided by VK_KHR_device_group_creation
     VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHR = VK_MEMORY_HEAP_MULTI_INSTANCE_BIT,
 } VkMemoryHeapFlagBits;</code></pre>
@@ -843,6 +845,10 @@ device representing more than one physical device, there is a
 per-physical device instance of the heap memory.
 By default, an allocation from such a heap will be replicated to each
 physical device&#8217;s instance of the heap.</p>
+</li>
+<li>
+<p><code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> bit specifies that the heap
+corresponds to tile memory.</p>
 </li>
 </ul>
 </div>

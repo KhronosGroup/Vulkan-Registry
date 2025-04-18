@@ -879,7 +879,9 @@ All descriptor sets which are going to be updated through the newly
 created descriptor update template <strong class="purple">must</strong> be created with a layout that
 matches (is the same as, or defined identically to) this layout.
 This parameter is ignored if <code>templateType</code> is not
-<code>VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_DESCRIPTOR_SET</code>.</p>
+<code>VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_DESCRIPTOR_SET</code>.
+The implementation <strong class="purple">must</strong> not access this object outside of the duration
+of the command this structure is passed to.</p>
 </li>
 <li>
 <p><code>pipelineBindPoint</code> is a <a href="VkPipelineBindPoint.html">VkPipelineBindPoint</a> indicating the

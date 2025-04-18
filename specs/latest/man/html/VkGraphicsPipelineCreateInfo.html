@@ -971,7 +971,14 @@ dynamic.</p>
 </li>
 <li>
 <p><code>layout</code> is the description of binding locations used by both the
-pipeline and descriptor sets used with the pipeline.</p>
+    pipeline and descriptor sets used with the pipeline.
+    If
+    <a href="VkPhysicalDeviceProperties.html">VkPhysicalDeviceProperties</a>::<code>apiVersion</code> is greater than or
+    equal to Vulkan 1.3
+or
+    <a href="VK_KHR_maintenance4.html">VK_KHR_maintenance4</a> is enabled
+    <code>layout</code> <strong class="purple">must</strong> not be accessed outside of the duration of the
+    command this structure is passed to.</p>
 </li>
 <li>
 <p><code>renderPass</code> is a handle to a render pass object describing the
@@ -979,7 +986,9 @@ environment in which the pipeline will be used.
 The pipeline <strong class="purple">must</strong> only be used with a render pass instance compatible
 with the one provided.
 See <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-compatibility" target="_blank" rel="noopener">Render Pass Compatibility</a> for more
-information.</p>
+information.
+The implementation <strong class="purple">must</strong> not access this object outside of the duration
+of the command this structure is passed to.</p>
 </li>
 <li>
 <p><code>subpass</code> is the index of the subpass in the render pass where this
@@ -1915,8 +1924,7 @@ count for those subpass attachments</p>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-coverageReductionMode-02722" href="#VUID-VkGraphicsPipelineCreateInfo-coverageReductionMode-02722"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-coverageReductionMode-02722</span><br>
 
-If the pipeline requires <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-fragment-output" target="_blank" rel="noopener">fragment output interface state</a>, the
-<code><a href="VK_NV_coverage_reduction_mode.html">VK_NV_coverage_reduction_mode</a></code> extension is enabled, and
+If the pipeline requires <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-fragment-output" target="_blank" rel="noopener">fragment output interface state</a>, the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-coverageReductionMode" target="_blank" rel="noopener"><code>coverageReductionMode</code></a> feature is enabled, and
 <code>rasterizationSamples</code> is not dynamic, the coverage reduction mode
 specified by
 <a href="VkPipelineCoverageReductionStateCreateInfoNV.html">VkPipelineCoverageReductionStateCreateInfoNV</a>::<code>coverageReductionMode</code>,

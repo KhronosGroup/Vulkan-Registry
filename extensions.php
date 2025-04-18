@@ -413,6 +413,7 @@
     <li> <a href="specs/latest/man/html/VK_QCOM_render_pass_store_ops.html"> VK_QCOM_render_pass_store_ops </a> </li>
     <li> <a href="specs/latest/man/html/VK_QCOM_render_pass_transform.html"> VK_QCOM_render_pass_transform </a> </li>
     <li> <a href="specs/latest/man/html/VK_QCOM_rotated_copy_commands.html"> VK_QCOM_rotated_copy_commands </a> </li>
+    <li> <a href="specs/latest/man/html/VK_QCOM_tile_memory_heap.html"> VK_QCOM_tile_memory_heap </a> </li>
     <li> <a href="specs/latest/man/html/VK_QCOM_tile_properties.html"> VK_QCOM_tile_properties </a> </li>
     <li> <a href="specs/latest/man/html/VK_QCOM_tile_shading.html"> VK_QCOM_tile_shading </a> </li>
     <li> <a href="specs/latest/man/html/VK_QCOM_ycbcr_degamma.html"> VK_QCOM_ycbcr_degamma </a> </li>

@@ -868,8 +868,14 @@ return value <strong class="purple">must</strong> be the same address.</p>
 <li>
 <p><a id="VUID-vkGetBufferOpaqueCaptureAddress-None-03326" href="#VUID-vkGetBufferOpaqueCaptureAddress-None-03326"></a> <span class="vuid">VUID-vkGetBufferOpaqueCaptureAddress-None-03326</span><br>
 
-The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddress" target="_blank" rel="noopener"><code>bufferDeviceAddress</code></a> feature
-<strong class="purple">must</strong> be enabled</p>
+The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddress" target="_blank" rel="noopener"><code>bufferDeviceAddress</code></a> and
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddressCaptureReplay" target="_blank" rel="noopener"><code>bufferDeviceAddressCaptureReplay</code></a> features <strong class="purple">must</strong> be enabled</p>
+</li>
+<li>
+<p><a id="VUID-vkGetBufferOpaqueCaptureAddress-pInfo-10725" href="#VUID-vkGetBufferOpaqueCaptureAddress-pInfo-10725"></a> <span class="vuid">VUID-vkGetBufferOpaqueCaptureAddress-pInfo-10725</span><br>
+
+<code>pInfo</code>::<code>buffer</code> <strong class="purple">must</strong> have been created with the
+<code>VK_BUFFER_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT</code> flag</p>
 </li>
 <li>
 <p><a id="VUID-vkGetBufferOpaqueCaptureAddress-device-03327" href="#VUID-vkGetBufferOpaqueCaptureAddress-device-03327"></a> <span class="vuid">VUID-vkGetBufferOpaqueCaptureAddress-device-03327</span><br>

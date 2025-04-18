@@ -929,6 +929,13 @@ enabled, <code>stageMask</code> <strong class="purple">must</strong> not contain
 <code>VK_PIPELINE_STAGE_RAY_TRACING_SHADER_BIT_KHR</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdSetEvent-stageMask-10754" href="#VUID-vkCmdSetEvent-stageMask-10754"></a> <span class="vuid">VUID-vkCmdSetEvent-stageMask-10754</span><br>
+
+If the <a href="#features-accelerationStructure"><code>accelerationStructure</code></a>
+feature is not enabled, <code>stageMask</code> <strong class="purple">must</strong> not contain
+<code>VK_PIPELINE_STAGE_ACCELERATION_STRUCTURE_BUILD_BIT_KHR</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdSetEvent-stageMask-06457" href="#VUID-vkCmdSetEvent-stageMask-06457"></a> <span class="vuid">VUID-vkCmdSetEvent-stageMask-06457</span><br>
 
 Any pipeline stage included in <code>stageMask</code> <strong class="purple">must</strong> be supported by the

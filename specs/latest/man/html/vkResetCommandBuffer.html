@@ -847,6 +847,11 @@ controlling the reset operation.</p>
 <p>Any primary command buffer that is in the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#commandbuffers-lifecycle" target="_blank" rel="noopener">recording or executable state</a> and has <code>commandBuffer</code> recorded into
 it, becomes <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#commandbuffers-lifecycle" target="_blank" rel="noopener">invalid</a>.</p>
 </div>
+<div class="paragraph">
+<p>After a command buffer is reset, any objects or memory specified by commands
+recorded into the command buffer <strong class="purple">must</strong> no longer be accessed when the
+command buffer is accessed by the implementation.</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage</div>

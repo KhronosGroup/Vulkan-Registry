@@ -865,6 +865,8 @@ typedef enum VkImageUsageFlagBits {
     VK_IMAGE_USAGE_SAMPLE_WEIGHT_BIT_QCOM = 0x00100000,
   // Provided by VK_QCOM_image_processing
     VK_IMAGE_USAGE_SAMPLE_BLOCK_MATCH_BIT_QCOM = 0x00200000,
+  // Provided by VK_QCOM_tile_memory_heap
+    VK_IMAGE_USAGE_TILE_MEMORY_QCOM = 0x08000000,
   // Provided by VK_KHR_video_encode_quantization_map
     VK_IMAGE_USAGE_VIDEO_ENCODE_QUANTIZATION_DELTA_MAP_BIT_KHR = 0x02000000,
   // Provided by VK_KHR_video_encode_quantization_map
@@ -984,6 +986,11 @@ image <strong class="purple">can</strong> be transitioned to the
 used as a color or depth/stencil attachment in a <code>VkFramebuffer</code>
 and/or as a read-only input resource in a shader (sampled image,
 combined image sampler or input attachment) in the same render pass.</p>
+</li>
+<li>
+<p><code>VK_IMAGE_USAGE_TILE_MEMORY_QCOM</code> specifies that the image <strong class="purple">can</strong> be
+bound to <code>VkDeviceMemory</code> allocated from a <a href="VkMemoryHeap.html">VkMemoryHeap</a> with
+the <code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property.</p>
 </li>
 <li>
 <p><code>VK_IMAGE_USAGE_HOST_TRANSFER_BIT</code> specifies that the image <strong class="purple">can</strong> be

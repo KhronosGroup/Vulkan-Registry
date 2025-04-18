@@ -970,6 +970,44 @@ otherwise indicated by
 </ul>
 </div>
 <div class="paragraph">
+<p>Images created with usage including <code>VK_IMAGE_USAGE_TILE_MEMORY_QCOM</code>
+have further restrictions on their limits and capabilities compared to
+images created without this bit.
+Creation of images with usage including
+<code>VK_IMAGE_USAGE_TILE_MEMORY_QCOM</code> <strong class="purple">may</strong> not be supported unless
+parameters meet all of the constraints:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>flags</code> is 0 or only includes <code>VK_IMAGE_CREATE_ALIAS_BIT</code></p>
+</li>
+<li>
+<p><code>imageType</code> is <code>VK_IMAGE_TYPE_2D</code></p>
+</li>
+<li>
+<p><code>mipLevels</code> is 1</p>
+</li>
+<li>
+<p><code>arrayLayers</code> is 1</p>
+</li>
+<li>
+<p><code>samples</code> is <code>VK_SAMPLE_COUNT_1_BIT</code></p>
+</li>
+<li>
+<p><code>tiling</code> is <code>VK_IMAGE_TILING_OPTIMAL</code></p>
+</li>
+<li>
+<p><code>usage</code> includes <code>VK_IMAGE_USAGE_TILE_MEMORY_QCOM</code> and any valid
+combination of the following <code>VK_IMAGE_USAGE_SAMPLED_BIT</code>,
+<code>VK_IMAGE_USAGE_STORAGE_BIT</code>,
+<code>VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT</code>,
+<code>VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT</code>,
+<code>VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p>Implementations <strong class="purple">may</strong> support additional limits and capabilities beyond those
 listed above.</p>
 </div>
@@ -2494,6 +2532,13 @@ contain <code>VK_FORMAT_FEATURE_2_HOST_IMAGE_TRANSFER_BIT</code>, then
 If <code>usage</code> includes <code>VK_IMAGE_USAGE_HOST_TRANSFER_BIT_EXT</code>, then
 the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-hostImageCopy" target="_blank" rel="noopener"><code>hostImageCopy</code></a> feature <strong class="purple">must</strong> be
 enabled</p>
+</li>
+<li>
+<p><a id="VUID-VkImageCreateInfo-tileMemoryHeap-10734" href="#VUID-VkImageCreateInfo-tileMemoryHeap-10734"></a> <span class="vuid">VUID-VkImageCreateInfo-tileMemoryHeap-10734</span><br>
+
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileMemoryHeap" target="_blank" rel="noopener"><code>tileMemoryHeap</code></a> feature is not
+enabled, <code>usage</code> <strong class="purple">must</strong> not include
+<code>VK_IMAGE_USAGE_TILE_MEMORY_QCOM</code></p>
 </li>
 <li>
 <p><a id="VUID-VkImageCreateInfo-pNext-09653" href="#VUID-VkImageCreateInfo-pNext-09653"></a> <span class="vuid">VUID-VkImageCreateInfo-pNext-09653</span><br>

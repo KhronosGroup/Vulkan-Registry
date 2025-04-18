@@ -932,18 +932,6 @@ given index, with a <code>geometryType</code> member equal to
 the corresponding <code>transformData.hostAddress</code> parameter in
 <code>pBuildInfo</code> is not <code>NULL</code>.</p>
 </li>
-</ul>
-</div>
-</li>
-<li>
-<p>For each <a href="VkAccelerationStructureBuildRangeInfoKHR.html">VkAccelerationStructureBuildRangeInfoKHR</a> corresponding to
-the <a href="VkAccelerationStructureBuildGeometryInfoKHR.html">VkAccelerationStructureBuildGeometryInfoKHR</a>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Its <code>primitiveCount</code> member is less than or equal to the
-corresponding element of <code>pMaxPrimitiveCounts</code>.</p>
-</li>
 <li>
 <p>For each element of either <code>pGeometries</code> or <code>ppGeometries</code> at a
 given index, with a <code>geometryType</code> member equal to
@@ -961,6 +949,18 @@ given index, with a <code>geometryType</code> member equal to
 corresponding member of <code>pBuildInfo</code> also contains
 <a href="VkAccelerationStructureTrianglesDisplacementMicromapNV.html">VkAccelerationStructureTrianglesDisplacementMicromapNV</a> and with
 an equivalent <code>micromap</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>For each <a href="VkAccelerationStructureBuildRangeInfoKHR.html">VkAccelerationStructureBuildRangeInfoKHR</a> corresponding to
+the <a href="VkAccelerationStructureBuildGeometryInfoKHR.html">VkAccelerationStructureBuildGeometryInfoKHR</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Its <code>primitiveCount</code> member is less than or equal to the
+corresponding element of <code>pMaxPrimitiveCounts</code>.</p>
 </li>
 </ul>
 </div>

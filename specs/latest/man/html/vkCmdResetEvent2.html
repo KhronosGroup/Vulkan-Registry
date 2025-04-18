@@ -966,6 +966,27 @@ enabled, <code>stageMask</code> <strong class="purple">must</strong> not contain
 <code>VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdResetEvent2-stageMask-10751" href="#VUID-vkCmdResetEvent2-stageMask-10751"></a> <span class="vuid">VUID-vkCmdResetEvent2-stageMask-10751</span><br>
+
+If the <a href="#features-accelerationStructure"><code>accelerationStructure</code></a>
+feature is not enabled, <code>stageMask</code> <strong class="purple">must</strong> not contain
+<code>VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdResetEvent2-stageMask-10752" href="#VUID-vkCmdResetEvent2-stageMask-10752"></a> <span class="vuid">VUID-vkCmdResetEvent2-stageMask-10752</span><br>
+
+If the <a href="#features-rayTracingMaintenance1"><code>rayTracingMaintenance1</code></a>
+feature is not enabled, <code>stageMask</code> <strong class="purple">must</strong> not contain
+<code>VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_COPY_BIT_KHR</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdResetEvent2-stageMask-10753" href="#VUID-vkCmdResetEvent2-stageMask-10753"></a> <span class="vuid">VUID-vkCmdResetEvent2-stageMask-10753</span><br>
+
+If the <a href="#features-micromap"><code>micromap</code></a> feature is not enabled,
+<code>stageMask</code> <strong class="purple">must</strong> not contain
+<code>VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdResetEvent2-synchronization2-03829" href="#VUID-vkCmdResetEvent2-synchronization2-03829"></a> <span class="vuid">VUID-vkCmdResetEvent2-synchronization2-03829</span><br>
 
 The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-synchronization2" target="_blank" rel="noopener"><code>synchronization2</code></a> feature <strong class="purple">must</strong>

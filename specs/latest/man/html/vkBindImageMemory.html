@@ -1015,19 +1015,41 @@ allowed in the <code>memoryTypeBits</code> member of the
 <a href="vkGetImageMemoryRequirements.html">vkGetImageMemoryRequirements</a> with <code>image</code></p>
 </li>
 <li>
-<p><a id="VUID-vkBindImageMemory-memoryOffset-01048" href="#VUID-vkBindImageMemory-memoryOffset-01048"></a> <span class="vuid">VUID-vkBindImageMemory-memoryOffset-01048</span><br>
+<p><a id="VUID-vkBindImageMemory-None-10735" href="#VUID-vkBindImageMemory-None-10735"></a> <span class="vuid">VUID-vkBindImageMemory-None-10735</span><br>
 
+If <code>memory</code> was not allocated from a memory heap with the
+<code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property set,
 <code>memoryOffset</code> <strong class="purple">must</strong> be an integer multiple of the <code>alignment</code>
 member of the <code>VkMemoryRequirements</code> structure returned from a call
 to <a href="vkGetImageMemoryRequirements.html">vkGetImageMemoryRequirements</a> with <code>image</code></p>
 </li>
 <li>
-<p><a id="VUID-vkBindImageMemory-size-01049" href="#VUID-vkBindImageMemory-size-01049"></a> <span class="vuid">VUID-vkBindImageMemory-size-01049</span><br>
+<p><a id="VUID-vkBindImageMemory-memory-10736" href="#VUID-vkBindImageMemory-memory-10736"></a> <span class="vuid">VUID-vkBindImageMemory-memory-10736</span><br>
 
-The difference of the size of <code>memory</code> and <code>memoryOffset</code> <strong class="purple">must</strong>
-be greater than or equal to the <code>size</code> member of the
-<a href="VkMemoryRequirements.html">VkMemoryRequirements</a> structure returned from a call to
-<a href="vkGetImageMemoryRequirements.html">vkGetImageMemoryRequirements</a> with the same <code>image</code></p>
+If <code>memory</code> was allocated from a memory heap with the
+<code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property set,
+<code>memoryOffset</code> <strong class="purple">must</strong> be an integer multiple of the <code>alignment</code>
+member of the <code>VkTileMemoryRequirementsQCOM</code> structure returned from
+a call to <code>vkGetImageMemoryRequirements</code> with <code>image</code></p>
+</li>
+<li>
+<p><a id="VUID-vkBindImageMemory-None-10737" href="#VUID-vkBindImageMemory-None-10737"></a> <span class="vuid">VUID-vkBindImageMemory-None-10737</span><br>
+
+If <code>memory</code> was not allocated from a memory heap with the
+<code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property set,
+<code>size</code> member of the <code>VkMemoryRequirements</code> structure returned
+from a call to <code>vkGetImageMemoryRequirements</code> with <code>image</code> <strong class="purple">must</strong>
+be less than or equal to the size of <code>memory</code> minus
+<code>memoryOffset</code></p>
+</li>
+<li>
+<p><a id="VUID-vkBindImageMemory-memory-10738" href="#VUID-vkBindImageMemory-memory-10738"></a> <span class="vuid">VUID-vkBindImageMemory-memory-10738</span><br>
+
+If <code>memory</code> was allocated from a memory heap with the
+<code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property set, <code>size</code>
+member of the <code>VkTileMemoryRequirementsQCOM</code> structure returned from
+a call to <code>vkGetImageMemoryRequirements</code> with <code>image</code> <strong class="purple">must</strong> be
+less than or equal to the size of <code>memory</code> minus <code>memoryOffset</code></p>
 </li>
 <li>
 <p><a id="VUID-vkBindImageMemory-image-06392" href="#VUID-vkBindImageMemory-image-06392"></a> <span class="vuid">VUID-vkBindImageMemory-image-06392</span><br>

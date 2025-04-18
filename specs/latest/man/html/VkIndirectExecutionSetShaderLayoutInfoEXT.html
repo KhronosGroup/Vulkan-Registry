@@ -842,7 +842,9 @@ array</p>
 </li>
 <li>
 <p><code>pSetLayouts</code> is a pointer to an array containing
-<a href="VkDescriptorSetLayout.html">VkDescriptorSetLayout</a> objects used by the shader stage.</p>
+<a href="VkDescriptorSetLayout.html">VkDescriptorSetLayout</a> objects used by the shader stage.
+The implementation <strong class="purple">must</strong> not access these objects outside of the
+duration of the command this structure is passed to.</p>
 </li>
 </ul>
 </div>

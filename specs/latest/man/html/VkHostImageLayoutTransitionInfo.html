@@ -1016,6 +1016,19 @@ or both <code>VK_IMAGE_ASPECT_DEPTH_BIT</code> and
 <code>VK_IMAGE_ASPECT_STENCIL_BIT</code></p>
 </li>
 <li>
+<p><a id="VUID-VkHostImageLayoutTransitionInfo-image-10749" href="#VUID-VkHostImageLayoutTransitionInfo-image-10749"></a> <span class="vuid">VUID-VkHostImageLayoutTransitionInfo-image-10749</span><br>
+
+If <code>image</code> has a depth-only format then the <code>aspectMask</code> member
+of <code>subresourceRange</code> <strong class="purple">must</strong> be <code>VK_IMAGE_ASPECT_DEPTH_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-VkHostImageLayoutTransitionInfo-image-10750" href="#VUID-VkHostImageLayoutTransitionInfo-image-10750"></a> <span class="vuid">VUID-VkHostImageLayoutTransitionInfo-image-10750</span><br>
+
+If <code>image</code> has a stencil-only format then the <code>aspectMask</code>
+member of <code>subresourceRange</code> <strong class="purple">must</strong> be
+<code>VK_IMAGE_ASPECT_STENCIL_BIT</code></p>
+</li>
+<li>
 <p><a id="VUID-VkHostImageLayoutTransitionInfo-aspectMask-08702" href="#VUID-VkHostImageLayoutTransitionInfo-aspectMask-08702"></a> <span class="vuid">VUID-VkHostImageLayoutTransitionInfo-aspectMask-08702</span><br>
 
 If the <code>aspectMask</code> member of <code>subresourceRange</code> includes

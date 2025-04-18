@@ -849,13 +849,18 @@ VkResult vkQueueSubmit2KHR(
 </li>
 <li>
 <p><code>pSubmits</code> is a pointer to an array of <a href="VkSubmitInfo2.html">VkSubmitInfo2</a>
-structures, each specifying a command buffer submission batch.</p>
+structures, each specifying a command buffer submission batch.
+Command buffers and semaphores specified in this array <strong class="purple">may</strong> be accessed
+at any point until the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#devsandqueues-submission" target="_blank" rel="noopener">queue operations</a>
+they define complete execution on the device.</p>
 </li>
 <li>
 <p><code>fence</code> is an <strong class="purple">optional</strong> handle to a fence to be signaled once all
 submitted command buffers have completed execution.
 If <code>fence</code> is not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, it defines a
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-fences-signaling" target="_blank" rel="noopener">fence signal operation</a>.</p>
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-fences-signaling" target="_blank" rel="noopener">fence signal operation</a>.
+If it is not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, <code>fence</code> <strong class="purple">may</strong> be accessed at any
+point until this command completes on the device.</p>
 </li>
 </ul>
 </div>

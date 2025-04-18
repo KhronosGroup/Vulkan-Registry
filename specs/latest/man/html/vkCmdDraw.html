@@ -1459,6 +1459,15 @@ this command, all image subresources identified by that descriptor <strong class
 be in the image layout identified when the descriptor was written</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDraw-commandBuffer-10746" href="#VUID-vkCmdDraw-commandBuffer-10746"></a> <span class="vuid">VUID-vkCmdDraw-commandBuffer-10746</span><br>
+
+The <code>VkDeviceMemory</code> object allocated from a <code>VkMemoryHeap</code> with
+the <code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property that is bound to
+a resource accessed as a result of this command <strong class="purple">must</strong> be the active
+bound <a href="#memory-bind-tile-memory">bound tile memory object</a> in
+<code>commandBuffer</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDraw-None-10678" href="#VUID-vkCmdDraw-None-10678"></a> <span class="vuid">VUID-vkCmdDraw-None-10678</span><br>
 
 If this command is recorded inside a <a href="#renderpass-tile-shading">tile
@@ -3911,14 +3920,16 @@ to <a href="vkCmdSetCoverageToColorLocationNV.html">vkCmdSetCoverageToColorLocat
 <li>
 <p><a id="VUID-vkCmdDraw-coverageReductionMode-07491" href="#VUID-vkCmdDraw-coverageReductionMode-07491"></a> <span class="vuid">VUID-vkCmdDraw-coverageReductionMode-07491</span><br>
 
-If this <code><a href="VK_NV_coverage_reduction_mode.html">VK_NV_coverage_reduction_mode</a></code> extension is enabled, the
-bound graphics pipeline state was created with the
-<code>VK_DYNAMIC_STATE_COVERAGE_TO_COLOR_ENABLE_NV</code> and
-<code>VK_DYNAMIC_STATE_RASTERIZATION_SAMPLES_EXT</code> states enabled, the
-current coverage reduction mode <code>coverageReductionMode</code>, then the
-current <code>rasterizationSamples</code>, and the sample counts for the color
-and depth/stencil attachments (if the subpass has them) <strong class="purple">must</strong> be a valid
-combination returned by
+If the <a href="#features-coverageReductionMode"><code>coverageReductionMode</code></a>
+feature is enabled,
+a shader object is bound to any graphics stage or
+a graphics pipeline is bound which was created with the
+<code>VK_DYNAMIC_STATE_COVERAGE_REDUCTION_MODE_NV</code> or
+<code>VK_DYNAMIC_STATE_RASTERIZATION_SAMPLES_EXT</code> dynamic states enabled,
+then the <a href="#dynamic-state-current-value">current values</a> of
+<code>coverageReductionMode</code>, <code>rasterizationSamples</code>, the sample
+counts for the color and depth/stencil attachments (if the subpass has
+them) <strong class="purple">must</strong> be a valid combination returned by
 <a href="vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV.html">vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV</a></p>
 </li>
 <li>
@@ -3957,11 +3968,14 @@ shader object is bound to any graphics stage, then the
 <p><a id="VUID-vkCmdDraw-rasterizationSamples-07494" href="#VUID-vkCmdDraw-rasterizationSamples-07494"></a> <span class="vuid">VUID-vkCmdDraw-rasterizationSamples-07494</span><br>
 
 If the <code><a href="VK_NV_framebuffer_mixed_samples.html">VK_NV_framebuffer_mixed_samples</a></code> extension is enabled,
-and if the current subpass has any color attachments and
-<code>rasterizationSamples</code> of the last call to
-<a href="vkCmdSetRasterizationSamplesEXT.html">vkCmdSetRasterizationSamplesEXT</a> is greater than the number of
-color samples, then the pipeline <code>sampleShadingEnable</code> <strong class="purple">must</strong> be
-<code>VK_FALSE</code></p>
+and the <a href="#features-coverageReductionMode"><code>coverageReductionMode</code></a>
+feature is not enabled, or the <a href="#dynamic-state-current-value">current
+value</a> of <code>coverageReductionMode</code> is not
+<code>VK_COVERAGE_REDUCTION_MODE_TRUNCATE_NV</code>,
+and the <a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizationSamples</code> is greater than sample count of the color
+attachment, then <a href="#primsrast-sampleshading">sample shading</a> <strong class="purple">must</strong> be
+disabled</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDraw-stippledLineEnable-07495" href="#VUID-vkCmdDraw-stippledLineEnable-07495"></a> <span class="vuid">VUID-vkCmdDraw-stippledLineEnable-07495</span><br>
@@ -4055,6 +4069,22 @@ command buffer prior to this drawing command</p>
 If dynamic state was inherited from
 <a href="VkCommandBufferInheritanceViewportScissorInfoNV.html">VkCommandBufferInheritanceViewportScissorInfoNV</a>, it <strong class="purple">must</strong> be set
 in the current command buffer prior to this drawing command</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDraw-nextStage-10744" href="#VUID-vkCmdDraw-nextStage-10744"></a> <span class="vuid">VUID-vkCmdDraw-nextStage-10744</span><br>
+
+If any shader objects are bound to graphics stages, the shader object
+bound to the last graphics stage in the logical pipeline <strong class="purple">must</strong> have been
+created with <code>nextStage</code> equal to zero</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDraw-nextStage-10745" href="#VUID-vkCmdDraw-nextStage-10745"></a> <span class="vuid">VUID-vkCmdDraw-nextStage-10745</span><br>
+
+For each shader object bound to a graphics stage, except for shader
+object bound to the last graphics stage in the logical pipeline, it
+<strong class="purple">must</strong> have been created with a <code>nextStage</code> including the
+corresponding bit to the shader object bound to the following graphics
+stage in the logical pipeline</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDraw-None-08684" href="#VUID-vkCmdDraw-None-08684"></a> <span class="vuid">VUID-vkCmdDraw-None-08684</span><br>
@@ -4374,10 +4404,30 @@ then the <code>primitiveTopology</code> parameter of
 <li>
 <p><a id="VUID-vkCmdDraw-primitiveTopology-10286" href="#VUID-vkCmdDraw-primitiveTopology-10286"></a> <span class="vuid">VUID-vkCmdDraw-primitiveTopology-10286</span><br>
 
-If there is a shader object bound to the
-<code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage, then
-<a href="vkCmdSetPrimitiveTopology.html">vkCmdSetPrimitiveTopology</a> <strong class="purple">must</strong> have set <code>primitiveTopology</code>
-to <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code> prior to this drawing command</p>
+If a <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage is bound, then
+the <a href="#dynamic-state-current-value">current value</a> of
+<code>primitiveTopology</code> <strong class="purple">must</strong> be <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code>
+prior to this drawing command</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDraw-primitiveTopology-10747" href="#VUID-vkCmdDraw-primitiveTopology-10747"></a> <span class="vuid">VUID-vkCmdDraw-primitiveTopology-10747</span><br>
+
+If <a href="vkCmdSetPrimitiveTopology.html">vkCmdSetPrimitiveTopology</a> set <code>primitiveTopology</code> to
+<code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code> prior to this drawing command,
+then a <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage <strong class="purple">must</strong> be
+bound</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDraw-primitiveTopology-10748" href="#VUID-vkCmdDraw-primitiveTopology-10748"></a> <span class="vuid">VUID-vkCmdDraw-primitiveTopology-10748</span><br>
+
+If <a href="vkCmdSetPrimitiveTopology.html">vkCmdSetPrimitiveTopology</a> set <code>primitiveTopology</code> to
+<code>VK_PRIMITIVE_TOPOLOGY_POINT_LIST</code> prior to this drawing command,
+the <a href="#features-maintenance5"><code>maintenance5</code></a> feature is not
+enabled,
+both a <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> and
+<code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage are not bound, then the
+<code>Vertex</code> <code>Execution</code> <code>Model</code> <strong class="purple">must</strong> have a <code>PointSize</code> decorated
+variable that is statically written to</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDraw-pStrides-04913" href="#VUID-vkCmdDraw-pStrides-04913"></a> <span class="vuid">VUID-vkCmdDraw-pStrides-04913</span><br>

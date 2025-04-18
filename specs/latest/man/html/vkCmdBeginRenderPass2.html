@@ -846,7 +846,10 @@ command.</p>
 <li>
 <p><code>pRenderPassBegin</code> is a pointer to a <a href="VkRenderPassBeginInfo.html">VkRenderPassBeginInfo</a>
 structure specifying the render pass to begin an instance of, and the
-framebuffer the instance uses.</p>
+framebuffer the instance uses.
+After recording this command, the render pass and framebuffer <strong class="purple">may</strong> be
+accessed at any point that <code>commandBuffer</code> is in the recording or
+pending state until it is reset.</p>
 </li>
 <li>
 <p><code>pSubpassBeginInfo</code> is a pointer to a <a href="VkSubpassBeginInfo.html">VkSubpassBeginInfo</a>

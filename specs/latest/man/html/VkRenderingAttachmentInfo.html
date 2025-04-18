@@ -1205,6 +1205,14 @@ as returned by a call to
 <a href="vkGetAndroidHardwareBufferPropertiesANDROID.html">vkGetAndroidHardwareBufferPropertiesANDROID</a> for the Android
 hardware buffer that was used to create <code>resolveImageView</code></p>
 </li>
+<li>
+<p><a id="VUID-VkRenderingAttachmentInfo-resolveImageView-10728" href="#VUID-VkRenderingAttachmentInfo-resolveImageView-10728"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-resolveImageView-10728</span><br>
+
+If <code>resolveImageView</code> is not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, the underlying
+resource must not be bound to a <code>VkDeviceMemory</code> object allocated
+from a <code>VkMemoryHeap</code> with the
+<code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property.</p>
+</li>
 </ul>
 </div>
 </div>

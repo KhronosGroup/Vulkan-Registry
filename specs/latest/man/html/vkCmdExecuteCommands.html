@@ -1447,6 +1447,17 @@ the inheritance info of each element of <code>pCommandBuffers</code> and in the
 current state of <code>commandBuffer</code> <strong class="purple">must</strong> match</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdExecuteCommands-memory-10724" href="#VUID-vkCmdExecuteCommands-memory-10724"></a> <span class="vuid">VUID-vkCmdExecuteCommands-memory-10724</span><br>
+
+If <code>vkCmdExecuteCommands</code> is being called within a render pass
+instance, the size of <code>memory</code> member of the
+<a href="VkTileMemoryBindInfoQCOM.html">VkTileMemoryBindInfoQCOM</a> structure included in the <code>pNext</code>
+chain of <a href="VkCommandBufferBeginInfo.html">VkCommandBufferBeginInfo</a>::<code>pInheritanceInfo</code> used to
+begin recording each element of <code>pCommandBuffers</code> <strong class="purple">must</strong> be equal to
+the active bound <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-bind-tile-memory" target="_blank" rel="noopener">bound tile memory object</a>
+in <code>commandBuffer</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdExecuteCommands-pCommandBuffers-10620" href="#VUID-vkCmdExecuteCommands-pCommandBuffers-10620"></a> <span class="vuid">VUID-vkCmdExecuteCommands-pCommandBuffers-10620</span><br>
 
 If this command is being recorded within a render pass instance with

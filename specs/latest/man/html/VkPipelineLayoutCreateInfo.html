@@ -849,7 +849,9 @@ pipeline layout.</p>
 </li>
 <li>
 <p><code>pSetLayouts</code> is a pointer to an array of
-<code>VkDescriptorSetLayout</code> objects.</p>
+<code>VkDescriptorSetLayout</code> objects.
+The implementation <strong class="purple">must</strong> not access these objects outside of the
+duration of the command this structure is passed to.</p>
 </li>
 <li>
 <p><code>pushConstantRangeCount</code> is the number of push constant ranges

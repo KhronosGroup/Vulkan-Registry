@@ -832,7 +832,9 @@ VkResult vkAllocateCommandBuffers(
 </li>
 <li>
 <p><code>pAllocateInfo</code> is a pointer to a <a href="VkCommandBufferAllocateInfo.html">VkCommandBufferAllocateInfo</a>
-structure describing parameters of the allocation.</p>
+structure describing parameters of the allocation.
+<code>commandPool</code> <strong class="purple">may</strong> be accessed any time one of the resulting command
+buffers is accessed.</p>
 </li>
 <li>
 <p><code>pCommandBuffers</code> is a pointer to an array of <a href="VkCommandBuffer.html">VkCommandBuffer</a>
@@ -896,18 +898,6 @@ contents.</p>
 <li>
 <p><a id="VUID-vkAllocateCommandBuffers-pAllocateInfo::commandBufferCount-arraylength" href="#VUID-vkAllocateCommandBuffers-pAllocateInfo::commandBufferCount-arraylength"></a> <span class="vuid">VUID-vkAllocateCommandBuffers-pAllocateInfo::commandBufferCount-arraylength</span><br>
  <code>pAllocateInfo-&gt;commandBufferCount</code> <strong class="purple">must</strong> be greater than <code>0</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Host Synchronization</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Host access to <code>pAllocateInfo-&gt;commandPool</code> <strong class="purple">must</strong> be externally synchronized</p>
 </li>
 </ul>
 </div>

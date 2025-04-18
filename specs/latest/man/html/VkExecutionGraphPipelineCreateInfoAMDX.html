@@ -860,7 +860,9 @@ libraries to include.</p>
 </li>
 <li>
 <p><code>layout</code> is the description of binding locations used by both the
-pipeline and descriptor sets used with the pipeline.</p>
+pipeline and descriptor sets used with the pipeline.
+The implementation <strong class="purple">must</strong> not access this object outside of the duration
+of the command this structure is passed to.</p>
 </li>
 <li>
 <p><code>basePipelineHandle</code> is a pipeline to derive from</p>

@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.312,</span>
-<span id="revdate">2025-04-04 11:10:34Z</span>
-<br><span id="revremark">from git branch: github-main commit: ec56ad8828af2b089de2fc7a64cf59c588d8c753</span>
+<span id="revnumber">version 1.4.313,</span>
+<span id="revdate">2025-04-18 09:06:45Z</span>
+<br><span id="revremark">from git branch: github-main commit: 19b765119a9ddef1034e95442f82f94235167f36</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -3170,14 +3170,14 @@ multiple application threads.
 If only certain members of an object or elements of an array are
 modified, multiple strings may be provided, separated by commas.
 Each string describes a member which is modified.
-For example, the <code>VkPresentInfoKHR</code> struct includes <code>externsync</code>
-attributes for the <code>pPresentInfo</code> array indicating that only specific
-members of each element of the array are modified:</p>
+For example, the <code>vkSetDebugUtilsObjectNameEXT</code> command includes <code>externsync</code>
+attributes for the <code>pNameInfo</code> parameter indicating that a specific
+member of the parameter is externally synchronized:</p>
 <div class="openblock">
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="xml"><span class="nt">&lt;param</span> <span class="na">externsync=</span><span class="s">"pPresentInfo-&amp;gt;pWaitSemaphores[],pPresentInfo-&amp;gt;pSwapchains[]"</span><span class="nt">&gt;</span>const <span class="nt">&lt;type&gt;</span>VkPresentInfoKHR<span class="nt">&lt;/type&gt;</span>* <span class="nt">&lt;name&gt;</span>pPresentInfo<span class="nt">&lt;/name&gt;&lt;/param&gt;</span></code></pre>
+<pre class="rouge highlight"><code data-lang="xml"><span class="nt">&lt;param</span> <span class="na">externsync=</span><span class="s">"pNameInfo-&amp;gt;objectHandle"</span><span class="nt">&gt;</span>const <span class="nt">&lt;type&gt;</span>VkDebugUtilsObjectNameInfoEXT<span class="nt">&lt;/type&gt;</span>* <span class="nt">&lt;name&gt;</span>pNameInfo<span class="nt">&lt;/name&gt;&lt;/param&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">

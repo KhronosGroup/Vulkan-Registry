@@ -846,7 +846,9 @@ structure.</p>
 <p><code>validationCache</code> is the validation cache object from which the
 results of prior validation attempts will be written, and to which new
 validation results for this <a href="VkShaderModule.html">VkShaderModule</a> will be written (if not
-already present).</p>
+already present).
+The implementation <strong class="purple">must</strong> not access this object outside of the duration
+of the command this structure is passed to.</p>
 </li>
 </ul>
 </div>

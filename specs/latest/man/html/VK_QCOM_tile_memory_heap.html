@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>VkQueue(3)</title>
+<title>VK_QCOM_tile_memory_heap(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,35 +796,360 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>VkQueue(3) Manual Page</h1>
+<h1>VK_QCOM_tile_memory_heap(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>VkQueue - Opaque handle to a queue object</p>
+<p>VK_QCOM_tile_memory_heap - device extension</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
 <!--ChunkedSearchboxMarker-->
 <div id="content" class="loadable" ><script>hideLoadableContent();</script>
 <div class="sect1">
-<h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
+<h2 id="_registered_extension_number"><a class="anchor" href="#_registered_extension_number"></a>Registered Extension Number</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Creating a logical device also creates the queues associated with that
-device.
-The queues to create are described by a set of <a href="VkDeviceQueueCreateInfo.html">VkDeviceQueueCreateInfo</a>
-structures that are passed to <a href="vkCreateDevice.html">vkCreateDevice</a> in
-<code>pQueueCreateInfos</code>.
-Queues <strong class="purple">cannot</strong> be independently destroyed, and are instead destroyed with
-the <a href="VkDevice.html">VkDevice</a> that they were created from.</p>
+<p>548</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_revision"><a class="anchor" href="#_revision"></a>Revision</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>1</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ratification_status"><a class="anchor" href="#_ratification_status"></a>Ratification Status</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Not ratified</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extension_and_version_dependencies"><a class="anchor" href="#_extension_and_version_dependencies"></a>Extension and Version Dependencies</h2>
+<div class="sectionbody">
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>&#160;&#160;&#160;&#160; <a href="VK_KHR_get_memory_requirements2.html">VK_KHR_get_memory_requirements2</a><br>
+&#160;&#160;&#160;&#160; and<br>
+&#160;&#160;&#160;&#160; <a href="VK_KHR_get_physical_device_properties2.html">VK_KHR_get_physical_device_properties2</a><br>
+or<br>
+<a href="#versions-1.1">Vulkan Version 1.1</a><br></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_interactions"><a class="anchor" href="#_api_interactions"></a>API Interactions</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Interacts with VK_QCOM_tile_properties</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_contact"><a class="anchor" href="#_contact"></a>Contact</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Patrick Boyle <a href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=[VK_QCOM_tile_memory_heap] @pboyleQCOM%0A*Here describe the issue or question you have about the VK_QCOM_tile_memory_heap extension*" target="_blank" rel="nofollow noopener"><span class="icon black">[GitHub&#93;</span>pboyleQCOM</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extension_proposal"><a class="anchor" href="#_extension_proposal"></a>Extension Proposal</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_QCOM_tile_memory_heap.adoc">VK_QCOM_tile_memory_heap</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_extension_metadata"><a class="anchor" href="#_other_extension_metadata"></a>Other Extension Metadata</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Last Modified Date</strong></dt>
+<dd>
+<p>2025-03-12</p>
+</dd>
+<dt class="hdlist1"><strong>Interactions and External Dependencies</strong></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Interacts with <code><a href="VK_QCOM_tile_properties.html">VK_QCOM_tile_properties</a></code></p>
+</li>
+<li>
+<p>Interacts with <code><a href="VK_QCOM_tile_shading.html">VK_QCOM_tile_shading</a></code></p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Contributors</strong></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Patrick Boyle, Qualcomm Technologies, Inc.</p>
+</li>
+<li>
+<p>Matthew Netsch, Qualcomm Technologies, Inc.</p>
+</li>
+<li>
+<p>Srihari Babu Alla, Qualcomm Technologies, Inc.</p>
+</li>
+<li>
+<p>Kevin Matlage, Qualcomm Technologies, Inc.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This extension adds a new memory heap which allows applications to allocate
+and manage tile memory.
+A tile memory heap is denoted by the new
+<code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property.
+Memory contents within this heap behave differently than other heaps and
+only persist its memory contents within a command buffer submission batch
+boundary.
+This boundary may be extended to a queue submit boundary by querying
+<code>queueSubmitBoundary</code> in the new
+<code>VkPhysicalDeviceTileMemoryHeapPropertiesQCOM</code> structure.</p>
 </div>
 <div class="paragraph">
-<p>Queues are represented by <code>VkQueue</code> handles:</p>
+<p>Tile memory from this heap can be bound to VkImages or VkBuffers.
+The following new usage flags <code>VK_IMAGE_USAGE_TILE_MEMORY_QCOM</code>,
+<code>VK_BUFFER_USAGE_TILE_MEMORY_QCOM</code>,
+<code>VK_BUFFER_USAGE_2_TILE_MEMORY_QCOM</code> were added for this.
+A new extended structure is added to get memory requirements for tile memory
+<code>VkTileMemoryRequirementsQCOM</code>.</p>
 </div>
-<div id="VkQueue" class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_VERSION_1_0
-VK_DEFINE_HANDLE(VkQueue)</code></pre>
+<div class="paragraph">
+<p>A new command is added to bind tile memory to a command buffer in order to
+access and persist tile memory contents while executing commands
+<a href="vkCmdBindTileMemoryQCOM.html">vkCmdBindTileMemoryQCOM</a>.</p>
 </div>
+<div class="paragraph">
+<p>This extension can be used in combination with
+<a href="VK_QCOM_tile_properties.html">VK_QCOM_tile_properties</a> with the new structure
+<a href="VkTileMemorySizeInfoQCOM.html">VkTileMemorySizeInfoQCOM</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_issues"><a class="anchor" href="#_issues"></a>Issues</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>None.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_commands"><a class="anchor" href="#_new_commands"></a>New Commands</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="vkCmdBindTileMemoryQCOM.html">vkCmdBindTileMemoryQCOM</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_structures"><a class="anchor" href="#_new_structures"></a>New Structures</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Extending <a href="VkCommandBufferInheritanceInfo.html">VkCommandBufferInheritanceInfo</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="VkTileMemoryBindInfoQCOM.html">VkTileMemoryBindInfoQCOM</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Extending <a href="VkMemoryRequirements2.html">VkMemoryRequirements2</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="VkTileMemoryRequirementsQCOM.html">VkTileMemoryRequirementsQCOM</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Extending <a href="VkPhysicalDeviceFeatures2.html">VkPhysicalDeviceFeatures2</a>, <a href="VkDeviceCreateInfo.html">VkDeviceCreateInfo</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="VkPhysicalDeviceTileMemoryHeapFeaturesQCOM.html">VkPhysicalDeviceTileMemoryHeapFeaturesQCOM</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Extending <a href="VkPhysicalDeviceProperties2.html">VkPhysicalDeviceProperties2</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="VkPhysicalDeviceTileMemoryHeapPropertiesQCOM.html">VkPhysicalDeviceTileMemoryHeapPropertiesQCOM</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If <a href="VK_QCOM_tile_properties.html">VK_QCOM_tile_properties</a> is supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Extending <a href="VkRenderPassCreateInfo.html">VkRenderPassCreateInfo</a>, <a href="VkRenderPassCreateInfo2.html">VkRenderPassCreateInfo2</a>, <a href="VkRenderingInfo.html">VkRenderingInfo</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="VkTileMemorySizeInfoQCOM.html">VkTileMemorySizeInfoQCOM</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_enum_constants"><a class="anchor" href="#_new_enum_constants"></a>New Enum Constants</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_QCOM_TILE_MEMORY_HEAP_EXTENSION_NAME</code></p>
+</li>
+<li>
+<p><code>VK_QCOM_TILE_MEMORY_HEAP_SPEC_VERSION</code></p>
+</li>
+<li>
+<p>Extending <a href="VkBufferUsageFlagBits.html">VkBufferUsageFlagBits</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_BUFFER_USAGE_TILE_MEMORY_QCOM</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Extending <a href="VkBufferUsageFlagBits2.html">VkBufferUsageFlagBits2</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_BUFFER_USAGE_2_TILE_MEMORY_QCOM</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Extending <a href="VkImageUsageFlagBits.html">VkImageUsageFlagBits</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_IMAGE_USAGE_TILE_MEMORY_QCOM</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Extending <a href="VkMemoryHeapFlagBits.html">VkMemoryHeapFlagBits</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Extending <a href="VkStructureType.html">VkStructureType</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_MEMORY_HEAP_FEATURES_QCOM</code></p>
+</li>
+<li>
+<p><code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_MEMORY_HEAP_PROPERTIES_QCOM</code></p>
+</li>
+<li>
+<p><code>VK_STRUCTURE_TYPE_TILE_MEMORY_BIND_INFO_QCOM</code></p>
+</li>
+<li>
+<p><code>VK_STRUCTURE_TYPE_TILE_MEMORY_REQUIREMENTS_QCOM</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If <a href="VK_QCOM_tile_properties.html">VK_QCOM_tile_properties</a> is supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Extending <a href="VkStructureType.html">VkStructureType</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_STRUCTURE_TYPE_TILE_MEMORY_SIZE_INFO_QCOM</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_version_history"><a class="anchor" href="#_version_history"></a>Version History</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Revision 1, 2025-03-26 (Patrick Boyle)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Initial version</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -832,7 +1157,7 @@ VK_DEFINE_HANDLE(VkQueue)</code></pre>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_DEFINE_HANDLE.html">VK_DEFINE_HANDLE</a>, <a href="VK_VERSION_1_0.html">VK_VERSION_1_0</a>, <a href="VkExportMetalCommandQueueInfoEXT.html">VkExportMetalCommandQueueInfoEXT</a>, <a href="VkExternalComputeQueueCreateInfoNV.html">VkExternalComputeQueueCreateInfoNV</a>, <a href="vkGetDeviceQueue.html">vkGetDeviceQueue</a>, <a href="vkGetDeviceQueue2.html">vkGetDeviceQueue2</a>, <a href="vkGetQueueCheckpointData2NV.html">vkGetQueueCheckpointData2NV</a>, <a href="vkGetQueueCheckpointDataNV.html">vkGetQueueCheckpointDataNV</a>, <a href="vkQueueBeginDebugUtilsLabelEXT.html">vkQueueBeginDebugUtilsLabelEXT</a>, <a href="vkQueueBindSparse.html">vkQueueBindSparse</a>, <a href="vkQueueEndDebugUtilsLabelEXT.html">vkQueueEndDebugUtilsLabelEXT</a>, <a href="vkQueueInsertDebugUtilsLabelEXT.html">vkQueueInsertDebugUtilsLabelEXT</a>, <a href="vkQueueNotifyOutOfBandNV.html">vkQueueNotifyOutOfBandNV</a>, <a href="vkQueuePresentKHR.html">vkQueuePresentKHR</a>, <a href="vkQueueSetPerformanceConfigurationINTEL.html">vkQueueSetPerformanceConfigurationINTEL</a>, <a href="vkQueueSubmit.html">vkQueueSubmit</a>, <a href="vkQueueSubmit2.html">vkQueueSubmit2</a>, <a href="vkQueueSubmit2KHR.html">vkQueueSubmit2KHR</a>, <a href="vkQueueWaitIdle.html">vkQueueWaitIdle</a></p>
+<p>No cross-references are available</p>
 </div>
 </div>
 </div>
@@ -840,11 +1165,11 @@ VK_DEFINE_HANDLE(VkQueue)</code></pre>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkQueue" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_QCOM_tile_memory_heap" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
-<p>This page is extracted from the Vulkan Specification.
-Fixes and changes should be made to the Specification, not directly.</p>
+<p>This page is a generated document.
+Fixes and changes should be made to the generator scripts, not directly.</p>
 </div>
 </div>
 </div>

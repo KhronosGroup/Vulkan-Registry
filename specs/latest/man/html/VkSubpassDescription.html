@@ -1108,6 +1108,15 @@ If the <code>attachment</code> member of an element of
 <code>VK_IMAGE_LAYOUT_READ_ONLY_OPTIMAL_KHR</code></p>
 </li>
 <li>
+<p><a id="VUID-VkSubpassDescription-attachment-10755" href="#VUID-VkSubpassDescription-attachment-10755"></a> <span class="vuid">VUID-VkSubpassDescription-attachment-10755</span><br>
+
+If the <code>attachment</code> member of an element of
+<code>pResolveAttachments</code> is not <code>VK_ATTACHMENT_UNUSED</code>, the
+underlying resource must not be bound to a <code>VkDeviceMemory</code> object
+allocated from a <code>VkMemoryHeap</code> with the
+<code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property.</p>
+</li>
+<li>
 <p><a id="VUID-VkSubpassDescription-flags-10683" href="#VUID-VkSubpassDescription-flags-10683"></a> <span class="vuid">VUID-VkSubpassDescription-flags-10683</span><br>
 
 If <code>flags</code> includes

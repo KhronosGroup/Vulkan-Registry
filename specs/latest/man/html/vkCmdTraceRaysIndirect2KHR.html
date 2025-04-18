@@ -1446,6 +1446,15 @@ this command, all image subresources identified by that descriptor <strong class
 be in the image layout identified when the descriptor was written</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-10746" href="#VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-10746"></a> <span class="vuid">VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-10746</span><br>
+
+The <code>VkDeviceMemory</code> object allocated from a <code>VkMemoryHeap</code> with
+the <code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property that is bound to
+a resource accessed as a result of this command <strong class="purple">must</strong> be the active
+bound <a href="#memory-bind-tile-memory">bound tile memory object</a> in
+<code>commandBuffer</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdTraceRaysIndirect2KHR-None-10678" href="#VUID-vkCmdTraceRaysIndirect2KHR-None-10678"></a> <span class="vuid">VUID-vkCmdTraceRaysIndirect2KHR-None-10678</span><br>
 
 If this command is recorded inside a <a href="#renderpass-tile-shading">tile

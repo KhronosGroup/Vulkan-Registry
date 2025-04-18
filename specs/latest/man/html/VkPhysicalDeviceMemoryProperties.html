@@ -891,6 +891,47 @@ memory heap which is considered to be equally &#8220;local&#8221; to the host an
 the device, and such an implementation <strong class="purple">must</strong> advertise the heap as
 device-local.</p>
 </div>
+<div id="memory-tile-heaps" class="paragraph">
+<p>Memory contents within a tile memory heap, denoted by
+<code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code>, are only visible across the
+command buffers executed in a single command buffer submission batch within
+a <a href="vkQueueSubmit.html">vkQueueSubmit</a> or <a href="vkQueueSubmit2.html">vkQueueSubmit2</a> call.
+If the
+<a href="VkPhysicalDeviceTileMemoryHeapPropertiesQCOM.html">VkPhysicalDeviceTileMemoryHeapPropertiesQCOM</a>::<code>queueSubmitBoundary</code>
+property is set, the visibility is extended across all batches in the submit
+call.
+Memory contents are discarded and made undefined after the respective
+submission batch or submit call.
+Tile memory <strong class="purple">may</strong> have different performance characteristics than non tile
+memory.
+Tile memory <strong class="purple">can</strong> be used simultaneously by command buffers in other queues
+without invalidating each others contents.
+Collectively, these rules define the <em>tile memory scope</em>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Tile memory heaps work differently than most heaps as it is allowing
+addressing on device cache memory.
+Therefore, the heap&#8217;s address space is aliased across the different queues,
+with each queue retaining its individual copy of the heap.
+The implementation takes care of any required saving and restoring of the
+tile memory contents.</p>
+</div>
+<div class="paragraph">
+<p>Effectively, this means that the same address in the heap in different
+queues have simultaneously different defined contents and the contents has a
+lifespan scoped to the submit or batch for that specific queues.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div id="memory-device-bitmask-list" class="paragraph">
 <p>Each memory type returned by <a href="vkGetPhysicalDeviceMemoryProperties.html">vkGetPhysicalDeviceMemoryProperties</a> <strong class="purple">must</strong>
 have its <code>propertyFlags</code> set to one of the following values:</p>

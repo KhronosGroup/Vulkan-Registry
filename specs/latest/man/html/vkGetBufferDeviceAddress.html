@@ -912,7 +912,25 @@ usage passes, if it exists.</p>
 
 The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddress" target="_blank" rel="noopener"><code>bufferDeviceAddress</code></a>
 or <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddressEXT" target="_blank" rel="noopener"><code>VkPhysicalDeviceBufferDeviceAddressFeaturesEXT</code>::<code>bufferDeviceAddress</code></a>
-feature <strong class="purple">must</strong> be enabled</p>
+feature <strong class="purple">must</strong> be enabled, and at least one of the following conditions
+<strong class="purple">must</strong> be met</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>buffer</code> is sparse</p>
+</li>
+<li>
+<p><code>buffer</code> is bound completely and contiguously to a single
+<code>VkDeviceMemory</code> object</p>
+</li>
+<li>
+<p><code>buffer</code> was created with the
+<code>VK_BUFFER_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT</code> flag and
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-bufferDeviceAddressEXT" target="_blank" rel="noopener"><code>VkPhysicalDeviceBufferDeviceAddressFeaturesEXT</code>::<code>bufferDeviceAddress</code></a>
+is enabled on the device</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><a id="VUID-vkGetBufferDeviceAddress-device-03325" href="#VUID-vkGetBufferDeviceAddress-device-03325"></a> <span class="vuid">VUID-vkGetBufferDeviceAddress-device-03325</span><br>
