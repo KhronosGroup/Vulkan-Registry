@@ -1016,7 +1016,31 @@ create the command pool that <code>commandBuffer</code> was allocated from</p>
 <p><a id="VUID-vkCmdWaitEvents2-dependencyFlags-10394" href="#VUID-vkCmdWaitEvents2-dependencyFlags-10394"></a> <span class="vuid">VUID-vkCmdWaitEvents2-dependencyFlags-10394</span><br>
 
 The <code>dependencyFlags</code> member of any element of <code>pDependencyInfo</code>
-<strong class="purple">must</strong> be <code>0</code></p>
+<strong class="purple">must</strong> not include any of the following bits:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_DEPENDENCY_BY_REGION_BIT</code></p>
+</li>
+<li>
+<p><code>VK_DEPENDENCY_DEVICE_GROUP_BIT</code></p>
+</li>
+<li>
+<p><code>VK_DEPENDENCY_VIEW_LOCAL_BIT</code></p>
+</li>
+<li>
+<p><code>VK_DEPENDENCY_FEEDBACK_LOOP_BIT_EXT</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a id="VUID-vkCmdWaitEvents2-maintenance8-10205" href="#VUID-vkCmdWaitEvents2-maintenance8-10205"></a> <span class="vuid">VUID-vkCmdWaitEvents2-maintenance8-10205</span><br>
+
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance8" target="_blank" rel="noopener"><code>maintenance8</code></a> feature is not
+enabled, the <code>dependencyFlags</code> members of any element of
+<code>pDependencyInfos</code> <strong class="purple">must</strong> not include
+<code>VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdWaitEvents2-dependencyFlags-03844" href="#VUID-vkCmdWaitEvents2-dependencyFlags-03844"></a> <span class="vuid">VUID-vkCmdWaitEvents2-dependencyFlags-03844</span><br>
@@ -1032,14 +1056,6 @@ include <code>VK_PIPELINE_STAGE_2_HOST_BIT</code></p>
 
 <code>commandBuffer</code>&#8217;s current device mask <strong class="purple">must</strong> include exactly one
 physical device</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdWaitEvents2-maintenance8-10205" href="#VUID-vkCmdWaitEvents2-maintenance8-10205"></a> <span class="vuid">VUID-vkCmdWaitEvents2-maintenance8-10205</span><br>
-
-If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance8" target="_blank" rel="noopener"><code>maintenance8</code></a> feature is not
-enabled, The <code>dependencyFlags</code> members of any element of
-<code>pDependencyInfos</code> <strong class="purple">must</strong> not include
-<code>VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdWaitEvents2-None-10654" href="#VUID-vkCmdWaitEvents2-None-10654"></a> <span class="vuid">VUID-vkCmdWaitEvents2-None-10654</span><br>

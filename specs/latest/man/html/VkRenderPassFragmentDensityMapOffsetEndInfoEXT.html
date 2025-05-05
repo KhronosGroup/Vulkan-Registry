@@ -884,16 +884,6 @@ chain of a dynamic render pass include
 <code>fragmentDensityOffsetCount</code> is zero, then the offset <span class="eq">(0,0)</span> is
 used for <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fragmentdensitymap-fetch-density-value" target="_blank" rel="noopener">Fetch Density Value</a>.</p>
 </div>
-<div class="paragraph">
-<p>If the render pass instance was begun with
-<code>VK_RENDERING_SUSPENDING_BIT</code>, then any
-<code>VkRenderPassFragmentDensityMapOffsetEndInfoEXT</code> structure is ignored.
-If the render pass instance was begun with <code>VK_RENDERING_RESUMING_BIT</code>
-but not <code>VK_RENDERING_SUSPENDING_BIT</code>, then the offsets in
-<code>VkRenderPassFragmentDensityMapOffsetEndInfoEXT</code> apply to all of the
-preceding suspended render pass instances in
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-submission-order" target="_blank" rel="noopener">submission order</a>.</p>
-</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage</div>

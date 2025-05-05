@@ -1376,6 +1376,22 @@ If <code>vkCmdPipelineBarrier</code> is called within a render pass instance sta
 <code>srcStageMask</code> and <code>dstStageMask</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdPipelineBarrier-oldLayout-10758" href="#VUID-vkCmdPipelineBarrier-oldLayout-10758"></a> <span class="vuid">VUID-vkCmdPipelineBarrier-oldLayout-10758</span><br>
+
+If called within a render pass instance using a <a href="VkRenderPass.html">VkRenderPass</a>
+object, the <code>oldLayout</code> member of any image memory barrier included
+in this command <strong class="purple">must</strong> be equal to the layout that the corresponding
+attachment uses during the subpass</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdPipelineBarrier-oldLayout-10759" href="#VUID-vkCmdPipelineBarrier-oldLayout-10759"></a> <span class="vuid">VUID-vkCmdPipelineBarrier-oldLayout-10759</span><br>
+
+If called within a render pass instance started with
+<a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>, the <code>oldLayout</code> member of any image
+memory barrier included in this command <strong class="purple">must</strong> be equal to the layout
+that the corresponding attachment uses during the render pass instance</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdPipelineBarrier-srcStageMask-06461" href="#VUID-vkCmdPipelineBarrier-srcStageMask-06461"></a> <span class="vuid">VUID-vkCmdPipelineBarrier-srcStageMask-06461</span><br>
 
 Any pipeline stage included in <code>srcStageMask</code> <strong class="purple">must</strong> be supported by

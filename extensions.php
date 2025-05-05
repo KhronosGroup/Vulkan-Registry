@@ -74,6 +74,7 @@
     <li> <a href="specs/latest/man/html/VK_KHR_ray_tracing_pipeline.html"> VK_KHR_ray_tracing_pipeline </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_ray_tracing_position_fetch.html"> VK_KHR_ray_tracing_position_fetch </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_relaxed_block_layout.html"> VK_KHR_relaxed_block_layout </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_robustness2.html"> VK_KHR_robustness2 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_sampler_mirror_clamp_to_edge.html"> VK_KHR_sampler_mirror_clamp_to_edge </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_sampler_ycbcr_conversion.html"> VK_KHR_sampler_ycbcr_conversion </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_separate_depth_stencil_layouts.html"> VK_KHR_separate_depth_stencil_layouts </a> </li>

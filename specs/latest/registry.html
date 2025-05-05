@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.313,</span>
-<span id="revdate">2025-04-18 09:06:45Z</span>
-<br><span id="revremark">from git branch: github-main commit: 19b765119a9ddef1034e95442f82f94235167f36</span>
+<span id="revnumber">version 1.4.314,</span>
+<span id="revdate">2025-05-01 23:24:09Z</span>
+<br><span id="revremark">from git branch: github-main commit: 86c8fd72055a859f08fff20182ef758089dd180a</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1102,22 +1102,23 @@ pre.rouge .w {
 <li><a href="#_example_of_an_extensions_tag">19.3. Example of an <code>extensions</code> Tag</a></li>
 </ul>
 </li>
-<li><a href="#tag-required">20. Required and Removed Interfaces (<code>require</code> and <code>remove</code> Tags)</a>
+<li><a href="#tag-required">20. Required, Removed, and Deprecated Interfaces (<code>require</code>, <code>remove</code>, and <code>deprecate</code> Tags)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_require_and_remove_tags">20.1. Attributes of <code>require</code> and <code>remove</code> Tags</a></li>
+<li><a href="#_attributes_of_require_remove_and_deprecate_tags">20.1. Attributes of <code>require</code>, <code>remove</code>, and <code>deprecate</code> Tags</a></li>
 <li><a href="#_attributes_of_require_tags">20.2. Attributes of <code>require</code> Tags</a></li>
 <li><a href="#tag-required-remove">20.3. Attributes of <code>remove</code> Tags</a></li>
-<li><a href="#_contents_of_require_and_remove_tags">20.4. Contents of <code>require</code> and <code>remove</code> Tags</a>
+<li><a href="#tag-required-deprecate">20.4. Attributes of <code>deprecate</code> Tags</a></li>
+<li><a href="#_contents_of_require_remove_and_deprecate_tags">20.5. Contents of <code>require</code>, <code>remove</code>, and <code>deprecate</code> Tags</a>
 <ul class="sectlevel3">
-<li><a href="#_comment_tags">20.4.1. Comment Tags</a></li>
-<li><a href="#_command_tags">20.4.2. Command Tags</a></li>
-<li><a href="#_enum_tags">20.4.3. Enum Tags</a></li>
-<li><a href="#_type_tags">20.4.4. Type Tags</a></li>
+<li><a href="#_comment_tags">20.5.1. Comment Tags</a></li>
+<li><a href="#_command_tags">20.5.2. Command Tags</a></li>
+<li><a href="#_enum_tags">20.5.3. Enum Tags</a></li>
+<li><a href="#_type_tags">20.5.4. Type Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-required-examples">20.5. Examples of Extension Enumerants</a>
+<li><a href="#tag-required-examples">20.6. Examples of Extension Enumerants</a>
 <ul class="sectlevel3">
-<li><a href="#tag-required-feature">20.5.1. Individual Feature Tags</a></li>
+<li><a href="#tag-required-feature">20.6.1. Individual Feature Tags</a></li>
 </ul>
 </li>
 </ul>
@@ -3401,10 +3402,10 @@ values are packed integers containing Vulkan core version numbers.</p>
 <div class="sect2">
 <h3 id="_contents_of_feature_tags"><a class="anchor" href="#_contents_of_feature_tags"></a>17.2. Contents of <code>feature</code> Tags</h3>
 <div class="paragraph">
-<p>Zero or more <a href="#tag-required"><code>require</code> and <code>remove</code> tags</a>, in arbitrary
-order.
-Each tag describes a set of interfaces that is respectively required for, or
-removed from, this feature, as described below.</p>
+<p>Zero or more <a href="#tag-required"><code>require</code>, <code>remove</code>, and <code>deprecate</code>
+tags</a>, in arbitrary order.
+Each tag describes a set of interfaces that is respectively required for,
+removed from, or deprecated by this feature, as described below.</p>
 </div>
 </div>
 <div class="sect2">
@@ -3789,30 +3790,42 @@ specified <code>type</code> and <code>command</code> elsewhere in the XML):</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-required"><a class="anchor" href="#tag-required"></a>20. Required and Removed Interfaces (<code>require</code> and <code>remove</code> Tags)</h2>
+<h2 id="tag-required"><a class="anchor" href="#tag-required"></a>20. Required, Removed, and Deprecated Interfaces (<code>require</code>, <code>remove</code>, and <code>deprecate</code> Tags)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A <code>require</code> block defines a set of interfaces (types, enumerants and
-commands) 'required' by a <code>feature</code> or <code>extension</code>.
-A <code>remove</code> block defines a set of interfaces 'removed' by a <code>feature</code>.
+commands) 'required' by a <code>feature</code> or <code>extension</code>.</p>
+</div>
+<div class="paragraph">
+<p>A <code>remove</code> block defines a set of interfaces 'removed' by a <code>feature</code>.
 This is primarily for future profiles of an API which may choose to
 deprecate and/or remove some interfaces.
 Extensions should never remove interfaces, although this usage is allowed by
-the schema).
-Except for the tag name and behavior, the contents of <code>require</code> and
-<code>remove</code> tags are identical.</p>
+the schema.</p>
+</div>
+<div class="paragraph">
+<p>A <code>deprecate</code> block defines a set of interfaces 'deprecated' by a
+<code>feature</code>.
+This will mark the tagged functionality in the spec as deprecated by this
+version.
+Extensions should never deprecate interfaces, although this usage is allowed
+by the schema.</p>
+</div>
+<div class="paragraph">
+<p>Except for the tag name and behavior, the contents of <code>require</code>, <code>remove</code>
+and <code>deprecate</code> tags are identical.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_require_and_remove_tags"><a class="anchor" href="#_attributes_of_require_and_remove_tags"></a>20.1. Attributes of <code>require</code> and <code>remove</code> Tags</h3>
+<h3 id="_attributes_of_require_remove_and_deprecate_tags"><a class="anchor" href="#_attributes_of_require_remove_and_deprecate_tags"></a>20.1. Attributes of <code>require</code>, <code>remove</code>, and <code>deprecate</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
 <p><code>profile</code> - optional.
 String name of an API profile.
-Interfaces in the tag are only required (or removed) if the specified
-profile is being generated.
-If not specified, interfaces are required (or removed) for all API
-profiles.</p>
+Interfaces in the tag are only required, removed, or deprecated if the
+specified profile is being generated.
+If not specified, interfaces are required, removed, or deprecated for all
+API profiles.</p>
 </li>
 <li>
 <p><code>comment</code> - optional.
@@ -3820,10 +3833,11 @@ Arbitrary string (unused).</p>
 </li>
 <li>
 <p><code>api</code> - optional comma-separated list of <a href="#schema:apiname">API
-names</a> requiring or removing these interfaces.
-Interfaces in the tag are only required (or removed) if the requested
-API name matches an element of the attribute.
-If not specified, interfaces are required (or removed) for all APIs.</p>
+names</a> requiring, removing, or deprecating these interfaces.
+Interfaces in the tag are only required, removed, or deprecated if the
+requested API name matches an element of the attribute.
+If not specified, interfaces are required, removed, or deprecated for all
+APIs.</p>
 </li>
 </ul>
 </div>
@@ -3901,20 +3915,34 @@ String containing the name of an asciidoc anchor in the <a href="#vulkan-spec">V
 </div>
 </div>
 <div class="sect2">
-<h3 id="_contents_of_require_and_remove_tags"><a class="anchor" href="#_contents_of_require_and_remove_tags"></a>20.4. Contents of <code>require</code> and <code>remove</code> Tags</h3>
+<h3 id="tag-required-deprecate"><a class="anchor" href="#tag-required-deprecate"></a>20.4. Attributes of <code>deprecate</code> Tags</h3>
+<div class="paragraph">
+<p>These attributes are allowed only for a <code>deprecate</code> tag.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>explanation</code> - a link to an explanation in the specification of why
+the tagged functionality is deprecated.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contents_of_require_remove_and_deprecate_tags"><a class="anchor" href="#_contents_of_require_remove_and_deprecate_tags"></a>20.5. Contents of <code>require</code>, <code>remove</code>, and <code>deprecate</code> Tags</h3>
 <div class="paragraph">
 <p>Zero or more of the following tags, in any order:</p>
 </div>
 <div class="sect3">
-<h4 id="_comment_tags"><a class="anchor" href="#_comment_tags"></a>20.4.1. Comment Tags</h4>
+<h4 id="_comment_tags"><a class="anchor" href="#_comment_tags"></a>20.5.1. Comment Tags</h4>
 <div class="paragraph">
 <p><a href="#tag-comment"><code>comment</code></a> (as described above).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_command_tags"><a class="anchor" href="#_command_tags"></a>20.4.2. Command Tags</h4>
+<h4 id="_command_tags"><a class="anchor" href="#_command_tags"></a>20.5.2. Command Tags</h4>
 <div class="paragraph">
-<p><code>command</code> specifies a required (or removed) command defined in a
+<p><code>command</code> specifies a required, removed, or deprecated command defined in a
 <code>commands</code> block.
 The tag has no content, but contains attributes:</p>
 </div>
@@ -3932,9 +3960,9 @@ Arbitrary string (unused).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_enum_tags"><a class="anchor" href="#_enum_tags"></a>20.4.3. Enum Tags</h4>
+<h4 id="_enum_tags"><a class="anchor" href="#_enum_tags"></a>20.5.3. Enum Tags</h4>
 <div class="paragraph">
-<p><code>enum</code> specifies a required (or removed) enumerant defined in an <code>enums</code>
+<p><code>enum</code> specifies a required, removed, or deprecated enumerant defined in an <code>enums</code>
 block.
 All forms of this tag support the following attributes:</p>
 </div>
@@ -4015,7 +4043,7 @@ If <code>extnumber</code> is not present, the extension number defining that
 block is given by the <code>number</code> attribute of the surrounding
 <code>extension</code> tag.
 The numeric value of an enumerant is computed as defined in the
-``Assigning Extension Token Values`" section of the <a href="#vulkan-styleguide">Vulkan Documentation and Extensions: Procedures and Conventions</a>
+<code>Assigning Extension Token Values</code> section of the <a href="#vulkan-styleguide">Vulkan Documentation and Extensions: Procedures and Conventions</a>
 document.</p>
 </li>
 <li>
@@ -4132,9 +4160,9 @@ are given below.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_type_tags"><a class="anchor" href="#_type_tags"></a>20.4.4. Type Tags</h4>
+<h4 id="_type_tags"><a class="anchor" href="#_type_tags"></a>20.5.4. Type Tags</h4>
 <div class="paragraph">
-<p><code>type</code> specifies a required (or removed) type defined in a <code>types</code>
+<p><code>type</code> specifies a required, removed, or deprecated type defined in a <code>types</code>
 block.
 Most types are picked up implicitly by using the <code>type</code> tags of commands,
 but in a few cases, additional types need to be specified explicitly.
@@ -4157,7 +4185,7 @@ Arbitrary string (unused).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tag-required-examples"><a class="anchor" href="#tag-required-examples"></a>20.5. Examples of Extension Enumerants</h3>
+<h3 id="tag-required-examples"><a class="anchor" href="#tag-required-examples"></a>20.6. Examples of Extension Enumerants</h3>
 <div class="paragraph">
 <p>Examples of some of the supported extension enumerant <code>enum</code> tags are
 given below.</p>
@@ -4198,9 +4226,9 @@ given below.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="tag-required-feature"><a class="anchor" href="#tag-required-feature"></a>20.5.1. Individual Feature Tags</h4>
+<h4 id="tag-required-feature"><a class="anchor" href="#tag-required-feature"></a>20.6.1. Individual Feature Tags</h4>
 <div class="paragraph">
-<p><code>feature</code> specifies a required (or removed) feature, as described in the
+<p><code>feature</code> specifies a required, removed, or deprecated feature, as described in the
 &#8220;Features&#8221; chapter of the <a href="#vulkan-spec">Vulkan API Specification</a>.
 The tag has no content, but contains attributes:</p>
 </div>
@@ -6027,6 +6055,9 @@ Changes to the <code>.xml</code> files and Python scripts are logged in GitHub h
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2025-04-23 - Add <a href="#tag-required"><code>deprecate</code></a> blocks to features.</p>
+</li>
 <li>
 <p>2025-03-19 - Establish and clarify the use of "min" and "max" limit
 types for boolean limits and remove the, now obsolete, "not" limit type.</p>

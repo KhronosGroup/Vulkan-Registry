@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>vkCreateRenderPass(3)</title>
+<title>VkPhysicalDeviceRobustness2FeaturesKHR(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,10 +796,10 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>vkCreateRenderPass(3) Manual Page</h1>
+<h1>VkPhysicalDeviceRobustness2FeaturesKHR(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>vkCreateRenderPass - Create a new render pass object</p>
+<p>VkPhysicalDeviceRobustness2FeaturesKHR - Structure describing the out-of-bounds behavior for an implementation</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -809,51 +809,74 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To create a render pass, call:</p>
+<p>The <code>VkPhysicalDeviceRobustness2FeaturesKHR</code> structure is defined as:</p>
 </div>
-<div id="vkCreateRenderPass" class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-This functionality is deprecated by <a href="VK_KHR_create_renderpass2.html">VK_KHR_create_renderpass2</a>. See <a href="#deprecation-renderpass2">Deprecated Functionality</a> for more information.
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
+<div id="VkPhysicalDeviceRobustness2FeaturesKHR" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_VERSION_1_0
-VkResult vkCreateRenderPass(
-    VkDevice                                    device,
-    const VkRenderPassCreateInfo*               pCreateInfo,
-    const VkAllocationCallbacks*                pAllocator,
-    VkRenderPass*                               pRenderPass);</code></pre>
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_KHR_robustness2
+typedef struct VkPhysicalDeviceRobustness2FeaturesKHR {
+    VkStructureType    sType;
+    void*              pNext;
+    VkBool32           robustBufferAccess2;
+    VkBool32           robustImageAccess2;
+    VkBool32           nullDescriptor;
+} VkPhysicalDeviceRobustness2FeaturesKHR;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or the equivalent</p>
+</div>
+<div id="VkPhysicalDeviceRobustness2FeaturesEXT" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_EXT_robustness2
+typedef VkPhysicalDeviceRobustness2FeaturesKHR VkPhysicalDeviceRobustness2FeaturesEXT;</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h2>
+<h2 id="_members"><a class="anchor" href="#_members"></a>Members</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This structure describes the following features:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>device</code> is the logical device that creates the render pass.</p>
+<p><code>sType</code> is a <a href="VkStructureType.html">VkStructureType</a> value identifying this structure.</p>
 </li>
 <li>
-<p><code>pCreateInfo</code> is a pointer to a <a href="VkRenderPassCreateInfo.html">VkRenderPassCreateInfo</a>
-structure describing the parameters of the render pass.</p>
+<p><code>pNext</code> is <code>NULL</code> or a pointer to a structure extending this
+structure.</p>
 </li>
 <li>
-<p><code>pAllocator</code> controls host memory allocation as described in the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-allocation" target="_blank" rel="noopener">Memory Allocation</a> chapter.</p>
+<p><a id="features-robustBufferAccess2"></a> <code>robustBufferAccess2</code> indicates
+whether buffer accesses are tightly bounds-checked against the range of
+the descriptor.
+Uniform buffers <strong class="purple">must</strong> be bounds-checked to the range of the descriptor,
+where the range is rounded up to a multiple of
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-robustUniformBufferAccessSizeAlignment" target="_blank" rel="noopener"><code>robustUniformBufferAccessSizeAlignment</code></a>.
+Storage buffers <strong class="purple">must</strong> be bounds-checked to the range of the descriptor,
+where the range is rounded up to a multiple of
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-robustStorageBufferAccessSizeAlignment" target="_blank" rel="noopener"><code>robustStorageBufferAccessSizeAlignment</code></a>.
+Out of bounds buffer loads will return zero values, and <a href="#textures">image load, sample, and atomic operations</a> from texel buffers will have
+<span class="eq">(0,0,1)</span> values <a href="#textures-conversion-to-rgba">inserted for missing
+G, B, or A components</a> based on the format.</p>
 </li>
 <li>
-<p><code>pRenderPass</code> is a pointer to a <a href="VkRenderPass.html">VkRenderPass</a> handle in which
-the resulting render pass object is returned.</p>
+<p><a id="features-robustImageAccess2"></a> <code>robustImageAccess2</code> indicates
+whether image accesses are tightly bounds-checked against the dimensions
+of the image view.
+Out of bounds <a href="#textures">image load, sample, and atomic operations</a>
+from images will return zero values, with <span class="eq">(0,0,1)</span> values
+<a href="#textures-conversion-to-rgba">inserted for missing G, B, or A
+components</a> based on the format.</p>
+</li>
+<li>
+<p><a id="features-nullDescriptor"></a> <code>nullDescriptor</code> indicates
+whether descriptors <strong class="purple">can</strong> be written with a <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> resource
+or view, which are considered valid to access and act as if the
+descriptor were bound to nothing.</p>
 </li>
 </ul>
 </div>
@@ -862,26 +885,27 @@ the resulting render pass object is returned.</p>
 <div class="sect1">
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>If the <code>VkPhysicalDeviceRobustness2FeaturesKHR</code> structure is included in the <code>pNext</code> chain of the
+<a href="VkPhysicalDeviceFeatures2.html">VkPhysicalDeviceFeatures2</a> structure passed to
+<a href="vkGetPhysicalDeviceFeatures2.html">vkGetPhysicalDeviceFeatures2</a>, it is filled in to indicate whether each
+corresponding feature is supported.
+If the application wishes to use a <a href="VkDevice.html">VkDevice</a> with any features
+described by <code>VkPhysicalDeviceRobustness2FeaturesKHR</code>, it <strong class="purple">must</strong> add an instance of the structure,
+with the desired feature members set to <code>VK_TRUE</code>, to the <code>pNext</code>
+chain of <a href="VkDeviceCreateInfo.html">VkDeviceCreateInfo</a> when creating the <a href="VkDevice.html">VkDevice</a>.</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-vkCreateRenderPass-device-10000" href="#VUID-vkCreateRenderPass-device-10000"></a> <span class="vuid">VUID-vkCreateRenderPass-device-10000</span><br>
+<p><a id="VUID-VkPhysicalDeviceRobustness2FeaturesKHR-robustBufferAccess2-04000" href="#VUID-VkPhysicalDeviceRobustness2FeaturesKHR-robustBufferAccess2-04000"></a> <span class="vuid">VUID-VkPhysicalDeviceRobustness2FeaturesKHR-robustBufferAccess2-04000</span><br>
 
-<code>device</code> <strong class="purple">must</strong> support at least one queue family with the
-<code>VK_QUEUE_GRAPHICS_BIT</code> capability</p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a id="VUID-vkCreateRenderPass-flags-10646" href="#VUID-vkCreateRenderPass-flags-10646"></a> <span class="vuid">VUID-vkCreateRenderPass-flags-10646</span><br>
-
-<a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code> <strong class="purple">must</strong> not
-include <code>VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM</code></p>
+If <code>robustBufferAccess2</code> is enabled then
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-robustBufferAccess" target="_blank" rel="noopener"><code>robustBufferAccess</code></a> <strong class="purple">must</strong> also be
+enabled</p>
 </li>
 </ul>
 </div>
@@ -893,54 +917,10 @@ include <code>VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-vkCreateRenderPass-device-parameter" href="#VUID-vkCreateRenderPass-device-parameter"></a> <span class="vuid">VUID-vkCreateRenderPass-device-parameter</span><br>
- <code>device</code> <strong class="purple">must</strong> be a valid <a href="VkDevice.html">VkDevice</a> handle</p>
-</li>
-<li>
-<p><a id="VUID-vkCreateRenderPass-pCreateInfo-parameter" href="#VUID-vkCreateRenderPass-pCreateInfo-parameter"></a> <span class="vuid">VUID-vkCreateRenderPass-pCreateInfo-parameter</span><br>
- <code>pCreateInfo</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkRenderPassCreateInfo.html">VkRenderPassCreateInfo</a> structure</p>
-</li>
-<li>
-<p><a id="VUID-vkCreateRenderPass-pAllocator-parameter" href="#VUID-vkCreateRenderPass-pAllocator-parameter"></a> <span class="vuid">VUID-vkCreateRenderPass-pAllocator-parameter</span><br>
- If <code>pAllocator</code> is not <code>NULL</code>, <code>pAllocator</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkAllocationCallbacks.html">VkAllocationCallbacks</a> structure</p>
-</li>
-<li>
-<p><a id="VUID-vkCreateRenderPass-pRenderPass-parameter" href="#VUID-vkCreateRenderPass-pRenderPass-parameter"></a> <span class="vuid">VUID-vkCreateRenderPass-pRenderPass-parameter</span><br>
- <code>pRenderPass</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkRenderPass.html">VkRenderPass</a> handle</p>
+<p><a id="VUID-VkPhysicalDeviceRobustness2FeaturesKHR-sType-sType" href="#VUID-VkPhysicalDeviceRobustness2FeaturesKHR-sType-sType"></a> <span class="vuid">VUID-VkPhysicalDeviceRobustness2FeaturesKHR-sType-sType</span><br>
+ <code>sType</code> <strong class="purple">must</strong> be <code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_KHR</code></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Return Codes</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">On success, this command returns</dt>
-<dd>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_SUCCESS</code></p>
-</li>
-</ul>
-</div>
-</dd>
-<dt class="hdlist1">On failure, this command returns</dt>
-<dd>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_ERROR_OUT_OF_HOST_MEMORY</code></p>
-</li>
-<li>
-<p><code>VK_ERROR_OUT_OF_DEVICE_MEMORY</code></p>
-</li>
-</ul>
-</div>
-</dd>
-</dl>
 </div>
 </div>
 </div>
@@ -950,7 +930,7 @@ include <code>VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM</code></p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_VERSION_1_0.html">VK_VERSION_1_0</a>, <a href="VkAllocationCallbacks.html">VkAllocationCallbacks</a>, <a href="VkDevice.html">VkDevice</a>, <a href="VkRenderPass.html">VkRenderPass</a>, <a href="VkRenderPassCreateInfo.html">VkRenderPassCreateInfo</a></p>
+<p><a href="VK_KHR_robustness2.html">VK_KHR_robustness2</a>, <a href="VkBool32.html">VkBool32</a>, <a href="VkStructureType.html">VkStructureType</a></p>
 </div>
 </div>
 </div>
@@ -958,7 +938,7 @@ include <code>VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM</code></p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCreateRenderPass" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceRobustness2FeaturesKHR" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.
