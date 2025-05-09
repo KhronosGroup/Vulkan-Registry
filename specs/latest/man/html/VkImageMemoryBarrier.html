@@ -1035,14 +1035,27 @@ If <code>srcQueueFamilyIndex</code> and <code>dstQueueFamilyIndex</code> define 
 layout of the image subresources affected by the barrier</p>
 </li>
 <li>
+<p><a id="VUID-VkImageMemoryBarrier-oldLayout-10767" href="#VUID-VkImageMemoryBarrier-oldLayout-10767"></a> <span class="vuid">VUID-VkImageMemoryBarrier-oldLayout-10767</span><br>
+
+If the <a href="#features-zeroInitializeDeviceMemory">zeroInitializeDeviceMemory</a> feature is not enabled, <code>oldLayout</code>
+<strong class="purple">must</strong> not be <code>VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT</code></p>
+</li>
+<li>
+<p><a id="VUID-VkImageMemoryBarrier-oldLayout-10768" href="#VUID-VkImageMemoryBarrier-oldLayout-10768"></a> <span class="vuid">VUID-VkImageMemoryBarrier-oldLayout-10768</span><br>
+
+If <code>oldLayout</code> is <code>VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT</code>, then
+all subresources <strong class="purple">must</strong> be included in the barrier</p>
+</li>
+<li>
 <p><a id="VUID-VkImageMemoryBarrier-newLayout-01198" href="#VUID-VkImageMemoryBarrier-newLayout-01198"></a> <span class="vuid">VUID-VkImageMemoryBarrier-newLayout-01198</span><br>
 
-If <code>srcQueueFamilyIndex</code> and <code>dstQueueFamilyIndex</code> define a
-<a href="#synchronization-queue-transfers">queue family ownership transfer</a> or
-<code>oldLayout</code> and <code>newLayout</code> define an
-<a href="#synchronization-image-layout-transitions">image layout transition</a>,
-<code>newLayout</code> <strong class="purple">must</strong> not be <code>VK_IMAGE_LAYOUT_UNDEFINED</code> or
-<code>VK_IMAGE_LAYOUT_PREINITIALIZED</code></p>
+    If <code>srcQueueFamilyIndex</code> and <code>dstQueueFamilyIndex</code> define a
+    <a href="#synchronization-queue-transfers">queue family ownership transfer</a> or
+    <code>oldLayout</code> and <code>newLayout</code> define an
+    <a href="#synchronization-image-layout-transitions">image layout transition</a>,
+    <code>newLayout</code> <strong class="purple">must</strong> not be <code>VK_IMAGE_LAYOUT_UNDEFINED</code> or
+<code>VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT</code> or
+    <code>VK_IMAGE_LAYOUT_PREINITIALIZED</code></p>
 </li>
 <li>
 <p><a id="VUID-VkImageMemoryBarrier-oldLayout-01658" href="#VUID-VkImageMemoryBarrier-oldLayout-01658"></a> <span class="vuid">VUID-VkImageMemoryBarrier-oldLayout-01658</span><br>

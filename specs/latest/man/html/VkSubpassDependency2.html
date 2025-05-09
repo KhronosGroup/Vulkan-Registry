@@ -874,12 +874,15 @@ dependency, or <code>VK_SUBPASS_EXTERNAL</code>.</p>
 <li>
 <p><code>srcStageMask</code> is a bitmask of <a href="VkPipelineStageFlagBits.html">VkPipelineStageFlagBits</a>
 specifying the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-masks" target="_blank" rel="noopener">source stage
-mask</a>.</p>
+mask</a>.
+If set to <code>VK_PIPELINE_STAGE_ALL_COMMANDS_BIT</code>, it is equivalent to
+setting it to <code>VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT</code>.</p>
 </li>
 <li>
 <p><code>dstStageMask</code> is a bitmask of <a href="VkPipelineStageFlagBits.html">VkPipelineStageFlagBits</a>
 specifying the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-masks" target="_blank" rel="noopener">destination
-stage mask</a></p>
+stage mask</a> If set to <code>VK_PIPELINE_STAGE_ALL_COMMANDS_BIT</code>, it is
+equivalent to setting it to <code>VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT</code>.</p>
 </li>
 <li>
 <p><code>srcAccessMask</code> is a bitmask of <a href="VkAccessFlagBits.html">VkAccessFlagBits</a> specifying a
@@ -917,7 +920,10 @@ corresponding subpass dependency.</p>
 <code>srcStageMask</code>, <code>dstStageMask</code>, <code>srcAccessMask</code>, and
 <code>dstAccessMask</code> parameters are ignored.
 The synchronization and access scopes instead are defined by the parameters
-of <a href="VkMemoryBarrier2.html">VkMemoryBarrier2</a>.</p>
+of <a href="VkMemoryBarrier2.html">VkMemoryBarrier2</a>.
+If either <code>srcStageMask</code> or <code>dstStageMask</code> are set to
+<code>VK_PIPELINE_STAGE_ALL_COMMANDS_BIT</code>, it is equivalent to setting
+<code>VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT</code>.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">

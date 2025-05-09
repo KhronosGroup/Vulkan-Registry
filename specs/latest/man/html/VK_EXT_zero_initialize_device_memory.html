@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>VkSubpassDependency(3)</title>
+<title>VK_EXT_zero_initialize_device_memory(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,87 +796,128 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>VkSubpassDependency(3) Manual Page</h1>
+<h1>VK_EXT_zero_initialize_device_memory(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>VkSubpassDependency - Structure specifying a subpass dependency</p>
+<p>VK_EXT_zero_initialize_device_memory - device extension</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
 <!--ChunkedSearchboxMarker-->
 <div id="content" class="loadable" ><script>hideLoadableContent();</script>
 <div class="sect1">
-<h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
+<h2 id="_registered_extension_number"><a class="anchor" href="#_registered_extension_number"></a>Registered Extension Number</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>VkSubpassDependency</code> structure is defined as:</p>
+<p>621</p>
 </div>
-<div id="VkSubpassDependency" class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-This functionality is deprecated by <a href="VK_KHR_create_renderpass2.html">VK_KHR_create_renderpass2</a>. See <a href="#deprecation-renderpass2">Deprecated Functionality</a> for more information.
-</td>
-</tr>
-</table>
 </div>
-<div class="listingblock">
+</div>
+<div class="sect1">
+<h2 id="_revision"><a class="anchor" href="#_revision"></a>Revision</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>1</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ratification_status"><a class="anchor" href="#_ratification_status"></a>Ratification Status</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Not ratified</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extension_and_version_dependencies"><a class="anchor" href="#_extension_and_version_dependencies"></a>Extension and Version Dependencies</h2>
+<div class="sectionbody">
+<div class="openblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_VERSION_1_0
-typedef struct VkSubpassDependency {
-    uint32_t                srcSubpass;
-    uint32_t                dstSubpass;
-    VkPipelineStageFlags    srcStageMask;
-    VkPipelineStageFlags    dstStageMask;
-    VkAccessFlags           srcAccessMask;
-    VkAccessFlags           dstAccessMask;
-    VkDependencyFlags       dependencyFlags;
-} VkSubpassDependency;</code></pre>
+<div class="paragraph">
+<p><a href="VK_KHR_get_physical_device_properties2.html">VK_KHR_get_physical_device_properties2</a><br>
+or<br>
+<a href="#versions-1.1">Vulkan Version 1.1</a><br></p>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_members"><a class="anchor" href="#_members"></a>Members</h2>
+<h2 id="_contact"><a class="anchor" href="#_contact"></a>Contact</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><code>srcSubpass</code> is the subpass index of the first subpass in the
-dependency, or <code>VK_SUBPASS_EXTERNAL</code>.</p>
-</li>
-<li>
-<p><code>dstSubpass</code> is the subpass index of the second subpass in the
-dependency, or <code>VK_SUBPASS_EXTERNAL</code>.</p>
-</li>
-<li>
-<p><code>srcStageMask</code> is a bitmask of <a href="VkPipelineStageFlagBits.html">VkPipelineStageFlagBits</a>
-specifying the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-masks" target="_blank" rel="noopener">source stage
-mask</a>.
-If set to <code>VK_PIPELINE_STAGE_ALL_COMMANDS_BIT</code>, it is equivalent to
-setting it to <code>VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT</code>.</p>
-</li>
-<li>
-<p><code>dstStageMask</code> is a bitmask of <a href="VkPipelineStageFlagBits.html">VkPipelineStageFlagBits</a>
-specifying the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-masks" target="_blank" rel="noopener">destination
-stage mask</a> If set to <code>VK_PIPELINE_STAGE_ALL_COMMANDS_BIT</code>, it is
-equivalent to setting it to <code>VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT</code>.</p>
-</li>
-<li>
-<p><code>srcAccessMask</code> is a bitmask of <a href="VkAccessFlagBits.html">VkAccessFlagBits</a> specifying a
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-masks" target="_blank" rel="noopener">source access mask</a>.</p>
-</li>
-<li>
-<p><code>dstAccessMask</code> is a bitmask of <a href="VkAccessFlagBits.html">VkAccessFlagBits</a> specifying a
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-masks" target="_blank" rel="noopener">destination access mask</a>.</p>
-</li>
-<li>
-<p><code>dependencyFlags</code> is a bitmask of <a href="VkDependencyFlagBits.html">VkDependencyFlagBits</a>.</p>
+<p>Mike Blumenkrantz <a href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=[VK_EXT_zero_initialize_device_memory] @zmike%0A*Here describe the issue or question you have about the VK_EXT_zero_initialize_device_memory extension*" target="_blank" rel="nofollow noopener"><span class="icon black">[GitHub&#93;</span>zmike</a></p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extension_proposal"><a class="anchor" href="#_extension_proposal"></a>Extension Proposal</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_EXT_zero_initialize_device_memory.adoc">VK_EXT_zero_initialize_device_memory</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_extension_metadata"><a class="anchor" href="#_other_extension_metadata"></a>Other Extension Metadata</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Last Modified Date</strong></dt>
+<dd>
+<p>2025-04-09</p>
+</dd>
+<dt class="hdlist1"><strong>Interactions and External Dependencies</strong></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Interacts with Vulkan 1.1.</p>
+</li>
+<li>
+<p>Interacts with <code><a href="VK_KHR_get_physical_device_properties2.html">VK_KHR_get_physical_device_properties2</a></code>.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><strong>IP Status</strong></dt>
+<dd>
+<p>No known IP claims.</p>
+</dd>
+<dt class="hdlist1"><strong>Contributors</strong></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Hans-Kristian Arntzen, VALVE</p>
+</li>
+<li>
+<p>Mike Blumenkrantz, VALVE</p>
+</li>
+<li>
+<p>Tobias Hector, AMD</p>
+</li>
+<li>
+<p>Faith Ekstrand, Collabora</p>
+</li>
+<li>
+<p>Ricardo Garcia, Igalia</p>
+</li>
+<li>
+<p>Jan-Harald Fredriksen, ARM</p>
+</li>
+<li>
+<p>Spencer Fricke, LunarG</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -884,384 +925,115 @@ equivalent to setting it to <code>VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT</code>.</p>
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If <code>srcSubpass</code> is equal to <code>dstSubpass</code> then the
-<a href="VkSubpassDependency.html">VkSubpassDependency</a> does not directly define a
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies" target="_blank" rel="noopener">dependency</a>.
-Instead, it enables pipeline barriers to be used in a render pass instance
-within the identified subpass, where the scopes of one pipeline barrier
-<strong class="purple">must</strong> be a subset of those described by one subpass dependency.
-Subpass dependencies specified in this way that include
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-framebuffer-regions" target="_blank" rel="noopener">framebuffer-space stages</a> in the
-<code>srcStageMask</code> <strong class="purple">must</strong> only include
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-framebuffer-regions" target="_blank" rel="noopener">framebuffer-space stages</a> in
-<code>dstStageMask</code>, and <strong class="purple">must</strong> include <code>VK_DEPENDENCY_BY_REGION_BIT</code>.
-When a subpass dependency is specified in this way for a subpass that has
-more than one view in its view mask, its <code>dependencyFlags</code> <strong class="purple">must</strong> include
-<code>VK_DEPENDENCY_VIEW_LOCAL_BIT</code>.</p>
-</div>
-<div class="paragraph">
-<p>If <code>srcSubpass</code> and <code>dstSubpass</code> are not equal, when a render pass
-instance which includes a subpass dependency is submitted to a queue, it
-defines a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies" target="_blank" rel="noopener">dependency</a> between the subpasses
-identified by <code>srcSubpass</code> and <code>dstSubpass</code>.</p>
-</div>
-<div class="paragraph">
-<p>If <code>srcSubpass</code> is equal to <code>VK_SUBPASS_EXTERNAL</code>, the first
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes" target="_blank" rel="noopener">synchronization scope</a> includes
-commands that occur earlier in <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-submission-order" target="_blank" rel="noopener">submission
-order</a> than the <a href="vkCmdBeginRenderPass.html">vkCmdBeginRenderPass</a> used to begin the render pass
-instance.
-Otherwise, the first set of commands includes all commands submitted as part
-of the subpass instance identified by <code>srcSubpass</code> and any
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-load-operations" target="_blank" rel="noopener">load</a>, <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-store-operations" target="_blank" rel="noopener">store</a>, or <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-resolve-operations" target="_blank" rel="noopener">multisample resolve</a>
-operations on attachments used in <code>srcSubpass</code>.
-In either case, the first synchronization scope is limited to operations on
-the pipeline stages determined by the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-masks" target="_blank" rel="noopener">source stage mask</a> specified by
-<code>srcStageMask</code>.</p>
-</div>
-<div class="paragraph">
-<p>If <code>dstSubpass</code> is equal to <code>VK_SUBPASS_EXTERNAL</code>, the second
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes" target="_blank" rel="noopener">synchronization scope</a> includes
-commands that occur later in <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-submission-order" target="_blank" rel="noopener">submission
-order</a> than the <a href="vkCmdEndRenderPass.html">vkCmdEndRenderPass</a> used to end the render pass
-instance.
-Otherwise, the second set of commands includes all commands submitted as
-part of the subpass instance identified by <code>dstSubpass</code> and any
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-load-operations" target="_blank" rel="noopener">load</a>, <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-store-operations" target="_blank" rel="noopener">store</a>, and <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-resolve-operations" target="_blank" rel="noopener">multisample resolve</a>
-operations on attachments used in <code>dstSubpass</code>.
-In either case, the second synchronization scope is limited to operations on
-the pipeline stages determined by the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-masks" target="_blank" rel="noopener">destination stage mask</a> specified
-by <code>dstStageMask</code>.</p>
-</div>
-<div class="paragraph">
-<p>The first <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes" target="_blank" rel="noopener">access scope</a> is
-limited to accesses in the pipeline stages determined by the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-masks" target="_blank" rel="noopener">source stage mask</a> specified by
-<code>srcStageMask</code>.
-It is also limited to access types in the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-masks" target="_blank" rel="noopener">source access mask</a> specified by <code>srcAccessMask</code>.</p>
-</div>
-<div class="paragraph">
-<p>The second <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes" target="_blank" rel="noopener">access scope</a> is
-limited to accesses in the pipeline stages determined by the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-masks" target="_blank" rel="noopener">destination stage mask</a> specified
-by <code>dstStageMask</code>.
-It is also limited to access types in the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-masks" target="_blank" rel="noopener">destination access mask</a> specified by <code>dstAccessMask</code>.</p>
-</div>
-<div class="paragraph">
-<p>The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-available-and-visible" target="_blank" rel="noopener">availability and
-visibility operations</a> defined by a subpass dependency affect the execution
-of <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-layout-transitions" target="_blank" rel="noopener">image layout transitions</a> within the
-render pass.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>For non-attachment resources, the memory dependency expressed by subpass
-dependency is nearly identical to that of a <a href="VkMemoryBarrier.html">VkMemoryBarrier</a> (with
-matching <code>srcAccessMask</code> and <code>dstAccessMask</code> parameters) submitted
-as a part of a <a href="vkCmdPipelineBarrier.html">vkCmdPipelineBarrier</a> (with matching <code>srcStageMask</code>
-and <code>dstStageMask</code> parameters).
-The only difference being that its scopes are limited to the identified
-subpasses rather than potentially affecting everything before and after.</p>
-</div>
-<div class="paragraph">
-<p>For attachments however, subpass dependencies work more like a
-<a href="VkImageMemoryBarrier.html">VkImageMemoryBarrier</a> defined similarly to the <a href="VkMemoryBarrier.html">VkMemoryBarrier</a>
-above, the queue family indices set to <code>VK_QUEUE_FAMILY_IGNORED</code>, and
-layouts as follows:</p>
+<p>By default, Vulkan provides no guarantees that device memory allocated
+through vkAllocateMemory is cleared to zero.
+This means that applications wanting resources to be zero-initialized must
+execute a command such as vkCmdFillBuffer or vkCmdClearColorImage on the
+device to ensure a deterministic result.
+This can be wasteful if the underlying platform either:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The equivalent to <code>oldLayout</code> is the attachment&#8217;s layout according
-to the subpass description for <code>srcSubpass</code>.</p>
+<p>Already performs that zero clear anyway, due to e.g. security concerns.</p>
 </li>
 <li>
-<p>The equivalent to <code>newLayout</code> is the attachment&#8217;s layout according
-to the subpass description for <code>dstSubpass</code>.</p>
+<p>Can be performed more efficiently in implementation, by e.g. clearing
+pages to zero in the background after device memory is freed.</p>
 </li>
 </ul>
 </div>
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>This extension also has uses in API layering and porting efforts, where zero
+memory behavior may be more strict than Vulkan.
+Different OS platforms also have wildly different behaviors here, which
+leads to implementations needing to apply workarounds to paper over these
+issues in the wild.
+If an extension exists to make allocation behavior explicit, we hopefully
+achieve a more robust ecosystem for Vulkan.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Valid Usage</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_structures"><a class="anchor" href="#_new_structures"></a>New Structures</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-VkSubpassDependency-srcStageMask-04090" href="#VUID-VkSubpassDependency-srcStageMask-04090"></a> <span class="vuid">VUID-VkSubpassDependency-srcStageMask-04090</span><br>
-
-If the <a href="#features-geometryShader"><code>geometryShader</code></a> feature is not
-enabled, <code>srcStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT</code></p>
-</li>
+<p>Extending <a href="VkPhysicalDeviceFeatures2.html">VkPhysicalDeviceFeatures2</a>, <a href="VkDeviceCreateInfo.html">VkDeviceCreateInfo</a>:</p>
+<div class="ulist">
+<ul>
 <li>
-<p><a id="VUID-VkSubpassDependency-srcStageMask-04091" href="#VUID-VkSubpassDependency-srcStageMask-04091"></a> <span class="vuid">VUID-VkSubpassDependency-srcStageMask-04091</span><br>
-
-If the <a href="#features-tessellationShader"><code>tessellationShader</code></a> feature
-is not enabled, <code>srcStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT</code> or
-<code>VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcStageMask-04092" href="#VUID-VkSubpassDependency-srcStageMask-04092"></a> <span class="vuid">VUID-VkSubpassDependency-srcStageMask-04092</span><br>
-
-If the <a href="#features-conditionalRendering"><code>conditionalRendering</code></a>
-feature is not enabled, <code>srcStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_CONDITIONAL_RENDERING_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcStageMask-04093" href="#VUID-VkSubpassDependency-srcStageMask-04093"></a> <span class="vuid">VUID-VkSubpassDependency-srcStageMask-04093</span><br>
-
-If the <a href="#features-fragmentDensityMap"><code>fragmentDensityMap</code></a> feature
-is not enabled, <code>srcStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_FRAGMENT_DENSITY_PROCESS_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcStageMask-04094" href="#VUID-VkSubpassDependency-srcStageMask-04094"></a> <span class="vuid">VUID-VkSubpassDependency-srcStageMask-04094</span><br>
-
-If the <a href="#features-transformFeedback"><code>transformFeedback</code></a> feature
-is not enabled, <code>srcStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_TRANSFORM_FEEDBACK_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcStageMask-04095" href="#VUID-VkSubpassDependency-srcStageMask-04095"></a> <span class="vuid">VUID-VkSubpassDependency-srcStageMask-04095</span><br>
-
-If the <a href="#features-meshShader"><code>meshShader</code></a> feature is not enabled,
-<code>srcStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_MESH_SHADER_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcStageMask-04096" href="#VUID-VkSubpassDependency-srcStageMask-04096"></a> <span class="vuid">VUID-VkSubpassDependency-srcStageMask-04096</span><br>
-
-If the <a href="#features-taskShader"><code>taskShader</code></a> feature is not enabled,
-<code>srcStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_TASK_SHADER_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcStageMask-07318" href="#VUID-VkSubpassDependency-srcStageMask-07318"></a> <span class="vuid">VUID-VkSubpassDependency-srcStageMask-07318</span><br>
-
-If neither of the <a href="#features-shadingRateImage"><code>shadingRateImage</code></a>
-or the <a href="#features-attachmentFragmentShadingRate"><code>attachmentFragmentShadingRate</code></a> features are enabled,
-<code>srcStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcStageMask-03937" href="#VUID-VkSubpassDependency-srcStageMask-03937"></a> <span class="vuid">VUID-VkSubpassDependency-srcStageMask-03937</span><br>
-
-If the <a href="#features-synchronization2"><code>synchronization2</code></a> feature is
-not enabled, <code>srcStageMask</code> <strong class="purple">must</strong> not be <code>0</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcStageMask-07949" href="#VUID-VkSubpassDependency-srcStageMask-07949"></a> <span class="vuid">VUID-VkSubpassDependency-srcStageMask-07949</span><br>
-
-If neither the <a href="VK_NV_ray_tracing.html">VK_NV_ray_tracing</a> extension or the
-<a href="#features-rayTracingPipeline"><code>rayTracingPipeline</code></a> feature are
-enabled, <code>srcStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_RAY_TRACING_SHADER_BIT_KHR</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcStageMask-10754" href="#VUID-VkSubpassDependency-srcStageMask-10754"></a> <span class="vuid">VUID-VkSubpassDependency-srcStageMask-10754</span><br>
-
-If the <a href="#features-accelerationStructure"><code>accelerationStructure</code></a>
-feature is not enabled, <code>srcStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_ACCELERATION_STRUCTURE_BUILD_BIT_KHR</code></p>
+<p><a href="VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT.html">VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT</a></p>
 </li>
 </ul>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><a id="VUID-VkSubpassDependency-dstStageMask-04090" href="#VUID-VkSubpassDependency-dstStageMask-04090"></a> <span class="vuid">VUID-VkSubpassDependency-dstStageMask-04090</span><br>
-
-If the <a href="#features-geometryShader"><code>geometryShader</code></a> feature is not
-enabled, <code>dstStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-dstStageMask-04091" href="#VUID-VkSubpassDependency-dstStageMask-04091"></a> <span class="vuid">VUID-VkSubpassDependency-dstStageMask-04091</span><br>
-
-If the <a href="#features-tessellationShader"><code>tessellationShader</code></a> feature
-is not enabled, <code>dstStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT</code> or
-<code>VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-dstStageMask-04092" href="#VUID-VkSubpassDependency-dstStageMask-04092"></a> <span class="vuid">VUID-VkSubpassDependency-dstStageMask-04092</span><br>
-
-If the <a href="#features-conditionalRendering"><code>conditionalRendering</code></a>
-feature is not enabled, <code>dstStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_CONDITIONAL_RENDERING_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-dstStageMask-04093" href="#VUID-VkSubpassDependency-dstStageMask-04093"></a> <span class="vuid">VUID-VkSubpassDependency-dstStageMask-04093</span><br>
-
-If the <a href="#features-fragmentDensityMap"><code>fragmentDensityMap</code></a> feature
-is not enabled, <code>dstStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_FRAGMENT_DENSITY_PROCESS_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-dstStageMask-04094" href="#VUID-VkSubpassDependency-dstStageMask-04094"></a> <span class="vuid">VUID-VkSubpassDependency-dstStageMask-04094</span><br>
-
-If the <a href="#features-transformFeedback"><code>transformFeedback</code></a> feature
-is not enabled, <code>dstStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_TRANSFORM_FEEDBACK_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-dstStageMask-04095" href="#VUID-VkSubpassDependency-dstStageMask-04095"></a> <span class="vuid">VUID-VkSubpassDependency-dstStageMask-04095</span><br>
-
-If the <a href="#features-meshShader"><code>meshShader</code></a> feature is not enabled,
-<code>dstStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_MESH_SHADER_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-dstStageMask-04096" href="#VUID-VkSubpassDependency-dstStageMask-04096"></a> <span class="vuid">VUID-VkSubpassDependency-dstStageMask-04096</span><br>
-
-If the <a href="#features-taskShader"><code>taskShader</code></a> feature is not enabled,
-<code>dstStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_TASK_SHADER_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-dstStageMask-07318" href="#VUID-VkSubpassDependency-dstStageMask-07318"></a> <span class="vuid">VUID-VkSubpassDependency-dstStageMask-07318</span><br>
-
-If neither of the <a href="#features-shadingRateImage"><code>shadingRateImage</code></a>
-or the <a href="#features-attachmentFragmentShadingRate"><code>attachmentFragmentShadingRate</code></a> features are enabled,
-<code>dstStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-dstStageMask-03937" href="#VUID-VkSubpassDependency-dstStageMask-03937"></a> <span class="vuid">VUID-VkSubpassDependency-dstStageMask-03937</span><br>
-
-If the <a href="#features-synchronization2"><code>synchronization2</code></a> feature is
-not enabled, <code>dstStageMask</code> <strong class="purple">must</strong> not be <code>0</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-dstStageMask-07949" href="#VUID-VkSubpassDependency-dstStageMask-07949"></a> <span class="vuid">VUID-VkSubpassDependency-dstStageMask-07949</span><br>
-
-If neither the <a href="VK_NV_ray_tracing.html">VK_NV_ray_tracing</a> extension or the
-<a href="#features-rayTracingPipeline"><code>rayTracingPipeline</code></a> feature are
-enabled, <code>dstStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_RAY_TRACING_SHADER_BIT_KHR</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-dstStageMask-10754" href="#VUID-VkSubpassDependency-dstStageMask-10754"></a> <span class="vuid">VUID-VkSubpassDependency-dstStageMask-10754</span><br>
-
-If the <a href="#features-accelerationStructure"><code>accelerationStructure</code></a>
-feature is not enabled, <code>dstStageMask</code> <strong class="purple">must</strong> not contain
-<code>VK_PIPELINE_STAGE_ACCELERATION_STRUCTURE_BUILD_BIT_KHR</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcSubpass-00864" href="#VUID-VkSubpassDependency-srcSubpass-00864"></a> <span class="vuid">VUID-VkSubpassDependency-srcSubpass-00864</span><br>
-
-<code>srcSubpass</code> <strong class="purple">must</strong> be less than or equal to <code>dstSubpass</code>, unless
-one of them is <code>VK_SUBPASS_EXTERNAL</code>, to avoid cyclic dependencies
-and ensure a valid execution order</p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcSubpass-00865" href="#VUID-VkSubpassDependency-srcSubpass-00865"></a> <span class="vuid">VUID-VkSubpassDependency-srcSubpass-00865</span><br>
-
-<code>srcSubpass</code> and <code>dstSubpass</code> <strong class="purple">must</strong> not both be equal to
-<code>VK_SUBPASS_EXTERNAL</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcSubpass-06809" href="#VUID-VkSubpassDependency-srcSubpass-06809"></a> <span class="vuid">VUID-VkSubpassDependency-srcSubpass-06809</span><br>
-
-If <code>srcSubpass</code> is equal to <code>dstSubpass</code> and <code>srcStageMask</code>
-includes a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-framebuffer-regions" target="_blank" rel="noopener">framebuffer-space
-stage</a>, <code>dstStageMask</code> <strong class="purple">must</strong> only contain
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-framebuffer-regions" target="_blank" rel="noopener">framebuffer-space stages</a></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcAccessMask-00868" href="#VUID-VkSubpassDependency-srcAccessMask-00868"></a> <span class="vuid">VUID-VkSubpassDependency-srcAccessMask-00868</span><br>
-
-Any access flag included in <code>srcAccessMask</code> <strong class="purple">must</strong> be supported by
-one of the pipeline stages in <code>srcStageMask</code>, as specified in the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-types-supported" target="_blank" rel="noopener">table of supported access
-types</a></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-dstAccessMask-00869" href="#VUID-VkSubpassDependency-dstAccessMask-00869"></a> <span class="vuid">VUID-VkSubpassDependency-dstAccessMask-00869</span><br>
-
-Any access flag included in <code>dstAccessMask</code> <strong class="purple">must</strong> be supported by
-one of the pipeline stages in <code>dstStageMask</code>, as specified in the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-access-types-supported" target="_blank" rel="noopener">table of supported access
-types</a></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcSubpass-02243" href="#VUID-VkSubpassDependency-srcSubpass-02243"></a> <span class="vuid">VUID-VkSubpassDependency-srcSubpass-02243</span><br>
-
-If <code>srcSubpass</code> equals <code>dstSubpass</code>, and <code>srcStageMask</code> and
-<code>dstStageMask</code> both include a
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-framebuffer-regions" target="_blank" rel="noopener">framebuffer-space stage</a>, then
-<code>dependencyFlags</code> <strong class="purple">must</strong> include <code>VK_DEPENDENCY_BY_REGION_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-dependencyFlags-02520" href="#VUID-VkSubpassDependency-dependencyFlags-02520"></a> <span class="vuid">VUID-VkSubpassDependency-dependencyFlags-02520</span><br>
-
-If <code>dependencyFlags</code> includes <code>VK_DEPENDENCY_VIEW_LOCAL_BIT</code>,
-<code>srcSubpass</code> <strong class="purple">must</strong> not be equal to <code>VK_SUBPASS_EXTERNAL</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-dependencyFlags-02521" href="#VUID-VkSubpassDependency-dependencyFlags-02521"></a> <span class="vuid">VUID-VkSubpassDependency-dependencyFlags-02521</span><br>
-
-If <code>dependencyFlags</code> includes <code>VK_DEPENDENCY_VIEW_LOCAL_BIT</code>,
-<code>dstSubpass</code> <strong class="purple">must</strong> not be equal to <code>VK_SUBPASS_EXTERNAL</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-srcSubpass-00872" href="#VUID-VkSubpassDependency-srcSubpass-00872"></a> <span class="vuid">VUID-VkSubpassDependency-srcSubpass-00872</span><br>
-
-If <code>srcSubpass</code> equals <code>dstSubpass</code> and that subpass has more
-than one bit set in the view mask, then <code>dependencyFlags</code> <strong class="purple">must</strong>
-include <code>VK_DEPENDENCY_VIEW_LOCAL_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkSubpassDependency-dependencyFlags-10203" href="#VUID-VkSubpassDependency-dependencyFlags-10203"></a> <span class="vuid">VUID-VkSubpassDependency-dependencyFlags-10203</span><br>
-
-<code>dependencyFlags</code> <strong class="purple">must</strong> not include
-<code>VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR</code></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Valid Usage (Implicit)</div>
+<div class="sect1">
+<h2 id="_new_enum_constants"><a class="anchor" href="#_new_enum_constants"></a>New Enum Constants</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-VkSubpassDependency-srcStageMask-parameter" href="#VUID-VkSubpassDependency-srcStageMask-parameter"></a> <span class="vuid">VUID-VkSubpassDependency-srcStageMask-parameter</span><br>
- <code>srcStageMask</code> <strong class="purple">must</strong> be a valid combination of <a href="VkPipelineStageFlagBits.html">VkPipelineStageFlagBits</a> values</p>
+<p><code>VK_EXT_ZERO_INITIALIZE_DEVICE_MEMORY_EXTENSION_NAME</code></p>
 </li>
 <li>
-<p><a id="VUID-VkSubpassDependency-dstStageMask-parameter" href="#VUID-VkSubpassDependency-dstStageMask-parameter"></a> <span class="vuid">VUID-VkSubpassDependency-dstStageMask-parameter</span><br>
- <code>dstStageMask</code> <strong class="purple">must</strong> be a valid combination of <a href="VkPipelineStageFlagBits.html">VkPipelineStageFlagBits</a> values</p>
+<p><code>VK_EXT_ZERO_INITIALIZE_DEVICE_MEMORY_SPEC_VERSION</code></p>
 </li>
 <li>
-<p><a id="VUID-VkSubpassDependency-srcAccessMask-parameter" href="#VUID-VkSubpassDependency-srcAccessMask-parameter"></a> <span class="vuid">VUID-VkSubpassDependency-srcAccessMask-parameter</span><br>
- <code>srcAccessMask</code> <strong class="purple">must</strong> be a valid combination of <a href="VkAccessFlagBits.html">VkAccessFlagBits</a> values</p>
+<p>Extending <a href="VkImageLayout.html">VkImageLayout</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT</code></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><a id="VUID-VkSubpassDependency-dstAccessMask-parameter" href="#VUID-VkSubpassDependency-dstAccessMask-parameter"></a> <span class="vuid">VUID-VkSubpassDependency-dstAccessMask-parameter</span><br>
- <code>dstAccessMask</code> <strong class="purple">must</strong> be a valid combination of <a href="VkAccessFlagBits.html">VkAccessFlagBits</a> values</p>
+<p>Extending <a href="VkMemoryAllocateFlagBits.html">VkMemoryAllocateFlagBits</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_MEMORY_ALLOCATE_ZERO_INITIALIZE_BIT_EXT</code></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><a id="VUID-VkSubpassDependency-dependencyFlags-parameter" href="#VUID-VkSubpassDependency-dependencyFlags-parameter"></a> <span class="vuid">VUID-VkSubpassDependency-dependencyFlags-parameter</span><br>
- <code>dependencyFlags</code> <strong class="purple">must</strong> be a valid combination of <a href="VkDependencyFlagBits.html">VkDependencyFlagBits</a> values</p>
+<p>Extending <a href="VkStructureType.html">VkStructureType</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ZERO_INITIALIZE_DEVICE_MEMORY_FEATURES_EXT</code></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_version_history"><a class="anchor" href="#_version_history"></a>Version History</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Revision 1, 2025-03-10 (Mike Blumenkrantz)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Initial version</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1269,7 +1041,7 @@ include <code>VK_DEPENDENCY_VIEW_LOCAL_BIT</code></p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_VERSION_1_0.html">VK_VERSION_1_0</a>, <a href="VkAccessFlags.html">VkAccessFlags</a>, <a href="VkDependencyFlags.html">VkDependencyFlags</a>, <a href="VkPipelineStageFlags.html">VkPipelineStageFlags</a>, <a href="VkRenderPassCreateInfo.html">VkRenderPassCreateInfo</a></p>
+<p>No cross-references are available</p>
 </div>
 </div>
 </div>
@@ -1277,11 +1049,11 @@ include <code>VK_DEPENDENCY_VIEW_LOCAL_BIT</code></p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSubpassDependency" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_EXT_zero_initialize_device_memory" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
-<p>This page is extracted from the Vulkan Specification.
-Fixes and changes should be made to the Specification, not directly.</p>
+<p>This page is a generated document.
+Fixes and changes should be made to the generator scripts, not directly.</p>
 </div>
 </div>
 </div>

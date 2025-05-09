@@ -919,6 +919,19 @@ If <code>VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT</code> is set, <code>deviceMask</cod
 If <code>VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT</code> is set, <code>deviceMask</code>
 <strong class="purple">must</strong> not be zero</p>
 </li>
+<li>
+<p><a id="VUID-VkMemoryAllocateFlagsInfo-flags-10760" href="#VUID-VkMemoryAllocateFlagsInfo-flags-10760"></a> <span class="vuid">VUID-VkMemoryAllocateFlagsInfo-flags-10760</span><br>
+
+If the allocation is performing a memory import operation, then
+<code>flags</code> <strong class="purple">must</strong> not contain
+<code>VK_MEMORY_ALLOCATE_ZERO_INITIALIZE_BIT_EXT</code></p>
+</li>
+<li>
+<p><a id="VUID-VkMemoryAllocateFlagsInfo-flags-10761" href="#VUID-VkMemoryAllocateFlagsInfo-flags-10761"></a> <span class="vuid">VUID-VkMemoryAllocateFlagsInfo-flags-10761</span><br>
+
+If the allocation uses protected memory, then <code>flags</code> <strong class="purple">must</strong> not
+contain <code>VK_MEMORY_ALLOCATE_ZERO_INITIALIZE_BIT_EXT</code></p>
+</li>
 </ul>
 </div>
 </div>

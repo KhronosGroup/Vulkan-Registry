@@ -821,6 +821,8 @@ typedef enum VkMemoryAllocateFlagBits {
     VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_BIT = 0x00000002,
   // Provided by VK_VERSION_1_2
     VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT = 0x00000004,
+  // Provided by VK_EXT_zero_initialize_device_memory
+    VK_MEMORY_ALLOCATE_ZERO_INITIALIZE_BIT_EXT = 0x00000008,
   // Provided by VK_KHR_device_group
     VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHR = VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT,
   // Provided by VK_KHR_buffer_device_address
@@ -863,6 +865,11 @@ via <a href="vkGetDeviceMemoryOpaqueCaptureAddress.html">vkGetDeviceMemoryOpaque
 that the memory&#8217;s address <strong class="purple">can</strong> be saved and reused on a subsequent run
 (e.g. for trace capture and replay), see
 <a href="VkBufferOpaqueCaptureAddressCreateInfo.html">VkBufferOpaqueCaptureAddressCreateInfo</a> for more detail.</p>
+</li>
+<li>
+<p><code>VK_MEMORY_ALLOCATE_ZERO_INITIALIZE_BIT_EXT</code> specifies that the
+memory will be zeroed automatically by the implementation before
+application is able to access it.</p>
 </li>
 </ul>
 </div>

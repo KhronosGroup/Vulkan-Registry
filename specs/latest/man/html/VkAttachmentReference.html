@@ -864,10 +864,11 @@ attachment uses during the subpass.</p>
 <li>
 <p><a id="VUID-VkAttachmentReference-layout-03077" href="#VUID-VkAttachmentReference-layout-03077"></a> <span class="vuid">VUID-VkAttachmentReference-layout-03077</span><br>
 
-If <code>attachment</code> is not <code>VK_ATTACHMENT_UNUSED</code>, <code>layout</code>
-<strong class="purple">must</strong> not be <code>VK_IMAGE_LAYOUT_UNDEFINED</code>,
-<code>VK_IMAGE_LAYOUT_PREINITIALIZED</code>, or
-<code>VK_IMAGE_LAYOUT_PRESENT_SRC_KHR</code></p>
+    If <code>attachment</code> is not <code>VK_ATTACHMENT_UNUSED</code>, <code>layout</code>
+    <strong class="purple">must</strong> not be <code>VK_IMAGE_LAYOUT_UNDEFINED</code>,
+<code>VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT</code>,
+    <code>VK_IMAGE_LAYOUT_PREINITIALIZED</code>, or
+    <code>VK_IMAGE_LAYOUT_PRESENT_SRC_KHR</code></p>
 </li>
 <li>
 <p><a id="VUID-VkAttachmentReference-separateDepthStencilLayouts-03313" href="#VUID-VkAttachmentReference-separateDepthStencilLayouts-03313"></a> <span class="vuid">VUID-VkAttachmentReference-separateDepthStencilLayouts-03313</span><br>

@@ -866,6 +866,8 @@ typedef enum VkImageLayout {
     VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT = 1000339000,
   // Provided by VK_KHR_video_encode_quantization_map
     VK_IMAGE_LAYOUT_VIDEO_ENCODE_QUANTIZATION_MAP_KHR = 1000553000,
+  // Provided by VK_EXT_zero_initialize_device_memory
+    VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT = 1000620000,
   // Provided by VK_KHR_maintenance2
     VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL_KHR = VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL,
   // Provided by VK_KHR_maintenance2
@@ -926,6 +928,18 @@ standard layout defined for <code>VK_IMAGE_TILING_OPTIMAL</code> images.</p>
 <li>
 <p><code>VK_IMAGE_LAYOUT_GENERAL</code> supports all types of device access,
 unless specified otherwise.</p>
+</li>
+<li>
+<p><code>VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT</code> specifies that an image&#8217;s
+memory is in a defined layout and is zeroed, but that it has not yet
+been initialized by the driver.
+Image memory <strong class="purple">cannot</strong> be transitioned into this layout.
+This layout <strong class="purple">can</strong> be used as the <code>initialLayout</code> member of
+<a href="VkImageCreateInfo.html">VkImageCreateInfo</a>.
+This layout is intended to be used as the initial layout for an image
+whose contents are already zeroed, either from being explicitly set to
+zero by an application or from being allocated with
+<code>VK_MEMORY_ALLOCATE_ZERO_INITIALIZE_BIT_EXT</code>.</p>
 </li>
 <li>
 <p><code>VK_IMAGE_LAYOUT_ATTACHMENT_OPTIMAL</code> specifies a layout that <strong class="purple">must</strong>

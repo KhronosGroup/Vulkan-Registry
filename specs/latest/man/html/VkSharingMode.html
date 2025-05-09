@@ -876,9 +876,21 @@ different queue family.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Images still require a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-layouts" target="_blank" rel="noopener">layout transition</a> from
-<code>VK_IMAGE_LAYOUT_UNDEFINED</code> or <code>VK_IMAGE_LAYOUT_PREINITIALIZED</code>
-before being used on the first queue.</p>
+<p>Before being used on the first queue, images still require a
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-layouts" target="_blank" rel="noopener">layout transition</a> from these layouts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_IMAGE_LAYOUT_UNDEFINED</code></p>
+</li>
+<li>
+<p><code>VK_IMAGE_LAYOUT_PREINITIALIZED</code></p>
+</li>
+<li>
+<p><code>VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT</code></p>
+</li>
+</ul>
 </div>
 </td>
 </tr>

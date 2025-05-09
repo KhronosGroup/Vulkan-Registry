@@ -1017,8 +1017,9 @@ If <code>format</code> includes a color or depth component and <code>loadOp</cod
 <li>
 <p><a id="VUID-VkAttachmentDescription-finalLayout-00843" href="#VUID-VkAttachmentDescription-finalLayout-00843"></a> <span class="vuid">VUID-VkAttachmentDescription-finalLayout-00843</span><br>
 
-<code>finalLayout</code> <strong class="purple">must</strong> not be <code>VK_IMAGE_LAYOUT_UNDEFINED</code> or
-<code>VK_IMAGE_LAYOUT_PREINITIALIZED</code></p>
+    <code>finalLayout</code> <strong class="purple">must</strong> not be <code>VK_IMAGE_LAYOUT_UNDEFINED</code> or
+<code>VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT</code> or
+    <code>VK_IMAGE_LAYOUT_PREINITIALIZED</code></p>
 </li>
 <li>
 <p><a id="VUID-VkAttachmentDescription-format-03280" href="#VUID-VkAttachmentDescription-format-03280"></a> <span class="vuid">VUID-VkAttachmentDescription-format-03280</span><br>

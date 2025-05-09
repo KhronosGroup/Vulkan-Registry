@@ -262,6 +262,7 @@
     <li> <a href="specs/latest/man/html/VK_EXT_vertex_input_dynamic_state.html"> VK_EXT_vertex_input_dynamic_state </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_ycbcr_2plane_444_formats.html"> VK_EXT_ycbcr_2plane_444_formats </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_ycbcr_image_arrays.html"> VK_EXT_ycbcr_image_arrays </a> </li>
+    <li> <a href="specs/latest/man/html/VK_EXT_zero_initialize_device_memory.html"> VK_EXT_zero_initialize_device_memory </a> </li>
     <li> <b>  AMD Extensions (Advanced Micro Devices, Inc.)  </b> </li>
     <li> <a href="specs/latest/man/html/VK_AMD_anti_lag.html"> VK_AMD_anti_lag </a> </li>
     <li> <a href="specs/latest/man/html/VK_AMD_buffer_marker.html"> VK_AMD_buffer_marker </a> </li>

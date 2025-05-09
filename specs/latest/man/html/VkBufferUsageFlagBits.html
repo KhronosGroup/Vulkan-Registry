@@ -862,7 +862,7 @@ typedef enum VkBufferUsageFlagBits {
   // Provided by VK_EXT_opacity_micromap
     VK_BUFFER_USAGE_MICROMAP_STORAGE_BIT_EXT = 0x01000000,
   // Provided by VK_QCOM_tile_memory_heap
-    VK_BUFFER_USAGE_TILE_MEMORY_QCOM = 0x08000000,
+    VK_BUFFER_USAGE_TILE_MEMORY_BIT_QCOM = 0x08000000,
   // Provided by VK_NV_ray_tracing
     VK_BUFFER_USAGE_RAY_TRACING_BIT_NV = VK_BUFFER_USAGE_SHADER_BINDING_TABLE_BIT_KHR,
   // Provided by VK_EXT_buffer_device_address
@@ -978,9 +978,10 @@ implementation to support push descriptors when using descriptor
 buffers.</p>
 </li>
 <li>
-<p><code>VK_BUFFER_USAGE_TILE_MEMORY_QCOM</code> specifies that the buffer <strong class="purple">can</strong> be
-bound to <code>VkDeviceMemory</code> allocated from a <a href="VkMemoryHeap.html">VkMemoryHeap</a> with
-the <code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property.</p>
+<p><code>VK_BUFFER_USAGE_TILE_MEMORY_BIT_QCOM</code> specifies that the buffer
+<strong class="purple">can</strong> be bound to <code>VkDeviceMemory</code> allocated from a
+<a href="VkMemoryHeap.html">VkMemoryHeap</a> with the <code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code>
+property.</p>
 </li>
 <li>
 <p><code>VK_BUFFER_USAGE_RAY_TRACING_BIT_NV</code> specifies that the buffer is

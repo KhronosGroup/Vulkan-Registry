@@ -1712,6 +1712,22 @@ instructions <strong class="purple">must</strong> not be used in shader stages n
 <a href="VkPhysicalDeviceCooperativeMatrixPropertiesKHR.html">VkPhysicalDeviceCooperativeMatrixPropertiesKHR</a>::<code>cooperativeMatrixSupportedStages</code></p>
 </li>
 <li>
+<p><a id="VUID-RuntimeSpirv-OpTypeCooperativeMatrixKHR-10770" href="#VUID-RuntimeSpirv-OpTypeCooperativeMatrixKHR-10770"></a> <span class="vuid">VUID-RuntimeSpirv-OpTypeCooperativeMatrixKHR-10770</span><br>
+
+Any pipeline containing a shader with <code>OpTypeCooperativeMatrixKHR</code> or
+<code>OpCooperativeMatrix*KHR</code> instructions <strong class="purple">must</strong> be created with the
+<code>VK_PIPELINE_SHADER_STAGE_CREATE_REQUIRE_FULL_SUBGROUPS_BIT</code> flag or
+the shader module must be version 1.6 or greater</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpTypeCooperativeMatrixKHR-10771" href="#VUID-RuntimeSpirv-OpTypeCooperativeMatrixKHR-10771"></a> <span class="vuid">VUID-RuntimeSpirv-OpTypeCooperativeMatrixKHR-10771</span><br>
+
+Any shader object containing <code>OpTypeCooperativeMatrixKHR</code> or
+<code>OpCooperativeMatrix*KHR</code> instructions <strong class="purple">must</strong> be created with the
+<code>VK_SHADER_CREATE_REQUIRE_FULL_SUBGROUPS_BIT_EXT</code> flag or the shader
+module must be version 1.6 or greater</p>
+</li>
+<li>
 <p><a id="VUID-RuntimeSpirv-OpCooperativeMatrixLoadNV-06324" href="#VUID-RuntimeSpirv-OpCooperativeMatrixLoadNV-06324"></a> <span class="vuid">VUID-RuntimeSpirv-OpCooperativeMatrixLoadNV-06324</span><br>
 
 For <code>OpCooperativeMatrixLoadNV</code> and <code>OpCooperativeMatrixStoreNV</code>

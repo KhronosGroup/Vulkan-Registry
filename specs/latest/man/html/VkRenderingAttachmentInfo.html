@@ -1051,24 +1051,26 @@ is not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, and <code>resolveMode</
 <li>
 <p><a id="VUID-VkRenderingAttachmentInfo-imageView-06135" href="#VUID-VkRenderingAttachmentInfo-imageView-06135"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-imageView-06135</span><br>
 
-If <code>imageView</code> is not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, <code>imageLayout</code> <strong class="purple">must</strong>
-not be <code>VK_IMAGE_LAYOUT_UNDEFINED</code>,
-<code>VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL</code>,
-<code>VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL</code>,
-<code>VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL</code>, or
-<code>VK_IMAGE_LAYOUT_PREINITIALIZED</code></p>
+    If <code>imageView</code> is not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, <code>imageLayout</code> <strong class="purple">must</strong>
+    not be <code>VK_IMAGE_LAYOUT_UNDEFINED</code>,
+    <code>VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL</code>,
+    <code>VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL</code>,
+<code>VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT</code>,
+    <code>VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL</code>, or
+    <code>VK_IMAGE_LAYOUT_PREINITIALIZED</code></p>
 </li>
 <li>
 <p><a id="VUID-VkRenderingAttachmentInfo-imageView-06136" href="#VUID-VkRenderingAttachmentInfo-imageView-06136"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-imageView-06136</span><br>
 
-If <code>imageView</code> is not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> and <code>resolveMode</code> is
-not <code>VK_RESOLVE_MODE_NONE</code>, <code>resolveImageLayout</code> <strong class="purple">must</strong> not be
-<code>VK_IMAGE_LAYOUT_UNDEFINED</code>,
-<code>VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL</code>,
-<code>VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL</code>,
-<code>VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL</code>,
-<code>VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL</code>, or
-<code>VK_IMAGE_LAYOUT_PREINITIALIZED</code></p>
+    If <code>imageView</code> is not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> and <code>resolveMode</code> is
+    not <code>VK_RESOLVE_MODE_NONE</code>, <code>resolveImageLayout</code> <strong class="purple">must</strong> not be
+    <code>VK_IMAGE_LAYOUT_UNDEFINED</code>,
+    <code>VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL</code>,
+    <code>VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL</code>,
+    <code>VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL</code>,
+<code>VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT</code>,
+    <code>VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL</code>, or
+    <code>VK_IMAGE_LAYOUT_PREINITIALIZED</code></p>
 </li>
 <li>
 <p><a id="VUID-VkRenderingAttachmentInfo-imageView-06137" href="#VUID-VkRenderingAttachmentInfo-imageView-06137"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-imageView-06137</span><br>

@@ -884,7 +884,7 @@ or<br>
 <dl>
 <dt class="hdlist1"><strong>Last Modified Date</strong></dt>
 <dd>
-<p>2025-03-12</p>
+<p>2025-05-05</p>
 </dd>
 <dt class="hdlist1"><strong>Interactions and External Dependencies</strong></dt>
 <dd>
@@ -939,9 +939,9 @@ This boundary may be extended to a queue submit boundary by querying
 </div>
 <div class="paragraph">
 <p>Tile memory from this heap can be bound to VkImages or VkBuffers.
-The following new usage flags <code>VK_IMAGE_USAGE_TILE_MEMORY_QCOM</code>,
-<code>VK_BUFFER_USAGE_TILE_MEMORY_QCOM</code>,
-<code>VK_BUFFER_USAGE_2_TILE_MEMORY_QCOM</code> were added for this.
+The following new usage flags <code>VK_IMAGE_USAGE_TILE_MEMORY_BIT_QCOM</code>,
+<code>VK_BUFFER_USAGE_TILE_MEMORY_BIT_QCOM</code>,
+<code>VK_BUFFER_USAGE_2_TILE_MEMORY_BIT_QCOM</code> were added for this.
 A new extended structure is added to get memory requirements for tile memory
 <code>VkTileMemoryRequirementsQCOM</code>.</p>
 </div>
@@ -1059,7 +1059,7 @@ access and persist tile memory contents while executing commands
 <div class="ulist">
 <ul>
 <li>
-<p><code>VK_BUFFER_USAGE_TILE_MEMORY_QCOM</code></p>
+<p><code>VK_BUFFER_USAGE_TILE_MEMORY_BIT_QCOM</code></p>
 </li>
 </ul>
 </div>
@@ -1069,7 +1069,7 @@ access and persist tile memory contents while executing commands
 <div class="ulist">
 <ul>
 <li>
-<p><code>VK_BUFFER_USAGE_2_TILE_MEMORY_QCOM</code></p>
+<p><code>VK_BUFFER_USAGE_2_TILE_MEMORY_BIT_QCOM</code></p>
 </li>
 </ul>
 </div>
@@ -1079,7 +1079,7 @@ access and persist tile memory contents while executing commands
 <div class="ulist">
 <ul>
 <li>
-<p><code>VK_IMAGE_USAGE_TILE_MEMORY_QCOM</code></p>
+<p><code>VK_IMAGE_USAGE_TILE_MEMORY_BIT_QCOM</code></p>
 </li>
 </ul>
 </div>

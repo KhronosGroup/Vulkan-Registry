@@ -885,7 +885,7 @@ static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_MICROMAP_BUILD_INPUT_READ_
 // Provided by VK_KHR_maintenance5 with VK_EXT_opacity_micromap
 static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_MICROMAP_STORAGE_BIT_EXT = 0x01000000ULL;
 // Provided by VK_QCOM_tile_memory_heap
-static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_TILE_MEMORY_QCOM = 0x08000000ULL;
+static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_TILE_MEMORY_BIT_QCOM = 0x08000000ULL;
 // Provided by VK_EXT_device_generated_commands
 static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_PREPROCESS_BUFFER_BIT_EXT = 0x80000000ULL;</code></pre>
 </div>
@@ -1005,9 +1005,10 @@ implementation to support push descriptors when using descriptor
 buffers.</p>
 </li>
 <li>
-<p><code>VK_BUFFER_USAGE_2_TILE_MEMORY_QCOM</code> specifies that the buffer <strong class="purple">can</strong>
-be bound to <code>VkDeviceMemory</code> allocated from a <a href="VkMemoryHeap.html">VkMemoryHeap</a>
-with the <code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code> property.</p>
+<p><code>VK_BUFFER_USAGE_2_TILE_MEMORY_BIT_QCOM</code> specifies that the buffer
+<strong class="purple">can</strong> be bound to <code>VkDeviceMemory</code> allocated from a
+<a href="VkMemoryHeap.html">VkMemoryHeap</a> with the <code>VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM</code>
+property.</p>
 </li>
 <li>
 <p><code>VK_BUFFER_USAGE_2_RAY_TRACING_BIT_NV</code> specifies that the buffer is

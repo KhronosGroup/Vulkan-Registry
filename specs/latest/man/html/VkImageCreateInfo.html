@@ -970,11 +970,11 @@ otherwise indicated by
 </ul>
 </div>
 <div class="paragraph">
-<p>Images created with usage including <code>VK_IMAGE_USAGE_TILE_MEMORY_QCOM</code>
-have further restrictions on their limits and capabilities compared to
-images created without this bit.
+<p>Images created with usage including
+<code>VK_IMAGE_USAGE_TILE_MEMORY_BIT_QCOM</code> have further restrictions on their
+limits and capabilities compared to images created without this bit.
 Creation of images with usage including
-<code>VK_IMAGE_USAGE_TILE_MEMORY_QCOM</code> <strong class="purple">may</strong> not be supported unless
+<code>VK_IMAGE_USAGE_TILE_MEMORY_BIT_QCOM</code> <strong class="purple">may</strong> not be supported unless
 parameters meet all of the constraints:</p>
 </div>
 <div class="ulist">
@@ -998,8 +998,8 @@ parameters meet all of the constraints:</p>
 <p><code>tiling</code> is <code>VK_IMAGE_TILING_OPTIMAL</code></p>
 </li>
 <li>
-<p><code>usage</code> includes <code>VK_IMAGE_USAGE_TILE_MEMORY_QCOM</code> and any valid
-combination of the following <code>VK_IMAGE_USAGE_SAMPLED_BIT</code>,
+<p><code>usage</code> includes <code>VK_IMAGE_USAGE_TILE_MEMORY_BIT_QCOM</code> and any
+valid combination of the following <code>VK_IMAGE_USAGE_SAMPLED_BIT</code>,
 <code>VK_IMAGE_USAGE_STORAGE_BIT</code>,
 <code>VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT</code>,
 <code>VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT</code>,
@@ -1518,6 +1518,12 @@ If <code>flags</code> contains <code>VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT</code>,
 <code>arrayLayers</code> <strong class="purple">must</strong> be greater than or equal to 6</p>
 </li>
 <li>
+<p><a id="VUID-VkImageCreateInfo-initialLayout-10765" href="#VUID-VkImageCreateInfo-initialLayout-10765"></a> <span class="vuid">VUID-VkImageCreateInfo-initialLayout-10765</span><br>
+
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-zeroInitializeDeviceMemory" target="_blank" rel="noopener">zeroInitializeDeviceMemory</a> feature is not enabled, <code>initialLayout</code>
+<strong class="purple">must</strong> not be <code>VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT</code></p>
+</li>
+<li>
 <p><a id="VUID-VkImageCreateInfo-flags-02557" href="#VUID-VkImageCreateInfo-flags-02557"></a> <span class="vuid">VUID-VkImageCreateInfo-flags-02557</span><br>
 
 If <code>flags</code> contains
@@ -1870,8 +1876,9 @@ If <code>flags</code> contains
 <li>
 <p><a id="VUID-VkImageCreateInfo-initialLayout-00993" href="#VUID-VkImageCreateInfo-initialLayout-00993"></a> <span class="vuid">VUID-VkImageCreateInfo-initialLayout-00993</span><br>
 
-<code>initialLayout</code> <strong class="purple">must</strong> be <code>VK_IMAGE_LAYOUT_UNDEFINED</code> or
-<code>VK_IMAGE_LAYOUT_PREINITIALIZED</code></p>
+    <code>initialLayout</code> <strong class="purple">must</strong> be <code>VK_IMAGE_LAYOUT_UNDEFINED</code> or
+<code>VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT</code> or
+    <code>VK_IMAGE_LAYOUT_PREINITIALIZED</code></p>
 </li>
 <li>
 <p><a id="VUID-VkImageCreateInfo-pNext-01443" href="#VUID-VkImageCreateInfo-pNext-01443"></a> <span class="vuid">VUID-VkImageCreateInfo-pNext-01443</span><br>
@@ -2534,11 +2541,11 @@ the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#f
 enabled</p>
 </li>
 <li>
-<p><a id="VUID-VkImageCreateInfo-tileMemoryHeap-10734" href="#VUID-VkImageCreateInfo-tileMemoryHeap-10734"></a> <span class="vuid">VUID-VkImageCreateInfo-tileMemoryHeap-10734</span><br>
+<p><a id="VUID-VkImageCreateInfo-tileMemoryHeap-10766" href="#VUID-VkImageCreateInfo-tileMemoryHeap-10766"></a> <span class="vuid">VUID-VkImageCreateInfo-tileMemoryHeap-10766</span><br>
 
 If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileMemoryHeap" target="_blank" rel="noopener"><code>tileMemoryHeap</code></a> feature is not
 enabled, <code>usage</code> <strong class="purple">must</strong> not include
-<code>VK_IMAGE_USAGE_TILE_MEMORY_QCOM</code></p>
+<code>VK_IMAGE_USAGE_TILE_MEMORY_BIT_QCOM</code></p>
 </li>
 <li>
 <p><a id="VUID-VkImageCreateInfo-pNext-09653" href="#VUID-VkImageCreateInfo-pNext-09653"></a> <span class="vuid">VUID-VkImageCreateInfo-pNext-09653</span><br>

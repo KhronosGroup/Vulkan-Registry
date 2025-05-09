@@ -1060,9 +1060,10 @@ current layout of the image subresources as specified in
 <li>
 <p><a id="VUID-VkHostImageLayoutTransitionInfo-oldLayout-09230" href="#VUID-VkHostImageLayoutTransitionInfo-oldLayout-09230"></a> <span class="vuid">VUID-VkHostImageLayoutTransitionInfo-oldLayout-09230</span><br>
 
-If <code>oldLayout</code> is not <code>VK_IMAGE_LAYOUT_UNDEFINED</code> or
-<code>VK_IMAGE_LAYOUT_PREINITIALIZED</code>, it <strong class="purple">must</strong> be one of the layouts in
-<a href="VkPhysicalDeviceHostImageCopyProperties.html">VkPhysicalDeviceHostImageCopyProperties</a>::<code>pCopySrcLayouts</code></p>
+    If <code>oldLayout</code> is not <code>VK_IMAGE_LAYOUT_UNDEFINED</code>,
+<code>VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT</code>,
+    or <code>VK_IMAGE_LAYOUT_PREINITIALIZED</code>, it <strong class="purple">must</strong> be one of the layouts
+    in <a href="VkPhysicalDeviceHostImageCopyProperties.html">VkPhysicalDeviceHostImageCopyProperties</a>::<code>pCopySrcLayouts</code></p>
 </li>
 <li>
 <p><a id="VUID-VkHostImageLayoutTransitionInfo-newLayout-09057" href="#VUID-VkHostImageLayoutTransitionInfo-newLayout-09057"></a> <span class="vuid">VUID-VkHostImageLayoutTransitionInfo-newLayout-09057</span><br>

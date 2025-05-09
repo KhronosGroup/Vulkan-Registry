@@ -1005,19 +1005,20 @@ For any member of <code>pAttachments</code> with a <code>stencilLoadOp</code> eq
 
 For any element of <code>pDependencies</code>, if the <code>srcSubpass</code> is not
 <code>VK_SUBPASS_EXTERNAL</code>, all stage flags included in the
-<code>srcStageMask</code> member of that dependency <strong class="purple">must</strong> be a pipeline stage
-supported by the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-types" target="_blank" rel="noopener">pipeline</a>
-identified by the <code>pipelineBindPoint</code> member of the source subpass</p>
+<code>srcStageMask</code> member of that dependency <strong class="purple">must</strong> be
+<code>VK_PIPELINE_STAGE_ALL_COMMANDS_BIT</code> or a pipeline stage supported
+by the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-types" target="_blank" rel="noopener">pipeline</a> identified by
+the <code>pipelineBindPoint</code> member of the source subpass</p>
 </li>
 <li>
 <p><a id="VUID-VkRenderPassCreateInfo2-pDependencies-03055" href="#VUID-VkRenderPassCreateInfo2-pDependencies-03055"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-pDependencies-03055</span><br>
 
 For any element of <code>pDependencies</code>, if the <code>dstSubpass</code> is not
 <code>VK_SUBPASS_EXTERNAL</code>, all stage flags included in the
-<code>dstStageMask</code> member of that dependency <strong class="purple">must</strong> be a pipeline stage
-supported by the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-types" target="_blank" rel="noopener">pipeline</a>
-identified by the <code>pipelineBindPoint</code> member of the destination
-subpass</p>
+<code>dstStageMask</code> member of that dependency <strong class="purple">must</strong> be
+<code>VK_PIPELINE_STAGE_ALL_COMMANDS_BIT</code> or a pipeline stage supported
+by the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-types" target="_blank" rel="noopener">pipeline</a> identified by
+the <code>pipelineBindPoint</code> member of the destination subpass</p>
 </li>
 <li>
 <p><a id="VUID-VkRenderPassCreateInfo2-pCorrelatedViewMasks-03056" href="#VUID-VkRenderPassCreateInfo2-pCorrelatedViewMasks-03056"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-pCorrelatedViewMasks-03056</span><br>

@@ -4112,13 +4112,6 @@ If dynamic state was inherited from
 in the current command buffer prior to this drawing command</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdExecuteGeneratedCommandsEXT-nextStage-10744" href="#VUID-vkCmdExecuteGeneratedCommandsEXT-nextStage-10744"></a> <span class="vuid">VUID-vkCmdExecuteGeneratedCommandsEXT-nextStage-10744</span><br>
-
-If any shader objects are bound to graphics stages, the shader object
-bound to the last graphics stage in the logical pipeline <strong class="purple">must</strong> have been
-created with <code>nextStage</code> equal to zero</p>
-</li>
-<li>
 <p><a id="VUID-vkCmdExecuteGeneratedCommandsEXT-nextStage-10745" href="#VUID-vkCmdExecuteGeneratedCommandsEXT-nextStage-10745"></a> <span class="vuid">VUID-vkCmdExecuteGeneratedCommandsEXT-nextStage-10745</span><br>
 
 For each shader object bound to a graphics stage, except for shader
@@ -4521,6 +4514,13 @@ If a rendering pass is currently active, the view mask <strong class="purple">mu
 
 <code>commandBuffer</code> <strong class="purple">must</strong> not have been created with
 <code>VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdExecuteGeneratedCommandsEXT-indirectCommandsLayout-10769" href="#VUID-vkCmdExecuteGeneratedCommandsEXT-indirectCommandsLayout-10769"></a> <span class="vuid">VUID-vkCmdExecuteGeneratedCommandsEXT-indirectCommandsLayout-10769</span><br>
+
+If the <code>indirectCommandsLayout</code> member of
+<code>pGeneratedCommandsInfo</code> contains a draw token, this command <strong class="purple">must</strong>
+not be called outside a render pass instance</p>
 </li>
 </ul>
 </div>

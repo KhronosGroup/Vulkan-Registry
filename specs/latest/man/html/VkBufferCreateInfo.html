@@ -1131,16 +1131,16 @@ If <code>usage</code> includes
 <code>VK_BUFFER_USAGE_SAMPLER_DESCRIPTOR_BUFFER_BIT_EXT</code></p>
 </li>
 <li>
-<p><a id="VUID-VkBufferCreateInfo-tileMemoryHeap-10731" href="#VUID-VkBufferCreateInfo-tileMemoryHeap-10731"></a> <span class="vuid">VUID-VkBufferCreateInfo-tileMemoryHeap-10731</span><br>
+<p><a id="VUID-VkBufferCreateInfo-tileMemoryHeap-10762" href="#VUID-VkBufferCreateInfo-tileMemoryHeap-10762"></a> <span class="vuid">VUID-VkBufferCreateInfo-tileMemoryHeap-10762</span><br>
 
 If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileMemoryHeap" target="_blank" rel="noopener"><code>tileMemoryHeap</code></a> feature is not
 enabled, <code>usage</code> <strong class="purple">must</strong> not include
-<code>VK_BUFFER_USAGE_TILE_MEMORY_QCOM</code></p>
+<code>VK_BUFFER_USAGE_TILE_MEMORY_BIT_QCOM</code></p>
 </li>
 <li>
-<p><a id="VUID-VkBufferCreateInfo-usage-10732" href="#VUID-VkBufferCreateInfo-usage-10732"></a> <span class="vuid">VUID-VkBufferCreateInfo-usage-10732</span><br>
+<p><a id="VUID-VkBufferCreateInfo-usage-10763" href="#VUID-VkBufferCreateInfo-usage-10763"></a> <span class="vuid">VUID-VkBufferCreateInfo-usage-10763</span><br>
 
-  If <code>usage</code> includes <code>VK_BUFFER_USAGE_TILE_MEMORY_QCOM</code>, then
+  If <code>usage</code> includes <code>VK_BUFFER_USAGE_TILE_MEMORY_BIT_QCOM</code>, then
 <code>flags</code> <strong class="purple">must</strong> not contain any of the following bits</p>
 <div class="ulist">
 <ul>
@@ -1169,9 +1169,9 @@ enabled, <code>usage</code> <strong class="purple">must</strong> not include
 </div>
 </li>
 <li>
-<p><a id="VUID-VkBufferCreateInfo-usage-10733" href="#VUID-VkBufferCreateInfo-usage-10733"></a> <span class="vuid">VUID-VkBufferCreateInfo-usage-10733</span><br>
+<p><a id="VUID-VkBufferCreateInfo-usage-10764" href="#VUID-VkBufferCreateInfo-usage-10764"></a> <span class="vuid">VUID-VkBufferCreateInfo-usage-10764</span><br>
 
-If <code>usage</code> includes <code>VK_BUFFER_USAGE_TILE_MEMORY_QCOM</code>, then
+If <code>usage</code> includes <code>VK_BUFFER_USAGE_TILE_MEMORY_BIT_QCOM</code>, then
 only the following <code>usages</code> may be set:</p>
 <div class="ulist">
 <ul>
