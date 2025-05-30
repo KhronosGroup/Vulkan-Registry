@@ -884,15 +884,18 @@ or equal to the corresponding <code>width</code> and <code>height</code> of
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before creating a swapchain whose scaling mode <strong class="purple">can</strong> be specified through the
-use of <a href="VkSwapchainPresentScalingCreateInfoEXT.html">VkSwapchainPresentScalingCreateInfoEXT</a>, obtain the set of
-supported scaling modes by including a <a href="VkSurfacePresentModeEXT.html">VkSurfacePresentModeEXT</a>
-structure in the <code>pNext</code> chain of <a href="VkPhysicalDeviceSurfaceInfo2KHR.html">VkPhysicalDeviceSurfaceInfo2KHR</a>
-when calling <a href="vkGetPhysicalDeviceSurfaceCapabilities2KHR.html">vkGetPhysicalDeviceSurfaceCapabilities2KHR</a>.
+<p>To query the set of supported scaling modes for a given present mode, add a
+<a href="VkSurfacePresentModeEXT.html">VkSurfacePresentModeEXT</a> structure in the <code>pNext</code> chain of
+<a href="VkPhysicalDeviceSurfaceInfo2KHR.html">VkPhysicalDeviceSurfaceInfo2KHR</a> when calling
+<a href="vkGetPhysicalDeviceSurfaceCapabilities2KHR.html">vkGetPhysicalDeviceSurfaceCapabilities2KHR</a>.
 The implementation <strong class="purple">must</strong> return the same values in
 <code>VkSurfacePresentScalingCapabilitiesEXT</code> for any of the compatible
 present modes as obtained through
 <a href="VkSurfacePresentModeCompatibilityEXT.html">VkSurfacePresentModeCompatibilityEXT</a>.</p>
+</div>
+<div class="paragraph">
+<p>The application <strong class="purple">can</strong> specify the scaling mode when creating a swapchain
+through the use of <a href="VkSwapchainPresentScalingCreateInfoEXT.html">VkSwapchainPresentScalingCreateInfoEXT</a>.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">

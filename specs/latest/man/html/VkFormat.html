@@ -1134,6 +1134,34 @@ typedef enum VkFormat {
     VK_FORMAT_PVRTC2_4BPP_SRGB_BLOCK_IMG = 1000054007,
   // Provided by VK_NV_optical_flow
     VK_FORMAT_R16G16_SFIXED5_NV = 1000464000,
+  // Provided by VK_ARM_format_pack
+    VK_FORMAT_R10X6_UINT_PACK16_ARM = 1000609000,
+  // Provided by VK_ARM_format_pack
+    VK_FORMAT_R10X6G10X6_UINT_2PACK16_ARM = 1000609001,
+  // Provided by VK_ARM_format_pack
+    VK_FORMAT_R10X6G10X6B10X6A10X6_UINT_4PACK16_ARM = 1000609002,
+  // Provided by VK_ARM_format_pack
+    VK_FORMAT_R12X4_UINT_PACK16_ARM = 1000609003,
+  // Provided by VK_ARM_format_pack
+    VK_FORMAT_R12X4G12X4_UINT_2PACK16_ARM = 1000609004,
+  // Provided by VK_ARM_format_pack
+    VK_FORMAT_R12X4G12X4B12X4A12X4_UINT_4PACK16_ARM = 1000609005,
+  // Provided by VK_ARM_format_pack
+    VK_FORMAT_R14X2_UINT_PACK16_ARM = 1000609006,
+  // Provided by VK_ARM_format_pack
+    VK_FORMAT_R14X2G14X2_UINT_2PACK16_ARM = 1000609007,
+  // Provided by VK_ARM_format_pack
+    VK_FORMAT_R14X2G14X2B14X2A14X2_UINT_4PACK16_ARM = 1000609008,
+  // Provided by VK_ARM_format_pack
+    VK_FORMAT_R14X2_UNORM_PACK16_ARM = 1000609009,
+  // Provided by VK_ARM_format_pack
+    VK_FORMAT_R14X2G14X2_UNORM_2PACK16_ARM = 1000609010,
+  // Provided by VK_ARM_format_pack
+    VK_FORMAT_R14X2G14X2B14X2A14X2_UNORM_4PACK16_ARM = 1000609011,
+  // Provided by VK_ARM_format_pack
+    VK_FORMAT_G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM = 1000609012,
+  // Provided by VK_ARM_format_pack
+    VK_FORMAT_G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM = 1000609013,
   // Provided by VK_EXT_texture_compression_astc_hdr
     VK_FORMAT_ASTC_4x4_SFLOAT_BLOCK_EXT = VK_FORMAT_ASTC_4x4_SFLOAT_BLOCK,
   // Provided by VK_EXT_texture_compression_astc_hdr
@@ -2967,6 +2995,125 @@ significant bit specifies the sign bit, the next 10 bits specify the
 integer value, and the last 5 bits represent the fractional value.
 The signed 16-bit values <strong class="purple">can</strong> be converted to floats in the range
 <span class="eq">[-1024,1023.96875]</span> by dividing the value by 32 <span class="eq">(2<sup>5</sup>)</span>.</p>
+</li>
+<li>
+<p><code>VK_FORMAT_R10X6_UINT_PACK16_ARM</code> specifies a one-component, 16-bit
+unsigned integer format that has a single 10-bit R component in the top
+10 bits of a 16-bit word, with the bottom 6 bits unused.</p>
+</li>
+<li>
+<p><code>VK_FORMAT_R10X6G10X6_UINT_2PACK16_ARM</code> specifies a two-component,
+32-bit unsigned integer format that has a 10-bit R component in the top
+10 bits of the word in bytes 0..1, and a 10-bit G component in the top
+10 bits of the word in bytes 2..3, with the bottom 6 bits of each word
+unused.</p>
+</li>
+<li>
+<p><code>VK_FORMAT_R10X6G10X6B10X6A10X6_UINT_4PACK16_ARM</code> specifies a
+four-component, 64-bit unsigned integer format that has a 10-bit R
+component in the top 10 bits of the word in bytes 0..1, a 10-bit G
+component in the top 10 bits of the word in bytes 2..3, a 10-bit B
+component in the top 10 bits of the word in bytes 4..5, and a 10-bit A
+component in the top 10 bits of the word in bytes 6..7, with the bottom
+6 bits of each word unused.</p>
+</li>
+<li>
+<p><code>VK_FORMAT_R12X4_UINT_PACK16_ARM</code> specifies a one-component, 16-bit
+unsigned integer format that has a single 12-bit R component in the top
+12 bits of a 16-bit word, with the bottom 4 bits unused.</p>
+</li>
+<li>
+<p><code>VK_FORMAT_R12X4G12X4_UINT_2PACK16_ARM</code> specifies a two-component,
+32-bit unsigned integer format that has a 12-bit R component in the top
+12 bits of the word in bytes 0..1, and a 12-bit G component in the top
+12 bits of the word in bytes 2..3, with the bottom 4 bits of each word
+unused.</p>
+</li>
+<li>
+<p><code>VK_FORMAT_R12X4G12X4B12X4A12X4_UINT_4PACK16_ARM</code> specifies a
+four-component, 64-bit unsigned integer format that has a 12-bit R
+component in the top 12 bits of the word in bytes 0..1, a 12-bit G
+component in the top 12 bits of the word in bytes 2..3, a 12-bit B
+component in the top 12 bits of the word in bytes 4..5, and a 12-bit A
+component in the top 12 bits of the word in bytes 6..7, with the bottom
+4 bits of each word unused.</p>
+</li>
+<li>
+<p><code>VK_FORMAT_R14X2_UINT_PACK16_ARM</code> specifies a one-component, 16-bit
+unsigned integer format that has a single 14-bit R component in the top
+14 bits of a 16-bit word, with the bottom 2 bits unused.</p>
+</li>
+<li>
+<p><code>VK_FORMAT_R14X2G14X2_UINT_2PACK16_ARM</code> specifies a two-component,
+32-bit unsigned integer format that has a 14-bit R component in the top
+14 bits of the word in bytes 0..1, and a 14-bit G component in the top
+14 bits of the word in bytes 2..3, with the bottom 2 bits of each word
+unused.</p>
+</li>
+<li>
+<p><code>VK_FORMAT_R14X2G14X2B14X2A14X2_UINT_4PACK16_ARM</code> specifies a
+four-component, 64-bit unsigned integer format that has a 14-bit R
+component in the top 14 bits of the word in bytes 0..1, a 14-bit G
+component in the top 14 bits of the word in bytes 2..3, a 14-bit B
+component in the top 14 bits of the word in bytes 4..5, and a 14-bit A
+component in the top 14 bits of the word in bytes 6..7, with the bottom
+2 bits of each word unused.</p>
+</li>
+<li>
+<p><code>VK_FORMAT_R14X2_UNORM_PACK16_ARM</code> specifies a one-component, 16-bit
+unsigned normalized format that has a single 14-bit R component in the
+top 14 bits of a 16-bit word, with the bottom 2 bits unused.</p>
+</li>
+<li>
+<p><code>VK_FORMAT_R14X2G14X2_UNORM_2PACK16_ARM</code> specifies a two-component,
+32-bit unsigned normalized format that has a 14-bit R component in the
+top 14 bits of the word in bytes 0..1, and a 14-bit G component in the
+top 14 bits of the word in bytes 2..3, with the bottom 2 bits of each
+word unused.</p>
+</li>
+<li>
+<p><code>VK_FORMAT_R14X2G14X2B14X2A14X2_UNORM_4PACK16_ARM</code> specifies a
+four-component, 64-bit unsigned normalized format that has a 14-bit R
+component in the top 14 bits of the word in bytes 0..1, a 14-bit G
+component in the top 14 bits of the word in bytes 2..3, a 14-bit B
+component in the top 14 bits of the word in bytes 4..5, and a 14-bit A
+component in the top 14 bits of the word in bytes 6..7, with the bottom
+2 bits of each word unused.</p>
+</li>
+<li>
+<p><code>VK_FORMAT_G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM</code> specifies
+an unsigned normalized <em>multi-planar format</em> that has a 14-bit G
+component in the top 14 bits of each 16-bit word of plane 0, and a
+two-component, 32-bit BR plane 1 consisting of a 14-bit B component in
+the top 14 bits of the word in bytes 0..1, and a 14-bit R component in
+the top 14 bits of the word in bytes 2..3, with the bottom 2 bits of
+each word unused.
+The horizontal and vertical dimensions of the BR plane are halved
+relative to the image dimensions, and each R and B value is shared with
+the G components for which <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">⌊</span><span class="mord"><span class="mord mathnormal">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">G</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">0.5</span><span class="mclose delimcenter" style="top:0em;">⌋</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8095em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8095em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">⌊</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0572em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">G</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">0.5</span><span class="mclose delimcenter" style="top:0em;">⌋</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0572em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0572em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.
+The location of each plane when this image is in linear layout can be
+determined via <a href="vkGetImageSubresourceLayout.html">vkGetImageSubresourceLayout</a>, using
+<code>VK_IMAGE_ASPECT_PLANE_0_BIT</code> for the G plane, and
+<code>VK_IMAGE_ASPECT_PLANE_1_BIT</code> for the BR plane.
+This format only supports images with a width and height that is a
+multiple of two.</p>
+</li>
+<li>
+<p><code>VK_FORMAT_G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM</code> specifies
+an unsigned normalized <em>multi-planar format</em> that has a 14-bit G
+component in the top 14 bits of each 16-bit word of plane 0, and a
+two-component, 32-bit BR plane 1 consisting of a 14-bit B component in
+the top 14 bits of the word in bytes 0..1, and a 14-bit R component in
+the top 14 bits of the word in bytes 2..3, with the bottom 2 bits of
+each word unused.
+The horizontal dimension of the BR plane is halved relative to the image
+dimensions, and each R and B value is shared with the G components for
+which <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">⌊</span><span class="mord"><span class="mord mathnormal">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">G</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">0.5</span><span class="mclose delimcenter" style="top:0em;">⌋</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8095em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8095em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.
+The location of each plane when this image is in linear layout can be
+determined via <a href="vkGetImageSubresourceLayout.html">vkGetImageSubresourceLayout</a>, using
+<code>VK_IMAGE_ASPECT_PLANE_0_BIT</code> for the G plane, and
+<code>VK_IMAGE_ASPECT_PLANE_1_BIT</code> for the BR plane.
+This format only supports images with a width that is a multiple of two.</p>
 </li>
 </ul>
 </div>

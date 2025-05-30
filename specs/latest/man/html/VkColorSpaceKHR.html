@@ -1016,6 +1016,26 @@ This enum is deprecated but is maintained for backwards compatibility.</p>
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>On Wayland, <code>VK_COLOR_SPACE_PASS_THROUGH_EXT</code> can be used to disable
+color management by the WSI on a surface, which makes it possible for the
+application to create a <code>wp_color_management_surface_v1</code> object without
+triggering a <code>surface_exists</code> protocol error.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="vkCreateWaylandSurfaceKHR.html">vkCreateWaylandSurfaceKHR</a></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>The presentation engine interprets the pixel values of the R, G, and B
 components as having been encoded using an appropriate transfer function.

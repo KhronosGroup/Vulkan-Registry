@@ -293,6 +293,7 @@
     <li> <a href="specs/latest/man/html/VK_ANDROID_external_format_resolve.html"> VK_ANDROID_external_format_resolve </a> </li>
     <li> <a href="specs/latest/man/html/VK_ANDROID_external_memory_android_hardware_buffer.html"> VK_ANDROID_external_memory_android_hardware_buffer </a> </li>
     <li> <b>  ARM Extensions (ARM Limited)  </b> </li>
+    <li> <a href="specs/latest/man/html/VK_ARM_format_pack.html"> VK_ARM_format_pack </a> </li>
     <li> <a href="specs/latest/man/html/VK_ARM_pipeline_opacity_micromap.html"> VK_ARM_pipeline_opacity_micromap </a> </li>
     <li> <a href="specs/latest/man/html/VK_ARM_rasterization_order_attachment_access.html"> VK_ARM_rasterization_order_attachment_access </a> </li>
     <li> <a href="specs/latest/man/html/VK_ARM_render_pass_striped.html"> VK_ARM_render_pass_striped </a> </li>

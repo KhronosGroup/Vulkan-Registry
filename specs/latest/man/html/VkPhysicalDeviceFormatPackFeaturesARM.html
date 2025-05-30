@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>VK_QCOM_tile_shading(3)</title>
+<title>VkPhysicalDeviceFormatPackFeaturesARM(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,151 +796,69 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>VK_QCOM_tile_shading(3) Manual Page</h1>
+<h1>VkPhysicalDeviceFormatPackFeaturesARM(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>VK_QCOM_tile_shading - device extension</p>
+<p>VkPhysicalDeviceFormatPackFeaturesARM - Structure describing whether the additional formats feature is supported by an implementation</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
 <!--ChunkedSearchboxMarker-->
 <div id="content" class="loadable" ><script>hideLoadableContent();</script>
 <div class="sect1">
-<h2 id="_registered_extension_number"><a class="anchor" href="#_registered_extension_number"></a>Registered Extension Number</h2>
+<h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>310</p>
+<p>The <code>VkPhysicalDeviceFormatPackFeaturesARM</code> structure is defined as:</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_revision"><a class="anchor" href="#_revision"></a>Revision</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>1</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_ratification_status"><a class="anchor" href="#_ratification_status"></a>Ratification Status</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Not ratified</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_extension_and_version_dependencies"><a class="anchor" href="#_extension_and_version_dependencies"></a>Extension and Version Dependencies</h2>
-<div class="sectionbody">
-<div class="openblock">
+<div id="VkPhysicalDeviceFormatPackFeaturesARM" class="listingblock">
 <div class="content">
-<div class="paragraph">
-<p><a href="VK_QCOM_tile_properties.html">VK_QCOM_tile_properties</a><br>
-or<br>
-<a href="VK_KHR_get_physical_device_properties2.html">VK_KHR_get_physical_device_properties2</a><br></p>
-</div>
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_ARM_format_pack
+typedef struct VkPhysicalDeviceFormatPackFeaturesARM {
+    VkStructureType    sType;
+    void*              pNext;
+    VkBool32           formatPack;
+} VkPhysicalDeviceFormatPackFeaturesARM;</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_spir_v_dependencies"><a class="anchor" href="#_spir_v_dependencies"></a>SPIR-V Dependencies</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.khronos.org/SPIRV-Registry/extensions/QCOM/SPV_QCOM_tile_shading.html">SPV_QCOM_tile_shading</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_contact"><a class="anchor" href="#_contact"></a>Contact</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Matthew Netsch <a href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=[VK_QCOM_tile_shading] @mnetsch%0A*Here describe the issue or question you have about the VK_QCOM_tile_shading extension*" target="_blank" rel="nofollow noopener"><span class="icon black">[GitHub&#93;</span>mnetsch</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_extension_proposal"><a class="anchor" href="#_extension_proposal"></a>Extension Proposal</h2>
+<h2 id="_members"><a class="anchor" href="#_members"></a>Members</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_QCOM_tile_shading.adoc">VK_QCOM_tile_shading</a></p>
+<p>This structure describes the following feature:</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_other_extension_metadata"><a class="anchor" href="#_other_extension_metadata"></a>Other Extension Metadata</h2>
-<div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><strong>Last Modified Date</strong></dt>
-<dd>
-<p>2025-5-12</p>
-</dd>
-<dt class="hdlist1"><strong>IP Status</strong></dt>
-<dd>
-<p>No known IP claims.</p>
-</dd>
-<dt class="hdlist1"><strong>Interactions and External Dependencies</strong></dt>
-<dd>
 <div class="ulist">
 <ul>
 <li>
-<p>This extension interacts with <code><a href="VK_KHR_dynamic_rendering.html">VK_KHR_dynamic_rendering</a></code></p>
-</li>
-<li>
-<p>This extension interacts with <code><a href="VK_EXT_transform_feedback.html">VK_EXT_transform_feedback</a></code></p>
-</li>
-<li>
-<p>This extension interacts with <code><a href="VK_EXT_debug_marker.html">VK_EXT_debug_marker</a></code></p>
-</li>
-<li>
-<p>This extension interacts with
-<code><a href="VK_EXT_attachment_feedback_loop_layout.html">VK_EXT_attachment_feedback_loop_layout</a></code></p>
-</li>
-<li>
-<p>This extension interacts with
-<code><a href="VK_KHR_dynamic_rendering_local_read.html">VK_KHR_dynamic_rendering_local_read</a></code></p>
-</li>
-<li>
-<p>This extension interacts with <code><a href="VK_QCOM_image_processing.html">VK_QCOM_image_processing</a></code></p>
-</li>
-</ul>
-</div>
-</dd>
-<dt class="hdlist1"><strong>Contributors</strong></dt>
-<dd>
+<p><a id="features-formatPack"></a> <code>formatPack</code> indicates that the
+implementation <strong class="purple">must</strong> support using a <a href="VkFormat.html">VkFormat</a> of
+<code>VK_FORMAT_R10X6_UINT_PACK16_ARM</code>,
+<code>VK_FORMAT_R10X6G10X6_UINT_2PACK16_ARM</code>,
+<code>VK_FORMAT_R10X6G10X6B10X6A10X6_UINT_4PACK16_ARM</code>,
+<code>VK_FORMAT_R12X4_UINT_PACK16_ARM</code>,
+<code>VK_FORMAT_R12X4G12X4_UINT_2PACK16_ARM</code>,
+<code>VK_FORMAT_R12X4G12X4B12X4A12X4_UINT_4PACK16_ARM</code>,
+<code>VK_FORMAT_R14X2_UINT_PACK16_ARM</code>,
+<code>VK_FORMAT_R14X2G14X2_UINT_2PACK16_ARM</code>, and
+<code>VK_FORMAT_R14X2G14X2B14X2A14X2_UINT_4PACK16_ARM</code>, with at least the
+following <a href="VkFormatFeatureFlagBits.html">VkFormatFeatureFlagBits</a>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Jeff Leger, Qualcomm</p>
+<p><code>VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT</code></p>
 </li>
 <li>
-<p>Matt Netsch, Qualcomm</p>
+<p><code>VK_FORMAT_FEATURE_TRANSFER_SRC_BIT</code></p>
 </li>
 <li>
-<p>Srihari Babu Alla, Qualcomm</p>
-</li>
-<li>
-<p>Matthew Smith, Qualcomm</p>
-</li>
-<li>
-<p>Kevin Matlage, Qualcomm</p>
-</li>
-<li>
-<p>Alex Bourd, Qualcomm</p>
+<p><code>VK_FORMAT_FEATURE_TRANSFER_DST_BIT</code></p>
 </li>
 </ul>
 </div>
-</dd>
-</dl>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -948,295 +866,27 @@ or<br>
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This extension exposes tile shading in Vulkan.
-Many mobile GPUs utilize Tile-Based Deferred Rendering (TBDR) to optimize
-for power and performance.
-Conversely, most desktop GPUs use immediate-mode rendering (IM).
-Adreno &#8482; GPUs uniquely have the ability to operate in either mode, and
-when this extension is not enabled, the Adreno driver will select the most
-optimal mode (TBDR or IM) based on the workload; this feature is called
-FlexRender &#8482;.
-When this extension is in use, FlexRender is disabled and the GPU operates
-exclusively in TBDR wherever possible.</p>
+<p>If the <code>VkPhysicalDeviceFormatPackFeaturesARM</code> structure is included in the <code>pNext</code> chain of the
+<a href="VkPhysicalDeviceFeatures2.html">VkPhysicalDeviceFeatures2</a> structure passed to
+<a href="vkGetPhysicalDeviceFeatures2.html">vkGetPhysicalDeviceFeatures2</a>, it is filled in to indicate whether each
+corresponding feature is supported.
+If the application wishes to use a <a href="VkDevice.html">VkDevice</a> with any features
+described by <code>VkPhysicalDeviceFormatPackFeaturesARM</code>, it <strong class="purple">must</strong> add an instance of the structure,
+with the desired feature members set to <code>VK_TRUE</code>, to the <code>pNext</code>
+chain of <a href="VkDeviceCreateInfo.html">VkDeviceCreateInfo</a> when creating the <a href="VkDevice.html">VkDevice</a>.</p>
 </div>
-<div class="paragraph">
-<p>The TBDR mode divides the color and depth/stencil buffer attachments into a
-regular grid of smaller regions called "tiles".
-When a render pass instance is submitted for execution on an Adreno GPU, the
-rendering is split into two phases: a single "visibility pass" followed by
-multiple "rendering passes" where a separate render pass is issued for each
-tile in the framebuffer.</p>
-</div>
-<div class="paragraph">
-<p>The "visibility pass" processes the geometry: identifies which tiles are
-covered by each primitive, eliminates occluded primitives and unneeded state
-changes, and performs other tile-specific optimizations.
-The primitive coverage information collected during the visibility pass is
-used in the subsequent "rendering pass" for each tile.
-During the rendering pass for each tile, any primitives that were determined
-not to cover the current tile are skipped.</p>
-</div>
-<div class="paragraph">
-<p>This deferred rasterization additionally utilizes a specialized
-high-bandwidth on-die memory, "tile memory".
-Tile memory is dramatically more efficient than other device memory.
-The tile memory temporarily stores the color and other attachments for each
-tile during rasterization.
-After each tile is fully rasterized, the resulting tile is typically copied
-to device memory backing the attachment as specified by the render pass
-STORE_OP.
-The per-tile rendering passes occur independently for each tile, with
-multiple tiles potentially being processed in parallel.</p>
-</div>
-<div class="paragraph">
-<p>This extension enables applications to leverage the power and performance of
-tile memory in new ways:</p>
-</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Valid Usage (Implicit)</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Adds a mechanism for recording dispatches or draws that are guaranteed
-to be executed per-tile.</p>
-</li>
-<li>
-<p>Such draws bypass the above-mentioned visibility-based skipping and are
-guaranteed to be executed for every tile in the rendering pass.</p>
-</li>
-<li>
-<p>Shaders can declare "tile attachments" variables, providing shader
-access to color, depth/stencil, and input attachment pixels.</p>
-</li>
-<li>
-<p>Fragment and compute shaders can read these render pass attachments at
-any location within the tile.
-Compute shaders can also write to color attachments at any location
-within the tile.</p>
-</li>
-<li>
-<p>Shaders can use new built-in variables that provide the location, size,
-and apron region of the tile.</p>
-</li>
-<li>
-<p>A new tile dispatch command automatically scales workgroup sizes and
-counts to the tile size, given a desired shading rate.</p>
-</li>
-<li>
-<p>Framebuffer-local dependencies are expanded to tile-sized regions,
-rather than a single pixel or sample.</p>
-</li>
-<li>
-<p>A tile shading render pass can also enable tiling "aprons".
-This is a specialized rendering mode where the GPU renders overlapping
-tiles that enable specific use-cases.</p>
+<p><a id="VUID-VkPhysicalDeviceFormatPackFeaturesARM-sType-sType" href="#VUID-VkPhysicalDeviceFormatPackFeaturesARM-sType-sType"></a> <span class="vuid">VUID-VkPhysicalDeviceFormatPackFeaturesARM-sType-sType</span><br>
+ <code>sType</code> <strong class="purple">must</strong> be <code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FORMAT_PACK_FEATURES_ARM</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_new_commands"><a class="anchor" href="#_new_commands"></a>New Commands</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="vkCmdBeginPerTileExecutionQCOM.html">vkCmdBeginPerTileExecutionQCOM</a></p>
-</li>
-<li>
-<p><a href="vkCmdDispatchTileQCOM.html">vkCmdDispatchTileQCOM</a></p>
-</li>
-<li>
-<p><a href="vkCmdEndPerTileExecutionQCOM.html">vkCmdEndPerTileExecutionQCOM</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_new_structures"><a class="anchor" href="#_new_structures"></a>New Structures</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="VkDispatchTileInfoQCOM.html">VkDispatchTileInfoQCOM</a></p>
-</li>
-<li>
-<p><a href="VkPerTileBeginInfoQCOM.html">VkPerTileBeginInfoQCOM</a></p>
-</li>
-<li>
-<p><a href="VkPerTileEndInfoQCOM.html">VkPerTileEndInfoQCOM</a></p>
-</li>
-<li>
-<p>Extending <a href="VkPhysicalDeviceFeatures2.html">VkPhysicalDeviceFeatures2</a>, <a href="VkDeviceCreateInfo.html">VkDeviceCreateInfo</a>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="VkPhysicalDeviceTileShadingFeaturesQCOM.html">VkPhysicalDeviceTileShadingFeaturesQCOM</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Extending <a href="VkPhysicalDeviceProperties2.html">VkPhysicalDeviceProperties2</a>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="VkPhysicalDeviceTileShadingPropertiesQCOM.html">VkPhysicalDeviceTileShadingPropertiesQCOM</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Extending <a href="VkRenderPassCreateInfo.html">VkRenderPassCreateInfo</a>, <a href="VkRenderPassCreateInfo2.html">VkRenderPassCreateInfo2</a>, <a href="VkRenderingInfo.html">VkRenderingInfo</a>, <a href="VkCommandBufferInheritanceInfo.html">VkCommandBufferInheritanceInfo</a>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_new_enums"><a class="anchor" href="#_new_enums"></a>New Enums</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="VkTileShadingRenderPassFlagBitsQCOM.html">VkTileShadingRenderPassFlagBitsQCOM</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_new_bitmasks"><a class="anchor" href="#_new_bitmasks"></a>New Bitmasks</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="VkTileShadingRenderPassFlagsQCOM.html">VkTileShadingRenderPassFlagsQCOM</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_new_enum_constants"><a class="anchor" href="#_new_enum_constants"></a>New Enum Constants</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_QCOM_TILE_SHADING_EXTENSION_NAME</code></p>
-</li>
-<li>
-<p><code>VK_QCOM_TILE_SHADING_SPEC_VERSION</code></p>
-</li>
-<li>
-<p>Extending <a href="VkAccessFlagBits2.html">VkAccessFlagBits2</a>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_ACCESS_2_SHADER_TILE_ATTACHMENT_READ_BIT_QCOM</code></p>
-</li>
-<li>
-<p><code>VK_ACCESS_2_SHADER_TILE_ATTACHMENT_WRITE_BIT_QCOM</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Extending <a href="VkStructureType.html">VkStructureType</a>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_STRUCTURE_TYPE_DISPATCH_TILE_INFO_QCOM</code></p>
-</li>
-<li>
-<p><code>VK_STRUCTURE_TYPE_PER_TILE_BEGIN_INFO_QCOM</code></p>
-</li>
-<li>
-<p><code>VK_STRUCTURE_TYPE_PER_TILE_END_INFO_QCOM</code></p>
-</li>
-<li>
-<p><code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_SHADING_FEATURES_QCOM</code></p>
-</li>
-<li>
-<p><code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_SHADING_PROPERTIES_QCOM</code></p>
-</li>
-<li>
-<p><code>VK_STRUCTURE_TYPE_RENDER_PASS_TILE_SHADING_CREATE_INFO_QCOM</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Extending <a href="VkSubpassDescriptionFlagBits.html">VkSubpassDescriptionFlagBits</a>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_SUBPASS_DESCRIPTION_TILE_SHADING_APRON_BIT_QCOM</code></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_new_or_modified_built_in_variables"><a class="anchor" href="#_new_or_modified_built_in_variables"></a>New or Modified Built-In Variables</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-tileoffset" target="_blank" rel="noopener"><code>TileOffsetQCOM</code></a></p>
-</li>
-<li>
-<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-tilesize" target="_blank" rel="noopener"><code>TileDimensionQCOM</code></a></p>
-</li>
-<li>
-<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-builtin-variables-tileapronsize" target="_blank" rel="noopener"><code>TileApronSizeQCOM</code></a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_new_spir_v_capabilities"><a class="anchor" href="#_new_spir_v_capabilities"></a>New SPIR-V Capabilities</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#spirvenv-capabilities-table-TileShadingQCOM" target="_blank" rel="noopener"><code>TileShadingQCOM</code></a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_issues"><a class="anchor" href="#_issues"></a>Issues</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>none</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_version_history"><a class="anchor" href="#_version_history"></a>Version History</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Revision 1, 2023-10-12 (Jeff Leger)</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
@@ -1244,7 +894,7 @@ tiles that enable specific use-cases.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>No cross-references are available</p>
+<p><a href="VK_ARM_format_pack.html">VK_ARM_format_pack</a>, <a href="VkBool32.html">VkBool32</a>, <a href="VkStructureType.html">VkStructureType</a></p>
 </div>
 </div>
 </div>
@@ -1252,11 +902,11 @@ tiles that enable specific use-cases.</p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_QCOM_tile_shading" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceFormatPackFeaturesARM" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
-<p>This page is a generated document.
-Fixes and changes should be made to the generator scripts, not directly.</p>
+<p>This page is extracted from the Vulkan Specification.
+Fixes and changes should be made to the Specification, not directly.</p>
 </div>
 </div>
 </div>

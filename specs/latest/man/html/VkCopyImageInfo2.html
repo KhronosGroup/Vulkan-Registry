@@ -1336,33 +1336,6 @@ by <code>srcSubresource</code>, <code>extent.depth</code> <strong class="purple"
 <a href="VkFormat.html">VkFormat</a> of <code>srcImage</code></p>
 </li>
 <li>
-<p><a id="VUID-VkCopyImageInfo2-dstImage-01732" href="#VUID-VkCopyImageInfo2-dstImage-01732"></a> <span class="vuid">VUID-VkCopyImageInfo2-dstImage-01732</span><br>
-
-For each element of <code>pRegions</code>, if the sum of <code>dstOffset.x</code> and
-<code>extent.width</code> does not equal the width of the subresource specified
-by <code>dstSubresource</code>, <code>extent.width</code> <strong class="purple">must</strong> be a multiple of the
-<a href="#formats-compatibility-classes">texel block extent width</a> of the
-<a href="VkFormat.html">VkFormat</a> of <code>dstImage</code></p>
-</li>
-<li>
-<p><a id="VUID-VkCopyImageInfo2-dstImage-01733" href="#VUID-VkCopyImageInfo2-dstImage-01733"></a> <span class="vuid">VUID-VkCopyImageInfo2-dstImage-01733</span><br>
-
-For each element of <code>pRegions</code>, if the sum of <code>dstOffset.y</code> and
-<code>extent.height</code> does not equal the height of the subresource
-specified by <code>dstSubresource</code>, <code>extent.height</code> <strong class="purple">must</strong> be a
-multiple of the <a href="#formats-compatibility-classes">texel block extent
-height</a> of the <a href="VkFormat.html">VkFormat</a> of <code>dstImage</code></p>
-</li>
-<li>
-<p><a id="VUID-VkCopyImageInfo2-dstImage-01734" href="#VUID-VkCopyImageInfo2-dstImage-01734"></a> <span class="vuid">VUID-VkCopyImageInfo2-dstImage-01734</span><br>
-
-For each element of <code>pRegions</code>, if the sum of <code>dstOffset.z</code> and
-<code>extent.depth</code> does not equal the depth of the subresource specified
-by <code>dstSubresource</code>, <code>extent.depth</code> <strong class="purple">must</strong> be a multiple of the
-<a href="#formats-compatibility-classes">texel block extent depth</a> of the
-<a href="VkFormat.html">VkFormat</a> of <code>dstImage</code></p>
-</li>
-<li>
 <p><a id="VUID-VkCopyImageInfo2-aspect-06662" href="#VUID-VkCopyImageInfo2-aspect-06662"></a> <span class="vuid">VUID-VkCopyImageInfo2-aspect-06662</span><br>
 
 If the <code>aspect</code> member of any element of <code>pRegions</code> includes any

@@ -1977,10 +1977,11 @@ a shader object is bound to any graphics stage or
 a graphics pipeline is bound which was created with the
 <code>VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE</code> dynamic state enabled, and the
 <a href="#dynamic-state-current-value">current value</a> of
-<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then
-<a href="vkCmdSetDepthWriteEnable.html">vkCmdSetDepthWriteEnable</a> <strong class="purple">must</strong> have been called and not
-subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
-command buffer prior to this drawing command</p>
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the
+<a href="#dynamic-state-current-value">current value</a> of <code>depthTestEnable</code>
+is <code>VK_TRUE</code>, then <a href="vkCmdSetDepthWriteEnable.html">vkCmdSetDepthWriteEnable</a> <strong class="purple">must</strong> have been
+called and not subsequently <a href="#dynamic-state-lifetime">invalidated</a> in
+the current command buffer prior to this drawing command</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksIndirectEXT-None-07845" href="#VUID-vkCmdDrawMeshTasksIndirectEXT-None-07845"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectEXT-None-07845</span><br>
@@ -4285,6 +4286,12 @@ If the <a href="#renderpass-per-tile-execution-model">per-tile execution model</
 is enabled, the
 <a href="#features-tileShadingPerTileDraw">tileShadingPerTileDraw</a> feature <strong class="purple">must</strong>
 be enabled</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawMeshTasksIndirectEXT-None-10772" href="#VUID-vkCmdDrawMeshTasksIndirectEXT-None-10772"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectEXT-None-10772</span><br>
+
+If a shader object is bound to any graphics stage, <em>multiview</em>
+functionality <strong class="purple">must</strong> not be enabled in the current render pass</p>
 </li>
 </ul>
 </div>

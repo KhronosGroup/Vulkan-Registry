@@ -815,7 +815,8 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_QCOM_tile_shading
 void vkCmdDispatchTileQCOM(
-    VkCommandBuffer                             commandBuffer);</code></pre>
+    VkCommandBuffer                             commandBuffer,
+    const VkDispatchTileInfoQCOM*               pDispatchTileInfo);</code></pre>
 </div>
 </div>
 </div>
@@ -1603,6 +1604,10 @@ enabled</p>
  <code>commandBuffer</code> <strong class="purple">must</strong> be a valid <a href="VkCommandBuffer.html">VkCommandBuffer</a> handle</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDispatchTileQCOM-pDispatchTileInfo-parameter" href="#VUID-vkCmdDispatchTileQCOM-pDispatchTileInfo-parameter"></a> <span class="vuid">VUID-vkCmdDispatchTileQCOM-pDispatchTileInfo-parameter</span><br>
+ <code>pDispatchTileInfo</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkDispatchTileInfoQCOM.html">VkDispatchTileInfoQCOM</a> structure</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDispatchTileQCOM-commandBuffer-recording" href="#VUID-vkCmdDispatchTileQCOM-commandBuffer-recording"></a> <span class="vuid">VUID-vkCmdDispatchTileQCOM-commandBuffer-recording</span><br>
  <code>commandBuffer</code> <strong class="purple">must</strong> be in the <a href="#commandbuffers-lifecycle">recording state</a></p>
 </li>
@@ -1673,7 +1678,7 @@ Secondary</p></td>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_QCOM_tile_shading.html">VK_QCOM_tile_shading</a>, <a href="VkCommandBuffer.html">VkCommandBuffer</a></p>
+<p><a href="VK_QCOM_tile_shading.html">VK_QCOM_tile_shading</a>, <a href="VkCommandBuffer.html">VkCommandBuffer</a>, <a href="VkDispatchTileInfoQCOM.html">VkDispatchTileInfoQCOM</a></p>
 </div>
 </div>
 </div>

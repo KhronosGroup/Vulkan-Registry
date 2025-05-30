@@ -868,12 +868,14 @@ The implementation <strong class="purple">must</strong> include the present mode
 <code>presentModeCount</code> is zero.</p>
 </div>
 <div class="paragraph">
-<p>Before creating a swapchain whose present modes <strong class="purple">can</strong> be modified through the
-use of <a href="VkSwapchainPresentModesCreateInfoEXT.html">VkSwapchainPresentModesCreateInfoEXT</a>, obtain the set of present
-modes compatible with a given initial present mode by including a
-<a href="VkSurfacePresentModeEXT.html">VkSurfacePresentModeEXT</a> structure in the <code>pNext</code> chain of
-<a href="VkPhysicalDeviceSurfaceInfo2KHR.html">VkPhysicalDeviceSurfaceInfo2KHR</a> when calling
+<p>To query the set of present modes compatible with a given initial present
+mode, add a <a href="VkSurfacePresentModeEXT.html">VkSurfacePresentModeEXT</a> structure in the <code>pNext</code> chain
+of <a href="VkPhysicalDeviceSurfaceInfo2KHR.html">VkPhysicalDeviceSurfaceInfo2KHR</a> when calling
 <a href="vkGetPhysicalDeviceSurfaceCapabilities2KHR.html">vkGetPhysicalDeviceSurfaceCapabilities2KHR</a>.</p>
+</div>
+<div class="paragraph">
+<p>The application <strong class="purple">can</strong> create a swapchain whose present mode <strong class="purple">can</strong> be modified
+through the use of <a href="VkSwapchainPresentModesCreateInfoEXT.html">VkSwapchainPresentModesCreateInfoEXT</a>.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
