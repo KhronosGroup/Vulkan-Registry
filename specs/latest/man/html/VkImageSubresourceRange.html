@@ -895,9 +895,10 @@ image view of a 3D image created with
 include in the created image view.
 Such an image view <strong class="purple">can</strong> be used as a framebuffer attachment that refers only
 to the specified range of slices of the selected mip level.
-However, any layout transitions performed on such an attachment view during
-a render pass instance still apply to the entire subresource referenced
-which includes all the slices of the selected mip level.</p>
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance9" target="_blank" rel="noopener"><code>maintenance9</code></a> feature is not enabled,
+any layout transitions performed on such an attachment view during a render
+pass instance still apply to the entire subresource referenced which
+includes all the slices of the selected mip level.</p>
 </div>
 <div class="paragraph">
 <p>When using an image view of a depth/stencil image to populate a descriptor

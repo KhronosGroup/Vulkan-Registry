@@ -886,6 +886,10 @@ or
 <a href="VkWriteDescriptorSetAccelerationStructureNV.html">VkWriteDescriptorSetAccelerationStructureNV</a>
      structure in the <code>pNext</code> chain</p>
 </li>
+<li>
+<p>a value matching the <code>descriptorCount</code> of a
+<a href="VkWriteDescriptorSetTensorARM.html">VkWriteDescriptorSetTensorARM</a> structure in the <code>pNext</code> chain</p>
+</li>
 </ul>
 </div>
 </li>
@@ -942,12 +946,17 @@ or if <code>descriptorType</code> is
 data for the descriptor writes is taken from the
 <a href="VkWriteDescriptorSetAccelerationStructureNV.html">VkWriteDescriptorSetAccelerationStructureNV</a> structure in the
 <code>pNext</code> chain of <code>VkWriteDescriptorSet</code>,
+or if <code>descriptorType</code> is <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code>, in which
+case the source data for the descriptor writes is taken from the instance of
+<a href="VkWriteDescriptorSetTensorARM.html">VkWriteDescriptorSetTensorARM</a> in the <code>pNext</code> chain of
+<code>VkWriteDescriptorSet</code>,
 as specified below.</p>
 </div>
 <div class="paragraph">
 <p>If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nullDescriptor" target="_blank" rel="noopener"><code>nullDescriptor</code></a> feature is enabled,
 the buffer,
 acceleration structure,
+tensor,
 imageView, or bufferView <strong class="purple">can</strong> be <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>.
 Loads from a null descriptor return zero values and stores and atomics to a
 null descriptor are discarded.
@@ -1026,7 +1035,14 @@ specified when <code>dstSet</code>&#8217;s descriptor set layout was created</p>
 
 All consecutive bindings updated via a single <code>VkWriteDescriptorSet</code>
 structure, except those with a <code>descriptorCount</code> of zero, <strong class="purple">must</strong> have
-identical <code>descriptorType</code> and <code>stageFlags</code></p>
+identical <code>descriptorType</code></p>
+</li>
+<li>
+<p><a id="VUID-VkWriteDescriptorSet-descriptorCount-10776" href="#VUID-VkWriteDescriptorSet-descriptorCount-10776"></a> <span class="vuid">VUID-VkWriteDescriptorSet-descriptorCount-10776</span><br>
+
+All consecutive bindings updated via a single <code>VkWriteDescriptorSet</code>
+structure, except those with a <code>descriptorCount</code> of zero, <strong class="purple">must</strong> have
+identical <code>stageFlags</code></p>
 </li>
 <li>
 <p><a id="VUID-VkWriteDescriptorSet-descriptorCount-00318" href="#VUID-VkWriteDescriptorSet-descriptorCount-00318"></a> <span class="vuid">VUID-VkWriteDescriptorSet-descriptorCount-00318</span><br>
@@ -1034,6 +1050,13 @@ identical <code>descriptorType</code> and <code>stageFlags</code></p>
 All consecutive bindings updated via a single <code>VkWriteDescriptorSet</code>
 structure, except those with a <code>descriptorCount</code> of zero, <strong class="purple">must</strong> all
 either use immutable samplers or <strong class="purple">must</strong> all not use immutable samplers</p>
+</li>
+<li>
+<p><a id="VUID-VkWriteDescriptorSet-descriptorCount-10777" href="#VUID-VkWriteDescriptorSet-descriptorCount-10777"></a> <span class="vuid">VUID-VkWriteDescriptorSet-descriptorCount-10777</span><br>
+
+All consecutive bindings updated via a single <code>VkWriteDescriptorSet</code>
+structure, except those with a <code>descriptorCount</code> of zero, <strong class="purple">must</strong> have
+identical <a href="VkDescriptorBindingFlagBits.html">VkDescriptorBindingFlagBits</a></p>
 </li>
 <li>
 <p><a id="VUID-VkWriteDescriptorSet-descriptorType-00319" href="#VUID-VkWriteDescriptorSet-descriptorType-00319"></a> <span class="vuid">VUID-VkWriteDescriptorSet-descriptorType-00319</span><br>
@@ -1401,7 +1424,7 @@ a view created with an <code>image</code> created with
 </li>
 <li>
 <p><a id="VUID-VkWriteDescriptorSet-pNext-pNext" href="#VUID-VkWriteDescriptorSet-pNext-pNext"></a> <span class="vuid">VUID-VkWriteDescriptorSet-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkWriteDescriptorSetAccelerationStructureKHR.html">VkWriteDescriptorSetAccelerationStructureKHR</a>, <a href="VkWriteDescriptorSetAccelerationStructureNV.html">VkWriteDescriptorSetAccelerationStructureNV</a>, <a href="VkWriteDescriptorSetInlineUniformBlock.html">VkWriteDescriptorSetInlineUniformBlock</a>, or <a href="VkWriteDescriptorSetPartitionedAccelerationStructureNV.html">VkWriteDescriptorSetPartitionedAccelerationStructureNV</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkWriteDescriptorSetAccelerationStructureKHR.html">VkWriteDescriptorSetAccelerationStructureKHR</a>, <a href="VkWriteDescriptorSetAccelerationStructureNV.html">VkWriteDescriptorSetAccelerationStructureNV</a>, <a href="VkWriteDescriptorSetInlineUniformBlock.html">VkWriteDescriptorSetInlineUniformBlock</a>, <a href="VkWriteDescriptorSetPartitionedAccelerationStructureNV.html">VkWriteDescriptorSetPartitionedAccelerationStructureNV</a>, or <a href="VkWriteDescriptorSetTensorARM.html">VkWriteDescriptorSetTensorARM</a></p>
 </li>
 <li>
 <p><a id="VUID-VkWriteDescriptorSet-sType-unique" href="#VUID-VkWriteDescriptorSet-sType-unique"></a> <span class="vuid">VUID-VkWriteDescriptorSet-sType-unique</span><br>

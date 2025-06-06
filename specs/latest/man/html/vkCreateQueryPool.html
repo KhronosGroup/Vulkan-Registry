@@ -889,6 +889,10 @@ resulting query pool object is returned.</p>
 <p><a id="VUID-vkCreateQueryPool-pQueryPool-parameter" href="#VUID-vkCreateQueryPool-pQueryPool-parameter"></a> <span class="vuid">VUID-vkCreateQueryPool-pQueryPool-parameter</span><br>
  <code>pQueryPool</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkQueryPool.html">VkQueryPool</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateQueryPool-device-queuecount" href="#VUID-vkCreateQueryPool-device-queuecount"></a> <span class="vuid">VUID-vkCreateQueryPool-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

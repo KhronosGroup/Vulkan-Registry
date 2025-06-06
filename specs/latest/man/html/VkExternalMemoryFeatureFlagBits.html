@@ -847,10 +847,14 @@ typedef VkExternalMemoryFeatureFlagBits VkExternalMemoryFeatureFlagBitsKHR;</cod
 <ul>
 <li>
 <p><code>VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT</code> specifies that
-images or buffers created with the specified parameters and handle type
-<strong class="purple">must</strong> use the mechanisms defined by <a href="VkMemoryDedicatedRequirements.html">VkMemoryDedicatedRequirements</a>
-and <a href="VkMemoryDedicatedAllocateInfo.html">VkMemoryDedicatedAllocateInfo</a> to create (or import) a
-dedicated allocation for the image or buffer.</p>
+tensors,
+    images or buffers created with the specified parameters and handle type
+    <strong class="purple">must</strong> use the mechanisms defined by <a href="VkMemoryDedicatedRequirements.html">VkMemoryDedicatedRequirements</a>
+    and <a href="VkMemoryDedicatedAllocateInfo.html">VkMemoryDedicatedAllocateInfo</a>
+or <a href="VkMemoryDedicatedAllocateInfoTensorARM.html">VkMemoryDedicatedAllocateInfoTensorARM</a>
+    to create (or import) a dedicated allocation for the
+tensor,
+    image or buffer.</p>
 </li>
 <li>
 <p><code>VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT</code> specifies that handles
@@ -902,8 +906,9 @@ Implementations <strong class="purple">must</strong> not report
 external handle type
 <code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_SCREEN_BUFFER_BIT_QNX</code>.
 Implementations <strong class="purple">must</strong> not report
-<code>VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT</code> for images or buffers
-with external handle type
+<code>VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT</code> for
+tensors,
+images or buffers with external handle type
 <code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_ALLOCATION_BIT_EXT</code>, or
 <code>VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_MAPPED_FOREIGN_MEMORY_BIT_EXT</code>.</p>
 </div>

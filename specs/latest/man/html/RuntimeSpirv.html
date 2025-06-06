@@ -2399,7 +2399,7 @@ For <code>OpRayQueryGenerateIntersectionKHR</code> instructions,
 
 For <code>OpRayQueryGetIntersectionTriangleVertexPositionsKHR</code>
 instructions, <code>Acceleration</code> <code>Structure</code> <strong class="purple">must</strong> have been built
-with <code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_KHR</code> in
+with <code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_BIT_KHR</code> in
 <code>flags</code></p>
 </li>
 <li>
@@ -3320,6 +3320,51 @@ conversion</a></p>
 If a <a href="VkSampler.html">VkSampler</a> object that enables
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#samplers-YCbCr-conversion" target="_blank" rel="noopener">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a> is statically
 used, it <strong class="purple">must</strong> not use the <code>ConstOffset</code> or <code>Offset</code> operands</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-shaderTensorSupportedStages-09901" href="#VUID-RuntimeSpirv-shaderTensorSupportedStages-09901"></a> <span class="vuid">VUID-RuntimeSpirv-shaderTensorSupportedStages-09901</span><br>
+
+<code>OpTypeTensorARM</code>, <code>OpTensorReadARM</code>, <code>OpTensorWriteARM</code>, or
+<code>OpTensorQuerySizeARM</code> <strong class="purple">must</strong> not be used in shader stages not in
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-shaderTensorSupportedStages" target="_blank" rel="noopener"><code>shaderTensorSupportedStages</code></a></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpTypeTensorARM-09902" href="#VUID-RuntimeSpirv-OpTypeTensorARM-09902"></a> <span class="vuid">VUID-RuntimeSpirv-OpTypeTensorARM-09902</span><br>
+
+<code>OpTypeTensorARM</code> with a <code>Shape</code> <strong class="purple">must</strong> not be used in shader
+stages</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpTypeTensorARM-09907" href="#VUID-RuntimeSpirv-OpTypeTensorARM-09907"></a> <span class="vuid">VUID-RuntimeSpirv-OpTypeTensorARM-09907</span><br>
+
+<code>OpTypeTensorARM</code> without a <code>Rank</code> <strong class="purple">must</strong> not be used in shader
+stages</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-maxTensorShaderAccessArrayLength-09903" href="#VUID-RuntimeSpirv-maxTensorShaderAccessArrayLength-09903"></a> <span class="vuid">VUID-RuntimeSpirv-maxTensorShaderAccessArrayLength-09903</span><br>
+
+The length of an array returned by <code>OpTensorReadARM</code> or passed as the
+<code>Object</code> operand to <code>OpTensorWriteARM</code> <strong class="purple">must</strong> be less than or equal
+to <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxTensorShaderAccessArrayLength" target="_blank" rel="noopener"><code>maxTensorShaderAccessArrayLength</code></a></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-maxTensorShaderAccessSize-09904" href="#VUID-RuntimeSpirv-maxTensorShaderAccessSize-09904"></a> <span class="vuid">VUID-RuntimeSpirv-maxTensorShaderAccessSize-09904</span><br>
+
+The total size of the data (number of tensor elements × size of an
+element) read or written by one <code>OpTensorReadARM</code>, or
+<code>OpTensorWriteARM</code> instruction, respectively, <strong class="purple">must</strong> be less than or
+equal to <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxTensorShaderAccessSize" target="_blank" rel="noopener"><code>maxTensorShaderAccessSize</code></a></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-None-10824" href="#VUID-RuntimeSpirv-None-10824"></a> <span class="vuid">VUID-RuntimeSpirv-None-10824</span><br>
+
+
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance9" target="_blank" rel="noopener"><code>maintenance9</code></a> feature is not
+enabled, the
+<code>Base</code> operand of any <code>OpBitCount</code>, <code>OpBitReverse</code>,
+<code>OpBitFieldInsert</code>, <code>OpBitFieldSExtract</code>, or
+<code>OpBitFieldUExtract</code> instruction <strong class="purple">must</strong> be a 32-bit integer scalar or
+a vector of 32-bit integers</p>
 </li>
 </ul>
 </div>

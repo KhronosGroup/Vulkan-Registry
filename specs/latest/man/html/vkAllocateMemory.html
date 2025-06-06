@@ -1063,6 +1063,10 @@ memory type that corresponds to a <a href="VkMemoryHeap.html">VkMemoryHeap</a> w
 <p><a id="VUID-vkAllocateMemory-pMemory-parameter" href="#VUID-vkAllocateMemory-pMemory-parameter"></a> <span class="vuid">VUID-vkAllocateMemory-pMemory-parameter</span><br>
  <code>pMemory</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkDeviceMemory.html">VkDeviceMemory</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkAllocateMemory-device-queuecount" href="#VUID-vkAllocateMemory-device-queuecount"></a> <span class="vuid">VUID-vkAllocateMemory-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

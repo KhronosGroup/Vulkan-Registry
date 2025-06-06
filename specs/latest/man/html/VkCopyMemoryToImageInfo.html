@@ -929,14 +929,14 @@ If non-stencil aspects of <code>dstImage</code> are accessed,
 <li>
 <p><a id="VUID-VkCopyMemoryToImageInfo-imageOffset-09114" href="#VUID-VkCopyMemoryToImageInfo-imageOffset-09114"></a> <span class="vuid">VUID-VkCopyMemoryToImageInfo-imageOffset-09114</span><br>
 
-If <code>flags</code> contains <code>VK_HOST_IMAGE_COPY_MEMCPY</code>, the <code>x</code>,
-<code>y</code>, and <code>z</code> members of the <code>imageOffset</code> member of each
-element of <code>pRegions</code> <strong class="purple">must</strong> be <code>0</code></p>
+If <code>flags</code> contains <code>VK_HOST_IMAGE_COPY_MEMCPY_BIT</code>, the
+<code>x</code>, <code>y</code>, and <code>z</code> members of the <code>imageOffset</code> member
+of each element of <code>pRegions</code> <strong class="purple">must</strong> be <code>0</code></p>
 </li>
 <li>
 <p><a id="VUID-VkCopyMemoryToImageInfo-dstImage-09115" href="#VUID-VkCopyMemoryToImageInfo-dstImage-09115"></a> <span class="vuid">VUID-VkCopyMemoryToImageInfo-dstImage-09115</span><br>
 
-If <code>flags</code> contains <code>VK_HOST_IMAGE_COPY_MEMCPY</code>, the
+If <code>flags</code> contains <code>VK_HOST_IMAGE_COPY_MEMCPY_BIT</code>, the
 <code>imageExtent</code> member of each element of <code>pRegions</code> <strong class="purple">must</strong> equal
 the extents of <code>dstImage</code> identified by <code>imageSubresource</code></p>
 </li>
@@ -1244,9 +1244,9 @@ subresources of <code>dstImage</code> specified in <code>pRegions</code></p>
 <li>
 <p><a id="VUID-VkCopyMemoryToImageInfo-flags-09393" href="#VUID-VkCopyMemoryToImageInfo-flags-09393"></a> <span class="vuid">VUID-VkCopyMemoryToImageInfo-flags-09393</span><br>
 
-If <code>flags</code> includes <code>VK_HOST_IMAGE_COPY_MEMCPY</code>, for each region
-in <code>pRegions</code>, <code>memoryRowLength</code> and <code>memoryImageHeight</code>
-<strong class="purple">must</strong> both be 0</p>
+If <code>flags</code> includes <code>VK_HOST_IMAGE_COPY_MEMCPY_BIT</code>, for each
+region in <code>pRegions</code>, <code>memoryRowLength</code> and
+<code>memoryImageHeight</code> <strong class="purple">must</strong> both be 0</p>
 </li>
 </ul>
 </div>

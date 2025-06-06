@@ -1376,7 +1376,7 @@ of <a href="VkCommandBufferInheritanceInfo.html">VkCommandBufferInheritanceInfo<
 If <code>vkCmdExecuteCommands</code> is being called within a render pass
 instance begun with <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>, with any color attachment
 using a resolve mode of
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>, the
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>, the
 <code>pNext</code> chain of <a href="VkCommandBufferInheritanceInfo.html">VkCommandBufferInheritanceInfo</a> used to create
 each element of <code>pCommandBuffers</code> <strong class="purple">must</strong> include a
 <a href="VkExternalFormatANDROID.html">VkExternalFormatANDROID</a> structure with an <code>externalFormat</code>
@@ -1388,7 +1388,7 @@ matching that used to create the resolve attachment in the render pass</p>
 If <code>vkCmdExecuteCommands</code> is being called within a render pass
 instance begun with <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a> with any color attachment
 using a resolve mode of
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>, and the
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>, and the
 <code>pNext</code> chain of <a href="VkCommandBufferInheritanceInfo.html">VkCommandBufferInheritanceInfo</a> does not
 include a <a href="VkAttachmentSampleCountInfoAMD.html">VkAttachmentSampleCountInfoAMD</a> or
 <a href="VkAttachmentSampleCountInfoNV.html">VkAttachmentSampleCountInfoNV</a> structure, the value of

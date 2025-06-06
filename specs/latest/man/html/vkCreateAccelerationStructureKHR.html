@@ -967,6 +967,10 @@ If <code>device</code> was created with multiple physical devices, then the
 <p><a id="VUID-vkCreateAccelerationStructureKHR-pAccelerationStructure-parameter" href="#VUID-vkCreateAccelerationStructureKHR-pAccelerationStructure-parameter"></a> <span class="vuid">VUID-vkCreateAccelerationStructureKHR-pAccelerationStructure-parameter</span><br>
  <code>pAccelerationStructure</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkAccelerationStructureKHR.html">VkAccelerationStructureKHR</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateAccelerationStructureKHR-device-queuecount" href="#VUID-vkCreateAccelerationStructureKHR-device-queuecount"></a> <span class="vuid">VUID-vkCreateAccelerationStructureKHR-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

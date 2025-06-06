@@ -942,14 +942,14 @@ If non-stencil aspects of <code>srcImage</code> are accessed,
 <li>
 <p><a id="VUID-VkCopyImageToImageInfo-srcOffset-09114" href="#VUID-VkCopyImageToImageInfo-srcOffset-09114"></a> <span class="vuid">VUID-VkCopyImageToImageInfo-srcOffset-09114</span><br>
 
-If <code>flags</code> contains <code>VK_HOST_IMAGE_COPY_MEMCPY</code>, the <code>x</code>,
-<code>y</code>, and <code>z</code> members of the <code>srcOffset</code> member of each
-element of <code>pRegions</code> <strong class="purple">must</strong> be <code>0</code></p>
+If <code>flags</code> contains <code>VK_HOST_IMAGE_COPY_MEMCPY_BIT</code>, the
+<code>x</code>, <code>y</code>, and <code>z</code> members of the <code>srcOffset</code> member
+of each element of <code>pRegions</code> <strong class="purple">must</strong> be <code>0</code></p>
 </li>
 <li>
 <p><a id="VUID-VkCopyImageToImageInfo-srcImage-09115" href="#VUID-VkCopyImageToImageInfo-srcImage-09115"></a> <span class="vuid">VUID-VkCopyImageToImageInfo-srcImage-09115</span><br>
 
-If <code>flags</code> contains <code>VK_HOST_IMAGE_COPY_MEMCPY</code>, the
+If <code>flags</code> contains <code>VK_HOST_IMAGE_COPY_MEMCPY_BIT</code>, the
 <code>extent</code> member of each element of <code>pRegions</code> <strong class="purple">must</strong> equal
 the extents of <code>srcImage</code> identified by <code>srcSubresource</code></p>
 </li>
@@ -1248,14 +1248,14 @@ If non-stencil aspects of <code>dstImage</code> are accessed,
 <li>
 <p><a id="VUID-VkCopyImageToImageInfo-dstOffset-09114" href="#VUID-VkCopyImageToImageInfo-dstOffset-09114"></a> <span class="vuid">VUID-VkCopyImageToImageInfo-dstOffset-09114</span><br>
 
-If <code>flags</code> contains <code>VK_HOST_IMAGE_COPY_MEMCPY</code>, the <code>x</code>,
-<code>y</code>, and <code>z</code> members of the <code>dstOffset</code> member of each
-element of <code>pRegions</code> <strong class="purple">must</strong> be <code>0</code></p>
+If <code>flags</code> contains <code>VK_HOST_IMAGE_COPY_MEMCPY_BIT</code>, the
+<code>x</code>, <code>y</code>, and <code>z</code> members of the <code>dstOffset</code> member
+of each element of <code>pRegions</code> <strong class="purple">must</strong> be <code>0</code></p>
 </li>
 <li>
 <p><a id="VUID-VkCopyImageToImageInfo-dstImage-09115" href="#VUID-VkCopyImageToImageInfo-dstImage-09115"></a> <span class="vuid">VUID-VkCopyImageToImageInfo-dstImage-09115</span><br>
 
-If <code>flags</code> contains <code>VK_HOST_IMAGE_COPY_MEMCPY</code>, the
+If <code>flags</code> contains <code>VK_HOST_IMAGE_COPY_MEMCPY_BIT</code>, the
 <code>extent</code> member of each element of <code>pRegions</code> <strong class="purple">must</strong> equal
 the extents of <code>dstImage</code> identified by <code>dstSubresource</code></p>
 </li>

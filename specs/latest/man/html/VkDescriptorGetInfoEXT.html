@@ -972,6 +972,13 @@ If <code>type</code> is <code>VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_NV</code
 <strong class="purple">must</strong> contain the handle of a <a href="VkAccelerationStructureNV.html">VkAccelerationStructureNV</a> created on
 <code>device</code>, returned by <a href="vkGetAccelerationStructureHandleNV.html">vkGetAccelerationStructureHandleNV</a></p>
 </li>
+<li>
+<p><a id="VUID-VkDescriptorGetInfoEXT-type-09701" href="#VUID-VkDescriptorGetInfoEXT-type-09701"></a> <span class="vuid">VUID-VkDescriptorGetInfoEXT-type-09701</span><br>
+
+If <code>type</code> is <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code>, a
+<a href="VkDescriptorGetTensorInfoARM.html">VkDescriptorGetTensorInfoARM</a> structure <strong class="purple">must</strong> be included in the
+<code>pNext</code> chain and <code>data</code> is ignored</p>
+</li>
 </ul>
 </div>
 </div>
@@ -987,7 +994,11 @@ If <code>type</code> is <code>VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_NV</code
 </li>
 <li>
 <p><a id="VUID-VkDescriptorGetInfoEXT-pNext-pNext" href="#VUID-VkDescriptorGetInfoEXT-pNext-pNext"></a> <span class="vuid">VUID-VkDescriptorGetInfoEXT-pNext-pNext</span><br>
- <code>pNext</code> <strong class="purple">must</strong> be <code>NULL</code></p>
+ <code>pNext</code> <strong class="purple">must</strong> be <code>NULL</code> or a pointer to a valid instance of <a href="VkDescriptorGetTensorInfoARM.html">VkDescriptorGetTensorInfoARM</a></p>
+</li>
+<li>
+<p><a id="VUID-VkDescriptorGetInfoEXT-sType-unique" href="#VUID-VkDescriptorGetInfoEXT-sType-unique"></a> <span class="vuid">VUID-VkDescriptorGetInfoEXT-sType-unique</span><br>
+ The <code>sType</code> value of each structure in the <code>pNext</code> chain <strong class="purple">must</strong> be unique</p>
 </li>
 <li>
 <p><a id="VUID-VkDescriptorGetInfoEXT-type-parameter" href="#VUID-VkDescriptorGetInfoEXT-type-parameter"></a> <span class="vuid">VUID-VkDescriptorGetInfoEXT-type-parameter</span><br>

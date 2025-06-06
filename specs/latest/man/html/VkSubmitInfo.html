@@ -1105,6 +1105,13 @@ render pass instance that resumes it, or any subsequent render pass
 instances that resume from that one and so on, <strong class="purple">must</strong> use the same sample
 locations</p>
 </li>
+<li>
+<p><a id="VUID-VkSubmitInfo-pNext-09683" href="#VUID-VkSubmitInfo-pNext-09683"></a> <span class="vuid">VUID-VkSubmitInfo-pNext-09683</span><br>
+
+If the <code>pNext</code> chain of this structure includes a
+<a href="VkFrameBoundaryTensorsARM.html">VkFrameBoundaryTensorsARM</a> structure then it <strong class="purple">must</strong> also include a
+<a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a> structure.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -1120,7 +1127,7 @@ locations</p>
 </li>
 <li>
 <p><a id="VUID-VkSubmitInfo-pNext-pNext" href="#VUID-VkSubmitInfo-pNext-pNext"></a> <span class="vuid">VUID-VkSubmitInfo-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkAmigoProfilingSubmitInfoSEC.html">VkAmigoProfilingSubmitInfoSEC</a>, <a href="VkD3D12FenceSubmitInfoKHR.html">VkD3D12FenceSubmitInfoKHR</a>, <a href="VkDeviceGroupSubmitInfo.html">VkDeviceGroupSubmitInfo</a>, <a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a>, <a href="VkLatencySubmissionPresentIdNV.html">VkLatencySubmissionPresentIdNV</a>, <a href="VkPerformanceQuerySubmitInfoKHR.html">VkPerformanceQuerySubmitInfoKHR</a>, <a href="VkProtectedSubmitInfo.html">VkProtectedSubmitInfo</a>, <a href="VkTimelineSemaphoreSubmitInfo.html">VkTimelineSemaphoreSubmitInfo</a>, <a href="VkWin32KeyedMutexAcquireReleaseInfoKHR.html">VkWin32KeyedMutexAcquireReleaseInfoKHR</a>, or <a href="VkWin32KeyedMutexAcquireReleaseInfoNV.html">VkWin32KeyedMutexAcquireReleaseInfoNV</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkAmigoProfilingSubmitInfoSEC.html">VkAmigoProfilingSubmitInfoSEC</a>, <a href="VkD3D12FenceSubmitInfoKHR.html">VkD3D12FenceSubmitInfoKHR</a>, <a href="VkDeviceGroupSubmitInfo.html">VkDeviceGroupSubmitInfo</a>, <a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a>, <a href="VkFrameBoundaryTensorsARM.html">VkFrameBoundaryTensorsARM</a>, <a href="VkLatencySubmissionPresentIdNV.html">VkLatencySubmissionPresentIdNV</a>, <a href="VkPerformanceQuerySubmitInfoKHR.html">VkPerformanceQuerySubmitInfoKHR</a>, <a href="VkProtectedSubmitInfo.html">VkProtectedSubmitInfo</a>, <a href="VkTimelineSemaphoreSubmitInfo.html">VkTimelineSemaphoreSubmitInfo</a>, <a href="VkWin32KeyedMutexAcquireReleaseInfoKHR.html">VkWin32KeyedMutexAcquireReleaseInfoKHR</a>, or <a href="VkWin32KeyedMutexAcquireReleaseInfoNV.html">VkWin32KeyedMutexAcquireReleaseInfoNV</a></p>
 </li>
 <li>
 <p><a id="VUID-VkSubmitInfo-sType-unique" href="#VUID-VkSubmitInfo-sType-unique"></a> <span class="vuid">VUID-VkSubmitInfo-sType-unique</span><br>

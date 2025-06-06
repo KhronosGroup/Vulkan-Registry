@@ -962,12 +962,36 @@ Members of <code>pEvents</code> <strong class="purple">must</strong> not have be
 <a href="vkCmdSetEvent.html">vkCmdSetEvent</a></p>
 </li>
 <li>
-<p><a id="VUID-vkCmdWaitEvents2-pEvents-03838" href="#VUID-vkCmdWaitEvents2-pEvents-03838"></a> <span class="vuid">VUID-vkCmdWaitEvents2-pEvents-03838</span><br>
+<p><a id="VUID-vkCmdWaitEvents2-pEvents-10788" href="#VUID-vkCmdWaitEvents2-pEvents-10788"></a> <span class="vuid">VUID-vkCmdWaitEvents2-pEvents-10788</span><br>
 
-For any element <span class="eq">i</span> of <code>pEvents</code>, if that event is signaled by
-<a href="vkCmdSetEvent2.html">vkCmdSetEvent2</a>, that command&#8217;s <code>dependencyInfo</code> parameter
-<strong class="purple">must</strong> be exactly equal to the <span class="eq">i</span>th element of
-<code>pDependencyInfos</code></p>
+For any element <span class="eq">i</span> of <code>pEvents</code>,
+if the <code>dependencyFlags</code> member of the <span class="eq">i</span>th element of
+<code>pDependencyInfos</code> does not include
+<code>VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR</code>, and
+if that event is signaled by <a href="vkCmdSetEvent2.html">vkCmdSetEvent2</a>, that command&#8217;s
+<code>dependencyInfo</code> parameter <strong class="purple">must</strong> be exactly equal to the <span class="eq">i</span>th
+element of <code>pDependencyInfos</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdWaitEvents2-pEvents-10789" href="#VUID-vkCmdWaitEvents2-pEvents-10789"></a> <span class="vuid">VUID-vkCmdWaitEvents2-pEvents-10789</span><br>
+
+For any element <span class="eq">i</span> of <code>pEvents</code>, if the <code>dependencyFlags</code>
+member of the <span class="eq">i</span>th element of <code>pDependencyInfos</code> includes
+<code>VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR</code>, that event <strong class="purple">must</strong> be
+signaled by <a href="vkCmdSetEvent2.html">vkCmdSetEvent2</a> with
+<code>VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdWaitEvents2-pEvents-10790" href="#VUID-vkCmdWaitEvents2-pEvents-10790"></a> <span class="vuid">VUID-vkCmdWaitEvents2-pEvents-10790</span><br>
+
+For any element <span class="eq">i</span> of <code>pEvents</code>, if the <code>dependencyFlags</code>
+member of the <span class="eq">i</span>th element of <code>pDependencyInfos</code> includes
+<code>VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR</code>, the union of
+<code>srcStageMask</code> members of all elements of <code>pMemoryBarriers</code>,
+<code>pBufferMemoryBarriers</code>, and <code>pImageMemoryBarriers</code> of the
+<span class="eq">i</span>th element of <code>pDependencyInfos</code> <strong class="purple">must</strong> equal
+<code>pDependencyInfos-&gt;pMemoryBarriers</code>[0].<code>srcStageMask</code> in the
+<a href="vkCmdSetEvent2.html">vkCmdSetEvent2</a> command</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdWaitEvents2-pEvents-03839" href="#VUID-vkCmdWaitEvents2-pEvents-03839"></a> <span class="vuid">VUID-vkCmdWaitEvents2-pEvents-03839</span><br>

@@ -1021,6 +1021,15 @@ element&#8217;s <code>descriptorType</code> <strong class="purple">must</strong>
 <code>VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC</code> or
 <code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC</code></p>
 </li>
+<li>
+<p><a id="VUID-VkDescriptorSetLayoutBindingFlagsCreateInfo-descriptorBindingStorageTensorUpdateAfterBind-09697" href="#VUID-VkDescriptorSetLayoutBindingFlagsCreateInfo-descriptorBindingStorageTensorUpdateAfterBind-09697"></a> <span class="vuid">VUID-VkDescriptorSetLayoutBindingFlagsCreateInfo-descriptorBindingStorageTensorUpdateAfterBind-09697</span><br>
+
+If
+<a href="VkPhysicalDeviceTensorFeaturesARM.html">VkPhysicalDeviceTensorFeaturesARM</a>::<code>descriptorBindingStorageTensorUpdateAfterBind</code>
+is not enabled, all bindings with descriptor type
+<code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> <strong class="purple">must</strong> not use
+<code>VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT</code></p>
+</li>
 </ul>
 </div>
 </div>

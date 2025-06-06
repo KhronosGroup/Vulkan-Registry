@@ -966,6 +966,13 @@ semaphore or from the value of any outstanding semaphore wait or signal
 operation on that semaphore by more than
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxTimelineSemaphoreValueDifference" target="_blank" rel="noopener"><code>maxTimelineSemaphoreValueDifference</code></a></p>
 </li>
+<li>
+<p><a id="VUID-VkBindSparseInfo-pNext-09753" href="#VUID-VkBindSparseInfo-pNext-09753"></a> <span class="vuid">VUID-VkBindSparseInfo-pNext-09753</span><br>
+
+If the <code>pNext</code> chain of this structure includes a
+<a href="VkFrameBoundaryTensorsARM.html">VkFrameBoundaryTensorsARM</a> structure then it <strong class="purple">must</strong> also include a
+<a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a> structure.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -981,7 +988,7 @@ operation on that semaphore by more than
 </li>
 <li>
 <p><a id="VUID-VkBindSparseInfo-pNext-pNext" href="#VUID-VkBindSparseInfo-pNext-pNext"></a> <span class="vuid">VUID-VkBindSparseInfo-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkDeviceGroupBindSparseInfo.html">VkDeviceGroupBindSparseInfo</a>, <a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a>, or <a href="VkTimelineSemaphoreSubmitInfo.html">VkTimelineSemaphoreSubmitInfo</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkDeviceGroupBindSparseInfo.html">VkDeviceGroupBindSparseInfo</a>, <a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a>, <a href="VkFrameBoundaryTensorsARM.html">VkFrameBoundaryTensorsARM</a>, or <a href="VkTimelineSemaphoreSubmitInfo.html">VkTimelineSemaphoreSubmitInfo</a></p>
 </li>
 <li>
 <p><a id="VUID-VkBindSparseInfo-sType-unique" href="#VUID-VkBindSparseInfo-sType-unique"></a> <span class="vuid">VUID-VkBindSparseInfo-sType-unique</span><br>

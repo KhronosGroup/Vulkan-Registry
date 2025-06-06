@@ -864,10 +864,13 @@ is required for this resource.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>To determine the dedicated allocation requirements of a buffer or image
+or tensor
 resource, add a <a href="VkMemoryDedicatedRequirements.html">VkMemoryDedicatedRequirements</a> structure to the
 <code>pNext</code> chain of the <a href="VkMemoryRequirements2.html">VkMemoryRequirements2</a> structure passed as the
 <code>pMemoryRequirements</code> parameter of <a href="vkGetBufferMemoryRequirements2.html">vkGetBufferMemoryRequirements2</a>
-or <a href="vkGetImageMemoryRequirements2.html">vkGetImageMemoryRequirements2</a>, respectively.</p>
+or <a href="vkGetImageMemoryRequirements2.html">vkGetImageMemoryRequirements2</a>,
+or <a href="vkGetTensorMemoryRequirementsARM.html">vkGetTensorMemoryRequirementsARM</a>,
+respectively.</p>
 </div>
 <div class="paragraph">
 <p>Constraints on the values returned for buffer resources are:</p>
@@ -929,6 +932,32 @@ be <code>VK_FALSE</code></p>
 <a href="VkImageCreateInfo.html">VkImageCreateInfo</a>::<code>flags</code> when <code>image</code> was created, then
 both <code>prefersDedicatedAllocation</code> and
 <code>requiresDedicatedAllocation</code> will be <code>VK_FALSE</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Constraints on the values returned for tensor resources are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>requiresDedicatedAllocation</code> <strong class="purple">may</strong> be <code>VK_TRUE</code> if the
+<code>pNext</code> chain of <a href="VkTensorCreateInfoARM.html">VkTensorCreateInfoARM</a> for the call to
+<code>vkCreateTensorARM</code> used to create the tensor being queried included
+a <a href="VkExternalMemoryTensorCreateInfoARM.html">VkExternalMemoryTensorCreateInfoARM</a> structure, and any of the
+handle types specified in
+<a href="VkExternalMemoryTensorCreateInfoARM.html">VkExternalMemoryTensorCreateInfoARM</a>::<code>handleTypes</code> requires
+dedicated allocation, as reported by
+<a href="vkGetPhysicalDeviceExternalTensorPropertiesARM.html">vkGetPhysicalDeviceExternalTensorPropertiesARM</a> in
+<code>VkExternalTensorPropertiesARM</code>::<code>externalMemoryProperties.externalMemoryFeatures</code>.</p>
+</li>
+<li>
+<p><code>requiresDedicatedAllocation</code> will otherwise be <code>VK_FALSE</code>.</p>
+</li>
+<li>
+<p>When the implementation sets <code>requiresDedicatedAllocation</code> to
+<code>VK_TRUE</code>, it <strong class="purple">must</strong> also set <code>prefersDedicatedAllocation</code> to
+<code>VK_TRUE</code>.</p>
 </li>
 </ul>
 </div>

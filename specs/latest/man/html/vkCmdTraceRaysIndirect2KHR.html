@@ -1473,6 +1473,34 @@ transitioned to the
 <code>VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT</code> layout</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdTraceRaysIndirect2KHR-pDescription-09900" href="#VUID-vkCmdTraceRaysIndirect2KHR-pDescription-09900"></a> <span class="vuid">VUID-vkCmdTraceRaysIndirect2KHR-pDescription-09900</span><br>
+
+If a <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> descriptor is accessed as a
+result of this command, then the underlying <a href="VkTensorARM.html">VkTensorARM</a> object
+<strong class="purple">must</strong> have been created with a
+<a href="VkTensorCreateInfoARM.html">VkTensorCreateInfoARM</a>::<code>pDescription</code> whose <code>usage</code> member
+contained <code>VK_TENSOR_USAGE_SHADER_BIT_ARM</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdTraceRaysIndirect2KHR-dimensionCount-09905" href="#VUID-vkCmdTraceRaysIndirect2KHR-dimensionCount-09905"></a> <span class="vuid">VUID-vkCmdTraceRaysIndirect2KHR-dimensionCount-09905</span><br>
+
+If a <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> descriptor is accessed as a
+result of this command, then the <code>Rank</code> of the <code>OpTypeTensorARM</code>
+of the tensor resource variable <strong class="purple">must</strong> be equal to the
+<code>dimensionCount</code> provided via
+<a href="VkTensorCreateInfoARM.html">VkTensorCreateInfoARM</a>::<code>pDescription</code> when creating the
+underlying <a href="VkTensorARM.html">VkTensorARM</a> object</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdTraceRaysIndirect2KHR-OpTypeTensorARM-09906" href="#VUID-vkCmdTraceRaysIndirect2KHR-OpTypeTensorARM-09906"></a> <span class="vuid">VUID-vkCmdTraceRaysIndirect2KHR-OpTypeTensorARM-09906</span><br>
+
+If a <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> descriptor is accessed as a
+result of this command, then the element type of the
+<code>OpTypeTensorARM</code> of the tensor resource variable <strong class="purple">must</strong> be
+<a href="#spirvenv-tensor-formats">compatible</a> with the <a href="VkFormat.html">VkFormat</a> of the
+<a href="VkTensorViewARM.html">VkTensorViewARM</a> used for the access</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdTraceRaysIndirect2KHR-None-03429" href="#VUID-vkCmdTraceRaysIndirect2KHR-None-03429"></a> <span class="vuid">VUID-vkCmdTraceRaysIndirect2KHR-None-03429</span><br>
 
 Any shader group handle referenced by this call <strong class="purple">must</strong> have been queried

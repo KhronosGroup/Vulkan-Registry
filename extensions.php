@@ -58,6 +58,7 @@
     <li> <a href="specs/latest/man/html/VK_KHR_maintenance6.html"> VK_KHR_maintenance6 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_maintenance7.html"> VK_KHR_maintenance7 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_maintenance8.html"> VK_KHR_maintenance8 </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_maintenance9.html"> VK_KHR_maintenance9 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_map_memory2.html"> VK_KHR_map_memory2 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_multiview.html"> VK_KHR_multiview </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_performance_query.html"> VK_KHR_performance_query </a> </li>
@@ -67,7 +68,9 @@
     <li> <a href="specs/latest/man/html/VK_KHR_portability_enumeration.html"> VK_KHR_portability_enumeration </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_portability_subset.html"> VK_KHR_portability_subset </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_present_id.html"> VK_KHR_present_id </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_present_id2.html"> VK_KHR_present_id2 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_present_wait.html"> VK_KHR_present_wait </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_present_wait2.html"> VK_KHR_present_wait2 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_push_descriptor.html"> VK_KHR_push_descriptor </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_ray_query.html"> VK_KHR_ray_query </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_ray_tracing_maintenance1.html"> VK_KHR_ray_tracing_maintenance1 </a> </li>
@@ -104,6 +107,7 @@
     <li> <a href="specs/latest/man/html/VK_KHR_swapchain_mutable_format.html"> VK_KHR_swapchain_mutable_format </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_synchronization2.html"> VK_KHR_synchronization2 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_timeline_semaphore.html"> VK_KHR_timeline_semaphore </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_unified_image_layouts.html"> VK_KHR_unified_image_layouts </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_uniform_buffer_standard_layout.html"> VK_KHR_uniform_buffer_standard_layout </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_variable_pointers.html"> VK_KHR_variable_pointers </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_vertex_attribute_divisor.html"> VK_KHR_vertex_attribute_divisor </a> </li>
@@ -111,6 +115,7 @@
     <li> <a href="specs/latest/man/html/VK_KHR_video_decode_h264.html"> VK_KHR_video_decode_h264 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_video_decode_h265.html"> VK_KHR_video_decode_h265 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_video_decode_queue.html"> VK_KHR_video_decode_queue </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_video_decode_vp9.html"> VK_KHR_video_decode_vp9 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_video_encode_av1.html"> VK_KHR_video_encode_av1 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_video_encode_h264.html"> VK_KHR_video_encode_h264 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_video_encode_h265.html"> VK_KHR_video_encode_h265 </a> </li>
@@ -236,6 +241,7 @@
     <li> <a href="specs/latest/man/html/VK_EXT_shader_atomic_float.html"> VK_EXT_shader_atomic_float </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_shader_atomic_float2.html"> VK_EXT_shader_atomic_float2 </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_shader_demote_to_helper_invocation.html"> VK_EXT_shader_demote_to_helper_invocation </a> </li>
+    <li> <a href="specs/latest/man/html/VK_EXT_shader_float8.html"> VK_EXT_shader_float8 </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_shader_image_atomic_int64.html"> VK_EXT_shader_image_atomic_int64 </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_shader_module_identifier.html"> VK_EXT_shader_module_identifier </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_shader_object.html"> VK_EXT_shader_object </a> </li>
@@ -300,6 +306,7 @@
     <li> <a href="specs/latest/man/html/VK_ARM_scheduling_controls.html"> VK_ARM_scheduling_controls </a> </li>
     <li> <a href="specs/latest/man/html/VK_ARM_shader_core_builtins.html"> VK_ARM_shader_core_builtins </a> </li>
     <li> <a href="specs/latest/man/html/VK_ARM_shader_core_properties.html"> VK_ARM_shader_core_properties </a> </li>
+    <li> <a href="specs/latest/man/html/VK_ARM_tensors.html"> VK_ARM_tensors </a> </li>
     <li> <b>  FUCHSIA Extensions (Google LLC)  </b> </li>
     <li> <a href="specs/latest/man/html/VK_FUCHSIA_buffer_collection.html"> VK_FUCHSIA_buffer_collection </a> </li>
     <li> <a href="specs/latest/man/html/VK_FUCHSIA_external_memory.html"> VK_FUCHSIA_external_memory </a> </li>

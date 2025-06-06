@@ -893,13 +893,25 @@ than the limitations for <code>usage2</code> and <code>flags2</code>, for all va
 </div>
 <div class="paragraph">
 <p>If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-hostImageCopy" target="_blank" rel="noopener"><code>hostImageCopy</code></a> feature is supported,
-<code>usage</code> includes <code>VK_IMAGE_USAGE_SAMPLED_BIT</code>, and <code>flags</code> does
-not include either of <code>VK_IMAGE_CREATE_SPARSE_BINDING_BIT</code>,
+and:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>usage</code> includes <code>VK_IMAGE_USAGE_SAMPLED_BIT</code>, and</p>
+</li>
+<li>
+<p><code>flags</code> does not include any of
+<code>VK_IMAGE_CREATE_SPARSE_BINDING_BIT</code>,
 <code>VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT</code>, or
-<code>VK_IMAGE_CREATE_SPARSE_ALIASED_BIT</code>, then the result of calls to
-<code>vkGetPhysicalDeviceImageFormatProperties</code> with identical parameters
-except for the inclusion of <code>VK_IMAGE_USAGE_HOST_TRANSFER_BIT</code> in
-<code>usage</code> <strong class="purple">must</strong> be identical.</p>
+<code>VK_IMAGE_CREATE_SPARSE_ALIASED_BIT</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Then the result of calls to <code>vkGetPhysicalDeviceImageFormatProperties</code>
+with identical parameters except for the inclusion of
+<code>VK_IMAGE_USAGE_HOST_TRANSFER_BIT</code> in <code>usage</code> <strong class="purple">must</strong> be identical.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">

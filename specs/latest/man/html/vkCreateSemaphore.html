@@ -872,6 +872,10 @@ semaphore object is returned.</p>
 <p><a id="VUID-vkCreateSemaphore-pSemaphore-parameter" href="#VUID-vkCreateSemaphore-pSemaphore-parameter"></a> <span class="vuid">VUID-vkCreateSemaphore-pSemaphore-parameter</span><br>
  <code>pSemaphore</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkSemaphore.html">VkSemaphore</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateSemaphore-device-queuecount" href="#VUID-vkCreateSemaphore-device-queuecount"></a> <span class="vuid">VUID-vkCreateSemaphore-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

@@ -799,7 +799,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h1>VkSubresourceHostMemcpySize(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>VkSubresourceHostMemcpySize - Memory size needed to copy to or from an image on the host with VK_HOST_IMAGE_COPY_MEMCPY</p>
+<p>VkSubresourceHostMemcpySize - Memory size needed to copy to or from an image on the host with VK_HOST_IMAGE_COPY_MEMCPY_BIT</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -811,7 +811,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <div class="paragraph">
 <p>To query the memory size needed to copy to or from an image using
 <a href="vkCopyMemoryToImage.html">vkCopyMemoryToImage</a> or <a href="vkCopyImageToMemory.html">vkCopyImageToMemory</a> when the
-<code>VK_HOST_IMAGE_COPY_MEMCPY</code> flag is specified, add a
+<code>VK_HOST_IMAGE_COPY_MEMCPY_BIT</code> flag is specified, add a
 <a href="VkSubresourceHostMemcpySize.html">VkSubresourceHostMemcpySize</a> structure to the <code>pNext</code> chain of the
 <a href="VkSubresourceLayout2.html">VkSubresourceLayout2</a> structure in a call to
 <a href="vkGetImageSubresourceLayout2.html">vkGetImageSubresourceLayout2</a>.</p>

@@ -1092,6 +1092,14 @@ returned by <a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysical
 profile specified by <code>pVideoProfile</code></p>
 </li>
 <li>
+<p><a id="VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-10793" href="#VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-10793"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-10793</span><br>
+
+If <code>pVideoProfile-&gt;videoCodecOperation</code> is
+<code>VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR</code>, then the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-videoDecodeVP9" target="_blank" rel="noopener"><code>videoDecodeVP9</code></a> feature <strong class="purple">must</strong> be
+enabled</p>
+</li>
+<li>
 <p><a id="VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-08251" href="#VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-08251"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-08251</span><br>
 
 If <code>pVideoProfile-&gt;videoCodecOperation</code> is

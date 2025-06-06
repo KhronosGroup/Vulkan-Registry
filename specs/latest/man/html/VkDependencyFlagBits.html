@@ -825,6 +825,8 @@ typedef enum VkDependencyFlagBits {
     VK_DEPENDENCY_FEEDBACK_LOOP_BIT_EXT = 0x00000008,
   // Provided by VK_KHR_maintenance8
     VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR = 0x00000020,
+  // Provided by VK_KHR_maintenance9
+    VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR = 0x00000040,
   // Provided by VK_KHR_multiview
     VK_DEPENDENCY_VIEW_LOCAL_BIT_KHR = VK_DEPENDENCY_VIEW_LOCAL_BIT,
   // Provided by VK_KHR_device_group
@@ -853,8 +855,8 @@ typedef enum VkDependencyFlagBits {
 </li>
 <li>
 <p><code>VK_DEPENDENCY_FEEDBACK_LOOP_BIT_EXT</code> specifies that the render pass
-will write to and read from the same image using the
-<code>VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT</code> layout.</p>
+will write to and read from the same image with
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-feedbackloop" target="_blank" rel="noopener">feedback loop enabled</a>.</p>
 </li>
 <li>
 <p><code>VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR</code>

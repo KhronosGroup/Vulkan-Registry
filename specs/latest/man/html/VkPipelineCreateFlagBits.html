@@ -896,11 +896,15 @@ typedef enum VkPipelineCreateFlagBits {
     VK_PIPELINE_CREATE_RAY_TRACING_DISPLACEMENT_MICROMAP_BIT_NV = 0x10000000,
 #endif
   // Provided by VK_VERSION_1_1
+  // VK_PIPELINE_CREATE_DISPATCH_BASE is a deprecated alias
     VK_PIPELINE_CREATE_DISPATCH_BASE = VK_PIPELINE_CREATE_DISPATCH_BASE_BIT,
   // Provided by VK_KHR_device_group
     VK_PIPELINE_CREATE_VIEW_INDEX_FROM_DEVICE_INDEX_BIT_KHR = VK_PIPELINE_CREATE_VIEW_INDEX_FROM_DEVICE_INDEX_BIT,
   // Provided by VK_KHR_device_group
-    VK_PIPELINE_CREATE_DISPATCH_BASE_KHR = VK_PIPELINE_CREATE_DISPATCH_BASE,
+    VK_PIPELINE_CREATE_DISPATCH_BASE_BIT_KHR = VK_PIPELINE_CREATE_DISPATCH_BASE_BIT,
+  // Provided by VK_KHR_device_group
+  // VK_PIPELINE_CREATE_DISPATCH_BASE_KHR is a deprecated alias
+    VK_PIPELINE_CREATE_DISPATCH_BASE_KHR = VK_PIPELINE_CREATE_DISPATCH_BASE_BIT,
   // Provided by VK_EXT_fragment_density_map with VK_VERSION_1_3 or VK_KHR_dynamic_rendering
   // VK_PIPELINE_RASTERIZATION_STATE_CREATE_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT is a deprecated alias
     VK_PIPELINE_RASTERIZATION_STATE_CREATE_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT = VK_PIPELINE_CREATE_RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT,
@@ -945,8 +949,8 @@ any shader input variables decorated as <code>ViewIndex</code> will be assigned
 values as if they were decorated as <code>DeviceIndex</code>.</p>
 </li>
 <li>
-<p><code>VK_PIPELINE_CREATE_DISPATCH_BASE</code> specifies that a compute pipeline
-<strong class="purple">can</strong> be used with <a href="vkCmdDispatchBase.html">vkCmdDispatchBase</a> with a non-zero base
+<p><code>VK_PIPELINE_CREATE_DISPATCH_BASE_BIT</code> specifies that a compute
+pipeline <strong class="purple">can</strong> be used with <a href="vkCmdDispatchBase.html">vkCmdDispatchBase</a> with a non-zero base
 workgroup.</p>
 </li>
 <li>
@@ -1090,16 +1094,17 @@ rather than <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspe
 </li>
 <li>
 <p><code>VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</code>
-specifies that the pipeline <strong class="purple">may</strong> be used with an attachment feedback
-loop including color attachments.
+specifies that the pipeline <strong class="purple">may</strong> be used with an attachment
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-feedbackloop" target="_blank" rel="noopener">feedback loop</a> including color attachments.
 It is ignored if
 <code>VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</code> is set in
 <code>pDynamicStates</code>.</p>
 </li>
 <li>
 <p><code>VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</code>
-specifies that the pipeline <strong class="purple">may</strong> be used with an attachment feedback
-loop including depth-stencil attachments.
+specifies that the pipeline <strong class="purple">may</strong> be used with an attachment
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-feedbackloop" target="_blank" rel="noopener">feedback loop</a> including depth-stencil
+attachments.
 It is ignored if
 <code>VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT</code> is set in
 <code>pDynamicStates</code>.</p>

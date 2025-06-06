@@ -875,6 +875,10 @@ function entry point, which <strong class="purple">must</strong> refer to one fu
 <p><a id="VUID-vkCreateCudaModuleNV-pModule-parameter" href="#VUID-vkCreateCudaModuleNV-pModule-parameter"></a> <span class="vuid">VUID-vkCreateCudaModuleNV-pModule-parameter</span><br>
  <code>pModule</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkCudaModuleNV.html">VkCudaModuleNV</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateCudaModuleNV-device-queuecount" href="#VUID-vkCreateCudaModuleNV-device-queuecount"></a> <span class="vuid">VUID-vkCreateCudaModuleNV-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

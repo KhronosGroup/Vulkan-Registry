@@ -1461,6 +1461,45 @@ If any element of <code>pSetLayouts</code> was created with the
 all elements of <code>pSetLayouts</code> <strong class="purple">must</strong> have been created with the
 <code>VK_DESCRIPTOR_SET_LAYOUT_CREATE_DESCRIPTOR_BUFFER_BIT_EXT</code> bit set</p>
 </li>
+<li>
+<p><a id="VUID-VkPipelineLayoutCreateInfo-pSetLayouts-09698" href="#VUID-VkPipelineLayoutCreateInfo-pSetLayouts-09698"></a> <span class="vuid">VUID-VkPipelineLayoutCreateInfo-pSetLayouts-09698</span><br>
+
+The total number of descriptors in descriptor set layouts
+created without the
+<code>VK_DESCRIPTOR_SET_LAYOUT_CREATE_UPDATE_AFTER_BIND_POOL_BIT</code> bit set
+with a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code>
+accessible to any given shader stage across all elements of
+<code>pSetLayouts</code> <strong class="purple">must</strong> be less than or equal to
+<a href="VkPhysicalDeviceTensorPropertiesARM.html">VkPhysicalDeviceTensorPropertiesARM</a>::<code>maxPerStageDescriptorSetStorageTensors</code></p>
+</li>
+<li>
+<p><a id="VUID-VkPipelineLayoutCreateInfo-pSetLayouts-09699" href="#VUID-VkPipelineLayoutCreateInfo-pSetLayouts-09699"></a> <span class="vuid">VUID-VkPipelineLayoutCreateInfo-pSetLayouts-09699</span><br>
+
+The total number of descriptors in descriptor set layouts
+created without the
+<code>VK_DESCRIPTOR_SET_LAYOUT_CREATE_UPDATE_AFTER_BIND_POOL_BIT</code> bit set
+with a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code>
+accessible across all shader stages and across all elements of
+<code>pSetLayouts</code> <strong class="purple">must</strong> be less than or equal to
+<a href="VkPhysicalDeviceTensorPropertiesARM.html">VkPhysicalDeviceTensorPropertiesARM</a>::<code>maxDescriptorSetStorageTensors</code></p>
+</li>
+<li>
+<p><a id="VUID-VkPipelineLayoutCreateInfo-pSetLayouts-09878" href="#VUID-VkPipelineLayoutCreateInfo-pSetLayouts-09878"></a> <span class="vuid">VUID-VkPipelineLayoutCreateInfo-pSetLayouts-09878</span><br>
+
+The total number of descriptors of the type
+<code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> accessible across all shader stages
+and across all elements of <code>pSetLayouts</code> <strong class="purple">must</strong> be less than or equal
+to
+<a href="VkPhysicalDeviceTensorPropertiesARM.html">VkPhysicalDeviceTensorPropertiesARM</a>::<code>maxDescriptorSetUpdateAfterBindStorageTensors</code></p>
+</li>
+<li>
+<p><a id="VUID-VkPipelineLayoutCreateInfo-descriptorType-09879" href="#VUID-VkPipelineLayoutCreateInfo-descriptorType-09879"></a> <span class="vuid">VUID-VkPipelineLayoutCreateInfo-descriptorType-09879</span><br>
+
+The total number of descriptors with a <code>descriptorType</code> of
+<code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> accessible to any given shader stage
+across all elements of <code>pSetLayouts</code> <strong class="purple">must</strong> be less than or equal to
+<code>VkPhysicalDeviceTensorPropertiesARM</code>::<code>maxPerStageDescriptorUpdateAfterBindStorageTensors</code></p>
+</li>
 </ul>
 </div>
 </div>

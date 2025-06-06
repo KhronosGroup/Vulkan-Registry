@@ -953,7 +953,7 @@ structure.</p>
 </div>
 <div class="paragraph">
 <p>An application adds
-<code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_KHR</code> to the
+<code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_BIT_KHR</code> to the
 acceleration structure at build time.
 Then, if the hit is a triangle geometry, the shader (any-hit or closest hit
 for ray pipelines or using ray query) <strong class="purple">can</strong> fetch the three, three-component
@@ -995,6 +995,9 @@ vertex positions in object space, of the triangle which was hit.</p>
 <p>Extending <a href="VkBuildAccelerationStructureFlagBitsKHR.html">VkBuildAccelerationStructureFlagBitsKHR</a>:</p>
 <div class="ulist">
 <ul>
+<li>
+<p><code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_BIT_KHR</code></p>
+</li>
 <li>
 <p><code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_KHR</code></p>
 </li>

@@ -888,9 +888,15 @@ transfers</a> and <a href="https://registry.khronos.org/vulkan/specs/latest/html
 transitions</a>.</p>
 </div>
 <div class="paragraph">
-<p>Future <a href="vkCmdWaitEvents2.html">vkCmdWaitEvents2</a> commands rely on all values of each element in
+<p>If <code>VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR</code> is not set in
+<code>pDependencyInfo-&gt;dependencyFlags</code>, future
+<a href="vkCmdWaitEvents2.html">vkCmdWaitEvents2</a> commands rely on all values of each element in
 <code>pDependencyInfo</code> matching exactly with those used to signal the
 corresponding event.
+If <code>VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR</code> is set, <code>vkCmdSetEvent2</code>
+<strong class="purple">must</strong> only include the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-masks" target="_blank" rel="noopener">source stage
+mask</a> of the first synchronization scope in
+<code>pDependencyInfo-&gt;pMemoryBarriers</code>[0].<code>srcStageMask</code>.
 <a href="vkCmdWaitEvents.html">vkCmdWaitEvents</a> <strong class="purple">must</strong> not be used to wait on the result of a signal
 operation defined by <code>vkCmdSetEvent2</code>.</p>
 </div>
@@ -932,7 +938,8 @@ be enabled</p>
 <li>
 <p><a id="VUID-vkCmdSetEvent2-dependencyFlags-03825" href="#VUID-vkCmdSetEvent2-dependencyFlags-03825"></a> <span class="vuid">VUID-vkCmdSetEvent2-dependencyFlags-03825</span><br>
 
-The <code>dependencyFlags</code> member of <code>pDependencyInfo</code> <strong class="purple">must</strong> be <code>0</code></p>
+    The <code>dependencyFlags</code> member of <code>pDependencyInfo</code> <strong class="purple">must</strong> be <code>0</code>
+or <code>VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdSetEvent2-srcStageMask-09391" href="#VUID-vkCmdSetEvent2-srcStageMask-09391"></a> <span class="vuid">VUID-vkCmdSetEvent2-srcStageMask-09391</span><br>
@@ -973,6 +980,29 @@ The <code>dstStageMask</code> member of any element of the
 <code>pImageMemoryBarriers</code> members of <code>pDependencyInfo</code> <strong class="purple">must</strong> only
 include pipeline stages valid for the queue family that was used to
 create the command pool that <code>commandBuffer</code> was allocated from</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdSetEvent2-dependencyFlags-10785" href="#VUID-vkCmdSetEvent2-dependencyFlags-10785"></a> <span class="vuid">VUID-vkCmdSetEvent2-dependencyFlags-10785</span><br>
+
+If the <code>dependencyFlags</code> member of <code>pDependencyInfo</code> includes
+<code>VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR</code>, the
+<code>bufferMemoryBarrierCount</code> and <code>imageMemoryBarrierCount</code> members
+of <code>pDependencyInfo</code> <strong class="purple">must</strong> be <code>0</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdSetEvent2-dependencyFlags-10786" href="#VUID-vkCmdSetEvent2-dependencyFlags-10786"></a> <span class="vuid">VUID-vkCmdSetEvent2-dependencyFlags-10786</span><br>
+
+If the <code>dependencyFlags</code> member of <code>pDependencyInfo</code> includes
+<code>VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR</code>, the
+<code>memoryBarrierCount</code> member of <code>pDependencyInfo</code> <strong class="purple">must</strong> be <code>1</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdSetEvent2-dependencyFlags-10787" href="#VUID-vkCmdSetEvent2-dependencyFlags-10787"></a> <span class="vuid">VUID-vkCmdSetEvent2-dependencyFlags-10787</span><br>
+
+If the <code>dependencyFlags</code> member of <code>pDependencyInfo</code> includes
+<code>VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR</code>, the <code>srcAccessMask</code>,
+<code>dstStageMask</code>, and <code>dstAccessMask</code> members of
+<code>pDependencyInfo-&gt;pMemoryBarriers</code>[0] <strong class="purple">must</strong> be <code>0</code></p>
 </li>
 </ul>
 </div>

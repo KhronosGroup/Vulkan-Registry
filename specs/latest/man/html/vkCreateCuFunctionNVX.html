@@ -849,6 +849,10 @@ VkResult vkCreateCuFunctionNVX(
 <p><a id="VUID-vkCreateCuFunctionNVX-pFunction-parameter" href="#VUID-vkCreateCuFunctionNVX-pFunction-parameter"></a> <span class="vuid">VUID-vkCreateCuFunctionNVX-pFunction-parameter</span><br>
  <code>pFunction</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkCuFunctionNVX.html">VkCuFunctionNVX</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateCuFunctionNVX-device-queuecount" href="#VUID-vkCreateCuFunctionNVX-device-queuecount"></a> <span class="vuid">VUID-vkCreateCuFunctionNVX-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

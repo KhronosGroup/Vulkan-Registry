@@ -871,6 +871,10 @@ object is returned.</p>
 <p><a id="VUID-vkCreateFence-pFence-parameter" href="#VUID-vkCreateFence-pFence-parameter"></a> <span class="vuid">VUID-vkCreateFence-pFence-parameter</span><br>
  <code>pFence</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkFence.html">VkFence</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateFence-device-queuecount" href="#VUID-vkCreateFence-device-queuecount"></a> <span class="vuid">VUID-vkCreateFence-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

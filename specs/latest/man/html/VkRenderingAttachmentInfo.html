@@ -898,7 +898,7 @@ for each device
 specified in <a href="VkRenderingInfo.html">VkRenderingInfo</a>.
 If <code>imageView</code> is <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>,
 and <code>resolveMode</code> is not
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>,
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>,
 other members of this structure are ignored; writes to this attachment will
 be discarded, and no <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-load-operations" target="_blank" rel="noopener">load</a>,
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-store-operations" target="_blank" rel="noopener">store</a>, or <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-resolve-operations" target="_blank" rel="noopener">multisample resolve</a> operations will be performed.</p>
@@ -911,7 +911,7 @@ If <code>resolveMode</code> is not <code>VK_RESOLVE_MODE_NONE</code>, and
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-resolve-operations" target="_blank" rel="noopener">render pass multisample resolve operation</a>
 is defined for the attachment subresource.
 If <code>resolveMode</code> is
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>, and the
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>, and the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-nullColorAttachmentWithExternalFormatResolve" target="_blank" rel="noopener"><code>nullColorAttachmentWithExternalFormatResolve</code></a> limit is <code>VK_TRUE</code>,
 values are only undefined once <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-load-operations" target="_blank" rel="noopener">load
 operations</a> have completed.</p>
@@ -948,7 +948,7 @@ for access by a resuming render pass instance.</p>
 <div class="paragraph">
 <p>If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-nullColorAttachmentWithExternalFormatResolve" target="_blank" rel="noopener"><code>nullColorAttachmentWithExternalFormatResolve</code></a> limit is <code>VK_TRUE</code>,
 and <code>resolveMode</code> is
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>, values in the
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>, values in the
 color attachment will be loaded from the resolve attachment at the start of
 rendering, and <strong class="purple">may</strong> also be reloaded any time after a resolve occurs or the
 resolve attachment is written to; if this occurs it <strong class="purple">must</strong> happen-before any
@@ -1128,6 +1128,30 @@ not <code>VK_RESOLVE_MODE_NONE</code>, <code>resolveImageLayout</code> <strong c
 <code>VK_IMAGE_LAYOUT_FRAGMENT_SHADING_RATE_ATTACHMENT_OPTIMAL_KHR</code></p>
 </li>
 <li>
+<p><a id="VUID-VkRenderingAttachmentInfo-imageView-10780" href="#VUID-VkRenderingAttachmentInfo-imageView-10780"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-imageView-10780</span><br>
+
+If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-feedbackloop" target="_blank" rel="noopener">feedback loop is enabled</a> for the
+attachment identified by <code>imageView</code>, then <code>imageView</code> <strong class="purple">must</strong>
+have been created with a <code>usage</code> value including
+<code>VK_IMAGE_USAGE_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</code>, either
+<code>VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT</code> or
+<code>VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT</code>, and either
+<code>VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT</code> or
+<code>VK_IMAGE_USAGE_SAMPLED_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderingAttachmentInfo-resolveImageView-10781" href="#VUID-VkRenderingAttachmentInfo-resolveImageView-10781"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-resolveImageView-10781</span><br>
+
+If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-feedbackloop" target="_blank" rel="noopener">feedback loop is enabled</a> for the
+attachment identified by <code>resolveImageView</code>, then
+<code>resolveImageView</code> <strong class="purple">must</strong> have been created with a <code>usage</code> value
+including <code>VK_IMAGE_USAGE_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</code>, either
+<code>VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT</code> or
+<code>VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT</code>, and either
+<code>VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT</code> or
+<code>VK_IMAGE_USAGE_SAMPLED_BIT</code></p>
+</li>
+<li>
 <p><a id="VUID-VkRenderingAttachmentInfo-imageView-06145" href="#VUID-VkRenderingAttachmentInfo-imageView-06145"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-imageView-06145</span><br>
 
 If <code>imageView</code> is not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, <code>imageLayout</code> <strong class="purple">must</strong>
@@ -1145,13 +1169,13 @@ not <code>VK_RESOLVE_MODE_NONE</code>, <code>resolveImageLayout</code> <strong c
 
 If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-externalFormatResolve" target="_blank" rel="noopener"><code>externalFormatResolve</code></a>
 feature is not enabled, <code>resolveMode</code> <strong class="purple">must</strong> not be
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code></p>
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code></p>
 </li>
 <li>
 <p><a id="VUID-VkRenderingAttachmentInfo-resolveMode-09324" href="#VUID-VkRenderingAttachmentInfo-resolveMode-09324"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-resolveMode-09324</span><br>
 
 If <code>resolveMode</code> is
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>,
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>,
 <code>resolveImageView</code> <strong class="purple">must</strong> be a valid image view</p>
 </li>
 <li>
@@ -1159,7 +1183,7 @@ If <code>resolveMode</code> is
 
 If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-nullColorAttachmentWithExternalFormatResolve" target="_blank" rel="noopener"><code>nullColorAttachmentWithExternalFormatResolve</code></a> property is
 <code>VK_TRUE</code> and <code>resolveMode</code> is
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>,
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>,
 <code>resolveImageView</code> <strong class="purple">must</strong> have been created with an image with a
 <code>samples</code> value of <code>VK_SAMPLE_COUNT_1_BIT</code></p>
 </li>
@@ -1167,7 +1191,7 @@ If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.htm
 <p><a id="VUID-VkRenderingAttachmentInfo-resolveMode-09326" href="#VUID-VkRenderingAttachmentInfo-resolveMode-09326"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-resolveMode-09326</span><br>
 
 If <code>resolveMode</code> is
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>,
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>,
 <code>resolveImageView</code> <strong class="purple">must</strong> have been created with an external format
 specified by <a href="VkExternalFormatANDROID.html">VkExternalFormatANDROID</a></p>
 </li>
@@ -1175,7 +1199,7 @@ specified by <a href="VkExternalFormatANDROID.html">VkExternalFormatANDROID</a><
 <p><a id="VUID-VkRenderingAttachmentInfo-resolveMode-09327" href="#VUID-VkRenderingAttachmentInfo-resolveMode-09327"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-resolveMode-09327</span><br>
 
 If <code>resolveMode</code> is
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>,
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>,
 <code>resolveImageView</code> <strong class="purple">must</strong> have been created with a
 <code>subresourceRange.layerCount</code> of <code>1</code></p>
 </li>
@@ -1183,7 +1207,7 @@ If <code>resolveMode</code> is
 <p><a id="VUID-VkRenderingAttachmentInfo-resolveMode-09328" href="#VUID-VkRenderingAttachmentInfo-resolveMode-09328"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-resolveMode-09328</span><br>
 
 If <code>resolveMode</code> is
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code> and
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code> and
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-nullColorAttachmentWithExternalFormatResolve" target="_blank" rel="noopener"><code>nullColorAttachmentWithExternalFormatResolve</code></a> is <code>VK_TRUE</code>,
 <code>imageView</code> <strong class="purple">must</strong> be <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a></p>
 </li>
@@ -1191,7 +1215,7 @@ If <code>resolveMode</code> is
 <p><a id="VUID-VkRenderingAttachmentInfo-resolveMode-09329" href="#VUID-VkRenderingAttachmentInfo-resolveMode-09329"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-resolveMode-09329</span><br>
 
 If <code>resolveMode</code> is
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code> and
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code> and
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-nullColorAttachmentWithExternalFormatResolve" target="_blank" rel="noopener"><code>nullColorAttachmentWithExternalFormatResolve</code></a> is <code>VK_FALSE</code>,
 <code>imageView</code> <strong class="purple">must</strong> be a valid <a href="VkImageView.html">VkImageView</a></p>
 </li>
@@ -1199,7 +1223,7 @@ If <code>resolveMode</code> is
 <p><a id="VUID-VkRenderingAttachmentInfo-resolveMode-09330" href="#VUID-VkRenderingAttachmentInfo-resolveMode-09330"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-resolveMode-09330</span><br>
 
 If <code>resolveMode</code> is
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code> and
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code> and
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-nullColorAttachmentWithExternalFormatResolve" target="_blank" rel="noopener"><code>nullColorAttachmentWithExternalFormatResolve</code></a> is <code>VK_FALSE</code>,
 <code>imageView</code> <strong class="purple">must</strong> have a format equal to the value of
 <a href="VkAndroidHardwareBufferFormatResolvePropertiesANDROID.html">VkAndroidHardwareBufferFormatResolvePropertiesANDROID</a>::<code>colorAttachmentFormat</code>
@@ -1230,7 +1254,11 @@ from a <code>VkMemoryHeap</code> with the
 </li>
 <li>
 <p><a id="VUID-VkRenderingAttachmentInfo-pNext-pNext" href="#VUID-VkRenderingAttachmentInfo-pNext-pNext"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-pNext-pNext</span><br>
- <code>pNext</code> <strong class="purple">must</strong> be <code>NULL</code></p>
+ <code>pNext</code> <strong class="purple">must</strong> be <code>NULL</code> or a pointer to a valid instance of <a href="VkAttachmentFeedbackLoopInfoEXT.html">VkAttachmentFeedbackLoopInfoEXT</a></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderingAttachmentInfo-sType-unique" href="#VUID-VkRenderingAttachmentInfo-sType-unique"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-sType-unique</span><br>
+ The <code>sType</code> value of each structure in the <code>pNext</code> chain <strong class="purple">must</strong> be unique</p>
 </li>
 <li>
 <p><a id="VUID-VkRenderingAttachmentInfo-imageView-parameter" href="#VUID-VkRenderingAttachmentInfo-imageView-parameter"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-imageView-parameter</span><br>

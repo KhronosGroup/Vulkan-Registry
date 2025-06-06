@@ -998,7 +998,8 @@ are always centered at half-integer coordinates)</p>
 
 Any variable in the <code>UniformConstant</code> <code>Storage</code> <code>Class</code> <strong class="purple">must</strong> be typed
 as either <code>OpTypeImage</code>, <code>OpTypeSampler</code>, <code>OpTypeSampledImage</code>,
-<code>OpTypeAccelerationStructureKHR</code>, or an array of one of these types</p>
+<code>OpTypeAccelerationStructureKHR</code>, <code>OpTypeTensorARM</code> or an array of
+one of these types</p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-Uniform-06807" href="#VUID-StandaloneSpirv-Uniform-06807"></a> <span class="vuid">VUID-StandaloneSpirv-Uniform-06807</span><br>
@@ -1076,8 +1077,9 @@ The <span class="eq">(u,v)</span> coordinates used for a <code>SubpassData</code
 <p><a id="VUID-StandaloneSpirv-OpTypeImage-06924" href="#VUID-StandaloneSpirv-OpTypeImage-06924"></a> <span class="vuid">VUID-StandaloneSpirv-OpTypeImage-06924</span><br>
 
 Objects of types <code>OpTypeImage</code>, <code>OpTypeSampler</code>,
-<code>OpTypeSampledImage</code>, <code>OpTypeAccelerationStructureKHR</code>, and arrays
-of these types <strong class="purple">must</strong> not be stored to or modified</p>
+<code>OpTypeSampledImage</code>, <code>OpTypeAccelerationStructureKHR</code>,
+<code>OpTypeTensorARM</code>, and arrays of these types <strong class="purple">must</strong> not be stored to
+or modified</p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-Uniform-06925" href="#VUID-StandaloneSpirv-Uniform-06925"></a> <span class="vuid">VUID-StandaloneSpirv-Uniform-06925</span><br>
@@ -1700,14 +1702,6 @@ The <code>Result</code> <code>Type</code> operand of any <code>OpImageRead</code
 <code>OpImageSparseRead</code> instruction <strong class="purple">must</strong> be a vector of four components</p>
 </li>
 <li>
-<p><a id="VUID-StandaloneSpirv-Base-04781" href="#VUID-StandaloneSpirv-Base-04781"></a> <span class="vuid">VUID-StandaloneSpirv-Base-04781</span><br>
-
-The <code>Base</code> operand of any <code>OpBitCount</code>, <code>OpBitReverse</code>,
-<code>OpBitFieldInsert</code>, <code>OpBitFieldSExtract</code>, or
-<code>OpBitFieldUExtract</code> instruction <strong class="purple">must</strong> be a 32-bit integer scalar or
-a vector of 32-bit integers</p>
-</li>
-<li>
 <p><a id="VUID-StandaloneSpirv-PushConstant-06675" href="#VUID-StandaloneSpirv-PushConstant-06675"></a> <span class="vuid">VUID-StandaloneSpirv-PushConstant-06675</span><br>
 
 Any variable in the <code>PushConstant</code> or <code>StorageBuffer</code> storage
@@ -1978,6 +1972,13 @@ Any variable in the <code>TileAttachmentQCOM</code> <code>Storage</code> <code>C
 
 An OpTypeImage variables in the <code>TileAttachmentQCOM</code> <code>Storage</code>
 <code>Class</code> <strong class="purple">must</strong> not be consumed by an <code>OpImageQuery*</code> instruction</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-OpTypeFloat-10823" href="#VUID-StandaloneSpirv-OpTypeFloat-10823"></a> <span class="vuid">VUID-StandaloneSpirv-OpTypeFloat-10823</span><br>
+
+Variables with a type of <code>OpTypeFloat</code> and an encoding of
+<code>Float8E4M3EXT</code> or <code>Float8E5M2EXT</code> <strong class="purple">must</strong> not be declared with a
+<code>Storage</code> <code>Class</code> of <code>Input</code> or <code>Output</code></p>
 </li>
 </ul>
 </div>

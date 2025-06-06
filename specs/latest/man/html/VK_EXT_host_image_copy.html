@@ -941,7 +941,8 @@ on the host.</p>
 now possible to transition a new image to <code>VK_IMAGE_LAYOUT_GENERAL</code> or
 other host-copyable layouts via <a href="vkTransitionImageLayoutEXT.html">vkTransitionImageLayoutEXT</a>.
 Additionally, it is possible to perform copies that preserve the swizzling
-layout of the image by using the <code>VK_HOST_IMAGE_COPY_MEMCPY_EXT</code> flag.
+layout of the image by using the <code>VK_HOST_IMAGE_COPY_MEMCPY_BIT_EXT</code>
+flag.
 In that case, the memory size needed for copies to or from a buffer can be
 retrieved by chaining <a href="VkSubresourceHostMemcpySizeEXT.html">VkSubresourceHostMemcpySizeEXT</a> to <code>pLayout</code>
 in <a href="vkGetImageSubresourceLayout2EXT.html">vkGetImageSubresourceLayout2EXT</a>.</p>
@@ -1094,6 +1095,9 @@ in <a href="vkGetImageSubresourceLayout2EXT.html">vkGetImageSubresourceLayout2EX
 <p>Extending <a href="VkHostImageCopyFlagBits.html">VkHostImageCopyFlagBits</a>:</p>
 <div class="ulist">
 <ul>
+<li>
+<p><code>VK_HOST_IMAGE_COPY_MEMCPY_BIT_EXT</code></p>
+</li>
 <li>
 <p><code>VK_HOST_IMAGE_COPY_MEMCPY_EXT</code></p>
 </li>

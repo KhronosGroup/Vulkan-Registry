@@ -864,6 +864,8 @@ typedef enum VkImageLayout {
     VK_IMAGE_LAYOUT_VIDEO_ENCODE_DPB_KHR = 1000299002,
   // Provided by VK_EXT_attachment_feedback_loop_layout
     VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT = 1000339000,
+  // Provided by VK_ARM_tensors
+    VK_IMAGE_LAYOUT_TENSOR_ALIASING_ARM = 1000460000,
   // Provided by VK_KHR_video_encode_quantization_map
     VK_IMAGE_LAYOUT_VIDEO_ENCODE_QUANTIZATION_MAP_KHR = 1000553000,
   // Provided by VK_EXT_zero_initialize_device_memory
@@ -1093,9 +1095,9 @@ the <code>VK_IMAGE_USAGE_VIDEO_ENCODE_DPB_BIT_KHR</code> usage bit enabled.</p>
 </li>
 <li>
 <p><code>VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT</code> <strong class="purple">must</strong> only be
-used as either a color attachment or depth/stencil attachment in a
-<code>VkFramebuffer</code> and/or read-only access in a shader as a sampled
-image, combined image/sampler, or input attachment.
+used as either a color attachment or depth/stencil attachment and/or
+read-only access in a shader as a sampled image, combined image/sampler,
+or input attachment.
 This layout is valid only for image subresources of images created with
 the <code>VK_IMAGE_USAGE_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</code> usage bit
 enabled and either the <code>VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT</code> or
@@ -1122,6 +1124,16 @@ the <code>VK_IMAGE_USAGE_VIDEO_ENCODE_QUANTIZATION_DELTA_MAP_BIT_KHR</code> or
 <code>VK_IMAGE_USAGE_VIDEO_ENCODE_EMPHASIS_MAP_BIT_KHR</code> usage bit
 enabled.</p>
 </li>
+<li>
+<p><code>VK_IMAGE_LAYOUT_TENSOR_ALIASING_ARM</code> specifies the layout that an
+image created with <code>VK_IMAGE_TILING_OPTIMAL</code> <strong class="purple">must</strong> be in for it and
+a tensor bound to the same aliased range of memory to consistently
+interpret the data in memory.
+See <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-memory-aliasing" class="bare" target="_blank" rel="noopener">https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-memory-aliasing</a> for a complete set of rules for
+tensor/image aliasing.
+This layout is valid only for image subresources of images created with
+<code>VK_IMAGE_USAGE_TENSOR_ALIASING_BIT_ARM</code>.</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -1137,6 +1149,12 @@ For use as a framebuffer attachment, this is a member in the substructures
 of the <a href="VkRenderPassCreateInfo.html">VkRenderPassCreateInfo</a> (see <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass" target="_blank" rel="noopener">Render Pass</a>).
 For use in a descriptor set, this is a member in the
 <code>VkDescriptorImageInfo</code> structure (see <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-updates" class="bare" target="_blank" rel="noopener">https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-updates</a>).</p>
+</div>
+<div class="paragraph">
+<p>If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayouts" target="_blank" rel="noopener"><code>unifiedImageLayouts</code></a> feature
+is <code>VK_TRUE</code>, the <code>VK_IMAGE_LAYOUT_GENERAL</code> image layout <strong class="purple">may</strong> be
+used in place of the other layouts where allowed with no loss of
+performance.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1156,22 +1174,29 @@ Some examples include:</p>
 <p><code>VK_IMAGE_LAYOUT_PRESENT_SRC_KHR</code></p>
 </li>
 <li>
-<p><code>VK_IMAGE_LAYOUT_VIDEO_DECODE_SRC_KHR</code></p>
+<p><code>VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR</code></p>
 </li>
 <li>
-<p><code>VK_IMAGE_LAYOUT_VIDEO_DECODE_DST_KHR</code></p>
+<p><code>VK_IMAGE_LAYOUT_VIDEO_DECODE_SRC_KHR</code>,
+<code>VK_IMAGE_LAYOUT_VIDEO_DECODE_DST_KHR</code>, and
+<code>VK_IMAGE_LAYOUT_VIDEO_DECODE_DPB_KHR</code>
+without the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a>
+feature</p>
 </li>
 <li>
-<p><code>VK_IMAGE_LAYOUT_VIDEO_DECODE_DPB_KHR</code></p>
+<p><code>VK_IMAGE_LAYOUT_VIDEO_ENCODE_SRC_KHR</code>,
+<code>VK_IMAGE_LAYOUT_VIDEO_ENCODE_DST_KHR</code>, and
+<code>VK_IMAGE_LAYOUT_VIDEO_ENCODE_DPB_KHR</code>
+without the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a>
+feature</p>
 </li>
 <li>
-<p><code>VK_IMAGE_LAYOUT_VIDEO_ENCODE_SRC_KHR</code></p>
-</li>
-<li>
-<p><code>VK_IMAGE_LAYOUT_VIDEO_ENCODE_DST_KHR</code></p>
-</li>
-<li>
-<p><code>VK_IMAGE_LAYOUT_VIDEO_ENCODE_DPB_KHR</code></p>
+<p><code>VK_IMAGE_LAYOUT_VIDEO_ENCODE_QUANTIZATION_MAP_KHR</code>
+without the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a>
+feature</p>
 </li>
 </ul>
 </div>
@@ -1193,9 +1218,9 @@ in all situations.
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#common-render-pass-data-races" target="_blank" rel="noopener">Common Render Pass Data Races</a> outlines
 some situations where data races are unavoidable.
 For example, when a subresource is used as both an attachment and a sampled
-image (i.e., not an input attachment),
-<code>VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT</code> adds extra
-guarantees which <code>VK_IMAGE_LAYOUT_GENERAL</code> does not.</p>
+image (i.e., not an input attachment), <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-feedbackloop" target="_blank" rel="noopener">enabling
+feedback loop</a> adds extra guarantees which <code>VK_IMAGE_LAYOUT_GENERAL</code>
+alone does not.</p>
 </div>
 </td>
 </tr>

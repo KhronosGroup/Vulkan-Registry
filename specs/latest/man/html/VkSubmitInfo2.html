@@ -985,6 +985,13 @@ bound, any pipelines bound in the render pass instance that resumes it,
 or any subsequent render pass instances that resume from that one and so
 on, <strong class="purple">must</strong> use the same sample locations</p>
 </li>
+<li>
+<p><a id="VUID-VkSubmitInfo2-pNext-09682" href="#VUID-VkSubmitInfo2-pNext-09682"></a> <span class="vuid">VUID-VkSubmitInfo2-pNext-09682</span><br>
+
+If the <code>pNext</code> chain of this structure includes a
+<a href="VkFrameBoundaryTensorsARM.html">VkFrameBoundaryTensorsARM</a> structure then it <strong class="purple">must</strong> also include a
+<a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a> structure.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -1000,7 +1007,7 @@ on, <strong class="purple">must</strong> use the same sample locations</p>
 </li>
 <li>
 <p><a id="VUID-VkSubmitInfo2-pNext-pNext" href="#VUID-VkSubmitInfo2-pNext-pNext"></a> <span class="vuid">VUID-VkSubmitInfo2-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a>, <a href="VkLatencySubmissionPresentIdNV.html">VkLatencySubmissionPresentIdNV</a>, <a href="VkPerformanceQuerySubmitInfoKHR.html">VkPerformanceQuerySubmitInfoKHR</a>, <a href="VkWin32KeyedMutexAcquireReleaseInfoKHR.html">VkWin32KeyedMutexAcquireReleaseInfoKHR</a>, or <a href="VkWin32KeyedMutexAcquireReleaseInfoNV.html">VkWin32KeyedMutexAcquireReleaseInfoNV</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a>, <a href="VkFrameBoundaryTensorsARM.html">VkFrameBoundaryTensorsARM</a>, <a href="VkLatencySubmissionPresentIdNV.html">VkLatencySubmissionPresentIdNV</a>, <a href="VkPerformanceQuerySubmitInfoKHR.html">VkPerformanceQuerySubmitInfoKHR</a>, <a href="VkWin32KeyedMutexAcquireReleaseInfoKHR.html">VkWin32KeyedMutexAcquireReleaseInfoKHR</a>, or <a href="VkWin32KeyedMutexAcquireReleaseInfoNV.html">VkWin32KeyedMutexAcquireReleaseInfoNV</a></p>
 </li>
 <li>
 <p><a id="VUID-VkSubmitInfo2-sType-unique" href="#VUID-VkSubmitInfo2-sType-unique"></a> <span class="vuid">VUID-VkSubmitInfo2-sType-unique</span><br>

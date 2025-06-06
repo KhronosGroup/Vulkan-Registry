@@ -1321,6 +1321,10 @@ not required to report the error in any specific set of cases.</p>
 <p><a id="VUID-vkCreateVideoSessionParametersKHR-pVideoSessionParameters-parameter" href="#VUID-vkCreateVideoSessionParametersKHR-pVideoSessionParameters-parameter"></a> <span class="vuid">VUID-vkCreateVideoSessionParametersKHR-pVideoSessionParameters-parameter</span><br>
  <code>pVideoSessionParameters</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkVideoSessionParametersKHR.html">VkVideoSessionParametersKHR</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateVideoSessionParametersKHR-device-queuecount" href="#VUID-vkCreateVideoSessionParametersKHR-device-queuecount"></a> <span class="vuid">VUID-vkCreateVideoSessionParametersKHR-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

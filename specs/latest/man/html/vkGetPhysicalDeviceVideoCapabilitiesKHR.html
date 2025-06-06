@@ -883,6 +883,14 @@ chain of <code>pCapabilities</code> <strong class="purple">must</strong> include
 <a href="VkVideoDecodeH265CapabilitiesKHR.html">VkVideoDecodeH265CapabilitiesKHR</a> structure</p>
 </li>
 <li>
+<p><a id="VUID-vkGetPhysicalDeviceVideoCapabilitiesKHR-pVideoProfile-10792" href="#VUID-vkGetPhysicalDeviceVideoCapabilitiesKHR-pVideoProfile-10792"></a> <span class="vuid">VUID-vkGetPhysicalDeviceVideoCapabilitiesKHR-pVideoProfile-10792</span><br>
+
+If <code>pVideoProfile-&gt;videoCodecOperation</code> is
+<code>VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR</code>, then the <code>pNext</code>
+chain of <code>pCapabilities</code> <strong class="purple">must</strong> include a
+<a href="VkVideoDecodeVP9CapabilitiesKHR.html">VkVideoDecodeVP9CapabilitiesKHR</a> structure</p>
+</li>
+<li>
 <p><a id="VUID-vkGetPhysicalDeviceVideoCapabilitiesKHR-pVideoProfile-09257" href="#VUID-vkGetPhysicalDeviceVideoCapabilitiesKHR-pVideoProfile-09257"></a> <span class="vuid">VUID-vkGetPhysicalDeviceVideoCapabilitiesKHR-pVideoProfile-09257</span><br>
 
 If <code>pVideoProfile-&gt;videoCodecOperation</code> is

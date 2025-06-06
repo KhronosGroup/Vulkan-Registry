@@ -830,6 +830,8 @@ typedef enum VkVideoCodecOperationFlagBitsKHR {
     VK_VIDEO_CODEC_OPERATION_DECODE_AV1_BIT_KHR = 0x00000004,
   // Provided by VK_KHR_video_encode_av1
     VK_VIDEO_CODEC_OPERATION_ENCODE_AV1_BIT_KHR = 0x00040000,
+  // Provided by VK_KHR_video_decode_vp9
+    VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR = 0x00000008,
 } VkVideoCodecOperationFlagBitsKHR;</code></pre>
 </div>
 </div>
@@ -851,6 +853,10 @@ operations are supported.</p>
 <li>
 <p><code>VK_VIDEO_CODEC_OPERATION_DECODE_H265_BIT_KHR</code> specifies support for
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#decode-h265" target="_blank" rel="noopener">H.265 decode operations</a>.</p>
+</li>
+<li>
+<p><code>VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR</code> specifies support for
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#decode-vp9" target="_blank" rel="noopener">VP9 decode operations</a>.</p>
 </li>
 <li>
 <p><code>VK_VIDEO_CODEC_OPERATION_DECODE_AV1_BIT_KHR</code> specifies support for

@@ -934,6 +934,10 @@ from this command, set all entries of the <code>pDescriptorSets</code> array to
  <code>pDescriptorSets</code> <strong class="purple">must</strong> be a valid pointer to an array of <code>pAllocateInfo-&gt;descriptorSetCount</code> <a href="VkDescriptorSet.html">VkDescriptorSet</a> handles</p>
 </li>
 <li>
+<p><a id="VUID-vkAllocateDescriptorSets-device-queuecount" href="#VUID-vkAllocateDescriptorSets-device-queuecount"></a> <span class="vuid">VUID-vkAllocateDescriptorSets-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
+<li>
 <p><a id="VUID-vkAllocateDescriptorSets-pAllocateInfo::descriptorSetCount-arraylength" href="#VUID-vkAllocateDescriptorSets-pAllocateInfo::descriptorSetCount-arraylength"></a> <span class="vuid">VUID-vkAllocateDescriptorSets-pAllocateInfo::descriptorSetCount-arraylength</span><br>
  <code>pAllocateInfo-&gt;descriptorSetCount</code> <strong class="purple">must</strong> be greater than <code>0</code></p>
 </li>

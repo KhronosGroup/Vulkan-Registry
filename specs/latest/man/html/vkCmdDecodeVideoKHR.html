@@ -1444,7 +1444,7 @@ All elements of <code>dpbBottomFieldUseCount</code> <strong class="purple">must<
 to <code>1</code></p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDecodeVideoKHR-pDecodeInfo-07252" href="#VUID-vkCmdDecodeVideoKHR-pDecodeInfo-07252"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-pDecodeInfo-07252</span><br>
+<p><a id="VUID-vkCmdDecodeVideoKHR-pDecodeInfo-10801" href="#VUID-vkCmdDecodeVideoKHR-pDecodeInfo-10801"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-pDecodeInfo-10801</span><br>
 
 If <code>pDecodeInfo-&gt;pSetupReferenceSlot</code> is <code>NULL</code> or
 <code>pDecodeInfo-&gt;pSetupReferenceSlot-&gt;pPictureResource</code> does not
@@ -1453,10 +1453,12 @@ subresource as <code>pDecodeInfo-&gt;dstPictureResource</code>, then the image
 subresource <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-image-subresource-reference" target="_blank" rel="noopener">referred</a> to by
 <code>pDecodeInfo-&gt;dstPictureResource</code> <strong class="purple">must</strong> be in the
 <code>VK_IMAGE_LAYOUT_VIDEO_DECODE_DST_KHR</code> layout at the time the video
-decode operation is executed on the device</p>
+decode operation is executed on the device
+, unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a> feature is <code>VK_TRUE</code>, in which case
+it <strong class="purple">may</strong> be in the <code>VK_IMAGE_LAYOUT_GENERAL</code> layout</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDecodeVideoKHR-pDecodeInfo-07253" href="#VUID-vkCmdDecodeVideoKHR-pDecodeInfo-07253"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-pDecodeInfo-07253</span><br>
+<p><a id="VUID-vkCmdDecodeVideoKHR-pDecodeInfo-10802" href="#VUID-vkCmdDecodeVideoKHR-pDecodeInfo-10802"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-pDecodeInfo-10802</span><br>
 
 If <code>pDecodeInfo-&gt;pSetupReferenceSlot</code> is not <code>NULL</code> and
 <code>pDecodeInfo-&gt;pSetupReferenceSlot-&gt;pPictureResource</code>
@@ -1465,25 +1467,31 @@ subresource as <code>pDecodeInfo-&gt;dstPictureResource</code>, then the image
 subresource <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-image-subresource-reference" target="_blank" rel="noopener">referred</a> to by
 <code>pDecodeInfo-&gt;dstPictureResource</code> <strong class="purple">must</strong> be in the
 <code>VK_IMAGE_LAYOUT_VIDEO_DECODE_DPB_KHR</code> layout at the time the video
-decode operation is executed on the device</p>
+decode operation is executed on the device
+, unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a> feature is <code>VK_TRUE</code>, in which case
+it <strong class="purple">may</strong> be in the <code>VK_IMAGE_LAYOUT_GENERAL</code> layout</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDecodeVideoKHR-pDecodeInfo-07254" href="#VUID-vkCmdDecodeVideoKHR-pDecodeInfo-07254"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-pDecodeInfo-07254</span><br>
+<p><a id="VUID-vkCmdDecodeVideoKHR-pDecodeInfo-10803" href="#VUID-vkCmdDecodeVideoKHR-pDecodeInfo-10803"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-pDecodeInfo-10803</span><br>
 
 If <code>pDecodeInfo-&gt;pSetupReferenceSlot</code> is not <code>NULL</code>, then the image
 subresource <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-image-subresource-reference" target="_blank" rel="noopener">referred</a> to by
 <code>pDecodeInfo-&gt;pSetupReferenceSlot-&gt;pPictureResource</code> <strong class="purple">must</strong> be in the
 <code>VK_IMAGE_LAYOUT_VIDEO_DECODE_DPB_KHR</code> layout at the time the video
-decode operation is executed on the device</p>
+decode operation is executed on the device
+, unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a> feature is <code>VK_TRUE</code>, in which case
+it <strong class="purple">may</strong> be in the <code>VK_IMAGE_LAYOUT_GENERAL</code> layout</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDecodeVideoKHR-pPictureResource-07255" href="#VUID-vkCmdDecodeVideoKHR-pPictureResource-07255"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-pPictureResource-07255</span><br>
+<p><a id="VUID-vkCmdDecodeVideoKHR-pPictureResource-10804" href="#VUID-vkCmdDecodeVideoKHR-pPictureResource-10804"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-pPictureResource-10804</span><br>
 
 The image subresource <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-image-subresource-reference" target="_blank" rel="noopener">referred</a> to
 by the <code>pPictureResource</code> member of each element of
 <code>pDecodeInfo-&gt;pReferenceSlots</code> <strong class="purple">must</strong> be in the
 <code>VK_IMAGE_LAYOUT_VIDEO_DECODE_DPB_KHR</code> layout at the time the video
-decode operation is executed on the device</p>
+decode operation is executed on the device
+, unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a> feature is <code>VK_TRUE</code>, in which case
+it <strong class="purple">may</strong> be in the <code>VK_IMAGE_LAYOUT_GENERAL</code> layout</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDecodeVideoKHR-pNext-07152" href="#VUID-vkCmdDecodeVideoKHR-pNext-07152"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-pNext-07152</span><br>
@@ -1899,6 +1907,65 @@ If the bound video session was created with the video codec operation
 <code>VK_VIDEO_CODEC_OPERATION_DECODE_H265_BIT_KHR</code>, then the <code>pNext</code>
 chain of each element of <code>pDecodeInfo-&gt;pReferenceSlots</code> <strong class="purple">must</strong>
 include a <a href="VkVideoDecodeH265DpbSlotInfoKHR.html">VkVideoDecodeH265DpbSlotInfoKHR</a> structure</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDecodeVideoKHR-pNext-10805" href="#VUID-vkCmdDecodeVideoKHR-pNext-10805"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-pNext-10805</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR</code>, then the <code>pNext</code>
+chain of <code>pDecodeInfo</code> <strong class="purple">must</strong> include a
+<a href="VkVideoDecodeVP9PictureInfoKHR.html">VkVideoDecodeVP9PictureInfoKHR</a> structure</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDecodeVideoKHR-uncompressedHeaderOffset-10806" href="#VUID-vkCmdDecodeVideoKHR-uncompressedHeaderOffset-10806"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-uncompressedHeaderOffset-10806</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR</code>, then the
+<code>uncompressedHeaderOffset</code> member of the
+<a href="VkVideoDecodeVP9PictureInfoKHR.html">VkVideoDecodeVP9PictureInfoKHR</a> structure included in the
+<code>pNext</code> chain of <code>pDecodeInfo</code> <strong class="purple">must</strong> be less than
+<code>pDecodeInfo-&gt;srcBufferRange</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDecodeVideoKHR-compressedHeaderOffset-10807" href="#VUID-vkCmdDecodeVideoKHR-compressedHeaderOffset-10807"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-compressedHeaderOffset-10807</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR</code>, then the
+<code>compressedHeaderOffset</code> member of the
+<a href="VkVideoDecodeVP9PictureInfoKHR.html">VkVideoDecodeVP9PictureInfoKHR</a> structure included in the
+<code>pNext</code> chain of <code>pDecodeInfo</code> <strong class="purple">must</strong> be less than
+<code>pDecodeInfo-&gt;srcBufferRange</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDecodeVideoKHR-tilesOffset-10808" href="#VUID-vkCmdDecodeVideoKHR-tilesOffset-10808"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-tilesOffset-10808</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR</code>, then the
+<code>tilesOffset</code> member of the <a href="VkVideoDecodeVP9PictureInfoKHR.html">VkVideoDecodeVP9PictureInfoKHR</a>
+structure included in the <code>pNext</code> chain of <code>pDecodeInfo</code> <strong class="purple">must</strong>
+be less than <code>pDecodeInfo-&gt;srcBufferRange</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDecodeVideoKHR-referenceNameSlotIndices-10809" href="#VUID-vkCmdDecodeVideoKHR-referenceNameSlotIndices-10809"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-referenceNameSlotIndices-10809</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR</code>, then each element of
+the <code>referenceNameSlotIndices</code> array member of the
+<a href="VkVideoDecodeVP9PictureInfoKHR.html">VkVideoDecodeVP9PictureInfoKHR</a> structure included in the
+<code>pNext</code> chain of <code>pDecodeInfo</code> <strong class="purple">must</strong> either be negative or <strong class="purple">must</strong>
+equal the <code>slotIndex</code> member of one of the elements of
+<code>pDecodeInfo-&gt;pReferenceSlots</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDecodeVideoKHR-slotIndex-10810" href="#VUID-vkCmdDecodeVideoKHR-slotIndex-10810"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-slotIndex-10810</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR</code>, then the
+<code>slotIndex</code> member of each element of
+<code>pDecodeInfo-&gt;pReferenceSlots</code> <strong class="purple">must</strong> equal one of the elements of
+the <code>referenceNameSlotIndices</code> array member of the
+<a href="VkVideoDecodeVP9PictureInfoKHR.html">VkVideoDecodeVP9PictureInfoKHR</a> structure included in the
+<code>pNext</code> chain of <code>pDecodeInfo</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDecodeVideoKHR-filmGrainSupport-09248" href="#VUID-vkCmdDecodeVideoKHR-filmGrainSupport-09248"></a> <span class="vuid">VUID-vkCmdDecodeVideoKHR-filmGrainSupport-09248</span><br>

@@ -863,10 +863,91 @@ queue family that has <em>ownership</em> of the resource.
 Upon creation, such resources are not owned by any queue family; ownership
 is implicitly acquired upon first use within a queue.
 Once a resource using <code>VK_SHARING_MODE_EXCLUSIVE</code> is owned by some queue
-family, the application <strong class="purple">must</strong> perform a
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers" target="_blank" rel="noopener">queue family ownership transfer</a> to make
-the memory contents of a range or image subresource accessible to a
-different queue family.</p>
+family,
+unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance9" target="_blank" rel="noopener"><code>maintenance9</code></a> feature is enabled,
+the application <strong class="purple">must</strong> perform a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers" target="_blank" rel="noopener">queue
+family ownership transfer</a> if it wishes to make the memory contents of a
+range or image subresource accessible to a different queue family.
+<code>VK_SHARING_MODE_EXCLUSIVE</code> resources that are already owned by a queue
+family <strong class="purple">may</strong> be acquired by a different queue family without a queue family
+ownership transfer, but
+unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance9" target="_blank" rel="noopener"><code>maintenance9</code></a> feature is enabled,
+their contents become undefined.</p>
+</div>
+<div class="paragraph">
+<p>If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance9" target="_blank" rel="noopener"><code>maintenance9</code></a> feature is enabled, the
+contents of buffer resources, and of linear image resources (i.e., those
+created with <code>tiling</code> set to <code>VK_IMAGE_TILING_LINEAR</code>) are always
+preserved when they are implicitly acquired by a different queue family on
+the same logical device (i.e., neither queue family is
+<code>VK_QUEUE_FAMILY_FOREIGN_EXT</code> or
+<code>VK_QUEUE_FAMILY_EXTERNAL</code>).
+This means that whenever the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance9" target="_blank" rel="noopener"><code>maintenance9</code></a>
+feature is enabled, explicit queue family ownership transfers of buffer and
+linear image resources between different queue families on the same logical
+device are <strong class="purple">optional</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, if the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance9" target="_blank" rel="noopener"><code>maintenance9</code></a> feature
+is enabled, the contents of some optimal image resources (i.e., those
+created with <code>VK_IMAGE_TILING_OPTIMAL</code>) are always preserved when they
+are implicitly acquired by a different queue family on the same logical
+device (i.e., neither queue family is
+<code>VK_QUEUE_FAMILY_FOREIGN_EXT</code> or
+<code>VK_QUEUE_FAMILY_EXTERNAL</code>).
+This applies only to optimal images that are being implicitly acquired by a
+queue family whose index bit is set in the current queue family&#8217;s
+<a href="VkQueueFamilyOwnershipTransferPropertiesKHR.html">VkQueueFamilyOwnershipTransferPropertiesKHR</a>::<code>optimalImageTransferToQueueFamilies</code>,
+and that were created without any of the following bits set in <code>usage</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT</code></p>
+</li>
+<li>
+<p><code>VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT</code></p>
+</li>
+<li>
+<p><code>VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT</code></p>
+</li>
+<li>
+<p><code>VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT</code></p>
+</li>
+<li>
+<p><code>VK_IMAGE_USAGE_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</code></p>
+</li>
+<li>
+<p><code>VK_IMAGE_USAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This means that whenever the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance9" target="_blank" rel="noopener"><code>maintenance9</code></a>
+feature is enabled, explicit queue family ownership transfers of such image
+resources between such combinations of queue families are <strong class="purple">optional</strong>.
+For all other optimal images and/or combinations of queue families, the
+application <strong class="purple">must</strong> still perform an explicit queue family ownership transfer
+if it wishes to make the memory contents of an optimal image subresource
+already owned by a queue family accessible to a different queue family.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Applications are allowed to perform explicit queue family ownership
+transfers in circumstances where they are not required, but there is no
+functional nor performance advantage in doing so.
+Performing explicit transfers in such cases remains supported for backward
+compatibility and is not recommended for new applications.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -897,14 +978,17 @@ different queue family.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>A queue family <strong class="purple">can</strong> take ownership of an image subresource or buffer range
-of a resource created with <code>VK_SHARING_MODE_EXCLUSIVE</code>, without an
-ownership transfer, in the same way as for a resource that was just created;
-however, taking ownership in this way has the effect that the contents of
-the image subresource or buffer range are undefined.</p>
+<p>A queue family <strong class="purple">can</strong> take ownership of an
+image subresource, tensor subresource,
+or buffer range of a resource created with <code>VK_SHARING_MODE_EXCLUSIVE</code>,
+without an ownership transfer, in the same way as for a resource that was
+just created; however, taking ownership in this way has the effect that the
+contents of the image subresource or buffer range are undefined.</p>
 </div>
 <div class="paragraph">
-<p>Ranges of buffers and image subresources of image objects created using
+<p>Ranges of
+buffers, tensor subresources of tensor objects,
+and image subresources of image objects created using
 <code>VK_SHARING_MODE_CONCURRENT</code> <strong class="purple">must</strong> only be accessed by queues from the
 queue families specified through the <code>queueFamilyIndexCount</code> and
 <code>pQueueFamilyIndices</code> members of the corresponding create info
@@ -916,7 +1000,7 @@ structures.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_VERSION_1_0.html">VK_VERSION_1_0</a>, <a href="VkBufferCreateInfo.html">VkBufferCreateInfo</a>, <a href="VkImageCreateInfo.html">VkImageCreateInfo</a>, <a href="VkPhysicalDeviceImageDrmFormatModifierInfoEXT.html">VkPhysicalDeviceImageDrmFormatModifierInfoEXT</a>, <a href="VkSwapchainCreateInfoKHR.html">VkSwapchainCreateInfoKHR</a></p>
+<p><a href="VK_VERSION_1_0.html">VK_VERSION_1_0</a>, <a href="VkBufferCreateInfo.html">VkBufferCreateInfo</a>, <a href="VkImageCreateInfo.html">VkImageCreateInfo</a>, <a href="VkPhysicalDeviceImageDrmFormatModifierInfoEXT.html">VkPhysicalDeviceImageDrmFormatModifierInfoEXT</a>, <a href="VkSwapchainCreateInfoKHR.html">VkSwapchainCreateInfoKHR</a>, <a href="VkTensorCreateInfoARM.html">VkTensorCreateInfoARM</a></p>
 </div>
 </div>
 </div>

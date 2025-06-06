@@ -887,7 +887,8 @@ or <code>timeout</code> nanoseconds passes.
 When the swapchain becomes OUT_OF_DATE, the call will either return
 <code>VK_SUCCESS</code> (if the image was delivered to the presentation engine and
 may have been presented to the user) or will return early with status
-<code>VK_ERROR_OUT_OF_DATE_KHR</code> (if the image was not presented to the user).</p>
+<code>VK_ERROR_OUT_OF_DATE_KHR</code> (if the image could not be presented to the
+user).</p>
 </div>
 <div class="paragraph">
 <p>As an exception to the normal rules for objects which are externally

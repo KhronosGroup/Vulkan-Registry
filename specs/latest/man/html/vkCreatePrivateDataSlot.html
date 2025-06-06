@@ -898,6 +898,10 @@ The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#f
 <p><a id="VUID-vkCreatePrivateDataSlot-pPrivateDataSlot-parameter" href="#VUID-vkCreatePrivateDataSlot-pPrivateDataSlot-parameter"></a> <span class="vuid">VUID-vkCreatePrivateDataSlot-pPrivateDataSlot-parameter</span><br>
  <code>pPrivateDataSlot</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkPrivateDataSlot.html">VkPrivateDataSlot</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreatePrivateDataSlot-device-queuecount" href="#VUID-vkCreatePrivateDataSlot-device-queuecount"></a> <span class="vuid">VUID-vkCreatePrivateDataSlot-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

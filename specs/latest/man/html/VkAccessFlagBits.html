@@ -944,6 +944,7 @@ Such access occurs in the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storagebuffer" target="_blank" rel="noopener">storage buffer</a>,
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-physical-storage-buffer" target="_blank" rel="noopener">physical storage buffer</a>,
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shader-binding-table" target="_blank" rel="noopener">shader binding table</a>,
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storagetensor" target="_blank" rel="noopener">storage tensor</a>,
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storagetexelbuffer" target="_blank" rel="noopener">storage texel buffer</a>, or
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storageimage" target="_blank" rel="noopener">storage image</a> in any shader pipeline
 stage.</p>
@@ -952,6 +953,7 @@ stage.</p>
 <p><code>VK_ACCESS_SHADER_WRITE_BIT</code> specifies write access to a
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storagebuffer" target="_blank" rel="noopener">storage buffer</a>,
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-physical-storage-buffer" target="_blank" rel="noopener">physical storage buffer</a>,
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storagetensor" target="_blank" rel="noopener">storage tensor</a>,
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storagetexelbuffer" target="_blank" rel="noopener">storage texel buffer</a>, or
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storageimage" target="_blank" rel="noopener">storage image</a> in any shader pipeline
 stage.</p>
@@ -994,13 +996,15 @@ Such access occurs in the
 <code>VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT</code> pipeline stages.</p>
 </li>
 <li>
-<p><code>VK_ACCESS_TRANSFER_READ_BIT</code> specifies read access to an image or
+<p><code>VK_ACCESS_TRANSFER_READ_BIT</code> specifies read access to an
+image, tensor,
 buffer in a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies" target="_blank" rel="noopener">copy</a> operation.
 Such access occurs in the <code>VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT</code>
 pipeline stage.</p>
 </li>
 <li>
-<p><code>VK_ACCESS_TRANSFER_WRITE_BIT</code> specifies write access to an image or
+<p><code>VK_ACCESS_TRANSFER_WRITE_BIT</code> specifies write access to an
+image, tensor,
 buffer in a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#clears" target="_blank" rel="noopener">clear</a> or <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies" target="_blank" rel="noopener">copy</a> operation.
 Such access occurs in the <code>VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT</code>
 pipeline stage.</p>

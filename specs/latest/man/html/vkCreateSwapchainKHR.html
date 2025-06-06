@@ -946,6 +946,11 @@ associated with a Vulkan swapchain, <code>VK_ERROR_NATIVE_WINDOW_IN_USE_KHR</cod
 <strong class="purple">must</strong> be returned.</p>
 </div>
 <div class="paragraph">
+<p>If <code>oldSwapchain</code> is a valid swapchain and there are outstanding calls
+to <code>vkWaitForPresent2KHR</code>, then <code>vkCreateSwapchainKHR</code> <strong class="purple">may</strong> block
+until those calls complete.</p>
+</div>
+<div class="paragraph">
 <p>If the native window referred to by <code>pCreateInfo-&gt;surface</code> is already
 associated with a non-Vulkan graphics API surface,
 <code>VK_ERROR_NATIVE_WINDOW_IN_USE_KHR</code> <strong class="purple">must</strong> be returned.</p>
@@ -1055,6 +1060,10 @@ In this scenario <code>VK_ERROR_INITIALIZATION_FAILED</code> is returned.</p>
 <li>
 <p><a id="VUID-vkCreateSwapchainKHR-pSwapchain-parameter" href="#VUID-vkCreateSwapchainKHR-pSwapchain-parameter"></a> <span class="vuid">VUID-vkCreateSwapchainKHR-pSwapchain-parameter</span><br>
  <code>pSwapchain</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkSwapchainKHR.html">VkSwapchainKHR</a> handle</p>
+</li>
+<li>
+<p><a id="VUID-vkCreateSwapchainKHR-device-queuecount" href="#VUID-vkCreateSwapchainKHR-device-queuecount"></a> <span class="vuid">VUID-vkCreateSwapchainKHR-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
 </li>
 </ul>
 </div>

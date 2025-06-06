@@ -896,6 +896,10 @@ contents.</p>
  <code>pCommandBuffers</code> <strong class="purple">must</strong> be a valid pointer to an array of <code>pAllocateInfo-&gt;commandBufferCount</code> <a href="VkCommandBuffer.html">VkCommandBuffer</a> handles</p>
 </li>
 <li>
+<p><a id="VUID-vkAllocateCommandBuffers-device-queuecount" href="#VUID-vkAllocateCommandBuffers-device-queuecount"></a> <span class="vuid">VUID-vkAllocateCommandBuffers-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
+<li>
 <p><a id="VUID-vkAllocateCommandBuffers-pAllocateInfo::commandBufferCount-arraylength" href="#VUID-vkAllocateCommandBuffers-pAllocateInfo::commandBufferCount-arraylength"></a> <span class="vuid">VUID-vkAllocateCommandBuffers-pAllocateInfo::commandBufferCount-arraylength</span><br>
  <code>pAllocateInfo-&gt;commandBufferCount</code> <strong class="purple">must</strong> be greater than <code>0</code></p>
 </li>

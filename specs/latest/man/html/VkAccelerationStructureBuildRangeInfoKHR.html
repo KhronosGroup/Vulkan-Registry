@@ -1016,6 +1016,26 @@ if that format is not a <a href="https://registry.khronos.org/vulkan/specs/lates
 </div>
 </li>
 <li>
+<p><a id="VUID-VkAccelerationStructureBuildRangeInfoKHR-maxVertex-10774" href="#VUID-VkAccelerationStructureBuildRangeInfoKHR-maxVertex-10774"></a> <span class="vuid">VUID-VkAccelerationStructureBuildRangeInfoKHR-maxVertex-10774</span><br>
+
+For geometries of type <code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, if the
+geometry uses indices, then
+<a href="VkAccelerationStructureGeometryTrianglesDataKHR.html">VkAccelerationStructureGeometryTrianglesDataKHR</a>::<code>maxVertex</code>
+<strong class="purple">must</strong> be greater than or equal to <code>firstVertex</code> plus the maximum
+index value found in the
+<a href="VkAccelerationStructureGeometryTrianglesDataKHR.html">VkAccelerationStructureGeometryTrianglesDataKHR</a>::<code>indexData</code>
+in the range <span class="eq">[<code>primitiveOffset</code>, <code>primitiveOffset</code><br>
+<code>primitiveCount</code> x 3]</span></p>
+</li>
+<li>
+<p><a id="VUID-VkAccelerationStructureBuildRangeInfoKHR-None-10775" href="#VUID-VkAccelerationStructureBuildRangeInfoKHR-None-10775"></a> <span class="vuid">VUID-VkAccelerationStructureBuildRangeInfoKHR-None-10775</span><br>
+
+For geometries of type <code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, if the
+geometry does not use indices, then
+<a href="VkAccelerationStructureGeometryTrianglesDataKHR.html">VkAccelerationStructureGeometryTrianglesDataKHR</a>::maxVertex <strong class="purple">must</strong>
+be greater than or equal to <span class="eq">firstVertex + primitiveCount x 3 - 1</span></p>
+</li>
+<li>
 <p><a id="VUID-VkAccelerationStructureBuildRangeInfoKHR-transformOffset-03658" href="#VUID-VkAccelerationStructureBuildRangeInfoKHR-transformOffset-03658"></a> <span class="vuid">VUID-VkAccelerationStructureBuildRangeInfoKHR-transformOffset-03658</span><br>
 
 For geometries of type <code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, the offset

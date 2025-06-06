@@ -918,7 +918,7 @@ provided in <code>pColorAttachments</code>[<strong>X</strong>].
 If the <code>imageView</code> member of any element of <code>pColorAttachments</code> is
 <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>,
 and <code>resolveMode</code> is not
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>,
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>,
 writes to the corresponding location by a fragment are discarded.</p>
 </div>
 <div class="sidebarblock">
@@ -1110,7 +1110,7 @@ that <code>imageView</code> <strong class="purple">must</strong> have been creat
 If <code>colorAttachmentCount</code> is not <code>0</code> and there is an element of
 <code>pColorAttachments</code> with
 either its <code>resolveMode</code> member set to
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>, or
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>, or
 its <code>imageView</code> member not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, and its
 <code>resolveMode</code> member not set to <code>VK_RESOLVE_MODE_NONE</code>, the
 <code>resolveImageView</code> member of that element of <code>pColorAttachments</code>
@@ -1627,26 +1627,26 @@ at least one of the following features <strong class="purple">must</strong> be e
 <p><a id="VUID-VkRenderingInfo-pDepthAttachment-09318" href="#VUID-VkRenderingInfo-pDepthAttachment-09318"></a> <span class="vuid">VUID-VkRenderingInfo-pDepthAttachment-09318</span><br>
 
 <code>pDepthAttachment-&gt;resolveMode</code> <strong class="purple">must</strong> not be
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code></p>
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code></p>
 </li>
 <li>
 <p><a id="VUID-VkRenderingInfo-pStencilAttachment-09319" href="#VUID-VkRenderingInfo-pStencilAttachment-09319"></a> <span class="vuid">VUID-VkRenderingInfo-pStencilAttachment-09319</span><br>
 
 <code>pStencilAttachment-&gt;resolveMode</code> <strong class="purple">must</strong> not be
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code></p>
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code></p>
 </li>
 <li>
 <p><a id="VUID-VkRenderingInfo-colorAttachmentCount-09320" href="#VUID-VkRenderingInfo-colorAttachmentCount-09320"></a> <span class="vuid">VUID-VkRenderingInfo-colorAttachmentCount-09320</span><br>
 
 If <code>colorAttachmentCount</code> is not <code>1</code>, the <code>resolveMode</code> member
 of any element of <code>pColorAttachments</code> <strong class="purple">must</strong> not be
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code></p>
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code></p>
 </li>
 <li>
 <p><a id="VUID-VkRenderingInfo-resolveMode-09321" href="#VUID-VkRenderingInfo-resolveMode-09321"></a> <span class="vuid">VUID-VkRenderingInfo-resolveMode-09321</span><br>
 
 If the <code>resolveMode</code> of any element of <code>pColorAttachments</code> is
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>,
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>,
 <a href="VkRenderingFragmentDensityMapAttachmentInfoEXT.html">VkRenderingFragmentDensityMapAttachmentInfoEXT</a>::<code>imageView</code>
 <strong class="purple">must</strong> be <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a></p>
 </li>
@@ -1654,7 +1654,7 @@ If the <code>resolveMode</code> of any element of <code>pColorAttachments</code>
 <p><a id="VUID-VkRenderingInfo-resolveMode-09322" href="#VUID-VkRenderingInfo-resolveMode-09322"></a> <span class="vuid">VUID-VkRenderingInfo-resolveMode-09322</span><br>
 
 If the <code>resolveMode</code> of any element of <code>pColorAttachments</code> is
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>,
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>,
 <a href="VkRenderingFragmentShadingRateAttachmentInfoKHR.html">VkRenderingFragmentShadingRateAttachmentInfoKHR</a>::<code>imageView</code>
 <strong class="purple">must</strong> be <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a></p>
 </li>
@@ -1680,7 +1680,7 @@ that <code>imageView</code> <strong class="purple">must</strong> have been creat
 If <code>colorAttachmentCount</code> is not <code>0</code>, and there is an element of
 <code>pColorAttachments</code> with
 either its <code>resolveMode</code> member set to
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>, or
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>, or
 its <code>imageView</code> member not set to <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> and its
 <code>resolveMode</code> member not set to <code>VK_RESOLVE_MODE_NONE</code>, the
 <code>resolveImageView</code> member of that element of <code>pColorAttachments</code>
@@ -1752,7 +1752,7 @@ in <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingC
 <p><a id="VUID-VkRenderingInfo-resolveMode-10644" href="#VUID-VkRenderingInfo-resolveMode-10644"></a> <span class="vuid">VUID-VkRenderingInfo-resolveMode-10644</span><br>
 
 If the <code>resolveMode</code> of any element of <code>pColorAttachments</code> is
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>,
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>,
 <code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> <strong class="purple">must</strong> not be included
 in <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code></p>
 </li>

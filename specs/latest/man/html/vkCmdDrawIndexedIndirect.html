@@ -1490,6 +1490,34 @@ transitioned to the
 <code>VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT</code> layout</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDrawIndexedIndirect-pDescription-09900" href="#VUID-vkCmdDrawIndexedIndirect-pDescription-09900"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-pDescription-09900</span><br>
+
+If a <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> descriptor is accessed as a
+result of this command, then the underlying <a href="VkTensorARM.html">VkTensorARM</a> object
+<strong class="purple">must</strong> have been created with a
+<a href="VkTensorCreateInfoARM.html">VkTensorCreateInfoARM</a>::<code>pDescription</code> whose <code>usage</code> member
+contained <code>VK_TENSOR_USAGE_SHADER_BIT_ARM</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawIndexedIndirect-dimensionCount-09905" href="#VUID-vkCmdDrawIndexedIndirect-dimensionCount-09905"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-dimensionCount-09905</span><br>
+
+If a <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> descriptor is accessed as a
+result of this command, then the <code>Rank</code> of the <code>OpTypeTensorARM</code>
+of the tensor resource variable <strong class="purple">must</strong> be equal to the
+<code>dimensionCount</code> provided via
+<a href="VkTensorCreateInfoARM.html">VkTensorCreateInfoARM</a>::<code>pDescription</code> when creating the
+underlying <a href="VkTensorARM.html">VkTensorARM</a> object</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawIndexedIndirect-OpTypeTensorARM-09906" href="#VUID-vkCmdDrawIndexedIndirect-OpTypeTensorARM-09906"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-OpTypeTensorARM-09906</span><br>
+
+If a <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> descriptor is accessed as a
+result of this command, then the element type of the
+<code>OpTypeTensorARM</code> of the tensor resource variable <strong class="purple">must</strong> be
+<a href="#spirvenv-tensor-formats">compatible</a> with the <a href="VkFormat.html">VkFormat</a> of the
+<a href="VkTensorViewARM.html">VkTensorViewARM</a> used for the access</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDrawIndexedIndirect-renderPass-02684" href="#VUID-vkCmdDrawIndexedIndirect-renderPass-02684"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-renderPass-02684</span><br>
 
 The current render pass <strong class="purple">must</strong> be <a href="#renderpass-compatibility">compatible</a>
@@ -1571,13 +1599,11 @@ render pass <strong class="purple">must</strong> not be written in any way other
 by this command</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDrawIndexedIndirect-None-09000" href="#VUID-vkCmdDrawIndexedIndirect-None-09000"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-None-09000</span><br>
+<p><a id="VUID-vkCmdDrawIndexedIndirect-None-10795" href="#VUID-vkCmdDrawIndexedIndirect-None-10795"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-None-10795</span><br>
 
 If a color attachment is written by any prior command in this subpass or
 by the load, store, or resolve operations for this subpass,
-it is not in the
-<code>VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT</code> image layout,
-and
+<a href="#renderpass-feedbackloop">feedback loop</a> is not enabled for it, and
 either:</p>
 <div class="ulist">
 <ul>
@@ -1610,13 +1636,11 @@ command</p>
 </div>
 </li>
 <li>
-<p><a id="VUID-vkCmdDrawIndexedIndirect-None-09001" href="#VUID-vkCmdDrawIndexedIndirect-None-09001"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-None-09001</span><br>
+<p><a id="VUID-vkCmdDrawIndexedIndirect-None-10796" href="#VUID-vkCmdDrawIndexedIndirect-None-10796"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-None-10796</span><br>
 
 If a depth attachment is written by any prior command in this subpass or
 by the load, store, or resolve operations for this subpass,
-it is not in the
-<code>VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT</code> image layout,
-and
+<a href="#renderpass-feedbackloop">feedback loop</a> is not enabled for it, and
 either:</p>
 <div class="ulist">
 <ul>
@@ -1650,13 +1674,11 @@ command</p>
 </div>
 </li>
 <li>
-<p><a id="VUID-vkCmdDrawIndexedIndirect-None-09002" href="#VUID-vkCmdDrawIndexedIndirect-None-09002"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-None-09002</span><br>
+<p><a id="VUID-vkCmdDrawIndexedIndirect-None-10797" href="#VUID-vkCmdDrawIndexedIndirect-None-10797"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-None-10797</span><br>
 
 If a stencil attachment is written by any prior command in this subpass
 or by the load, store, or resolve operations for this subpass,
-it is not in the
-<code>VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT</code> image layout,
-and
+<a href="#renderpass-feedbackloop">feedback loop</a> is not enabled for it, and
 either:</p>
 <div class="ulist">
 <ul>
@@ -2498,10 +2520,10 @@ If the current render pass instance was begun with
 <a href="VkRenderingInfo.html">VkRenderingInfo</a>::<code>colorAttachmentCount</code> equal to <code>1</code>,
 there is no shader object bound to any graphics stage,
 and a color attachment with a resolve mode of
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>, each element
-of the <a href="VkRenderingInfo.html">VkRenderingInfo</a>::<code>pColorAttachments</code> array with a
-<code>resolveImageView</code> not equal to <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> <strong class="purple">must</strong> have been
-created with an image created with a
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>, each
+element of the <a href="VkRenderingInfo.html">VkRenderingInfo</a>::<code>pColorAttachments</code> array with
+a <code>resolveImageView</code> not equal to <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> <strong class="purple">must</strong> have
+been created with an image created with a
 <a href="VkExternalFormatANDROID.html">VkExternalFormatANDROID</a>::<code>externalFormat</code> value equal to the
 <a href="VkExternalFormatANDROID.html">VkExternalFormatANDROID</a>::<code>externalFormat</code> value used to create
 the bound graphics pipeline</p>
@@ -2515,9 +2537,9 @@ the current render pass instance was begun with
 <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a> and a
 <a href="VkRenderingInfo.html">VkRenderingInfo</a>::<code>colorAttachmentCount</code> equal to <code>1</code>, and a
 color attachment with a resolve mode of
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>, each element
-of the <a href="VkRenderingInfo.html">VkRenderingInfo</a>::<code>pColorAttachments</code> array with a
-<code>imageView</code> not equal to <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> <strong class="purple">must</strong> have been
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>, each
+element of the <a href="VkRenderingInfo.html">VkRenderingInfo</a>::<code>pColorAttachments</code> array with
+a <code>imageView</code> not equal to <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> <strong class="purple">must</strong> have been
 created with an image created with a
 <a href="VkExternalFormatANDROID.html">VkExternalFormatANDROID</a>::<code>externalFormat</code> value equal to the
 <a href="VkExternalFormatANDROID.html">VkExternalFormatANDROID</a>::<code>externalFormat</code> value used to create
@@ -2553,17 +2575,17 @@ drawing command</p>
 
 If there is a shader object bound to any graphics stage, and the current
 render pass includes a color attachment that uses the
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code> resolve mode,
-then <a href="vkCmdSetColorBlendEnableEXT.html">vkCmdSetColorBlendEnableEXT</a> <strong class="purple">must</strong> have set blend enable to
-<code>VK_FALSE</code> prior to this drawing command</p>
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code> resolve
+mode, then <a href="vkCmdSetColorBlendEnableEXT.html">vkCmdSetColorBlendEnableEXT</a> <strong class="purple">must</strong> have set blend enable
+to <code>VK_FALSE</code> prior to this drawing command</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawIndexedIndirect-rasterizationSamples-09367" href="#VUID-vkCmdDrawIndexedIndirect-rasterizationSamples-09367"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-rasterizationSamples-09367</span><br>
 
 If there is a shader object bound to any graphics stage, and the current
 render pass includes a color attachment that uses the
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code> resolve mode,
-then <a href="vkCmdSetRasterizationSamplesEXT.html">vkCmdSetRasterizationSamplesEXT</a> <strong class="purple">must</strong> have set
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code> resolve
+mode, then <a href="vkCmdSetRasterizationSamplesEXT.html">vkCmdSetRasterizationSamplesEXT</a> <strong class="purple">must</strong> have set
 <code>rasterizationSamples</code> to <code>VK_SAMPLE_COUNT_1_BIT</code> prior to this
 drawing command</p>
 </li>
@@ -2596,8 +2618,8 @@ then <a href="vkCmdSetFragmentShadingRateKHR.html">vkCmdSetFragmentShadingRateKH
 
 If there is a shader object bound to any graphics stage, and the current
 render pass includes a color attachment that uses the
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code> resolve mode,
-then <a href="vkCmdSetFragmentShadingRateKHR.html">vkCmdSetFragmentShadingRateKHR</a> <strong class="purple">must</strong> have set
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code> resolve
+mode, then <a href="vkCmdSetFragmentShadingRateKHR.html">vkCmdSetFragmentShadingRateKHR</a> <strong class="purple">must</strong> have set
 <code>pFragmentSize-&gt;width</code> to <code>1</code> prior to this drawing command</p>
 </li>
 <li>
@@ -2605,8 +2627,8 @@ then <a href="vkCmdSetFragmentShadingRateKHR.html">vkCmdSetFragmentShadingRateKH
 
 If there is a shader object bound to any graphics stage, and the current
 render pass includes a color attachment that uses the
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code> resolve mode,
-then <a href="vkCmdSetFragmentShadingRateKHR.html">vkCmdSetFragmentShadingRateKHR</a> <strong class="purple">must</strong> have set
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code> resolve
+mode, then <a href="vkCmdSetFragmentShadingRateKHR.html">vkCmdSetFragmentShadingRateKHR</a> <strong class="purple">must</strong> have set
 <code>pFragmentSize-&gt;height</code> to <code>1</code> prior to this drawing command</p>
 </li>
 <li>
@@ -3263,36 +3285,31 @@ subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
 command buffer prior to this drawing command</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDrawIndexedIndirect-None-07637" href="#VUID-vkCmdDrawIndexedIndirect-None-07637"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-None-07637</span><br>
-
-If the bound graphics pipeline state was created with the
-<code>VK_DYNAMIC_STATE_LINE_RASTERIZATION_MODE_EXT</code> dynamic state enabled
-then <a href="vkCmdSetLineRasterizationModeEXT.html">vkCmdSetLineRasterizationModeEXT</a> <strong class="purple">must</strong> have been called and
-not subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
-command buffer prior to this drawing command</p>
-</li>
-<li>
 <p><a id="VUID-vkCmdDrawIndexedIndirect-None-08666" href="#VUID-vkCmdDrawIndexedIndirect-None-08666"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-None-08666</span><br>
 
-If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and a shader object is
-bound to any graphics stage, and the most recent call to
-<a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a> in the current command buffer set
-<code>rasterizerDiscardEnable</code> to <code>VK_FALSE</code>, and the most recent
-call to <a href="vkCmdSetPolygonModeEXT.html">vkCmdSetPolygonModeEXT</a> in the current command buffer set
-<code>polygonMode</code> to <code>VK_POLYGON_MODE_LINE</code>, then
-<a href="vkCmdSetLineRasterizationModeEXT.html">vkCmdSetLineRasterizationModeEXT</a> <strong class="purple">must</strong> have been called and not
-subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
-command buffer prior to this drawing command</p>
+If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and
+a shader object is bound to any graphics stage or
+a graphics pipeline is bound which was created with the
+<code>VK_DYNAMIC_STATE_LINE_RASTERIZATION_MODE_EXT</code> dynamic state
+enabled, and the <a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the
+<a href="#dynamic-state-current-value">current value</a> of <code>polygonMode</code> is
+<code>VK_POLYGON_MODE_LINE</code>, then <a href="vkCmdSetLineRasterizationModeEXT.html">vkCmdSetLineRasterizationModeEXT</a>
+<strong class="purple">must</strong> have been called and not subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current command buffer prior to this drawing
+command</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawIndexedIndirect-None-08667" href="#VUID-vkCmdDrawIndexedIndirect-None-08667"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-None-08667</span><br>
 
-If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and a shader object is
-bound to the <code>VK_SHADER_STAGE_VERTEX_BIT</code> stage, and the most recent
-call to <a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a> in the current command
-buffer set <code>rasterizerDiscardEnable</code> to <code>VK_FALSE</code>, and the most
-recent call to <a href="vkCmdSetPrimitiveTopology.html">vkCmdSetPrimitiveTopology</a> in the current command
-buffer set <code>primitiveTopology</code> to any line topology, then
+If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and
+a shader object is bound or
+a graphics pipeline is bound which was created with the
+<code>VK_DYNAMIC_STATE_LINE_RASTERIZATION_MODE_EXT</code> dynamic state
+enabled, and a <code>VK_SHADER_STAGE_VERTEX_BIT</code> stage is bound, the
+<a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the
+<a href="#dynamic-state-current-value">current value</a> of
+<code>primitiveTopology</code> is any line topology, then
 <a href="vkCmdSetLineRasterizationModeEXT.html">vkCmdSetLineRasterizationModeEXT</a> <strong class="purple">must</strong> have been called and not
 subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
 command buffer prior to this drawing command</p>
@@ -3300,47 +3317,44 @@ command buffer prior to this drawing command</p>
 <li>
 <p><a id="VUID-vkCmdDrawIndexedIndirect-None-08668" href="#VUID-vkCmdDrawIndexedIndirect-None-08668"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-None-08668</span><br>
 
-If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and a shader object
-that outputs line primitives is bound to the
-<code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> or
-<code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage, and the most recent call to
-<a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a> in the current command buffer set
-<code>rasterizerDiscardEnable</code> to <code>VK_FALSE</code>, then
+If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and
+a shader object is bound or
+a graphics pipeline is bound which was created with the
+<code>VK_DYNAMIC_STATE_LINE_RASTERIZATION_MODE_EXT</code> dynamic state
+enabled, either a <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> or
+<code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage is bound, and the
+<a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then
 <a href="vkCmdSetLineRasterizationModeEXT.html">vkCmdSetLineRasterizationModeEXT</a> <strong class="purple">must</strong> have been called and not
-subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
-command buffer prior to this drawing command</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawIndexedIndirect-None-07638" href="#VUID-vkCmdDrawIndexedIndirect-None-07638"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-None-07638</span><br>
-
-If the bound graphics pipeline state was created with the
-<code>VK_DYNAMIC_STATE_LINE_STIPPLE_ENABLE_EXT</code> dynamic state enabled
-then <a href="vkCmdSetLineStippleEnableEXT.html">vkCmdSetLineStippleEnableEXT</a> <strong class="purple">must</strong> have been called and not
 subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
 command buffer prior to this drawing command</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawIndexedIndirect-None-08669" href="#VUID-vkCmdDrawIndexedIndirect-None-08669"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-None-08669</span><br>
 
-If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and a shader object is
-bound to any graphics stage, and the most recent call to
-<a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a> in the current command buffer set
-<code>rasterizerDiscardEnable</code> to <code>VK_FALSE</code>, and the most recent
-call to <a href="vkCmdSetPolygonModeEXT.html">vkCmdSetPolygonModeEXT</a> in the current command buffer set
-<code>polygonMode</code> to <code>VK_POLYGON_MODE_LINE</code>, then
-<a href="vkCmdSetLineStippleEnableEXT.html">vkCmdSetLineStippleEnableEXT</a> <strong class="purple">must</strong> have been called and not
-subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
-command buffer prior to this drawing command</p>
+If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and
+a shader object is bound to any graphics stage or
+a graphics pipeline is bound which was created with the
+<code>VK_DYNAMIC_STATE_LINE_STIPPLE_ENABLE_EXT</code> dynamic state enabled,
+the <a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the
+<a href="#dynamic-state-current-value">current value</a> of <code>polygonMode</code> is
+<code>VK_POLYGON_MODE_LINE</code>, then <a href="vkCmdSetLineStippleEnableEXT.html">vkCmdSetLineStippleEnableEXT</a>
+<strong class="purple">must</strong> have been called and not subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current command buffer prior to this drawing
+command</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawIndexedIndirect-None-08670" href="#VUID-vkCmdDrawIndexedIndirect-None-08670"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-None-08670</span><br>
 
-If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and a shader object is
-bound to the <code>VK_SHADER_STAGE_VERTEX_BIT</code> stage, and the most recent
-call to <a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a> in the current command
-buffer set <code>rasterizerDiscardEnable</code> to <code>VK_FALSE</code>, and the most
-recent call to <a href="vkCmdSetPrimitiveTopology.html">vkCmdSetPrimitiveTopology</a> in the current command
-buffer set <code>primitiveTopology</code> to any line topology, then
+If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and
+a shader object is bound or
+a graphics pipeline is bound which was created with the
+<code>VK_DYNAMIC_STATE_LINE_STIPPLE_ENABLE_EXT</code> dynamic state enabled, a
+<code>VK_SHADER_STAGE_VERTEX_BIT</code> stage is bound, the
+<a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the
+<a href="#dynamic-state-current-value">current value</a> of
+<code>primitiveTopology</code> is any line topology, then
 <a href="vkCmdSetLineStippleEnableEXT.html">vkCmdSetLineStippleEnableEXT</a> <strong class="purple">must</strong> have been called and not
 subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
 command buffer prior to this drawing command</p>
@@ -3348,12 +3362,14 @@ command buffer prior to this drawing command</p>
 <li>
 <p><a id="VUID-vkCmdDrawIndexedIndirect-None-08671" href="#VUID-vkCmdDrawIndexedIndirect-None-08671"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-None-08671</span><br>
 
-If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and a shader object
-that outputs line primitives is bound to the
-<code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> or
-<code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage, and the most recent call to
-<a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a> in the current command buffer set
-<code>rasterizerDiscardEnable</code> to <code>VK_FALSE</code>, then
+If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and
+a shader object is bound or
+a graphics pipeline is bound which was created with the
+<code>VK_DYNAMIC_STATE_LINE_STIPPLE_ENABLE_EXT</code> dynamic state enabled,
+either a <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> or
+<code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage is bound, the
+<a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then
 <a href="vkCmdSetLineStippleEnableEXT.html">vkCmdSetLineStippleEnableEXT</a> <strong class="purple">must</strong> have been called and not
 subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
 command buffer prior to this drawing command</p>
@@ -4194,9 +4210,9 @@ If the current render pass instance was begun with
 <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a> and a
 <a href="VkRenderingInfo.html">VkRenderingInfo</a>::<code>colorAttachmentCount</code> equal to <code>1</code>, a color
 attachment with a resolve mode of
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>, and a fragment
-shader is bound, it <strong class="purple">must</strong> not declare the <code>DepthReplacing</code> or
-<code>StencilRefReplacingEXT</code> execution modes</p>
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>, and a
+fragment shader is bound, it <strong class="purple">must</strong> not declare the <code>DepthReplacing</code>
+or <code>StencilRefReplacingEXT</code> execution modes</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawIndexedIndirect-pDynamicStates-08715" href="#VUID-vkCmdDrawIndexedIndirect-pDynamicStates-08715"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-pDynamicStates-08715</span><br>
@@ -4432,8 +4448,9 @@ or
 <p><a id="VUID-vkCmdDrawIndexedIndirect-Input-07939" href="#VUID-vkCmdDrawIndexedIndirect-Input-07939"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirect-Input-07939</span><br>
 
     If
-    <a href="#features-vertexAttributeRobustness"><code>vertexAttributeRobustness</code></a>
-    is not enabled and
+    the <a href="#features-vertexAttributeRobustness"><code>vertexAttributeRobustness</code></a> feature is not enabled, and
+    the <a href="#features-maintenance9"><code>maintenance9</code></a> feature is not
+    enabled, and
     there is a shader object bound to the <code>VK_SHADER_STAGE_VERTEX_BIT</code>
     stage
 or

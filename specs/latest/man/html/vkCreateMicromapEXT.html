@@ -941,6 +941,10 @@ If <code>device</code> was created with multiple physical devices, then the
 <p><a id="VUID-vkCreateMicromapEXT-pMicromap-parameter" href="#VUID-vkCreateMicromapEXT-pMicromap-parameter"></a> <span class="vuid">VUID-vkCreateMicromapEXT-pMicromap-parameter</span><br>
  <code>pMicromap</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkMicromapEXT.html">VkMicromapEXT</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateMicromapEXT-device-queuecount" href="#VUID-vkCreateMicromapEXT-device-queuecount"></a> <span class="vuid">VUID-vkCreateMicromapEXT-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

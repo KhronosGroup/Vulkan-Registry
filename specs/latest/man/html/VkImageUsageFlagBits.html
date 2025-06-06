@@ -865,6 +865,8 @@ typedef enum VkImageUsageFlagBits {
     VK_IMAGE_USAGE_SAMPLE_WEIGHT_BIT_QCOM = 0x00100000,
   // Provided by VK_QCOM_image_processing
     VK_IMAGE_USAGE_SAMPLE_BLOCK_MATCH_BIT_QCOM = 0x00200000,
+  // Provided by VK_ARM_tensors
+    VK_IMAGE_USAGE_TENSOR_ALIASING_BIT_ARM = 0x00800000,
   // Provided by VK_QCOM_tile_memory_heap
     VK_IMAGE_USAGE_TILE_MEMORY_BIT_QCOM = 0x08000000,
   // Provided by VK_KHR_video_encode_quantization_map
@@ -981,11 +983,8 @@ picture</a> or an input <a href="https://registry.khronos.org/vulkan/specs/lates
 </li>
 <li>
 <p><code>VK_IMAGE_USAGE_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</code> specifies that the
-image <strong class="purple">can</strong> be transitioned to the
-<code>VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT</code> layout to be
-used as a color or depth/stencil attachment in a <code>VkFramebuffer</code>
-and/or as a read-only input resource in a shader (sampled image,
-combined image sampler or input attachment) in the same render pass.</p>
+image <strong class="purple">can</strong> be used as a color or depth/stencil attachment with
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-feedbackloop" target="_blank" rel="noopener">feedback loop enabled</a>.</p>
 </li>
 <li>
 <p><code>VK_IMAGE_USAGE_TILE_MEMORY_BIT_QCOM</code> specifies that the image <strong class="purple">can</strong>
@@ -1006,6 +1005,17 @@ specifies that the image <strong class="purple">can</strong> be used as a
 <p><code>VK_IMAGE_USAGE_VIDEO_ENCODE_EMPHASIS_MAP_BIT_KHR</code> specifies that
 the image <strong class="purple">can</strong> be used as an <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-emphasis-map" target="_blank" rel="noopener">emphasis map</a> in a
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-encode-operations" target="_blank" rel="noopener">video encode operation</a>.</p>
+</li>
+<li>
+<p><code>VK_IMAGE_USAGE_HOST_TRANSFER_BIT_EXT</code> specifies that the image <strong class="purple">can</strong>
+be used with host copy commands and host layout transitions.</p>
+</li>
+<li>
+<p><code>VK_IMAGE_USAGE_TENSOR_ALIASING_BIT_ARM</code> specifies that the image
+<strong class="purple">can</strong> be transitioned to the <code>VK_IMAGE_LAYOUT_TENSOR_ALIASING_ARM</code>
+layout.
+See <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-memory-aliasing" class="bare" target="_blank" rel="noopener">https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-memory-aliasing</a> for a complete set of rules for
+tensor/image aliasing.</p>
 </li>
 </ul>
 </div>

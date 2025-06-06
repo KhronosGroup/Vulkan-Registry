@@ -921,6 +921,10 @@ shorter than the duration of the <code>vkCreateShaderModule</code> command.</p>
 <p><a id="VUID-vkCreateValidationCacheEXT-pValidationCache-parameter" href="#VUID-vkCreateValidationCacheEXT-pValidationCache-parameter"></a> <span class="vuid">VUID-vkCreateValidationCacheEXT-pValidationCache-parameter</span><br>
  <code>pValidationCache</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkValidationCacheEXT.html">VkValidationCacheEXT</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateValidationCacheEXT-device-queuecount" href="#VUID-vkCreateValidationCacheEXT-device-queuecount"></a> <span class="vuid">VUID-vkCreateValidationCacheEXT-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

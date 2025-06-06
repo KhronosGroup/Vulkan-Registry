@@ -871,6 +871,10 @@ the resulting CUDA function object is returned.</p>
 <p><a id="VUID-vkCreateCudaFunctionNV-pFunction-parameter" href="#VUID-vkCreateCudaFunctionNV-pFunction-parameter"></a> <span class="vuid">VUID-vkCreateCudaFunctionNV-pFunction-parameter</span><br>
  <code>pFunction</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkCudaFunctionNV.html">VkCudaFunctionNV</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateCudaFunctionNV-device-queuecount" href="#VUID-vkCreateCudaFunctionNV-device-queuecount"></a> <span class="vuid">VUID-vkCreateCudaFunctionNV-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

@@ -944,6 +944,16 @@ layout the image is currently in.</p>
 </table>
 </div>
 <div class="paragraph">
+<p>If <code>image</code> is a 3D image created with
+<code>VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT</code> and the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance9" target="_blank" rel="noopener"><code>maintenance9</code></a> feature is enabled, the
+<code>baseArrayLayer</code> and <code>layerCount</code> members of <code>subresourceRange</code>
+specify the subset of slices of the 3D image affected by the memory barrier,
+including the layout transition.
+Any slices of a 3D image not included in <code>subresourceRange</code> are not
+affected by the memory barrier and remain in their existing layout.</p>
+</div>
+<div class="paragraph">
 <p>If <code>image</code> has a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-multiplanar" target="_blank" rel="noopener">multi-planar format</a> and the
 image is <em>disjoint</em>, then including <code>VK_IMAGE_ASPECT_COLOR_BIT</code> in the
 <code>aspectMask</code> member of <code>subresourceRange</code> is equivalent to including
@@ -1396,19 +1406,60 @@ the <code>mipLevels</code> specified in <a href="VkImageCreateInfo.html">VkImage
 <li>
 <p><a id="VUID-VkImageMemoryBarrier-subresourceRange-01488" href="#VUID-VkImageMemoryBarrier-subresourceRange-01488"></a> <span class="vuid">VUID-VkImageMemoryBarrier-subresourceRange-01488</span><br>
 
+If <code>image</code> is not a 3D image or was created without
+<code>VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT</code> set, or the
+<a href="#features-maintenance9"><code>maintenance9</code></a> feature is not enabled,
 <code>subresourceRange.baseArrayLayer</code> <strong class="purple">must</strong> be less than the
 <code>arrayLayers</code> specified in <a href="VkImageCreateInfo.html">VkImageCreateInfo</a> when <code>image</code>
 was created</p>
 </li>
 <li>
+<p><a id="VUID-VkImageMemoryBarrier-maintenance9-10798" href="#VUID-VkImageMemoryBarrier-maintenance9-10798"></a> <span class="vuid">VUID-VkImageMemoryBarrier-maintenance9-10798</span><br>
+
+If the <a href="#features-maintenance9"><code>maintenance9</code></a> feature is enabled
+and <code>image</code> is a 3D image created with
+<code>VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT</code> set,
+<code>subresourceRange.baseArrayLayer</code> <strong class="purple">must</strong> be less than the depth
+computed from <code>baseMipLevel</code> and <code>extent.depth</code> specified in
+<a href="VkImageCreateInfo.html">VkImageCreateInfo</a> when <code>image</code> was created, according to the
+formula defined in <a href="#resources-image-mip-level-sizing">Image Mip Level
+Sizing</a></p>
+</li>
+<li>
+<p><a id="VUID-VkImageMemoryBarrier-maintenance9-10799" href="#VUID-VkImageMemoryBarrier-maintenance9-10799"></a> <span class="vuid">VUID-VkImageMemoryBarrier-maintenance9-10799</span><br>
+
+If the <a href="#features-maintenance9"><code>maintenance9</code></a> feature is enabled
+and <code>image</code> is a 3D image created with
+<code>VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT</code> set,
+<code>subresourceRange.levelCount</code> <strong class="purple">must</strong> be 1</p>
+</li>
+<li>
 <p><a id="VUID-VkImageMemoryBarrier-subresourceRange-01725" href="#VUID-VkImageMemoryBarrier-subresourceRange-01725"></a> <span class="vuid">VUID-VkImageMemoryBarrier-subresourceRange-01725</span><br>
 
-If <code>subresourceRange.layerCount</code> is not
+If <code>image</code> is not a 3D image or was created without
+<code>VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT</code> set, or the
+<a href="#features-maintenance9"><code>maintenance9</code></a> feature is not enabled,
+and
+<code>subresourceRange.layerCount</code> is not
 <code>VK_REMAINING_ARRAY_LAYERS</code>,
 <span class="eq"><code>subresourceRange.baseArrayLayer</code> + 
 <code>subresourceRange.layerCount</code></span> <strong class="purple">must</strong> be less than or equal to the
 <code>arrayLayers</code> specified in <a href="VkImageCreateInfo.html">VkImageCreateInfo</a> when <code>image</code>
 was created</p>
+</li>
+<li>
+<p><a id="VUID-VkImageMemoryBarrier-maintenance9-10800" href="#VUID-VkImageMemoryBarrier-maintenance9-10800"></a> <span class="vuid">VUID-VkImageMemoryBarrier-maintenance9-10800</span><br>
+
+If the <a href="#features-maintenance9"><code>maintenance9</code></a> feature is enabled,
+<code>subresourceRange.layerCount</code> is not
+<code>VK_REMAINING_ARRAY_LAYERS</code>, and <code>image</code> is a 3D image created
+with <code>VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT</code> set,
+<span class="eq"><code>subresourceRange.baseArrayLayer</code> + 
+<code>subresourceRange.layerCount</code></span> <strong class="purple">must</strong> be less than or equal to the
+depth computed from <code>baseMipLevel</code> and <code>extent.depth</code> specified
+in <a href="VkImageCreateInfo.html">VkImageCreateInfo</a> when <code>image</code> was created, according to
+the formula defined in <a href="#resources-image-mip-level-sizing">Image Mip
+Level Sizing</a></p>
 </li>
 <li>
 <p><a id="VUID-VkImageMemoryBarrier-image-01932" href="#VUID-VkImageMemoryBarrier-image-01932"></a> <span class="vuid">VUID-VkImageMemoryBarrier-image-01932</span><br>

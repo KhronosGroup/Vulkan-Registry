@@ -824,6 +824,10 @@ typedef enum VkSwapchainCreateFlagBitsKHR {
     VK_SWAPCHAIN_CREATE_MUTABLE_FORMAT_BIT_KHR = 0x00000004,
   // Provided by VK_EXT_swapchain_maintenance1
     VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_EXT = 0x00000008,
+  // Provided by VK_KHR_present_id2
+    VK_SWAPCHAIN_CREATE_PRESENT_ID_2_BIT_KHR = 0x00000040,
+  // Provided by VK_KHR_present_wait2
+    VK_SWAPCHAIN_CREATE_PRESENT_WAIT_2_BIT_KHR = 0x00000080,
 } VkSwapchainCreateFlagBitsKHR;</code></pre>
 </div>
 </div>
@@ -863,6 +867,19 @@ view formats.</p>
     <a href="vkAcquireNextImageKHR.html">vkAcquireNextImageKHR</a>
 or <a href="vkAcquireNextImage2KHR.html">vkAcquireNextImage2KHR</a>
     for the first time.</p>
+</li>
+<li>
+<p><code>VK_SWAPCHAIN_CREATE_PRESENT_ID_2_BIT_KHR</code> specifies that
+applications <strong class="purple">can</strong> include the <code>VkPresentId2KHR</code> structure in the
+<code>pNext</code> chain of the <a href="VkPresentInfoKHR.html">VkPresentInfoKHR</a> structure to associate
+an identifier with each presentation request.</p>
+</li>
+<li>
+<p><code>VK_SWAPCHAIN_CREATE_PRESENT_WAIT_2_BIT_KHR</code> specifies that
+applications <strong class="purple">can</strong> use <code>vkWaitForPresent2KHR</code> to wait for the
+presentation engine to have begun presentation of the presentation
+request associated with <a href="VkPresentWait2InfoKHR.html">VkPresentWait2InfoKHR</a>::<code>presentId</code> on
+<code>swapchain</code>.</p>
 </li>
 </ul>
 </div>

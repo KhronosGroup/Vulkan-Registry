@@ -838,6 +838,8 @@ typedef enum VkDescriptorType {
     VK_DESCRIPTOR_TYPE_SAMPLE_WEIGHT_IMAGE_QCOM = 1000440000,
   // Provided by VK_QCOM_image_processing
     VK_DESCRIPTOR_TYPE_BLOCK_MATCH_IMAGE_QCOM = 1000440001,
+  // Provided by VK_ARM_tensors
+    VK_DESCRIPTOR_TYPE_TENSOR_ARM = 1000460000,
   // Provided by VK_EXT_mutable_descriptor_type
     VK_DESCRIPTOR_TYPE_MUTABLE_EXT = 1000351000,
   // Provided by VK_NV_partitioned_acceleration_structure
@@ -918,6 +920,10 @@ descriptor</a>.</p>
 <p><code>VK_DESCRIPTOR_TYPE_BLOCK_MATCH_IMAGE_QCOM</code> specifies a
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-blockmatch" target="_blank" rel="noopener">block matching image descriptor</a>.</p>
 </li>
+<li>
+<p><code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> specifies a
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#descriptorsets-storagetensor" target="_blank" rel="noopener">storage tensor descriptor</a>.</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -977,7 +983,13 @@ When updating descriptors with a <code>descriptorType</code> of
 <code>pImageInfo</code>, <code>pBufferInfo</code>, or <code>pTexelBufferView</code> members are
 accessed, instead the source data of the descriptor update operation is
 taken from the <a href="VkWriteDescriptorSetAccelerationStructureNV.html">VkWriteDescriptorSetAccelerationStructureNV</a> structure
-in the <code>pNext</code> chain of <code>VkWriteDescriptorSet</code>.</p>
+in the <code>pNext</code> chain of <code>VkWriteDescriptorSet</code>.
+When updating descriptors with a <code>descriptorType</code> of
+<code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code>, none of the <code>pImageInfo</code>,
+<code>pBufferInfo</code>, or <code>pTexelBufferView</code> members are accessed, instead
+the source data of the descriptor update operation is taken from the
+instance of <a href="VkWriteDescriptorSetTensorARM.html">VkWriteDescriptorSetTensorARM</a> in the <code>pNext</code> chain of
+<a href="VkWriteDescriptorSet.html">VkWriteDescriptorSet</a>.</p>
 </div>
 </div>
 </div>

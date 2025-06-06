@@ -1554,11 +1554,15 @@ be <code>VK_IMAGE_TYPE_3D</code></p>
 <li>
 <p><a id="VUID-VkImageCreateInfo-imageType-10197" href="#VUID-VkImageCreateInfo-imageType-10197"></a> <span class="vuid">VUID-VkImageCreateInfo-imageType-10197</span><br>
 
-If <code>flags</code> contains
-<code>VK_IMAGE_CREATE_2D_VIEW_COMPATIBLE_BIT_EXT</code>, <code>flags</code> <strong class="purple">must</strong> not
-include <code>VK_IMAGE_CREATE_SPARSE_ALIASED_BIT</code>,
-<code>VK_IMAGE_CREATE_SPARSE_BINDING_BIT</code>, or
-<code>VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT</code></p>
+    If <code>flags</code> contains <code>VK_IMAGE_CREATE_2D_VIEW_COMPATIBLE_BIT_EXT</code>
+and either the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance9" target="_blank" rel="noopener"><code>maintenance9</code></a> feature is not
+enabled on the device or
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-image2DViewOf3DSparse" target="_blank" rel="noopener"><code>image2DViewOf3DSparse</code></a> is
+<code>VK_FALSE</code>
+    , <code>flags</code> <strong class="purple">must</strong> not include
+    <code>VK_IMAGE_CREATE_SPARSE_ALIASED_BIT</code>,
+    <code>VK_IMAGE_CREATE_SPARSE_BINDING_BIT</code>, or
+    <code>VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT</code></p>
 </li>
 <li>
 <p><a id="VUID-VkImageCreateInfo-extent-02252" href="#VUID-VkImageCreateInfo-extent-02252"></a> <span class="vuid">VUID-VkImageCreateInfo-extent-02252</span><br>
@@ -2333,6 +2337,16 @@ structure with <code>profileCount</code> greater than <code>0</code>, then
 <code>supportedVideoFormat</code> <strong class="purple">must</strong> be <code>VK_TRUE</code></p>
 </li>
 <li>
+<p><a id="VUID-VkImageCreateInfo-pNext-10784" href="#VUID-VkImageCreateInfo-pNext-10784"></a> <span class="vuid">VUID-VkImageCreateInfo-pNext-10784</span><br>
+
+If the <code>pNext</code> chain includes a <a href="VkVideoProfileListInfoKHR.html">VkVideoProfileListInfoKHR</a>
+structure and for any element of its <code>pProfiles</code> member
+<code>videoCodecOperation</code> is
+<code>VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR</code>, then the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-videoDecodeVP9" target="_blank" rel="noopener"><code>videoDecodeVP9</code></a> feature <strong class="purple">must</strong> be
+enabled</p>
+</li>
+<li>
 <p><a id="VUID-VkImageCreateInfo-pNext-10250" href="#VUID-VkImageCreateInfo-pNext-10250"></a> <span class="vuid">VUID-VkImageCreateInfo-pNext-10250</span><br>
 
 If the <code>pNext</code> chain includes a <a href="VkVideoProfileListInfoKHR.html">VkVideoProfileListInfoKHR</a>
@@ -2559,6 +2573,13 @@ If the <code>pNext</code> chain contains a
 If the <code>pNext</code> chain contains a
 <a href="VkImageAlignmentControlCreateInfoMESA.html">VkImageAlignmentControlCreateInfoMESA</a> structure, it <strong class="purple">must</strong> not
 contain a <a href="VkExternalMemoryImageCreateInfo.html">VkExternalMemoryImageCreateInfo</a> structure</p>
+</li>
+<li>
+<p><a id="VUID-VkImageCreateInfo-tiling-09711" href="#VUID-VkImageCreateInfo-tiling-09711"></a> <span class="vuid">VUID-VkImageCreateInfo-tiling-09711</span><br>
+
+If <code>tiling</code> is VK_IMAGE_TILING_LINEAR then
+<code>VK_IMAGE_USAGE_TENSOR_ALIASING_BIT_ARM</code> <strong class="purple">must</strong> not be set in
+<code>usage</code>.</p>
 </li>
 </ul>
 </div>

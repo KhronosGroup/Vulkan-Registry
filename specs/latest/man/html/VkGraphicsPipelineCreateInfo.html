@@ -1265,6 +1265,9 @@ any way, that pipeline <strong class="purple">must</strong> specify this state d
 <p><a href="VkExternalFormatANDROID.html">VkExternalFormatANDROID</a></p>
 </li>
 <li>
+<p><a href="VkAttachmentFeedbackLoopInfoEXT.html">VkAttachmentFeedbackLoopInfoEXT</a></p>
+</li>
+<li>
 <p>Inclusion/omission of the
 <code>VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</code> and
 <code>VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</code>
@@ -1983,8 +1986,8 @@ include a mesh shader</p>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-flags-00764" href="#VUID-VkGraphicsPipelineCreateInfo-flags-00764"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-flags-00764</span><br>
 
-<code>flags</code> <strong class="purple">must</strong> not contain the <code>VK_PIPELINE_CREATE_DISPATCH_BASE</code>
-flag</p>
+<code>flags</code> <strong class="purple">must</strong> not contain the
+<code>VK_PIPELINE_CREATE_DISPATCH_BASE_BIT</code> flag</p>
 </li>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-pStages-01565" href="#VUID-VkGraphicsPipelineCreateInfo-pStages-01565"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-pStages-01565</span><br>
@@ -2087,7 +2090,9 @@ If the pipeline requires <a href="https://registry.khronos.org/vulkan/specs/late
 
 If
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-vertexAttributeRobustness" target="_blank" rel="noopener"><code>vertexAttributeRobustness</code></a>
-is not enabled and
+is not enabled, and
+the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance9" target="_blank" rel="noopener"><code>maintenance9</code></a> feature is not
+enabled, and
 the pipeline is being created with
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-vertex-input" target="_blank" rel="noopener">vertex input state</a> and
 <code>pVertexInputState</code> is not dynamic, then all variables with the

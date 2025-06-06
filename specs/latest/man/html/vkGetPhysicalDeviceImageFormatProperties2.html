@@ -879,6 +879,38 @@ Furthermore, if <a href="VkPhysicalDeviceImageFormatInfo2.html">VkPhysicalDevice
 any image usage flag not supported by the specified video profiles, then
 this command returns <code>VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR</code>.</p>
 </div>
+<div class="paragraph">
+<p>If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-hostImageCopy" target="_blank" rel="noopener"><code>hostImageCopy</code></a> feature is supported,
+and:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pImageFormatInfo-&gt;usage</code> includes <code>VK_IMAGE_USAGE_SAMPLED_BIT</code></p>
+</li>
+<li>
+<p><code>pImageFormatInfo-&gt;flags</code> does not include either of
+<code>VK_IMAGE_CREATE_SPARSE_BINDING_BIT</code>,
+<code>VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT</code>, or
+<code>VK_IMAGE_CREATE_SPARSE_ALIASED_BIT</code></p>
+</li>
+<li>
+<p>The <code>pNext</code> chain of <code>pImageFormatInfo</code> does not include a
+<a href="VkPhysicalDeviceExternalImageFormatInfo.html">VkPhysicalDeviceExternalImageFormatInfo</a> structure with non-zero
+<code>handleType</code></p>
+</li>
+<li>
+<p><code>pImageFormatInfo-&gt;tiling</code> is not
+<code>VK_IMAGE_TILING_DRM_FORMAT_MODIFIER_EXT</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Then the result of calls to <code>vkGetPhysicalDeviceImageFormatProperties2</code>
+with identical parameters except for the inclusion of
+<code>VK_IMAGE_USAGE_HOST_TRANSFER_BIT</code> in <code>pImageFormatInfo-&gt;usage</code>
+<strong class="purple">must</strong> be identical.</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage</div>

@@ -886,6 +886,10 @@ available in the logical device <code>device</code></p>
 <p><a id="VUID-vkCreateCommandPool-pCommandPool-parameter" href="#VUID-vkCreateCommandPool-pCommandPool-parameter"></a> <span class="vuid">VUID-vkCreateCommandPool-pCommandPool-parameter</span><br>
  <code>pCommandPool</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkCommandPool.html">VkCommandPool</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateCommandPool-device-queuecount" href="#VUID-vkCreateCommandPool-device-queuecount"></a> <span class="vuid">VUID-vkCreateCommandPool-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

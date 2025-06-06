@@ -839,7 +839,7 @@ typedef struct VkQueryPoolCreateInfo {
 structure.</p>
 </li>
 <li>
-<p><code>flags</code> is reserved for future use.</p>
+<p><code>flags</code> is a bitmask of <a href="VkQueryPoolCreateFlagBits.html">VkQueryPoolCreateFlagBits</a></p>
 </li>
 <li>
 <p><code>queryType</code> is a <a href="VkQueryType.html">VkQueryType</a> value specifying the type of
@@ -919,6 +919,15 @@ If <code>queryType</code> is <code>VK_QUERY_TYPE_PERFORMANCE_QUERY_KHR</code>, t
 <code>queryCount</code> <strong class="purple">must</strong> be greater than 0</p>
 </li>
 <li>
+<p><a id="VUID-VkQueryPoolCreateInfo-pNext-10779" href="#VUID-VkQueryPoolCreateInfo-pNext-10779"></a> <span class="vuid">VUID-VkQueryPoolCreateInfo-pNext-10779</span><br>
+
+If the <code>pNext</code> chain includes a <a href="VkVideoProfileInfoKHR.html">VkVideoProfileInfoKHR</a>
+structure and its <code>videoCodecOperation</code> member is
+<code>VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR</code>, then the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-videoDecodeVP9" target="_blank" rel="noopener"><code>videoDecodeVP9</code></a> feature <strong class="purple">must</strong> be
+enabled</p>
+</li>
+<li>
 <p><a id="VUID-VkQueryPoolCreateInfo-queryType-07133" href="#VUID-VkQueryPoolCreateInfo-queryType-07133"></a> <span class="vuid">VUID-VkQueryPoolCreateInfo-queryType-07133</span><br>
 
 If <code>queryType</code> is <code>VK_QUERY_TYPE_VIDEO_ENCODE_FEEDBACK_KHR</code>,
@@ -969,15 +978,15 @@ enabled</p>
 </li>
 <li>
 <p><a id="VUID-VkQueryPoolCreateInfo-pNext-pNext" href="#VUID-VkQueryPoolCreateInfo-pNext-pNext"></a> <span class="vuid">VUID-VkQueryPoolCreateInfo-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkQueryPoolPerformanceCreateInfoKHR.html">VkQueryPoolPerformanceCreateInfoKHR</a>, <a href="VkQueryPoolPerformanceQueryCreateInfoINTEL.html">VkQueryPoolPerformanceQueryCreateInfoINTEL</a>, <a href="VkQueryPoolVideoEncodeFeedbackCreateInfoKHR.html">VkQueryPoolVideoEncodeFeedbackCreateInfoKHR</a>, <a href="VkVideoDecodeAV1ProfileInfoKHR.html">VkVideoDecodeAV1ProfileInfoKHR</a>, <a href="VkVideoDecodeH264ProfileInfoKHR.html">VkVideoDecodeH264ProfileInfoKHR</a>, <a href="VkVideoDecodeH265ProfileInfoKHR.html">VkVideoDecodeH265ProfileInfoKHR</a>, <a href="VkVideoDecodeUsageInfoKHR.html">VkVideoDecodeUsageInfoKHR</a>, <a href="VkVideoEncodeAV1ProfileInfoKHR.html">VkVideoEncodeAV1ProfileInfoKHR</a>, <a href="VkVideoEncodeH264ProfileInfoKHR.html">VkVideoEncodeH264ProfileInfoKHR</a>, <a href="VkVideoEncodeH265ProfileInfoKHR.html">VkVideoEncodeH265ProfileInfoKHR</a>, <a href="VkVideoEncodeUsageInfoKHR.html">VkVideoEncodeUsageInfoKHR</a>, or <a href="VkVideoProfileInfoKHR.html">VkVideoProfileInfoKHR</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkQueryPoolPerformanceCreateInfoKHR.html">VkQueryPoolPerformanceCreateInfoKHR</a>, <a href="VkQueryPoolPerformanceQueryCreateInfoINTEL.html">VkQueryPoolPerformanceQueryCreateInfoINTEL</a>, <a href="VkQueryPoolVideoEncodeFeedbackCreateInfoKHR.html">VkQueryPoolVideoEncodeFeedbackCreateInfoKHR</a>, <a href="VkVideoDecodeAV1ProfileInfoKHR.html">VkVideoDecodeAV1ProfileInfoKHR</a>, <a href="VkVideoDecodeH264ProfileInfoKHR.html">VkVideoDecodeH264ProfileInfoKHR</a>, <a href="VkVideoDecodeH265ProfileInfoKHR.html">VkVideoDecodeH265ProfileInfoKHR</a>, <a href="VkVideoDecodeUsageInfoKHR.html">VkVideoDecodeUsageInfoKHR</a>, <a href="VkVideoDecodeVP9ProfileInfoKHR.html">VkVideoDecodeVP9ProfileInfoKHR</a>, <a href="VkVideoEncodeAV1ProfileInfoKHR.html">VkVideoEncodeAV1ProfileInfoKHR</a>, <a href="VkVideoEncodeH264ProfileInfoKHR.html">VkVideoEncodeH264ProfileInfoKHR</a>, <a href="VkVideoEncodeH265ProfileInfoKHR.html">VkVideoEncodeH265ProfileInfoKHR</a>, <a href="VkVideoEncodeUsageInfoKHR.html">VkVideoEncodeUsageInfoKHR</a>, or <a href="VkVideoProfileInfoKHR.html">VkVideoProfileInfoKHR</a></p>
 </li>
 <li>
 <p><a id="VUID-VkQueryPoolCreateInfo-sType-unique" href="#VUID-VkQueryPoolCreateInfo-sType-unique"></a> <span class="vuid">VUID-VkQueryPoolCreateInfo-sType-unique</span><br>
  The <code>sType</code> value of each structure in the <code>pNext</code> chain <strong class="purple">must</strong> be unique</p>
 </li>
 <li>
-<p><a id="VUID-VkQueryPoolCreateInfo-flags-zerobitmask" href="#VUID-VkQueryPoolCreateInfo-flags-zerobitmask"></a> <span class="vuid">VUID-VkQueryPoolCreateInfo-flags-zerobitmask</span><br>
- <code>flags</code> <strong class="purple">must</strong> be <code>0</code></p>
+<p><a id="VUID-VkQueryPoolCreateInfo-flags-parameter" href="#VUID-VkQueryPoolCreateInfo-flags-parameter"></a> <span class="vuid">VUID-VkQueryPoolCreateInfo-flags-parameter</span><br>
+ <code>flags</code> <strong class="purple">must</strong> be a valid combination of <a href="VkQueryPoolCreateFlagBits.html">VkQueryPoolCreateFlagBits</a> values</p>
 </li>
 <li>
 <p><a id="VUID-VkQueryPoolCreateInfo-queryType-parameter" href="#VUID-VkQueryPoolCreateInfo-queryType-parameter"></a> <span class="vuid">VUID-VkQueryPoolCreateInfo-queryType-parameter</span><br>

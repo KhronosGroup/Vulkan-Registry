@@ -942,6 +942,10 @@ excepting members <a href="VkImageCreateInfo.html">VkImageCreateInfo</a>::<code>
 <p><a id="VUID-vkCreateImage-pImage-parameter" href="#VUID-vkCreateImage-pImage-parameter"></a> <span class="vuid">VUID-vkCreateImage-pImage-parameter</span><br>
  <code>pImage</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkImage.html">VkImage</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateImage-device-queuecount" href="#VUID-vkCreateImage-device-queuecount"></a> <span class="vuid">VUID-vkCreateImage-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

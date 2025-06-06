@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>Vulkan<sup>®</sup> Documentation and Extensions: Procedures and Conventions</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech, Tobias Hector</span><br>
-<span id="revnumber">version 1.4.316,</span>
-<span id="revdate">2025-05-30 15:00:30Z</span>
-<br><span id="revremark">from git branch: github-main commit: dd1a021e15026b17c6f844cb42a59036b9f9a9b8</span>
+<span id="revnumber">version 1.4.317,</span>
+<span id="revdate">2025-06-06 12:35:34Z</span>
+<br><span id="revremark">from git branch: github-main commit: 1228b2beff1a664da6dabea122f49f9818ecda8a</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -978,25 +978,26 @@ pre.rouge .w {
 <li><a href="#naming-extension-structures">2.3.1. Extending Structure Names</a></li>
 </ul>
 </li>
-<li><a href="#_enumerant_names">2.4. Enumerant Names</a></li>
-<li><a href="#_command_names">2.5. Command Names</a>
+<li><a href="#naming-enums">2.4. Enumerant Names</a></li>
+<li><a href="#naming-enums-bitflags">2.5. Bitflag Names</a></li>
+<li><a href="#_command_names">2.6. Command Names</a>
 <ul class="sectlevel3">
-<li><a href="#_query_commands">2.5.1. Query Commands</a></li>
-<li><a href="#command-names-verbs">2.5.2. Command Verbs</a></li>
-<li><a href="#naming-funcpointers">2.5.3. Function Pointer Type Names</a></li>
+<li><a href="#_query_commands">2.6.1. Query Commands</a></li>
+<li><a href="#command-names-verbs">2.6.2. Command Verbs</a></li>
+<li><a href="#naming-funcpointers">2.6.3. Function Pointer Type Names</a></li>
 </ul>
 </li>
-<li><a href="#_function_parameter_and_structunion_member_names">2.6. Function Parameter and Struct/Union Member Names</a></li>
-<li><a href="#naming-extension-identifiers">2.7. Extension Identifier Naming Conventions</a>
+<li><a href="#_function_parameter_and_structunion_member_names">2.7. Function Parameter and Struct/Union Member Names</a></li>
+<li><a href="#naming-extension-identifiers">2.8. Extension Identifier Naming Conventions</a>
 <ul class="sectlevel3">
-<li><a href="#_extension_type_names">2.7.1. Extension Type Names</a></li>
-<li><a href="#naming-extension-enumerant-names">2.7.2. Extension Enumerant Names</a></li>
-<li><a href="#_extension_function_names">2.7.3. Extension Function Names</a></li>
+<li><a href="#_extension_type_names">2.8.1. Extension Type Names</a></li>
+<li><a href="#naming-extension-enumerant-names">2.8.2. Extension Enumerant Names</a></li>
+<li><a href="#_extension_function_names">2.8.3. Extension Function Names</a></li>
 </ul>
 </li>
-<li><a href="#naming-abbreviations">2.8. Common Abbreviations</a></li>
-<li><a href="#naming-prefixes">2.9. Standard Prefixes</a></li>
-<li><a href="#format-types">2.10. Format Types</a></li>
+<li><a href="#naming-abbreviations">2.9. Common Abbreviations</a></li>
+<li><a href="#naming-prefixes">2.10. Standard Prefixes</a></li>
+<li><a href="#format-types">2.11. Format Types</a></li>
 </ul>
 </li>
 <li><a href="#extensions">3. API Versions, Extensions, and Layers</a>
@@ -1556,7 +1557,7 @@ property being queried, such as <code>Multiview</code> or <code>DiscardRectangle
 </div>
 </div>
 <div class="sect2">
-<h3 id="_enumerant_names"><a class="anchor" href="#_enumerant_names"></a>2.4. Enumerant Names</h3>
+<h3 id="naming-enums"><a class="anchor" href="#naming-enums"></a>2.4. Enumerant Names</h3>
 <div class="paragraph">
 <p>Enumerants include an underscore <code>_</code> as a delimiter between words, with
 every character in upper case.</p>
@@ -1611,7 +1612,23 @@ success codes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_command_names"><a class="anchor" href="#_command_names"></a>2.5. Command Names</h3>
+<h3 id="naming-enums-bitflags"><a class="anchor" href="#naming-enums-bitflags"></a>2.5. Bitflag Names</h3>
+<div class="paragraph">
+<p>The names of bitflag enumerants (those that belong to a <code><strong>FlagBits</strong></code> type)
+must end with <code>_BIT</code> (followed by the author ID for enumerants defined by
+extensions).</p>
+</div>
+<div class="paragraph">
+<p>The only exception to this rule is where a name ending in <code>_NONE</code>, such as
+<code>VK_CULL_MODE_NONE</code> or <code>VK_VIDEO_CODEC_OPERATION_NONE_KHR</code>, is used as an
+alias for the value <code>0</code>.</p>
+</div>
+<div class="paragraph">
+<p>These names represent not a bitflag, but the absence of any bitflags.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_command_names"><a class="anchor" href="#_command_names"></a>2.6. Command Names</h3>
 <div class="paragraph">
 <p>Command names are declared with no separator between words.
 Each word starts with a capital letter, and every other character in each
@@ -1698,7 +1715,7 @@ creation commands).</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_query_commands"><a class="anchor" href="#_query_commands"></a>2.5.1. Query Commands</h4>
+<h4 id="_query_commands"><a class="anchor" href="#_query_commands"></a>2.6.1. Query Commands</h4>
 <div class="paragraph">
 <p>A number of commands in the API are used to determine the properties of some
 object in the implementation.</p>
@@ -1747,7 +1764,7 @@ Such commands use the verb "Get" to identify themselves.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="command-names-verbs"><a class="anchor" href="#command-names-verbs"></a>2.5.2. Command Verbs</h4>
+<h4 id="command-names-verbs"><a class="anchor" href="#command-names-verbs"></a>2.6.2. Command Verbs</h4>
 <div class="paragraph">
 <p>Below is a list of many of the verbs currently in use in core Vulkan and KHR
 extensions, along with their meanings.
@@ -1902,7 +1919,7 @@ verbs at the time of writing.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="naming-funcpointers"><a class="anchor" href="#naming-funcpointers"></a>2.5.3. Function Pointer Type Names</h4>
+<h4 id="naming-funcpointers"><a class="anchor" href="#naming-funcpointers"></a>2.6.3. Function Pointer Type Names</h4>
 <div class="paragraph">
 <p>Function pointer names are declared exactly as the equivalent statically
 declared command would be declared, but prefixed with <code>PFN_</code>, standing for
@@ -1918,7 +1935,7 @@ declared command would be declared, but prefixed with <code>PFN_</code>, standin
 </div>
 </div>
 <div class="sect2">
-<h3 id="_function_parameter_and_structunion_member_names"><a class="anchor" href="#_function_parameter_and_structunion_member_names"></a>2.6. Function Parameter and Struct/Union Member Names</h3>
+<h3 id="_function_parameter_and_structunion_member_names"><a class="anchor" href="#_function_parameter_and_structunion_member_names"></a>2.7. Function Parameter and Struct/Union Member Names</h3>
 <div class="paragraph">
 <p>Function parameter names are declared with no separator between words.
 Each new word, <strong>except</strong> for the first, starts with a capital letter.
@@ -2028,7 +2045,7 @@ every structure.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="naming-extension-identifiers"><a class="anchor" href="#naming-extension-identifiers"></a>2.7. Extension Identifier Naming Conventions</h3>
+<h3 id="naming-extension-identifiers"><a class="anchor" href="#naming-extension-identifiers"></a>2.8. Extension Identifier Naming Conventions</h3>
 <div class="paragraph">
 <p>Identifiers defined by an extension are modified by appending the
 extension&#8217;s author ID to the end of the identifier, as described below.
@@ -2045,7 +2062,7 @@ compatibility with existing applications making use of the earlier
 extension&#8217;s identifiers.</p>
 </div>
 <div class="sect3">
-<h4 id="_extension_type_names"><a class="anchor" href="#_extension_type_names"></a>2.7.1. Extension Type Names</h4>
+<h4 id="_extension_type_names"><a class="anchor" href="#_extension_type_names"></a>2.8.1. Extension Type Names</h4>
 <div class="paragraph">
 <p>Types defined by extensions have the author ID appended to the end of the
 type name.</p>
@@ -2062,7 +2079,7 @@ type name.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="naming-extension-enumerant-names"><a class="anchor" href="#naming-extension-enumerant-names"></a>2.7.2. Extension Enumerant Names</h4>
+<h4 id="naming-extension-enumerant-names"><a class="anchor" href="#naming-extension-enumerant-names"></a>2.8.2. Extension Enumerant Names</h4>
 <div class="paragraph">
 <p>Enumerants defined by extensions have the author ID appended to the end of
 the enumerant name, separated by an underscore.
@@ -2101,7 +2118,7 @@ identifier to avoid compatibility issues:
 </div>
 </div>
 <div class="sect3">
-<h4 id="_extension_function_names"><a class="anchor" href="#_extension_function_names"></a>2.7.3. Extension Function Names</h4>
+<h4 id="_extension_function_names"><a class="anchor" href="#_extension_function_names"></a>2.8.3. Extension Function Names</h4>
 <div class="paragraph">
 <p>Function and function pointer type names defined by extensions have the
 author ID appended to the end of the name.</p>
@@ -2124,7 +2141,7 @@ author ID appended to the end of the name.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="naming-abbreviations"><a class="anchor" href="#naming-abbreviations"></a>2.8. Common Abbreviations</h3>
+<h3 id="naming-abbreviations"><a class="anchor" href="#naming-abbreviations"></a>2.9. Common Abbreviations</h3>
 <div class="paragraph">
 <p>Abbreviations and acronyms are sometimes used in the <a href="#vulkan-spec">Vulkan
 API Specification</a> and the Vulkan API where they are considered clear and
@@ -2166,7 +2183,7 @@ general usage guideline, for historical reasons.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="naming-prefixes"><a class="anchor" href="#naming-prefixes"></a>2.9. Standard Prefixes</h3>
+<h3 id="naming-prefixes"><a class="anchor" href="#naming-prefixes"></a>2.10. Standard Prefixes</h3>
 <div class="paragraph">
 <p>Prefixes are used in the API to denote specific semantic meaning of Vulkan
 names, or as a label to avoid name clashes.
@@ -2175,7 +2192,7 @@ appendix of the Specification and are not reproduced here.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="format-types"><a class="anchor" href="#format-types"></a>2.10. Format Types</h3>
+<h3 id="format-types"><a class="anchor" href="#format-types"></a>2.11. Format Types</h3>
 <div class="paragraph">
 <p>Formats naming conventions</p>
 </div>
@@ -7007,6 +7024,10 @@ available in the logical device <code>device</code></p>
 <p><a id="VUID-vkCreateCommandPool-pCommandPool-parameter" href="#VUID-vkCreateCommandPool-pCommandPool-parameter"></a> <span class="vuid">VUID-vkCreateCommandPool-pCommandPool-parameter</span><br>
  <code>pCommandPool</code> <strong class="purple">must</strong> be a valid pointer to a <a href="#VkCommandPool">VkCommandPool</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateCommandPool-device-queuecount" href="#VUID-vkCreateCommandPool-device-queuecount"></a> <span class="vuid">VUID-vkCreateCommandPool-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>
@@ -8092,6 +8113,10 @@ to by the Vulkan Working Group.</p>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2025-05-27 - Add a new <a href="#naming-enums-bitflags">Bitflag Names</a> section
+(internal issue 4276).</p>
+</li>
 <li>
 <p>2024-11-13 - Add a new <a href="#write-active">Use the Active Voice</a> section
 (internal issue 4085).</p>

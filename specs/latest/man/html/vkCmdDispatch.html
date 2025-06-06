@@ -1481,6 +1481,34 @@ transitioned to the
 <code>VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT</code> layout</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDispatch-pDescription-09900" href="#VUID-vkCmdDispatch-pDescription-09900"></a> <span class="vuid">VUID-vkCmdDispatch-pDescription-09900</span><br>
+
+If a <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> descriptor is accessed as a
+result of this command, then the underlying <a href="VkTensorARM.html">VkTensorARM</a> object
+<strong class="purple">must</strong> have been created with a
+<a href="VkTensorCreateInfoARM.html">VkTensorCreateInfoARM</a>::<code>pDescription</code> whose <code>usage</code> member
+contained <code>VK_TENSOR_USAGE_SHADER_BIT_ARM</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDispatch-dimensionCount-09905" href="#VUID-vkCmdDispatch-dimensionCount-09905"></a> <span class="vuid">VUID-vkCmdDispatch-dimensionCount-09905</span><br>
+
+If a <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> descriptor is accessed as a
+result of this command, then the <code>Rank</code> of the <code>OpTypeTensorARM</code>
+of the tensor resource variable <strong class="purple">must</strong> be equal to the
+<code>dimensionCount</code> provided via
+<a href="VkTensorCreateInfoARM.html">VkTensorCreateInfoARM</a>::<code>pDescription</code> when creating the
+underlying <a href="VkTensorARM.html">VkTensorARM</a> object</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDispatch-OpTypeTensorARM-09906" href="#VUID-vkCmdDispatch-OpTypeTensorARM-09906"></a> <span class="vuid">VUID-vkCmdDispatch-OpTypeTensorARM-09906</span><br>
+
+If a <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> descriptor is accessed as a
+result of this command, then the element type of the
+<code>OpTypeTensorARM</code> of the tensor resource variable <strong class="purple">must</strong> be
+<a href="#spirvenv-tensor-formats">compatible</a> with the <a href="VkFormat.html">VkFormat</a> of the
+<a href="VkTensorViewARM.html">VkTensorViewARM</a> used for the access</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDispatch-None-10672" href="#VUID-vkCmdDispatch-None-10672"></a> <span class="vuid">VUID-vkCmdDispatch-None-10672</span><br>
 
 

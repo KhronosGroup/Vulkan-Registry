@@ -897,6 +897,10 @@ the presentable images <strong class="purple">can</strong> continue to be used.<
  <code>pSwapchains</code> <strong class="purple">must</strong> be a valid pointer to an array of <code>swapchainCount</code> <a href="VkSwapchainKHR.html">VkSwapchainKHR</a> handles</p>
 </li>
 <li>
+<p><a id="VUID-vkCreateSharedSwapchainsKHR-device-queuecount" href="#VUID-vkCreateSharedSwapchainsKHR-device-queuecount"></a> <span class="vuid">VUID-vkCreateSharedSwapchainsKHR-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
+<li>
 <p><a id="VUID-vkCreateSharedSwapchainsKHR-swapchainCount-arraylength" href="#VUID-vkCreateSharedSwapchainsKHR-swapchainCount-arraylength"></a> <span class="vuid">VUID-vkCreateSharedSwapchainsKHR-swapchainCount-arraylength</span><br>
  <code>swapchainCount</code> <strong class="purple">must</strong> be greater than <code>0</code></p>
 </li>

@@ -827,17 +827,17 @@ typedef enum VkBuildAccelerationStructureFlagBitsKHR {
   // Provided by VK_NV_ray_tracing_motion_blur
     VK_BUILD_ACCELERATION_STRUCTURE_MOTION_BIT_NV = 0x00000020,
   // Provided by VK_EXT_opacity_micromap
-    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_EXT = 0x00000040,
+    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_BIT_EXT = 0x00000040,
   // Provided by VK_EXT_opacity_micromap
-    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_EXT = 0x00000080,
+    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_BIT_EXT = 0x00000080,
   // Provided by VK_EXT_opacity_micromap
-    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_EXT = 0x00000100,
+    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_BIT_EXT = 0x00000100,
 #ifdef VK_ENABLE_BETA_EXTENSIONS
   // Provided by VK_NV_displacement_micromap
-    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_NV = 0x00000200,
+    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_BIT_NV = 0x00000200,
 #endif
   // Provided by VK_KHR_ray_tracing_position_fetch
-    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_KHR = 0x00000800,
+    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_BIT_KHR = 0x00000800,
   // Provided by VK_NV_ray_tracing
     VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_UPDATE_BIT_NV = VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_UPDATE_BIT_KHR,
   // Provided by VK_NV_ray_tracing
@@ -848,6 +848,23 @@ typedef enum VkBuildAccelerationStructureFlagBitsKHR {
     VK_BUILD_ACCELERATION_STRUCTURE_PREFER_FAST_BUILD_BIT_NV = VK_BUILD_ACCELERATION_STRUCTURE_PREFER_FAST_BUILD_BIT_KHR,
   // Provided by VK_NV_ray_tracing
     VK_BUILD_ACCELERATION_STRUCTURE_LOW_MEMORY_BIT_NV = VK_BUILD_ACCELERATION_STRUCTURE_LOW_MEMORY_BIT_KHR,
+  // Provided by VK_EXT_opacity_micromap
+  // VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_EXT is a deprecated alias
+    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_EXT = VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_BIT_EXT,
+  // Provided by VK_EXT_opacity_micromap
+  // VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_EXT is a deprecated alias
+    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_EXT = VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_BIT_EXT,
+  // Provided by VK_EXT_opacity_micromap
+  // VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_EXT is a deprecated alias
+    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_EXT = VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_BIT_EXT,
+#ifdef VK_ENABLE_BETA_EXTENSIONS
+  // Provided by VK_NV_displacement_micromap
+  // VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_NV is a deprecated alias
+    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_NV = VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_BIT_NV,
+#endif
+  // Provided by VK_KHR_ray_tracing_position_fetch
+  // VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_KHR is a deprecated alias
+    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_KHR = VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_BIT_KHR,
 } VkBuildAccelerationStructureFlagBitsKHR;</code></pre>
 </div>
 </div>
@@ -904,31 +921,32 @@ memory and the final result acceleration structure, potentially at the
 expense of build time or trace performance.</p>
 </li>
 <li>
-<p><code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_EXT</code>
+<p><code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_BIT_EXT</code>
 specifies that the opacity micromaps associated with the specified
 acceleration structure <strong class="purple">may</strong> change with an acceleration structure
 update.</p>
 </li>
 <li>
-<p><code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_EXT</code>
+<p><code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_BIT_EXT</code>
 specifies that the data of the opacity micromaps associated with the
 specified acceleration structure <strong class="purple">may</strong> change with an acceleration
 structure update.</p>
 </li>
 <li>
-<p><code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_EXT</code>
+<p><code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_BIT_EXT</code>
 specifies that the specified acceleration structure <strong class="purple">may</strong> be referenced
 in an instance with
-<code>VK_GEOMETRY_INSTANCE_DISABLE_OPACITY_MICROMAPS_EXT</code> set.</p>
+<code>VK_GEOMETRY_INSTANCE_DISABLE_OPACITY_MICROMAPS_BIT_EXT</code> set.</p>
 </li>
 <li>
-<p><code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_KHR</code> specifies
-that the specified acceleration structure <strong class="purple">can</strong> be used when fetching the
+<p><code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_BIT_KHR</code>
+specifies that the specified acceleration structure <strong class="purple">can</strong> be used when
+fetching the
 vertex and radius positions of a hit LSS or sphere primitive, or
 vertex positions of a hit triangle.</p>
 </li>
 <li>
-<p><code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_NV</code>
+<p><code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_BIT_NV</code>
 specifies that the displacement micromaps associated with the specified
 acceleration structure <strong class="purple">may</strong> change with an acceleration structure
 update.</p>

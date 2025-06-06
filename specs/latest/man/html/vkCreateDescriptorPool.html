@@ -874,6 +874,10 @@ which the resulting descriptor pool object is returned.</p>
 <p><a id="VUID-vkCreateDescriptorPool-pDescriptorPool-parameter" href="#VUID-vkCreateDescriptorPool-pDescriptorPool-parameter"></a> <span class="vuid">VUID-vkCreateDescriptorPool-pDescriptorPool-parameter</span><br>
  <code>pDescriptorPool</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkDescriptorPool.html">VkDescriptorPool</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateDescriptorPool-device-queuecount" href="#VUID-vkCreateDescriptorPool-device-queuecount"></a> <span class="vuid">VUID-vkCreateDescriptorPool-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>

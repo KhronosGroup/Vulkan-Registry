@@ -885,8 +885,7 @@ index in <code>pSwapchains</code>.</p>
 <p>Before an application <strong class="purple">can</strong> present an image, the image&#8217;s layout <strong class="purple">must</strong> be
 transitioned to the <code>VK_IMAGE_LAYOUT_PRESENT_SRC_KHR</code>
 layout, or for a shared presentable image the
-<code>VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR</code>
-layout.</p>
+<code>VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR</code> layout.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -896,11 +895,9 @@ layout.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>When transitioning the image to
-<code>VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR</code> or
-<code>VK_IMAGE_LAYOUT_PRESENT_SRC_KHR</code>, there is no need to delay subsequent
-processing, or perform any visibility operations (as <a href="vkQueuePresentKHR.html">vkQueuePresentKHR</a>
-performs automatic visibility operations).
+<p>When transitioning the image to the appropriate layout, there is no need to
+delay subsequent processing, or perform any visibility operations (as
+<a href="vkQueuePresentKHR.html">vkQueuePresentKHR</a> performs automatic visibility operations).
 To achieve this, the <code>dstAccessMask</code> member of the
 <a href="VkImageMemoryBarrier.html">VkImageMemoryBarrier</a> <strong class="purple">should</strong> be <code>0</code>, and the <code>dstStageMask</code>
 parameter <strong class="purple">should</strong> be <code>VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT</code>.</p>
@@ -950,6 +947,28 @@ If any element of the <code>pSwapchains</code> array has been created with
 <a href="VkSwapchainPresentModesCreateInfoEXT.html">VkSwapchainPresentModesCreateInfoEXT</a>, all of the elements of this
 array <strong class="purple">must</strong> be created with <a href="VkSwapchainPresentModesCreateInfoEXT.html">VkSwapchainPresentModesCreateInfoEXT</a></p>
 </li>
+<li>
+<p><a id="VUID-VkPresentInfoKHR-pNext-09759" href="#VUID-VkPresentInfoKHR-pNext-09759"></a> <span class="vuid">VUID-VkPresentInfoKHR-pNext-09759</span><br>
+
+If the <code>pNext</code> chain of this structure includes a
+<a href="VkFrameBoundaryTensorsARM.html">VkFrameBoundaryTensorsARM</a> structure then it <strong class="purple">must</strong> also include a
+<a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a> structure.</p>
+</li>
+<li>
+<p><a id="VUID-VkPresentInfoKHR-pNext-10821" href="#VUID-VkPresentInfoKHR-pNext-10821"></a> <span class="vuid">VUID-VkPresentInfoKHR-pNext-10821</span><br>
+
+If a <a href="VkPresentId2KHR.html">VkPresentId2KHR</a> structure is included in the <code>pNext</code>
+chain, and the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-presentId2" target="_blank" rel="noopener"><code>presentId2</code></a> feature is not
+enabled, each <code>presentIds</code> entry in that structure <strong class="purple">must</strong> be zero</p>
+</li>
+<li>
+<p><a id="VUID-VkPresentInfoKHR-presentId2Supported-10822" href="#VUID-VkPresentInfoKHR-presentId2Supported-10822"></a> <span class="vuid">VUID-VkPresentInfoKHR-presentId2Supported-10822</span><br>
+
+If a <a href="VkPresentId2KHR.html">VkPresentId2KHR</a> structure is included and contains non-zero
+presentIds, <code>presentId2Supported</code> <strong class="purple">must</strong> be <code>VK_TRUE</code> in the
+<a href="VkSurfaceCapabilitiesPresentId2KHR.html">VkSurfaceCapabilitiesPresentId2KHR</a> structure returned by
+<a href="vkGetPhysicalDeviceSurfaceCapabilities2KHR.html">vkGetPhysicalDeviceSurfaceCapabilities2KHR</a> for the <code>surface</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -965,7 +984,7 @@ array <strong class="purple">must</strong> be created with <a href="VkSwapchainP
 </li>
 <li>
 <p><a id="VUID-VkPresentInfoKHR-pNext-pNext" href="#VUID-VkPresentInfoKHR-pNext-pNext"></a> <span class="vuid">VUID-VkPresentInfoKHR-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkDeviceGroupPresentInfoKHR.html">VkDeviceGroupPresentInfoKHR</a>, <a href="VkDisplayPresentInfoKHR.html">VkDisplayPresentInfoKHR</a>, <a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a>, <a href="VkPresentFrameTokenGGP.html">VkPresentFrameTokenGGP</a>, <a href="VkPresentIdKHR.html">VkPresentIdKHR</a>, <a href="VkPresentRegionsKHR.html">VkPresentRegionsKHR</a>, <a href="VkPresentTimesInfoGOOGLE.html">VkPresentTimesInfoGOOGLE</a>, <a href="VkSetPresentConfigNV.html">VkSetPresentConfigNV</a>, <a href="VkSwapchainPresentFenceInfoEXT.html">VkSwapchainPresentFenceInfoEXT</a>, or <a href="VkSwapchainPresentModeInfoEXT.html">VkSwapchainPresentModeInfoEXT</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkDeviceGroupPresentInfoKHR.html">VkDeviceGroupPresentInfoKHR</a>, <a href="VkDisplayPresentInfoKHR.html">VkDisplayPresentInfoKHR</a>, <a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a>, <a href="VkFrameBoundaryTensorsARM.html">VkFrameBoundaryTensorsARM</a>, <a href="VkPresentFrameTokenGGP.html">VkPresentFrameTokenGGP</a>, <a href="VkPresentId2KHR.html">VkPresentId2KHR</a>, <a href="VkPresentIdKHR.html">VkPresentIdKHR</a>, <a href="VkPresentRegionsKHR.html">VkPresentRegionsKHR</a>, <a href="VkPresentTimesInfoGOOGLE.html">VkPresentTimesInfoGOOGLE</a>, <a href="VkSetPresentConfigNV.html">VkSetPresentConfigNV</a>, <a href="VkSwapchainPresentFenceInfoEXT.html">VkSwapchainPresentFenceInfoEXT</a>, or <a href="VkSwapchainPresentModeInfoEXT.html">VkSwapchainPresentModeInfoEXT</a></p>
 </li>
 <li>
 <p><a id="VUID-VkPresentInfoKHR-sType-unique" href="#VUID-VkPresentInfoKHR-sType-unique"></a> <span class="vuid">VUID-VkPresentInfoKHR-sType-unique</span><br>

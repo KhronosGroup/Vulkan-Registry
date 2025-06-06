@@ -822,7 +822,7 @@ typedef enum VkResolveModeFlagBits {
     VK_RESOLVE_MODE_MIN_BIT = 0x00000004,
     VK_RESOLVE_MODE_MAX_BIT = 0x00000008,
   // Provided by VK_ANDROID_external_format_resolve with VK_KHR_dynamic_rendering or VK_VERSION_1_3
-    VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID = 0x00000010,
+    VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID = 0x00000010,
   // Provided by VK_KHR_depth_stencil_resolve
     VK_RESOLVE_MODE_NONE_KHR = VK_RESOLVE_MODE_NONE,
   // Provided by VK_KHR_depth_stencil_resolve
@@ -833,6 +833,9 @@ typedef enum VkResolveModeFlagBits {
     VK_RESOLVE_MODE_MIN_BIT_KHR = VK_RESOLVE_MODE_MIN_BIT,
   // Provided by VK_KHR_depth_stencil_resolve
     VK_RESOLVE_MODE_MAX_BIT_KHR = VK_RESOLVE_MODE_MAX_BIT,
+  // Provided by VK_ANDROID_external_format_resolve with VK_KHR_dynamic_rendering or VK_VERSION_1_3
+  // VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID is a deprecated alias
+    VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID = VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID,
 } VkResolveModeFlagBits;</code></pre>
 </div>
 </div>
@@ -872,10 +875,10 @@ operation is the minimum of the sample values.</p>
 operation is the maximum of the sample values.</p>
 </li>
 <li>
-<p><code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code> specifies that
-rather than a multisample resolve, a single sampled color attachment
-will be downsampled into a Y′C<sub>B</sub>C<sub>R</sub> format image specified by an external
-Android format.
+<p><code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code> specifies
+that rather than a multisample resolve, a single sampled color
+attachment will be downsampled into a Y′C<sub>B</sub>C<sub>R</sub> format image specified by
+an external Android format.
 Unlike other resolve modes, implementations can resolve multiple times
 during rendering, or even bypass writing to the color attachment
 altogether, as long as the final value is resolved to the resolve
@@ -918,8 +921,8 @@ nonlinear before writing the resolved result to resolve attachment.</p>
 <td class="content">
 <div class="paragraph">
 <p>No range compression or Y′C<sub>B</sub>C<sub>R</sub> model conversion is performed by
-<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID</code>; applications have
-to do these conversions themselves.
+<code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>; applications
+have to do these conversions themselves.
 Value outputs are expected to match those that would be read through a
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-sampler-YCbCr-conversion-modelconversion" target="_blank" rel="noopener">Y′C<sub>B</sub>C<sub>R</sub> sampler using
 <code>VK_SAMPLER_YCBCR_MODEL_CONVERSION_RGB_IDENTITY</code></a>.

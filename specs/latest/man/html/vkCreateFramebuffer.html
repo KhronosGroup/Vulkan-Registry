@@ -818,7 +818,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <div class="title">Warning</div>
 </td>
 <td class="content">
-This functionality is deprecated by <a href="VK_KHR_dynamic_rendering_local_read.html">VK_KHR_dynamic_rendering_local_read</a>. See <a href="#deprecation-dynamicrendering">Deprecated Functionality</a> for more information.
+This functionality is deprecated by <a href="#versions-1.4">Vulkan Version 1.4</a>. See <a href="#deprecation-dynamicrendering">Deprecated Functionality</a> for more information.
 </td>
 </tr>
 </table>
@@ -905,6 +905,10 @@ created on <code>device</code></p>
 <li>
 <p><a id="VUID-vkCreateFramebuffer-pFramebuffer-parameter" href="#VUID-vkCreateFramebuffer-pFramebuffer-parameter"></a> <span class="vuid">VUID-vkCreateFramebuffer-pFramebuffer-parameter</span><br>
  <code>pFramebuffer</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkFramebuffer.html">VkFramebuffer</a> handle</p>
+</li>
+<li>
+<p><a id="VUID-vkCreateFramebuffer-device-queuecount" href="#VUID-vkCreateFramebuffer-device-queuecount"></a> <span class="vuid">VUID-vkCreateFramebuffer-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
 </li>
 </ul>
 </div>

@@ -862,6 +862,10 @@ VkResult vkCreateDeferredOperationKHR(
 <p><a id="VUID-vkCreateDeferredOperationKHR-pDeferredOperation-parameter" href="#VUID-vkCreateDeferredOperationKHR-pDeferredOperation-parameter"></a> <span class="vuid">VUID-vkCreateDeferredOperationKHR-pDeferredOperation-parameter</span><br>
  <code>pDeferredOperation</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkDeferredOperationKHR.html">VkDeferredOperationKHR</a> handle</p>
 </li>
+<li>
+<p><a id="VUID-vkCreateDeferredOperationKHR-device-queuecount" href="#VUID-vkCreateDeferredOperationKHR-device-queuecount"></a> <span class="vuid">VUID-vkCreateDeferredOperationKHR-device-queuecount</span><br>
+ The device <strong class="purple">must</strong> have been created with at least <code>1</code> queue</p>
+</li>
 </ul>
 </div>
 </div>
