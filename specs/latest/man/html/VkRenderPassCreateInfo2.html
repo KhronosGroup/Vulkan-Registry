@@ -865,7 +865,7 @@ typedef VkRenderPassCreateInfo2 VkRenderPassCreateInfo2KHR;</code></pre>
 structure.</p>
 </li>
 <li>
-<p><code>flags</code> is reserved for future use.</p>
+<p><code>flags</code> is a bitmask of <a href="VkRenderPassCreateFlagBits.html">VkRenderPassCreateFlagBits</a></p>
 </li>
 <li>
 <p><code>attachmentCount</code> is the number of attachments used by this render
@@ -970,6 +970,13 @@ If the pNext chain includes a
 <code>fragmentDensityMapAttachment</code> member is not
 <code>VK_ATTACHMENT_UNUSED</code>, then <code>attachment</code> <strong class="purple">must</strong> be less than
 <code>attachmentCount</code></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderPassCreateInfo2-fragmentDensityMapLayered-10829" href="#VUID-VkRenderPassCreateInfo2-fragmentDensityMapLayered-10829"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-fragmentDensityMapLayered-10829</span><br>
+
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-fragmentDensityMapLayered" target="_blank" rel="noopener"><code>fragmentDensityMapLayered</code></a> feature is not enabled, <code>flags</code>
+<strong class="purple">must</strong> not contain
+<code>VK_RENDER_PASS_CREATE_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code></p>
 </li>
 <li>
 <p><a id="VUID-VkRenderPassCreateInfo2-pSubpasses-06473" href="#VUID-VkRenderPassCreateInfo2-pSubpasses-06473"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-pSubpasses-06473</span><br>

@@ -863,13 +863,8 @@ structure.</p>
 <ul>
 <li>
 <p><a id="features-robustImageAccess"></a> <code>robustImageAccess</code>
-indicates whether image accesses are tightly bounds-checked against the
-dimensions of the image view.
-<a href="#textures-input-validation">Invalid texels</a> resulting from out of
-bounds image loads will be replaced as described in
-<a href="#textures-texel-replacement">Texel Replacement</a>, with either
-<span class="eq">(0,0,1)</span> or <span class="eq">(0,0,0)</span> values inserted for missing G, B, or A
-components based on the format.</p>
+enables <a href="#shaders-robust-image-access">[shaders-robust-image-access]</a> guarantees for shader image
+accesses.</p>
 </li>
 <li>
 <p><a id="features-inlineUniformBlock"></a> <code>inlineUniformBlock</code>

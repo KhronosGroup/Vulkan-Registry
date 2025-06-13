@@ -1143,6 +1143,10 @@ specified, the full pipeline layout <strong class="purple">must</strong> be spec
 <li>
 <p><a href="VkPipelineFragmentShadingRateStateCreateInfoKHR.html">VkPipelineFragmentShadingRateStateCreateInfoKHR</a></p>
 </li>
+<li>
+<p>Inclusion/omission of the
+<code>VK_PIPELINE_CREATE_2_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code> flag</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -1214,6 +1218,10 @@ flag</p>
 </li>
 <li>
 <p><a href="VkRenderingInputAttachmentIndexInfo.html">VkRenderingInputAttachmentIndexInfo</a></p>
+</li>
+<li>
+<p>Inclusion/omission of the
+<code>VK_PIPELINE_CREATE_2_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code> flag</p>
 </li>
 </ul>
 </div>
@@ -2089,8 +2097,7 @@ If the pipeline requires <a href="https://registry.khronos.org/vulkan/specs/late
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-Input-07904" href="#VUID-VkGraphicsPipelineCreateInfo-Input-07904"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-Input-07904</span><br>
 
 If
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-vertexAttributeRobustness" target="_blank" rel="noopener"><code>vertexAttributeRobustness</code></a>
-is not enabled, and
+the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-vertexAttributeRobustness" target="_blank" rel="noopener"><code>vertexAttributeRobustness</code></a> feature is not enabled, and
 the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance9" target="_blank" rel="noopener"><code>maintenance9</code></a> feature is not
 enabled, and
 the pipeline is being created with
@@ -4650,7 +4657,7 @@ and the value of <code>renderPass</code> is <a href="VK_NULL_HANDLE.html">VK_NUL
 </li>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-pNext-pNext" href="#VUID-VkGraphicsPipelineCreateInfo-pNext-pNext"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkAttachmentSampleCountInfoAMD.html">VkAttachmentSampleCountInfoAMD</a>, <a href="VkExternalFormatANDROID.html">VkExternalFormatANDROID</a>, <a href="VkGraphicsPipelineLibraryCreateInfoEXT.html">VkGraphicsPipelineLibraryCreateInfoEXT</a>, <a href="VkGraphicsPipelineShaderGroupsCreateInfoNV.html">VkGraphicsPipelineShaderGroupsCreateInfoNV</a>, <a href="VkMultiviewPerViewAttributesInfoNVX.html">VkMultiviewPerViewAttributesInfoNVX</a>, <a href="VkPipelineBinaryInfoKHR.html">VkPipelineBinaryInfoKHR</a>, <a href="VkPipelineCompilerControlCreateInfoAMD.html">VkPipelineCompilerControlCreateInfoAMD</a>, <a href="VkPipelineCreateFlags2CreateInfo.html">VkPipelineCreateFlags2CreateInfo</a>, <a href="VkPipelineCreationFeedbackCreateInfo.html">VkPipelineCreationFeedbackCreateInfo</a>, <a href="VkPipelineDiscardRectangleStateCreateInfoEXT.html">VkPipelineDiscardRectangleStateCreateInfoEXT</a>, <a href="VkPipelineFragmentShadingRateEnumStateCreateInfoNV.html">VkPipelineFragmentShadingRateEnumStateCreateInfoNV</a>, <a href="VkPipelineFragmentShadingRateStateCreateInfoKHR.html">VkPipelineFragmentShadingRateStateCreateInfoKHR</a>, <a href="VkPipelineLibraryCreateInfoKHR.html">VkPipelineLibraryCreateInfoKHR</a>, <a href="VkPipelineRenderingCreateInfo.html">VkPipelineRenderingCreateInfo</a>, <a href="VkPipelineRepresentativeFragmentTestStateCreateInfoNV.html">VkPipelineRepresentativeFragmentTestStateCreateInfoNV</a>, <a href="VkPipelineRobustnessCreateInfo.html">VkPipelineRobustnessCreateInfo</a>, <a href="VkRenderingAttachmentLocationInfo.html">VkRenderingAttachmentLocationInfo</a>, or <a href="VkRenderingInputAttachmentIndexInfo.html">VkRenderingInputAttachmentIndexInfo</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkAttachmentSampleCountInfoAMD.html">VkAttachmentSampleCountInfoAMD</a>, <a href="VkExternalFormatANDROID.html">VkExternalFormatANDROID</a>, <a href="VkGraphicsPipelineLibraryCreateInfoEXT.html">VkGraphicsPipelineLibraryCreateInfoEXT</a>, <a href="VkGraphicsPipelineShaderGroupsCreateInfoNV.html">VkGraphicsPipelineShaderGroupsCreateInfoNV</a>, <a href="VkMultiviewPerViewAttributesInfoNVX.html">VkMultiviewPerViewAttributesInfoNVX</a>, <a href="VkPipelineBinaryInfoKHR.html">VkPipelineBinaryInfoKHR</a>, <a href="VkPipelineCompilerControlCreateInfoAMD.html">VkPipelineCompilerControlCreateInfoAMD</a>, <a href="VkPipelineCreateFlags2CreateInfo.html">VkPipelineCreateFlags2CreateInfo</a>, <a href="VkPipelineCreationFeedbackCreateInfo.html">VkPipelineCreationFeedbackCreateInfo</a>, <a href="VkPipelineDiscardRectangleStateCreateInfoEXT.html">VkPipelineDiscardRectangleStateCreateInfoEXT</a>, <a href="VkPipelineFragmentDensityMapLayeredCreateInfoVALVE.html">VkPipelineFragmentDensityMapLayeredCreateInfoVALVE</a>, <a href="VkPipelineFragmentShadingRateEnumStateCreateInfoNV.html">VkPipelineFragmentShadingRateEnumStateCreateInfoNV</a>, <a href="VkPipelineFragmentShadingRateStateCreateInfoKHR.html">VkPipelineFragmentShadingRateStateCreateInfoKHR</a>, <a href="VkPipelineLibraryCreateInfoKHR.html">VkPipelineLibraryCreateInfoKHR</a>, <a href="VkPipelineRenderingCreateInfo.html">VkPipelineRenderingCreateInfo</a>, <a href="VkPipelineRepresentativeFragmentTestStateCreateInfoNV.html">VkPipelineRepresentativeFragmentTestStateCreateInfoNV</a>, <a href="VkPipelineRobustnessCreateInfo.html">VkPipelineRobustnessCreateInfo</a>, <a href="VkRenderingAttachmentLocationInfo.html">VkRenderingAttachmentLocationInfo</a>, or <a href="VkRenderingInputAttachmentIndexInfo.html">VkRenderingInputAttachmentIndexInfo</a></p>
 </li>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-sType-unique" href="#VUID-VkGraphicsPipelineCreateInfo-sType-unique"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-sType-unique</span><br>

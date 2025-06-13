@@ -1451,6 +1451,21 @@ equal to the <code>imageView</code> or <code>resolveImageView</code> member of
 <code>pColorAttachments</code></p>
 </li>
 <li>
+<p><a id="VUID-VkRenderingInfo-flags-10826" href="#VUID-VkRenderingInfo-flags-10826"></a> <span class="vuid">VUID-VkRenderingInfo-flags-10826</span><br>
+
+If <code>flags</code> contains
+<code>VK_RENDERING_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code>, then
+<code>layers</code> <strong class="purple">must</strong> be less than or equal to
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxFragmentDensityMapLayers" target="_blank" rel="noopener"><code>maxFragmentDensityMapLayers</code></a></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderingInfo-fragmentDensityMapLayered-10827" href="#VUID-VkRenderingInfo-fragmentDensityMapLayered-10827"></a> <span class="vuid">VUID-VkRenderingInfo-fragmentDensityMapLayered-10827</span><br>
+
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-fragmentDensityMapLayered" target="_blank" rel="noopener"><code>fragmentDensityMapLayered</code></a> feature is not enabled, <code>flags</code>
+<strong class="purple">must</strong> not contain
+<code>VK_RENDERING_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code></p>
+</li>
+<li>
 <p><a id="VUID-VkRenderingInfo-pNext-06119" href="#VUID-VkRenderingInfo-pNext-06119"></a> <span class="vuid">VUID-VkRenderingInfo-pNext-06119</span><br>
 
 If

@@ -832,14 +832,10 @@ typedef enum VkComponentTypeKHR {
     VK_COMPONENT_TYPE_SINT8_PACKED_NV = 1000491000,
   // Provided by VK_NV_cooperative_vector
     VK_COMPONENT_TYPE_UINT8_PACKED_NV = 1000491001,
-  // Provided by VK_NV_cooperative_vector
-    VK_COMPONENT_TYPE_FLOAT_E4M3_NV = 1000491002,
-  // Provided by VK_NV_cooperative_vector
-    VK_COMPONENT_TYPE_FLOAT_E5M2_NV = 1000491003,
   // Provided by VK_KHR_cooperative_matrix with VK_EXT_shader_float8
-    VK_COMPONENT_TYPE_FLOAT8_E4M3_EXT = 1000567000,
+    VK_COMPONENT_TYPE_FLOAT8_E4M3_EXT = 1000491002,
   // Provided by VK_KHR_cooperative_matrix with VK_EXT_shader_float8
-    VK_COMPONENT_TYPE_FLOAT8_E5M2_EXT = 1000567001,
+    VK_COMPONENT_TYPE_FLOAT8_E5M2_EXT = 1000491003,
   // Provided by VK_NV_cooperative_matrix
     VK_COMPONENT_TYPE_FLOAT16_NV = VK_COMPONENT_TYPE_FLOAT16_KHR,
   // Provided by VK_NV_cooperative_matrix
@@ -862,6 +858,10 @@ typedef enum VkComponentTypeKHR {
     VK_COMPONENT_TYPE_UINT32_NV = VK_COMPONENT_TYPE_UINT32_KHR,
   // Provided by VK_NV_cooperative_matrix
     VK_COMPONENT_TYPE_UINT64_NV = VK_COMPONENT_TYPE_UINT64_KHR,
+  // Provided by VK_NV_cooperative_vector
+    VK_COMPONENT_TYPE_FLOAT_E4M3_NV = VK_COMPONENT_TYPE_FLOAT8_E4M3_EXT,
+  // Provided by VK_NV_cooperative_vector
+    VK_COMPONENT_TYPE_FLOAT_E5M2_NV = VK_COMPONENT_TYPE_FLOAT8_E5M2_EXT,
 } VkComponentTypeKHR;</code></pre>
 </div>
 </div>

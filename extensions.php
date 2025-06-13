@@ -411,6 +411,8 @@
     <li> <a href="specs/latest/man/html/VK_NVX_binary_import.html"> VK_NVX_binary_import </a> </li>
     <li> <a href="specs/latest/man/html/VK_NVX_image_view_handle.html"> VK_NVX_image_view_handle </a> </li>
     <li> <a href="specs/latest/man/html/VK_NVX_multiview_per_view_attributes.html"> VK_NVX_multiview_per_view_attributes </a> </li>
+    <li> <b>  OHOS Extensions (Huawei Technologies Co. Ltd.)  </b> </li>
+    <li> <a href="specs/latest/man/html/VK_OHOS_surface.html"> VK_OHOS_surface </a> </li>
     <li> <b>  QCOM Extensions (Qualcomm Technologies, Inc.)  </b> </li>
     <li> <a href="specs/latest/man/html/VK_QCOM_filter_cubic_clamp.html"> VK_QCOM_filter_cubic_clamp </a> </li>
     <li> <a href="specs/latest/man/html/VK_QCOM_filter_cubic_weights.html"> VK_QCOM_filter_cubic_weights </a> </li>
@@ -434,5 +436,6 @@
     <li> <a href="specs/latest/man/html/VK_SEC_amigo_profiling.html"> VK_SEC_amigo_profiling </a> </li>
     <li> <b>  VALVE Extensions (Valve Corporation)  </b> </li>
     <li> <a href="specs/latest/man/html/VK_VALVE_descriptor_set_host_mapping.html"> VK_VALVE_descriptor_set_host_mapping </a> </li>
+    <li> <a href="specs/latest/man/html/VK_VALVE_fragment_density_map_layered.html"> VK_VALVE_fragment_density_map_layered </a> </li>
     <li> <a href="specs/latest/man/html/VK_VALVE_mutable_descriptor_type.html"> VK_VALVE_mutable_descriptor_type </a> </li>
 </ul>

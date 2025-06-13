@@ -884,277 +884,9 @@ typedef struct VkPhysicalDeviceFeatures {
 <div class="ulist">
 <ul>
 <li>
-<p><a id="features-robustBufferAccess"></a> <code>robustBufferAccess</code> specifies that
-accesses to buffers are bounds-checked against the range of the buffer
-descriptor (as determined by <code>VkDescriptorBufferInfo</code>::<code>range</code>,
-<a href="VkBufferViewCreateInfo.html">VkBufferViewCreateInfo</a>::<code>range</code>, or the size of the buffer).
-Out of bounds accesses <strong class="purple">must</strong> not cause application termination, and the
-effects of shader loads, stores, and atomics <strong class="purple">must</strong> conform to an
-implementation-dependent behavior as described below.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>A buffer access is considered to be out of bounds if any of the
-following are true:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The pointer was formed by <code>OpImageTexelPointer</code> and the coordinate
-is less than zero or greater than or equal to the number of whole
-elements in the bound range.</p>
+<p><a id="features-robustBufferAccess"></a> <code>robustBufferAccess</code> enables
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-robust-buffer-access" class="bare" target="_blank" rel="noopener">https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-robust-buffer-access</a> guarantees for shader buffer accesses.</p>
 </li>
-<li>
-<p>The pointer was not formed by <code>OpImageTexelPointer</code> and the object
-pointed to is not wholly contained within the bound range.
-This includes accesses performed via <em>variable pointers</em> where the
-buffer descriptor being accessed cannot be statically determined.
-Uninitialized pointers and pointers equal to <code>OpConstantNull</code> are
-treated as pointing to a zero-sized object, so all accesses through
-such pointers are considered to be out of bounds.
-Buffer accesses through buffer device addresses are not
-bounds-checked.</p>
-</li>
-<li>
-<p>If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-cooperativeMatrixRobustBufferAccessNV" target="_blank" rel="noopener"><code>VkPhysicalDeviceCooperativeMatrixFeaturesNV</code>::<code>cooperativeMatrixRobustBufferAccess</code></a>
-feature is not enabled, then accesses using
-<code>OpCooperativeMatrixLoadNV</code> and <code>OpCooperativeMatrixStoreNV</code>
-<strong class="purple">may</strong> not be bounds-checked.</p>
-</li>
-<li>
-<p>If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-cooperativeMatrixRobustBufferAccess" target="_blank" rel="noopener"><code>VkPhysicalDeviceCooperativeMatrixFeaturesKHR</code>::<code>cooperativeMatrixRobustBufferAccess</code></a>
-feature is not enabled, then accesses using
-<code>OpCooperativeMatrixLoadKHR</code> and <code>OpCooperativeMatrixStoreKHR</code>
-<strong class="purple">may</strong> not be bounds-checked.</p>
-</li>
-<li>
-<p>Accesses using <code>OpCooperativeVector*</code> are not bounds-checked.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If a SPIR-V <code>OpLoad</code> instruction loads a structure and the tail end of
-the structure is out of bounds, then all members of the structure are
-considered out of bounds even if the members at the end are not statically
-used.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>If
-the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-robustBufferAccess2" target="_blank" rel="noopener"><code>robustBufferAccess2</code></a>
-feature is not enabled and
-any buffer access is determined to be out of bounds, then any other
-access of the same type (load, store, or atomic) to the same buffer
-that accesses an address less than 16 bytes away from the out of
-bounds address <strong class="purple">may</strong> also be considered out of bounds.</p>
-</li>
-<li>
-<p>If the access is a load that reads from the same memory locations as a
-prior store in the same shader invocation, with no other intervening
-accesses to the same memory locations in that shader invocation, then
-the result of the load <strong class="purple">may</strong> be the value stored by the store
-instruction, even if the access is out of bounds.
-If the load is <code>Volatile</code>, then an out of bounds load <strong class="purple">must</strong> return
-the appropriate out of bounds value.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Accesses to descriptors written with a <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> resource or
-view are not considered to be out of bounds.
-Instead, each type of descriptor access defines a specific behavior for
-accesses to a null descriptor.</p>
-</li>
-<li>
-<p>Out-of-bounds buffer loads will return any of the following values:</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>If the access is to a uniform buffer and the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-robustBufferAccess2" target="_blank" rel="noopener"><code>robustBufferAccess2</code></a> feature is
-enabled, loads of offsets between the end of the descriptor range and
-the end of the descriptor range rounded up to a multiple of
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-robustUniformBufferAccessSizeAlignment" target="_blank" rel="noopener"><code>robustUniformBufferAccessSizeAlignment</code></a> bytes <strong class="purple">must</strong> return
-either zero values or the contents of the memory at the offset being
-loaded.
-Loads of offsets past the descriptor range rounded up to a multiple of
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-robustUniformBufferAccessSizeAlignment" target="_blank" rel="noopener"><code>robustUniformBufferAccessSizeAlignment</code></a> bytes <strong class="purple">must</strong> return zero
-values.</p>
-</li>
-<li>
-<p>If the access is to a storage buffer and the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-robustBufferAccess2" target="_blank" rel="noopener"><code>robustBufferAccess2</code></a> feature is
-enabled, loads of offsets between the end of the descriptor range and
-the end of the descriptor range rounded up to a multiple of
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-robustStorageBufferAccessSizeAlignment" target="_blank" rel="noopener"><code>robustStorageBufferAccessSizeAlignment</code></a> bytes <strong class="purple">must</strong> return
-either zero values or the contents of the memory at the offset being
-loaded.
-Loads of offsets past the descriptor range rounded up to a multiple of
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-robustStorageBufferAccessSizeAlignment" target="_blank" rel="noopener"><code>robustStorageBufferAccessSizeAlignment</code></a> bytes <strong class="purple">must</strong> return zero
-values.
-Similarly, stores to addresses between the end of the descriptor range
-and the end of the descriptor range rounded up to a multiple of
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-robustStorageBufferAccessSizeAlignment" target="_blank" rel="noopener"><code>robustStorageBufferAccessSizeAlignment</code></a> bytes <strong class="purple">may</strong> be
-discarded.</p>
-</li>
-<li>
-<p>Non-atomic accesses to storage buffers that are a multiple of 32 bits
-<strong class="purple">may</strong> be decomposed into 32-bit accesses that are individually
-bounds-checked.</p>
-</li>
-<li>
-<p>If the access is to an index buffer and the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-robustBufferAccess2" target="_blank" rel="noopener"><code>robustBufferAccess2</code></a> feature is
-enabled, zero values <strong class="purple">must</strong> be returned.</p>
-</li>
-<li>
-<p>If the access is to a uniform texel buffer or storage texel buffer and
-the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-robustBufferAccess2" target="_blank" rel="noopener"><code>robustBufferAccess2</code></a>
-feature is enabled, zero values <strong class="purple">must</strong> be returned, and then
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-conversion-to-rgba" target="_blank" rel="noopener">Conversion to RGBA</a> is applied based on
-the buffer view&#8217;s format.</p>
-</li>
-<li>
-<p>Values from anywhere within the memory range(s) bound to the buffer
-(possibly including bytes of memory past the end of the buffer, up to
-the end of the bound range).</p>
-</li>
-<li>
-<p>Zero values, or <span class="eq">(0,0,0,x)</span> vectors for vector reads where x is a
-valid value represented in the type of the vector components and <strong class="purple">may</strong>
-be any of:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>0, 1, or the maximum representable positive integer value, for signed
-or unsigned integer components</p>
-</li>
-<li>
-<p>0.0 or 1.0, for floating-point components</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Out-of-bounds writes <strong class="purple">may</strong> modify values within the memory range(s)
-bound to the buffer, but <strong class="purple">must</strong> not modify any other memory.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-robustBufferAccess2" target="_blank" rel="noopener"><code>robustBufferAccess2</code></a>
-feature is enabled, out of bounds writes <strong class="purple">must</strong> not modify any memory.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Out-of-bounds atomics <strong class="purple">may</strong> modify values within the memory range(s)
-bound to the buffer, but <strong class="purple">must</strong> not modify any other memory, and return
-an undefined value.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-robustBufferAccess2" target="_blank" rel="noopener"><code>robustBufferAccess2</code></a>
-feature is enabled, out of bounds atomics <strong class="purple">must</strong> not modify any memory,
-and return an undefined value.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-robustBufferAccess2" target="_blank" rel="noopener"><code>robustBufferAccess2</code></a>
-feature is not enabled, vertex
-input attributes are considered out of bounds if the offset of the
-attribute in the bound vertex buffer range plus the size of the
-attribute is greater than either:</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>vertexBufferRangeSize</code>, if <span class="eq"><code>bindingStride</code> == 0</span>; or</p>
-</li>
-<li>
-<p><span class="eq">(<code>vertexBufferRangeSize</code> - (<code>vertexBufferRangeSize</code> %
-<code>bindingStride</code>))</span></p>
-<div class="paragraph">
-<p>where <code>vertexBufferRangeSize</code> is the byte size of the memory range bound
-to the vertex buffer binding and <code>bindingStride</code> is the byte stride of
-the corresponding vertex input binding.
-Further, if any vertex input attribute using a specific vertex input binding
-is out of bounds, then all vertex input attributes using that vertex input
-binding for that vertex shader invocation are considered out of bounds.</p>
-</div>
-</li>
-<li>
-<p>If a vertex input attribute is out of bounds, it will be assigned one
-of the following values:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Values from anywhere within the memory range(s) bound to the buffer,
-converted according to the format of the attribute.</p>
-</li>
-<li>
-<p>Zero values, format converted according to the format of the
-attribute.</p>
-</li>
-<li>
-<p>Zero values, or <span class="eq">(0,0,0,x)</span> vectors, as described above.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-robustBufferAccess2" target="_blank" rel="noopener"><code>robustBufferAccess2</code></a>
-feature is enabled, vertex input attributes are considered out of
-bounds if the offset of the attribute in the bound vertex buffer range
-plus the size of the attribute is greater than the byte size of the
-memory range bound to the vertex buffer binding.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>If a vertex input attribute is out of bounds, the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fxvertex-input-extraction" target="_blank" rel="noopener">raw data</a> extracted are zero values, and
-missing G, B, or A components are <a href="#fxvertex-input-extraction">filled
-with <span class="eq">(0,0,1)</span></a>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>If <code>robustBufferAccess</code> is not enabled, applications <strong class="purple">must</strong> not
-perform out of bounds accesses
-except under the conditions enabled by the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-pipelineRobustness" target="_blank" rel="noopener"><code>pipelineRobustness</code></a> feature
-.</p>
-<div class="ulist">
-<ul>
 <li>
 <p><a id="features-fullDrawIndexUint32"></a> <code>fullDrawIndexUint32</code> specifies the
 full 32-bit range of indices is supported for indexed draw calls when
@@ -1326,10 +1058,8 @@ alpha-to-one behavior.</p>
 <p><a id="features-multiViewport"></a> <code>multiViewport</code> specifies whether more
 than one viewport is supported.
 If this feature is not enabled:</p>
-</li>
-</ul>
-</div>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>The <code>viewportCount</code> and <code>scissorCount</code> members of the
 <a href="VkPipelineViewportStateCreateInfo.html">VkPipelineViewportStateCreateInfo</a> structure <strong class="purple">must</strong> be 1.</p>
@@ -1351,8 +1081,10 @@ If this feature is not enabled:</p>
 <p>The <code>firstExclusiveScissor</code> and <code>exclusiveScissorCount</code>
 parameters to the <a href="vkCmdSetExclusiveScissorNV.html">vkCmdSetExclusiveScissorNV</a> command <strong class="purple">must</strong> be 0
 and 1, respectively.</p>
-<div class="ulist">
-<ul>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p><a id="features-samplerAnisotropy"></a> <code>samplerAnisotropy</code> specifies whether
 anisotropic filtering is supported.
@@ -1368,10 +1100,8 @@ If this feature is enabled, then the
 <code>VK_FORMAT_FEATURE_BLIT_SRC_BIT</code> and
 <code>VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT</code> features <strong class="purple">must</strong>
 be supported in <code>optimalTilingFeatures</code> for the following formats:</p>
-</li>
-</ul>
-</div>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p><code>VK_FORMAT_ETC2_R8G8B8_UNORM_BLOCK</code></p>
 </li>
@@ -1407,6 +1137,17 @@ be supported in <code>optimalTilingFeatures</code> for the following formats:</p
 <a href="vkGetPhysicalDeviceImageFormatProperties.html">vkGetPhysicalDeviceImageFormatProperties</a> <strong class="purple">can</strong> be used to check for
 supported properties of individual formats as normal.</p>
 </div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1418,10 +1159,8 @@ If this feature is enabled, then the
 <code>VK_FORMAT_FEATURE_BLIT_SRC_BIT</code> and
 <code>VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT</code> features <strong class="purple">must</strong>
 be supported in <code>optimalTilingFeatures</code> for the following formats:</p>
-</li>
-</ul>
-</div>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p><code>VK_FORMAT_ASTC_4x4_UNORM_BLOCK</code></p>
 </li>
@@ -1511,8 +1250,10 @@ be supported in <code>optimalTilingFeatures</code> for the following formats:</p
 <a href="vkGetPhysicalDeviceImageFormatProperties.html">vkGetPhysicalDeviceImageFormatProperties</a> <strong class="purple">can</strong> be used to check for
 supported properties of individual formats as normal.</p>
 </div>
-<div class="ulist">
-<ul>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p><a id="features-textureCompressionBC"></a> <code>textureCompressionBC</code> specifies
 whether all of the BC compressed texture formats are supported.
@@ -1521,10 +1262,8 @@ If this feature is enabled, then the
 <code>VK_FORMAT_FEATURE_BLIT_SRC_BIT</code> and
 <code>VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT</code> features <strong class="purple">must</strong>
 be supported in <code>optimalTilingFeatures</code> for the following formats:</p>
-</li>
-</ul>
-</div>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p><code>VK_FORMAT_BC1_RGB_UNORM_BLOCK</code></p>
 </li>
@@ -1578,8 +1317,10 @@ be supported in <code>optimalTilingFeatures</code> for the following formats:</p
 <a href="vkGetPhysicalDeviceImageFormatProperties.html">vkGetPhysicalDeviceImageFormatProperties</a> <strong class="purple">can</strong> be used to check for
 supported properties of individual formats as normal.</p>
 </div>
-<div class="ulist">
-<ul>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p><a id="features-occlusionQueryPrecise"></a> <code>occlusionQueryPrecise</code> specifies
 whether occlusion queries returning actual sample counts are supported.
@@ -1657,10 +1398,8 @@ This also specifies whether shader modules <strong class="purple">can</strong> d
 &#8220;storage image extended formats&#8221; below are supported; if this feature
 is supported, then the <code>VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT</code> <strong class="purple">must</strong>
 be supported in <code>optimalTilingFeatures</code> for the following formats:</p>
-</li>
-</ul>
-</div>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p><code>VK_FORMAT_R16G16_SFLOAT</code></p>
 </li>
@@ -1758,8 +1497,10 @@ capability, are already covered by core Vulkan
 </tr>
 </table>
 </div>
-<div class="ulist">
-<ul>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p><a id="features-shaderStorageImageMultisample"></a>
 <code>shaderStorageImageMultisample</code> specifies whether multisampled
@@ -2025,12 +1766,6 @@ This has no effect in situations where a subpass uses any attachments.</p>
 <li>
 <p><a id="features-inheritedQueries"></a> <code>inheritedQueries</code> specifies whether a
 secondary command buffer <strong class="purple">may</strong> be executed while a query is active.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 </li>
 </ul>
 </div>

@@ -915,8 +915,9 @@ If an overflow occurs, the timestamp value <strong class="purple">must</strong> 
 <p>If <code>vkCmdWriteTimestamp2</code> is called while executing a render pass
 instance that has multiview enabled, the timestamp uses <span class="eq">N</span> consecutive
 query indices in the query pool (starting at <code>query</code>) where <span class="eq">N</span> is
-the number of bits set in the view mask of the subpass or dynamic render
-pass the command is executed in.
+the number of bits set in the view mask of the subpass
+or dynamic render pass
+the command is executed in.
 The resulting query values are determined by an implementation-dependent
 choice of one of the following behaviors:</p>
 </div>
@@ -932,11 +933,12 @@ the view mask) zero is written to the remaining queries.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Either way, if two timestamps are written in the same subpass or dynamic
-render pass with multiview enabled, each of the <span class="eq">N</span> consecutive queries
-written for a timestamp <strong class="purple">must</strong> not have a lower value than the queries with
-corresponding indices written by the timestamp that happens-before unless
-the value overflows the maximum supported integer bit width of the query.</p>
+<p>Either way, if two timestamps are written in the same subpass
+or dynamic render pass
+with multiview enabled, each of the <span class="eq">N</span> consecutive queries written for
+a timestamp <strong class="purple">must</strong> not have a lower value than the queries with corresponding
+indices written by the timestamp that happens-before unless the value
+overflows the maximum supported integer bit width of the query.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">

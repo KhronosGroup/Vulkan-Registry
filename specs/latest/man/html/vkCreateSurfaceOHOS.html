@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>VkClusterAccelerationStructureOpModeNV(3)</title>
+<title>vkCreateSurfaceOHOS(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,10 +796,10 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>VkClusterAccelerationStructureOpModeNV(3) Manual Page</h1>
+<h1>vkCreateSurfaceOHOS(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>VkClusterAccelerationStructureOpModeNV - Enum providing the mode of operation</p>
+<p>vkCreateSurfaceOHOS - Create a slink:VkSurfaceKHR object for an Open Harmony OS native window</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -809,49 +809,105 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Values which <strong class="purple">can</strong> be set in <code>VkClusterAccelerationStructureOpModeNV</code>
-are:</p>
+<p>To create a <code>VkSurfaceKHR</code> object on Open Harmony OS platform, call:</p>
 </div>
-<div id="VkClusterAccelerationStructureOpModeNV" class="listingblock">
+<div id="vkCreateSurfaceOHOS" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_NV_cluster_acceleration_structure
-typedef enum VkClusterAccelerationStructureOpModeNV {
-    VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_IMPLICIT_DESTINATIONS_NV = 0,
-    VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_EXPLICIT_DESTINATIONS_NV = 1,
-    VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_COMPUTE_SIZES_NV = 2,
-} VkClusterAccelerationStructureOpModeNV;</code></pre>
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_OHOS_surface
+VkResult vkCreateSurfaceOHOS(
+    VkInstance                                  instance,
+    const VkSurfaceCreateInfoOHOS*              pCreateInfo,
+    const VkAllocationCallbacks*                pAllocator,
+    VkSurfaceKHR*                               pSurface);</code></pre>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>instance</code> is the instance to associate the surface with.</p>
+</li>
+<li>
+<p><code>pCreateInfo</code> is a pointer to a <a href="VkOHSurfaceCreateInfoOHOS.html">VkOHSurfaceCreateInfoOHOS</a>
+structure containing parameters affecting the creation of the surface
+object.</p>
+</li>
+<li>
+<p><code>pAllocator</code> is the allocator used for host memory allocated for the
+surface object when there is no more specific allocator available (see
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-allocation" target="_blank" rel="noopener">Memory Allocation</a>).</p>
+</li>
+<li>
+<p><code>pSurface</code> is a pointer to a <a href="VkSurfaceKHR.html">VkSurfaceKHR</a> handle in which the
+created surface object is returned.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Valid Usage (Implicit)</div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_IMPLICIT_DESTINATIONS_NV</code>
-specifies that the build or move operation will implicitly distribute
-built or compacted cluster acceleration structures starting at the
-address provided in
-<a href="VkClusterAccelerationStructureCommandsInfoNV.html">VkClusterAccelerationStructureCommandsInfoNV</a>::<code>dstImplicitData</code>.
-If a move operation is being performed, the acceleration structures will
-be tightly compacted.</p>
+<p><a id="VUID-vkCreateSurfaceOHOS-instance-parameter" href="#VUID-vkCreateSurfaceOHOS-instance-parameter"></a> <span class="vuid">VUID-vkCreateSurfaceOHOS-instance-parameter</span><br>
+ <code>instance</code> <strong class="purple">must</strong> be a valid <a href="VkInstance.html">VkInstance</a> handle</p>
 </li>
 <li>
-<p><code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_EXPLICIT_DESTINATIONS_NV</code>
-specifies that the build or move operation will explicitly write built
-or compacted cluster acceleration structures in the array of addresses
-provided in
-<a href="VkClusterAccelerationStructureCommandsInfoNV.html">VkClusterAccelerationStructureCommandsInfoNV</a>::<code>dstAddressesArray</code>.</p>
+<p><a id="VUID-vkCreateSurfaceOHOS-pCreateInfo-parameter" href="#VUID-vkCreateSurfaceOHOS-pCreateInfo-parameter"></a> <span class="vuid">VUID-vkCreateSurfaceOHOS-pCreateInfo-parameter</span><br>
+ <code>pCreateInfo</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkSurfaceCreateInfoOHOS.html">VkSurfaceCreateInfoOHOS</a> structure</p>
 </li>
 <li>
-<p><code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_COMPUTE_SIZES_NV</code>
-specifies that computed cluster acceleration structure sizes will be
-written to
-<a href="VkClusterAccelerationStructureCommandsInfoNV.html">VkClusterAccelerationStructureCommandsInfoNV</a>::<code>dstSizesArray</code>.</p>
+<p><a id="VUID-vkCreateSurfaceOHOS-pAllocator-parameter" href="#VUID-vkCreateSurfaceOHOS-pAllocator-parameter"></a> <span class="vuid">VUID-vkCreateSurfaceOHOS-pAllocator-parameter</span><br>
+ If <code>pAllocator</code> is not <code>NULL</code>, <code>pAllocator</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkAllocationCallbacks.html">VkAllocationCallbacks</a> structure</p>
+</li>
+<li>
+<p><a id="VUID-vkCreateSurfaceOHOS-pSurface-parameter" href="#VUID-vkCreateSurfaceOHOS-pSurface-parameter"></a> <span class="vuid">VUID-vkCreateSurfaceOHOS-pSurface-parameter</span><br>
+ <code>pSurface</code> <strong class="purple">must</strong> be a valid pointer to a <a href="VkSurfaceKHR.html">VkSurfaceKHR</a> handle</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Return Codes</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">On success, this command returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_SUCCESS</code></p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">On failure, this command returns</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_ERROR_OUT_OF_HOST_MEMORY</code></p>
+</li>
+<li>
+<p><code>VK_ERROR_SURFACE_LOST_KHR</code></p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -859,7 +915,7 @@ written to
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_NV_cluster_acceleration_structure.html">VK_NV_cluster_acceleration_structure</a>, <a href="VkClusterAccelerationStructureInputInfoNV.html">VkClusterAccelerationStructureInputInfoNV</a></p>
+<p><a href="VK_OHOS_surface.html">VK_OHOS_surface</a>, <a href="VkAllocationCallbacks.html">VkAllocationCallbacks</a>, <a href="VkInstance.html">VkInstance</a>, <a href="VkSurfaceCreateInfoOHOS.html">VkSurfaceCreateInfoOHOS</a>, <a href="VkSurfaceKHR.html">VkSurfaceKHR</a></p>
 </div>
 </div>
 </div>
@@ -867,7 +923,7 @@ written to
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkClusterAccelerationStructureOpModeNV" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCreateSurfaceOHOS" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

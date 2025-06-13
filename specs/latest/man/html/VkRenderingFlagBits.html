@@ -823,6 +823,8 @@ typedef enum VkRenderingFlagBits {
     VK_RENDERING_ENABLE_LEGACY_DITHERING_BIT_EXT = 0x00000008,
   // Provided by VK_KHR_maintenance7
     VK_RENDERING_CONTENTS_INLINE_BIT_KHR = 0x00000010,
+  // Provided by VK_VALVE_fragment_density_map_layered
+    VK_RENDERING_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE = 0x00000020,
   // Provided by VK_KHR_dynamic_rendering
     VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT_KHR = VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT,
   // Provided by VK_KHR_dynamic_rendering
@@ -878,6 +880,10 @@ command buffer.
 This <strong class="purple">can</strong> be combined with the
 <code>VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT</code> bit to allow
 draw calls to be recorded both inline and in secondary command buffers.</p>
+</li>
+<li>
+<p><code>VK_RENDERING_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code> specifies that
+the render pass <strong class="purple">can</strong> be used with layered fragment density maps.</p>
 </li>
 </ul>
 </div>

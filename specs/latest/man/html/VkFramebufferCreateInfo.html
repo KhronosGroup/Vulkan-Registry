@@ -979,6 +979,14 @@ each element of <code>pAttachments</code> <strong class="purple">must</strong> h
 unless that element is the fragment density map attachment</p>
 </li>
 <li>
+<p><a id="VUID-VkFramebufferCreateInfo-renderPass-10830" href="#VUID-VkFramebufferCreateInfo-renderPass-10830"></a> <span class="vuid">VUID-VkFramebufferCreateInfo-renderPass-10830</span><br>
+
+If <code>renderPass</code> was created with
+<code>VK_RENDER_PASS_CREATE_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code>, then
+<code>layers</code> <strong class="purple">must</strong> be less than or equal to
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxFragmentDensityMapLayers" target="_blank" rel="noopener"><code>maxFragmentDensityMapLayers</code></a></p>
+</li>
+<li>
 <p><a id="VUID-VkFramebufferCreateInfo-pAttachments-00880" href="#VUID-VkFramebufferCreateInfo-pAttachments-00880"></a> <span class="vuid">VUID-VkFramebufferCreateInfo-pAttachments-00880</span><br>
 
 If <code>flags</code> does not include

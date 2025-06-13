@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>VkClusterAccelerationStructureOpModeNV(3)</title>
+<title>VK_OHOS_surface(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,60 +796,205 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>VkClusterAccelerationStructureOpModeNV(3) Manual Page</h1>
+<h1>VK_OHOS_surface(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>VkClusterAccelerationStructureOpModeNV - Enum providing the mode of operation</p>
+<p>VK_OHOS_surface - instance extension</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
 <!--ChunkedSearchboxMarker-->
 <div id="content" class="loadable" ><script>hideLoadableContent();</script>
 <div class="sect1">
-<h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
+<h2 id="_registered_extension_number"><a class="anchor" href="#_registered_extension_number"></a>Registered Extension Number</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Values which <strong class="purple">can</strong> be set in <code>VkClusterAccelerationStructureOpModeNV</code>
-are:</p>
+<p>588</p>
 </div>
-<div id="VkClusterAccelerationStructureOpModeNV" class="listingblock">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_revision"><a class="anchor" href="#_revision"></a>Revision</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>1</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ratification_status"><a class="anchor" href="#_ratification_status"></a>Ratification Status</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Not ratified</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extension_and_version_dependencies"><a class="anchor" href="#_extension_and_version_dependencies"></a>Extension and Version Dependencies</h2>
+<div class="sectionbody">
+<div class="openblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_NV_cluster_acceleration_structure
-typedef enum VkClusterAccelerationStructureOpModeNV {
-    VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_IMPLICIT_DESTINATIONS_NV = 0,
-    VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_EXPLICIT_DESTINATIONS_NV = 1,
-    VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_COMPUTE_SIZES_NV = 2,
-} VkClusterAccelerationStructureOpModeNV;</code></pre>
+<div class="paragraph">
+<p><a href="VK_KHR_surface.html">VK_KHR_surface</a><br></p>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_contact"><a class="anchor" href="#_contact"></a>Contact</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Weilan Chen <a href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=[VK_OHOS_surface] @wchen-h%0A*Here describe the issue or question you have about the VK_OHOS_surface extension*" target="_blank" rel="nofollow noopener"><span class="icon black">[GitHub&#93;</span>wchen-h</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_extension_metadata"><a class="anchor" href="#_other_extension_metadata"></a>Other Extension Metadata</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Last Modified Date</strong></dt>
+<dd>
+<p>2025-05-16</p>
+</dd>
+<dt class="hdlist1"><strong>IP Status</strong></dt>
+<dd>
+<p>No known IP claims.</p>
+</dd>
+<dt class="hdlist1"><strong>Contributors</strong></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Weilan Chen, Huawei</p>
+</li>
+<li>
+<p>Zehui Lin, Huawei</p>
+</li>
+<li>
+<p>Pan Gao, Huawei</p>
+</li>
+<li>
+<p>Zhao Zhang, Huawei</p>
+</li>
+<li>
+<p>Yang Shi, Huawei</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The <code>VK_OHOS_surface</code> extension is an instance extension.
+It provides a mechanism to create a <a href="VkSurfaceKHR.html">VkSurfaceKHR</a> object (defined by
+the <code><a href="VK_KHR_surface.html">VK_KHR_surface</a></code> extension) that refers to an
+<a href="OHNativeWindow.html">OHNativeWindow</a>, the native surface type of Open Harmony OS.
+Common consumer endpoints for <code>OHNativeWindows</code> are the system window
+compositor, video encoders, and application-specific compositors.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_base_types"><a class="anchor" href="#_new_base_types"></a>New Base Types</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_IMPLICIT_DESTINATIONS_NV</code>
-specifies that the build or move operation will implicitly distribute
-built or compacted cluster acceleration structures starting at the
-address provided in
-<a href="VkClusterAccelerationStructureCommandsInfoNV.html">VkClusterAccelerationStructureCommandsInfoNV</a>::<code>dstImplicitData</code>.
-If a move operation is being performed, the acceleration structures will
-be tightly compacted.</p>
+<p><a href="OHNativeWindow.html">OHNativeWindow</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_commands"><a class="anchor" href="#_new_commands"></a>New Commands</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="vkCreateSurfaceOHOS.html">vkCreateSurfaceOHOS</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_structures"><a class="anchor" href="#_new_structures"></a>New Structures</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="VkOHSurfaceCreateInfoOHOS.html">VkOHSurfaceCreateInfoOHOS</a></p>
 </li>
 <li>
-<p><code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_EXPLICIT_DESTINATIONS_NV</code>
-specifies that the build or move operation will explicitly write built
-or compacted cluster acceleration structures in the array of addresses
-provided in
-<a href="VkClusterAccelerationStructureCommandsInfoNV.html">VkClusterAccelerationStructureCommandsInfoNV</a>::<code>dstAddressesArray</code>.</p>
+<p><a href="VkSurfaceCreateInfoOHOS.html">VkSurfaceCreateInfoOHOS</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_bitmasks"><a class="anchor" href="#_new_bitmasks"></a>New Bitmasks</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="VkSurfaceCreateFlagsOHOS.html">VkSurfaceCreateFlagsOHOS</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_enum_constants"><a class="anchor" href="#_new_enum_constants"></a>New Enum Constants</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_OHOS_SURFACE_EXTENSION_NAME</code></p>
 </li>
 <li>
-<p><code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_COMPUTE_SIZES_NV</code>
-specifies that computed cluster acceleration structure sizes will be
-written to
-<a href="VkClusterAccelerationStructureCommandsInfoNV.html">VkClusterAccelerationStructureCommandsInfoNV</a>::<code>dstSizesArray</code>.</p>
+<p><code>VK_OHOS_SURFACE_SPEC_VERSION</code></p>
+</li>
+<li>
+<p>Extending <a href="VkStructureType.html">VkStructureType</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_STRUCTURE_TYPE_OH_SURFACE_CREATE_INFO_OHOS</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_version_history"><a class="anchor" href="#_version_history"></a>Version History</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Revision 1, 2025-05-19 (Weilan Chen)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Internal revisions</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -859,7 +1004,7 @@ written to
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_NV_cluster_acceleration_structure.html">VK_NV_cluster_acceleration_structure</a>, <a href="VkClusterAccelerationStructureInputInfoNV.html">VkClusterAccelerationStructureInputInfoNV</a></p>
+<p>No cross-references are available</p>
 </div>
 </div>
 </div>
@@ -867,11 +1012,11 @@ written to
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkClusterAccelerationStructureOpModeNV" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_OHOS_surface" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
-<p>This page is extracted from the Vulkan Specification.
-Fixes and changes should be made to the Specification, not directly.</p>
+<p>This page is a generated document.
+Fixes and changes should be made to the generator scripts, not directly.</p>
 </div>
 </div>
 </div>

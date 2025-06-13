@@ -904,7 +904,9 @@ static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_DISALLOW_OPACITY_MIC
 // Provided by VK_KHR_pipeline_binary
 static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_CAPTURE_DATA_BIT_KHR = 0x80000000ULL;
 // Provided by VK_EXT_device_generated_commands
-static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_INDIRECT_BINDABLE_BIT_EXT = 0x4000000000ULL;</code></pre>
+static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_INDIRECT_BINDABLE_BIT_EXT = 0x4000000000ULL;
+// Provided by VK_VALVE_fragment_density_map_layered
+static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE = 0x10000000000ULL;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1081,6 +1083,11 @@ attachment.</p>
 <p><code>VK_PIPELINE_CREATE_2_RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT</code>
 specifies that the pipeline will be used with a fragment density map
 attachment.</p>
+</li>
+<li>
+<p><code>VK_PIPELINE_CREATE_2_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code>
+specifies that the pipeline <strong class="purple">can</strong> be used with layered fragment density
+maps.</p>
 </li>
 <li>
 <p><code>VK_PIPELINE_CREATE_2_LINK_TIME_OPTIMIZATION_BIT_EXT</code> specifies that

@@ -929,6 +929,13 @@ If the pNext chain includes a
 <code>attachmentCount</code></p>
 </li>
 <li>
+<p><a id="VUID-VkRenderPassCreateInfo-fragmentDensityMapLayered-10828" href="#VUID-VkRenderPassCreateInfo-fragmentDensityMapLayered-10828"></a> <span class="vuid">VUID-VkRenderPassCreateInfo-fragmentDensityMapLayered-10828</span><br>
+
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-fragmentDensityMapLayered" target="_blank" rel="noopener"><code>fragmentDensityMapLayered</code></a> feature is not enabled, <code>flags</code>
+<strong class="purple">must</strong> not contain
+<code>VK_RENDER_PASS_CREATE_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code></p>
+</li>
+<li>
 <p><a id="VUID-VkRenderPassCreateInfo-pAttachments-00836" href="#VUID-VkRenderPassCreateInfo-pAttachments-00836"></a> <span class="vuid">VUID-VkRenderPassCreateInfo-pAttachments-00836</span><br>
 
 For any member of <code>pAttachments</code> with a <code>loadOp</code> equal to

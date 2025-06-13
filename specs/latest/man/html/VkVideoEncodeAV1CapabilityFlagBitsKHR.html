@@ -834,17 +834,17 @@ typedef enum VkVideoEncodeAV1CapabilityFlagBitsKHR {
 <ul>
 <li>
 <p><code>VK_VIDEO_ENCODE_AV1_CAPABILITY_PER_RATE_CONTROL_GROUP_MIN_MAX_Q_INDEX_BIT_KHR</code>
-indicates support for specifying different quantizer index values in the
+specifies support for specifying different quantizer index values in the
 members of <a href="VkVideoEncodeAV1QIndexKHR.html">VkVideoEncodeAV1QIndexKHR</a>.</p>
 </li>
 <li>
 <p><code>VK_VIDEO_ENCODE_AV1_CAPABILITY_GENERATE_OBU_EXTENSION_HEADER_BIT_KHR</code>
-indicates support for generating OBU extension headers, as defined in
+specifies support for generating OBU extension headers, as defined in
 section 5.3.3 of the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1" target="_blank" rel="noopener">AV1 Specification</a>.</p>
 </li>
 <li>
 <p><code>VK_VIDEO_ENCODE_AV1_CAPABILITY_PRIMARY_REFERENCE_CDF_ONLY_BIT_KHR</code>
-indicates support for using the primary reference frame indicated by the
+specifies support for using the primary reference frame indicated by the
 value of <code>StdVideoEncodeAV1PictureInfo</code>::<code>primary_ref_frame</code> in
 the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-av1-picture-info" target="_blank" rel="noopener">AV1 picture information</a> only for CDF
 data reference, as defined in section 6.8.2 of the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1" target="_blank" rel="noopener">AV1
@@ -852,7 +852,7 @@ Specification</a>.</p>
 </li>
 <li>
 <p><code>VK_VIDEO_ENCODE_AV1_CAPABILITY_FRAME_SIZE_OVERRIDE_BIT_KHR</code>
-indicates support for encoding a picture with a frame size different
+specifies support for encoding a picture with a frame size different
 from the maximum frame size defined in the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-av1-active-sequence-header" target="_blank" rel="noopener">active AV1 sequence header</a>.
 If this capability is not supported, then <code>frame_size_override_flag</code>
@@ -865,7 +865,7 @@ AV1 sequence header</a>, i.e. <span class="eq">(<code>max_frame_width_minus_1</c
 </li>
 <li>
 <p><code>VK_VIDEO_ENCODE_AV1_CAPABILITY_MOTION_VECTOR_SCALING_BIT_KHR</code>
-indicates support for motion vector scaling, as defined in section
+specifies support for motion vector scaling, as defined in section
 7.11.3.3 of the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1" target="_blank" rel="noopener">AV1 Specification</a>.
 If this capability is not supported, then the coded extent of all
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#active-reference-pictures" target="_blank" rel="noopener">active reference pictures</a> <strong class="purple">must</strong> match the

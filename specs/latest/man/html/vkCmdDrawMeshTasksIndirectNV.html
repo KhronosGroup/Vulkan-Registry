@@ -2845,6 +2845,18 @@ been created with
 <code>VK_PIPELINE_CREATE_RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-layers-10831" href="#VUID-vkCmdDrawMeshTasksIndirectNV-layers-10831"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-layers-10831</span><br>
+
+If the current render pass instance was created with
+<code>VK_RENDERING_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code> or
+<code>VK_RENDER_PASS_CREATE_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code>, and
+the bound graphics pipeline was created with
+<code>VK_PIPELINE_CREATE_2_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code>, then
+the current render pass instance <strong class="purple">must</strong> have a <code>layers</code> value less
+than or equal to
+<a href="VkPipelineFragmentDensityMapLayeredCreateInfoVALVE.html">VkPipelineFragmentDensityMapLayeredCreateInfoVALVE</a>::<code>maxFragmentDensityMapLayers</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-colorAttachmentCount-06185" href="#VUID-vkCmdDrawMeshTasksIndirectNV-colorAttachmentCount-06185"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-colorAttachmentCount-06185</span><br>
 
 If the bound pipeline was created with a

@@ -850,27 +850,12 @@ typedef VkPhysicalDeviceRobustness2FeaturesKHR VkPhysicalDeviceRobustness2Featur
 structure.</p>
 </li>
 <li>
-<p><a id="features-robustBufferAccess2"></a> <code>robustBufferAccess2</code> indicates
-whether buffer accesses are tightly bounds-checked against the range of
-the descriptor.
-Uniform buffers <strong class="purple">must</strong> be bounds-checked to the range of the descriptor,
-where the range is rounded up to a multiple of
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-robustUniformBufferAccessSizeAlignment" target="_blank" rel="noopener"><code>robustUniformBufferAccessSizeAlignment</code></a>.
-Storage buffers <strong class="purple">must</strong> be bounds-checked to the range of the descriptor,
-where the range is rounded up to a multiple of
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-robustStorageBufferAccessSizeAlignment" target="_blank" rel="noopener"><code>robustStorageBufferAccessSizeAlignment</code></a>.
-Out of bounds buffer loads will return zero values, and <a href="#textures">image load, sample, and atomic operations</a> from texel buffers will have
-<span class="eq">(0,0,1)</span> values <a href="#textures-conversion-to-rgba">inserted for missing
-G, B, or A components</a> based on the format.</p>
+<p><a id="features-robustBufferAccess2"></a> <code>robustBufferAccess2</code> enables
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-robust-buffer-access2" class="bare" target="_blank" rel="noopener">https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-robust-buffer-access2</a> guarantees for shader buffer accesses.</p>
 </li>
 <li>
-<p><a id="features-robustImageAccess2"></a> <code>robustImageAccess2</code> indicates
-whether image accesses are tightly bounds-checked against the dimensions
-of the image view.
-Out of bounds <a href="#textures">image load, sample, and atomic operations</a>
-from images will return zero values, with <span class="eq">(0,0,1)</span> values
-<a href="#textures-conversion-to-rgba">inserted for missing G, B, or A
-components</a> based on the format.</p>
+<p><a id="features-robustImageAccess2"></a> <code>robustImageAccess2</code> enables
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-robust-image-access2" class="bare" target="_blank" rel="noopener">https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-robust-image-access2</a> guarantees for shader image accesses.</p>
 </li>
 <li>
 <p><a id="features-nullDescriptor"></a> <code>nullDescriptor</code> indicates

@@ -849,23 +849,23 @@ typedef VkPipelineRobustnessBufferBehavior VkPipelineRobustnessBufferBehaviorEXT
 <ul>
 <li>
 <p><code>VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DEVICE_DEFAULT</code> specifies
-that this pipeline stage follows the behavior of robustness features
-that are enabled that created this pipeline</p>
+that <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-execution-memory-access-bounds" target="_blank" rel="noopener">out of bounds</a> buffer
+accesses follow the behavior of robust buffer access features enabled
+for the device.</p>
 </li>
 <li>
 <p><code>VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DISABLED</code> specifies that
-buffer accesses by this pipeline stage to the relevant resource types
-<strong class="purple">must</strong> not be out of bounds</p>
+buffer accesses <strong class="purple">must</strong> not be <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-execution-memory-access-bounds" target="_blank" rel="noopener">out of bounds</a>.</p>
 </li>
 <li>
 <p><code>VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS</code>
-specifies that out of bounds accesses by this pipeline stage to the
-relevant resource types behave as if the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-robustBufferAccess" target="_blank" rel="noopener"><code>robustBufferAccess</code></a> feature is enabled</p>
+specifies that buffer accesses conform to
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-robust-buffer-access" class="bare" target="_blank" rel="noopener">https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-robust-buffer-access</a> guarantees.</p>
 </li>
 <li>
 <p><code>VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_2</code>
-specifies that out of bounds accesses by this pipeline stage to the
-relevant resource types behave as if the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-robustBufferAccess2" target="_blank" rel="noopener"><code>robustBufferAccess2</code></a> feature is enabled</p>
+specifies that buffer accesses conform to
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-robust-buffer-access2" class="bare" target="_blank" rel="noopener">https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-robust-buffer-access2</a> guarantees.</p>
 </li>
 </ul>
 </div>

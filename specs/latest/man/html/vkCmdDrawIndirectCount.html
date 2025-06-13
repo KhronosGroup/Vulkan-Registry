@@ -2886,6 +2886,18 @@ been created with
 <code>VK_PIPELINE_CREATE_RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDrawIndirectCount-layers-10831" href="#VUID-vkCmdDrawIndirectCount-layers-10831"></a> <span class="vuid">VUID-vkCmdDrawIndirectCount-layers-10831</span><br>
+
+If the current render pass instance was created with
+<code>VK_RENDERING_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code> or
+<code>VK_RENDER_PASS_CREATE_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code>, and
+the bound graphics pipeline was created with
+<code>VK_PIPELINE_CREATE_2_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code>, then
+the current render pass instance <strong class="purple">must</strong> have a <code>layers</code> value less
+than or equal to
+<a href="VkPipelineFragmentDensityMapLayeredCreateInfoVALVE.html">VkPipelineFragmentDensityMapLayeredCreateInfoVALVE</a>::<code>maxFragmentDensityMapLayers</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDrawIndirectCount-colorAttachmentCount-06185" href="#VUID-vkCmdDrawIndirectCount-colorAttachmentCount-06185"></a> <span class="vuid">VUID-vkCmdDrawIndirectCount-colorAttachmentCount-06185</span><br>
 
 If the bound pipeline was created with a
@@ -4388,8 +4400,7 @@ For each vertex attribute accessed by this command, if its
 <a href="VkVertexInputAttributeDescription.html">VkVertexInputAttributeDescription</a>::<code>format</code>
 or <a href="VkVertexInputAttributeDescription2EXT.html">VkVertexInputAttributeDescription2EXT</a>::<code>format</code>
 is a <a href="#formats-packed">packed format</a>,
-and <a href="#features-legacyVertexAttributes"><code>legacyVertexAttributes</code></a> is
-not enabled,
+and the <a href="#features-legacyVertexAttributes"><code>legacyVertexAttributes</code></a> feature is not enabled,
 the value of <code>attribAddress</code>, calculated as described in
 <a href="#fxvertex-input-address-calculation">Vertex Input Calculation</a>, <strong class="purple">must</strong>
 be a multiple of the <a href="#formats">size of the <code>format</code></a></p>
@@ -4401,8 +4412,8 @@ For each vertex attribute accessed by this command, if its
 <a href="VkVertexInputAttributeDescription.html">VkVertexInputAttributeDescription</a>::<code>format</code>
 or <a href="VkVertexInputAttributeDescription2EXT.html">VkVertexInputAttributeDescription2EXT</a>::<code>format</code>
 is not a <a href="#formats-packed">packed format</a>,
-and either <a href="#features-legacyVertexAttributes"><code>legacyVertexAttributes</code></a> is not enabled or <code>format</code> has 64-bit
-components,
+and either the <a href="#features-legacyVertexAttributes"><code>legacyVertexAttributes</code></a> feature is not enabled or <code>format</code>
+has 64-bit components,
 the value of <code>attribAddress</code>, calculated as described in
 <a href="#fxvertex-input-address-calculation">Vertex Input Calculation</a>, <strong class="purple">must</strong>
 be a multiple of the <a href="#formats">component size of the <code>format</code></a></p>

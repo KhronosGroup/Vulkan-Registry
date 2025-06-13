@@ -818,6 +818,8 @@ describing additional properties of the render pass, are:</p>
 typedef enum VkRenderPassCreateFlagBits {
   // Provided by VK_QCOM_render_pass_transform
     VK_RENDER_PASS_CREATE_TRANSFORM_BIT_QCOM = 0x00000002,
+  // Provided by VK_VALVE_fragment_density_map_layered
+    VK_RENDER_PASS_CREATE_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE = 0x00000004,
 } VkRenderPassCreateFlagBits;</code></pre>
 </div>
 </div>
@@ -832,6 +834,11 @@ typedef enum VkRenderPassCreateFlagBits {
 <p><code>VK_RENDER_PASS_CREATE_TRANSFORM_BIT_QCOM</code> specifies that the
 created render pass is compatible with
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vertexpostproc-renderpass-transform" target="_blank" rel="noopener">render pass transform</a>.</p>
+</li>
+<li>
+<p><code>VK_RENDER_PASS_CREATE_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code>
+specifies that the created render pass is usable with layered fragment
+density maps.</p>
 </li>
 </ul>
 </div>
