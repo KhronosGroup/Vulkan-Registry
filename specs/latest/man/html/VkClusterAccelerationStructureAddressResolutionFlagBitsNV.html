@@ -818,6 +818,7 @@ specifying how the device address in
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_NV_cluster_acceleration_structure
 typedef enum VkClusterAccelerationStructureAddressResolutionFlagBitsNV {
+    VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_NONE_NV = 0,
     VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_DST_IMPLICIT_DATA_BIT_NV = 0x00000001,
     VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_SCRATCH_DATA_BIT_NV = 0x00000002,
     VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_DST_ADDRESS_ARRAY_BIT_NV = 0x00000004,
@@ -834,6 +835,10 @@ typedef enum VkClusterAccelerationStructureAddressResolutionFlagBitsNV {
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p><code>VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_NONE_NV</code>
+specifies that no address resolution flags are provided.</p>
+</li>
 <li>
 <p><code>VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_DST_IMPLICIT_DATA_BIT_NV</code>
 specifies another level of indirection when reading

@@ -938,7 +938,11 @@ static const VkAccessFlagBits2 VK_ACCESS_2_MICROMAP_WRITE_BIT_EXT = 0x2000000000
 // Provided by VK_NV_optical_flow
 static const VkAccessFlagBits2 VK_ACCESS_2_OPTICAL_FLOW_READ_BIT_NV = 0x40000000000ULL;
 // Provided by VK_NV_optical_flow
-static const VkAccessFlagBits2 VK_ACCESS_2_OPTICAL_FLOW_WRITE_BIT_NV = 0x80000000000ULL;</code></pre>
+static const VkAccessFlagBits2 VK_ACCESS_2_OPTICAL_FLOW_WRITE_BIT_NV = 0x80000000000ULL;
+// Provided by VK_ARM_data_graph
+static const VkAccessFlagBits2 VK_ACCESS_2_DATA_GRAPH_READ_BIT_ARM = 0x800000000000ULL;
+// Provided by VK_ARM_data_graph
+static const VkAccessFlagBits2 VK_ACCESS_2_DATA_GRAPH_WRITE_BIT_ARM = 0x1000000000000ULL;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1305,6 +1309,16 @@ access to a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspe
 attachment</a>.
 Such access occurs in the <code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code>
 or <code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code> pipeline stages.</p>
+</li>
+<li>
+<p><code>VK_ACCESS_2_DATA_GRAPH_READ_BIT_ARM</code> specifies read access to
+resources in the <code>VK_PIPELINE_STAGE_2_DATA_GRAPH_BIT_ARM</code> pipeline
+stage.</p>
+</li>
+<li>
+<p><code>VK_ACCESS_2_DATA_GRAPH_WRITE_BIT_ARM</code> specifies write access to
+resources in the <code>VK_PIPELINE_STAGE_2_DATA_GRAPH_BIT_ARM</code> pipeline
+stage.</p>
 </li>
 </ul>
 </div>

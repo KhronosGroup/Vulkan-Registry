@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.318,</span>
-<span id="revdate">2025-06-13 12:06:29Z</span>
-<br><span id="revremark">from git branch: github-main commit: 38278ef4d7756e0257cede29473edee194b580ed</span>
+<span id="revnumber">version 1.4.319,</span>
+<span id="revdate">2025-06-20 11:58:32Z</span>
+<br><span id="revremark">from git branch: github-main commit: 0dd79adbba6afe2b8e135aba53b0af9c87f616e1</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2262,8 +2262,9 @@ struct that is used to select which of that union&#8217;s members are valid.</p>
 </li>
 <li>
 <p><code>selection</code> - optional.
-For a member of a union, <code>selection</code> identifies a value of the
-<code>selector</code> that indicates this member is valid.</p>
+For a member of a union, <code>selection</code> identifies one or more
+comma-separated values of the <code>selector</code> that indicate this member
+is valid.</p>
 </li>
 <li>
 <p><code>noautovalidity</code> - prevents automatic validity language being
@@ -3173,9 +3174,15 @@ A value of <code>"true"</code> indicates that this parameter (e.g. the object a
 handle refers to, or the contents of an array a pointer refers to) is
 modified by the command, and is not protected against modification in
 multiple application threads.
-If only certain members of an object or elements of an array are
-modified, multiple strings may be provided, separated by commas.
-Each string describes a member which is modified.
+If the parameter needs to be externally synchronized under specific
+conditions, a value of <code>"maybe"</code> is used to indicate that the exact rule is
+specified in the Valid Usage language.
+If only a certain member of an object or elements of an array are
+modified, an expression string may be provided, describing the member which
+is modified.
+This expression may be prefixed by <code>maybe:</code> to indicate conditional
+external synchronization requirements specified in the Valid Usage
+language.
 For example, the <code>vkSetDebugUtilsObjectNameEXT</code> command includes <code>externsync</code>
 attributes for the <code>pNameInfo</code> parameter indicating that a specific
 member of the parameter is externally synchronized:</p>
@@ -6060,6 +6067,14 @@ Changes to the <code>.xml</code> files and Python scripts are logged in GitHub h
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2025-06-18 - Allow <code>selection</code> attributes of members of <a href="#tag-type"><code>"union"</code></a> types to include multiple comma-separated selections of the
+same member (internal issue 4246).</p>
+</li>
+<li>
+<p>2025-05-07 - Add "maybe" and "maybe:&lt;expression&gt;" to <code>externsync</code>
+(internal issues 4175 and 4217)</p>
+</li>
 <li>
 <p>2025-04-23 - Add <a href="#tag-required"><code>deprecate</code></a> blocks to features.</p>
 </li>

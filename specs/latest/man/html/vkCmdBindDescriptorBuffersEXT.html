@@ -949,7 +949,7 @@ buffer from which <code>address</code> was queried</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBindDescriptorBuffersEXT-commandBuffer-cmdpool" href="#VUID-vkCmdBindDescriptorBuffersEXT-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBindDescriptorBuffersEXT-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, compute, or data_graph operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBindDescriptorBuffersEXT-videocoding" href="#VUID-vkCmdBindDescriptorBuffersEXT-videocoding"></a> <span class="vuid">VUID-vkCmdBindDescriptorBuffersEXT-videocoding</span><br>
@@ -1005,7 +1005,8 @@ Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute</p></td>
+Compute<br>
+Data_Graph</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">State</p></td>
 </tr>
 </tbody>

@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>Vulkan<sup>®</sup> Documentation and Extensions: Procedures and Conventions</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech, Tobias Hector</span><br>
-<span id="revnumber">version 1.4.318,</span>
-<span id="revdate">2025-06-13 12:06:29Z</span>
-<br><span id="revremark">from git branch: github-main commit: 38278ef4d7756e0257cede29473edee194b580ed</span>
+<span id="revnumber">version 1.4.319,</span>
+<span id="revdate">2025-06-20 11:58:32Z</span>
+<br><span id="revremark">from git branch: github-main commit: 0dd79adbba6afe2b8e135aba53b0af9c87f616e1</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -7308,7 +7308,11 @@ not enabled, the <code>VK_COMMAND_POOL_CREATE_PROTECTED_BIT</code> bit of
 </li>
 <li>
 <p><a id="VUID-VkCommandPoolCreateInfo-pNext-pNext" href="#VUID-VkCommandPoolCreateInfo-pNext-pNext"></a> <span class="vuid">VUID-VkCommandPoolCreateInfo-pNext-pNext</span><br>
- <code>pNext</code> <strong class="purple">must</strong> be <code>NULL</code></p>
+ <code>pNext</code> <strong class="purple">must</strong> be <code>NULL</code> or a pointer to a valid instance of <a href="#VkDataGraphProcessingEngineCreateInfoARM">VkDataGraphProcessingEngineCreateInfoARM</a></p>
+</li>
+<li>
+<p><a id="VUID-VkCommandPoolCreateInfo-sType-unique" href="#VUID-VkCommandPoolCreateInfo-sType-unique"></a> <span class="vuid">VUID-VkCommandPoolCreateInfo-sType-unique</span><br>
+ The <code>sType</code> value of each structure in the <code>pNext</code> chain <strong class="purple">must</strong> be unique</p>
 </li>
 <li>
 <p><a id="VUID-VkCommandPoolCreateInfo-flags-parameter" href="#VUID-VkCommandPoolCreateInfo-flags-parameter"></a> <span class="vuid">VUID-VkCommandPoolCreateInfo-flags-parameter</span><br>

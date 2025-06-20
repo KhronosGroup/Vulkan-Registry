@@ -1489,6 +1489,29 @@ attachment used in this subpass <strong class="purple">must</strong> not include
 <code>VK_IMAGE_ASPECT_PLANE<em>_i_</em>BIT</code> for any index <em>i</em> in its
 <code>aspectMask</code></p>
 </li>
+<li>
+<p><a id="VUID-VkSubpassDescription2-flags-04907" href="#VUID-VkSubpassDescription2-flags-04907"></a> <span class="vuid">VUID-VkSubpassDescription2-flags-04907</span><br>
+
+If <code>flags</code> includes
+<code>VK_SUBPASS_DESCRIPTION_SHADER_RESOLVE_BIT_QCOM</code>, and if
+<code>pResolveAttachments</code> is not <code>NULL</code>, then each resolve attachment
+<strong class="purple">must</strong> be <code>VK_ATTACHMENT_UNUSED</code></p>
+</li>
+<li>
+<p><a id="VUID-VkSubpassDescription2-flags-04908" href="#VUID-VkSubpassDescription2-flags-04908"></a> <span class="vuid">VUID-VkSubpassDescription2-flags-04908</span><br>
+
+If <code>flags</code> includes
+<code>VK_SUBPASS_DESCRIPTION_SHADER_RESOLVE_BIT_QCOM</code>, and if
+<code>pDepthStencilResolveAttachment</code> is not <code>NULL</code>, then the
+depth/stencil resolve attachment <strong class="purple">must</strong> be <code>VK_ATTACHMENT_UNUSED</code></p>
+</li>
+<li>
+<p><a id="VUID-VkSubpassDescription2-flags-04909" href="#VUID-VkSubpassDescription2-flags-04909"></a> <span class="vuid">VUID-VkSubpassDescription2-flags-04909</span><br>
+
+If <code>flags</code> includes
+<code>VK_SUBPASS_DESCRIPTION_SHADER_RESOLVE_BIT_QCOM</code>, then the subpass
+<strong class="purple">must</strong> be the last subpass in a subpass dependency chain</p>
+</li>
 </ul>
 </div>
 </div>

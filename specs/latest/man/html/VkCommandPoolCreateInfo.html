@@ -865,6 +865,23 @@ If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.htm
 not enabled, the <code>VK_COMMAND_POOL_CREATE_PROTECTED_BIT</code> bit of
 <code>flags</code> <strong class="purple">must</strong> not be set</p>
 </li>
+<li>
+<p><a id="VUID-VkCommandPoolCreateInfo-pNext-09908" href="#VUID-VkCommandPoolCreateInfo-pNext-09908"></a> <span class="vuid">VUID-VkCommandPoolCreateInfo-pNext-09908</span><br>
+
+If the <code>pNext</code> chain includes a
+<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure, then
+<code>queueFamilyIndex</code> <strong class="purple">must</strong> designate a queue family that supports
+<code>VK_QUEUE_DATA_GRAPH_BIT_ARM</code></p>
+</li>
+<li>
+<p><a id="VUID-VkCommandPoolCreateInfo-pNext-09909" href="#VUID-VkCommandPoolCreateInfo-pNext-09909"></a> <span class="vuid">VUID-VkCommandPoolCreateInfo-pNext-09909</span><br>
+
+If the <code>pNext</code> chain includes a
+<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure, then the queue
+family designated by <code>queueFamilyIndex</code> <strong class="purple">must</strong> support the data graph
+processing engines specified in the
+<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure</p>
+</li>
 </ul>
 </div>
 </div>
@@ -880,7 +897,11 @@ not enabled, the <code>VK_COMMAND_POOL_CREATE_PROTECTED_BIT</code> bit of
 </li>
 <li>
 <p><a id="VUID-VkCommandPoolCreateInfo-pNext-pNext" href="#VUID-VkCommandPoolCreateInfo-pNext-pNext"></a> <span class="vuid">VUID-VkCommandPoolCreateInfo-pNext-pNext</span><br>
- <code>pNext</code> <strong class="purple">must</strong> be <code>NULL</code></p>
+ <code>pNext</code> <strong class="purple">must</strong> be <code>NULL</code> or a pointer to a valid instance of <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a></p>
+</li>
+<li>
+<p><a id="VUID-VkCommandPoolCreateInfo-sType-unique" href="#VUID-VkCommandPoolCreateInfo-sType-unique"></a> <span class="vuid">VUID-VkCommandPoolCreateInfo-sType-unique</span><br>
+ The <code>sType</code> value of each structure in the <code>pNext</code> chain <strong class="purple">must</strong> be unique</p>
 </li>
 <li>
 <p><a id="VUID-VkCommandPoolCreateInfo-flags-parameter" href="#VUID-VkCommandPoolCreateInfo-flags-parameter"></a> <span class="vuid">VUID-VkCommandPoolCreateInfo-flags-parameter</span><br>

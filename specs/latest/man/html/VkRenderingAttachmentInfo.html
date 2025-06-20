@@ -1140,18 +1140,6 @@ have been created with a <code>usage</code> value including
 <code>VK_IMAGE_USAGE_SAMPLED_BIT</code></p>
 </li>
 <li>
-<p><a id="VUID-VkRenderingAttachmentInfo-resolveImageView-10781" href="#VUID-VkRenderingAttachmentInfo-resolveImageView-10781"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-resolveImageView-10781</span><br>
-
-If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-feedbackloop" target="_blank" rel="noopener">feedback loop is enabled</a> for the
-attachment identified by <code>resolveImageView</code>, then
-<code>resolveImageView</code> <strong class="purple">must</strong> have been created with a <code>usage</code> value
-including <code>VK_IMAGE_USAGE_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</code>, either
-<code>VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT</code> or
-<code>VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT</code>, and either
-<code>VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT</code> or
-<code>VK_IMAGE_USAGE_SAMPLED_BIT</code></p>
-</li>
-<li>
 <p><a id="VUID-VkRenderingAttachmentInfo-imageView-06145" href="#VUID-VkRenderingAttachmentInfo-imageView-06145"></a> <span class="vuid">VUID-VkRenderingAttachmentInfo-imageView-06145</span><br>
 
 If <code>imageView</code> is not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, <code>imageLayout</code> <strong class="purple">must</strong>

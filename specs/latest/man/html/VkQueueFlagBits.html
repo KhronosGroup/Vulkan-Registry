@@ -828,6 +828,8 @@ typedef enum VkQueueFlagBits {
     VK_QUEUE_VIDEO_ENCODE_BIT_KHR = 0x00000040,
   // Provided by VK_NV_optical_flow
     VK_QUEUE_OPTICAL_FLOW_BIT_NV = 0x00000100,
+  // Provided by VK_ARM_data_graph
+    VK_QUEUE_DATA_GRAPH_BIT_ARM = 0x00000400,
 } VkQueueFlagBits;</code></pre>
 </div>
 </div>
@@ -868,6 +870,10 @@ family support <a href="https://registry.khronos.org/vulkan/specs/latest/html/vk
 <li>
 <p><code>VK_QUEUE_OPTICAL_FLOW_BIT_NV</code> specifies that queues in this queue
 family support optical flow operations.</p>
+</li>
+<li>
+<p><code>VK_QUEUE_DATA_GRAPH_BIT_ARM</code> specifies that queues in this queue
+family support <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#graphs-operations" target="_blank" rel="noopener">data graph operations</a>.</p>
 </li>
 <li>
 <p><code>VK_QUEUE_PROTECTED_BIT</code> specifies that queues in this queue family

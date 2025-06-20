@@ -1072,6 +1072,33 @@ Each element of <code>pDescriptorSets</code> <strong class="purple">must</strong
 <code>VK_DESCRIPTOR_SET_LAYOUT_CREATE_DESCRIPTOR_BUFFER_BIT_EXT</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdBindDescriptorSets-pDescriptorSets-09914" href="#VUID-vkCmdBindDescriptorSets-pDescriptorSets-09914"></a> <span class="vuid">VUID-vkCmdBindDescriptorSets-pDescriptorSets-09914</span><br>
+
+If any element of <code>pDescriptorSets</code> was allocated from a descriptor
+pool created with a <a href="VkDescriptorPoolCreateInfo.html">VkDescriptorPoolCreateInfo</a> structure that had
+a <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure specifying
+foreign data processing engines in its <code>pNext</code> chain, then the
+command pool from which <code>commandBuffer</code> was allocated <strong class="purple">must</strong> have
+been created with a <a href="VkCommandPoolCreateInfo.html">VkCommandPoolCreateInfo</a> structure that had a
+<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure in its
+<code>pNext</code> chain specifying a superset of all the foreign data
+processing engines specified when creating the descriptor pools from
+which the elements of <code>pDescriptorSets</code> were allocated</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBindDescriptorSets-pDescriptorSets-09915" href="#VUID-vkCmdBindDescriptorSets-pDescriptorSets-09915"></a> <span class="vuid">VUID-vkCmdBindDescriptorSets-pDescriptorSets-09915</span><br>
+
+If none of the elements of <code>pDescriptorSets</code> were allocated from a
+descriptor pool created with a <a href="VkDescriptorPoolCreateInfo.html">VkDescriptorPoolCreateInfo</a>
+structure that had a <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a>
+structure specifying foreign data processing engines in its <code>pNext</code>
+chain, then the command pool from which <code>commandBuffer</code> was
+allocated <strong class="purple">must</strong> not have been created with a
+<a href="VkCommandPoolCreateInfo.html">VkCommandPoolCreateInfo</a> structure that had a
+<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure in its
+<code>pNext</code> chain</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdBindDescriptorSets-pipelineBindPoint-00361" href="#VUID-vkCmdBindDescriptorSets-pipelineBindPoint-00361"></a> <span class="vuid">VUID-vkCmdBindDescriptorSets-pipelineBindPoint-00361</span><br>
 
 <code>pipelineBindPoint</code> <strong class="purple">must</strong> be supported by the <code>commandBuffer</code>&#8217;s
@@ -1112,7 +1139,7 @@ parent <code>VkCommandPool</code>&#8217;s queue family</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBindDescriptorSets-commandBuffer-cmdpool" href="#VUID-vkCmdBindDescriptorSets-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBindDescriptorSets-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, compute, or data_graph operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBindDescriptorSets-videocoding" href="#VUID-vkCmdBindDescriptorSets-videocoding"></a> <span class="vuid">VUID-vkCmdBindDescriptorSets-videocoding</span><br>
@@ -1172,7 +1199,8 @@ Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute</p></td>
+Compute<br>
+Data_Graph</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">State</p></td>
 </tr>
 </tbody>

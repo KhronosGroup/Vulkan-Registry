@@ -821,6 +821,7 @@ typedef enum VkClusterAccelerationStructureOpTypeNV {
     VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_NV = 2,
     VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_TEMPLATE_NV = 3,
     VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_INSTANTIATE_TRIANGLE_CLUSTER_NV = 4,
+    VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_GET_CLUSTER_TEMPLATE_INDICES_NV = 5,
 } VkClusterAccelerationStructureOpTypeNV;</code></pre>
 </div>
 </div>
@@ -860,6 +861,11 @@ built.</p>
 <p><code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_INSTANTIATE_TRIANGLE_CLUSTER_NV</code>
 specifies that a template for a cluster acceleration structure will be
 instantiated, resulting in a built cluster acceleration structure.</p>
+</li>
+<li>
+<p><code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_GET_CLUSTER_TEMPLATE_INDICES_NV</code>
+specifies that the vertex indices of the cluster template acceleration
+structure will be fetched.</p>
 </li>
 </ul>
 </div>

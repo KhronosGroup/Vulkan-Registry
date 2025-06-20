@@ -1123,6 +1123,119 @@ the promoted <a href="VK_KHR_shader_subgroup_rotate.html">VK_KHR_shader_subgroup
 </div>
 </div>
 </dd>
+<dt class="hdlist1">Updated Vulkan 1.4 Limit Support</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div id="versions-1.4-updated-limits" class="paragraph">
+<p>Vulkan 1.4 also requires support for the following updated limits:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxImageDimension1D" target="_blank" rel="noopener"><code>maxImageDimension1D</code></a> is increased from 4096 to 8192</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxImageDimension2D" target="_blank" rel="noopener"><code>maxImageDimension2D</code></a> is increased from 4096 to 8192</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxImageDimension3D" target="_blank" rel="noopener"><code>maxImageDimension3D</code></a> is increased from 256 to 512</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxImageDimensionCube" target="_blank" rel="noopener"><code>maxImageDimensionCube</code></a> is increased from 4096 to 8192</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxImageArrayLayers" target="_blank" rel="noopener"><code>maxImageArrayLayers</code></a> is increased from 256 to 2048</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxUniformBufferRange" target="_blank" rel="noopener"><code>maxUniformBufferRange</code></a> is increased from 16384 to 65536</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxPushConstantsSize" target="_blank" rel="noopener"><code>maxPushConstantsSize</code></a> is increased from 128 to 256</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-bufferImageGranularity" target="_blank" rel="noopener"><code>bufferImageGranularity</code></a> is decreased from 131072 to 4096</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxBoundDescriptorSets" target="_blank" rel="noopener"><code>maxBoundDescriptorSets</code></a> is increased from 4 to 7</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxPerStageDescriptorUniformBuffers" target="_blank" rel="noopener"><code>maxPerStageDescriptorUniformBuffers</code></a> is increased from 12 to 15</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxPerStageResources" target="_blank" rel="noopener"><code>maxPerStageResources</code></a> is increased from 128 to 200</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxDescriptorSetUniformBuffers" target="_blank" rel="noopener"><code>maxDescriptorSetUniformBuffers</code></a> is increased from 72 to 90</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxDescriptorSetStorageBuffers" target="_blank" rel="noopener"><code>maxDescriptorSetStorageBuffers</code></a> is increased from 24 to 96</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxDescriptorSetStorageImages" target="_blank" rel="noopener"><code>maxDescriptorSetStorageImages</code></a> is increased from 24 to 144</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxFragmentCombinedOutputResources" target="_blank" rel="noopener"><code>maxFragmentCombinedOutputResources</code></a> is increased from 4 to 16</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxComputeWorkGroupInvocations" target="_blank" rel="noopener"><code>maxComputeWorkGroupInvocations</code></a> is increased from 128 to 256</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxComputeWorkGroupSize" target="_blank" rel="noopener"><code>maxComputeWorkGroupSize</code></a> is increased from (128,128,64) to (256,256,64)</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-shaderSignedZeroInfNanPreserveFloat16" target="_blank" rel="noopener"><code>shaderSignedZeroInfNanPreserveFloat16</code></a> is changed from unspecified to <code>VK_TRUE</code></p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-shaderSignedZeroInfNanPreserveFloat32" target="_blank" rel="noopener"><code>shaderSignedZeroInfNanPreserveFloat32</code></a> is changed from unspecified to <code>VK_TRUE</code></p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-subTexelPrecisionBits" target="_blank" rel="noopener"><code>subTexelPrecisionBits</code></a> is increased from 4 to 8</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-mipmapPrecisionBits" target="_blank" rel="noopener"><code>mipmapPrecisionBits</code></a> is increased from 4 to 6</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxSamplerLodBias" target="_blank" rel="noopener"><code>maxSamplerLodBias</code></a> is increased from 2 to 14</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxViewportDimensions" target="_blank" rel="noopener"><code>maxViewportDimensions</code></a> is increased from (4096,4096) to (7680,7680)</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-viewportboundsrange" target="_blank" rel="noopener"><code>viewportBoundsRange</code></a> is increased from (-8192,8191) to (-15360,15359)</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxFramebufferWidth" target="_blank" rel="noopener"><code>maxFramebufferWidth</code></a> is increased from 4096 to 7680</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxFramebufferHeight" target="_blank" rel="noopener"><code>maxFramebufferHeight</code></a> is increased from 4096 to 7680</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxColorAttachments" target="_blank" rel="noopener"><code>maxColorAttachments</code></a> is increased from 7 to 8</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-timestampComputeAndGraphics" target="_blank" rel="noopener"><code>timestampComputeAndGraphics</code></a> is changed from unspecified to <code>VK_TRUE</code></p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-pointSizeRange" target="_blank" rel="noopener"><code>pointSizeRange</code></a> is increased from (1.0,64.0 - ULP) to (1.0,256.0 - <code>pointSizeGranularity</code>)</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-pointSizeGranularity" target="_blank" rel="noopener"><code>pointSizeGranularity</code></a> is decreased from 1.0 to 0.125</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-lineWidthGranularity" target="_blank" rel="noopener"><code>lineWidthGranularity</code></a> is decreased from 1.0 to 0.5</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxPushDescriptors" target="_blank" rel="noopener"><code>maxPushDescriptors</code></a> is increased from 16 to 32</p>
+</li>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-standardSampleLocations" target="_blank" rel="noopener"><code>standardSampleLocations</code></a> is changed from unspecified to <code>VK_TRUE</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</dd>
 </dl>
 </div>
 <div class="sect2">

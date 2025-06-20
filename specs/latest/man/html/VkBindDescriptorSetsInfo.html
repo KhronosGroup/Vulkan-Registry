@@ -980,6 +980,33 @@ Each element of <code>pDescriptorSets</code> <strong class="purple">must</strong
 <code>VkDescriptorSetLayout</code> which was not created with
 <code>VK_DESCRIPTOR_SET_LAYOUT_CREATE_DESCRIPTOR_BUFFER_BIT_EXT</code></p>
 </li>
+<li>
+<p><a id="VUID-VkBindDescriptorSetsInfo-pDescriptorSets-09914" href="#VUID-VkBindDescriptorSetsInfo-pDescriptorSets-09914"></a> <span class="vuid">VUID-VkBindDescriptorSetsInfo-pDescriptorSets-09914</span><br>
+
+If any element of <code>pDescriptorSets</code> was allocated from a descriptor
+pool created with a <a href="VkDescriptorPoolCreateInfo.html">VkDescriptorPoolCreateInfo</a> structure that had
+a <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure specifying
+foreign data processing engines in its <code>pNext</code> chain, then the
+command pool from which <code>commandBuffer</code> was allocated <strong class="purple">must</strong> have
+been created with a <a href="VkCommandPoolCreateInfo.html">VkCommandPoolCreateInfo</a> structure that had a
+<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure in its
+<code>pNext</code> chain specifying a superset of all the foreign data
+processing engines specified when creating the descriptor pools from
+which the elements of <code>pDescriptorSets</code> were allocated</p>
+</li>
+<li>
+<p><a id="VUID-VkBindDescriptorSetsInfo-pDescriptorSets-09915" href="#VUID-VkBindDescriptorSetsInfo-pDescriptorSets-09915"></a> <span class="vuid">VUID-VkBindDescriptorSetsInfo-pDescriptorSets-09915</span><br>
+
+If none of the elements of <code>pDescriptorSets</code> were allocated from a
+descriptor pool created with a <a href="VkDescriptorPoolCreateInfo.html">VkDescriptorPoolCreateInfo</a>
+structure that had a <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a>
+structure specifying foreign data processing engines in its <code>pNext</code>
+chain, then the command pool from which <code>commandBuffer</code> was
+allocated <strong class="purple">must</strong> not have been created with a
+<a href="VkCommandPoolCreateInfo.html">VkCommandPoolCreateInfo</a> structure that had a
+<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure in its
+<code>pNext</code> chain</p>
+</li>
 </ul>
 </div>
 <div class="ulist">

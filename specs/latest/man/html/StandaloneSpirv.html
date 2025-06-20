@@ -1980,6 +1980,18 @@ Variables with a type of <code>OpTypeFloat</code> and an encoding of
 <code>Float8E4M3EXT</code> or <code>Float8E5M2EXT</code> <strong class="purple">must</strong> not be declared with a
 <code>Storage</code> <code>Class</code> of <code>Input</code> or <code>Output</code></p>
 </li>
+<li>
+<p><a id="VUID-StandaloneSpirv-OpGraphInputARM-09931" href="#VUID-StandaloneSpirv-OpGraphInputARM-09931"></a> <span class="vuid">VUID-StandaloneSpirv-OpGraphInputARM-09931</span><br>
+
+The <code>InputIndex</code> and <code>ElementIndex</code> operands to
+<code>OpGraphInputARM</code> <strong class="purple">must</strong> be the &lt;id&gt; of a constant instruction</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-OpGraphSetOutputARM-09932" href="#VUID-StandaloneSpirv-OpGraphSetOutputARM-09932"></a> <span class="vuid">VUID-StandaloneSpirv-OpGraphSetOutputARM-09932</span><br>
+
+The <code>OutputIndex</code> and <code>ElementIndex</code> operands to
+<code>OpGraphSetOutputARM</code> <strong class="purple">must</strong> be the &lt;id&gt; of a constant instruction</p>
+</li>
 </ul>
 </div>
 </div>

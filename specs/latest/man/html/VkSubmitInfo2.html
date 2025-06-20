@@ -992,6 +992,26 @@ If the <code>pNext</code> chain of this structure includes a
 <a href="VkFrameBoundaryTensorsARM.html">VkFrameBoundaryTensorsARM</a> structure then it <strong class="purple">must</strong> also include a
 <a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a> structure.</p>
 </li>
+<li>
+<p><a id="VUID-VkSubmitInfo2-pCommandBufferInfos-09933" href="#VUID-VkSubmitInfo2-pCommandBufferInfos-09933"></a> <span class="vuid">VUID-VkSubmitInfo2-pCommandBufferInfos-09933</span><br>
+
+If at least one <a href="VkCommandBufferSubmitInfo.html">VkCommandBufferSubmitInfo</a> structure in
+<code>pCommandBufferInfos</code> references a <code>commandBuffer</code> allocated
+from a pool that was created with a
+<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure in the
+<code>pNext</code> chain of <a href="VkCommandPoolCreateInfo.html">VkCommandPoolCreateInfo</a> that included a
+foreign data graph processing engine in its <code>pProcessingEngines</code>
+member, then <code>pWaitSemaphoreInfos</code> and <code>pSignalSemaphoreInfos</code>
+<strong class="purple">must</strong> only reference <code>semaphore</code> objects that were created from
+external handle types reported as supported in a
+<a href="VkQueueFamilyDataGraphProcessingEnginePropertiesARM.html">VkQueueFamilyDataGraphProcessingEnginePropertiesARM</a>::<code>foreignSemaphoreHandleTypes</code>
+structure via
+<a href="vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM.html">vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM</a>
+with a <code>queueFamilyIndex</code> matching the one the command pool was
+created for, for all the foreign data graph processing engines that were
+part of the <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> used to
+create the command pool</p>
+</li>
 </ul>
 </div>
 </div>

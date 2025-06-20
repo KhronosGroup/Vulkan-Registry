@@ -998,14 +998,14 @@ Such access occurs in the
 <li>
 <p><code>VK_ACCESS_TRANSFER_READ_BIT</code> specifies read access to an
 image, tensor,
-buffer in a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies" target="_blank" rel="noopener">copy</a> operation.
+or buffer in a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies" target="_blank" rel="noopener">copy</a> operation.
 Such access occurs in the <code>VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT</code>
 pipeline stage.</p>
 </li>
 <li>
 <p><code>VK_ACCESS_TRANSFER_WRITE_BIT</code> specifies write access to an
 image, tensor,
-buffer in a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#clears" target="_blank" rel="noopener">clear</a> or <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies" target="_blank" rel="noopener">copy</a> operation.
+or buffer in a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#clears" target="_blank" rel="noopener">clear</a> or <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies" target="_blank" rel="noopener">copy</a> operation.
 Such access occurs in the <code>VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT</code>
 pipeline stage.</p>
 </li>
@@ -1442,6 +1442,14 @@ perform that type of access.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_ACCESS_2_SHADER_TILE_ATTACHMENT_WRITE_BIT_QCOM</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code>,
 	<code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_ACCESS_2_DATA_GRAPH_READ_BIT_ARM</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_PIPELINE_STAGE_2_DATA_GRAPH_BIT_ARM</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_ACCESS_2_DATA_GRAPH_WRITE_BIT_ARM</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_PIPELINE_STAGE_2_DATA_GRAPH_BIT_ARM</code></p></td>
 </tr>
 </tbody>
 </table>

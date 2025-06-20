@@ -1273,9 +1273,6 @@ any way, that pipeline <strong class="purple">must</strong> specify this state d
 <p><a href="VkExternalFormatANDROID.html">VkExternalFormatANDROID</a></p>
 </li>
 <li>
-<p><a href="VkAttachmentFeedbackLoopInfoEXT.html">VkAttachmentFeedbackLoopInfoEXT</a></p>
-</li>
-<li>
 <p>Inclusion/omission of the
 <code>VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</code> and
 <code>VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT</code>
@@ -2816,21 +2813,6 @@ If the pipeline requires <a href="https://registry.khronos.org/vulkan/specs/late
 the subpass description contains
 <code>VK_SUBPASS_DESCRIPTION_FRAGMENT_REGION_BIT_QCOM</code>, then
 <code>sampleShadingEnable</code> <strong class="purple">must</strong> be false</p>
-</li>
-<li>
-<p><a id="VUID-VkGraphicsPipelineCreateInfo-flags-04901" href="#VUID-VkGraphicsPipelineCreateInfo-flags-04901"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-flags-04901</span><br>
-
-If <code>flags</code> includes
-<code>VK_SUBPASS_DESCRIPTION_SHADER_RESOLVE_BIT_QCOM</code>, then the subpass
-<strong class="purple">must</strong> be the last subpass in a subpass dependency chain</p>
-</li>
-<li>
-<p><a id="VUID-VkGraphicsPipelineCreateInfo-flags-04902" href="#VUID-VkGraphicsPipelineCreateInfo-flags-04902"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-flags-04902</span><br>
-
-If <code>flags</code> includes
-<code>VK_SUBPASS_DESCRIPTION_SHADER_RESOLVE_BIT_QCOM</code>, and if
-<code>pResolveAttachments</code> is not <code>NULL</code>, then each resolve attachment
-<strong class="purple">must</strong> be <code>VK_ATTACHMENT_UNUSED</code></p>
 </li>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-dynamicRendering-06576" href="#VUID-VkGraphicsPipelineCreateInfo-dynamicRendering-06576"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-dynamicRendering-06576</span><br>

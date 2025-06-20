@@ -1015,6 +1015,46 @@ If <code>pipelineBindPoint</code> is
 <code>VK_PIPELINE_BIND_POINT_SUBPASS_SHADING_HUAWEI</code>, <code>pipeline</code>
 <strong class="purple">must</strong> be a subpass shading pipeline</p>
 </li>
+<li>
+<p><a id="VUID-vkCmdBindPipeline-pipelineBindPoint-09910" href="#VUID-vkCmdBindPipeline-pipelineBindPoint-09910"></a> <span class="vuid">VUID-vkCmdBindPipeline-pipelineBindPoint-09910</span><br>
+
+If <code>pipelineBindPoint</code> is
+<code>VK_PIPELINE_BIND_POINT_DATA_GRAPH_ARM</code>, the <code>VkCommandPool</code>
+that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> have been created for
+a queue family that supports <code>VK_QUEUE_DATA_GRAPH_BIT_ARM</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBindPipeline-pipelineBindPoint-09911" href="#VUID-vkCmdBindPipeline-pipelineBindPoint-09911"></a> <span class="vuid">VUID-vkCmdBindPipeline-pipelineBindPoint-09911</span><br>
+
+If <code>pipelineBindPoint</code> is
+<code>VK_PIPELINE_BIND_POINT_DATA_GRAPH_ARM</code>, <code>pipeline</code> <strong class="purple">must</strong> be a
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#graphs-pipelines" target="_blank" rel="noopener">data graph pipeline</a></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBindPipeline-pipeline-09912" href="#VUID-vkCmdBindPipeline-pipeline-09912"></a> <span class="vuid">VUID-vkCmdBindPipeline-pipeline-09912</span><br>
+
+If <code>pipeline</code> is a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#graphs-pipelines" target="_blank" rel="noopener">data graph pipeline</a> and the
+<a href="VkDataGraphPipelineCreateInfoARM.html">VkDataGraphPipelineCreateInfoARM</a> structure used to create it had a
+<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure in its
+<code>pNext</code> chain that specified any foreign data processing engines,
+then the command pool from which <code>commandBuffer</code> was allocated <strong class="purple">must</strong>
+have been created with a <a href="VkCommandPoolCreateInfo.html">VkCommandPoolCreateInfo</a> structure that
+had a <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure
+specifying a superset of the foreign data graph processing engines
+specified at pipeline creation time in its <code>pNext</code> chain</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBindPipeline-pipeline-09913" href="#VUID-vkCmdBindPipeline-pipeline-09913"></a> <span class="vuid">VUID-vkCmdBindPipeline-pipeline-09913</span><br>
+
+If <code>pipeline</code> is a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#graphs-pipelines" target="_blank" rel="noopener">data graph pipeline</a> and the
+<a href="VkDataGraphPipelineCreateInfoARM.html">VkDataGraphPipelineCreateInfoARM</a> structure used to create it did
+not have a <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure in
+its <code>pNext</code> chain, then the command pool from which
+<code>commandBuffer</code> was allocated <strong class="purple">must</strong> not have been created with a
+<a href="VkCommandPoolCreateInfo.html">VkCommandPoolCreateInfo</a> that had a
+<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure in its
+<code>pNext</code> chain</p>
+</li>
 </ul>
 </div>
 </div>
@@ -1042,7 +1082,7 @@ If <code>pipelineBindPoint</code> is
 </li>
 <li>
 <p><a id="VUID-vkCmdBindPipeline-commandBuffer-cmdpool" href="#VUID-vkCmdBindPipeline-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBindPipeline-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, compute, or data_graph operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBindPipeline-videocoding" href="#VUID-vkCmdBindPipeline-videocoding"></a> <span class="vuid">VUID-vkCmdBindPipeline-videocoding</span><br>
@@ -1098,7 +1138,8 @@ Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute</p></td>
+Compute<br>
+Data_Graph</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">State</p></td>
 </tr>
 </tbody>

@@ -990,6 +990,36 @@ including the layout transition.
 Any slices of a 3D image not included in <code>subresourceRange</code> are not
 affected by the memory barrier and remain in their existing layout.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Enabling the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance9" target="_blank" rel="noopener"><code>maintenance9</code></a> feature modifies
+the behavior of image barriers targeting 3D images created with
+<code>VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT</code>.
+Previously, a <code>layerCount</code> equal to 1 would cover the entire 3D image,
+but this has a different meaning when the <code>maintenance9</code> feature is
+enabled.
+Linking this behavioral change solely to the <code>maintenance9</code> feature
+caused an unintended break in forward-compatibility.
+Validation layers are expected to flag a warning for the scenario where the
+<code>maintenance9</code> feature is not enabled, and the application uses
+<code>layerCount</code> equal to 1 on this kind of 3D image.
+<code>layerCount</code> can be set to <code>VK_REMAINING_ARRAY_LAYERS</code> instead,
+which has the same semantics with or without the extension.
+This validation check should make it feasible for software to avoid any
+breaking changes should the <code>maintenance9</code> feature be enabled in the
+future, either explicitly by application or by a layer outside the control
+of the application.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>If <code>image</code> has a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-multiplanar" target="_blank" rel="noopener">multi-planar format</a> and the
 image is <em>disjoint</em>, then including <code>VK_IMAGE_ASPECT_COLOR_BIT</code> in the
@@ -1489,7 +1519,7 @@ If <code>srcAccessMask</code> includes
 <code>VK_ACCESS_2_SHADER_TILE_ATTACHMENT_READ_BIT_QCOM</code>,
 <code>srcStageMask</code> <strong class="purple">must</strong> include
 <code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code> or
-<code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code>.</p>
+<code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code></p>
 </li>
 <li>
 <p><a id="VUID-VkImageMemoryBarrier2-srcAccessMask-10671" href="#VUID-VkImageMemoryBarrier2-srcAccessMask-10671"></a> <span class="vuid">VUID-VkImageMemoryBarrier2-srcAccessMask-10671</span><br>
@@ -1498,7 +1528,7 @@ If <code>srcAccessMask</code> includes
 <code>VK_ACCESS_2_SHADER_TILE_ATTACHMENT_WRITE_BIT_QCOM</code>,
 <code>srcStageMask</code> <strong class="purple">must</strong> include
 <code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code> or
-<code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code>.</p>
+<code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code></p>
 </li>
 </ul>
 </div>
@@ -1991,7 +2021,7 @@ If <code>dstAccessMask</code> includes
 <code>VK_ACCESS_2_SHADER_TILE_ATTACHMENT_READ_BIT_QCOM</code>,
 <code>dstStageMask</code> <strong class="purple">must</strong> include
 <code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code> or
-<code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code>.</p>
+<code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code></p>
 </li>
 <li>
 <p><a id="VUID-VkImageMemoryBarrier2-dstAccessMask-10671" href="#VUID-VkImageMemoryBarrier2-dstAccessMask-10671"></a> <span class="vuid">VUID-VkImageMemoryBarrier2-dstAccessMask-10671</span><br>
@@ -2000,7 +2030,7 @@ If <code>dstAccessMask</code> includes
 <code>VK_ACCESS_2_SHADER_TILE_ATTACHMENT_WRITE_BIT_QCOM</code>,
 <code>dstStageMask</code> <strong class="purple">must</strong> include
 <code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code> or
-<code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code>.</p>
+<code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code></p>
 </li>
 </ul>
 </div>
@@ -2477,7 +2507,8 @@ and <code>image</code> is a 3D image created with
 <li>
 <p><a id="VUID-VkImageMemoryBarrier2-subresourceRange-01725" href="#VUID-VkImageMemoryBarrier2-subresourceRange-01725"></a> <span class="vuid">VUID-VkImageMemoryBarrier2-subresourceRange-01725</span><br>
 
-If <code>image</code> is not a 3D image or was created without
+If
+<code>image</code> is not a 3D image or was created without
 <code>VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT</code> set, or the
 <a href="#features-maintenance9"><code>maintenance9</code></a> feature is not enabled,
 and

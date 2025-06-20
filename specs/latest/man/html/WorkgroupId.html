@@ -813,10 +813,13 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <dt class="hdlist1"><code>WorkgroupId</code></dt>
 <dd>
 <p>Decorating a variable with the <code>WorkgroupId</code> built-in decoration will
-make that variable contain the global workgroup that the current invocation
-is a member of.
-Each component ranges from a base value to a <span class="eq">base +  count</span> value,
-based on the parameters passed into the dispatching commands.</p>
+make that variable contain the global coordinate of the local workgroup that
+the current invocation is a member of.
+Each component is in the range <span class="eq">[base,base +  count)</span>, where
+<span class="eq">base</span> and <span class="eq">count</span> are based on the parameters passed into the
+dispatching
+or drawing
+commands in each dimension.</p>
 </dd>
 </dl>
 </div>

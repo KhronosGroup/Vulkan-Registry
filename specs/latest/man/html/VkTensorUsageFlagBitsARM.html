@@ -820,7 +820,9 @@ typedef VkFlags64 VkTensorUsageFlagBitsARM;
 static const VkTensorUsageFlagBitsARM VK_TENSOR_USAGE_SHADER_BIT_ARM = 0x00000002ULL;
 static const VkTensorUsageFlagBitsARM VK_TENSOR_USAGE_TRANSFER_SRC_BIT_ARM = 0x00000004ULL;
 static const VkTensorUsageFlagBitsARM VK_TENSOR_USAGE_TRANSFER_DST_BIT_ARM = 0x00000008ULL;
-static const VkTensorUsageFlagBitsARM VK_TENSOR_USAGE_IMAGE_ALIASING_BIT_ARM = 0x00000010ULL;</code></pre>
+static const VkTensorUsageFlagBitsARM VK_TENSOR_USAGE_IMAGE_ALIASING_BIT_ARM = 0x00000010ULL;
+// Provided by VK_ARM_data_graph
+static const VkTensorUsageFlagBitsARM VK_TENSOR_USAGE_DATA_GRAPH_BIT_ARM = 0x00000020ULL;</code></pre>
 </div>
 </div>
 </div>
@@ -852,6 +854,12 @@ of
 <code>VK_IMAGE_TILING_OPTIMAL</code>.
 See <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-memory-aliasing" class="bare" target="_blank" rel="noopener">https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-memory-aliasing</a> for a complete set of rules for
 tensor/image aliasing.</p>
+</li>
+<li>
+<p><code>VK_TENSOR_USAGE_DATA_GRAPH_BIT_ARM</code> specifies that the tensor <strong class="purple">can</strong>
+be used to create a <code>VkTensorViewARM</code> suitable for occupying a
+<code>VkDescriptorSet</code> slot of type <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code>
+accessed by <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#graphs-pipelines" target="_blank" rel="noopener">data graph pipelines</a>.</p>
 </li>
 </ul>
 </div>

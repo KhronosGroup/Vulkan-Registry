@@ -1119,48 +1119,6 @@ attachment in any subpass, it <strong class="purple">must</strong> have an image
 <code>VK_FORMAT_FEATURE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</code></p>
 </li>
 <li>
-<p><a id="VUID-VkRenderPassCreateInfo2-rasterizationSamples-04905" href="#VUID-VkRenderPassCreateInfo2-rasterizationSamples-04905"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-rasterizationSamples-04905</span><br>
-
-If the pipeline is being created with fragment shader state, and the
-<code><a href="VK_QCOM_render_pass_shader_resolve.html">VK_QCOM_render_pass_shader_resolve</a> extension</code> is enabled, and if
-subpass has any input attachments, and if the subpass description
-contains <code>VK_SUBPASS_DESCRIPTION_FRAGMENT_REGION_BIT_QCOM</code>, then the
-sample count of the input attachments <strong class="purple">must</strong> equal
-<code>rasterizationSamples</code></p>
-</li>
-<li>
-<p><a id="VUID-VkRenderPassCreateInfo2-sampleShadingEnable-04906" href="#VUID-VkRenderPassCreateInfo2-sampleShadingEnable-04906"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-sampleShadingEnable-04906</span><br>
-
-If the pipeline is being created with fragment shader state, and the
-<code><a href="VK_QCOM_render_pass_shader_resolve.html">VK_QCOM_render_pass_shader_resolve</a></code> extension is enabled, and if
-the subpass description contains
-<code>VK_SUBPASS_DESCRIPTION_FRAGMENT_REGION_BIT_QCOM</code>, then
-<code>sampleShadingEnable</code> <strong class="purple">must</strong> be false</p>
-</li>
-<li>
-<p><a id="VUID-VkRenderPassCreateInfo2-flags-04907" href="#VUID-VkRenderPassCreateInfo2-flags-04907"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-flags-04907</span><br>
-
-If <code>flags</code> includes
-<code>VK_SUBPASS_DESCRIPTION_SHADER_RESOLVE_BIT_QCOM</code>, and if
-<code>pResolveAttachments</code> is not <code>NULL</code>, then each resolve attachment
-<strong class="purple">must</strong> be <code>VK_ATTACHMENT_UNUSED</code></p>
-</li>
-<li>
-<p><a id="VUID-VkRenderPassCreateInfo2-flags-04908" href="#VUID-VkRenderPassCreateInfo2-flags-04908"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-flags-04908</span><br>
-
-If <code>flags</code> includes
-<code>VK_SUBPASS_DESCRIPTION_SHADER_RESOLVE_BIT_QCOM</code>, and if
-<code>pDepthStencilResolveAttachment</code> is not <code>NULL</code>, then the
-depth/stencil resolve attachment <strong class="purple">must</strong> be <code>VK_ATTACHMENT_UNUSED</code></p>
-</li>
-<li>
-<p><a id="VUID-VkRenderPassCreateInfo2-flags-04909" href="#VUID-VkRenderPassCreateInfo2-flags-04909"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-flags-04909</span><br>
-
-If <code>flags</code> includes
-<code>VK_SUBPASS_DESCRIPTION_SHADER_RESOLVE_BIT_QCOM</code>, then the subpass
-<strong class="purple">must</strong> be the last subpass in a subpass dependency chain</p>
-</li>
-<li>
 <p><a id="VUID-VkRenderPassCreateInfo2-attachment-06244" href="#VUID-VkRenderPassCreateInfo2-attachment-06244"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-attachment-06244</span><br>
 
 If the <code>attachment</code> member of the <code>pDepthStencilAttachment</code>

@@ -968,6 +968,14 @@ If <code>pCommandInfos-&gt;input</code>::<code>opType</code> is
 <a href="VkClusterAccelerationStructureInstantiateClusterInfoNV.html">VkClusterAccelerationStructureInstantiateClusterInfoNV</a> structures</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10832" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10832"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10832</span><br>
+
+If <code>pCommandInfos-&gt;input</code>::<code>opType</code> is
+<code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_GET_CLUSTER_TEMPLATE_INDICES_NV</code>,
+<code>pCommandInfos-&gt;srcInfosArray</code> <strong class="purple">must</strong> be an array of
+<a href="VkClusterAccelerationStructureGetTemplateIndicesInfoNV.html">VkClusterAccelerationStructureGetTemplateIndicesInfoNV</a> structures</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10453" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10453"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10453</span><br>
 
 The value in <code>pCommandInfos-&gt;srcInfosCount</code> <strong class="purple">must</strong> be less than or
