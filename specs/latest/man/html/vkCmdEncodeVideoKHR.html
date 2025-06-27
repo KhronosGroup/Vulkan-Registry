@@ -1432,8 +1432,8 @@ The image subresource <a href="https://registry.khronos.org/vulkan/specs/latest/
 by <code>pEncodeInfo-&gt;srcPictureResource</code> <strong class="purple">must</strong> be in the
 <code>VK_IMAGE_LAYOUT_VIDEO_ENCODE_SRC_KHR</code> layout at the time the video
 encode operation is executed on the device
-, unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a> feature is <code>VK_TRUE</code>, in which case
-it <strong class="purple">may</strong> be in the <code>VK_IMAGE_LAYOUT_GENERAL</code> layout</p>
+, unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a> feature is enabled, in which case it
+<strong class="purple">may</strong> be in the <code>VK_IMAGE_LAYOUT_GENERAL</code> layout</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10812" href="#VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10812"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10812</span><br>
@@ -1443,8 +1443,8 @@ subresource <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspe
 <code>pEncodeInfo-&gt;pSetupReferenceSlot-&gt;pPictureResource</code> <strong class="purple">must</strong> be in the
 <code>VK_IMAGE_LAYOUT_VIDEO_ENCODE_DPB_KHR</code> layout at the time the video
 encode operation is executed on the device
-, unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a> feature is <code>VK_TRUE</code>, in which case
-it <strong class="purple">may</strong> be in the <code>VK_IMAGE_LAYOUT_GENERAL</code> layout</p>
+, unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a> feature is enabled, in which case it
+<strong class="purple">may</strong> be in the <code>VK_IMAGE_LAYOUT_GENERAL</code> layout</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdEncodeVideoKHR-pPictureResource-10813" href="#VUID-vkCmdEncodeVideoKHR-pPictureResource-10813"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pPictureResource-10813</span><br>
@@ -1454,8 +1454,8 @@ by the <code>pPictureResource</code> member of each element of
 <code>pEncodeInfo-&gt;pReferenceSlots</code> <strong class="purple">must</strong> be in the
 <code>VK_IMAGE_LAYOUT_VIDEO_ENCODE_DPB_KHR</code> layout at the time the video
 encode operation is executed on the device
-, unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a> feature is <code>VK_TRUE</code>, in which case
-it <strong class="purple">may</strong> be in the <code>VK_IMAGE_LAYOUT_GENERAL</code> layout</p>
+, unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a> feature is enabled, in which case it
+<strong class="purple">may</strong> be in the <code>VK_IMAGE_LAYOUT_GENERAL</code> layout</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10306" href="#VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10306"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10306</span><br>
@@ -1543,8 +1543,8 @@ its <code>quantizationMap</code> member is not <a href="VK_NULL_HANDLE.html">VK_
 image subresource range referenced by <code>quantizationMap</code> <strong class="purple">must</strong> be in
 the <code>VK_IMAGE_LAYOUT_VIDEO_ENCODE_QUANTIZATION_MAP_KHR</code> layout at
 the time the video encode operation is executed on the device
-, unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a> feature is <code>VK_TRUE</code>, in which case
-it <strong class="purple">may</strong> be in the <code>VK_IMAGE_LAYOUT_GENERAL</code> layout</p>
+, unless the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayoutsVideo" target="_blank" rel="noopener"><code>unifiedImageLayoutsVideo</code></a> feature is enabled, in which case it
+<strong class="purple">may</strong> be in the <code>VK_IMAGE_LAYOUT_GENERAL</code> layout</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdEncodeVideoKHR-pNext-10315" href="#VUID-vkCmdEncodeVideoKHR-pNext-10315"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pNext-10315</span><br>

@@ -812,11 +812,21 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <p><code>VK_VERSION_PATCH</code> extracts the API patch version number from a packed
 version number:</p>
 </div>
-<div id="VK_VERSION_PATCH" class="listingblock">
+<div id="VK_VERSION_PATCH" class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+This functionality is deprecated by <a href="#versions-1.0">Vulkan Version 1.0</a>. See <a href="#deprecation-version-macros">Deprecated Functionality</a> for more information.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_VERSION_1_0
-// VK_VERSION_PATCH is deprecated, but no reason was given in the API XML
-// DEPRECATED: This define is deprecated. VK_API_VERSION_PATCH should be used instead.
 #define VK_VERSION_PATCH(version) ((uint32_t)(version) &amp; 0xFFFU)</code></pre>
 </div>
 </div>

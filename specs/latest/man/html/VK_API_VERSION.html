@@ -812,10 +812,21 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <p><code>VK_API_VERSION</code> is now commented out of <code>vulkan_core.h</code> and <strong class="purple">cannot</strong> be
 used.</p>
 </div>
-<div id="VK_API_VERSION" class="listingblock">
+<div id="VK_API_VERSION" class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+This functionality is deprecated by <a href="#versions-1.0">Vulkan Version 1.0</a>. See <a href="#deprecation-version-macros">Deprecated Functionality</a> for more information.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_VERSION_1_0
-// DEPRECATED: This define has been removed. Specific version defines (e.g. VK_API_VERSION_1_0), or the VK_MAKE_VERSION macro, should be used instead.
 //#define VK_API_VERSION VK_MAKE_API_VERSION(0, 1, 0, 0) // Patch version should always be set to 0</code></pre>
 </div>
 </div>

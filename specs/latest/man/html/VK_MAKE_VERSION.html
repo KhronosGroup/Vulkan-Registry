@@ -811,11 +811,21 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <div class="paragraph">
 <p><code>VK_MAKE_VERSION</code> constructs an API version number.</p>
 </div>
-<div id="VK_MAKE_VERSION" class="listingblock">
+<div id="VK_MAKE_VERSION" class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+This functionality is deprecated by <a href="#versions-1.0">Vulkan Version 1.0</a>. See <a href="#deprecation-version-macros">Deprecated Functionality</a> for more information.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_VERSION_1_0
-// VK_MAKE_VERSION is deprecated, but no reason was given in the API XML
-// DEPRECATED: This define is deprecated. VK_MAKE_API_VERSION should be used instead.
 #define VK_MAKE_VERSION(major, minor, patch) \
     ((((uint32_t)(major)) &lt;&lt; 22U) | (((uint32_t)(minor)) &lt;&lt; 12U) | ((uint32_t)(patch)))</code></pre>
 </div>
