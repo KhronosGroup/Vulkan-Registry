@@ -1129,6 +1129,19 @@ for which <code>slotIndex</code> equals the reference index in question.</p>
 </div>
 </li>
 <li>
+<p>If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_ENCODE_H264_BIT_KHR</code> and with the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh-modes" target="_blank" rel="noopener">intra refresh mode</a>
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_PER_PICTURE_PARTITION_BIT_KHR</code>,
+<code>pEncodeInfo-&gt;flags</code> includes
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code>, and the <code>pNext</code> chain
+of <code>pEncodeInfo</code> includes a <a href="VkVideoEncodeIntraRefreshInfoKHR.html">VkVideoEncodeIntraRefreshInfoKHR</a>
+structure, then let <code>uint32_t intraRefreshH264SliceIndex</code> be the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh-index" target="_blank" rel="noopener">intra refresh index</a> specified in
+<a href="VkVideoEncodeIntraRefreshInfoKHR.html">VkVideoEncodeIntraRefreshInfoKHR</a>::<code>intraRefreshIndex</code>.
+Otherwise <code>intraRefreshH264SliceIndex</code> is not defined.</p>
+</li>
+<li>
 <p>If the bound video session object was created with an
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h264-profile" target="_blank" rel="noopener">H.265 encode profile</a>, then:</p>
 <div class="ulist">
@@ -1159,6 +1172,19 @@ for which <code>slotIndex</code> equals the reference index in question.</p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_ENCODE_H265_BIT_KHR</code> and with the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh-modes" target="_blank" rel="noopener">intra refresh mode</a>
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_PER_PICTURE_PARTITION_BIT_KHR</code>,
+<code>pEncodeInfo-&gt;flags</code> includes
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code>, and the <code>pNext</code> chain
+of <code>pEncodeInfo</code> includes a <a href="VkVideoEncodeIntraRefreshInfoKHR.html">VkVideoEncodeIntraRefreshInfoKHR</a>
+structure, then let <code>uint32_t intraRefreshH265SliceSegmentIndex</code> be the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh-index" target="_blank" rel="noopener">intra refresh index</a> specified in
+<a href="VkVideoEncodeIntraRefreshInfoKHR.html">VkVideoEncodeIntraRefreshInfoKHR</a>::<code>intraRefreshIndex</code>.
+Otherwise <code>intraRefreshH265SliceSegmentIndex</code> is not defined.</p>
 </li>
 <li>
 <p>If the bound video session object was created with an
@@ -1569,6 +1595,86 @@ then <code>quantizationMapExtent</code> <strong class="purple">must</strong> equ
 <code>quantizationMapTexelSize</code>⌉</span></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10837" href="#VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10837"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10837</span><br>
+
+If <code>pEncodeInfo-&gt;flags</code> includes
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code>, then the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh-modes" target="_blank" rel="noopener">intra refresh mode</a> the bound video
+session was created with <strong class="purple">must</strong> not be
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_NONE_KHR</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10838" href="#VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10838"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10838</span><br>
+
+If <code>pEncodeInfo-&gt;flags</code> includes
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code>, then
+<code>pEncodeInfo-&gt;activeReferencePictureCount</code> <strong class="purple">must</strong> be less than or
+equal to
+<a href="VkVideoEncodeIntraRefreshCapabilitiesKHR.html">VkVideoEncodeIntraRefreshCapabilitiesKHR</a>::<code>maxIntraRefreshActiveReferencePictures</code>,
+as returned by <a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the
+video profile the bound video session was created with</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10839" href="#VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10839"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10839</span><br>
+
+If <code>pEncodeInfo-&gt;flags</code> includes
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code>, then the <code>pNext</code> chain
+of <code>pEncodeInfo</code> <strong class="purple">must</strong> include a
+<a href="VkVideoEncodeIntraRefreshInfoKHR.html">VkVideoEncodeIntraRefreshInfoKHR</a> structure</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10840" href="#VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10840"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10840</span><br>
+
+If <code>pEncodeInfo-&gt;flags</code> includes
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code>, then the
+<code>intraRefreshCycleDuration</code> member of the
+<a href="VkVideoEncodeIntraRefreshInfoKHR.html">VkVideoEncodeIntraRefreshInfoKHR</a> structure included in the
+<code>pNext</code> chain of <code>pEncodeInfo</code> <strong class="purple">must</strong> not be zero</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10841" href="#VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10841"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10841</span><br>
+
+If <code>pEncodeInfo-&gt;flags</code> includes
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code>, then the
+<code>intraRefreshIndex</code> member of the
+<a href="VkVideoEncodeIntraRefreshInfoKHR.html">VkVideoEncodeIntraRefreshInfoKHR</a> structure included in the
+<code>pNext</code> chain of <code>pEncodeInfo</code> <strong class="purple">must</strong> be less than
+<a href="VkVideoEncodeIntraRefreshInfoKHR.html">VkVideoEncodeIntraRefreshInfoKHR</a>::<code>intraRefreshCycleDuration</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-pNext-10842" href="#VUID-vkCmdEncodeVideoKHR-pNext-10842"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pNext-10842</span><br>
+
+If the <code>pNext</code> chain of any element of
+<code>pEncodeInfo-&gt;pReferenceSlots</code> includes a
+<a href="VkVideoReferenceIntraRefreshInfoKHR.html">VkVideoReferenceIntraRefreshInfoKHR</a> structure with a non-zero
+<code>dirtyIntraRefreshRegions</code> member, then <code>pEncodeInfo-&gt;flags</code>
+<strong class="purple">must</strong> include <code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-pNext-10843" href="#VUID-vkCmdEncodeVideoKHR-pNext-10843"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pNext-10843</span><br>
+
+If the <code>pNext</code> chain of any element of
+<code>pEncodeInfo-&gt;pReferenceSlots</code> includes a
+<a href="VkVideoReferenceIntraRefreshInfoKHR.html">VkVideoReferenceIntraRefreshInfoKHR</a> structure with a non-zero
+<code>dirtyIntraRefreshRegions</code> member, then for each such element
+<code>dirtyIntraRefreshRegions</code> <strong class="purple">must</strong> equal
+<code>intraRefreshCycleDuration</code> minus <code>intraRefreshIndex</code> where
+<code>intraRefreshCycleDuration</code> and <code>intraRefreshIndex</code> are the
+members of the <a href="VkVideoEncodeIntraRefreshInfoKHR.html">VkVideoEncodeIntraRefreshInfoKHR</a> structure included
+in the <code>pNext</code> chain of <code>pEncodeInfo</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-pNext-10844" href="#VUID-vkCmdEncodeVideoKHR-pNext-10844"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pNext-10844</span><br>
+
+If the <code>pNext</code> chain of <code>pEncodeInfo</code> includes a
+<a href="VkVideoEncodeIntraRefreshInfoKHR.html">VkVideoEncodeIntraRefreshInfoKHR</a> structure, then its
+<code>intraRefreshCycleDuration</code> member <strong class="purple">must</strong> be zero or <strong class="purple">must</strong> be between
+<code>2</code> and
+<a href="VkVideoEncodeIntraRefreshCapabilitiesKHR.html">VkVideoEncodeIntraRefreshCapabilitiesKHR</a>::<code>maxIntraRefreshCycleDuration</code>,
+as returned by <a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the
+video profile the bound video session was created with</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdEncodeVideoKHR-pNext-08225" href="#VUID-vkCmdEncodeVideoKHR-pNext-08225"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pNext-08225</span><br>
 
 If the bound video session was created with the video codec operation
@@ -1686,6 +1792,94 @@ profile the bound video session was created with, then the
 <a href="VkVideoEncodeH264PictureInfoKHR.html">VkVideoEncodeH264PictureInfoKHR</a> structure included in the
 <code>pNext</code> chain of <code>pEncodeInfo</code> <strong class="purple">must</strong> be less than or equal to
 <code>minCodingBlockExtent.height</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10845" href="#VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10845"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10845</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_ENCODE_H264_BIT_KHR</code> and with an
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh-modes" target="_blank" rel="noopener">intra refresh mode</a> other than
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_PER_PICTURE_PARTITION_BIT_KHR</code>,
+<code>pEncodeInfo-&gt;flags</code> includes
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code>, and
+<a href="VkVideoEncodeIntraRefreshCapabilitiesKHR.html">VkVideoEncodeIntraRefreshCapabilitiesKHR</a>::<code>partitionIndependentIntraRefreshRegions</code>
+is <code>VK_FALSE</code>, as returned by
+<a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the video profile the
+bound video session was created with, then the <code>naluSliceEntryCount</code>
+member of the <a href="VkVideoEncodeH264PictureInfoKHR.html">VkVideoEncodeH264PictureInfoKHR</a> structure included
+in the <code>pNext</code> chain of <code>pEncodeInfo</code> <strong class="purple">must</strong> equal <code>1</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10846" href="#VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10846"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10846</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_ENCODE_H264_BIT_KHR</code> and with the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh-modes" target="_blank" rel="noopener">intra refresh mode</a>
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_PER_PICTURE_PARTITION_BIT_KHR</code>,
+and <code>pEncodeInfo-&gt;flags</code> includes
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code>, then the
+<code>naluSliceEntryCount</code> member of the
+<a href="VkVideoEncodeH264PictureInfoKHR.html">VkVideoEncodeH264PictureInfoKHR</a> structure included in the
+<code>pNext</code> chain of <code>pEncodeInfo</code> <strong class="purple">must</strong> equal the
+<code>intraRefreshCycleDuration</code> member of the
+<a href="VkVideoEncodeIntraRefreshInfoKHR.html">VkVideoEncodeIntraRefreshInfoKHR</a> structure included in the
+<code>pNext</code> chain of <code>pEncodeInfo</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-intraRefreshH264SliceIndex-10847" href="#VUID-vkCmdEncodeVideoKHR-intraRefreshH264SliceIndex-10847"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-intraRefreshH264SliceIndex-10847</span><br>
+
+If <code>intraRefreshH264SliceIndex</code> is defined, then
+<code>pNaluSliceEntries</code>[<code>intraRefreshH264SliceIndex</code>].<code>pStdSliceHeader-&gt;slice_type</code>
+<strong class="purple">must</strong> be <code>STD_VIDEO_H264_SLICE_TYPE_I</code> in the
+<a href="VkVideoEncodeH264PictureInfoKHR.html">VkVideoEncodeH264PictureInfoKHR</a> structure included in the
+<code>pNext</code> chain of <code>pEncodeInfo</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10848" href="#VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10848"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10848</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_ENCODE_H264_BIT_KHR</code> and with the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh-modes" target="_blank" rel="noopener">intra refresh mode</a>
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_PER_PICTURE_PARTITION_BIT_KHR</code>,
+<code>pEncodeInfo-&gt;flags</code> includes
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code>, and
+<a href="VkVideoEncodeIntraRefreshCapabilitiesKHR.html">VkVideoEncodeIntraRefreshCapabilitiesKHR</a>::<code>nonRectangularIntraRefreshRegions</code>
+is <code>VK_FALSE</code>, as returned by
+<a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the video profile the
+bound video session was created with, then the <code>naluSliceEntryCount</code>
+member of the <a href="VkVideoEncodeH264PictureInfoKHR.html">VkVideoEncodeH264PictureInfoKHR</a> structure included
+in the <code>pNext</code> chain of <code>pEncodeInfo</code> <strong class="purple">must</strong> be less than or
+equal to <code>minCodingBlockExtent.height</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-h264PictureType-10849" href="#VUID-vkCmdEncodeVideoKHR-h264PictureType-10849"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-h264PictureType-10849</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_ENCODE_H264_BIT_KHR</code>,
+<code>h264PictureType</code> is <code>STD_VIDEO_H264_PICTURE_TYPE_B</code>, and
+<a href="VkVideoEncodeH264CapabilitiesKHR.html">VkVideoEncodeH264CapabilitiesKHR</a>::<code>flags</code>, as returned by
+<a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the video profile the
+bound video session was created with, does not include
+<code>VK_VIDEO_ENCODE_H264_CAPABILITY_B_PICTURE_INTRA_REFRESH_BIT_KHR</code>,
+then <code>pEncodeInfo-&gt;flags</code> <strong class="purple">must</strong> not include
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-flags-10850" href="#VUID-vkCmdEncodeVideoKHR-flags-10850"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-flags-10850</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_ENCODE_H264_BIT_KHR</code> and
+<a href="VkVideoEncodeH264CapabilitiesKHR.html">VkVideoEncodeH264CapabilitiesKHR</a>::<code>flags</code>, as returned by
+<a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the video profile the
+bound video session was created with, does not include
+<code>VK_VIDEO_ENCODE_H264_CAPABILITY_DIFFERENT_SLICE_TYPE_BIT_KHR</code>, then
+<code>pNaluSliceEntries</code>[<span class="eq">i</span>].<code>pStdSliceHeader-&gt;slice_type</code> <strong class="purple">must</strong>
+be identical for all elements <span class="eq">i</span> of the <code>pNaluSliceEntries</code>
+member of the <a href="VkVideoEncodeH264PictureInfoKHR.html">VkVideoEncodeH264PictureInfoKHR</a> structure included
+in the <code>pNext</code> chain of <code>pEncodeInfo</code>
+, except for element index <span class="eq">i</span> equal to
+<code>intraRefreshH264SliceIndex</code>, if <code>intraRefreshH264SliceIndex</code> is
+defined</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdEncodeVideoKHR-pNext-08352" href="#VUID-vkCmdEncodeVideoKHR-pNext-08352"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pNext-08352</span><br>
@@ -1910,6 +2104,96 @@ video profile the bound video session was created with, then the
 <a href="VkVideoEncodeH265PictureInfoKHR.html">VkVideoEncodeH265PictureInfoKHR</a> structure included in the
 <code>pNext</code> chain of <code>pEncodeInfo</code> <strong class="purple">must</strong> be less than or equal to
 <code>minCodingBlockExtent.height</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10851" href="#VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10851"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10851</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_ENCODE_H265_BIT_KHR</code> and with an
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh-modes" target="_blank" rel="noopener">intra refresh mode</a> other than
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_PER_PICTURE_PARTITION_BIT_KHR</code>,
+<code>pEncodeInfo-&gt;flags</code> includes
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code>, and
+<a href="VkVideoEncodeIntraRefreshCapabilitiesKHR.html">VkVideoEncodeIntraRefreshCapabilitiesKHR</a>::<code>partitionIndependentIntraRefreshRegions</code>
+is <code>VK_FALSE</code>, as returned by
+<a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the video profile the
+bound video session was created with, then the
+<code>naluSliceSegmentEntryCount</code> member of the
+<a href="VkVideoEncodeH265PictureInfoKHR.html">VkVideoEncodeH265PictureInfoKHR</a> structure included in the
+<code>pNext</code> chain of <code>pEncodeInfo</code> <strong class="purple">must</strong> equal <code>1</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10852" href="#VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10852"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10852</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_ENCODE_H265_BIT_KHR</code> and with the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh-modes" target="_blank" rel="noopener">intra refresh mode</a>
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_PER_PICTURE_PARTITION_BIT_KHR</code>,
+and <code>pEncodeInfo-&gt;flags</code> includes
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code>, then the
+<code>naluSliceSegmentEntryCount</code> member of the
+<a href="VkVideoEncodeH265PictureInfoKHR.html">VkVideoEncodeH265PictureInfoKHR</a> structure included in the
+<code>pNext</code> chain of <code>pEncodeInfo</code> <strong class="purple">must</strong> equal
+<a href="VkVideoEncodeIntraRefreshInfoKHR.html">VkVideoEncodeIntraRefreshInfoKHR</a>::<code>intraRefreshCycleDuration</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-intraRefreshH265SliceSegmentIndex-10853" href="#VUID-vkCmdEncodeVideoKHR-intraRefreshH265SliceSegmentIndex-10853"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-intraRefreshH265SliceSegmentIndex-10853</span><br>
+
+If <code>intraRefreshH265SliceSegmentIndex</code> is defined, then
+<code>pNaluSliceSegmentEntries</code>[<code>intraRefreshH265SliceSegmentIndex</code>].<code>pStdSliceSegmentHeader-&gt;slice_type</code>
+<strong class="purple">must</strong> be <code>STD_VIDEO_H265_SLICE_TYPE_I</code> in the
+<a href="VkVideoEncodeH265PictureInfoKHR.html">VkVideoEncodeH265PictureInfoKHR</a> structure included in the
+<code>pNext</code> chain of <code>pEncodeInfo</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10854" href="#VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10854"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pEncodeInfo-10854</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_ENCODE_H265_BIT_KHR</code> and with the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh-modes" target="_blank" rel="noopener">intra refresh mode</a>
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_PER_PICTURE_PARTITION_BIT_KHR</code>,
+<code>pEncodeInfo-&gt;flags</code> includes
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code>, and
+<a href="VkVideoEncodeIntraRefreshCapabilitiesKHR.html">VkVideoEncodeIntraRefreshCapabilitiesKHR</a>::<code>nonRectangularIntraRefreshRegions</code>
+is <code>VK_FALSE</code>, as returned by
+<a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the video profile the
+bound video session was created with, then the
+<code>naluSliceSegmentEntryCount</code> member of the
+<a href="VkVideoEncodeH265PictureInfoKHR.html">VkVideoEncodeH265PictureInfoKHR</a> structure included in the
+<code>pNext</code> chain of <code>pEncodeInfo</code> <strong class="purple">must</strong> be less than or equal to
+<code>minCodingBlockExtent.height</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-h265PictureType-10855" href="#VUID-vkCmdEncodeVideoKHR-h265PictureType-10855"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-h265PictureType-10855</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_ENCODE_H265_BIT_KHR</code>,
+<code>h265PictureType</code> is <code>STD_VIDEO_H265_PICTURE_TYPE_B</code>, and
+<a href="VkVideoEncodeH265CapabilitiesKHR.html">VkVideoEncodeH265CapabilitiesKHR</a>::<code>flags</code>, as returned by
+<a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the video profile the
+bound video session was created with, does not include
+<code>VK_VIDEO_ENCODE_H265_CAPABILITY_B_PICTURE_INTRA_REFRESH_BIT_KHR</code>,
+then <code>pEncodeInfo-&gt;flags</code> <strong class="purple">must</strong> not include
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-flags-10856" href="#VUID-vkCmdEncodeVideoKHR-flags-10856"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-flags-10856</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_ENCODE_H265_BIT_KHR</code> and
+<a href="VkVideoEncodeH265CapabilitiesKHR.html">VkVideoEncodeH265CapabilitiesKHR</a>::<code>flags</code>, as returned by
+<a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the used video
+profile, does not include
+<code>VK_VIDEO_ENCODE_H265_CAPABILITY_DIFFERENT_SLICE_SEGMENT_TYPE_BIT_KHR</code>,
+then
+<code>pNaluSliceSegmentEntries</code>[<span class="eq">i</span>].<code>pStdSliceSegmentHeader-&gt;slice_type</code>
+<strong class="purple">must</strong> be identical for all elements <span class="eq">i</span> of the
+<code>pNaluSliceSegmentEntries</code> member of the
+<a href="VkVideoEncodeH265PictureInfoKHR.html">VkVideoEncodeH265PictureInfoKHR</a> structure included in the
+<code>pNext</code> chain of <code>pEncodeInfo</code>
+, except for element index <span class="eq">i</span> equal to
+<code>intraRefreshH265SliceSegmentIndex</code>, if
+<code>intraRefreshH265SliceSegmentIndex</code> is defined</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdEncodeVideoKHR-pNext-08354" href="#VUID-vkCmdEncodeVideoKHR-pNext-08354"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-pNext-08354</span><br>
@@ -2216,6 +2500,22 @@ with element indices <span class="eq">i ∈ {0,1,2,3}</span> and <span class="eq
 <a href="VkVideoEncodeAV1CapabilitiesKHR.html">VkVideoEncodeAV1CapabilitiesKHR</a>::<code>bidirectionalCompoundReferenceNameMask</code>,
 as returned by <a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the
 video profile the bound video session was created with</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-predictionMode-10857" href="#VUID-vkCmdEncodeVideoKHR-predictionMode-10857"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-predictionMode-10857</span><br>
+
+If the bound video session was created with the video codec operation
+<code>VK_VIDEO_CODEC_OPERATION_ENCODE_AV1_BIT_KHR</code>, the
+<code>predictionMode</code> member of the <a href="VkVideoEncodeAV1PictureInfoKHR.html">VkVideoEncodeAV1PictureInfoKHR</a>
+structure included in the <code>pNext</code> chain of <code>pEncodeInfo</code> is
+<code>VK_VIDEO_ENCODE_AV1_PREDICTION_MODE_UNIDIRECTIONAL_COMPOUND_KHR</code> or
+<code>VK_VIDEO_ENCODE_AV1_PREDICTION_MODE_BIDIRECTIONAL_COMPOUND_KHR</code>,
+and <a href="VkVideoEncodeAV1CapabilitiesKHR.html">VkVideoEncodeAV1CapabilitiesKHR</a>::<code>flags</code>, as returned by
+<a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the video profile the
+bound video session was created with, does not include
+<code>VK_VIDEO_ENCODE_AV1_CAPABILITY_COMPOUND_PREDICTION_INTRA_REFRESH_BIT_KHR</code>,
+then <code>pEncodeInfo-&gt;flags</code> <strong class="purple">must</strong> not include
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdEncodeVideoKHR-referenceNameSlotIndices-10334" href="#VUID-vkCmdEncodeVideoKHR-referenceNameSlotIndices-10334"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-referenceNameSlotIndices-10334</span><br>

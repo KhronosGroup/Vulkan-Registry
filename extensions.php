@@ -69,6 +69,7 @@
     <li> <a href="specs/latest/man/html/VK_KHR_portability_subset.html"> VK_KHR_portability_subset </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_present_id.html"> VK_KHR_present_id </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_present_id2.html"> VK_KHR_present_id2 </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_present_mode_fifo_latest_ready.html"> VK_KHR_present_mode_fifo_latest_ready </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_present_wait.html"> VK_KHR_present_wait </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_present_wait2.html"> VK_KHR_present_wait2 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_push_descriptor.html"> VK_KHR_push_descriptor </a> </li>
@@ -102,8 +103,10 @@
     <li> <a href="specs/latest/man/html/VK_KHR_spirv_1_4.html"> VK_KHR_spirv_1_4 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_storage_buffer_storage_class.html"> VK_KHR_storage_buffer_storage_class </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_surface.html"> VK_KHR_surface </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_surface_maintenance1.html"> VK_KHR_surface_maintenance1 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_surface_protected_capabilities.html"> VK_KHR_surface_protected_capabilities </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_swapchain.html"> VK_KHR_swapchain </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_swapchain_maintenance1.html"> VK_KHR_swapchain_maintenance1 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_swapchain_mutable_format.html"> VK_KHR_swapchain_mutable_format </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_synchronization2.html"> VK_KHR_synchronization2 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_timeline_semaphore.html"> VK_KHR_timeline_semaphore </a> </li>
@@ -119,6 +122,7 @@
     <li> <a href="specs/latest/man/html/VK_KHR_video_encode_av1.html"> VK_KHR_video_encode_av1 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_video_encode_h264.html"> VK_KHR_video_encode_h264 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_video_encode_h265.html"> VK_KHR_video_encode_h265 </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_video_encode_intra_refresh.html"> VK_KHR_video_encode_intra_refresh </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_video_encode_quantization_map.html"> VK_KHR_video_encode_quantization_map </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_video_encode_queue.html"> VK_KHR_video_encode_queue </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_video_maintenance1.html"> VK_KHR_video_maintenance1 </a> </li>
@@ -435,6 +439,7 @@
     <li> <a href="specs/latest/man/html/VK_QNX_screen_surface.html"> VK_QNX_screen_surface </a> </li>
     <li> <b>  SEC Extensions (Samsung Electronics Co., Ltd.)  </b> </li>
     <li> <a href="specs/latest/man/html/VK_SEC_amigo_profiling.html"> VK_SEC_amigo_profiling </a> </li>
+    <li> <a href="specs/latest/man/html/VK_SEC_pipeline_cache_incremental_mode.html"> VK_SEC_pipeline_cache_incremental_mode </a> </li>
     <li> <b>  VALVE Extensions (Valve Corporation)  </b> </li>
     <li> <a href="specs/latest/man/html/VK_VALVE_descriptor_set_host_mapping.html"> VK_VALVE_descriptor_set_host_mapping </a> </li>
     <li> <a href="specs/latest/man/html/VK_VALVE_fragment_density_map_layered.html"> VK_VALVE_fragment_density_map_layered </a> </li>

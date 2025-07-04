@@ -825,8 +825,10 @@ typedef enum VkPresentModeKHR {
     VK_PRESENT_MODE_SHARED_DEMAND_REFRESH_KHR = 1000111000,
   // Provided by VK_KHR_shared_presentable_image
     VK_PRESENT_MODE_SHARED_CONTINUOUS_REFRESH_KHR = 1000111001,
+  // Provided by VK_KHR_present_mode_fifo_latest_ready
+    VK_PRESENT_MODE_FIFO_LATEST_READY_KHR = 1000361000,
   // Provided by VK_EXT_present_mode_fifo_latest_ready
-    VK_PRESENT_MODE_FIFO_LATEST_READY_EXT = 1000361000,
+    VK_PRESENT_MODE_FIFO_LATEST_READY_EXT = VK_PRESENT_MODE_FIFO_LATEST_READY_KHR,
 } VkPresentModeKHR;</code></pre>
 </div>
 </div>
@@ -885,7 +887,7 @@ removed from the beginning of the queue and processed during or after
 each vertical blanking period in which the queue is non-empty.</p>
 </li>
 <li>
-<p><code>VK_PRESENT_MODE_FIFO_LATEST_READY_EXT</code> specifies that the
+<p><code>VK_PRESENT_MODE_FIFO_LATEST_READY_KHR</code> specifies that the
 presentation engine waits for the next vertical blanking period to
 update the current image.
 Tearing <strong class="purple">cannot</strong> be observed.
@@ -965,7 +967,7 @@ mode, and can be determined as per the table below:</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="VkSurfaceCapabilitiesKHR.html">VkSurfaceCapabilitiesKHR</a>::<code>supportedUsageFlags</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_PRESENT_MODE_FIFO_LATEST_READY_EXT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_PRESENT_MODE_FIFO_LATEST_READY_KHR</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="VkSurfaceCapabilitiesKHR.html">VkSurfaceCapabilitiesKHR</a>::<code>supportedUsageFlags</code></p></td>
 </tr>
 <tr>
@@ -1002,7 +1004,7 @@ equivalent to the behavior of {wgl|glX}SwapBuffers with a swap interval of
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_KHR_surface.html">VK_KHR_surface</a>, <a href="VkLatencySurfaceCapabilitiesNV.html">VkLatencySurfaceCapabilitiesNV</a>, <a href="VkSurfacePresentModeCompatibilityEXT.html">VkSurfacePresentModeCompatibilityEXT</a>, <a href="VkSurfacePresentModeEXT.html">VkSurfacePresentModeEXT</a>, <a href="VkSwapchainCreateInfoKHR.html">VkSwapchainCreateInfoKHR</a>, <a href="VkSwapchainPresentModeInfoEXT.html">VkSwapchainPresentModeInfoEXT</a>, <a href="VkSwapchainPresentModesCreateInfoEXT.html">VkSwapchainPresentModesCreateInfoEXT</a>, <a href="vkGetPhysicalDeviceSurfacePresentModes2EXT.html">vkGetPhysicalDeviceSurfacePresentModes2EXT</a>, <a href="vkGetPhysicalDeviceSurfacePresentModesKHR.html">vkGetPhysicalDeviceSurfacePresentModesKHR</a></p>
+<p><a href="VK_KHR_surface.html">VK_KHR_surface</a>, <a href="VkLatencySurfaceCapabilitiesNV.html">VkLatencySurfaceCapabilitiesNV</a>, <a href="VkSurfacePresentModeCompatibilityKHR.html">VkSurfacePresentModeCompatibilityKHR</a>, <a href="VkSurfacePresentModeKHR.html">VkSurfacePresentModeKHR</a>, <a href="VkSwapchainCreateInfoKHR.html">VkSwapchainCreateInfoKHR</a>, <a href="VkSwapchainPresentModeInfoKHR.html">VkSwapchainPresentModeInfoKHR</a>, <a href="VkSwapchainPresentModesCreateInfoKHR.html">VkSwapchainPresentModesCreateInfoKHR</a>, <a href="vkGetPhysicalDeviceSurfacePresentModes2EXT.html">vkGetPhysicalDeviceSurfacePresentModes2EXT</a>, <a href="vkGetPhysicalDeviceSurfacePresentModesKHR.html">vkGetPhysicalDeviceSurfacePresentModesKHR</a></p>
 </div>
 </div>
 </div>

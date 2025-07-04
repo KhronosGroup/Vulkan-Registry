@@ -826,7 +826,7 @@ defined as:</p>
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_QCOM_render_pass_transform
 typedef struct VkCommandBufferInheritanceRenderPassTransformInfoQCOM {
     VkStructureType                  sType;
-    void*                            pNext;
+    const void*                      pNext;
     VkSurfaceTransformFlagBitsKHR    transform;
     VkRect2D                         renderArea;
 } VkCommandBufferInheritanceRenderPassTransformInfoQCOM;</code></pre>

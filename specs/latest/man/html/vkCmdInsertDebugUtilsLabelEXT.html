@@ -860,11 +860,7 @@ specifying parameters of the label to insert.</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdInsertDebugUtilsLabelEXT-commandBuffer-cmdpool" href="#VUID-vkCmdInsertDebugUtilsLabelEXT-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdInsertDebugUtilsLabelEXT-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdInsertDebugUtilsLabelEXT-videocoding" href="#VUID-vkCmdInsertDebugUtilsLabelEXT-videocoding"></a> <span class="vuid">VUID-vkCmdInsertDebugUtilsLabelEXT-videocoding</span><br>
- This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support transfer, graphics, compute, decode, encode, or optical flow operations</p>
 </li>
 </ul>
 </div>
@@ -910,9 +906,13 @@ specifying parameters of the label to insert.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Primary<br>
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transfer<br>
+Graphics<br>
+Compute<br>
+Decode<br>
+Encode<br>
+Opticalflow</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
 </tr>
 </tbody>

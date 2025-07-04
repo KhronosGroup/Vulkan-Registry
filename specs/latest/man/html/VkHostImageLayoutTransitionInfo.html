@@ -987,8 +987,11 @@ Sizing</a></p>
 
 If the <a href="#features-maintenance9"><code>maintenance9</code></a> feature is enabled
 and <code>image</code> is a 3D image created with
-<code>VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT</code> set,
-<code>subresourceRange.levelCount</code> <strong class="purple">must</strong> be 1</p>
+<code>VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT</code> set and either
+<code>subresourceRange.baseArrayLayer</code> is not equal to 0 or
+<code>subresourceRange.layerCount</code> is not equal to
+<code>VK_REMAINING_ARRAY_LAYERS</code>, <code>subresourceRange.levelCount</code> <strong class="purple">must</strong>
+be 1</p>
 </li>
 <li>
 <p><a id="VUID-VkHostImageLayoutTransitionInfo-subresourceRange-01725" href="#VUID-VkHostImageLayoutTransitionInfo-subresourceRange-01725"></a> <span class="vuid">VUID-VkHostImageLayoutTransitionInfo-subresourceRange-01725</span><br>

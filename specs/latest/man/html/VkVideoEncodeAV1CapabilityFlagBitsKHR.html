@@ -822,6 +822,8 @@ typedef enum VkVideoEncodeAV1CapabilityFlagBitsKHR {
     VK_VIDEO_ENCODE_AV1_CAPABILITY_PRIMARY_REFERENCE_CDF_ONLY_BIT_KHR = 0x00000004,
     VK_VIDEO_ENCODE_AV1_CAPABILITY_FRAME_SIZE_OVERRIDE_BIT_KHR = 0x00000008,
     VK_VIDEO_ENCODE_AV1_CAPABILITY_MOTION_VECTOR_SCALING_BIT_KHR = 0x00000010,
+  // Provided by VK_KHR_video_encode_av1 with VK_KHR_video_encode_intra_refresh
+    VK_VIDEO_ENCODE_AV1_CAPABILITY_COMPOUND_PREDICTION_INTRA_REFRESH_BIT_KHR = 0x00000020,
 } VkVideoEncodeAV1CapabilityFlagBitsKHR;</code></pre>
 </div>
 </div>
@@ -873,6 +875,12 @@ coded extent of the <a href="https://registry.khronos.org/vulkan/specs/latest/ht
 This capability <strong class="purple">may</strong> only be supported by a video profile when
 <code>VK_VIDEO_ENCODE_AV1_CAPABILITY_FRAME_SIZE_OVERRIDE_BIT_KHR</code> is also
 supported.</p>
+</li>
+<li>
+<p><code>VK_VIDEO_ENCODE_AV1_CAPABILITY_COMPOUND_PREDICTION_INTRA_REFRESH_BIT_KHR</code>
+indicates support for encoding frames using
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-av1-prediction-modes" target="_blank" rel="noopener">unidirectional or bidirectional compound
+prediction mode</a> with <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh" target="_blank" rel="noopener">intra refresh</a> enabled.</p>
 </li>
 </ul>
 </div>

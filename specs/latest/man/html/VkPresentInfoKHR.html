@@ -938,14 +938,14 @@ enabled, each <code>presentIds</code> entry in that structure <strong class="pur
 
 If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-swapchainMaintenance1" target="_blank" rel="noopener"><code>swapchainMaintenance1</code></a>
 feature is not enabled, then the <code>pNext</code> chain <strong class="purple">must</strong> not include a
-<a href="VkSwapchainPresentFenceInfoEXT.html">VkSwapchainPresentFenceInfoEXT</a> structure</p>
+<a href="VkSwapchainPresentFenceInfoKHR.html">VkSwapchainPresentFenceInfoKHR</a> structure</p>
 </li>
 <li>
 <p><a id="VUID-VkPresentInfoKHR-pSwapchains-09199" href="#VUID-VkPresentInfoKHR-pSwapchains-09199"></a> <span class="vuid">VUID-VkPresentInfoKHR-pSwapchains-09199</span><br>
 
 If any element of the <code>pSwapchains</code> array has been created with
-<a href="VkSwapchainPresentModesCreateInfoEXT.html">VkSwapchainPresentModesCreateInfoEXT</a>, all of the elements of this
-array <strong class="purple">must</strong> be created with <a href="VkSwapchainPresentModesCreateInfoEXT.html">VkSwapchainPresentModesCreateInfoEXT</a></p>
+<a href="VkSwapchainPresentModesCreateInfoKHR.html">VkSwapchainPresentModesCreateInfoKHR</a>, all of the elements of this
+array <strong class="purple">must</strong> be created with <a href="VkSwapchainPresentModesCreateInfoKHR.html">VkSwapchainPresentModesCreateInfoKHR</a></p>
 </li>
 <li>
 <p><a id="VUID-VkPresentInfoKHR-pNext-09759" href="#VUID-VkPresentInfoKHR-pNext-09759"></a> <span class="vuid">VUID-VkPresentInfoKHR-pNext-09759</span><br>
@@ -984,7 +984,7 @@ presentIds, <code>presentId2Supported</code> <strong class="purple">must</strong
 </li>
 <li>
 <p><a id="VUID-VkPresentInfoKHR-pNext-pNext" href="#VUID-VkPresentInfoKHR-pNext-pNext"></a> <span class="vuid">VUID-VkPresentInfoKHR-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkDeviceGroupPresentInfoKHR.html">VkDeviceGroupPresentInfoKHR</a>, <a href="VkDisplayPresentInfoKHR.html">VkDisplayPresentInfoKHR</a>, <a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a>, <a href="VkFrameBoundaryTensorsARM.html">VkFrameBoundaryTensorsARM</a>, <a href="VkPresentFrameTokenGGP.html">VkPresentFrameTokenGGP</a>, <a href="VkPresentId2KHR.html">VkPresentId2KHR</a>, <a href="VkPresentIdKHR.html">VkPresentIdKHR</a>, <a href="VkPresentRegionsKHR.html">VkPresentRegionsKHR</a>, <a href="VkPresentTimesInfoGOOGLE.html">VkPresentTimesInfoGOOGLE</a>, <a href="VkSetPresentConfigNV.html">VkSetPresentConfigNV</a>, <a href="VkSwapchainPresentFenceInfoEXT.html">VkSwapchainPresentFenceInfoEXT</a>, or <a href="VkSwapchainPresentModeInfoEXT.html">VkSwapchainPresentModeInfoEXT</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkDeviceGroupPresentInfoKHR.html">VkDeviceGroupPresentInfoKHR</a>, <a href="VkDisplayPresentInfoKHR.html">VkDisplayPresentInfoKHR</a>, <a href="VkFrameBoundaryEXT.html">VkFrameBoundaryEXT</a>, <a href="VkFrameBoundaryTensorsARM.html">VkFrameBoundaryTensorsARM</a>, <a href="VkPresentFrameTokenGGP.html">VkPresentFrameTokenGGP</a>, <a href="VkPresentId2KHR.html">VkPresentId2KHR</a>, <a href="VkPresentIdKHR.html">VkPresentIdKHR</a>, <a href="VkPresentRegionsKHR.html">VkPresentRegionsKHR</a>, <a href="VkPresentTimesInfoGOOGLE.html">VkPresentTimesInfoGOOGLE</a>, <a href="VkSetPresentConfigNV.html">VkSetPresentConfigNV</a>, <a href="VkSwapchainPresentFenceInfoKHR.html">VkSwapchainPresentFenceInfoKHR</a>, or <a href="VkSwapchainPresentModeInfoKHR.html">VkSwapchainPresentModeInfoKHR</a></p>
 </li>
 <li>
 <p><a id="VUID-VkPresentInfoKHR-sType-unique" href="#VUID-VkPresentInfoKHR-sType-unique"></a> <span class="vuid">VUID-VkPresentInfoKHR-sType-unique</span><br>

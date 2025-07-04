@@ -1087,16 +1087,6 @@ then
 <a href="VkVideoEncodeH264NaluSliceInfoKHR.html">VkVideoEncodeH264NaluSliceInfoKHR</a>::<code>pStdSliceHeader-&gt;pWeightTable</code>
 <strong class="purple">must</strong> not be <code>NULL</code> for that element of <code>pNaluSliceEntries</code></p>
 </li>
-<li>
-<p><a id="VUID-VkVideoEncodeH264PictureInfoKHR-flags-08315" href="#VUID-VkVideoEncodeH264PictureInfoKHR-flags-08315"></a> <span class="vuid">VUID-VkVideoEncodeH264PictureInfoKHR-flags-08315</span><br>
-
-If <a href="VkVideoEncodeH264CapabilitiesKHR.html">VkVideoEncodeH264CapabilitiesKHR</a>::<code>flags</code>, as returned by
-<a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the used video
-profile, does not include
-<code>VK_VIDEO_ENCODE_H264_CAPABILITY_DIFFERENT_SLICE_TYPE_BIT_KHR</code>, then
-<a href="VkVideoEncodeH264NaluSliceInfoKHR.html">VkVideoEncodeH264NaluSliceInfoKHR</a>::<code>pStdSliceHeader-&gt;slice_type</code>
-<strong class="purple">must</strong> be identical for all elements of <code>pNaluSliceEntries</code></p>
-</li>
 </ul>
 </div>
 </div>

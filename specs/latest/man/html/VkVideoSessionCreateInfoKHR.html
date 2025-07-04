@@ -1076,6 +1076,30 @@ chain of its <code>pVideoFormatInfo</code> parameter whose <code>pProfiles</code
 member contains an element matching <code>pVideoProfile</code></p>
 </li>
 <li>
+<p><a id="VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-10835" href="#VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-10835"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-10835</span><br>
+
+If <code>pVideoProfile-&gt;videoCodecOperation</code> specifies an encode
+operation, the <code>pNext</code> chain of this structure includes a
+<a href="VkVideoEncodeSessionIntraRefreshCreateInfoKHR.html">VkVideoEncodeSessionIntraRefreshCreateInfoKHR</a> structure, and its
+<code>intraRefreshMode</code> member is not
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_NONE_KHR</code>, then the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-videoEncodeIntraRefresh" target="_blank" rel="noopener"><code>videoEncodeIntraRefresh</code></a>
+feature <strong class="purple">must</strong> be enabled</p>
+</li>
+<li>
+<p><a id="VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-10836" href="#VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-10836"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-10836</span><br>
+
+If <code>pVideoProfile-&gt;videoCodecOperation</code> specifies an encode
+operation, the <code>pNext</code> chain of this structure includes a
+<a href="VkVideoEncodeSessionIntraRefreshCreateInfoKHR.html">VkVideoEncodeSessionIntraRefreshCreateInfoKHR</a> structure, and its
+<code>intraRefreshMode</code> member is not
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_NONE_KHR</code>, then
+<code>intraRefreshMode</code> <strong class="purple">must</strong> specify one of the bits included in
+<a href="VkVideoEncodeIntraRefreshCapabilitiesKHR.html">VkVideoEncodeIntraRefreshCapabilitiesKHR</a>::<code>intraRefreshModes</code>,
+as returned by <a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the
+video profile specified by <code>pVideoProfile</code></p>
+</li>
+<li>
 <p><a id="VUID-VkVideoSessionCreateInfoKHR-pStdHeaderVersion-07190" href="#VUID-VkVideoSessionCreateInfoKHR-pStdHeaderVersion-07190"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-pStdHeaderVersion-07190</span><br>
 
 <code>pStdHeaderVersion-&gt;extensionName</code> <strong class="purple">must</strong> match
@@ -1158,7 +1182,7 @@ specified in <code>pVideoProfile</code></p>
 </li>
 <li>
 <p><a id="VUID-VkVideoSessionCreateInfoKHR-pNext-pNext" href="#VUID-VkVideoSessionCreateInfoKHR-pNext-pNext"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkVideoEncodeAV1SessionCreateInfoKHR.html">VkVideoEncodeAV1SessionCreateInfoKHR</a>, <a href="VkVideoEncodeH264SessionCreateInfoKHR.html">VkVideoEncodeH264SessionCreateInfoKHR</a>, or <a href="VkVideoEncodeH265SessionCreateInfoKHR.html">VkVideoEncodeH265SessionCreateInfoKHR</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkVideoEncodeAV1SessionCreateInfoKHR.html">VkVideoEncodeAV1SessionCreateInfoKHR</a>, <a href="VkVideoEncodeH264SessionCreateInfoKHR.html">VkVideoEncodeH264SessionCreateInfoKHR</a>, <a href="VkVideoEncodeH265SessionCreateInfoKHR.html">VkVideoEncodeH265SessionCreateInfoKHR</a>, or <a href="VkVideoEncodeSessionIntraRefreshCreateInfoKHR.html">VkVideoEncodeSessionIntraRefreshCreateInfoKHR</a></p>
 </li>
 <li>
 <p><a id="VUID-VkVideoSessionCreateInfoKHR-sType-unique" href="#VUID-VkVideoSessionCreateInfoKHR-sType-unique"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-sType-unique</span><br>

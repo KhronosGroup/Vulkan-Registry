@@ -822,12 +822,14 @@ typedef enum VkSwapchainCreateFlagBitsKHR {
     VK_SWAPCHAIN_CREATE_PROTECTED_BIT_KHR = 0x00000002,
   // Provided by VK_KHR_swapchain_mutable_format
     VK_SWAPCHAIN_CREATE_MUTABLE_FORMAT_BIT_KHR = 0x00000004,
-  // Provided by VK_EXT_swapchain_maintenance1
-    VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_EXT = 0x00000008,
   // Provided by VK_KHR_present_id2
     VK_SWAPCHAIN_CREATE_PRESENT_ID_2_BIT_KHR = 0x00000040,
   // Provided by VK_KHR_present_wait2
     VK_SWAPCHAIN_CREATE_PRESENT_WAIT_2_BIT_KHR = 0x00000080,
+  // Provided by VK_KHR_swapchain_maintenance1
+    VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_KHR = 0x00000008,
+  // Provided by VK_EXT_swapchain_maintenance1
+    VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_EXT = VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_KHR,
 } VkSwapchainCreateFlagBitsKHR;</code></pre>
 </div>
 </div>
@@ -861,7 +863,7 @@ created with but are supported for at least one of the allowed image
 view formats.</p>
 </li>
 <li>
-<p><code>VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_EXT</code> specifies
+<p><code>VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_KHR</code> specifies
     that the implementation <strong class="purple">may</strong> defer allocation of memory associated with
     each swapchain image until its index is to be returned from
     <a href="vkAcquireNextImageKHR.html">vkAcquireNextImageKHR</a>

@@ -827,6 +827,8 @@ typedef enum VkVideoEncodeH265CapabilityFlagBitsKHR {
     VK_VIDEO_ENCODE_H265_CAPABILITY_PER_SLICE_SEGMENT_CONSTANT_QP_BIT_KHR = 0x00000080,
     VK_VIDEO_ENCODE_H265_CAPABILITY_MULTIPLE_TILES_PER_SLICE_SEGMENT_BIT_KHR = 0x00000100,
     VK_VIDEO_ENCODE_H265_CAPABILITY_MULTIPLE_SLICE_SEGMENTS_PER_TILE_BIT_KHR = 0x00000200,
+  // Provided by VK_KHR_video_encode_h265 with VK_KHR_video_encode_intra_refresh
+    VK_VIDEO_ENCODE_H265_CAPABILITY_B_PICTURE_INTRA_REFRESH_BIT_KHR = 0x00000800,
   // Provided by VK_KHR_video_encode_h265 with VK_KHR_video_encode_quantization_map
     VK_VIDEO_ENCODE_H265_CAPABILITY_CU_QP_DIFF_WRAPAROUND_BIT_KHR = 0x00000400,
 } VkVideoEncodeH265CapabilityFlagBitsKHR;</code></pre>
@@ -876,7 +878,11 @@ per tile may begin or finish at any offset within the enclosing tile&#8217;s
 CTB row.
 If not supported, slice segments in such a frame <strong class="purple">must</strong> begin at the
 start of the enclosing tile&#8217;s CTB row (and hence each slice segment
-<strong class="purple">must</strong> finish at the end of the enclosing tile&#8217;s CTB row).</p>
+<strong class="purple">must</strong> finish at the end of the enclosing tile&#8217;s CTB row).
+When a picture is encoded with <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh" target="_blank" rel="noopener">intra refresh</a>,
+encoding non-rectangular slice segments also requires: support for the
+<a href="VkVideoEncodeIntraRefreshCapabilitiesKHR.html">VkVideoEncodeIntraRefreshCapabilitiesKHR</a>::<code>nonRectangularIntraRefreshRegions</code>
+capability.</p>
 </li>
 <li>
 <p><code>VK_VIDEO_ENCODE_H265_CAPABILITY_DIFFERENT_SLICE_SEGMENT_TYPE_BIT_KHR</code>
@@ -887,7 +893,15 @@ the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#e
 parameters</a>.
 If not supported, all slice segments of the frame <strong class="purple">must</strong> be encoded with
 the same <code>slice_type</code> which corresponds to the picture type of the
-frame.</p>
+frame.
+There is one exception to this rule: if the picture is encoded with the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh-modes" target="_blank" rel="noopener">intra refresh mode</a>
+<code>VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_PER_PICTURE_PARTITION_BIT_KHR</code>,
+then the currently refreshed slice segment <strong class="purple">must</strong> specify the
+<code>slice_type</code> <code>STD_VIDEO_H265_SLICE_TYPE_I</code> and <strong class="purple">can</strong> differ from
+the <code>slice_type</code> of the other slice segments regardless of whether
+<code>VK_VIDEO_ENCODE_H265_CAPABILITY_DIFFERENT_SLICE_SEGMENT_TYPE_BIT_KHR</code>
+is supported.</p>
 </li>
 <li>
 <p><code>VK_VIDEO_ENCODE_H265_CAPABILITY_B_FRAME_IN_L0_LIST_BIT_KHR</code>
@@ -956,6 +970,11 @@ coding units is limited to the <span class="eq">[-(26 +  QpBdOffset<sub>Y</sub> 
 </tr>
 </table>
 </div>
+</li>
+<li>
+<p><code>VK_VIDEO_ENCODE_H265_CAPABILITY_B_PICTURE_INTRA_REFRESH_BIT_KHR</code>
+indicates support for encoding <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-h265-b-pic" target="_blank" rel="noopener">B pictures</a> with
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh" target="_blank" rel="noopener">intra refresh</a> enabled.</p>
 </li>
 </ul>
 </div>

@@ -1825,28 +1825,19 @@ command</p>
 <li>
 <p><a id="VUID-vkCmdDrawMultiEXT-None-07835" href="#VUID-vkCmdDrawMultiEXT-None-07835"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-07835</span><br>
 
-If the bound graphics pipeline state was created with the
-<code>VK_DYNAMIC_STATE_BLEND_CONSTANTS</code> dynamic state enabled then
-<a href="vkCmdSetBlendConstants.html">vkCmdSetBlendConstants</a> <strong class="purple">must</strong> have been called and not subsequently
-<a href="#dynamic-state-lifetime">invalidated</a> in the current command buffer
-prior to this drawing command</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMultiEXT-None-08621" href="#VUID-vkCmdDrawMultiEXT-None-08621"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-08621</span><br>
-
-If a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code>
-stage, and the most recent call to <a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a>
-in the current command buffer set <code>rasterizerDiscardEnable</code> to
-<code>VK_FALSE</code>, and the most recent call to
-<a href="vkCmdSetColorBlendEnableEXT.html">vkCmdSetColorBlendEnableEXT</a> in the current command buffer set any
-element of <code>pColorBlendEnables</code> to <code>VK_TRUE</code>, and the most
-recent call to <a href="vkCmdSetColorBlendEquationEXT.html">vkCmdSetColorBlendEquationEXT</a> in the current
-command buffer set the same element of <code>pColorBlendEquations</code> to a
-<code>VkColorBlendEquationEXT</code> structure with any <a href="VkBlendFactor.html">VkBlendFactor</a>
-member with a value of <code>VK_BLEND_FACTOR_CONSTANT_COLOR</code>,
+If
+a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code> stage
+or
+a graphics pipeline is bound which was created with the
+<code>VK_DYNAMIC_STATE_BLEND_CONSTANTS</code> dynamic state enabled, the
+<a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and an active color
+attachment <a href="#dynamic-state-current-value">current value</a> of
+<code>blendEnable</code> is <code>VK_TRUE</code> with a blend equations where any
+<a href="VkBlendFactor.html">VkBlendFactor</a> member is <code>VK_BLEND_FACTOR_CONSTANT_COLOR</code>,
 <code>VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR</code>,
 <code>VK_BLEND_FACTOR_CONSTANT_ALPHA</code>, or
-<code>VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA</code>,
+<code>VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA</code>, then
 <a href="vkCmdSetBlendConstants.html">vkCmdSetBlendConstants</a> <strong class="purple">must</strong> have been called and not subsequently
 <a href="#dynamic-state-lifetime">invalidated</a> in the current command buffer
 prior to this drawing command</p>

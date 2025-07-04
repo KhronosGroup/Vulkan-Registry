@@ -1135,17 +1135,6 @@ weighted sample prediction</a>, then
 <a href="VkVideoEncodeH265NaluSliceSegmentInfoKHR.html">VkVideoEncodeH265NaluSliceSegmentInfoKHR</a>::<code>pStdSliceSegmentHeader-&gt;pWeightTable</code>
 <strong class="purple">must</strong> not be <code>NULL</code> for that element of <code>pNaluSliceSegmentEntries</code></p>
 </li>
-<li>
-<p><a id="VUID-VkVideoEncodeH265PictureInfoKHR-flags-08317" href="#VUID-VkVideoEncodeH265PictureInfoKHR-flags-08317"></a> <span class="vuid">VUID-VkVideoEncodeH265PictureInfoKHR-flags-08317</span><br>
-
-If <a href="VkVideoEncodeH265CapabilitiesKHR.html">VkVideoEncodeH265CapabilitiesKHR</a>::<code>flags</code>, as returned by
-<a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the used video
-profile, does not include
-<code>VK_VIDEO_ENCODE_H265_CAPABILITY_DIFFERENT_SLICE_SEGMENT_TYPE_BIT_KHR</code>,
-then
-<a href="VkVideoEncodeH265NaluSliceSegmentInfoKHR.html">VkVideoEncodeH265NaluSliceSegmentInfoKHR</a>::<code>pStdSliceSegmentHeader-&gt;slice_type</code>
-<strong class="purple">must</strong> be identical for all elements of <code>pNaluSliceSegmentEntries</code></p>
-</li>
 </ul>
 </div>
 </div>

@@ -892,7 +892,7 @@ the surface&#8217;s <code>currentExtent</code> as returned by
 In such a case, it is not possible to create a swapchain due to the Valid
 Usage requirements
 , unless scaling is selected through
-<a href="VkSwapchainPresentScalingCreateInfoEXT.html">VkSwapchainPresentScalingCreateInfoEXT</a>, if supported
+<a href="VkSwapchainPresentScalingCreateInfoKHR.html">VkSwapchainPresentScalingCreateInfoKHR</a>, if supported
 .</p>
 </div>
 </td>
@@ -1068,7 +1068,7 @@ for the surface if the returned <code>maxImageCount</code> is not zero</p>
 
 If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-swapchainMaintenance1" target="_blank" rel="noopener"><code>swapchainMaintenance1</code></a>
 feature is not enabled, then the <code>pNext</code> chain <strong class="purple">must</strong> not include a
-<a href="VkSwapchainPresentModesCreateInfoEXT.html">VkSwapchainPresentModesCreateInfoEXT</a> structure</p>
+<a href="VkSwapchainPresentModesCreateInfoKHR.html">VkSwapchainPresentModesCreateInfoKHR</a> structure</p>
 </li>
 <li>
 <p><a id="VUID-VkSwapchainCreateInfoKHR-presentMode-02839" href="#VUID-VkSwapchainCreateInfoKHR-presentMode-02839"></a> <span class="vuid">VUID-VkSwapchainCreateInfoKHR-presentMode-02839</span><br>
@@ -1099,9 +1099,9 @@ and <code>colorSpace</code> members, respectively, of one of the
 <li>
 <p><a id="VUID-VkSwapchainCreateInfoKHR-pNext-07781" href="#VUID-VkSwapchainCreateInfoKHR-pNext-07781"></a> <span class="vuid">VUID-VkSwapchainCreateInfoKHR-pNext-07781</span><br>
 
-If a <a href="VkSwapchainPresentScalingCreateInfoEXT.html">VkSwapchainPresentScalingCreateInfoEXT</a> structure was not
+If a <a href="VkSwapchainPresentScalingCreateInfoKHR.html">VkSwapchainPresentScalingCreateInfoKHR</a> structure was not
 included in the <code>pNext</code> chain, or it is included and
-<a href="VkSwapchainPresentScalingCreateInfoEXT.html">VkSwapchainPresentScalingCreateInfoEXT</a>::<code>scalingBehavior</code> is
+<a href="VkSwapchainPresentScalingCreateInfoKHR.html">VkSwapchainPresentScalingCreateInfoKHR</a>::<code>scalingBehavior</code> is
 zero then
 <code>imageExtent</code> <strong class="purple">must</strong> be between <code>minImageExtent</code> and
 <code>maxImageExtent</code>, inclusive, where <code>minImageExtent</code> and
@@ -1112,13 +1112,13 @@ for the surface</p>
 <li>
 <p><a id="VUID-VkSwapchainCreateInfoKHR-pNext-07782" href="#VUID-VkSwapchainCreateInfoKHR-pNext-07782"></a> <span class="vuid">VUID-VkSwapchainCreateInfoKHR-pNext-07782</span><br>
 
-If a <a href="VkSwapchainPresentScalingCreateInfoEXT.html">VkSwapchainPresentScalingCreateInfoEXT</a> structure was included
+If a <a href="VkSwapchainPresentScalingCreateInfoKHR.html">VkSwapchainPresentScalingCreateInfoKHR</a> structure was included
 in the <code>pNext</code> chain and
-<a href="VkSwapchainPresentScalingCreateInfoEXT.html">VkSwapchainPresentScalingCreateInfoEXT</a>::<code>scalingBehavior</code> is
+<a href="VkSwapchainPresentScalingCreateInfoKHR.html">VkSwapchainPresentScalingCreateInfoKHR</a>::<code>scalingBehavior</code> is
 not zero then <code>imageExtent</code> <strong class="purple">must</strong> be between
 <code>minScaledImageExtent</code> and <code>maxScaledImageExtent</code>, inclusive,
 where <code>minScaledImageExtent</code> and <code>maxScaledImageExtent</code> are
-members of the <code>VkSurfacePresentScalingCapabilitiesEXT</code> structure
+members of the <code>VkSurfacePresentScalingCapabilitiesKHR</code> structure
 returned by <code>vkGetPhysicalDeviceSurfaceCapabilities2KHR</code> for the
 surface and <code>presentMode</code></p>
 </li>
@@ -1127,7 +1127,7 @@ surface and <code>presentMode</code></p>
 
 If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-swapchainMaintenance1" target="_blank" rel="noopener"><code>swapchainMaintenance1</code></a>
 feature is not enabled, then <code>flags</code> <strong class="purple">must</strong> not include
-<code>VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_EXT</code></p>
+<code>VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_KHR</code></p>
 </li>
 <li>
 <p><a id="VUID-VkSwapchainCreateInfoKHR-imageExtent-01689" href="#VUID-VkSwapchainCreateInfoKHR-imageExtent-01689"></a> <span class="vuid">VUID-VkSwapchainCreateInfoKHR-imageExtent-01689</span><br>
@@ -1147,7 +1147,7 @@ to the <code>maxImageArrayLayers</code> member of the
 <p><a id="VUID-VkSwapchainCreateInfoKHR-presentMode-01427" href="#VUID-VkSwapchainCreateInfoKHR-presentMode-01427"></a> <span class="vuid">VUID-VkSwapchainCreateInfoKHR-presentMode-01427</span><br>
 
 If <code>presentMode</code> is
-<code>VK_PRESENT_MODE_FIFO_LATEST_READY_EXT</code>,
+<code>VK_PRESENT_MODE_FIFO_LATEST_READY_KHR</code>,
 <code>VK_PRESENT_MODE_IMMEDIATE_KHR</code>, <code>VK_PRESENT_MODE_MAILBOX_KHR</code>,
 <code>VK_PRESENT_MODE_FIFO_KHR</code> or
 <code>VK_PRESENT_MODE_FIFO_RELAXED_KHR</code>, <code>imageUsage</code> <strong class="purple">must</strong> be a
@@ -1217,7 +1217,7 @@ surface</p>
 
 If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-presentModeFifoLatestReady" target="_blank" rel="noopener"><code>presentModeFifoLatestReady</code></a> feature is not enabled,
 <code>presentMode</code> <strong class="purple">must</strong> not be
-<code>VK_PRESENT_MODE_FIFO_LATEST_READY_EXT</code></p>
+<code>VK_PRESENT_MODE_FIFO_LATEST_READY_KHR</code></p>
 </li>
 <li>
 <p><a id="VUID-VkSwapchainCreateInfoKHR-physicalDeviceCount-01429" href="#VUID-VkSwapchainCreateInfoKHR-physicalDeviceCount-01429"></a> <span class="vuid">VUID-VkSwapchainCreateInfoKHR-physicalDeviceCount-01429</span><br>
@@ -1313,7 +1313,7 @@ If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.htm
 </li>
 <li>
 <p><a id="VUID-VkSwapchainCreateInfoKHR-pNext-pNext" href="#VUID-VkSwapchainCreateInfoKHR-pNext-pNext"></a> <span class="vuid">VUID-VkSwapchainCreateInfoKHR-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkDeviceGroupSwapchainCreateInfoKHR.html">VkDeviceGroupSwapchainCreateInfoKHR</a>, <a href="VkImageCompressionControlEXT.html">VkImageCompressionControlEXT</a>, <a href="VkImageFormatListCreateInfo.html">VkImageFormatListCreateInfo</a>, <a href="VkSurfaceFullScreenExclusiveInfoEXT.html">VkSurfaceFullScreenExclusiveInfoEXT</a>, <a href="VkSurfaceFullScreenExclusiveWin32InfoEXT.html">VkSurfaceFullScreenExclusiveWin32InfoEXT</a>, <a href="VkSwapchainCounterCreateInfoEXT.html">VkSwapchainCounterCreateInfoEXT</a>, <a href="VkSwapchainDisplayNativeHdrCreateInfoAMD.html">VkSwapchainDisplayNativeHdrCreateInfoAMD</a>, <a href="VkSwapchainLatencyCreateInfoNV.html">VkSwapchainLatencyCreateInfoNV</a>, <a href="VkSwapchainPresentBarrierCreateInfoNV.html">VkSwapchainPresentBarrierCreateInfoNV</a>, <a href="VkSwapchainPresentModesCreateInfoEXT.html">VkSwapchainPresentModesCreateInfoEXT</a>, or <a href="VkSwapchainPresentScalingCreateInfoEXT.html">VkSwapchainPresentScalingCreateInfoEXT</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkDeviceGroupSwapchainCreateInfoKHR.html">VkDeviceGroupSwapchainCreateInfoKHR</a>, <a href="VkImageCompressionControlEXT.html">VkImageCompressionControlEXT</a>, <a href="VkImageFormatListCreateInfo.html">VkImageFormatListCreateInfo</a>, <a href="VkSurfaceFullScreenExclusiveInfoEXT.html">VkSurfaceFullScreenExclusiveInfoEXT</a>, <a href="VkSurfaceFullScreenExclusiveWin32InfoEXT.html">VkSurfaceFullScreenExclusiveWin32InfoEXT</a>, <a href="VkSwapchainCounterCreateInfoEXT.html">VkSwapchainCounterCreateInfoEXT</a>, <a href="VkSwapchainDisplayNativeHdrCreateInfoAMD.html">VkSwapchainDisplayNativeHdrCreateInfoAMD</a>, <a href="VkSwapchainLatencyCreateInfoNV.html">VkSwapchainLatencyCreateInfoNV</a>, <a href="VkSwapchainPresentBarrierCreateInfoNV.html">VkSwapchainPresentBarrierCreateInfoNV</a>, <a href="VkSwapchainPresentModesCreateInfoKHR.html">VkSwapchainPresentModesCreateInfoKHR</a>, or <a href="VkSwapchainPresentScalingCreateInfoKHR.html">VkSwapchainPresentScalingCreateInfoKHR</a></p>
 </li>
 <li>
 <p><a id="VUID-VkSwapchainCreateInfoKHR-sType-unique" href="#VUID-VkSwapchainCreateInfoKHR-sType-unique"></a> <span class="vuid">VUID-VkSwapchainCreateInfoKHR-sType-unique</span><br>

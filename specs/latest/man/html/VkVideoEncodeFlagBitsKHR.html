@@ -816,6 +816,8 @@ specifying video encode flags, are:</p>
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_KHR_video_encode_quantization_map
 typedef enum VkVideoEncodeFlagBitsKHR {
+  // Provided by VK_KHR_video_encode_intra_refresh
+    VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR = 0x00000004,
   // Provided by VK_KHR_video_encode_quantization_map
     VK_VIDEO_ENCODE_WITH_QUANTIZATION_DELTA_MAP_BIT_KHR = 0x00000001,
   // Provided by VK_KHR_video_encode_quantization_map
@@ -839,6 +841,10 @@ issued <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.htm
 <p><code>VK_VIDEO_ENCODE_WITH_EMPHASIS_MAP_BIT_KHR</code> specifies the use of an
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-emphasis-map" target="_blank" rel="noopener">emphasis map</a> in the issued
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-encode-operations" target="_blank" rel="noopener">video encode operations</a>.</p>
+</li>
+<li>
+<p><code>VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR</code> enables
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-intra-refresh" target="_blank" rel="noopener">intra refresh</a> for the encoded picture.</p>
 </li>
 </ul>
 </div>
