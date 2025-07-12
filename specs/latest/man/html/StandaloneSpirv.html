@@ -878,8 +878,8 @@ callable <code>Execution</code> <code>Model</code></p>
 <li>
 <p><a id="VUID-StandaloneSpirv-None-04641" href="#VUID-StandaloneSpirv-None-04641"></a> <span class="vuid">VUID-StandaloneSpirv-None-04641</span><br>
 
-If the <code>Scope</code> for memory is <code>Invocation</code>, then memory semantics
-<strong class="purple">must</strong> be <code>None</code></p>
+If the <code>Scope</code> for memory is <code>Invocation</code>, then
+<code>MemorySemantics</code> <strong class="purple">must</strong> use <code>Relaxed</code> memory order</p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-None-04642" href="#VUID-StandaloneSpirv-None-04642"></a> <span class="vuid">VUID-StandaloneSpirv-None-04642</span><br>
@@ -925,41 +925,104 @@ If the <code>Storage</code> <code>Class</code> is <code>TileImageEXT</code>, the
 in the fragment execution model</p>
 </li>
 <li>
-<p><a id="VUID-StandaloneSpirv-OpAtomicStore-04730" href="#VUID-StandaloneSpirv-OpAtomicStore-04730"></a> <span class="vuid">VUID-StandaloneSpirv-OpAtomicStore-04730</span><br>
+<p><a id="VUID-StandaloneSpirv-MemorySemantics-10865" href="#VUID-StandaloneSpirv-MemorySemantics-10865"></a> <span class="vuid">VUID-StandaloneSpirv-MemorySemantics-10865</span><br>
 
-<code>OpAtomicStore</code> <strong class="purple">must</strong> not use <code>Acquire</code>, <code>AcquireRelease</code>, or
-<code>SequentiallyConsistent</code> memory semantics</p>
+<code>MemorySemantics</code> <strong class="purple">must</strong> have at most one non-relaxed memory order bit
+set (<code>Acquire</code>, <code>Release</code>, or <code>AcquireRelease</code>)</p>
 </li>
 <li>
-<p><a id="VUID-StandaloneSpirv-OpAtomicLoad-04731" href="#VUID-StandaloneSpirv-OpAtomicLoad-04731"></a> <span class="vuid">VUID-StandaloneSpirv-OpAtomicLoad-04731</span><br>
+<p><a id="VUID-StandaloneSpirv-MemorySemantics-10866" href="#VUID-StandaloneSpirv-MemorySemantics-10866"></a> <span class="vuid">VUID-StandaloneSpirv-MemorySemantics-10866</span><br>
 
-<code>OpAtomicLoad</code> <strong class="purple">must</strong> not use <code>Release</code>, <code>AcquireRelease</code>, or
-<code>SequentiallyConsistent</code> memory semantics</p>
+<code>MemorySemantics</code> with <code>SequentiallyConsistent</code> memory order <strong class="purple">must</strong>
+not be used in the Vulkan API</p>
 </li>
 <li>
-<p><a id="VUID-StandaloneSpirv-OpMemoryBarrier-04732" href="#VUID-StandaloneSpirv-OpMemoryBarrier-04732"></a> <span class="vuid">VUID-StandaloneSpirv-OpMemoryBarrier-04732</span><br>
+<p><a id="VUID-StandaloneSpirv-MemorySemantics-10867" href="#VUID-StandaloneSpirv-MemorySemantics-10867"></a> <span class="vuid">VUID-StandaloneSpirv-MemorySemantics-10867</span><br>
 
-<code>OpMemoryBarrier</code> <strong class="purple">must</strong> use one of <code>Acquire</code>, <code>Release</code>,
-<code>AcquireRelease</code>, or <code>SequentiallyConsistent</code> memory semantics</p>
+<code>MemorySemantics</code> <strong class="purple">must</strong> not use <code>Acquire</code> or <code>AcquireRelease</code>
+memory order with <code>OpAtomicStore</code></p>
 </li>
 <li>
-<p><a id="VUID-StandaloneSpirv-OpMemoryBarrier-04733" href="#VUID-StandaloneSpirv-OpMemoryBarrier-04733"></a> <span class="vuid">VUID-StandaloneSpirv-OpMemoryBarrier-04733</span><br>
+<p><a id="VUID-StandaloneSpirv-MemorySemantics-10868" href="#VUID-StandaloneSpirv-MemorySemantics-10868"></a> <span class="vuid">VUID-StandaloneSpirv-MemorySemantics-10868</span><br>
 
-<code>OpMemoryBarrier</code> <strong class="purple">must</strong> include at least one <code>Storage</code> <code>Class</code></p>
+<code>MemorySemantics</code> <strong class="purple">must</strong> not use <code>Release</code> or <code>AcquireRelease</code>
+memory order with <code>OpAtomicLoad</code></p>
 </li>
 <li>
-<p><a id="VUID-StandaloneSpirv-OpControlBarrier-10609" href="#VUID-StandaloneSpirv-OpControlBarrier-10609"></a> <span class="vuid">VUID-StandaloneSpirv-OpControlBarrier-10609</span><br>
+<p><a id="VUID-StandaloneSpirv-MemorySemantics-10869" href="#VUID-StandaloneSpirv-MemorySemantics-10869"></a> <span class="vuid">VUID-StandaloneSpirv-MemorySemantics-10869</span><br>
 
-If the semantics for <code>OpControlBarrier</code> includes at least one
-<code>Storage</code> <code>Class</code>, then it <strong class="purple">must</strong> include one of <code>Acquire</code>, <code>Release</code>,
-<code>AcquireRelease</code>, or <code>SequentiallyConsistent</code> memory semantics</p>
+<code>MemorySemantics</code> <strong class="purple">must</strong> not use <code>Relaxed</code> memory order with
+<code>OpMemoryBarrier</code></p>
 </li>
 <li>
-<p><a id="VUID-StandaloneSpirv-OpControlBarrier-04650" href="#VUID-StandaloneSpirv-OpControlBarrier-04650"></a> <span class="vuid">VUID-StandaloneSpirv-OpControlBarrier-04650</span><br>
+<p><a id="VUID-StandaloneSpirv-MemorySemantics-10870" href="#VUID-StandaloneSpirv-MemorySemantics-10870"></a> <span class="vuid">VUID-StandaloneSpirv-MemorySemantics-10870</span><br>
 
-If the semantics for <code>OpControlBarrier</code> includes one of <code>Acquire</code>,
-<code>Release</code>, <code>AcquireRelease</code>, or <code>SequentiallyConsistent</code> memory
-semantics, then it <strong class="purple">must</strong> include at least one <code>Storage</code> <code>Class</code></p>
+<code>MemorySemantics</code> with a non-relaxed memory order (<code>Acquire</code>,
+<code>Release</code>, or <code>AcquireRelease</code>) <strong class="purple">must</strong> have at least one
+Vulkan-supported storage class semantics bit set (<code>UniformMemory</code>,
+<code>WorkgroupMemory</code>, <code>ImageMemory</code>, or <code>OutputMemory</code>)</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-MemorySemantics-10871" href="#VUID-StandaloneSpirv-MemorySemantics-10871"></a> <span class="vuid">VUID-StandaloneSpirv-MemorySemantics-10871</span><br>
+
+<code>MemorySemantics</code> with at least one Vulkan-supported storage class
+semantics bit set (<code>UniformMemory</code>, <code>WorkgroupMemory</code>,
+<code>ImageMemory</code>, or <code>OutputMemory</code>) <strong class="purple">must</strong> use a non-relaxed memory
+order (<code>Acquire</code>, <code>Release</code>, or <code>AcquireRelease</code>)</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-MemorySemantics-10872" href="#VUID-StandaloneSpirv-MemorySemantics-10872"></a> <span class="vuid">VUID-StandaloneSpirv-MemorySemantics-10872</span><br>
+
+<code>MemorySemantics</code> with <code>MakeAvailable</code> bit set <strong class="purple">must</strong> use
+<code>Release</code> or <code>AcquireRelease</code> memory order</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-MemorySemantics-10873" href="#VUID-StandaloneSpirv-MemorySemantics-10873"></a> <span class="vuid">VUID-StandaloneSpirv-MemorySemantics-10873</span><br>
+
+<code>MemorySemantics</code> with <code>MakeVisible</code> bit set <strong class="purple">must</strong> use
+<code>Acquire</code> or <code>AcquireRelease</code> memory order</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-MemorySemantics-10874" href="#VUID-StandaloneSpirv-MemorySemantics-10874"></a> <span class="vuid">VUID-StandaloneSpirv-MemorySemantics-10874</span><br>
+
+<code>MemorySemantics</code> with <code>Volatile</code> bit set <strong class="purple">must</strong> not be used with
+barrier instructions (<code>OpControlBarrier</code> or <code>OpMemoryBarrier</code>)</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-UnequalMemorySemantics-10875" href="#VUID-StandaloneSpirv-UnequalMemorySemantics-10875"></a> <span class="vuid">VUID-StandaloneSpirv-UnequalMemorySemantics-10875</span><br>
+
+<code>UnequalMemorySemantics</code> of <code>OpAtomicCompareExchange</code> <strong class="purple">must</strong> not
+use <code>Release</code> or <code>AcquireRelease</code> memory order</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-UnequalMemorySemantics-10876" href="#VUID-StandaloneSpirv-UnequalMemorySemantics-10876"></a> <span class="vuid">VUID-StandaloneSpirv-UnequalMemorySemantics-10876</span><br>
+
+<code>UnequalMemorySemantics</code> of <code>OpAtomicCompareExchange</code> <strong class="purple">must</strong> not
+use a stronger memory order than the corresponding
+<code>EqualMemorySemantics</code></p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-UnequalMemorySemantics-10877" href="#VUID-StandaloneSpirv-UnequalMemorySemantics-10877"></a> <span class="vuid">VUID-StandaloneSpirv-UnequalMemorySemantics-10877</span><br>
+
+<code>UnequalMemorySemantics</code> of <code>OpAtomicCompareExchange</code> <strong class="purple">must</strong> not
+have any Vulkan-supported storage class semantics bit set
+(<code>UniformMemory</code>, <code>WorkgroupMemory</code>, <code>ImageMemory</code>, or
+<code>OutputMemory</code>) unless this bit is also set in the corresponding
+<code>EqualMemorySemantics</code></p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-UnequalMemorySemantics-10878" href="#VUID-StandaloneSpirv-UnequalMemorySemantics-10878"></a> <span class="vuid">VUID-StandaloneSpirv-UnequalMemorySemantics-10878</span><br>
+
+<code>UnequalMemorySemantics</code> of <code>OpAtomicCompareExchange</code> <strong class="purple">must</strong> not
+have <code>MakeVisible</code> bit set unless this bit is also set in the
+corresponding <code>EqualMemorySemantics</code></p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-UnequalMemorySemantics-10879" href="#VUID-StandaloneSpirv-UnequalMemorySemantics-10879"></a> <span class="vuid">VUID-StandaloneSpirv-UnequalMemorySemantics-10879</span><br>
+
+<code>UnequalMemorySemantics</code> of <code>OpAtomicCompareExchange</code> <strong class="purple">must</strong> have
+<code>Volatile</code> bit set if and only if this bit is also set in the
+corresponding <code>EqualMemorySemantics</code></p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-OpVariable-04651" href="#VUID-StandaloneSpirv-OpVariable-04651"></a> <span class="vuid">VUID-StandaloneSpirv-OpVariable-04651</span><br>
@@ -1287,6 +1350,12 @@ Interfaces</a></p>
 The <code>GLSLShared</code> and <code>GLSLPacked</code> decorations <strong class="purple">must</strong> not be used</p>
 </li>
 <li>
+<p><a id="VUID-StandaloneSpirv-TessLevelInner-10880" href="#VUID-StandaloneSpirv-TessLevelInner-10880"></a> <span class="vuid">VUID-StandaloneSpirv-TessLevelInner-10880</span><br>
+
+Any variable decorated with <code>TessLevelInner</code> or <code>TessLevelOuter</code>
+<strong class="purple">must</strong> also be decorated with <code>Patch</code></p>
+</li>
+<li>
 <p><a id="VUID-StandaloneSpirv-Flat-04670" href="#VUID-StandaloneSpirv-Flat-04670"></a> <span class="vuid">VUID-StandaloneSpirv-Flat-04670</span><br>
 
 The <code>Flat</code>, <code>NoPerspective</code>, <code>Sample</code>, and <code>Centroid</code>
@@ -1373,8 +1442,8 @@ when used in an intersection shader</p>
 <p><a id="VUID-StandaloneSpirv-VulkanMemoryModel-04679" href="#VUID-StandaloneSpirv-VulkanMemoryModel-04679"></a> <span class="vuid">VUID-StandaloneSpirv-VulkanMemoryModel-04679</span><br>
 
 If the <code>VulkanMemoryModel</code> capability is declared, the <code>OpLoad</code>
-instruction <strong class="purple">must</strong> use the <code>Volatile</code> memory semantics when it
-accesses into any variable that includes one of the <code>SMIDNV</code>,
+instruction <strong class="purple">must</strong> use <code>MemorySemantics</code> with the <code>Volatile</code> flag
+when it accesses into any variable that includes one of the <code>SMIDNV</code>,
 <code>WarpIDNV</code>, <code>SubgroupSize</code>, <code>SubgroupLocalInvocationId</code>,
 <code>SubgroupEqMask</code>, <code>SubgroupGeMask</code>, <code>SubgroupGtMask</code>,
 <code>SubgroupLeMask</code>, or <code>SubgroupLtMask</code> <code>BuiltIn</code> decorations

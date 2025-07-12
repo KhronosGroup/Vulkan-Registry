@@ -3915,40 +3915,9 @@ the union of the libraries' pipeline layouts</p>
 <li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-conservativePointAndLineRasterization-08892" href="#VUID-VkGraphicsPipelineCreateInfo-conservativePointAndLineRasterization-08892"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-conservativePointAndLineRasterization-08892</span><br>
 
-If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-conservativePointAndLineRasterization" target="_blank" rel="noopener"><code>conservativePointAndLineRasterization</code></a> is not supported; the
-pipeline is being created with
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-vertex-input" target="_blank" rel="noopener">vertex input state</a> and
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-pre-rasterization" target="_blank" rel="noopener">pre-rasterization shader
-state</a>; the pipeline does not include a geometry shader; and the value
-of <a href="VkPipelineInputAssemblyStateCreateInfo.html">VkPipelineInputAssemblyStateCreateInfo</a>::<code>topology</code> is
-<code>VK_PRIMITIVE_TOPOLOGY_POINT_LIST</code>,
-<code>VK_PRIMITIVE_TOPOLOGY_LINE_LIST</code>, or
-<code>VK_PRIMITIVE_TOPOLOGY_LINE_STRIP</code>,
-and either <code>VK_DYNAMIC_STATE_PRIMITIVE_TOPOLOGY</code> dynamic state is
-not enabled or
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-dynamicPrimitiveTopologyUnrestricted" target="_blank" rel="noopener"><code>dynamicPrimitiveTopologyUnrestricted</code></a>
-is <code>VK_FALSE</code>,
-then
-<a href="VkPipelineRasterizationConservativeStateCreateInfoEXT.html">VkPipelineRasterizationConservativeStateCreateInfoEXT</a>::<code>conservativeRasterizationMode</code>
-<strong class="purple">must</strong> be <code>VK_CONSERVATIVE_RASTERIZATION_MODE_DISABLED_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkGraphicsPipelineCreateInfo-conservativePointAndLineRasterization-06760" href="#VUID-VkGraphicsPipelineCreateInfo-conservativePointAndLineRasterization-06760"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-conservativePointAndLineRasterization-06760</span><br>
-
-If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-conservativePointAndLineRasterization" target="_blank" rel="noopener"><code>conservativePointAndLineRasterization</code></a> is not supported, the
-pipeline requires <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-pre-rasterization" target="_blank" rel="noopener">pre-rasterization shader state</a>, and the pipeline includes a geometry
-shader with either the <code>OutputPoints</code> or <code>OutputLineStrip</code>
-execution modes,
-<a href="VkPipelineRasterizationConservativeStateCreateInfoEXT.html">VkPipelineRasterizationConservativeStateCreateInfoEXT</a>::<code>conservativeRasterizationMode</code>
-<strong class="purple">must</strong> be <code>VK_CONSERVATIVE_RASTERIZATION_MODE_DISABLED_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkGraphicsPipelineCreateInfo-conservativePointAndLineRasterization-06761" href="#VUID-VkGraphicsPipelineCreateInfo-conservativePointAndLineRasterization-06761"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-conservativePointAndLineRasterization-06761</span><br>
-
-If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-conservativePointAndLineRasterization" target="_blank" rel="noopener"><code>conservativePointAndLineRasterization</code></a> is not supported, the
-pipeline requires <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-pre-rasterization" target="_blank" rel="noopener">pre-rasterization shader state</a>, and the pipeline includes a mesh
-shader with either the <code>OutputPoints</code> or <code>OutputLinesNV</code> execution
-modes,
+If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-conservativePointAndLineRasterization" target="_blank" rel="noopener"><code>conservativePointAndLineRasterization</code></a> is not supported and the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#drawing-rasterization-input-topology" target="_blank" rel="noopener">effective rasterization input
+topology</a> is in line or point topology class, then
 <a href="VkPipelineRasterizationConservativeStateCreateInfoEXT.html">VkPipelineRasterizationConservativeStateCreateInfoEXT</a>::<code>conservativeRasterizationMode</code>
 <strong class="purple">must</strong> be <code>VK_CONSERVATIVE_RASTERIZATION_MODE_DISABLED_EXT</code></p>
 </li>

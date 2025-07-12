@@ -918,7 +918,7 @@ invoked.</p>
 <li>
 <p><a id="VUID-VkDescriptorDataEXT-type-08030" href="#VUID-VkDescriptorDataEXT-type-08030"></a> <span class="vuid">VUID-VkDescriptorDataEXT-type-08030</span><br>
 
-If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>:<code>type</code> is
+If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>::<code>type</code> is
 <code>VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER</code>, and
 <code>pUniformBuffer-&gt;address</code> is the address of a non-sparse buffer,
 then that buffer <strong class="purple">must</strong> be bound completely and contiguously to a single
@@ -927,7 +927,7 @@ then that buffer <strong class="purple">must</strong> be bound completely and co
 <li>
 <p><a id="VUID-VkDescriptorDataEXT-type-08031" href="#VUID-VkDescriptorDataEXT-type-08031"></a> <span class="vuid">VUID-VkDescriptorDataEXT-type-08031</span><br>
 
-If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>:<code>type</code> is
+If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>::<code>type</code> is
 <code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER</code>, and
 <code>pStorageBuffer-&gt;address</code> is the address of a non-sparse buffer,
 then that buffer <strong class="purple">must</strong> be bound completely and contiguously to a single
@@ -936,7 +936,7 @@ then that buffer <strong class="purple">must</strong> be bound completely and co
 <li>
 <p><a id="VUID-VkDescriptorDataEXT-type-08032" href="#VUID-VkDescriptorDataEXT-type-08032"></a> <span class="vuid">VUID-VkDescriptorDataEXT-type-08032</span><br>
 
-If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>:<code>type</code> is
+If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>::<code>type</code> is
 <code>VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER</code>, and
 <code>pUniformTexelBuffer-&gt;address</code> is the address of a non-sparse
 buffer, then that buffer <strong class="purple">must</strong> be bound completely and contiguously to a
@@ -945,7 +945,7 @@ single <code>VkDeviceMemory</code> object</p>
 <li>
 <p><a id="VUID-VkDescriptorDataEXT-type-08033" href="#VUID-VkDescriptorDataEXT-type-08033"></a> <span class="vuid">VUID-VkDescriptorDataEXT-type-08033</span><br>
 
-If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>:<code>type</code> is
+If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>::<code>type</code> is
 <code>VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER</code>, and
 <code>pStorageTexelBuffer-&gt;address</code> is the address of a non-sparse
 buffer, then that buffer <strong class="purple">must</strong> be bound completely and contiguously to a
@@ -954,7 +954,7 @@ single <code>VkDeviceMemory</code> object</p>
 <li>
 <p><a id="VUID-VkDescriptorDataEXT-type-08034" href="#VUID-VkDescriptorDataEXT-type-08034"></a> <span class="vuid">VUID-VkDescriptorDataEXT-type-08034</span><br>
 
-If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>:<code>type</code> is
+If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>::<code>type</code> is
 <code>VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER</code>, and the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nullDescriptor" target="_blank" rel="noopener"><code>nullDescriptor</code></a> feature is not
 enabled, <code>pCombinedImageSampler-&gt;imageView</code> <strong class="purple">must</strong> not be
@@ -963,7 +963,7 @@ enabled, <code>pCombinedImageSampler-&gt;imageView</code> <strong class="purple"
 <li>
 <p><a id="VUID-VkDescriptorDataEXT-type-08035" href="#VUID-VkDescriptorDataEXT-type-08035"></a> <span class="vuid">VUID-VkDescriptorDataEXT-type-08035</span><br>
 
-If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>:<code>type</code> is
+If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>::<code>type</code> is
 <code>VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE</code>, and the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nullDescriptor" target="_blank" rel="noopener"><code>nullDescriptor</code></a> feature is not
 enabled, <code>pSampledImage</code> <strong class="purple">must</strong> not be <code>NULL</code> and
@@ -972,7 +972,7 @@ enabled, <code>pSampledImage</code> <strong class="purple">must</strong> not be 
 <li>
 <p><a id="VUID-VkDescriptorDataEXT-type-08036" href="#VUID-VkDescriptorDataEXT-type-08036"></a> <span class="vuid">VUID-VkDescriptorDataEXT-type-08036</span><br>
 
-If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>:<code>type</code> is
+If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>::<code>type</code> is
 <code>VK_DESCRIPTOR_TYPE_STORAGE_IMAGE</code>, and the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nullDescriptor" target="_blank" rel="noopener"><code>nullDescriptor</code></a> feature is not
 enabled, <code>pStorageImage</code> <strong class="purple">must</strong> not be <code>NULL</code> and
@@ -981,7 +981,7 @@ enabled, <code>pStorageImage</code> <strong class="purple">must</strong> not be 
 <li>
 <p><a id="VUID-VkDescriptorDataEXT-type-08037" href="#VUID-VkDescriptorDataEXT-type-08037"></a> <span class="vuid">VUID-VkDescriptorDataEXT-type-08037</span><br>
 
-If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>:<code>type</code> is
+If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>::<code>type</code> is
 <code>VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER</code>, and the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nullDescriptor" target="_blank" rel="noopener"><code>nullDescriptor</code></a> feature is not
 enabled, <code>pUniformTexelBuffer</code> <strong class="purple">must</strong> not be <code>NULL</code></p>
@@ -989,7 +989,7 @@ enabled, <code>pUniformTexelBuffer</code> <strong class="purple">must</strong> n
 <li>
 <p><a id="VUID-VkDescriptorDataEXT-type-08038" href="#VUID-VkDescriptorDataEXT-type-08038"></a> <span class="vuid">VUID-VkDescriptorDataEXT-type-08038</span><br>
 
-If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>:<code>type</code> is
+If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>::<code>type</code> is
 <code>VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER</code>, and the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nullDescriptor" target="_blank" rel="noopener"><code>nullDescriptor</code></a> feature is not
 enabled, <code>pStorageTexelBuffer</code> <strong class="purple">must</strong> not be <code>NULL</code></p>
@@ -997,7 +997,7 @@ enabled, <code>pStorageTexelBuffer</code> <strong class="purple">must</strong> n
 <li>
 <p><a id="VUID-VkDescriptorDataEXT-type-08039" href="#VUID-VkDescriptorDataEXT-type-08039"></a> <span class="vuid">VUID-VkDescriptorDataEXT-type-08039</span><br>
 
-If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>:<code>type</code> is
+If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>::<code>type</code> is
 <code>VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER</code>, and the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nullDescriptor" target="_blank" rel="noopener"><code>nullDescriptor</code></a> feature is not
 enabled, <code>pUniformBuffer</code> <strong class="purple">must</strong> not be <code>NULL</code></p>
@@ -1005,7 +1005,7 @@ enabled, <code>pUniformBuffer</code> <strong class="purple">must</strong> not be
 <li>
 <p><a id="VUID-VkDescriptorDataEXT-type-08040" href="#VUID-VkDescriptorDataEXT-type-08040"></a> <span class="vuid">VUID-VkDescriptorDataEXT-type-08040</span><br>
 
-If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>:<code>type</code> is
+If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>::<code>type</code> is
 <code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER</code>, and the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nullDescriptor" target="_blank" rel="noopener"><code>nullDescriptor</code></a> feature is not
 enabled, <code>pStorageBuffer</code> <strong class="purple">must</strong> not be <code>NULL</code></p>
@@ -1013,7 +1013,7 @@ enabled, <code>pStorageBuffer</code> <strong class="purple">must</strong> not be
 <li>
 <p><a id="VUID-VkDescriptorDataEXT-type-08041" href="#VUID-VkDescriptorDataEXT-type-08041"></a> <span class="vuid">VUID-VkDescriptorDataEXT-type-08041</span><br>
 
-If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>:<code>type</code> is
+If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>::<code>type</code> is
 <code>VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_KHR</code>, and the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nullDescriptor" target="_blank" rel="noopener"><code>nullDescriptor</code></a> feature is not
 enabled, <code>accelerationStructure</code> <strong class="purple">must</strong> not be <code>0</code></p>
@@ -1021,7 +1021,7 @@ enabled, <code>accelerationStructure</code> <strong class="purple">must</strong>
 <li>
 <p><a id="VUID-VkDescriptorDataEXT-type-08042" href="#VUID-VkDescriptorDataEXT-type-08042"></a> <span class="vuid">VUID-VkDescriptorDataEXT-type-08042</span><br>
 
-If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>:<code>type</code> is
+If <a href="VkDescriptorGetInfoEXT.html">VkDescriptorGetInfoEXT</a>::<code>type</code> is
 <code>VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_NV</code>, and the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-nullDescriptor" target="_blank" rel="noopener"><code>nullDescriptor</code></a> feature is not
 enabled, <code>accelerationStructure</code> <strong class="purple">must</strong> not be <code>0</code></p>

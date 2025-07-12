@@ -963,6 +963,22 @@ If <code>tensor</code> was created with the
 not be bound to a memory object allocated with a memory type that
 reports <code>VK_MEMORY_PROPERTY_PROTECTED_BIT</code></p>
 </li>
+<li>
+<p><a id="VUID-VkBindTensorMemoryInfoARM-tensor-09943" href="#VUID-VkBindTensorMemoryInfoARM-tensor-09943"></a> <span class="vuid">VUID-VkBindTensorMemoryInfoARM-tensor-09943</span><br>
+
+If <code>tensor</code> was created with the
+<code>VK_TENSOR_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_ARM</code> bit set,
+<code>memory</code> <strong class="purple">must</strong> have been allocated with the
+<code>VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_BIT</code> bit set</p>
+</li>
+<li>
+<p><a id="VUID-VkBindTensorMemoryInfoARM-tensor-09944" href="#VUID-VkBindTensorMemoryInfoARM-tensor-09944"></a> <span class="vuid">VUID-VkBindTensorMemoryInfoARM-tensor-09944</span><br>
+
+If <code>tensor</code> was created with the
+<code>VK_TENSOR_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_ARM</code> bit set,
+<code>memory</code> <strong class="purple">must</strong> have been allocated with the
+<code>VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT</code> bit set</p>
+</li>
 </ul>
 </div>
 </div>

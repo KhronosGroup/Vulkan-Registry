@@ -1219,6 +1219,36 @@ If <code>pStencilAttachment</code> is not <code>NULL</code>,
 <code>VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL</code></p>
 </li>
 <li>
+<p><a id="VUID-VkRenderingInfo-layerCount-07817" href="#VUID-VkRenderingInfo-layerCount-07817"></a> <span class="vuid">VUID-VkRenderingInfo-layerCount-07817</span><br>
+
+<code>layerCount</code> <strong class="purple">must</strong> be less than or equal to
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxFramebufferLayers" target="_blank" rel="noopener"><code>maxFramebufferLayers</code></a></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderingInfo-viewMask-10859" href="#VUID-VkRenderingInfo-viewMask-10859"></a> <span class="vuid">VUID-VkRenderingInfo-viewMask-10859</span><br>
+
+If <code>viewMask</code> is <code>0</code>, Each <code>pColorAttachment-&gt;imageView</code> and
+<code>pColorAttachment-&gt;resolveImageView</code> that is not
+<a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> <strong class="purple">must</strong> have a <code>layerCount</code> that is greater than
+or equal to <code>VkRenderingInfo</code>::<code>layerCount</code></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderingInfo-viewMask-10860" href="#VUID-VkRenderingInfo-viewMask-10860"></a> <span class="vuid">VUID-VkRenderingInfo-viewMask-10860</span><br>
+
+If <code>viewMask</code> is <code>0</code>, Each <code>pDepthAttachment-&gt;imageView</code> and
+<code>pDepthAttachment-&gt;resolveImageView</code> that is not
+<a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> <strong class="purple">must</strong> have a <code>layerCount</code> that is greater than
+or equal to <code>VkRenderingInfo</code>::<code>layerCount</code></p>
+</li>
+<li>
+<p><a id="VUID-VkRenderingInfo-viewMask-10861" href="#VUID-VkRenderingInfo-viewMask-10861"></a> <span class="vuid">VUID-VkRenderingInfo-viewMask-10861</span><br>
+
+If <code>viewMask</code> is <code>0</code>, Each <code>pStencilAttachment-&gt;imageView</code> and
+<code>pStencilAttachment-&gt;resolveImageView</code> that is not
+<a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> <strong class="purple">must</strong> have a <code>layerCount</code> that is greater than
+or equal to <code>VkRenderingInfo</code>::<code>layerCount</code></p>
+</li>
+<li>
 <p><a id="VUID-VkRenderingInfo-colorAttachmentCount-06096" href="#VUID-VkRenderingInfo-colorAttachmentCount-06096"></a> <span class="vuid">VUID-VkRenderingInfo-colorAttachmentCount-06096</span><br>
 
 If <code>colorAttachmentCount</code> is not <code>0</code> and the <code>imageView</code> member
@@ -1542,19 +1572,14 @@ in the <code>pNext</code> chain is not <a href="VK_NULL_HANDLE.html">VK_NULL_HAN
 for each element of <code>pDeviceRenderAreas</code></p>
 </li>
 <li>
-<p><a id="VUID-VkRenderingInfo-layerCount-07817" href="#VUID-VkRenderingInfo-layerCount-07817"></a> <span class="vuid">VUID-VkRenderingInfo-layerCount-07817</span><br>
-
-<code>layerCount</code> <strong class="purple">must</strong> be less than or equal to
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxFramebufferLayers" target="_blank" rel="noopener"><code>maxFramebufferLayers</code></a></p>
-</li>
-<li>
 <p><a id="VUID-VkRenderingInfo-imageView-06123" href="#VUID-VkRenderingInfo-imageView-06123"></a> <span class="vuid">VUID-VkRenderingInfo-imageView-06123</span><br>
 
 If the <code>imageView</code> member of a
 <a href="VkRenderingFragmentShadingRateAttachmentInfoKHR.html">VkRenderingFragmentShadingRateAttachmentInfoKHR</a> structure included
 in the <code>pNext</code> chain is not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, and <code>viewMask</code>
 is <code>0</code>, <code>imageView</code> <strong class="purple">must</strong> have a <code>layerCount</code> that is either
-equal to <code>1</code> or greater than or equal to <code>layerCount</code></p>
+equal to <code>1</code> or greater than or equal to
+<code>VkRenderingInfo</code>::<code>layerCount</code></p>
 </li>
 <li>
 <p><a id="VUID-VkRenderingInfo-imageView-06124" href="#VUID-VkRenderingInfo-imageView-06124"></a> <span class="vuid">VUID-VkRenderingInfo-imageView-06124</span><br>

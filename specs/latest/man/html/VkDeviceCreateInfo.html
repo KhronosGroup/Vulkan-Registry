@@ -1086,6 +1086,15 @@ include a <a href="VkPhysicalDeviceGlobalPriorityQueryFeatures.html">VkPhysicalD
 <a href="VkPhysicalDeviceHostImageCopyFeatures.html">VkPhysicalDeviceHostImageCopyFeatures</a> structure</p>
 </li>
 <li>
+<p><a id="VUID-VkDeviceCreateInfo-ppEnabledExtensionNames-10858" href="#VUID-VkDeviceCreateInfo-ppEnabledExtensionNames-10858"></a> <span class="vuid">VUID-VkDeviceCreateInfo-ppEnabledExtensionNames-10858</span><br>
+
+If <code>ppEnabledExtensionNames</code> contains <code>"VK_KHR_push_descriptor"</code> and
+the <code>pNext</code> chain includes a <a href="VkPhysicalDeviceVulkan14Features.html">VkPhysicalDeviceVulkan14Features</a>
+structure, then
+<code>VkPhysicalDeviceVulkan14Features</code>::<code>pushDescriptor</code> <strong class="purple">must</strong> be
+<code>VK_TRUE</code></p>
+</li>
+<li>
 <p><a id="VUID-VkDeviceCreateInfo-pProperties-04451" href="#VUID-VkDeviceCreateInfo-pProperties-04451"></a> <span class="vuid">VUID-VkDeviceCreateInfo-pProperties-04451</span><br>
 
 If the <code><a href="VK_KHR_portability_subset.html">VK_KHR_portability_subset</a></code> extension is included in

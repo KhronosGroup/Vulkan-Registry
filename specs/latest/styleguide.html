@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>Vulkan<sup>®</sup> Documentation and Extensions: Procedures and Conventions</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech, Tobias Hector</span><br>
-<span id="revnumber">version 1.4.321,</span>
-<span id="revdate">2025-07-03 23:44:45Z</span>
-<br><span id="revremark">from git branch: github-main commit: dad857284bf63d027ac9d6a97e9a1689831bab0d</span>
+<span id="revnumber">version 1.4.322,</span>
+<span id="revdate">2025-07-11 17:16:03Z</span>
+<br><span id="revremark">from git branch: github-main commit: 6ecb205ac29c6c07186c500460c1d9b837993ec2</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -6047,6 +6047,23 @@ scripts to report questionable terminology usage.
 This process will take some time.</p>
 </div>
 <div class="paragraph">
+<p>If use of a term on the list is absolutely unavoidable the CI script check
+can be bypassed by inserting a &#8220;word joiner&#8221; character into the markup of
+that term.
+Rendered HTML output will show this term as a single word and can be
+searched as such.</p>
+</div>
+<div class="paragraph">
+<p>Asciidoctor predefines the attribute <code>&#8288;</code> for this purpose:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example Markup</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">The external DRM API supported by the VK_EXT_acquire_drm_display
+extension uses the term "`DRM mast{wj}er` permissions".</code></pre>
+</div>
+</div>
+<div class="paragraph">
 <p>Some files in the repository are incorporated unmodified from external
 projects we do not control, and which may not comply with the Inclusive
 Language list.
@@ -6175,61 +6192,62 @@ of a structure as a &#8220;color space&#8221; value.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">bit plane</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">bitplane</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bit&#8288;plane</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">compile time</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">compile-time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">compile-&#8288;time</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Per Wikipedia &#8220;compile time&#8221;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">closest hit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">closest-hit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">closest-&#8288;hit</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">color space</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">colorspace</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">color&#8288;space</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not currently checked due to API naming conventions</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">cube map</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cubemap</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cube&#8288;map</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">double-buffer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">doublebuffer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">double&#8288;buffer</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">entry point</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">entry-point,<br>
-                  entrypoint</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Except if needed to disambiguate from surrounding terms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">entry-&#8288;point,<br>
+                  entry&#8288;point</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Except if needed to disambiguate from
+                                       surrounding terms</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">flat shading</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">flatshading</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">flat&#8288;shading</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GitHub</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Github</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Git&#8288;hub</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Site&#8217;s preferred spelling</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">indirect (drawing/dispatching) command</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">indirect command (draw/dispatch)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Even though related commands are named
-                                   <code>vk*Draw*Indirect</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Even though related commands are
+                                       named <code>vk*Draw*Indirect</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">LOD</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">lod,<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lo&#8288;d,<br>
                   level of detail,<br>
-                  level-of-detail</p></td>
+                  level-&#8288;of-detail</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Acronym for &#8220;Level of Detail&#8221;</p></td>
 </tr>
 <tr>
@@ -6237,41 +6255,42 @@ of a structure as a &#8220;color space&#8221; value.</p>
   mip layer<br>
   mip size <br>
   mip tail</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">miplevel<br>
-                  miplayer<br>
-                  mipsize <br>
-                  miptail</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8220;mipmap <strong>term</strong>&#8221; may be used in time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mip&#8288;level<br>
+                  mip&#8288;layer<br>
+                  mip&#8288;size <br>
+                  mip&#8288;tail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8220;mipmap <strong>term</strong>&#8221; may be used in time<br>
+                                       mip&#8288;level is not currently checked due to API naming conventions</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ray tracing</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">raytracing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ray&#8288;tracing</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">render pass</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">renderpass</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">render&#8288;pass</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not currently checked due to API naming conventions</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">reuse</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">re-use</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">re-&#8288;use</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">runtime</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">run time,<br>
-                  run-time</p></td>
+                  run-&#8288;time</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Arbitrary choice for consistency</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">side effect</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">side-effect</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">side-&#8288;effect</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">use case</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">use-case</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">use-&#8288;case</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>

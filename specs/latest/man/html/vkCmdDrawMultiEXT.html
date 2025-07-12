@@ -1764,47 +1764,17 @@ If the bound graphics pipeline state was created with the
 prior to this drawing command</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDrawMultiEXT-None-07833" href="#VUID-vkCmdDrawMultiEXT-None-07833"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-07833</span><br>
-
-If the bound graphics pipeline state was created with the
-<code>VK_DYNAMIC_STATE_LINE_WIDTH</code> dynamic state enabled then
-<a href="vkCmdSetLineWidth.html">vkCmdSetLineWidth</a> <strong class="purple">must</strong> have been called and not subsequently
-<a href="#dynamic-state-lifetime">invalidated</a> in the current command buffer
-prior to this drawing command</p>
-</li>
-<li>
 <p><a id="VUID-vkCmdDrawMultiEXT-None-08617" href="#VUID-vkCmdDrawMultiEXT-None-08617"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-08617</span><br>
 
-If a shader object is bound to any graphics stage, and the most recent
-call to <a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a> in the current command
-buffer set <code>rasterizerDiscardEnable</code> to <code>VK_FALSE</code>, and the most
-recent call to <a href="vkCmdSetPolygonModeEXT.html">vkCmdSetPolygonModeEXT</a> in the current command
-buffer set <code>polygonMode</code> to <code>VK_POLYGON_MODE_LINE</code>,
-<a href="vkCmdSetLineWidth.html">vkCmdSetLineWidth</a> <strong class="purple">must</strong> have been called and not subsequently
-<a href="#dynamic-state-lifetime">invalidated</a> in the current command buffer
-prior to this drawing command</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMultiEXT-None-08618" href="#VUID-vkCmdDrawMultiEXT-None-08618"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-08618</span><br>
-
-If a shader object is bound to any graphics stage, and the most recent
-call to <a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a> in the current command
-buffer set <code>rasterizerDiscardEnable</code> to <code>VK_FALSE</code>, and the most
-recent call to <a href="vkCmdSetPrimitiveTopology.html">vkCmdSetPrimitiveTopology</a> in the current command
-buffer set <code>primitiveTopology</code> to any line topology,
-<a href="vkCmdSetLineWidth.html">vkCmdSetLineWidth</a> <strong class="purple">must</strong> have been called and not subsequently
-<a href="#dynamic-state-lifetime">invalidated</a> in the current command buffer
-prior to this drawing command</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMultiEXT-None-08619" href="#VUID-vkCmdDrawMultiEXT-None-08619"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-08619</span><br>
-
-If a shader object that outputs line primitives is bound to the
-<code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> or
-<code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage, and the most recent call to
-<a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a> in the current command buffer set
-<code>rasterizerDiscardEnable</code> to <code>VK_FALSE</code>, <a href="vkCmdSetLineWidth.html">vkCmdSetLineWidth</a>
-<strong class="purple">must</strong> have been called and not subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current command buffer prior to this drawing
+If
+a shader object is bound to any graphics stage or
+a graphics pipeline is bound which was created with the
+<code>VK_DYNAMIC_STATE_LINE_WIDTH</code> dynamic state enabled, the
+<a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the
+<a href="#drawing-rasterization-input-topology">effective rasterization input
+topology</a> is in line topology class, then <a href="vkCmdSetLineWidth.html">vkCmdSetLineWidth</a> <strong class="purple">must</strong>
+have been called and not subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current command buffer prior to this drawing
 command</p>
 </li>
 <li>
@@ -3115,28 +3085,6 @@ been called and not subsequently <a href="#dynamic-state-lifetime">invalidated</
 in the current command buffer prior to this drawing command</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDrawMultiEXT-None-07628" href="#VUID-vkCmdDrawMultiEXT-None-07628"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-07628</span><br>
-
-If the bound graphics pipeline state was created with the
-<code>VK_DYNAMIC_STATE_COLOR_BLEND_EQUATION_EXT</code> dynamic state enabled
-then <a href="vkCmdSetColorBlendEquationEXT.html">vkCmdSetColorBlendEquationEXT</a> <strong class="purple">must</strong> have been called and not
-subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
-command buffer prior to this drawing command</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMultiEXT-None-08658" href="#VUID-vkCmdDrawMultiEXT-None-08658"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-08658</span><br>
-
-If a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code>
-stage, and the most recent call to <a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a>
-in the current command buffer set <code>rasterizerDiscardEnable</code> to
-<code>VK_FALSE</code>, and the most recent call to
-<a href="vkCmdSetColorBlendEnableEXT.html">vkCmdSetColorBlendEnableEXT</a> for any attachment set that
-attachment&#8217;s value in <code>pColorBlendEnables</code> to <code>VK_TRUE</code>, then
-<a href="vkCmdSetColorBlendEquationEXT.html">vkCmdSetColorBlendEquationEXT</a> <strong class="purple">must</strong> have been called and not
-subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
-command buffer prior to this drawing command</p>
-</li>
-<li>
 <p><a id="VUID-vkCmdDrawMultiEXT-None-07629" href="#VUID-vkCmdDrawMultiEXT-None-07629"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-07629</span><br>
 
 If
@@ -3194,6 +3142,20 @@ and not subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the
 current command buffer prior to this drawing command</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDrawMultiEXT-conservativePointAndLineRasterization-07499" href="#VUID-vkCmdDrawMultiEXT-conservativePointAndLineRasterization-07499"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-conservativePointAndLineRasterization-07499</span><br>
+
+If the <code><a href="VK_EXT_conservative_rasterization.html">VK_EXT_conservative_rasterization</a></code> extension is enabled,
+<a href="#limits-conservativePointAndLineRasterization"><code>conservativePointAndLineRasterization</code></a> is not supported,
+a shader object is bound to any graphics stage or
+a graphics pipeline is bound, the <a href="#dynamic-state-current-value">current
+value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the
+<a href="#drawing-rasterization-input-topology">effective rasterization input
+topology</a> is in line or point topology class, then the
+<a href="#dynamic-state-current-value">current value</a> of
+<code>conservativeRasterizationMode</code> <strong class="purple">must</strong> be
+<code>VK_CONSERVATIVE_RASTERIZATION_MODE_DISABLED_EXT</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDrawMultiEXT-None-07633" href="#VUID-vkCmdDrawMultiEXT-None-07633"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-07633</span><br>
 
 If the <a href="#features-depthClipEnable"><code>depthClipEnable</code></a> feature is
@@ -3202,27 +3164,6 @@ a shader object is bound to any graphics stage or
 a graphics pipeline is bound which was created with the
 <code>VK_DYNAMIC_STATE_DEPTH_CLIP_ENABLE_EXT</code> dynamic state, then
 <a href="vkCmdSetDepthClipEnableEXT.html">vkCmdSetDepthClipEnableEXT</a> <strong class="purple">must</strong> have been called and not
-subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
-command buffer prior to this drawing command</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMultiEXT-None-07635" href="#VUID-vkCmdDrawMultiEXT-None-07635"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-07635</span><br>
-
-If the bound graphics pipeline state was created with the
-<code>VK_DYNAMIC_STATE_COLOR_BLEND_ADVANCED_EXT</code> dynamic state enabled
-then <a href="vkCmdSetColorBlendAdvancedEXT.html">vkCmdSetColorBlendAdvancedEXT</a> <strong class="purple">must</strong> have been called and not
-subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
-command buffer prior to this drawing command</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMultiEXT-rasterizerDiscardEnable-09416" href="#VUID-vkCmdDrawMultiEXT-rasterizerDiscardEnable-09416"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-rasterizerDiscardEnable-09416</span><br>
-
-If the <code><a href="VK_EXT_blend_operation_advanced.html">VK_EXT_blend_operation_advanced</a></code> extension is enabled,
-and a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code>
-stage, and the most recent call to <a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a>
-in the current command buffer set <code>rasterizerDiscardEnable</code> to
-<code>VK_FALSE</code>, then at least one of <a href="vkCmdSetColorBlendEquationEXT.html">vkCmdSetColorBlendEquationEXT</a>
-and <a href="vkCmdSetColorBlendAdvancedEXT.html">vkCmdSetColorBlendAdvancedEXT</a> <strong class="purple">must</strong> have been called and not
 subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
 command buffer prior to this drawing command</p>
 </li>
@@ -3536,17 +3477,6 @@ subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
 command buffer prior to this drawing command</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDrawMultiEXT-pColorBlendEnables-07470" href="#VUID-vkCmdDrawMultiEXT-pColorBlendEnables-07470"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-pColorBlendEnables-07470</span><br>
-
-If the bound graphics pipeline state was created with the
-<code>VK_DYNAMIC_STATE_COLOR_BLEND_ENABLE_EXT</code> state enabled and the last
-call to <a href="vkCmdSetColorBlendEnableEXT.html">vkCmdSetColorBlendEnableEXT</a> set <code>pColorBlendEnables</code>
-for any attachment to <code>VK_TRUE</code>, then for those attachments in the
-subpass the corresponding image view&#8217;s
-<a href="#resources-image-view-format-features">format features</a> <strong class="purple">must</strong> contain
-<code>VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT</code></p>
-</li>
-<li>
 <p><a id="VUID-vkCmdDrawMultiEXT-rasterizationSamples-07471" href="#VUID-vkCmdDrawMultiEXT-rasterizationSamples-07471"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-rasterizationSamples-07471</span><br>
 
 If the bound graphics pipeline state was created with the
@@ -3628,32 +3558,6 @@ calls <strong class="purple">must</strong> specify an enable for all active colo
 current subpass</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDrawMultiEXT-firstAttachment-07477" href="#VUID-vkCmdDrawMultiEXT-firstAttachment-07477"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-firstAttachment-07477</span><br>
-
-If the bound graphics pipeline state was created with the
-<code>VK_DYNAMIC_STATE_COLOR_BLEND_EQUATION_EXT</code> dynamic state enabled
-then <a href="vkCmdSetColorBlendEquationEXT.html">vkCmdSetColorBlendEquationEXT</a> <strong class="purple">must</strong> have been called in the
-current command buffer prior to this drawing command, and the
-attachments specified by the <code>firstAttachment</code> and
-<code>attachmentCount</code> parameters of <code>vkCmdSetColorBlendEquationEXT</code>
-calls <strong class="purple">must</strong> specify the blend equations for all active color attachments
-in the current subpass where blending is enabled</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMultiEXT-rasterizerDiscardEnable-09418" href="#VUID-vkCmdDrawMultiEXT-rasterizerDiscardEnable-09418"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-rasterizerDiscardEnable-09418</span><br>
-
-If a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code>
-stage, and both the most recent call to
-<a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a> in the current command buffer set
-<code>rasterizerDiscardEnable</code> to <code>VK_FALSE</code> and there are color
-attachments bound, then <a href="vkCmdSetColorBlendEquationEXT.html">vkCmdSetColorBlendEquationEXT</a> <strong class="purple">must</strong> have
-been called in the current command buffer prior to this drawing command,
-and the attachments specified by the <code>firstAttachment</code> and
-<code>attachmentCount</code> parameters of <code>vkCmdSetColorBlendEquationEXT</code>
-calls <strong class="purple">must</strong> specify the blend equations for all active color attachments
-in the current subpass where blending is enabled</p>
-</li>
-<li>
 <p><a id="VUID-vkCmdDrawMultiEXT-firstAttachment-07478" href="#VUID-vkCmdDrawMultiEXT-firstAttachment-07478"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-firstAttachment-07478</span><br>
 
 If the bound graphics pipeline state was created with the
@@ -3678,18 +3582,6 @@ calls <strong class="purple">must</strong> specify the color write mask for all 
 attachments in the current subpass</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDrawMultiEXT-firstAttachment-07479" href="#VUID-vkCmdDrawMultiEXT-firstAttachment-07479"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-firstAttachment-07479</span><br>
-
-If the bound graphics pipeline state was created with the
-<code>VK_DYNAMIC_STATE_COLOR_BLEND_ADVANCED_EXT</code> dynamic state enabled
-then <a href="vkCmdSetColorBlendAdvancedEXT.html">vkCmdSetColorBlendAdvancedEXT</a> <strong class="purple">must</strong> have been called in the
-current command buffer prior to this drawing command, and the
-attachments specified by the <code>firstAttachment</code> and
-<code>attachmentCount</code> parameters of <code>vkCmdSetColorBlendAdvancedEXT</code>
-calls <strong class="purple">must</strong> specify the advanced blend equations for all active color
-attachments in the current subpass where blending is enabled</p>
-</li>
-<li>
 <p><a id="VUID-vkCmdDrawMultiEXT-advancedBlendMaxColorAttachments-07480" href="#VUID-vkCmdDrawMultiEXT-advancedBlendMaxColorAttachments-07480"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-advancedBlendMaxColorAttachments-07480</span><br>
 
 If the bound graphics pipeline state was created with the
@@ -3699,6 +3591,49 @@ the last calls to <a href="vkCmdSetColorBlendEnableEXT.html">vkCmdSetColorBlendE
 <a href="vkCmdSetColorBlendAdvancedEXT.html">vkCmdSetColorBlendAdvancedEXT</a> have enabled advanced blending, then
 the number of active color attachments in the current subpass <strong class="purple">must</strong> not
 exceed <a href="#limits-advancedBlendMaxColorAttachments"><code>advancedBlendMaxColorAttachments</code></a></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawMultiEXT-None-10862" href="#VUID-vkCmdDrawMultiEXT-None-10862"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-10862</span><br>
+
+If a graphics pipeline is bound was created with
+<code>VK_DYNAMIC_STATE_COLOR_BLEND_EQUATION_EXT</code>
+, but not the <code>VK_DYNAMIC_STATE_COLOR_BLEND_ADVANCED_EXT</code>
+dynamic state enabled, and the <a href="#dynamic-state-current-value">current
+value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then
+<a href="vkCmdSetColorBlendEquationEXT.html">vkCmdSetColorBlendEquationEXT</a> <strong class="purple">must</strong> have been called and not
+subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
+command buffer prior to this drawing command for all active color
+attachments with the <code>blendEnable</code> <a href="#dynamic-state-current-value">current value</a> of <code>VK_TRUE</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawMultiEXT-rasterizerDiscardEnable-10863" href="#VUID-vkCmdDrawMultiEXT-rasterizerDiscardEnable-10863"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-rasterizerDiscardEnable-10863</span><br>
+
+If a graphics pipeline is bound was created with
+<code>VK_DYNAMIC_STATE_COLOR_BLEND_ADVANCED_EXT</code>, but not the
+<code>VK_DYNAMIC_STATE_COLOR_BLEND_EQUATION_EXT</code> dynamic state enabled,
+and the <a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then
+<a href="vkCmdSetColorBlendAdvancedEXT.html">vkCmdSetColorBlendAdvancedEXT</a> <strong class="purple">must</strong> have been called and not
+subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
+command buffer prior to this drawing command for all active color
+attachments with the <code>blendEnable</code> <a href="#dynamic-state-current-value">current value</a> of <code>VK_TRUE</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawMultiEXT-None-10864" href="#VUID-vkCmdDrawMultiEXT-None-10864"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-None-10864</span><br>
+
+If
+a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code> stage
+or
+a graphics pipeline is bound was created with
+<code>VK_DYNAMIC_STATE_COLOR_BLEND_ADVANCED_EXT</code> and
+<code>VK_DYNAMIC_STATE_COLOR_BLEND_EQUATION_EXT</code> dynamic state enabled,
+and the <a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then
+either <a href="vkCmdSetColorBlendAdvancedEXT.html">vkCmdSetColorBlendAdvancedEXT</a> or
+<a href="vkCmdSetColorBlendEquationEXT.html">vkCmdSetColorBlendEquationEXT</a> <strong class="purple">must</strong> have been called and not
+subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
+command buffer prior to this drawing command for all active color
+attachments with the <code>blendEnable</code> <a href="#dynamic-state-current-value">current value</a> of <code>VK_TRUE</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMultiEXT-primitivesGeneratedQueryWithNonZeroStreams-07481" href="#VUID-vkCmdDrawMultiEXT-primitivesGeneratedQueryWithNonZeroStreams-07481"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-primitivesGeneratedQueryWithNonZeroStreams-07481</span><br>
@@ -4002,17 +3937,6 @@ enabled, and if the current <code>stippledLineEnable</code> state is
 <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>
 feature <strong class="purple">must</strong> be enabled and
 <a href="VkPhysicalDeviceLimits.html">VkPhysicalDeviceLimits</a>::<code>strictLines</code> <strong class="purple">must</strong> be <code>VK_TRUE</code></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMultiEXT-conservativePointAndLineRasterization-07499" href="#VUID-vkCmdDrawMultiEXT-conservativePointAndLineRasterization-07499"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-conservativePointAndLineRasterization-07499</span><br>
-
-If the bound graphics pipeline state was created with the
-<code>VK_DYNAMIC_STATE_CONSERVATIVE_RASTERIZATION_MODE_EXT</code> dynamic state
-enabled, <a href="#limits-conservativePointAndLineRasterization"><code>conservativePointAndLineRasterization</code></a> is not supported, and the
-effective primitive topology output by the last pre-rasterization shader
-stage is a line or point, then the <code>conservativeRasterizationMode</code>
-set by the last call to <a href="vkCmdSetConservativeRasterizationModeEXT.html">vkCmdSetConservativeRasterizationModeEXT</a>
-<strong class="purple">must</strong> be <code>VK_CONSERVATIVE_RASTERIZATION_MODE_DISABLED_EXT</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMultiEXT-stage-07073" href="#VUID-vkCmdDrawMultiEXT-stage-07073"></a> <span class="vuid">VUID-vkCmdDrawMultiEXT-stage-07073</span><br>
