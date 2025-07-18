@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.322,</span>
-<span id="revdate">2025-07-11 17:16:03Z</span>
-<br><span id="revremark">from git branch: github-main commit: 6ecb205ac29c6c07186c500460c1d9b837993ec2</span>
+<span id="revnumber">version 1.4.323,</span>
+<span id="revdate">2025-07-18 10:07:20Z</span>
+<br><span id="revremark">from git branch: github-main commit: 5d386163f25cca10d2af7be2bbea07d1e6fb52ba</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2663,8 +2663,8 @@ In this case, <code>type</code> is optional except when defining a
 <a href="#compile-time-constants">compile time constant</a>, in which case it is
 required when using some output generator paths.
 If present the attribute must be a C scalar type corresponding to the
-type of <code>value</code>, although only <code>uint32_t</code>, <code>uint64_t</code>, and <code>float</code>
-are currently meaningful.
+type of <code>value</code>, although only <code>uint8_t</code>, <code>uint32_t</code>, <code>uint64_t</code>,
+and <code>float</code> are currently meaningful.
 <code>type</code> is used by some output generators to generate constant
 declarations, although the default behavior is to use C <code>#define</code> for
 compile time constants.</p>
@@ -2877,8 +2877,9 @@ comma-separated list of Vulkan result code names.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p><code>errorcodes</code> should never include <code>VK_ERROR_UNKNOWN</code> or
-<code>VK_ERROR_VALIDATION_FAILED</code>.</p>
+<p><code>errorcodes</code> must include <code>VK_ERROR_UNKNOWN</code> and
+<code>VK_ERROR_VALIDATION_FAILED</code> even if there are no other possible error
+codes.</p>
 </div>
 </td>
 </tr>
@@ -2906,6 +2907,12 @@ A string identifying the command buffer levels that this command can be
 called by.
 The format of the string is one or more of the terms <code>"primary"</code> and
 <code>"secondary"</code>, with multiple terms separated by commas (<code>","</code>).</p>
+</li>
+<li>
+<p><code>conditionalrendering</code> - required for <code>vkCmd*</code> commands.
+Not allowed for other commands.
+A value of <code>"true"</code> specifies that this command is affected by
+conditional rendering, and <code>"false"</code> that it is not affected.</p>
 </li>
 <li>
 <p><code>allownoqueues</code> - optional.
@@ -6070,6 +6077,11 @@ Changes to the <code>.xml</code> files and Python scripts are logged in GitHub h
 <li>
 <p>2025-06-18 - Allow <code>selection</code> attributes of members of <a href="#tag-type"><code>"union"</code></a> types to include multiple comma-separated selections of the
 same member (internal issue 4246).</p>
+</li>
+<li>
+<p>2025-06-11 - Add <a href="#tag-command">command</a> attribute
+<code>conditionalrendering</code> to specify if a <code>vkCmd*</code> command may be
+affected by conditional rendering (internal issue 4287).</p>
 </li>
 <li>
 <p>2025-05-07 - Add "maybe" and "maybe:&lt;expression&gt;" to <code>externsync</code>

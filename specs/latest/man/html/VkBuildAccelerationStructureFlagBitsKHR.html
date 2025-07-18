@@ -838,6 +838,8 @@ typedef enum VkBuildAccelerationStructureFlagBitsKHR {
 #endif
   // Provided by VK_KHR_ray_tracing_position_fetch
     VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_BIT_KHR = 0x00000800,
+  // Provided by VK_NV_cluster_acceleration_structure
+    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_CLUSTER_OPACITY_MICROMAPS_BIT_NV = 0x00001000,
   // Provided by VK_NV_ray_tracing
     VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_UPDATE_BIT_NV = VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_UPDATE_BIT_KHR,
   // Provided by VK_NV_ray_tracing
@@ -937,6 +939,11 @@ structure update.</p>
 specifies that the specified acceleration structure <strong class="purple">may</strong> be referenced
 in an instance with
 <code>VK_GEOMETRY_INSTANCE_DISABLE_OPACITY_MICROMAPS_BIT_EXT</code> set.</p>
+</li>
+<li>
+<p><code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_CLUSTER_OPACITY_MICROMAPS_BIT_NV</code>
+specifies that opacity micromaps <strong class="purple">may</strong> be associated with the given
+cluster acceleration structure.</p>
 </li>
 <li>
 <p><code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_BIT_KHR</code>

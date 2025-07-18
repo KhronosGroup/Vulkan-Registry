@@ -1036,9 +1036,13 @@ typedef enum VkDebugReportObjectTypeEXT {
 <td class="content">
 <div class="paragraph">
 <p>The primary expected use of <code>VK_ERROR_VALIDATION_FAILED_EXT</code> is for
-validation layer testing.
+validation layer testing to prevent invalid commands from reaching the ICD.
 It is not expected that an application would see this error code during
-normal use of the validation layers.</p>
+normal use of the validation layers.
+If an application returns <code>VK_TRUE</code> in
+<a href="VkDebugUtilsMessengerCallbackDataEXT.html">VkDebugUtilsMessengerCallbackDataEXT</a>, the validation layers will
+return this error code instead of passing the command down the dispatch
+chain.</p>
 </div>
 </td>
 </tr>

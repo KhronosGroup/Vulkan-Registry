@@ -899,31 +899,33 @@ the cluster template.</p>
 of type <code>indexType</code>.</p>
 </li>
 <li>
-<p><code>vertexBuffer</code> is either <code>NULL</code> or specifies the vertex data of the
+<p><code>vertexBuffer</code> is either <code>0</code> or specifies the vertex data of the
 triangles in the cluster template with format specified in
 <a href="VkClusterAccelerationStructureTriangleClusterInputNV.html">VkClusterAccelerationStructureTriangleClusterInputNV</a>::<code>vertexFormat</code>.</p>
 </li>
 <li>
-<p><code>geometryIndexAndFlagsBuffer</code> is either <code>NULL</code> or an address
-containing strided
+<p><code>geometryIndexAndFlagsBuffer</code> is either <code>0</code> or an address containing
+strided
 <a href="VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV.html">VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV</a>
 values specifying the geometry index and flag for every triangle in the
 cluster.</p>
 </li>
 <li>
-<p><code>opacityMicromapArray</code> is either <code>NULL</code> or specifies the address of
-a valid opacity micromap array to reference from the cluster
-acceleration structure.
-If it is <code>NULL</code>, then opacity micromaps will be disabled for this
-cluster acceleration structure.</p>
+<p><code>opacityMicromapArray</code> is either <code>0</code> or specifies the address of a
+valid opacity micromap array to reference from the cluster acceleration
+structure.
+If it is <code>0</code>, then opacity micromaps will be disabled for this cluster
+acceleration structure.</p>
 </li>
 <li>
-<p><code>opacityMicromapIndexBuffer</code> is either <code>NULL</code> or specifies the
-address of a strided array with size equal to the number of triangles or
-indices into the opacity micromap array.</p>
+<p><code>opacityMicromapIndexBuffer</code> is either <code>0</code> or specifies the address
+of a strided array with size equal to the number of triangles or indices
+into the opacity micromap array.
+If <code>opacityMicromapIndexBuffer</code> is <code>0</code> then the index used is the
+index of the triangle in the geometry.</p>
 </li>
 <li>
-<p><code>instantiationBoundingBoxLimit</code> is either <code>NULL</code> or specifies the
+<p><code>instantiationBoundingBoxLimit</code> is either <code>0</code> or specifies the
 address of a bounding box within which all instantiated clusters <strong class="purple">must</strong>
 lie.
 The bounding box is specified by six 32-bit floating-point values in the
@@ -1048,6 +1050,14 @@ in
 The maximum geometry index after using the values in
 <code>baseGeometryIndex</code> and <code>geometryIndexBuffer</code> <strong class="purple">must</strong> be less than
 <a href="VkPhysicalDeviceClusterAccelerationStructurePropertiesNV.html">VkPhysicalDeviceClusterAccelerationStructurePropertiesNV</a>::<code>maxClusterGeometryIndex</code></p>
+</li>
+<li>
+<p><a id="VUID-VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV-opacityMicromapArray-10882" href="#VUID-VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV-opacityMicromapArray-10882"></a> <span class="vuid">VUID-VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV-opacityMicromapArray-10882</span><br>
+
+If <code>opacityMicromapArray</code> is not <code>0</code>, then the template cluster
+acceleration structure <strong class="purple">must</strong> have been built with
+<code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_CLUSTER_OPACITY_MICROMAPS_BIT_NV</code>
+flag set in <a href="VkClusterAccelerationStructureInputInfoNV.html">VkClusterAccelerationStructureInputInfoNV</a>::<code>flags</code></p>
 </li>
 </ul>
 </div>

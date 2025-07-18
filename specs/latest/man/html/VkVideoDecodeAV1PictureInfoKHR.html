@@ -1073,7 +1073,9 @@ section 6.10.14 of the <a href="https://registry.khronos.org/vulkan/specs/latest
 </div>
 </li>
 <li>
-<p>the <code>StdVideoAV1LoopRestoration</code> structure pointed to by
+<p>if <code>flags.UsesLr</code> is set in the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#encode-av1-active-sequence-header" target="_blank" rel="noopener">active sequence header</a>, then the
+<code>StdVideoAV1LoopRestoration</code> structure pointed to by
 <code>pLoopRestoration</code> is interpreted as follows:</p>
 <div class="ulist">
 <ul>
@@ -1091,8 +1093,8 @@ section 6.10.15 of the <a href="https://registry.khronos.org/vulkan/specs/latest
 </div>
 </li>
 <li>
-<p>the members of the <code>StdVideoAV1GlobalMotion</code> structure provided in
-<code>global_motion</code> are interpreted as defined in section 7.10 of the
+<p>the members of the <code>StdVideoAV1GlobalMotion</code> structure pointed to by
+<code>pGlobalMotion</code> are interpreted as defined in section 7.10 of the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#aomedia-av1" target="_blank" rel="noopener">AV1 Specification</a>;</p>
 </li>
 <li>

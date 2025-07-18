@@ -2578,25 +2578,17 @@ command buffer prior to this drawing command</p>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-attachmentCount-07750" href="#VUID-vkCmdDrawMeshTasksIndirectNV-attachmentCount-07750"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-attachmentCount-07750</span><br>
 
-If the bound graphics pipeline state was created with the
-<code>VK_DYNAMIC_STATE_COLOR_WRITE_ENABLE_EXT</code> dynamic state enabled then
-the <code>attachmentCount</code> parameter of <code>vkCmdSetColorWriteEnableEXT</code>
-<strong class="purple">must</strong> be greater than or equal to the
-<code>VkPipelineColorBlendStateCreateInfo</code>::<code>attachmentCount</code> of the
-bound graphics pipeline</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-None-08647" href="#VUID-vkCmdDrawMeshTasksIndirectNV-None-08647"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-None-08647</span><br>
-
 If the <a href="#features-colorWriteEnable"><code>colorWriteEnable</code></a> feature is
-enabled, and a shader object is bound to the
-<code>VK_SHADER_STAGE_FRAGMENT_BIT</code> stage, and the most recent call to
-<a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a> in the current command buffer set
-<code>rasterizerDiscardEnable</code> to <code>VK_FALSE</code>, then the
+enabled,
+a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code> stage
+or
+a graphics pipeline is bound which was created with the
+<code>VK_DYNAMIC_STATE_COLOR_WRITE_ENABLE_EXT</code> dynamic state enabled, and
+the <a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then the
 <code>attachmentCount</code> parameter of most recent call to
 <code>vkCmdSetColorWriteEnableEXT</code> in the current command buffer <strong class="purple">must</strong> be
-greater than or equal to the number of color attachments in the current
-render pass instance</p>
+greater than or equal to the number of active color attachments</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-None-07751" href="#VUID-vkCmdDrawMeshTasksIndirectNV-None-07751"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-None-07751</span><br>
@@ -3187,38 +3179,8 @@ a graphics pipeline is bound which was created with the
 <code>VK_DYNAMIC_STATE_LINE_RASTERIZATION_MODE_EXT</code> dynamic state
 enabled, and the <a href="#dynamic-state-current-value">current value</a> of
 <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the
-<a href="#dynamic-state-current-value">current value</a> of <code>polygonMode</code> is
-<code>VK_POLYGON_MODE_LINE</code>, then <a href="vkCmdSetLineRasterizationModeEXT.html">vkCmdSetLineRasterizationModeEXT</a>
-<strong class="purple">must</strong> have been called and not subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current command buffer prior to this drawing
-command</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-None-08667" href="#VUID-vkCmdDrawMeshTasksIndirectNV-None-08667"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-None-08667</span><br>
-
-If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and
-a shader object is bound or
-a graphics pipeline is bound which was created with the
-<code>VK_DYNAMIC_STATE_LINE_RASTERIZATION_MODE_EXT</code> dynamic state
-enabled, and a <code>VK_SHADER_STAGE_VERTEX_BIT</code> stage is bound, the
-<a href="#dynamic-state-current-value">current value</a> of
-<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the
-<a href="#dynamic-state-current-value">current value</a> of
-<code>primitiveTopology</code> is any line topology, then
-<a href="vkCmdSetLineRasterizationModeEXT.html">vkCmdSetLineRasterizationModeEXT</a> <strong class="purple">must</strong> have been called and not
-subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
-command buffer prior to this drawing command</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-None-08668" href="#VUID-vkCmdDrawMeshTasksIndirectNV-None-08668"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-None-08668</span><br>
-
-If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and
-a shader object is bound or
-a graphics pipeline is bound which was created with the
-<code>VK_DYNAMIC_STATE_LINE_RASTERIZATION_MODE_EXT</code> dynamic state
-enabled, either a <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> or
-<code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage is bound, and the
-<a href="#dynamic-state-current-value">current value</a> of
-<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then
+<a href="#drawing-rasterization-input-topology">effective rasterization input
+topology</a> is in line topology class, then
 <a href="vkCmdSetLineRasterizationModeEXT.html">vkCmdSetLineRasterizationModeEXT</a> <strong class="purple">must</strong> have been called and not
 subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
 command buffer prior to this drawing command</p>
@@ -3232,38 +3194,8 @@ a graphics pipeline is bound which was created with the
 <code>VK_DYNAMIC_STATE_LINE_STIPPLE_ENABLE_EXT</code> dynamic state enabled,
 the <a href="#dynamic-state-current-value">current value</a> of
 <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the
-<a href="#dynamic-state-current-value">current value</a> of <code>polygonMode</code> is
-<code>VK_POLYGON_MODE_LINE</code>, then <a href="vkCmdSetLineStippleEnableEXT.html">vkCmdSetLineStippleEnableEXT</a>
-<strong class="purple">must</strong> have been called and not subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current command buffer prior to this drawing
-command</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-None-08670" href="#VUID-vkCmdDrawMeshTasksIndirectNV-None-08670"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-None-08670</span><br>
-
-If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and
-a shader object is bound or
-a graphics pipeline is bound which was created with the
-<code>VK_DYNAMIC_STATE_LINE_STIPPLE_ENABLE_EXT</code> dynamic state enabled, a
-<code>VK_SHADER_STAGE_VERTEX_BIT</code> stage is bound, the
-<a href="#dynamic-state-current-value">current value</a> of
-<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the
-<a href="#dynamic-state-current-value">current value</a> of
-<code>primitiveTopology</code> is any line topology, then
-<a href="vkCmdSetLineStippleEnableEXT.html">vkCmdSetLineStippleEnableEXT</a> <strong class="purple">must</strong> have been called and not
-subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
-command buffer prior to this drawing command</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-None-08671" href="#VUID-vkCmdDrawMeshTasksIndirectNV-None-08671"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-None-08671</span><br>
-
-If any of the <a href="#features-stippledRectangularLines"><code>stippledRectangularLines</code></a>, <a href="#features-stippledBresenhamLines"><code>stippledBresenhamLines</code></a> or <a href="#features-stippledSmoothLines"><code>stippledSmoothLines</code></a> features are enabled, and
-a shader object is bound or
-a graphics pipeline is bound which was created with the
-<code>VK_DYNAMIC_STATE_LINE_STIPPLE_ENABLE_EXT</code> dynamic state enabled,
-either a <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> or
-<code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage is bound, the
-<a href="#dynamic-state-current-value">current value</a> of
-<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then
+<a href="#drawing-rasterization-input-topology">effective rasterization input
+topology</a> is in line topology class, then
 <a href="vkCmdSetLineStippleEnableEXT.html">vkCmdSetLineStippleEnableEXT</a> <strong class="purple">must</strong> have been called and not
 subsequently <a href="#dynamic-state-lifetime">invalidated</a> in the current
 command buffer prior to this drawing command</p>
@@ -3533,61 +3465,45 @@ then the <code>rasterizationSamples</code> in the last call to
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-firstAttachment-07476" href="#VUID-vkCmdDrawMeshTasksIndirectNV-firstAttachment-07476"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-firstAttachment-07476</span><br>
 
-If the bound graphics pipeline state was created with the
-<code>VK_DYNAMIC_STATE_COLOR_BLEND_ENABLE_EXT</code> dynamic state enabled then
-<a href="vkCmdSetColorBlendEnableEXT.html">vkCmdSetColorBlendEnableEXT</a> <strong class="purple">must</strong> have been called in the current
-command buffer prior to this drawing command, and the attachments
-specified by the <code>firstAttachment</code> and <code>attachmentCount</code>
-parameters of <code>vkCmdSetColorBlendEnableEXT</code> calls <strong class="purple">must</strong> specify an
-enable for all active color attachments in the current subpass</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-rasterizerDiscardEnable-09417" href="#VUID-vkCmdDrawMeshTasksIndirectNV-rasterizerDiscardEnable-09417"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-rasterizerDiscardEnable-09417</span><br>
-
-If a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code>
-stage, and the most recent call to <a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a>
-in the current command buffer set <code>rasterizerDiscardEnable</code> to
-<code>VK_FALSE</code>, then <a href="vkCmdSetColorBlendEnableEXT.html">vkCmdSetColorBlendEnableEXT</a> <strong class="purple">must</strong> have been
-called in the current command buffer prior to this drawing command, and
-the attachments specified by the <code>firstAttachment</code> and
-<code>attachmentCount</code> parameters of <code>vkCmdSetColorBlendEnableEXT</code>
-calls <strong class="purple">must</strong> specify an enable for all active color attachments in the
-current subpass</p>
+If
+a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code> stage
+or
+a graphics pipeline is bound was created with the
+<code>VK_DYNAMIC_STATE_COLOR_BLEND_ENABLE_EXT</code> dynamic states enabled,
+and the <a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then the last call to
+<a href="vkCmdSetColorBlendEnableEXT.html">vkCmdSetColorBlendEnableEXT</a> in the current command buffer prior to
+this drawing command <strong class="purple">must</strong> have set a value for all active color
+attachments</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-firstAttachment-07478" href="#VUID-vkCmdDrawMeshTasksIndirectNV-firstAttachment-07478"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-firstAttachment-07478</span><br>
 
-If the bound graphics pipeline state was created with the
-<code>VK_DYNAMIC_STATE_COLOR_WRITE_MASK_EXT</code> dynamic state enabled then
-<a href="vkCmdSetColorWriteMaskEXT.html">vkCmdSetColorWriteMaskEXT</a> <strong class="purple">must</strong> have been called in the current
-command buffer prior to this drawing command, and the attachments
-specified by the <code>firstAttachment</code> and <code>attachmentCount</code>
-parameters of <code>vkCmdSetColorWriteMaskEXT</code> calls <strong class="purple">must</strong> specify the
-color write mask for all active color attachments in the current subpass</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-rasterizerDiscardEnable-09419" href="#VUID-vkCmdDrawMeshTasksIndirectNV-rasterizerDiscardEnable-09419"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-rasterizerDiscardEnable-09419</span><br>
-
-If a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code>
-stage, and the most recent call to <a href="vkCmdSetRasterizerDiscardEnable.html">vkCmdSetRasterizerDiscardEnable</a>
-in the current command buffer set <code>rasterizerDiscardEnable</code> to
-<code>VK_FALSE</code>, then <a href="vkCmdSetColorWriteMaskEXT.html">vkCmdSetColorWriteMaskEXT</a> <strong class="purple">must</strong> have been
-called in the current command buffer prior to this drawing command, and
-the attachments specified by the <code>firstAttachment</code> and
-<code>attachmentCount</code> parameters of <code>vkCmdSetColorWriteMaskEXT</code>
-calls <strong class="purple">must</strong> specify the color write mask for all active color
-attachments in the current subpass</p>
+If
+a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code> stage
+or
+a graphics pipeline is bound was created with the
+<code>VK_DYNAMIC_STATE_COLOR_WRITE_MASK_EXT</code> dynamic states enabled, and
+the <a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then the last call to
+<a href="vkCmdSetColorWriteMaskEXT.html">vkCmdSetColorWriteMaskEXT</a> in the current command buffer prior to
+this drawing command <strong class="purple">must</strong> have set a value for all active color
+attachments</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-advancedBlendMaxColorAttachments-07480" href="#VUID-vkCmdDrawMeshTasksIndirectNV-advancedBlendMaxColorAttachments-07480"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-advancedBlendMaxColorAttachments-07480</span><br>
 
-If the bound graphics pipeline state was created with the
+If
+a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code> stage
+or
+a graphics pipeline is bound was created with the
 <code>VK_DYNAMIC_STATE_COLOR_BLEND_ADVANCED_EXT</code> and
-<code>VK_DYNAMIC_STATE_COLOR_BLEND_ENABLE_EXT</code> dynamic states enabled and
-the last calls to <a href="vkCmdSetColorBlendEnableEXT.html">vkCmdSetColorBlendEnableEXT</a> and
-<a href="vkCmdSetColorBlendAdvancedEXT.html">vkCmdSetColorBlendAdvancedEXT</a> have enabled advanced blending, then
-the number of active color attachments in the current subpass <strong class="purple">must</strong> not
-exceed <a href="#limits-advancedBlendMaxColorAttachments"><code>advancedBlendMaxColorAttachments</code></a></p>
+<code>VK_DYNAMIC_STATE_COLOR_BLEND_ENABLE_EXT</code> dynamic states enabled,
+the <a href="#dynamic-state-current-value">current value</a> of
+<code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and an active color
+attachment <a href="#dynamic-state-current-value">current value</a> of
+<code>blendEnable</code> is <code>VK_TRUE</code>, then the number of active color
+attachments <strong class="purple">must</strong> not exceed <a href="#limits-advancedBlendMaxColorAttachments"><code>advancedBlendMaxColorAttachments</code></a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksIndirectNV-None-10862" href="#VUID-vkCmdDrawMeshTasksIndirectNV-None-10862"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksIndirectNV-None-10862</span><br>
@@ -4418,6 +4334,14 @@ Secondary</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Conditional Rendering</div>
+<div class="paragraph">
+<p>vkCmdDrawMeshTasksIndirectNV is affected by <a href="#drawing-conditional-rendering">conditional rendering</a></p>
+</div>
 </div>
 </div>
 </div>

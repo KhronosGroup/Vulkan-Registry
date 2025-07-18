@@ -1087,10 +1087,10 @@ shader&#8217;s entry point <strong class="purple">must</strong> not declare a va
 <div class="ulist">
 <ul>
 <li>
-<p><code>VK_SUCCESS</code></p>
+<p><code>VK_INCOMPATIBLE_SHADER_BINARY_EXT</code></p>
 </li>
 <li>
-<p><code>VK_INCOMPATIBLE_SHADER_BINARY_EXT</code></p>
+<p><code>VK_SUCCESS</code></p>
 </li>
 </ul>
 </div>
@@ -1100,13 +1100,19 @@ shader&#8217;s entry point <strong class="purple">must</strong> not declare a va
 <div class="ulist">
 <ul>
 <li>
-<p><code>VK_ERROR_OUT_OF_HOST_MEMORY</code></p>
+<p><code>VK_ERROR_INITIALIZATION_FAILED</code></p>
 </li>
 <li>
 <p><code>VK_ERROR_OUT_OF_DEVICE_MEMORY</code></p>
 </li>
 <li>
-<p><code>VK_ERROR_INITIALIZATION_FAILED</code></p>
+<p><code>VK_ERROR_OUT_OF_HOST_MEMORY</code></p>
+</li>
+<li>
+<p><code>VK_ERROR_UNKNOWN</code></p>
+</li>
+<li>
+<p><code>VK_ERROR_VALIDATION_FAILED</code></p>
 </li>
 </ul>
 </div>

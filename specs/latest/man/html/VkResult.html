@@ -855,6 +855,8 @@ typedef enum VkResult {
     VK_ERROR_FORMAT_NOT_SUPPORTED = -11,
     VK_ERROR_FRAGMENTED_POOL = -12,
     VK_ERROR_UNKNOWN = -13,
+  // Provided by VK_VERSION_1_0
+    VK_ERROR_VALIDATION_FAILED = -1000011001,
   // Provided by VK_VERSION_1_1
     VK_ERROR_OUT_OF_POOL_MEMORY = -1000069000,
   // Provided by VK_VERSION_1_1
@@ -877,8 +879,6 @@ typedef enum VkResult {
     VK_ERROR_OUT_OF_DATE_KHR = -1000001004,
   // Provided by VK_KHR_display_swapchain
     VK_ERROR_INCOMPATIBLE_DISPLAY_KHR = -1000003001,
-  // Provided by VK_EXT_debug_report
-    VK_ERROR_VALIDATION_FAILED_EXT = -1000011001,
   // Provided by VK_NV_glsl_shader
     VK_ERROR_INVALID_SHADER_NV = -1000012000,
   // Provided by VK_KHR_video_queue
@@ -915,6 +915,8 @@ typedef enum VkResult {
     VK_PIPELINE_BINARY_MISSING_KHR = 1000483000,
   // Provided by VK_KHR_pipeline_binary
     VK_ERROR_NOT_ENOUGH_SPACE_KHR = -1000483000,
+  // Provided by VK_EXT_debug_report
+    VK_ERROR_VALIDATION_FAILED_EXT = VK_ERROR_VALIDATION_FAILED,
   // Provided by VK_KHR_maintenance1
     VK_ERROR_OUT_OF_POOL_MEMORY_KHR = VK_ERROR_OUT_OF_POOL_MEMORY,
   // Provided by VK_KHR_external_memory
@@ -1136,9 +1138,9 @@ This <strong class="purple">may</strong> occur due to implementation-dependent r
 application&#8217;s control.</p>
 </li>
 <li>
-<p><code>VK_ERROR_VALIDATION_FAILED_EXT</code>
-A command failed because invalid usage was detected by the
-implementation or a validation-layer.</p>
+<p><code>VK_ERROR_VALIDATION_FAILED</code> A command failed because invalid usage
+was detected by the implementation or a validation layer.
+This <strong class="purple">may</strong> result in the command not being dispatched to the ICD.</p>
 </li>
 <li>
 <p><code>VK_ERROR_COMPRESSION_EXHAUSTED_EXT</code> An image creation failed
@@ -1244,7 +1246,7 @@ Under these conditions, it <strong class="purple">may</strong> be returned from 
 <div class="paragraph">
 <p><code>VK_ERROR_UNKNOWN</code> is not expected to ever be returned if the
 application behavior is valid, and if the implementation is bug-free.
-If <code>VK_ERROR_UNKNOWN</code> is received, the application should be checked
+If <code>VK_ERROR_UNKNOWN</code> is returned, the application should be checked
 against the latest validation layers to verify correct behavior as much as
 possible.
 If no issues are identified it could be an implementation issue, and the
@@ -1256,9 +1258,7 @@ implementor should be contacted for support.</p>
 </div>
 <div class="paragraph">
 <p>Any command returning a <a href="VkResult.html">VkResult</a> <strong class="purple">may</strong> return
-<code>VK_ERROR_VALIDATION_FAILED_EXT</code>
-if a violation of valid usage is detected, even though commands do not
-explicitly list this as a possible return code.</p>
+<code>VK_ERROR_VALIDATION_FAILED</code> if a violation of valid usage is detected.</p>
 </div>
 <div class="paragraph">
 <p>Performance-critical commands generally do not have return codes.

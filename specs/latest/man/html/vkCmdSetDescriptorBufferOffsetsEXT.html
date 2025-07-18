@@ -870,7 +870,7 @@ to apply to the bound descriptor buffers.</p>
 <p><code>vkCmdSetDescriptorBufferOffsetsEXT</code> binds <code>setCount</code> pairs of
 descriptor buffers, specified by indices into the binding points bound using
 <a href="vkCmdBindDescriptorBuffersEXT.html">vkCmdBindDescriptorBuffersEXT</a>, and buffer offsets to set numbers
-[<code>firstSet</code>..<code>firstSet</code>+<code>descriptorSetCount</code>-1] for subsequent
+[<code>firstSet</code>..<code>firstSet</code>+<code>setCount</code>-1] for subsequent
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-bindpoint-commands" target="_blank" rel="noopener">bound pipeline commands</a> set by
 <code>pipelineBindPoint</code>.
 Set [<code>firstSet</code> + i] is bound to the descriptor buffer at binding
@@ -1142,6 +1142,14 @@ Data_Graph</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Conditional Rendering</div>
+<div class="paragraph">
+<p>vkCmdSetDescriptorBufferOffsetsEXT is not affected by <a href="#drawing-conditional-rendering">conditional rendering</a></p>
+</div>
 </div>
 </div>
 </div>

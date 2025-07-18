@@ -897,32 +897,34 @@ tightly-packed.</p>
 tightly-packed.</p>
 </li>
 <li>
-<p><code>indexBuffer</code> contains the indices of vertices in the cluster and is
-of type <code>indexType</code>.</p>
+<p><code>indexBuffer</code> is a device address containing the indices of the
+vertices in the cluster and are of type <code>indexType</code>.</p>
 </li>
 <li>
-<p><code>vertexBuffer</code> specifies the vertex data of the triangles in the
-cluster with format specified in
+<p><code>vertexBuffer</code> is a device address containing the vertex data of the
+triangles in the cluster with format specified in
 <a href="VkClusterAccelerationStructureTriangleClusterInputNV.html">VkClusterAccelerationStructureTriangleClusterInputNV</a>::<code>vertexFormat</code>.</p>
 </li>
 <li>
 <p><a id="cluster-geometry-index-flags"></a> <code>geometryIndexAndFlagsBuffer</code> is
-either <code>NULL</code> or an address containing strided
+either <code>0</code> or an address containing strided
 <a href="VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV.html">VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV</a>
 values specifying the geometry index and flag for every triangle in the
 cluster.</p>
 </li>
 <li>
-<p><code>opacityMicromapArray</code> is either <code>NULL</code> or specifies the address of
-a valid opacity micromap array to reference from the cluster
-acceleration structure.
-If it is <code>NULL</code>, then opacity micromaps will be disabled for this
-cluster acceleration structure.</p>
+<p><code>opacityMicromapArray</code> is either <code>0</code> or specifies the address of a
+valid opacity micromap array to reference from the cluster acceleration
+structure.
+If it is <code>0</code>, then opacity micromaps will be disabled for this cluster
+acceleration structure.</p>
 </li>
 <li>
-<p><code>opacityMicromapIndexBuffer</code> is either <code>NULL</code> or specifies the
-address of a strided array with size equal to the number of triangles or
-indices into the opacity micromap array.</p>
+<p><code>opacityMicromapIndexBuffer</code> is either <code>0</code> or specifies the address
+of a strided array with size equal to the number of triangles or indices
+into the opacity micromap array.
+If <code>opacityMicromapIndexBuffer</code> is <code>0</code> then the index used is the
+index of the triangle in the geometry.</p>
 </li>
 </ul>
 </div>
@@ -1032,6 +1034,14 @@ in
 The maximum geometry index after using the values in
 <code>baseGeometryIndex</code> and <code>geometryIndexBuffer</code> <strong class="purple">must</strong> be less than
 <a href="VkPhysicalDeviceClusterAccelerationStructurePropertiesNV.html">VkPhysicalDeviceClusterAccelerationStructurePropertiesNV</a>::<code>maxClusterGeometryIndex</code></p>
+</li>
+<li>
+<p><a id="VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-opacityMicromapArray-10881" href="#VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-opacityMicromapArray-10881"></a> <span class="vuid">VUID-VkClusterAccelerationStructureBuildTriangleClusterInfoNV-opacityMicromapArray-10881</span><br>
+
+If <code>opacityMicromapArray</code> is not <code>0</code>, then the cluster acceleration
+structure <strong class="purple">must</strong> have been built with
+<code>VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_CLUSTER_OPACITY_MICROMAPS_BIT_NV</code>
+flag set in <a href="VkClusterAccelerationStructureInputInfoNV.html">VkClusterAccelerationStructureInputInfoNV</a>::<code>flags</code></p>
 </li>
 </ul>
 </div>

@@ -2073,6 +2073,15 @@ The sum of size in bytes for variables and <a href="https://registry.khronos.org
 or equal to <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxTaskPayloadAndSharedMemorySize" target="_blank" rel="noopener"><code>maxTaskPayloadAndSharedMemorySize</code></a></p>
 </li>
 <li>
+<p><a id="VUID-RuntimeSpirv-MeshEXT-10883" href="#VUID-RuntimeSpirv-MeshEXT-10883"></a> <span class="vuid">VUID-RuntimeSpirv-MeshEXT-10883</span><br>
+
+If the <code>MeshEXT</code> <code>Execution</code> <code>Model</code> declares a variable with the
+<code>TaskPayloadWorkgroupEXT</code> <code>Storage</code> <code>Class</code> in the entry point, there
+must be a matching <code>TaskPayloadWorkgroupEXT</code> <code>Storage</code> <code>Class</code> variable
+in the <code>TaskEXT</code> <code>Execution</code> <code>Model</code> passed as an argument to
+<code>OpEmitMeshTasksEXT</code></p>
+</li>
+<li>
 <p><a id="VUID-RuntimeSpirv-OpCooperativeMatrixLoadKHR-08986" href="#VUID-RuntimeSpirv-OpCooperativeMatrixLoadKHR-08986"></a> <span class="vuid">VUID-RuntimeSpirv-OpCooperativeMatrixLoadKHR-08986</span><br>
 
 For <code>OpCooperativeMatrixLoadKHR</code> and <code>OpCooperativeMatrixStoreKHR</code>

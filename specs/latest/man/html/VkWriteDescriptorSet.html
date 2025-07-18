@@ -1182,6 +1182,14 @@ structure whose <code>accelerationStructureCount</code> member equals
 <code>descriptorCount</code></p>
 </li>
 <li>
+<p><a id="VUID-VkWriteDescriptorSet-descriptorType-09945" href="#VUID-VkWriteDescriptorSet-descriptorType-09945"></a> <span class="vuid">VUID-VkWriteDescriptorSet-descriptorType-09945</span><br>
+
+If <code>descriptorType</code> is <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code>, the
+<code>pNext</code> chain <strong class="purple">must</strong> include a <a href="VkWriteDescriptorSetTensorARM.html">VkWriteDescriptorSetTensorARM</a>
+structure whose <code>tensorViewCount</code> member equals
+<code>descriptorCount</code></p>
+</li>
+<li>
 <p><a id="VUID-VkWriteDescriptorSet-descriptorType-01946" href="#VUID-VkWriteDescriptorSet-descriptorType-01946"></a> <span class="vuid">VUID-VkWriteDescriptorSet-descriptorType-01946</span><br>
 
 If <code>descriptorType</code> is <code>VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE</code>, then
