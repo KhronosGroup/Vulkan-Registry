@@ -865,13 +865,6 @@ the <code>VK_BUFFER_USAGE_INDEX_BUFFER_BIT</code> bit set</p>
 The <code>bufferAddress</code> <strong class="purple">must</strong> be aligned to the <a href="VkIndexType.html">VkIndexType</a> of the
 <code>indexType</code> used</p>
 </li>
-<li>
-<p><a id="VUID-VkBindIndexBufferIndirectCommandEXT-None-11119" href="#VUID-VkBindIndexBufferIndirectCommandEXT-None-11119"></a> <span class="vuid">VUID-VkBindIndexBufferIndirectCommandEXT-None-11119</span><br>
-
-Each element of the buffer from which the address was acquired and that
-is non-sparse <strong class="purple">must</strong> be bound completely and contiguously to a single
-<code>VkDeviceMemory</code> object</p>
-</li>
 </ul>
 </div>
 </div>
@@ -881,6 +874,10 @@ is non-sparse <strong class="purple">must</strong> be bound completely and conti
 <div class="title">Valid Usage (Implicit)</div>
 <div class="ulist">
 <ul>
+<li>
+<p><a id="VUID-VkBindIndexBufferIndirectCommandEXT-bufferAddress-parameter" href="#VUID-VkBindIndexBufferIndirectCommandEXT-bufferAddress-parameter"></a> <span class="vuid">VUID-VkBindIndexBufferIndirectCommandEXT-bufferAddress-parameter</span><br>
+ <code>bufferAddress</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
+</li>
 <li>
 <p><a id="VUID-VkBindIndexBufferIndirectCommandEXT-indexType-parameter" href="#VUID-VkBindIndexBufferIndirectCommandEXT-indexType-parameter"></a> <span class="vuid">VUID-VkBindIndexBufferIndirectCommandEXT-indexType-parameter</span><br>
  <code>indexType</code> <strong class="purple">must</strong> be a valid <a href="VkIndexType.html">VkIndexType</a> value</p>

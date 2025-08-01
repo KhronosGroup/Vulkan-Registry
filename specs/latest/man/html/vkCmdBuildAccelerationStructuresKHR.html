@@ -883,6 +883,22 @@ memories or scratch memories being used by any of the builds.</p>
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A <a href="VkAccelerationStructureBuildRangeInfoKHR.html">VkAccelerationStructureBuildRangeInfoKHR</a> structure is not used when
+building an acceleration structure with a geometry type of
+<code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div id="acceleration-structure-scratch" class="paragraph">
 <p>Accesses to the acceleration structure scratch buffers as identified by the
 <a href="VkAccelerationStructureBuildGeometryInfoKHR.html">VkAccelerationStructureBuildGeometryInfoKHR</a>::<code>scratchData</code> buffer
@@ -906,6 +922,7 @@ and
 <div class="paragraph">
 <p>Accesses to other input buffers as identified by any used values of
 <a href="VkAccelerationStructureGeometryMotionTrianglesDataNV.html">VkAccelerationStructureGeometryMotionTrianglesDataNV</a>::<code>vertexData</code>,
+<a href="VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX.html">VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</a>::<code>compressedData</code>,
 <a href="VkAccelerationStructureGeometryTrianglesDataKHR.html">VkAccelerationStructureGeometryTrianglesDataKHR</a>::<code>vertexData</code>,
 <a href="VkAccelerationStructureGeometryTrianglesDataKHR.html">VkAccelerationStructureGeometryTrianglesDataKHR</a>::<code>indexData</code>,
 <a href="VkAccelerationStructureGeometryTrianglesDataKHR.html">VkAccelerationStructureGeometryTrianglesDataKHR</a>::<code>transformData</code>,
@@ -1197,6 +1214,84 @@ is <code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, if its
 <code>NULL</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10898" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10898"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10898</span><br>
+
+For each element of <code>pInfos</code>, if its <code>mode</code> member is
+<code>VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR</code>, then for each
+<code>VkAccelerationStructureGeometryKHR</code> structure referred to by its
+<code>pGeometries</code> or <code>ppGeometries</code> members, if <code>geometryType</code>
+is <code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>numTriangles</code> member of the
+<code>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</code>
+structure in the <code>pNext</code> chain <strong class="purple">must</strong> have the same value which was
+specified when <code>srcAccelerationStructure</code> was last built</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10899" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10899"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10899</span><br>
+
+For each element of <code>pInfos</code>, if its <code>mode</code> member is
+<code>VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR</code>, then for each
+<code>VkAccelerationStructureGeometryKHR</code> structure referred to by its
+<code>pGeometries</code> or <code>ppGeometries</code> members, if <code>geometryType</code>
+is <code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>numVertices</code> member of the
+<code>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</code>
+structure in the <code>pNext</code> chain <strong class="purple">must</strong> have the same value which was
+specified when <code>srcAccelerationStructure</code> was last built</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10900" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10900"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10900</span><br>
+
+For each element of <code>pInfos</code>, if its <code>mode</code> member is
+<code>VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR</code>, then for each
+<code>VkAccelerationStructureGeometryKHR</code> structure referred to by its
+<code>pGeometries</code> or <code>ppGeometries</code> members, if <code>geometryType</code>
+is <code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>maxPrimitiveIndex</code> member of the
+<code>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</code>
+structure in the <code>pNext</code> chain <strong class="purple">must</strong> have the same value which was
+specified when <code>srcAccelerationStructure</code> was last built</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10901" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10901"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10901</span><br>
+
+For each element of <code>pInfos</code>, if its <code>mode</code> member is
+<code>VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR</code>, then for each
+<code>VkAccelerationStructureGeometryKHR</code> structure referred to by its
+<code>pGeometries</code> or <code>ppGeometries</code> members, if <code>geometryType</code>
+is <code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>maxGeometryIndex</code> member of the
+<code>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</code>
+structure in the <code>pNext</code> chain <strong class="purple">must</strong> have the same value which was
+specified when <code>srcAccelerationStructure</code> was last built</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10902" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10902"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10902</span><br>
+
+For each element of <code>pInfos</code>, if its <code>mode</code> member is
+<code>VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR</code>, then for each
+<code>VkAccelerationStructureGeometryKHR</code> structure referred to by its
+<code>pGeometries</code> or <code>ppGeometries</code> members, if <code>geometryType</code>
+is <code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>format</code> member of the
+<code>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</code>
+structure in the <code>pNext</code> chain <strong class="purple">must</strong> have the same value which was
+specified when <code>srcAccelerationStructure</code> was last built</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10903" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10903"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10903</span><br>
+
+For each element of <code>pInfos</code>, if its <code>mode</code> member is
+<code>VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR</code>, then for each
+<code>VkAccelerationStructureGeometryKHR</code> structure referred to by its
+<code>pGeometries</code> or <code>ppGeometries</code> members, if <code>geometryType</code>
+is <code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>dataSize</code> member of the
+<code>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</code>
+structure in the <code>pNext</code> chain <strong class="purple">must</strong> have the same value which was
+specified when <code>srcAccelerationStructure</code> was last built</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03768" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03768"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03768</span><br>
 
 For each element of <code>pInfos</code>, if its <code>mode</code> member is
@@ -1308,15 +1403,7 @@ been created with <code>VK_BUFFER_USAGE_STORAGE_BUFFER_BIT</code> usage flag</p>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03802" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03802"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03802</span><br>
 
 For each element of <code>pInfos</code>, its <code>scratchData.deviceAddress</code>
-member <strong class="purple">must</strong> be a valid device address obtained from
-<a href="vkGetBufferDeviceAddress.html">vkGetBufferDeviceAddress</a></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03803" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03803"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03803</span><br>
-
-For each element of <code>pInfos</code>, if <code>scratchData.deviceAddress</code> is
-the address of a non-sparse buffer then it <strong class="purple">must</strong> be bound completely and
-contiguously to a single <a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
+member <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03710" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03710"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03710</span><br>
@@ -1332,17 +1419,7 @@ For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
 <code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
 <code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>,
 <code>geometry.triangles.vertexData.deviceAddress</code> <strong class="purple">must</strong> be a valid
-device address obtained from <a href="vkGetBufferDeviceAddress.html">vkGetBufferDeviceAddress</a></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03805" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03805"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03805</span><br>
-
-For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
-<code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
-<code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, if
-<code>geometry.triangles.vertexData.deviceAddress</code> is the address of a
-non-sparse buffer then it <strong class="purple">must</strong> be bound completely and contiguously to
-a single <a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
+<a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03711" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03711"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03711</span><br>
@@ -1361,19 +1438,8 @@ For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
 <code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
 <code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, if
 <code>geometry.triangles.indexType</code> is not <code>VK_INDEX_TYPE_NONE_KHR</code>,
-<code>geometry.triangles.indexData.deviceAddress</code> <strong class="purple">must</strong> be a valid device
-address obtained from <a href="vkGetBufferDeviceAddress.html">vkGetBufferDeviceAddress</a></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03807" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03807"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03807</span><br>
-
-For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
-<code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
-<code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, if
-<code>geometry.triangles.indexType</code> is not <code>VK_INDEX_TYPE_NONE_KHR</code>,
-if <code>geometry.triangles.indexData.deviceAddress</code> is the address of a
-non-sparse buffer then it <strong class="purple">must</strong> be bound completely and contiguously to
-a single <a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
+<code>geometry.triangles.indexData.deviceAddress</code> <strong class="purple">must</strong> be a valid
+<a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03712" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03712"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03712</span><br>
@@ -1393,18 +1459,7 @@ For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
 <code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
 <code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, if
 <code>geometry.triangles.transformData.deviceAddress</code> is not <code>0</code>, it
-<strong class="purple">must</strong> be a valid device address obtained from
-<a href="vkGetBufferDeviceAddress.html">vkGetBufferDeviceAddress</a></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03809" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03809"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03809</span><br>
-
-For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
-<code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
-<code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, if
-<code>geometry.triangles.transformData.deviceAddress</code> is the address of a
-non-sparse buffer then it <strong class="purple">must</strong> be bound completely and contiguously to
-a single <a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
+<strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03810" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03810"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03810</span><br>
@@ -1421,18 +1476,8 @@ For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
 For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
 <code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
 <code>VK_GEOMETRY_TYPE_AABBS_KHR</code>,
-<code>geometry.aabbs.data.deviceAddress</code> <strong class="purple">must</strong> be a valid device address
-obtained from <a href="vkGetBufferDeviceAddress.html">vkGetBufferDeviceAddress</a></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03812" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03812"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03812</span><br>
-
-For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
-<code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
-<code>VK_GEOMETRY_TYPE_AABBS_KHR</code>, if
-<code>geometry.aabbs.data.deviceAddress</code> is the address of a non-sparse
-buffer then it <strong class="purple">must</strong> be bound completely and contiguously to a single
-<a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
+<code>geometry.aabbs.data.deviceAddress</code> <strong class="purple">must</strong> be a valid
+<a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03714" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03714"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03714</span><br>
@@ -1476,18 +1521,8 @@ aligned to <code>16</code> bytes</p>
 For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
 <code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
 <code>VK_GEOMETRY_TYPE_INSTANCES_KHR</code>,
-<code>geometry.instances.data.deviceAddress</code> <strong class="purple">must</strong> be a valid device
-address obtained from <a href="vkGetBufferDeviceAddress.html">vkGetBufferDeviceAddress</a></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03814" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03814"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-03814</span><br>
-
-For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
-<code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
-<code>VK_GEOMETRY_TYPE_INSTANCES_KHR</code>, if
-<code>geometry.instances.data.deviceAddress</code> is the address of a
-non-sparse buffer then it <strong class="purple">must</strong> be bound completely and contiguously to
-a single <a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
+<code>geometry.instances.data.deviceAddress</code> <strong class="purple">must</strong> be a valid
+<a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-06707" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-06707"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-06707</span><br>
@@ -1496,9 +1531,9 @@ For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
 <code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
 <code>VK_GEOMETRY_TYPE_INSTANCES_KHR</code>, each
 <a href="VkAccelerationStructureInstanceKHR.html">VkAccelerationStructureInstanceKHR</a>::<code>accelerationStructureReference</code>
-value in <code>geometry.instances.data.deviceAddress</code> <strong class="purple">must</strong> be a valid
-device address containing a value obtained from
-<a href="vkGetAccelerationStructureDeviceAddressKHR.html">vkGetAccelerationStructureDeviceAddressKHR</a> or <code>0</code></p>
+value in <code>geometry.instances.data.deviceAddress</code> <strong class="purple">must</strong> be <code>0</code> or a
+value obtained from <a href="vkGetAccelerationStructureDeviceAddressKHR.html">vkGetAccelerationStructureDeviceAddressKHR</a> for
+a valid acceleration structure</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10607" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10607"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10607</span><br>
@@ -1517,6 +1552,28 @@ set in <a href="VkAccelerationStructureBuildGeometryInfoKHR.html">VkAcceleration
 <p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-commandBuffer-09547" href="#VUID-vkCmdBuildAccelerationStructuresKHR-commandBuffer-09547"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-commandBuffer-09547</span><br>
 
 <code>commandBuffer</code> <strong class="purple">must</strong> not be a protected command buffer</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10904" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10904"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10904</span><br>
+
+For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
+<code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
+<code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, if there is an instance of
+<a href="VkAccelerationStructureTrianglesOpacityMicromapEXT.html">VkAccelerationStructureTrianglesOpacityMicromapEXT</a> in the
+<code>geometry.triangles.pNext</code> chain, and its <code>indexType</code> is
+<code>VK_INDEX_TYPE_NONE_KHR</code>, then its <code>indexBuffer.deviceAddress</code>
+<strong class="purple">must</strong> be 0</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10905" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10905"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10905</span><br>
+
+For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
+<code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
+<code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, if there is an instance of
+<a href="VkAccelerationStructureTrianglesOpacityMicromapEXT.html">VkAccelerationStructureTrianglesOpacityMicromapEXT</a> in the
+<code>geometry.triangles.pNext</code> chain, and its <code>indexType</code> is not
+<code>VK_INDEX_TYPE_NONE_KHR</code>, then its <code>indexBuffer.deviceAddress</code>
+<strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
 </li>
 </ul>
 </div>
@@ -1552,7 +1609,16 @@ updating a compacted acceleration structure</p>
 
 Each element of <code>ppBuildRangeInfos</code>[i] <strong class="purple">must</strong> be a valid pointer to
 an array of <code>pInfos</code>[i].<code>geometryCount</code>
-<code>VkAccelerationStructureBuildRangeInfoKHR</code> structures</p>
+<code>VkAccelerationStructureBuildRangeInfoKHR</code> structures
+, or <code>NULL</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10906" href="#VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10906"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-pInfos-10906</span><br>
+
+For each element of <code>pInfos</code>[i] whose <code>pGeometries</code> or
+<code>ppGeometries</code> members have a <code>geometryType</code> of
+<code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>,
+<code>ppBuildRangeInfos</code>[i] <strong class="purple">must</strong> be <code>NULL</code></p>
 </li>
 </ul>
 </div>

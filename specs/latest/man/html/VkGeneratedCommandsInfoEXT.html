@@ -919,7 +919,7 @@ indirect token, <code>maxDrawCount</code> is ignored.</p>
 <p><a id="VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11063" href="#VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11063"></a> <span class="vuid">VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11063</span><br>
 
 If <a href="vkGetGeneratedCommandsMemoryRequirementsEXT.html">vkGetGeneratedCommandsMemoryRequirementsEXT</a> returns a non-zero
-size, <code>preprocessAddress</code> <strong class="purple">must</strong> not be <code>NULL</code></p>
+size, <code>preprocessAddress</code> <strong class="purple">must</strong> not be <code>0</code></p>
 </li>
 <li>
 <p><a id="VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11064" href="#VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11064"></a> <span class="vuid">VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11064</span><br>
@@ -980,13 +980,6 @@ The underlying buffer for <code>preprocessAddress</code> <strong class="purple">
 flag</p>
 </li>
 <li>
-<p><a id="VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11070" href="#VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11070"></a> <span class="vuid">VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-11070</span><br>
-
-If the underlying buffer for <code>preprocessAddress</code> is non-sparse then
-it <strong class="purple">must</strong> be bound completely and contiguously to a single
-<code>VkDeviceMemory</code> object</p>
-</li>
-<li>
 <p><a id="VUID-VkGeneratedCommandsInfoEXT-indirectCommandsLayout-11144" href="#VUID-VkGeneratedCommandsInfoEXT-indirectCommandsLayout-11144"></a> <span class="vuid">VUID-VkGeneratedCommandsInfoEXT-indirectCommandsLayout-11144</span><br>
 
 If the <code>indirectCommandsLayout</code> contains a
@@ -1033,18 +1026,6 @@ If <code>sequenceCountAddress</code> is not <code>NULL</code>, <code>sequenceCou
 <p><a id="VUID-VkGeneratedCommandsInfoEXT-indirectAddress-11074" href="#VUID-VkGeneratedCommandsInfoEXT-indirectAddress-11074"></a> <span class="vuid">VUID-VkGeneratedCommandsInfoEXT-indirectAddress-11074</span><br>
 
 <code>indirectAddress</code> <strong class="purple">must</strong> be aligned to <code>4</code></p>
-</li>
-<li>
-<p><a id="VUID-VkGeneratedCommandsInfoEXT-sequenceCountAddress-11075" href="#VUID-VkGeneratedCommandsInfoEXT-sequenceCountAddress-11075"></a> <span class="vuid">VUID-VkGeneratedCommandsInfoEXT-sequenceCountAddress-11075</span><br>
-
-If the underlying buffer for <code>sequenceCountAddress</code> is non-sparse
-then it <strong class="purple">must</strong> be bound completely and contiguously to a single
-<code>VkDeviceMemory</code> object</p>
-</li>
-<li>
-<p><a id="VUID-VkGeneratedCommandsInfoEXT-indirectAddress-11076" href="#VUID-VkGeneratedCommandsInfoEXT-indirectAddress-11076"></a> <span class="vuid">VUID-VkGeneratedCommandsInfoEXT-indirectAddress-11076</span><br>
-
-<code>indirectAddress</code> <strong class="purple">must</strong> not be <code>NULL</code></p>
 </li>
 <li>
 <p><a id="VUID-VkGeneratedCommandsInfoEXT-indirectAddressSize-11077" href="#VUID-VkGeneratedCommandsInfoEXT-indirectAddressSize-11077"></a> <span class="vuid">VUID-VkGeneratedCommandsInfoEXT-indirectAddressSize-11077</span><br>
@@ -1117,6 +1098,18 @@ or <a href="VkGeneratedCommandsShaderInfoEXT.html">VkGeneratedCommandsShaderInfo
 <li>
 <p><a id="VUID-VkGeneratedCommandsInfoEXT-indirectCommandsLayout-parameter" href="#VUID-VkGeneratedCommandsInfoEXT-indirectCommandsLayout-parameter"></a> <span class="vuid">VUID-VkGeneratedCommandsInfoEXT-indirectCommandsLayout-parameter</span><br>
  <code>indirectCommandsLayout</code> <strong class="purple">must</strong> be a valid <a href="VkIndirectCommandsLayoutEXT.html">VkIndirectCommandsLayoutEXT</a> handle</p>
+</li>
+<li>
+<p><a id="VUID-VkGeneratedCommandsInfoEXT-indirectAddress-parameter" href="#VUID-VkGeneratedCommandsInfoEXT-indirectAddress-parameter"></a> <span class="vuid">VUID-VkGeneratedCommandsInfoEXT-indirectAddress-parameter</span><br>
+ <code>indirectAddress</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
+</li>
+<li>
+<p><a id="VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-parameter" href="#VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-parameter"></a> <span class="vuid">VUID-VkGeneratedCommandsInfoEXT-preprocessAddress-parameter</span><br>
+ If <code>preprocessAddress</code> is not <code>0</code>, <code>preprocessAddress</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
+</li>
+<li>
+<p><a id="VUID-VkGeneratedCommandsInfoEXT-sequenceCountAddress-parameter" href="#VUID-VkGeneratedCommandsInfoEXT-sequenceCountAddress-parameter"></a> <span class="vuid">VUID-VkGeneratedCommandsInfoEXT-sequenceCountAddress-parameter</span><br>
+ If <code>sequenceCountAddress</code> is not <code>0</code>, <code>sequenceCountAddress</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
 </li>
 <li>
 <p><a id="VUID-VkGeneratedCommandsInfoEXT-commonparent" href="#VUID-VkGeneratedCommandsInfoEXT-commonparent"></a> <span class="vuid">VUID-VkGeneratedCommandsInfoEXT-commonparent</span><br>

@@ -926,20 +926,12 @@ feature <strong class="purple">must</strong> be enabled</p>
 <li>
 <p><a id="VUID-vkCmdCopyAccelerationStructureToMemoryKHR-pInfo-03739" href="#VUID-vkCmdCopyAccelerationStructureToMemoryKHR-pInfo-03739"></a> <span class="vuid">VUID-vkCmdCopyAccelerationStructureToMemoryKHR-pInfo-03739</span><br>
 
-<code>pInfo-&gt;dst.deviceAddress</code> <strong class="purple">must</strong> be a valid device address for a
-buffer bound to device memory</p>
+<code>pInfo-&gt;dst.deviceAddress</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdCopyAccelerationStructureToMemoryKHR-pInfo-03740" href="#VUID-vkCmdCopyAccelerationStructureToMemoryKHR-pInfo-03740"></a> <span class="vuid">VUID-vkCmdCopyAccelerationStructureToMemoryKHR-pInfo-03740</span><br>
 
 <code>pInfo-&gt;dst.deviceAddress</code> <strong class="purple">must</strong> be aligned to <code>256</code> bytes</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdCopyAccelerationStructureToMemoryKHR-pInfo-03741" href="#VUID-vkCmdCopyAccelerationStructureToMemoryKHR-pInfo-03741"></a> <span class="vuid">VUID-vkCmdCopyAccelerationStructureToMemoryKHR-pInfo-03741</span><br>
-
-If the buffer pointed to by <code>pInfo-&gt;dst.deviceAddress</code> is non-sparse
-then it <strong class="purple">must</strong> be bound completely and contiguously to a single
-<a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdCopyAccelerationStructureToMemoryKHR-None-03559" href="#VUID-vkCmdCopyAccelerationStructureToMemoryKHR-None-03559"></a> <span class="vuid">VUID-vkCmdCopyAccelerationStructureToMemoryKHR-None-03559</span><br>

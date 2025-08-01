@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>vkCmdDecompressMemoryIndirectCountNV(3)</title>
+<title>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,10 +796,10 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>vkCmdDecompressMemoryIndirectCountNV(3) Manual Page</h1>
+<h1>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>vkCmdDecompressMemoryIndirectCountNV - Indirect decompress data between memory regions</p>
+<p>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX - Structure specifying acceleration structure DGF compressed triangle data</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -809,42 +809,71 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To decompress data between one or more memory regions by specifying
-decompression parameters indirectly in a buffer, call:</p>
+<p>If a <code>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</code>
+structure is included in the <code>pNext</code> chain of a
+<a href="VkAccelerationStructureGeometryKHR.html">VkAccelerationStructureGeometryKHR</a> structure whose <code>geometryType</code>
+member is <code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, then
+that structure defines triangle geometry using compressed data.</p>
 </div>
-<div id="vkCmdDecompressMemoryIndirectCountNV" class="listingblock">
+<div class="paragraph">
+<p>The <code>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</code>
+structure is defined as:</p>
+</div>
+<div id="VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_NV_memory_decompression
-void vkCmdDecompressMemoryIndirectCountNV(
-    VkCommandBuffer                             commandBuffer,
-    VkDeviceAddress                             indirectCommandsAddress,
-    VkDeviceAddress                             indirectCommandsCountAddress,
-    uint32_t                                    stride);</code></pre>
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_AMDX_dense_geometry_format
+typedef struct VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX {
+    VkStructureType                   sType;
+    const void*                       pNext;
+    VkDeviceOrHostAddressConstKHR     compressedData;
+    VkDeviceSize                      dataSize;
+    uint32_t                          numTriangles;
+    uint32_t                          numVertices;
+    uint32_t                          maxPrimitiveIndex;
+    uint32_t                          maxGeometryIndex;
+    VkCompressedTriangleFormatAMDX    format;
+} VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX;</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h2>
+<h2 id="_members"><a class="anchor" href="#_members"></a>Members</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><code>commandBuffer</code> is the command buffer into which the command will be
-recorded.</p>
+<p><code>sType</code> is a <a href="VkStructureType.html">VkStructureType</a> value identifying this structure.</p>
 </li>
 <li>
-<p><code>indirectCommandsAddress</code> is the device address containing
-decompression parameters laid out as an array of
-<a href="VkDecompressMemoryRegionNV.html">VkDecompressMemoryRegionNV</a> structures.</p>
+<p><code>pNext</code> is <code>NULL</code> or a pointer to a structure extending this
+structure.</p>
 </li>
 <li>
-<p><code>indirectCommandsCountAddress</code> is the device address containing the
-decompression count.</p>
+<p><code>compressedData</code> specifies the base address of the compressed data.</p>
 </li>
 <li>
-<p><code>stride</code> is the byte stride between successive sets of decompression
-parameters located starting from <code>indirectCommandsAddress</code>.</p>
+<p><code>dataSize</code> specifies the size of the compressed data.</p>
+</li>
+<li>
+<p><code>numTriangles</code> specifies the total number of triangles encoded in
+the compressed data.</p>
+</li>
+<li>
+<p><code>numVertices</code> specifies the number of vertices in the compressed
+data.</p>
+</li>
+<li>
+<p><code>maxPrimitiveIndex</code> specifies the maximum primitive index encoded in
+the compressed data.</p>
+</li>
+<li>
+<p><code>maxGeometryIndex</code> specifies the maximum geometry index encoded in
+the compressed data.</p>
+</li>
+<li>
+<p><code>format</code> specifies the <a href="VkCompressedTriangleFormatAMDX.html">VkCompressedTriangleFormatAMDX</a> format
+of the compressed data.</p>
 </li>
 </ul>
 </div>
@@ -854,9 +883,8 @@ parameters located starting from <code>indirectCommandsAddress</code>.</p>
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Each region specified in <code>indirectCommandsAddress</code> is decompressed from
-the source to destination region based on the specified decompression
-method.</p>
+<p>If <code>format</code> is <code>VK_COMPRESSED_TRIANGLE_FORMAT_DGF1_AMDX</code>,
+<code>numVertices</code> specifies the sum of vertex counts across all blocks.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -864,66 +892,42 @@ method.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-None-07692" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-None-07692"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-None-07692</span><br>
+<p><a id="VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-compressedData-10885" href="#VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-compressedData-10885"></a> <span class="vuid">VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-compressedData-10885</span><br>
 
-The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-memoryDecompression" target="_blank" rel="noopener"><code>memoryDecompression</code></a> feature
-<strong class="purple">must</strong> be enabled</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-07694" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-07694"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-07694</span><br>
-
-The <a href="VkBuffer.html">VkBuffer</a> that <code>indirectCommandsAddress</code> comes from <strong class="purple">must</strong>
-have been created with the <code>VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT</code> bit
-set</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-offset-07695" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-offset-07695"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-offset-07695</span><br>
-
-<code>offset</code> <strong class="purple">must</strong> be a multiple of <code>4</code></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07697" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07697"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07697</span><br>
-
-The <a href="VkBuffer.html">VkBuffer</a> that <code>indirectCommandsCountAddress</code> comes from
+The buffer from which <code>compressedData.deviceAddress</code> is queried
 <strong class="purple">must</strong> have been created with the
-<code>VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT</code> bit set</p>
+<code>VK_BUFFER_USAGE_2_COMPRESSED_DATA_DGF1_BIT_AMDX</code> usage flag</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07698" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07698"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07698</span><br>
+<p><a id="VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-denseGeometryFormat-10886" href="#VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-denseGeometryFormat-10886"></a> <span class="vuid">VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-denseGeometryFormat-10886</span><br>
 
-<code>indirectCommandsCountAddress</code> <strong class="purple">must</strong> be a multiple of <code>4</code></p>
+The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-denseGeometryFormat" target="_blank" rel="noopener"><code>VkPhysicalDeviceDenseGeometryFormatFeaturesAMDX</code>::<code>denseGeometryFormat</code></a>
+feature <strong class="purple">must</strong> be enabled</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07699" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07699"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07699</span><br>
+<p><a id="VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-format-10887" href="#VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-format-10887"></a> <span class="vuid">VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-format-10887</span><br>
 
-The count stored in <code>indirectCommandsCountAddress</code> <strong class="purple">must</strong> be less
-than or equal to
-<code>VkPhysicalDeviceMemoryDecompressionPropertiesNV</code>::<code>maxDecompressionIndirectCount</code></p>
+If <code>format</code> is VK_COMPRESSED_TRIANGLE_FORMAT_DGF1_AMDX, then
+<code>compressedData.address</code> <strong class="purple">must</strong> be aligned to 128 bytes</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-stride-07700" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-stride-07700"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-stride-07700</span><br>
+<p><a id="VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-format-10888" href="#VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-format-10888"></a> <span class="vuid">VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-format-10888</span><br>
 
-<code>stride</code> <strong class="purple">must</strong> be a multiple of <code>4</code> and <strong class="purple">must</strong> be greater than or
-equal to sizeof(<code>VkDecompressMemoryRegionNV</code>)</p>
+If <code>format</code> is VK_COMPRESSED_TRIANGLE_FORMAT_DGF1_AMDX, then
+<code>dataSize</code> <strong class="purple">must</strong> be aligned to 128 bytes</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07701" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07701"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07701</span><br>
+<p><a id="VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-pNext-10890" href="#VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-pNext-10890"></a> <span class="vuid">VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-pNext-10890</span><br>
 
-If the count stored in <code>indirectCommandsCountAddress</code> is equal to
-<code>1</code>, <span class="eq">(<code>offset</code> + 
-sizeof(<code>VkDecompressMemoryRegionNV</code>))</span> <strong class="purple">must</strong> be less than or equal
-to the size of the <a href="VkBuffer.html">VkBuffer</a> that <code>indirectCommandsAddress</code>
-comes from</p>
+<code>pNext</code> <strong class="purple">must</strong> be <code>NULL</code> or a pointer to a valid
+<a href="VkAccelerationStructureTrianglesOpacityMicromapEXT.html">VkAccelerationStructureTrianglesOpacityMicromapEXT</a> structure</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07702" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07702"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07702</span><br>
+<p><a id="VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-pNext-10891" href="#VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-pNext-10891"></a> <span class="vuid">VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-pNext-10891</span><br>
 
-If the count stored in <code>indirectCommandsCountAddress</code> is greater
-than <code>1</code>, <code>indirectCommandsAddress</code> + 
-sizeof(<code>VkDecompressMemoryRegionNV</code>) +  <span class="eq">(<code>stride</code>
-× (count stored in <code>countBuffer</code> - 1))</span> <strong class="purple">must</strong> be less than or
-equal to the last valid address in the <a href="VkBuffer.html">VkBuffer</a> that
-<code>indirectCommandsAddress</code> was created from</p>
+If <code>pNext</code> is a pointer to a valid
+<a href="VkAccelerationStructureTrianglesOpacityMicromapEXT.html">VkAccelerationStructureTrianglesOpacityMicromapEXT</a> structure, the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-micromap" target="_blank" rel="noopener"><code>micromap</code></a> feature <strong class="purple">must</strong> be enabled</p>
 </li>
 </ul>
 </div>
@@ -935,91 +939,18 @@ equal to the last valid address in the <a href="VkBuffer.html">VkBuffer</a> that
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-parameter" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-parameter"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-parameter</span><br>
- <code>commandBuffer</code> <strong class="purple">must</strong> be a valid <a href="VkCommandBuffer.html">VkCommandBuffer</a> handle</p>
+<p><a id="VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-sType-sType" href="#VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-sType-sType"></a> <span class="vuid">VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-sType-sType</span><br>
+ <code>sType</code> <strong class="purple">must</strong> be <code>VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_DENSE_GEOMETRY_FORMAT_TRIANGLES_DATA_AMDX</code></p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-parameter" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-parameter"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-parameter</span><br>
- <code>indirectCommandsAddress</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
+<p><a id="VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-compressedData-parameter" href="#VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-compressedData-parameter"></a> <span class="vuid">VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-compressedData-parameter</span><br>
+ <code>compressedData</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceOrHostAddressConstKHR.html">VkDeviceOrHostAddressConstKHR</a> union</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-parameter" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-parameter"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-parameter</span><br>
- <code>indirectCommandsCountAddress</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-recording" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-recording"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-recording</span><br>
- <code>commandBuffer</code> <strong class="purple">must</strong> be in the <a href="#commandbuffers-lifecycle">recording state</a></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-renderpass" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-renderpass"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-renderpass</span><br>
- This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-videocoding" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-videocoding"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-videocoding</span><br>
- This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
+<p><a id="VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-format-parameter" href="#VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-format-parameter"></a> <span class="vuid">VUID-VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX-format-parameter</span><br>
+ <code>format</code> <strong class="purple">must</strong> be a valid <a href="VkCompressedTriangleFormatAMDX.html">VkCompressedTriangleFormatAMDX</a> value</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Host Synchronization</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Host access to <code>commandBuffer</code> <strong class="purple">must</strong> be externally synchronized</p>
-</li>
-<li>
-<p>Host access to the <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> be externally synchronized</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Command Properties</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
-<th class="tableblock halign-left valign-top"><a href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
-<th class="tableblock halign-left valign-top"><a href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
-<th class="tableblock halign-left valign-top"><a href="#VkQueueFlagBits">Supported Queue Types</a></th>
-<th class="tableblock halign-left valign-top"><a href="#fundamentals-queueoperation-command-types">Command Type</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Primary<br>
-Secondary</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Conditional Rendering</div>
-<div class="paragraph">
-<p>vkCmdDecompressMemoryIndirectCountNV is not affected by <a href="#drawing-conditional-rendering">conditional rendering</a></p>
 </div>
 </div>
 </div>
@@ -1029,7 +960,7 @@ Compute</p></td>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_NV_memory_decompression.html">VK_NV_memory_decompression</a>, <a href="VkCommandBuffer.html">VkCommandBuffer</a>, <a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
+<p><a href="VK_AMDX_dense_geometry_format.html">VK_AMDX_dense_geometry_format</a>, <a href="VkCompressedTriangleFormatAMDX.html">VkCompressedTriangleFormatAMDX</a>, <a href="VkDeviceOrHostAddressConstKHR.html">VkDeviceOrHostAddressConstKHR</a>, <a href="VkDeviceSize.html">VkDeviceSize</a>, <a href="VkStructureType.html">VkStructureType</a></p>
 </div>
 </div>
 </div>
@@ -1037,7 +968,7 @@ Compute</p></td>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdDecompressMemoryIndirectCountNV" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

@@ -822,6 +822,10 @@ typedef enum VkGeometryTypeKHR {
     VK_GEOMETRY_TYPE_SPHERES_NV = 1000429004,
   // Provided by VK_NV_ray_tracing_linear_swept_spheres
     VK_GEOMETRY_TYPE_LINEAR_SWEPT_SPHERES_NV = 1000429005,
+#ifdef VK_ENABLE_BETA_EXTENSIONS
+  // Provided by VK_AMDX_dense_geometry_format
+    VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX = 1000478000,
+#endif
   // Provided by VK_NV_ray_tracing
     VK_GEOMETRY_TYPE_TRIANGLES_NV = VK_GEOMETRY_TYPE_TRIANGLES_KHR,
   // Provided by VK_NV_ray_tracing
@@ -856,6 +860,10 @@ consisting of <a href="https://registry.khronos.org/vulkan/specs/latest/html/vks
 <li>
 <p><code>VK_GEOMETRY_TYPE_INSTANCES_KHR</code> specifies a geometry type
 consisting of acceleration structure instances.</p>
+</li>
+<li>
+<p><code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code> specifies a
+geometry type consisting of triangles from compressed data.</p>
 </li>
 <li>
 <p><code>VK_GEOMETRY_TYPE_SPHERES_NV</code> specifies a geometry type consisting

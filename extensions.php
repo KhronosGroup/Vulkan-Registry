@@ -298,6 +298,7 @@
     <li> <a href="specs/latest/man/html/VK_AMD_shader_trinary_minmax.html"> VK_AMD_shader_trinary_minmax </a> </li>
     <li> <a href="specs/latest/man/html/VK_AMD_texture_gather_bias_lod.html"> VK_AMD_texture_gather_bias_lod </a> </li>
     <li> <b>  AMDX Extensions (Advanced Micro Devices, Inc.)  </b> </li>
+    <li> <a href="specs/latest/man/html/VK_AMDX_dense_geometry_format.html"> VK_AMDX_dense_geometry_format </a> </li>
     <li> <a href="specs/latest/man/html/VK_AMDX_shader_enqueue.html"> VK_AMDX_shader_enqueue </a> </li>
     <li> <b>  ANDROID Extensions (Google LLC)  </b> </li>
     <li> <a href="specs/latest/man/html/VK_ANDROID_external_format_resolve.html"> VK_ANDROID_external_format_resolve </a> </li>

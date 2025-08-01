@@ -820,6 +820,36 @@ typedef uint64_t VkDeviceAddress;</code></pre>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Valid Usage</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a id="VUID-VkDeviceAddress-size-11364" href="#VUID-VkDeviceAddress-size-11364"></a> <span class="vuid">VUID-VkDeviceAddress-size-11364</span><br>
+
+A valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> <strong class="purple">must</strong> be equal to the sum of an address
+retrieved from a <a href="VkBuffer.html">VkBuffer</a> via <a href="vkGetBufferDeviceAddress.html">vkGetBufferDeviceAddress</a>, and
+any offset in the range <span class="eq">[0, <code>size</code>)</span>, where <code>size</code> is the
+value of <a href="VkBufferCreateInfo.html">VkBufferCreateInfo</a>::<code>size</code> used to create that
+<a href="VkBuffer.html">VkBuffer</a></p>
+</li>
+<li>
+<p><a id="VUID-VkDeviceAddress-None-10894" href="#VUID-VkDeviceAddress-None-10894"></a> <span class="vuid">VUID-VkDeviceAddress-None-10894</span><br>
+
+If a <a href="VkDeviceAddress.html">VkDeviceAddress</a> was retrieved from a non-sparse buffer,
+that buffer <strong class="purple">must</strong> be bound completely and contiguously to a single
+<code>VkDeviceMemory</code> object</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">

@@ -993,18 +993,20 @@ queried <strong class="purple">must</strong> have been created with
 <li>
 <p><a id="VUID-vkCmdBuildMicromapsEXT-pInfos-07512" href="#VUID-vkCmdBuildMicromapsEXT-pInfos-07512"></a> <span class="vuid">VUID-vkCmdBuildMicromapsEXT-pInfos-07512</span><br>
 
-For each element of <code>pInfos</code>, its <code>scratchData.deviceAddress</code>,
-<code>data.deviceAddress</code>, and <code>triangleArray.deviceAddress</code> members
-<strong class="purple">must</strong> be valid device addresses obtained from
-<a href="vkGetBufferDeviceAddress.html">vkGetBufferDeviceAddress</a></p>
+For each element of <code>pInfos</code>, <code>scratchData.deviceAddress</code> <strong class="purple">must</strong>
+be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
 </li>
 <li>
-<p><a id="VUID-vkCmdBuildMicromapsEXT-pInfos-07513" href="#VUID-vkCmdBuildMicromapsEXT-pInfos-07513"></a> <span class="vuid">VUID-vkCmdBuildMicromapsEXT-pInfos-07513</span><br>
+<p><a id="VUID-vkCmdBuildMicromapsEXT-pInfos-10896" href="#VUID-vkCmdBuildMicromapsEXT-pInfos-10896"></a> <span class="vuid">VUID-vkCmdBuildMicromapsEXT-pInfos-10896</span><br>
 
-For each element of <code>pInfos</code>, if <code>scratchData.deviceAddress</code>,
-<code>data.deviceAddress</code>, or <code>triangleArray.deviceAddress</code> is the
-address of a non-sparse buffer then it <strong class="purple">must</strong> be bound completely and
-contiguously to a single <a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
+For each element of <code>pInfos</code>, <code>data.deviceAddress</code> <strong class="purple">must</strong> be a
+valid <a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBuildMicromapsEXT-pInfos-10897" href="#VUID-vkCmdBuildMicromapsEXT-pInfos-10897"></a> <span class="vuid">VUID-vkCmdBuildMicromapsEXT-pInfos-10897</span><br>
+
+For each element of <code>pInfos</code>, <code>triangleArray.deviceAddress</code>
+<strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildMicromapsEXT-pInfos-07514" href="#VUID-vkCmdBuildMicromapsEXT-pInfos-07514"></a> <span class="vuid">VUID-vkCmdBuildMicromapsEXT-pInfos-07514</span><br>

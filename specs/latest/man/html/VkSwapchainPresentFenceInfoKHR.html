@@ -864,7 +864,7 @@ completed.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The set of <em>queue operations</em> defined by queuing an image for presentation,
-as well as operations performed by the presentation engine access the
+as well as operations performed by the presentation engine, access the
 payloads of objects associated with the presentation operation.
 The associated objects include:</p>
 </div>
@@ -880,15 +880,17 @@ resources bound to that memory.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The application <strong class="purple">can</strong> provide a fence that the implementation will signal
-when all such queue operations have completed and the presentation engine
-has taken a reference to the payload of any objects it accesses as part of
-the present operation.
+<p>The application <strong class="purple">can</strong> provide a fence that the implementation
+will signal after all such queue operations have completed, and after the
+presentation engine has taken a reference to the payloads of all objects
+provided in <code>VkPresentInfoKHR</code>
+that the presentation engine accesses as part of the present operation.
+The fence <strong class="purple">may</strong> not wait for the present operation to complete.
 For all
 binary
 wait semaphores imported by the presentation engine using the equivalent of
 reference transference, as described in
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-semaphores-importing" target="_blank" rel="noopener">Importing Semaphore Payloads</a>, this
+<a href="#synchronization-semaphores-importing">Importing Semaphore Payloads</a>, this
 fence <strong class="purple">must</strong> not signal until all such semaphore payloads have been reset by
 the presentation engine.</p>
 </div>

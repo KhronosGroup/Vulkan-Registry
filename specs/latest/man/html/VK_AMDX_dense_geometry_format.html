@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>vkCmdDecompressMemoryIndirectCountNV(3)</title>
+<title>VK_AMDX_dense_geometry_format(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,57 +796,116 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>vkCmdDecompressMemoryIndirectCountNV(3) Manual Page</h1>
+<h1>VK_AMDX_dense_geometry_format(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>vkCmdDecompressMemoryIndirectCountNV - Indirect decompress data between memory regions</p>
+<p>VK_AMDX_dense_geometry_format - device extension</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
 <!--ChunkedSearchboxMarker-->
 <div id="content" class="loadable" ><script>hideLoadableContent();</script>
 <div class="sect1">
-<h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
+<h2 id="_registered_extension_number"><a class="anchor" href="#_registered_extension_number"></a>Registered Extension Number</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To decompress data between one or more memory regions by specifying
-decompression parameters indirectly in a buffer, call:</p>
-</div>
-<div id="vkCmdDecompressMemoryIndirectCountNV" class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_NV_memory_decompression
-void vkCmdDecompressMemoryIndirectCountNV(
-    VkCommandBuffer                             commandBuffer,
-    VkDeviceAddress                             indirectCommandsAddress,
-    VkDeviceAddress                             indirectCommandsCountAddress,
-    uint32_t                                    stride);</code></pre>
-</div>
+<p>479</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h2>
+<h2 id="_revision"><a class="anchor" href="#_revision"></a>Revision</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>1</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ratification_status"><a class="anchor" href="#_ratification_status"></a>Ratification Status</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Not ratified</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extension_and_version_dependencies"><a class="anchor" href="#_extension_and_version_dependencies"></a>Extension and Version Dependencies</h2>
+<div class="sectionbody">
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p><a href="VK_KHR_acceleration_structure.html">VK_KHR_acceleration_structure</a><br>
+and<br>
+&#160;&#160;&#160;&#160; <a href="VK_KHR_maintenance5.html">VK_KHR_maintenance5</a><br>
+&#160;&#160;&#160;&#160; or<br>
+&#160;&#160;&#160;&#160; <a href="#versions-1.4">Vulkan Version 1.4</a><br></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>This is a <em>provisional</em> extension and <strong class="purple">must</strong> be used with caution.
+See the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#boilerplate-provisional-header" target="_blank" rel="noopener">description</a> of provisional header files for enablement and stability details.</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_contact"><a class="anchor" href="#_contact"></a>Contact</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><code>commandBuffer</code> is the command buffer into which the command will be
-recorded.</p>
-</li>
-<li>
-<p><code>indirectCommandsAddress</code> is the device address containing
-decompression parameters laid out as an array of
-<a href="VkDecompressMemoryRegionNV.html">VkDecompressMemoryRegionNV</a> structures.</p>
-</li>
-<li>
-<p><code>indirectCommandsCountAddress</code> is the device address containing the
-decompression count.</p>
-</li>
-<li>
-<p><code>stride</code> is the byte stride between successive sets of decompression
-parameters located starting from <code>indirectCommandsAddress</code>.</p>
+<p>Stu Smith <a href="https://github.com/KhronosGroup/Vulkan-Docs/issues/new?body=[VK_AMDX_dense_geometry_format] @stu-s%0A*Here describe the issue or question you have about the VK_AMDX_dense_geometry_format extension*" target="_blank" rel="nofollow noopener"><span class="icon black">[GitHub&#93;</span>stu-s</a></p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extension_proposal"><a class="anchor" href="#_extension_proposal"></a>Extension Proposal</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/KhronosGroup/Vulkan-Docs/tree/main/proposals/VK_AMDX_dense_geometry_format.adoc">VK_AMDX_dense_geometry_format</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_extension_metadata"><a class="anchor" href="#_other_extension_metadata"></a>Other Extension Metadata</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Last Modified Date</strong></dt>
+<dd>
+<p>2025-07-10</p>
+</dd>
+<dt class="hdlist1"><strong>IP Status</strong></dt>
+<dd>
+<p>No known IP claims.</p>
+</dd>
+<dt class="hdlist1"><strong>Contributors</strong></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Stu Smith, AMD</p>
+</li>
+<li>
+<p>Josh Barczak, AMD</p>
+</li>
+<li>
+<p>Carsten Benthin, AMD</p>
+</li>
+<li>
+<p>David McAllister, AMD</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -854,174 +913,138 @@ parameters located starting from <code>indirectCommandsAddress</code>.</p>
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Each region specified in <code>indirectCommandsAddress</code> is decompressed from
-the source to destination region based on the specified decompression
-method.</p>
+<p>This extension adds the ability to build ray tracing acceleration structures
+from pre-compressed <code>Dense Geometry Format</code> geometry data.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Valid Usage</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_structures"><a class="anchor" href="#_new_structures"></a>New Structures</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-None-07692" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-None-07692"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-None-07692</span><br>
-
-The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-memoryDecompression" target="_blank" rel="noopener"><code>memoryDecompression</code></a> feature
-<strong class="purple">must</strong> be enabled</p>
+<p>Extending <a href="VkAccelerationStructureGeometryKHR.html">VkAccelerationStructureGeometryKHR</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX.html">VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</a></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-07694" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-07694"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-07694</span><br>
-
-The <a href="VkBuffer.html">VkBuffer</a> that <code>indirectCommandsAddress</code> comes from <strong class="purple">must</strong>
-have been created with the <code>VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT</code> bit
-set</p>
-</li>
+<p>Extending <a href="VkPhysicalDeviceFeatures2.html">VkPhysicalDeviceFeatures2</a>, <a href="VkDeviceCreateInfo.html">VkDeviceCreateInfo</a>:</p>
+<div class="ulist">
+<ul>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-offset-07695" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-offset-07695"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-offset-07695</span><br>
-
-<code>offset</code> <strong class="purple">must</strong> be a multiple of <code>4</code></p>
+<p><a href="VkPhysicalDeviceDenseGeometryFormatFeaturesAMDX.html">VkPhysicalDeviceDenseGeometryFormatFeaturesAMDX</a></p>
 </li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07697" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07697"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07697</span><br>
-
-The <a href="VkBuffer.html">VkBuffer</a> that <code>indirectCommandsCountAddress</code> comes from
-<strong class="purple">must</strong> have been created with the
-<code>VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT</code> bit set</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07698" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07698"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07698</span><br>
-
-<code>indirectCommandsCountAddress</code> <strong class="purple">must</strong> be a multiple of <code>4</code></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07699" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07699"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07699</span><br>
-
-The count stored in <code>indirectCommandsCountAddress</code> <strong class="purple">must</strong> be less
-than or equal to
-<code>VkPhysicalDeviceMemoryDecompressionPropertiesNV</code>::<code>maxDecompressionIndirectCount</code></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-stride-07700" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-stride-07700"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-stride-07700</span><br>
-
-<code>stride</code> <strong class="purple">must</strong> be a multiple of <code>4</code> and <strong class="purple">must</strong> be greater than or
-equal to sizeof(<code>VkDecompressMemoryRegionNV</code>)</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07701" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07701"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07701</span><br>
-
-If the count stored in <code>indirectCommandsCountAddress</code> is equal to
-<code>1</code>, <span class="eq">(<code>offset</code> + 
-sizeof(<code>VkDecompressMemoryRegionNV</code>))</span> <strong class="purple">must</strong> be less than or equal
-to the size of the <a href="VkBuffer.html">VkBuffer</a> that <code>indirectCommandsAddress</code>
-comes from</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07702" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07702"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07702</span><br>
-
-If the count stored in <code>indirectCommandsCountAddress</code> is greater
-than <code>1</code>, <code>indirectCommandsAddress</code> + 
-sizeof(<code>VkDecompressMemoryRegionNV</code>) +  <span class="eq">(<code>stride</code>
-× (count stored in <code>countBuffer</code> - 1))</span> <strong class="purple">must</strong> be less than or
-equal to the last valid address in the <a href="VkBuffer.html">VkBuffer</a> that
-<code>indirectCommandsAddress</code> was created from</p>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Valid Usage (Implicit)</div>
+<div class="sect1">
+<h2 id="_new_enums"><a class="anchor" href="#_new_enums"></a>New Enums</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-parameter" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-parameter"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-parameter</span><br>
- <code>commandBuffer</code> <strong class="purple">must</strong> be a valid <a href="VkCommandBuffer.html">VkCommandBuffer</a> handle</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-parameter" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-parameter"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-parameter</span><br>
- <code>indirectCommandsAddress</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-parameter" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-parameter"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-parameter</span><br>
- <code>indirectCommandsCountAddress</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-recording" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-recording"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-recording</span><br>
- <code>commandBuffer</code> <strong class="purple">must</strong> be in the <a href="#commandbuffers-lifecycle">recording state</a></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-renderpass" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-renderpass"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-renderpass</span><br>
- This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-videocoding" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-videocoding"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-videocoding</span><br>
- This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
+<p><a href="VkCompressedTriangleFormatAMDX.html">VkCompressedTriangleFormatAMDX</a></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Host Synchronization</div>
+<div class="sect1">
+<h2 id="_new_enum_constants"><a class="anchor" href="#_new_enum_constants"></a>New Enum Constants</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Host access to <code>commandBuffer</code> <strong class="purple">must</strong> be externally synchronized</p>
+<p><code>VK_AMDX_DENSE_GEOMETRY_FORMAT_EXTENSION_NAME</code></p>
 </li>
 <li>
-<p>Host access to the <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> be externally synchronized</p>
+<p><code>VK_AMDX_DENSE_GEOMETRY_FORMAT_SPEC_VERSION</code></p>
+</li>
+<li>
+<p><code>VK_COMPRESSED_TRIANGLE_FORMAT_DGF1_BYTE_ALIGNMENT_AMDX</code></p>
+</li>
+<li>
+<p><code>VK_COMPRESSED_TRIANGLE_FORMAT_DGF1_BYTE_STRIDE_AMDX</code></p>
+</li>
+<li>
+<p>Extending <a href="VkBufferUsageFlagBits2.html">VkBufferUsageFlagBits2</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_BUFFER_USAGE_2_COMPRESSED_DATA_DGF1_BIT_AMDX</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Extending <a href="VkGeometryTypeKHR.html">VkGeometryTypeKHR</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Extending <a href="VkStructureType.html">VkStructureType</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_DENSE_GEOMETRY_FORMAT_TRIANGLES_DATA_AMDX</code></p>
+</li>
+<li>
+<p><code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DENSE_GEOMETRY_FORMAT_FEATURES_AMDX</code></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Command Properties</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
-<th class="tableblock halign-left valign-top"><a href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
-<th class="tableblock halign-left valign-top"><a href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
-<th class="tableblock halign-left valign-top"><a href="#VkQueueFlagBits">Supported Queue Types</a></th>
-<th class="tableblock halign-left valign-top"><a href="#fundamentals-queueoperation-command-types">Command Type</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Primary<br>
-Secondary</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Conditional Rendering</div>
+<div class="sect1">
+<h2 id="_issues"><a class="anchor" href="#_issues"></a>Issues</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>vkCmdDecompressMemoryIndirectCountNV is not affected by <a href="#drawing-conditional-rendering">conditional rendering</a></p>
+<p>None.</p>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>None.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_version_history"><a class="anchor" href="#_version_history"></a>Version History</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Revision 1, 2025-07-10 (Stu Smith)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Initial revision.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1029,7 +1052,7 @@ Compute</p></td>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_NV_memory_decompression.html">VK_NV_memory_decompression</a>, <a href="VkCommandBuffer.html">VkCommandBuffer</a>, <a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
+<p>No cross-references are available</p>
 </div>
 </div>
 </div>
@@ -1037,11 +1060,11 @@ Compute</p></td>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdDecompressMemoryIndirectCountNV" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_AMDX_dense_geometry_format" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
-<p>This page is extracted from the Vulkan Specification.
-Fixes and changes should be made to the Specification, not directly.</p>
+<p>This page is a generated document.
+Fixes and changes should be made to the generator scripts, not directly.</p>
 </div>
 </div>
 </div>

@@ -809,7 +809,8 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To build an acceleration structure call:</p>
+<p>To build an acceleration structure for the <code><a href="VK_NV_ray_tracing.html">VK_NV_ray_tracing</a></code>
+extension call:</p>
 </div>
 <div id="vkCmdBuildAccelerationStructureNV" class="listingblock">
 <div class="content">
@@ -969,8 +970,8 @@ usage flag</p>
 
 Each
 <a href="VkAccelerationStructureInstanceKHR.html">VkAccelerationStructureInstanceKHR</a>::<code>accelerationStructureReference</code>
-value in <code>instanceData</code> <strong class="purple">must</strong> be a valid device address containing a
-value obtained from <a href="vkGetAccelerationStructureHandleNV.html">vkGetAccelerationStructureHandleNV</a></p>
+value in <code>instanceData</code> <strong class="purple">must</strong> be a value obtained from
+<a href="vkGetAccelerationStructureHandleNV.html">vkGetAccelerationStructureHandleNV</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildAccelerationStructureNV-update-03524" href="#VUID-vkCmdBuildAccelerationStructureNV-update-03524"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructureNV-update-03524</span><br>

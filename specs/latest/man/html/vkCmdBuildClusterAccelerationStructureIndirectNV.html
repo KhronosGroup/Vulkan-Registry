@@ -1029,48 +1029,6 @@ The buffers from which the buffer device addresses for
 created with the
 <code>VK_BUFFER_USAGE_ACCELERATION_STRUCTURE_STORAGE_BIT_KHR</code> usage flag</p>
 </li>
-<li>
-<p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10460" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10460"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10460</span><br>
-
-If <code>pCommandInfos-&gt;dstImplicitData</code> is the address of a non-sparse
-buffer then it <strong class="purple">must</strong> be bound completely and contiguously to a single
-<a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10461" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10461"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10461</span><br>
-
-If <code>pCommandInfos-&gt;scratchData</code> is the address of a non-sparse
-buffer then it <strong class="purple">must</strong> be bound completely and contiguously to a single
-<a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10462" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10462"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10462</span><br>
-
-If <code>pCommandInfos-&gt;srcInfosCount</code> is the address of a non-sparse
-buffer then it <strong class="purple">must</strong> be bound completely and contiguously to a single
-<a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10463" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10463"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10463</span><br>
-
-If the addresses specified in <code>pCommandInfos-&gt;dstAddressesArray</code> are
-the address of a non-sparse buffer then they each <strong class="purple">must</strong> be bound
-completely and contiguously to a single <a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10464" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10464"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10464</span><br>
-
-If the addresses specified in <code>pCommandInfos-&gt;dstSizesArray</code> are the
-address of a non-sparse buffer then they each <strong class="purple">must</strong> be bound completely
-and contiguously to a single <a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10465" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10465"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10465</span><br>
-
-If the addresses specified in <code>pCommandInfos-&gt;srcInfosArray</code> are the
-address of a non-sparse buffer then they each <strong class="purple">must</strong> be bound completely
-and contiguously to a single <a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
-</li>
 </ul>
 </div>
 </div>

@@ -903,10 +903,11 @@ the previous pipeline</p>
 If
 <a href="VkPhysicalDeviceSampleLocationsPropertiesEXT.html">VkPhysicalDeviceSampleLocationsPropertiesEXT</a>::<code>variableSampleLocations</code>
 is <code>VK_FALSE</code>, and <code>pipeline</code> is a graphics pipeline created
-with a <a href="VkPipelineSampleLocationsStateCreateInfoEXT.html">VkPipelineSampleLocationsStateCreateInfoEXT</a> structure
-having its <code>sampleLocationsEnable</code> member set to <code>VK_TRUE</code> but
-without <code>VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_EXT</code> enabled then the
-current render pass instance <strong class="purple">must</strong> have been begun by specifying a
+with a <code>renderPass</code> that is not <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a> and with a
+<a href="VkPipelineSampleLocationsStateCreateInfoEXT.html">VkPipelineSampleLocationsStateCreateInfoEXT</a> structure having its
+<code>sampleLocationsEnable</code> member set to <code>VK_TRUE</code> but without
+<code>VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_EXT</code> enabled then the current
+render pass instance <strong class="purple">must</strong> have been begun by specifying a
 <a href="VkRenderPassSampleLocationsBeginInfoEXT.html">VkRenderPassSampleLocationsBeginInfoEXT</a> structure whose
 <code>pPostSubpassSampleLocations</code> member contains an element with a
 <code>subpassIndex</code> matching the current subpass index and the

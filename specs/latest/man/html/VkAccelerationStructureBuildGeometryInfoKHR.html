@@ -994,6 +994,15 @@ then <code>geometryCount</code> <strong class="purple">must</strong> be less tha
 <a href="VkPhysicalDeviceAccelerationStructurePropertiesKHR.html">VkPhysicalDeviceAccelerationStructurePropertiesKHR</a>::<code>maxGeometryCount</code></p>
 </li>
 <li>
+<p><a id="VUID-VkAccelerationStructureBuildGeometryInfoKHR-type-10884" href="#VUID-VkAccelerationStructureBuildGeometryInfoKHR-type-10884"></a> <span class="vuid">VUID-VkAccelerationStructureBuildGeometryInfoKHR-type-10884</span><br>
+
+If <code>type</code> is <code>VK_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_KHR</code>
+and the <code>geometryType</code> member of either <code>pGeometries</code> or
+<code>ppGeometries</code> is
+<code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, then
+<code>geometryCount</code> <strong class="purple">must</strong> be <code>1</code></p>
+</li>
+<li>
 <p><a id="VUID-VkAccelerationStructureBuildGeometryInfoKHR-type-03794" href="#VUID-VkAccelerationStructureBuildGeometryInfoKHR-type-03794"></a> <span class="vuid">VUID-VkAccelerationStructureBuildGeometryInfoKHR-type-03794</span><br>
 
 If <code>type</code> is <code>VK_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_KHR</code>

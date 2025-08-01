@@ -843,6 +843,21 @@ command</a> that accepts a fence, then waiting for all of those fences to
 signal using <a href="vkWaitForFences.html">vkWaitForFences</a> with an infinite timeout and
 <code>waitAll</code> set to <code>VK_TRUE</code>.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Even though <a href="vkQueuePresentKHR.html">vkQueuePresentKHR</a> does not have a fence parameter, it does
+accept a fence through <a href="VkSwapchainPresentFenceInfoEXT.html">VkSwapchainPresentFenceInfoEXT</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage (Implicit)</div>

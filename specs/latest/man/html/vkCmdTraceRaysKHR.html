@@ -1572,13 +1572,6 @@ to its <code>stride</code> member</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-vkCmdTraceRaysKHR-pRayGenShaderBindingTable-03680" href="#VUID-vkCmdTraceRaysKHR-pRayGenShaderBindingTable-03680"></a> <span class="vuid">VUID-vkCmdTraceRaysKHR-pRayGenShaderBindingTable-03680</span><br>
-
-If the buffer from which <code>pRayGenShaderBindingTable-&gt;deviceAddress</code> was queried
-is non-sparse then it <strong class="purple">must</strong> be bound completely and contiguously to a
-single <code>VkDeviceMemory</code> object</p>
-</li>
-<li>
 <p><a id="VUID-vkCmdTraceRaysKHR-pRayGenShaderBindingTable-03681" href="#VUID-vkCmdTraceRaysKHR-pRayGenShaderBindingTable-03681"></a> <span class="vuid">VUID-vkCmdTraceRaysKHR-pRayGenShaderBindingTable-03681</span><br>
 
 The buffer from which the <code>pRayGenShaderBindingTable-&gt;deviceAddress</code> is queried
@@ -1590,13 +1583,6 @@ The buffer from which the <code>pRayGenShaderBindingTable-&gt;deviceAddress</cod
 
 <code>pRayGenShaderBindingTable-&gt;deviceAddress</code> <strong class="purple">must</strong> be a multiple of
 <code>VkPhysicalDeviceRayTracingPipelinePropertiesKHR</code>::<code>shaderGroupBaseAlignment</code></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdTraceRaysKHR-pMissShaderBindingTable-03683" href="#VUID-vkCmdTraceRaysKHR-pMissShaderBindingTable-03683"></a> <span class="vuid">VUID-vkCmdTraceRaysKHR-pMissShaderBindingTable-03683</span><br>
-
-If the buffer from which <code>pMissShaderBindingTable-&gt;deviceAddress</code> was queried is
-non-sparse then it <strong class="purple">must</strong> be bound completely and contiguously to a
-single <code>VkDeviceMemory</code> object</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdTraceRaysKHR-pMissShaderBindingTable-03684" href="#VUID-vkCmdTraceRaysKHR-pMissShaderBindingTable-03684"></a> <span class="vuid">VUID-vkCmdTraceRaysKHR-pMissShaderBindingTable-03684</span><br>
@@ -1624,13 +1610,6 @@ The buffer from which the <code>pMissShaderBindingTable-&gt;deviceAddress</code>
 <code>VkPhysicalDeviceRayTracingPipelinePropertiesKHR</code>::<code>maxShaderGroupStride</code></p>
 </li>
 <li>
-<p><a id="VUID-vkCmdTraceRaysKHR-pHitShaderBindingTable-03687" href="#VUID-vkCmdTraceRaysKHR-pHitShaderBindingTable-03687"></a> <span class="vuid">VUID-vkCmdTraceRaysKHR-pHitShaderBindingTable-03687</span><br>
-
-If the buffer from which <code>pHitShaderBindingTable-&gt;deviceAddress</code> was queried is
-non-sparse then it <strong class="purple">must</strong> be bound completely and contiguously to a
-single <code>VkDeviceMemory</code> object</p>
-</li>
-<li>
 <p><a id="VUID-vkCmdTraceRaysKHR-pHitShaderBindingTable-03688" href="#VUID-vkCmdTraceRaysKHR-pHitShaderBindingTable-03688"></a> <span class="vuid">VUID-vkCmdTraceRaysKHR-pHitShaderBindingTable-03688</span><br>
 
 The buffer from which the <code>pHitShaderBindingTable-&gt;deviceAddress</code> is queried
@@ -1654,13 +1633,6 @@ The buffer from which the <code>pHitShaderBindingTable-&gt;deviceAddress</code> 
 
 <code>pHitShaderBindingTable-&gt;stride</code> <strong class="purple">must</strong> be less than or equal to
 <code>VkPhysicalDeviceRayTracingPipelinePropertiesKHR</code>::<code>maxShaderGroupStride</code></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdTraceRaysKHR-pCallableShaderBindingTable-03691" href="#VUID-vkCmdTraceRaysKHR-pCallableShaderBindingTable-03691"></a> <span class="vuid">VUID-vkCmdTraceRaysKHR-pCallableShaderBindingTable-03691</span><br>
-
-If the buffer from which <code>pCallableShaderBindingTable-&gt;deviceAddress</code> was queried
-is non-sparse then it <strong class="purple">must</strong> be bound completely and contiguously to a
-single <code>VkDeviceMemory</code> object</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdTraceRaysKHR-pCallableShaderBindingTable-03692" href="#VUID-vkCmdTraceRaysKHR-pCallableShaderBindingTable-03692"></a> <span class="vuid">VUID-vkCmdTraceRaysKHR-pCallableShaderBindingTable-03692</span><br>

@@ -1173,6 +1173,84 @@ is <code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, if its
 <code>NULL</code></p>
 </li>
 <li>
+<p><a id="VUID-vkBuildAccelerationStructuresKHR-pInfos-10898" href="#VUID-vkBuildAccelerationStructuresKHR-pInfos-10898"></a> <span class="vuid">VUID-vkBuildAccelerationStructuresKHR-pInfos-10898</span><br>
+
+For each element of <code>pInfos</code>, if its <code>mode</code> member is
+<code>VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR</code>, then for each
+<code>VkAccelerationStructureGeometryKHR</code> structure referred to by its
+<code>pGeometries</code> or <code>ppGeometries</code> members, if <code>geometryType</code>
+is <code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>numTriangles</code> member of the
+<code>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</code>
+structure in the <code>pNext</code> chain <strong class="purple">must</strong> have the same value which was
+specified when <code>srcAccelerationStructure</code> was last built</p>
+</li>
+<li>
+<p><a id="VUID-vkBuildAccelerationStructuresKHR-pInfos-10899" href="#VUID-vkBuildAccelerationStructuresKHR-pInfos-10899"></a> <span class="vuid">VUID-vkBuildAccelerationStructuresKHR-pInfos-10899</span><br>
+
+For each element of <code>pInfos</code>, if its <code>mode</code> member is
+<code>VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR</code>, then for each
+<code>VkAccelerationStructureGeometryKHR</code> structure referred to by its
+<code>pGeometries</code> or <code>ppGeometries</code> members, if <code>geometryType</code>
+is <code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>numVertices</code> member of the
+<code>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</code>
+structure in the <code>pNext</code> chain <strong class="purple">must</strong> have the same value which was
+specified when <code>srcAccelerationStructure</code> was last built</p>
+</li>
+<li>
+<p><a id="VUID-vkBuildAccelerationStructuresKHR-pInfos-10900" href="#VUID-vkBuildAccelerationStructuresKHR-pInfos-10900"></a> <span class="vuid">VUID-vkBuildAccelerationStructuresKHR-pInfos-10900</span><br>
+
+For each element of <code>pInfos</code>, if its <code>mode</code> member is
+<code>VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR</code>, then for each
+<code>VkAccelerationStructureGeometryKHR</code> structure referred to by its
+<code>pGeometries</code> or <code>ppGeometries</code> members, if <code>geometryType</code>
+is <code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>maxPrimitiveIndex</code> member of the
+<code>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</code>
+structure in the <code>pNext</code> chain <strong class="purple">must</strong> have the same value which was
+specified when <code>srcAccelerationStructure</code> was last built</p>
+</li>
+<li>
+<p><a id="VUID-vkBuildAccelerationStructuresKHR-pInfos-10901" href="#VUID-vkBuildAccelerationStructuresKHR-pInfos-10901"></a> <span class="vuid">VUID-vkBuildAccelerationStructuresKHR-pInfos-10901</span><br>
+
+For each element of <code>pInfos</code>, if its <code>mode</code> member is
+<code>VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR</code>, then for each
+<code>VkAccelerationStructureGeometryKHR</code> structure referred to by its
+<code>pGeometries</code> or <code>ppGeometries</code> members, if <code>geometryType</code>
+is <code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>maxGeometryIndex</code> member of the
+<code>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</code>
+structure in the <code>pNext</code> chain <strong class="purple">must</strong> have the same value which was
+specified when <code>srcAccelerationStructure</code> was last built</p>
+</li>
+<li>
+<p><a id="VUID-vkBuildAccelerationStructuresKHR-pInfos-10902" href="#VUID-vkBuildAccelerationStructuresKHR-pInfos-10902"></a> <span class="vuid">VUID-vkBuildAccelerationStructuresKHR-pInfos-10902</span><br>
+
+For each element of <code>pInfos</code>, if its <code>mode</code> member is
+<code>VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR</code>, then for each
+<code>VkAccelerationStructureGeometryKHR</code> structure referred to by its
+<code>pGeometries</code> or <code>ppGeometries</code> members, if <code>geometryType</code>
+is <code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>format</code> member of the
+<code>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</code>
+structure in the <code>pNext</code> chain <strong class="purple">must</strong> have the same value which was
+specified when <code>srcAccelerationStructure</code> was last built</p>
+</li>
+<li>
+<p><a id="VUID-vkBuildAccelerationStructuresKHR-pInfos-10903" href="#VUID-vkBuildAccelerationStructuresKHR-pInfos-10903"></a> <span class="vuid">VUID-vkBuildAccelerationStructuresKHR-pInfos-10903</span><br>
+
+For each element of <code>pInfos</code>, if its <code>mode</code> member is
+<code>VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR</code>, then for each
+<code>VkAccelerationStructureGeometryKHR</code> structure referred to by its
+<code>pGeometries</code> or <code>ppGeometries</code> members, if <code>geometryType</code>
+is <code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>dataSize</code> member of the
+<code>VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</code>
+structure in the <code>pNext</code> chain <strong class="purple">must</strong> have the same value which was
+specified when <code>srcAccelerationStructure</code> was last built</p>
+</li>
+<li>
 <p><a id="VUID-vkBuildAccelerationStructuresKHR-pInfos-03768" href="#VUID-vkBuildAccelerationStructuresKHR-pInfos-03768"></a> <span class="vuid">VUID-vkBuildAccelerationStructuresKHR-pInfos-03768</span><br>
 
 For each element of <code>pInfos</code>, if its <code>mode</code> member is
@@ -1240,7 +1318,16 @@ updating a compacted acceleration structure</p>
 
 Each element of <code>ppBuildRangeInfos</code>[i] <strong class="purple">must</strong> be a valid pointer to
 an array of <code>pInfos</code>[i].<code>geometryCount</code>
-<code>VkAccelerationStructureBuildRangeInfoKHR</code> structures</p>
+<code>VkAccelerationStructureBuildRangeInfoKHR</code> structures
+, or <code>NULL</code></p>
+</li>
+<li>
+<p><a id="VUID-vkBuildAccelerationStructuresKHR-pInfos-10906" href="#VUID-vkBuildAccelerationStructuresKHR-pInfos-10906"></a> <span class="vuid">VUID-vkBuildAccelerationStructuresKHR-pInfos-10906</span><br>
+
+For each element of <code>pInfos</code>[i] whose <code>pGeometries</code> or
+<code>ppGeometries</code> members have a <code>geometryType</code> of
+<code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>,
+<code>ppBuildRangeInfos</code>[i] <strong class="purple">must</strong> be <code>NULL</code></p>
 </li>
 </ul>
 </div>
@@ -1391,6 +1478,24 @@ For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
 <a href="VkAccelerationStructureMotionInstanceNV.html">VkAccelerationStructureMotionInstanceNV</a> value in
 <code>geometry.instances.data.hostAddress</code> <strong class="purple">must</strong> be a valid
 <a href="VkAccelerationStructureKHR.html">VkAccelerationStructureKHR</a> object</p>
+</li>
+<li>
+<p><a id="VUID-vkBuildAccelerationStructuresKHR-pInfos-10892" href="#VUID-vkBuildAccelerationStructuresKHR-pInfos-10892"></a> <span class="vuid">VUID-vkBuildAccelerationStructuresKHR-pInfos-10892</span><br>
+
+For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
+<code>pInfos</code>[i].<code>ppGeometries</code> with a <code>geometryType</code> of
+<code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, if there is an instance of
+<a href="VkAccelerationStructureTrianglesOpacityMicromapEXT.html">VkAccelerationStructureTrianglesOpacityMicromapEXT</a> in the
+<code>geometry.triangles.pNext</code> chain, and its <code>indexType</code> is
+<code>VK_INDEX_TYPE_NONE_KHR</code>, then its <code>indexBuffer.hostAddress</code>
+<strong class="purple">must</strong> be 0</p>
+</li>
+<li>
+<p><a id="VUID-vkBuildAccelerationStructuresKHR-pInfos-10893" href="#VUID-vkBuildAccelerationStructuresKHR-pInfos-10893"></a> <span class="vuid">VUID-vkBuildAccelerationStructuresKHR-pInfos-10893</span><br>
+
+For any element of <code>pInfos</code>[i].<code>pGeometries</code> or
+<code>pInfos</code>[i].<code>ppGeometries</code>, <code>geometryType</code> <strong class="purple">must</strong> not be
+<code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code></p>
 </li>
 </ul>
 </div>

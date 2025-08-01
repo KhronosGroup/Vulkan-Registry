@@ -1009,41 +1009,6 @@ The buffers from which the buffer device addresses for
 been created with the
 <code>VK_BUFFER_USAGE_ACCELERATION_STRUCTURE_STORAGE_BIT_KHR</code> usage flag</p>
 </li>
-<li>
-<p><a id="VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10553" href="#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10553"></a> <span class="vuid">VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10553</span><br>
-
-If <code>pBuildInfo-&gt;srcAccelerationStructureData</code> is the address of a
-non-sparse buffer then it <strong class="purple">must</strong> be bound completely and contiguously to
-a single <a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10554" href="#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10554"></a> <span class="vuid">VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10554</span><br>
-
-If <code>pBuildInfo-&gt;dstAccelerationStructureData</code> is the address of a
-non-sparse buffer then it <strong class="purple">must</strong> be bound completely and contiguously to
-a single <a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10555" href="#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10555"></a> <span class="vuid">VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10555</span><br>
-
-If <code>pBuildInfo-&gt;scratchData</code> is the address of a non-sparse buffer
-then it <strong class="purple">must</strong> be bound completely and contiguously to a single
-<a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10556" href="#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10556"></a> <span class="vuid">VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10556</span><br>
-
-If <code>pBuildInfo-&gt;srcInfos</code> is the address of a non-sparse buffer then
-it <strong class="purple">must</strong> be bound completely and contiguously to a single
-<a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10557" href="#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10557"></a> <span class="vuid">VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10557</span><br>
-
-If <code>pBuildInfo-&gt;srcInfosCount</code> is the address of a non-sparse buffer
-then it <strong class="purple">must</strong> be bound completely and contiguously to a single
-<a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
-</li>
 </ul>
 </div>
 </div>

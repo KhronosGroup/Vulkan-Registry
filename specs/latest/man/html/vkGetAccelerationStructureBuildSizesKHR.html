@@ -935,6 +935,63 @@ the corresponding <code>transformData.hostAddress</code> parameter in
 <li>
 <p>For each element of either <code>pGeometries</code> or <code>ppGeometries</code> at a
 given index, with a <code>geometryType</code> member equal to
+<code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>numTriangles</code> member of the
+<a href="VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX.html">VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</a>
+structure in the <code>pNext</code> chain is less than or equal to the
+corresponding member of the same element in <code>pBuildInfo</code></p>
+</li>
+<li>
+<p>For each element of either <code>pGeometries</code> or <code>ppGeometries</code> at a
+given index, with a <code>geometryType</code> member equal to
+<code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>numVertices</code> member of the
+<a href="VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX.html">VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</a>
+structure in the <code>pNext</code> chain is less than or equal to the
+corresponding member of the same element in <code>pBuildInfo</code></p>
+</li>
+<li>
+<p>For each element of either <code>pGeometries</code> or <code>ppGeometries</code> at a
+given index, with a <code>geometryType</code> member equal to
+<code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>maxPrimitiveIndex</code> member of the
+<a href="VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX.html">VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</a>
+structure in the <code>pNext</code> chain is less than or equal to the
+corresponding member of the same element in <code>pBuildInfo</code></p>
+</li>
+<li>
+<p>For each element of either <code>pGeometries</code> or <code>ppGeometries</code> at a
+given index, with a <code>geometryType</code> member equal to
+<code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>maxGeometryIndex</code> member of the
+<a href="VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX.html">VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</a>
+structure in the <code>pNext</code> chain is less than or equal to the
+corresponding member of the same element in <code>pBuildInfo</code></p>
+</li>
+<li>
+<p>For each element of either <code>pGeometries</code> or <code>ppGeometries</code> at a
+given index, with a <code>geometryType</code> member equal to
+<code>VK_GEOMETRY_TYPE_DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX</code>, the
+<code>format</code> member of the
+<a href="VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX.html">VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX</a>
+structure in the <code>pNext</code> chain is equal to the corresponding member
+of the same element in <code>pBuildInfo</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>For each <a href="VkAccelerationStructureBuildRangeInfoKHR.html">VkAccelerationStructureBuildRangeInfoKHR</a> corresponding to
+the <a href="VkAccelerationStructureBuildGeometryInfoKHR.html">VkAccelerationStructureBuildGeometryInfoKHR</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Its <code>primitiveCount</code> member is less than or equal to the
+corresponding element of <code>pMaxPrimitiveCounts</code>.</p>
+</li>
+<li>
+<p>For each element of either <code>pGeometries</code> or <code>ppGeometries</code> at a
+given index, with a <code>geometryType</code> member equal to
 <code>VK_GEOMETRY_TYPE_TRIANGLES_KHR</code>, if the <code>pNext</code> chain contains
 <a href="VkAccelerationStructureTrianglesOpacityMicromapEXT.html">VkAccelerationStructureTrianglesOpacityMicromapEXT</a> the
 corresponding member of <code>pBuildInfo</code> also contains

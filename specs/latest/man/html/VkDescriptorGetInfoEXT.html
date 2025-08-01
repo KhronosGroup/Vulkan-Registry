@@ -1040,6 +1040,10 @@ If <code>type</code> is <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code>, a
 <p><a id="VUID-VkDescriptorGetInfoEXT-pStorageBuffer-parameter" href="#VUID-VkDescriptorGetInfoEXT-pStorageBuffer-parameter"></a> <span class="vuid">VUID-VkDescriptorGetInfoEXT-pStorageBuffer-parameter</span><br>
  If <code>type</code> is <code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER</code>, and if <code>pStorageBuffer</code> is not <code>NULL</code>, the <code>pStorageBuffer</code> member of <code>data</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkDescriptorAddressInfoEXT.html">VkDescriptorAddressInfoEXT</a> structure</p>
 </li>
+<li>
+<p><a id="VUID-VkDescriptorGetInfoEXT-accelerationStructure-parameter" href="#VUID-VkDescriptorGetInfoEXT-accelerationStructure-parameter"></a> <span class="vuid">VUID-VkDescriptorGetInfoEXT-accelerationStructure-parameter</span><br>
+ If <code>type</code> is <code>VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_KHR</code> or <code>VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_NV</code>, the <code>accelerationStructure</code> member of <code>data</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
+</li>
 </ul>
 </div>
 </div>

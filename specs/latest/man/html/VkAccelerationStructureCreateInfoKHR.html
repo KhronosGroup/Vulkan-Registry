@@ -994,12 +994,6 @@ that was retrieved from <a href="vkGetBufferOpaqueCaptureAddress.html">vkGetBuff
 which <code>deviceAddress</code> was retrieved</p>
 </li>
 <li>
-<p><a id="VUID-VkAccelerationStructureCreateInfoKHR-deviceAddress-10393" href="#VUID-VkAccelerationStructureCreateInfoKHR-deviceAddress-10393"></a> <span class="vuid">VUID-VkAccelerationStructureCreateInfoKHR-deviceAddress-10393</span><br>
-
-If <code>deviceAddress</code> is not zero, it <strong class="purple">must</strong> be a valid device address
-obtained from <a href="vkGetAccelerationStructureDeviceAddressKHR.html">vkGetAccelerationStructureDeviceAddressKHR</a></p>
-</li>
-<li>
 <p><a id="VUID-VkAccelerationStructureCreateInfoKHR-createFlags-03613" href="#VUID-VkAccelerationStructureCreateInfoKHR-createFlags-03613"></a> <span class="vuid">VUID-VkAccelerationStructureCreateInfoKHR-createFlags-03613</span><br>
 
 If <code>createFlags</code> includes
@@ -1094,6 +1088,10 @@ If the <code>pNext</code> chain includes a
 <li>
 <p><a id="VUID-VkAccelerationStructureCreateInfoKHR-type-parameter" href="#VUID-VkAccelerationStructureCreateInfoKHR-type-parameter"></a> <span class="vuid">VUID-VkAccelerationStructureCreateInfoKHR-type-parameter</span><br>
  <code>type</code> <strong class="purple">must</strong> be a valid <a href="VkAccelerationStructureTypeKHR.html">VkAccelerationStructureTypeKHR</a> value</p>
+</li>
+<li>
+<p><a id="VUID-VkAccelerationStructureCreateInfoKHR-deviceAddress-parameter" href="#VUID-VkAccelerationStructureCreateInfoKHR-deviceAddress-parameter"></a> <span class="vuid">VUID-VkAccelerationStructureCreateInfoKHR-deviceAddress-parameter</span><br>
+ If <code>deviceAddress</code> is not <code>0</code>, <code>deviceAddress</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
 </li>
 </ul>
 </div>

@@ -1221,8 +1221,15 @@ element of <code>pRegions</code>, <code>srcOffset.z</code> <strong class="purple
 <p><a id="VUID-vkCmdCopyImage-dstImage-01786" href="#VUID-vkCmdCopyImage-dstImage-01786"></a> <span class="vuid">VUID-vkCmdCopyImage-dstImage-01786</span><br>
 
 If <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_1D</code>, then for each
-element of <code>pRegions</code>, <code>dstOffset.z</code> <strong class="purple">must</strong> be <code>0</code> and
-<code>extent.depth</code> <strong class="purple">must</strong> be <code>1</code></p>
+element of <code>pRegions</code>, <code>dstOffset.z</code> <strong class="purple">must</strong> be <code>0</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyImage-srcImage-10907" href="#VUID-vkCmdCopyImage-srcImage-10907"></a> <span class="vuid">VUID-vkCmdCopyImage-srcImage-10907</span><br>
+
+If either the <a href="VkFormat.html">VkFormat</a> of each of <code>srcImage</code> and
+<code>dstImage</code> is not a <a href="#compressed_image_formats">compressed image
+format</a>, and <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_1D</code>, then for
+each element of <code>pRegions</code>, <code>extent.depth</code> <strong class="purple">must</strong> be <code>1</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdCopyImage-srcImage-01787" href="#VUID-vkCmdCopyImage-srcImage-01787"></a> <span class="vuid">VUID-vkCmdCopyImage-srcImage-01787</span><br>
@@ -1331,9 +1338,17 @@ height of the specified <code>dstSubresource</code> of <code>dstImage</code></p>
 <p><a id="VUID-vkCmdCopyImage-dstImage-00152" href="#VUID-vkCmdCopyImage-dstImage-00152"></a> <span class="vuid">VUID-vkCmdCopyImage-dstImage-00152</span><br>
 
 If <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_1D</code>, then for each
-element of <code>pRegions</code>, <code>dstOffset.y</code> <strong class="purple">must</strong> be <code>0</code> and
-<code>extent.height</code> <strong class="purple">must</strong> be <code>1</code>, where <code>extent</code> is
-<a href="#formats-size-compatibility">adjusted for size-compatibility</a></p>
+element of <code>pRegions</code>, <code>dstOffset.y</code> <strong class="purple">must</strong> be <code>0</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyImage-srcImage-10908" href="#VUID-vkCmdCopyImage-srcImage-10908"></a> <span class="vuid">VUID-vkCmdCopyImage-srcImage-10908</span><br>
+
+If either the <a href="VkFormat.html">VkFormat</a> of each of <code>srcImage</code> and
+<code>dstImage</code> is not a <a href="#compressed_image_formats">compressed image
+format</a>, and <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_1D</code>, then for
+each element of <code>pRegions</code>, <code>extent.height</code> <strong class="purple">must</strong> be <code>1</code>, where
+<code>extent</code> is <a href="#formats-size-compatibility">adjusted for
+size-compatibility</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdCopyImage-dstOffset-00153" href="#VUID-vkCmdCopyImage-dstOffset-00153"></a> <span class="vuid">VUID-vkCmdCopyImage-dstOffset-00153</span><br>

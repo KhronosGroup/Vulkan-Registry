@@ -1536,13 +1536,6 @@ used to create the bound ray tracing pipeline</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-03632" href="#VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-03632"></a> <span class="vuid">VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-03632</span><br>
-
-If the buffer from which <code>indirectDeviceAddress</code> was queried is
-non-sparse then it <strong class="purple">must</strong> be bound completely and contiguously to a
-single <code>VkDeviceMemory</code> object</p>
-</li>
-<li>
 <p><a id="VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-03633" href="#VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-03633"></a> <span class="vuid">VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-03633</span><br>
 
 The buffer from which <code>indirectDeviceAddress</code> was queried <strong class="purple">must</strong> have
@@ -1585,6 +1578,10 @@ feature <strong class="purple">must</strong> be enabled</p>
 <li>
 <p><a id="VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-parameter" href="#VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-parameter"></a> <span class="vuid">VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-parameter</span><br>
  <code>commandBuffer</code> <strong class="purple">must</strong> be a valid <a href="VkCommandBuffer.html">VkCommandBuffer</a> handle</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-parameter" href="#VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-parameter"></a> <span class="vuid">VUID-vkCmdTraceRaysIndirect2KHR-indirectDeviceAddress-parameter</span><br>
+ <code>indirectDeviceAddress</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-recording" href="#VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-recording"></a> <span class="vuid">VUID-vkCmdTraceRaysIndirect2KHR-commandBuffer-recording</span><br>

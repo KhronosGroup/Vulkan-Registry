@@ -861,12 +861,18 @@ address.</p>
 The buffer&#8217;s usage flag from which the address was acquired <strong class="purple">must</strong> have
 the <code>VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT</code> bit set</p>
 </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Valid Usage (Implicit)</div>
+<div class="ulist">
+<ul>
 <li>
-<p><a id="VUID-VkDrawIndirectCountIndirectCommandEXT-None-11123" href="#VUID-VkDrawIndirectCountIndirectCommandEXT-None-11123"></a> <span class="vuid">VUID-VkDrawIndirectCountIndirectCommandEXT-None-11123</span><br>
-
-Each element of the buffer from which the address was acquired and that
-is non-sparse <strong class="purple">must</strong> be bound completely and contiguously to a single
-<code>VkDeviceMemory</code> object</p>
+<p><a id="VUID-VkDrawIndirectCountIndirectCommandEXT-bufferAddress-parameter" href="#VUID-VkDrawIndirectCountIndirectCommandEXT-bufferAddress-parameter"></a> <span class="vuid">VUID-VkDrawIndirectCountIndirectCommandEXT-bufferAddress-parameter</span><br>
+ <code>bufferAddress</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
 </li>
 </ul>
 </div>

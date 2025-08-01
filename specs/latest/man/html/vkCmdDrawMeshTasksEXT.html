@@ -1872,8 +1872,8 @@ enabled, the maximum instance index <strong class="purple">must</strong> be less
 
 If the bound graphics pipeline was created with
 <a href="VkPipelineSampleLocationsStateCreateInfoEXT.html">VkPipelineSampleLocationsStateCreateInfoEXT</a>::<code>sampleLocationsEnable</code>
-set to <code>VK_TRUE</code> and the current subpass has a depth/stencil
-attachment, then that attachment <strong class="purple">must</strong> have been created with the
+set to <code>VK_TRUE</code>, then the active depth attachment <strong class="purple">must</strong> have been
+created with the
 <code>VK_IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT</code> bit set</p>
 </li>
 <li>
@@ -3213,7 +3213,9 @@ If
 a shader object is bound to any graphics stage or
 a graphics pipeline is bound which was created with the
 <code>VK_DYNAMIC_STATE_LINE_RASTERIZATION_MODE_EXT</code> dynamic state
-enabled, and the current <code>lineRasterizationMode</code> is
+enabled, the <a href="#drawing-rasterization-input-topology">effective
+rasterization input topology</a> is in line topology class, and the
+current <code>lineRasterizationMode</code> is
 <code>VK_LINE_RASTERIZATION_MODE_BRESENHAM</code> or
 <code>VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH</code>, then the current
 <code>alphaToCoverageEnable</code>, <code>alphaToOneEnable</code> and
@@ -3585,10 +3587,9 @@ stage, or
 the bound graphics pipeline was created with the
 <code>VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_ENABLE_EXT</code> state enabled, and
 <code>sampleLocationsEnable</code> was <code>VK_TRUE</code> in the last call to
-<a href="vkCmdSetSampleLocationsEnableEXT.html">vkCmdSetSampleLocationsEnableEXT</a>, and the current subpass has a
-depth/stencil attachment, then that attachment <strong class="purple">must</strong> have been created
-with the <code>VK_IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT</code>
-bit set</p>
+<a href="vkCmdSetSampleLocationsEnableEXT.html">vkCmdSetSampleLocationsEnableEXT</a> then the current active depth
+attachment <strong class="purple">must</strong> have been created with the
+<code>VK_IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT</code> bit set</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-sampleLocationsEnable-07485" href="#VUID-vkCmdDrawMeshTasksEXT-sampleLocationsEnable-07485"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-sampleLocationsEnable-07485</span><br>
@@ -3691,7 +3692,7 @@ enabled, and the last call to
 <code>coverageModulationTableCount</code> parameter in the last call to
 <a href="vkCmdSetCoverageModulationTableNV.html">vkCmdSetCoverageModulationTableNV</a> <strong class="purple">must</strong> equal the current
 <code>rasterizationSamples</code> divided by the number of color samples in the
-current subpass</p>
+current active color attachment</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-rasterizationSamples-07489" href="#VUID-vkCmdDrawMeshTasksEXT-rasterizationSamples-07489"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-rasterizationSamples-07489</span><br>
@@ -3708,13 +3709,13 @@ sample count of the depth/stencil attachment</p>
 If the bound graphics pipeline state was created with the
 <code>VK_DYNAMIC_STATE_COVERAGE_TO_COLOR_ENABLE_NV</code> state enabled and the
 last call to <a href="vkCmdSetCoverageToColorEnableNV.html">vkCmdSetCoverageToColorEnableNV</a> set the
-<code>coverageToColorEnable</code> to <code>VK_TRUE</code>, then the current subpass
-<strong class="purple">must</strong> have a color attachment at the location selected by the last call
-to <a href="vkCmdSetCoverageToColorLocationNV.html">vkCmdSetCoverageToColorLocationNV</a>
-<code>coverageToColorLocation</code>, with a <a href="VkFormat.html">VkFormat</a> of
-<code>VK_FORMAT_R8_UINT</code>, <code>VK_FORMAT_R8_SINT</code>,
-<code>VK_FORMAT_R16_UINT</code>, <code>VK_FORMAT_R16_SINT</code>,
-<code>VK_FORMAT_R32_UINT</code>, or <code>VK_FORMAT_R32_SINT</code></p>
+<code>coverageToColorEnable</code> to <code>VK_TRUE</code>, then there <strong class="purple">must</strong> be an
+active color attachment at the location selected by the last call to
+<a href="vkCmdSetCoverageToColorLocationNV.html">vkCmdSetCoverageToColorLocationNV</a> <code>coverageToColorLocation</code>,
+with a <a href="VkFormat.html">VkFormat</a> of <code>VK_FORMAT_R8_UINT</code>,
+<code>VK_FORMAT_R8_SINT</code>, <code>VK_FORMAT_R16_UINT</code>,
+<code>VK_FORMAT_R16_SINT</code>, <code>VK_FORMAT_R32_UINT</code>, or
+<code>VK_FORMAT_R32_SINT</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-rasterizerDiscardEnable-09420" href="#VUID-vkCmdDrawMeshTasksEXT-rasterizerDiscardEnable-09420"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-rasterizerDiscardEnable-09420</span><br>
@@ -3725,13 +3726,13 @@ stage, and the most recent call to <a href="vkCmdSetRasterizerDiscardEnable.html
 in the current command buffer set <code>rasterizerDiscardEnable</code> to
 <code>VK_FALSE</code>, and the last call to
 <a href="vkCmdSetCoverageToColorEnableNV.html">vkCmdSetCoverageToColorEnableNV</a> set the
-<code>coverageToColorEnable</code> to <code>VK_TRUE</code>, then the current subpass
-<strong class="purple">must</strong> have a color attachment at the location selected by the last call
-to <a href="vkCmdSetCoverageToColorLocationNV.html">vkCmdSetCoverageToColorLocationNV</a>
-<code>coverageToColorLocation</code>, with a <a href="VkFormat.html">VkFormat</a> of
-<code>VK_FORMAT_R8_UINT</code>, <code>VK_FORMAT_R8_SINT</code>,
-<code>VK_FORMAT_R16_UINT</code>, <code>VK_FORMAT_R16_SINT</code>,
-<code>VK_FORMAT_R32_UINT</code>, or <code>VK_FORMAT_R32_SINT</code></p>
+<code>coverageToColorEnable</code> to <code>VK_TRUE</code>, then there <strong class="purple">must</strong> be an
+active color attachment at the location selected by the last call to
+<a href="vkCmdSetCoverageToColorLocationNV.html">vkCmdSetCoverageToColorLocationNV</a> <code>coverageToColorLocation</code>,
+with a <a href="VkFormat.html">VkFormat</a> of <code>VK_FORMAT_R8_UINT</code>,
+<code>VK_FORMAT_R8_SINT</code>, <code>VK_FORMAT_R16_UINT</code>,
+<code>VK_FORMAT_R16_SINT</code>, <code>VK_FORMAT_R32_UINT</code>, or
+<code>VK_FORMAT_R32_SINT</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-coverageReductionMode-07491" href="#VUID-vkCmdDrawMeshTasksEXT-coverageReductionMode-07491"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-coverageReductionMode-07491</span><br>

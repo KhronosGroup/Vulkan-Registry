@@ -864,8 +864,14 @@ One conversion is performed for each of the <code>infoCount</code> elements of
 <li>
 <p><a id="VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10083" href="#VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10083"></a> <span class="vuid">VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10083</span><br>
 
-For each element of <code>pInfo</code>, <code>srcData</code>::<code>deviceAddress</code> and
-<code>dstData</code>::<code>deviceAddress</code> <strong class="purple">must</strong> be valid device addresses</p>
+For each element of <code>pInfo</code>, <code>srcData</code>::<code>deviceAddress</code>
+<strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10895" href="#VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10895"></a> <span class="vuid">VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10895</span><br>
+
+For each element of <code>pInfo</code>, <code>dstData</code>::<code>deviceAddress</code>
+<strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10084" href="#VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10084"></a> <span class="vuid">VUID-vkCmdConvertCooperativeVectorMatrixNV-pInfo-10084</span><br>
