@@ -849,7 +849,9 @@ typedef VkPipelineRenderingCreateInfo VkPipelineRenderingCreateInfoKHR;</code></
 structure.</p>
 </li>
 <li>
-<p><code>viewMask</code> is the viewMask used for rendering.</p>
+<p><code>viewMask</code> is a bitfield of view indices describing which views are
+active during rendering.
+It <strong class="purple">must</strong> match <a href="VkRenderingInfo.html">VkRenderingInfo</a>::<code>viewMask</code> when rendering.</p>
 </li>
 <li>
 <p><code>colorAttachmentCount</code> is the number of entries in

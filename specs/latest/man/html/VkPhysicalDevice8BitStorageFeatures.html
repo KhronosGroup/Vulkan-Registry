@@ -867,7 +867,10 @@ structure.</p>
     storage class with the <code>Block</code> decoration <strong class="purple">can</strong> have 8-bit integer
     members.
     If this feature is not enabled, 8-bit integer members <strong class="purple">must</strong> not be used
-    in such objects.
+    in such
+    objects unless <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers" target="_blank" rel="noopener"><code>shaderUntypedPointer</code></a> is enabled and they are accessed in 32-bit
+    multiples or 16-bit multiples if
+    <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#extension-features-storageBuffer16BitAccess" target="_blank" rel="noopener"><code>storageBuffer16BitAccess</code></a> is enabled.
     This also indicates whether shader modules <strong class="purple">can</strong> declare the
     <code>StorageBuffer8BitAccess</code> capability.</p>
 </li>
@@ -877,7 +880,10 @@ structure.</p>
 <code>Uniform</code> storage class with the <code>Block</code> decoration <strong class="purple">can</strong> have
 8-bit integer members.
 If this feature is not enabled, 8-bit integer members <strong class="purple">must</strong> not be used
-in such objects.
+in such
+objects unless <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers" target="_blank" rel="noopener"><code>shaderUntypedPointers</code></a> is enabled and they are accessed in 32-bit
+multiples or 16-bit multiples if
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#extension-features-uniformAndStorageBuffer16BitAccess" target="_blank" rel="noopener"><code>uniformAndStorageBuffer16BitAccess</code></a> is enabled.
 This also indicates whether shader modules <strong class="purple">can</strong> declare the
 <code>UniformAndStorageBuffer8BitAccess</code> capability.</p>
 </li>
@@ -886,7 +892,10 @@ This also indicates whether shader modules <strong class="purple">can</strong> d
 <code>storagePushConstant8</code> indicates whether objects in the
 <code>PushConstant</code> storage class <strong class="purple">can</strong> have 8-bit integer members.
 If this feature is not enabled, 8-bit integer members <strong class="purple">must</strong> not be used
-in such objects.
+in such
+objects unless <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers" target="_blank" rel="noopener"><code>shaderUntypedPointers</code></a> is enabled and they are accessed in 32-bit
+multiples or 16-bit multiples if
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#extension-features-storagePushConstant16" target="_blank" rel="noopener"><code>storagePushConstant16</code></a> is enabled.
 This also indicates whether shader modules <strong class="purple">can</strong> declare the
 <code>StoragePushConstant8</code> capability.</p>
 </li>

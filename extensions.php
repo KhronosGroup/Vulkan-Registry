@@ -99,6 +99,7 @@
     <li> <a href="specs/latest/man/html/VK_KHR_shader_subgroup_rotate.html"> VK_KHR_shader_subgroup_rotate </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_shader_subgroup_uniform_control_flow.html"> VK_KHR_shader_subgroup_uniform_control_flow </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_shader_terminate_invocation.html"> VK_KHR_shader_terminate_invocation </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_shader_untyped_pointers.html"> VK_KHR_shader_untyped_pointers </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_shared_presentable_image.html"> VK_KHR_shared_presentable_image </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_spirv_1_4.html"> VK_KHR_spirv_1_4 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_storage_buffer_storage_class.html"> VK_KHR_storage_buffer_storage_class </a> </li>

@@ -867,7 +867,10 @@ structure.</p>
     storage class with the <code>Block</code> decoration <strong class="purple">can</strong> have 16-bit integer
     and 16-bit floating-point members.
     If this feature is not enabled, 16-bit integer or 16-bit floating-point
-    members <strong class="purple">must</strong> not be used in such objects.
+    members <strong class="purple">must</strong> not be used in such
+    objects unless <a href="#features-storageBuffer8BitAccess"><code>storageBuffer8BitAccess</code></a> or
+    <a href="#features-uniformAndStorageBuffer8BitAccess"><code>uniformAndStorageBuffer8BitAccess</code></a> are enabled or they are
+    accessed in 32-bit multiples if <a href="#features-shaderUntypedPointers"><code>shaderUntypedPointers</code></a> is enabled.
     This also specifies whether shader modules <strong class="purple">can</strong> declare the
     <code>StorageBuffer16BitAccess</code> capability.</p>
 </li>
@@ -877,7 +880,10 @@ structure.</p>
 the <code>Uniform</code> storage class with the <code>Block</code> decoration <strong class="purple">can</strong> have
 16-bit integer and 16-bit floating-point members.
 If this feature is not enabled, 16-bit integer or 16-bit floating-point
-members <strong class="purple">must</strong> not be used in such objects.
+members <strong class="purple">must</strong> not be used in such
+objects unless
+<a href="#features-uniformAndStorageBuffer8BitAccess"><code>uniformAndStorageBuffer8BitAccess</code></a> are enabled or they are
+accessed in 32-bit multiples if <a href="#features-shaderUntypedPointers"><code>shaderUntypedPointers</code></a> is enabled.
 This also specifies whether shader modules <strong class="purple">can</strong> declare the
 <code>UniformAndStorageBuffer16BitAccess</code> capability.</p>
 </li>
@@ -887,7 +893,9 @@ This also specifies whether shader modules <strong class="purple">can</strong> d
 <code>PushConstant</code> storage class <strong class="purple">can</strong> have 16-bit integer and 16-bit
 floating-point members.
 If this feature is not enabled, 16-bit integer or floating-point members
-<strong class="purple">must</strong> not be used in such objects.
+<strong class="purple">must</strong> not be used in such
+objects unless <a href="#features-storagePushConstant8"><code>storagePushConstant8</code></a> are enabled or they are accessed in 32-bit
+multiples if <a href="#features-shaderUntypedPointers"><code>shaderUntypedPointers</code></a> is enabled.
 This also specifies whether shader modules <strong class="purple">can</strong> declare the
 <code>StoragePushConstant16</code> capability.</p>
 </li>

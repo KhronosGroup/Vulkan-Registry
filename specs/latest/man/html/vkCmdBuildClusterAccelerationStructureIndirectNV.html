@@ -901,8 +901,8 @@ structure</p>
 <li>
 <p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10445" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10445"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10445</span><br>
 
-<code>pCommandInfos-&gt;input</code>::<code>maxAccelerationStructureCount</code> <strong class="purple">must</strong> be
-less than or equal to the value used in
+<code>pCommandInfos-&gt;input.maxAccelerationStructureCount</code> <strong class="purple">must</strong> be less
+than or equal to the value used in
 <code>pInfo-&gt;maxAccelerationStructureCount</code> in
 <a href="vkGetClusterAccelerationStructureBuildSizesNV.html">vkGetClusterAccelerationStructureBuildSizesNV</a> to determine the
 memory requirements for the build operation</p>
@@ -927,7 +927,7 @@ its alignment properties as queried with
 <li>
 <p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10448" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10448"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10448</span><br>
 
-If <code>pCommandInfos-&gt;input</code>::<code>opType</code> is
+If <code>pCommandInfos-&gt;input.opType</code> is
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_MOVE_OBJECTS_NV</code>,
 <code>pCommandInfos-&gt;srcInfosArray</code> <strong class="purple">must</strong> be an array of
 <a href="VkClusterAccelerationStructureMoveObjectsInfoNV.html">VkClusterAccelerationStructureMoveObjectsInfoNV</a> structures</p>
@@ -935,7 +935,7 @@ If <code>pCommandInfos-&gt;input</code>::<code>opType</code> is
 <li>
 <p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10449" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10449"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10449</span><br>
 
-If <code>pCommandInfos-&gt;input</code>::<code>opType</code> is
+If <code>pCommandInfos-&gt;input.opType</code> is
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_CLUSTERS_BOTTOM_LEVEL_NV</code>,
 <code>pCommandInfos-&gt;srcInfosArray</code> <strong class="purple">must</strong> be an array of
 <a href="VkClusterAccelerationStructureBuildClustersBottomLevelInfoNV.html">VkClusterAccelerationStructureBuildClustersBottomLevelInfoNV</a>
@@ -944,7 +944,7 @@ structures</p>
 <li>
 <p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10450" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10450"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10450</span><br>
 
-If <code>pCommandInfos-&gt;input</code>::<code>opType</code> is
+If <code>pCommandInfos-&gt;input.opType</code> is
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_NV</code>,
 <code>pCommandInfos-&gt;srcInfosArray</code> <strong class="purple">must</strong> be an array of
 <a href="VkClusterAccelerationStructureBuildTriangleClusterInfoNV.html">VkClusterAccelerationStructureBuildTriangleClusterInfoNV</a>
@@ -953,7 +953,7 @@ structures</p>
 <li>
 <p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10451" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10451"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10451</span><br>
 
-If <code>pCommandInfos-&gt;input</code>::<code>opType</code> is
+If <code>pCommandInfos-&gt;input.opType</code> is
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_TEMPLATE_NV</code>,
 <code>pCommandInfos-&gt;srcInfosArray</code> <strong class="purple">must</strong> be an array of
 <a href="VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV.html">VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV</a>
@@ -962,7 +962,7 @@ structures</p>
 <li>
 <p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10452" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10452"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10452</span><br>
 
-If <code>pCommandInfos-&gt;input</code>::<code>opType</code> is
+If <code>pCommandInfos-&gt;input.opType</code> is
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_INSTANTIATE_TRIANGLE_CLUSTER_NV</code>,
 <code>pCommandInfos-&gt;srcInfosArray</code> <strong class="purple">must</strong> be an array of
 <a href="VkClusterAccelerationStructureInstantiateClusterInfoNV.html">VkClusterAccelerationStructureInstantiateClusterInfoNV</a> structures</p>
@@ -970,7 +970,7 @@ If <code>pCommandInfos-&gt;input</code>::<code>opType</code> is
 <li>
 <p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10832" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10832"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10832</span><br>
 
-If <code>pCommandInfos-&gt;input</code>::<code>opType</code> is
+If <code>pCommandInfos-&gt;input.opType</code> is
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_GET_CLUSTER_TEMPLATE_INDICES_NV</code>,
 <code>pCommandInfos-&gt;srcInfosArray</code> <strong class="purple">must</strong> be an array of
 <a href="VkClusterAccelerationStructureGetTemplateIndicesInfoNV.html">VkClusterAccelerationStructureGetTemplateIndicesInfoNV</a> structures</p>
@@ -979,7 +979,7 @@ If <code>pCommandInfos-&gt;input</code>::<code>opType</code> is
 <p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10453" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10453"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10453</span><br>
 
 The value in <code>pCommandInfos-&gt;srcInfosCount</code> <strong class="purple">must</strong> be less than or
-equal to <code>pCommandInfos-&gt;input</code>::<code>maxAccelerationStructureCount</code></p>
+equal to <code>pCommandInfos-&gt;input.maxAccelerationStructureCount</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10454" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10454"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10454</span><br>

@@ -889,9 +889,9 @@ The limiting values are referenced by the relevant valid usage statements of
 <li>
 <p>Let the <span class="eq">uint64_t tensorElements</span> define the number of data elements
 in the tensor computed as the product of all
-<code>VkTensorCreateInfoARM</code>::<code>pDescription</code>::<code>pDimensions</code>[i]
-for i between 0 and
-<code>VkTensorCreateInfoARM</code>::<code>pDescription</code>::<code>dimensionCount</code> - 1.</p>
+<code>VkTensorCreateInfoARM</code>::<code>pDescription-&gt;pDimensions</code>[i] for i
+between 0 and
+<code>VkTensorCreateInfoARM</code>::<code>pDescription-&gt;dimensionCount</code> - 1.</p>
 </li>
 </ul>
 </div>
@@ -905,9 +905,8 @@ for i between 0 and
 <li>
 <p><a id="VUID-VkTensorCreateInfoARM-pDescription-09720" href="#VUID-VkTensorCreateInfoARM-pDescription-09720"></a> <span class="vuid">VUID-VkTensorCreateInfoARM-pDescription-09720</span><br>
 
-If <code>pDescription</code>::<code>tiling</code> is
-<code>VK_TENSOR_TILING_OPTIMAL_ARM</code>, <code>pDescription</code>::<code>pStrides</code>
-<strong class="purple">must</strong> be <code>NULL</code></p>
+If <code>pDescription-&gt;tiling</code> is <code>VK_TENSOR_TILING_OPTIMAL_ARM</code>,
+<code>pDescription-&gt;pStrides</code> <strong class="purple">must</strong> be <code>NULL</code></p>
 </li>
 <li>
 <p><a id="VUID-VkTensorCreateInfoARM-tensorElements-09721" href="#VUID-VkTensorCreateInfoARM-tensorElements-09721"></a> <span class="vuid">VUID-VkTensorCreateInfoARM-tensorElements-09721</span><br>
@@ -970,11 +969,11 @@ If the <code>pNext</code> chain includes a
 <li>
 <p><a id="VUID-VkTensorCreateInfoARM-pDescription-09728" href="#VUID-VkTensorCreateInfoARM-pDescription-09728"></a> <span class="vuid">VUID-VkTensorCreateInfoARM-pDescription-09728</span><br>
 
-If <code>pDescription</code>::<code>usage</code> does not have any of the following
-bits set (i.e. if it is not possible to create a tensor view for this
-tensor), then the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-tensor-view-format-features" target="_blank" rel="noopener">format
-features</a> <strong class="purple">must</strong> contain the format feature flags required by the
-<code>usage</code> flags <code>pDescription</code>::<code>format</code> as indicated in the
+If <code>pDescription-&gt;usage</code> does not have any of the following bits set
+(i.e. if it is not possible to create a tensor view for this tensor),
+then the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-tensor-view-format-features" target="_blank" rel="noopener">format features</a> <strong class="purple">must</strong>
+contain the format feature flags required by the <code>usage</code> flags
+<code>pDescription-&gt;format</code> as indicated in the
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#format-feature-dependent-usage-flags" class="bare" target="_blank" rel="noopener">https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#format-feature-dependent-usage-flags</a> section</p>
 <div class="ulist">
 <ul>

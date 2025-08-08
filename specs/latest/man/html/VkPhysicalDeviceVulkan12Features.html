@@ -916,7 +916,10 @@ If this feature is not enabled, these functions <strong class="purple">must</str
     storage class with the <code>Block</code> decoration <strong class="purple">can</strong> have 8-bit integer
     members.
     If this feature is not enabled, 8-bit integer members <strong class="purple">must</strong> not be used
-    in such objects.
+    in such
+    objects unless <a href="#features-shaderUntypedPointers"><code>shaderUntypedPointer</code></a> is enabled and they are accessed in 32-bit
+    multiples or 16-bit multiples if
+    <a href="#features-storageBuffer16BitAccess"><code>storageBuffer16BitAccess</code></a> is enabled.
     This also indicates whether shader modules <strong class="purple">can</strong> declare the
     <code>StorageBuffer8BitAccess</code> capability.</p>
 </li>
@@ -926,7 +929,10 @@ If this feature is not enabled, these functions <strong class="purple">must</str
 <code>Uniform</code> storage class with the <code>Block</code> decoration <strong class="purple">can</strong> have
 8-bit integer members.
 If this feature is not enabled, 8-bit integer members <strong class="purple">must</strong> not be used
-in such objects.
+in such
+objects unless <a href="#features-shaderUntypedPointers"><code>shaderUntypedPointers</code></a> is enabled and they are accessed in 32-bit
+multiples or 16-bit multiples if
+<a href="#features-uniformAndStorageBuffer16BitAccess"><code>uniformAndStorageBuffer16BitAccess</code></a> is enabled.
 This also indicates whether shader modules <strong class="purple">can</strong> declare the
 <code>UniformAndStorageBuffer8BitAccess</code> capability.</p>
 </li>
@@ -935,7 +941,10 @@ This also indicates whether shader modules <strong class="purple">can</strong> d
 <code>storagePushConstant8</code> indicates whether objects in the
 <code>PushConstant</code> storage class <strong class="purple">can</strong> have 8-bit integer members.
 If this feature is not enabled, 8-bit integer members <strong class="purple">must</strong> not be used
-in such objects.
+in such
+objects unless <a href="#features-shaderUntypedPointers"><code>shaderUntypedPointers</code></a> is enabled and they are accessed in 32-bit
+multiples or 16-bit multiples if
+<a href="#features-storagePushConstant16"><code>storagePushConstant16</code></a> is enabled.
 This also indicates whether shader modules <strong class="purple">can</strong> declare the
 <code>StoragePushConstant8</code> capability.</p>
 </li>

@@ -888,8 +888,8 @@ feature <strong class="purple">must</strong> be enabled</p>
 <li>
 <p><a id="VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10537" href="#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10537"></a> <span class="vuid">VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10537</span><br>
 
-The count specified in <code>pBuildInfo-&gt;input</code>::<code>instanceCount</code> for
-the build operation <strong class="purple">must</strong> not exceed the value provided in
+The count specified in <code>pBuildInfo-&gt;input.instanceCount</code> for the
+build operation <strong class="purple">must</strong> not exceed the value provided in
 <code>pInfo-&gt;instanceCount</code> when calling
 <a href="vkGetPartitionedAccelerationStructuresBuildSizesNV.html">vkGetPartitionedAccelerationStructuresBuildSizesNV</a> to determine
 the memory size</p>
@@ -898,8 +898,8 @@ the memory size</p>
 <p><a id="VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10538" href="#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10538"></a> <span class="vuid">VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10538</span><br>
 
 The count specified in
-<code>pBuildInfo-&gt;input</code>::<code>maxInstancePerPartitionCount</code> for the
-build operation <strong class="purple">must</strong> not exceed the value provided in
+<code>pBuildInfo-&gt;input.maxInstancePerPartitionCount</code> for the build
+operation <strong class="purple">must</strong> not exceed the value provided in
 <code>pInfo-&gt;maxInstancePerPartitionCount</code> when calling
 <a href="vkGetPartitionedAccelerationStructuresBuildSizesNV.html">vkGetPartitionedAccelerationStructuresBuildSizesNV</a> to determine
 the memory size</p>
@@ -907,8 +907,8 @@ the memory size</p>
 <li>
 <p><a id="VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10539" href="#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10539"></a> <span class="vuid">VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10539</span><br>
 
-The count specified in <code>pBuildInfo-&gt;input</code>::<code>partitionCount</code> for
-the build operation <strong class="purple">must</strong> not exceed the value provided in
+The count specified in <code>pBuildInfo-&gt;input.partitionCount</code> for the
+build operation <strong class="purple">must</strong> not exceed the value provided in
 <code>pInfo-&gt;partitionCount</code> when calling
 <a href="vkGetPartitionedAccelerationStructuresBuildSizesNV.html">vkGetPartitionedAccelerationStructuresBuildSizesNV</a> to determine
 the memory size</p>
@@ -917,8 +917,8 @@ the memory size</p>
 <p><a id="VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10540" href="#VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10540"></a> <span class="vuid">VUID-vkCmdBuildPartitionedAccelerationStructuresNV-pBuildInfo-10540</span><br>
 
 The count specified in
-<code>pBuildInfo-&gt;input</code>::<code>maxInstanceInGlobalPartitionCount</code> for the
-build operation <strong class="purple">must</strong> not exceed the value provided in
+<code>pBuildInfo-&gt;input.maxInstanceInGlobalPartitionCount</code> for the build
+operation <strong class="purple">must</strong> not exceed the value provided in
 <code>pInfo-&gt;maxInstanceInGlobalPartitionCount</code> when calling
 <a href="vkGetPartitionedAccelerationStructuresBuildSizesNV.html">vkGetPartitionedAccelerationStructuresBuildSizesNV</a> to determine
 the memory size</p>

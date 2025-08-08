@@ -2163,37 +2163,101 @@ is <code>VK_FALSE</code>, then <code>OpExecutionMode</code> <strong class="purpl
 If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storageBuffer8BitAccess" target="_blank" rel="noopener"><code>storageBuffer8BitAccess</code></a>
 is <code>VK_FALSE</code>, then objects containing an 8-bit integer element
 <strong class="purple">must</strong> not have <code>Storage</code> <code>Class</code> of <code>StorageBuffer</code>,
-<code>ShaderRecordBufferKHR</code>, or <code>PhysicalStorageBuffer</code></p>
+<code>ShaderRecordBufferKHR</code>, or <code>PhysicalStorageBuffer</code>
+unless <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers" target="_blank" rel="noopener"><code>shaderUntypedPointers</code></a>
+is <code>VK_TRUE</code> and they are accessed in:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>32-bit multiples, or</p>
+</li>
+<li>
+<p>16-bit multiples if <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storageBuffer16BitAccess" target="_blank" rel="noopener"><code>storageBuffer16BitAccess</code></a> is <code>VK_TRUE</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-uniformAndStorageBuffer8BitAccess-06329" href="#VUID-RuntimeSpirv-uniformAndStorageBuffer8BitAccess-06329"></a> <span class="vuid">VUID-RuntimeSpirv-uniformAndStorageBuffer8BitAccess-06329</span><br>
 
 If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-uniformAndStorageBuffer8BitAccess" target="_blank" rel="noopener"><code>uniformAndStorageBuffer8BitAccess</code></a> is <code>VK_FALSE</code>, then
 objects in the <code>Uniform</code> <code>Storage</code> <code>Class</code> with the <code>Block</code>
-decoration <strong class="purple">must</strong> not have an 8-bit integer member</p>
+decoration <strong class="purple">must</strong> not have an 8-bit integer member
+unless <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers" target="_blank" rel="noopener"><code>shaderUntypedPointers</code></a>
+is <code>VK_TRUE</code> and they are accessed in:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>32-bit multiples, or</p>
+</li>
+<li>
+<p>16-bit multiples if <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-uniformAndStorageBuffer16BitAccess" target="_blank" rel="noopener"><code>uniformAndStorageBuffer16BitAccess</code></a> is <code>VK_TRUE</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-storagePushConstant8-06330" href="#VUID-RuntimeSpirv-storagePushConstant8-06330"></a> <span class="vuid">VUID-RuntimeSpirv-storagePushConstant8-06330</span><br>
 
 If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storagePushConstant8" target="_blank" rel="noopener"><code>storagePushConstant8</code></a> is
 <code>VK_FALSE</code>, then objects containing an 8-bit integer element <strong class="purple">must</strong>
-not have <code>Storage</code> <code>Class</code> of <code>PushConstant</code></p>
+not have <code>Storage</code> <code>Class</code> of <code>PushConstant</code>
+unless <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers" target="_blank" rel="noopener"><code>shaderUntypedPointers</code></a>
+is <code>VK_TRUE</code> and they are accessed in:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>32-bit multiples, or</p>
+</li>
+<li>
+<p>16-bit multiples if &lt;features-storagePushConstant16,
+<code>storagePushConstant16</code>&gt;&gt; is <code>VK_TRUE</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-workgroupMemoryExplicitLayout8BitAccess-10756" href="#VUID-RuntimeSpirv-workgroupMemoryExplicitLayout8BitAccess-10756"></a> <span class="vuid">VUID-RuntimeSpirv-workgroupMemoryExplicitLayout8BitAccess-10756</span><br>
 
 If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-workgroupMemoryExplicitLayout8BitAccess" target="_blank" rel="noopener"><code>workgroupMemoryExplicitLayout8BitAccess</code></a> is <code>VK_FALSE</code>, then
 objects in the <code>Workgroup</code> <code>Storage</code> <code>Class</code> with the <code>Block</code>
-decoration <strong class="purple">must</strong> not have an 8-bit integer element.</p>
+decoration <strong class="purple">must</strong> not have an 8-bit integer element
+unless <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers" target="_blank" rel="noopener"><code>shaderUntypedPointers</code></a>
+is <code>VK_TRUE</code> and they are accessed in:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>32-bit multiples, or</p>
 </li>
 <li>
-<p><a id="VUID-RuntimeSpirv-storageBuffer16BitAccess-06331" href="#VUID-RuntimeSpirv-storageBuffer16BitAccess-06331"></a> <span class="vuid">VUID-RuntimeSpirv-storageBuffer16BitAccess-06331</span><br>
+<p>16-bit multiples if
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-workgroupMemoryExplicitLayout16BitAccess" target="_blank" rel="noopener"><code>workgroupMemoryExplicitLayout16BitAccess</code></a> is <code>VK_TRUE</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-storageBuffer16BitAccess-11161" href="#VUID-RuntimeSpirv-storageBuffer16BitAccess-11161"></a> <span class="vuid">VUID-RuntimeSpirv-storageBuffer16BitAccess-11161</span><br>
 
 If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storageBuffer16BitAccess" target="_blank" rel="noopener"><code>storageBuffer16BitAccess</code></a>
 is <code>VK_FALSE</code>, then objects containing 16-bit integer or 16-bit
 floating-point elements <strong class="purple">must</strong> not have <code>Storage</code> <code>Class</code> of
 <code>StorageBuffer</code>, <code>ShaderRecordBufferKHR</code>, or
-<code>PhysicalStorageBuffer</code></p>
+<code>PhysicalStorageBuffer</code>
+unless:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storageBuffer8BitAccess" target="_blank" rel="noopener"><code>storageBuffer8BitAccess</code></a> is
+<code>VK_TRUE</code>, or</p>
+</li>
+<li>
+<p>the elements are accessed in 32-bit multiples if
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers" target="_blank" rel="noopener"><code>shaderUntypedPointers</code></a> is
+<code>VK_TRUE</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-uniformAndStorageBuffer16BitAccess-06332" href="#VUID-RuntimeSpirv-uniformAndStorageBuffer16BitAccess-06332"></a> <span class="vuid">VUID-RuntimeSpirv-uniformAndStorageBuffer16BitAccess-06332</span><br>
@@ -2201,7 +2265,20 @@ floating-point elements <strong class="purple">must</strong> not have <code>Stor
 If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-uniformAndStorageBuffer16BitAccess" target="_blank" rel="noopener"><code>uniformAndStorageBuffer16BitAccess</code></a> is <code>VK_FALSE</code>, then
 objects in the <code>Uniform</code> <code>Storage</code> <code>Class</code> with the <code>Block</code>
 decoration <strong class="purple">must</strong> not have 16-bit integer or 16-bit floating-point
-members</p>
+members
+unless:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-uniformAndStorageBuffer8BitAccess" target="_blank" rel="noopener"><code>uniformAndStorageBuffer8BitAccess</code></a> is <code>VK_TRUE</code>, or</p>
+</li>
+<li>
+<p>members are accessed in 32-bit multiples and
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers" target="_blank" rel="noopener"><code>shaderUntypedPointers</code></a> is
+<code>VK_TRUE</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-storagePushConstant16-06333" href="#VUID-RuntimeSpirv-storagePushConstant16-06333"></a> <span class="vuid">VUID-RuntimeSpirv-storagePushConstant16-06333</span><br>
@@ -2209,15 +2286,29 @@ members</p>
 If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storagePushConstant16" target="_blank" rel="noopener"><code>storagePushConstant16</code></a> is
 <code>VK_FALSE</code>, then objects containing 16-bit integer or 16-bit
 floating-point elements <strong class="purple">must</strong> not have <code>Storage</code> <code>Class</code> of
-<code>PushConstant</code></p>
+<code>PushConstant</code>
+unless:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storagePushConstant8" target="_blank" rel="noopener"><code>StoragePushConstant8</code></a> is
+<code>VK_TRUE</code>, or</p>
 </li>
 <li>
-<p><a id="VUID-RuntimeSpirv-storageInputOutput16-06334" href="#VUID-RuntimeSpirv-storageInputOutput16-06334"></a> <span class="vuid">VUID-RuntimeSpirv-storageInputOutput16-06334</span><br>
+<p>elements are accessed in 32-bit multiples if
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers" target="_blank" rel="noopener"><code>shaderUntypedPointers</code></a> is
+<code>VK_TRUE</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-storageInputOutput16-11162" href="#VUID-RuntimeSpirv-storageInputOutput16-11162"></a> <span class="vuid">VUID-RuntimeSpirv-storageInputOutput16-11162</span><br>
 
 If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storageInputOutput16" target="_blank" rel="noopener"><code>storageInputOutput16</code></a> is
 <code>VK_FALSE</code>, then objects containing 16-bit integer or 16-bit
-floating-point elements <strong class="purple">must</strong> not have <code>Storage</code> <code>Class</code> of <code>Input</code> or
-<code>Output</code></p>
+floating-point elements <strong class="purple">must</strong> not have storage class of <strong>Input</strong> or
+<strong>Output</strong>.</p>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-workgroupMemoryExplicitLayout16BitAccess-10757" href="#VUID-RuntimeSpirv-workgroupMemoryExplicitLayout16BitAccess-10757"></a> <span class="vuid">VUID-RuntimeSpirv-workgroupMemoryExplicitLayout16BitAccess-10757</span><br>
@@ -2225,7 +2316,20 @@ floating-point elements <strong class="purple">must</strong> not have <code>Stor
 If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-workgroupMemoryExplicitLayout16BitAccess" target="_blank" rel="noopener"><code>workgroupMemoryExplicitLayout16BitAccess</code></a> is <code>VK_FALSE</code>, then
 objects in the <code>Workgroup</code> <code>Storage</code> <code>Class</code> with the <code>Block</code>
 decoration <strong class="purple">must</strong> not have an 16-bit integer or 16-bit floating-point
-elements.</p>
+elements
+unless:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-workgroupMemoryExplicitLayout8BitAccess" target="_blank" rel="noopener"><code>workgroupMemoryExplicitLayout8BitAccess</code></a> is <code>VK_TRUE</code>, or</p>
+</li>
+<li>
+<p>elements are accessed in 32-bit multiples if
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers" target="_blank" rel="noopener"><code>shaderUntypedPointers</code></a> is
+<code>VK_TRUE</code></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-None-06337" href="#VUID-RuntimeSpirv-None-06337"></a> <span class="vuid">VUID-RuntimeSpirv-None-06337</span><br>
@@ -2697,7 +2801,7 @@ width for each <code>Component</code></p>
 <li>
 <p><a id="VUID-RuntimeSpirv-OpVariable-08746" href="#VUID-RuntimeSpirv-OpVariable-08746"></a> <span class="vuid">VUID-RuntimeSpirv-OpVariable-08746</span><br>
 
-Any <code>OpVariable</code>, <code>Block</code>-decorated <code>OpTypeStruct</code>, or
+Any variable, <code>Block</code>-decorated <code>OpTypeStruct</code>, or
 <code>Block</code>-decorated <code>OpTypeStruct</code> members shared between the
 <code>OpEntryPoint</code> of two shader stages <strong class="purple">must</strong> have matching decorations
 as defined in <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-iointerfaces-matching" target="_blank" rel="noopener">interface matching</a></p>
@@ -2713,8 +2817,8 @@ The sum of size in bytes for variables and <a href="https://registry.khronos.org
 <p><a id="VUID-RuntimeSpirv-shaderZeroInitializeWorkgroupMemory-06372" href="#VUID-RuntimeSpirv-shaderZeroInitializeWorkgroupMemory-06372"></a> <span class="vuid">VUID-RuntimeSpirv-shaderZeroInitializeWorkgroupMemory-06372</span><br>
 
 If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderZeroInitializeWorkgroupMemory" target="_blank" rel="noopener"><code>shaderZeroInitializeWorkgroupMemory</code></a> feature is not enabled, any
-<code>OpVariable</code> with <code>Workgroup</code> as its <code>Storage</code> <code>Class</code> <strong class="purple">must</strong> not have
-an <code>Initializer</code> operand</p>
+variable with <code>Workgroup</code> as its <code>Storage</code> <code>Class</code> <strong class="purple">must</strong> not have an
+<code>Initializer</code> operand</p>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-Offset-10213" href="#VUID-RuntimeSpirv-Offset-10213"></a> <span class="vuid">VUID-RuntimeSpirv-Offset-10213</span><br>
@@ -2724,6 +2828,38 @@ If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.htm
 enabled, image
 operand <code>Offset</code> <strong class="purple">must</strong> only be used with <code>OpImage*Gather</code>
 instructions</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-Size-11165" href="#VUID-RuntimeSpirv-Size-11165"></a> <span class="vuid">VUID-RuntimeSpirv-Size-11165</span><br>
+
+The <code>Size</code> operand of <code>OpCopyMemorySized</code> <strong class="purple">must</strong> be a multiple of 4</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If 16-bit storage is enabled for the storage classes of both the
+<code>Target</code> and <code>Source</code> operands the <code>Size</code> operand may instead be
+a multiple of 2</p>
+</li>
+<li>
+<p>If 8-bit storage is enabled for the storage classes of both the
+<code>Target</code> and <code>Source</code> operands the <code>Size</code> operand may instead be
+any value</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpTypeUntypedPointerKHR-11166" href="#VUID-RuntimeSpirv-OpTypeUntypedPointerKHR-11166"></a> <span class="vuid">VUID-RuntimeSpirv-OpTypeUntypedPointerKHR-11166</span><br>
+
+Any memory access made using an <code>OpTypeUntypedPointerKHR</code> must have
+an alignment that satisfies <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-resources-layout" target="_blank" rel="noopener">Offset and
+Stride Assignment</a></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-OpUntypedVariableKHR-11167" href="#VUID-RuntimeSpirv-OpUntypedVariableKHR-11167"></a> <span class="vuid">VUID-RuntimeSpirv-OpUntypedVariableKHR-11167</span><br>
+
+Any <code>OpUntypedVariableKHR</code> <strong class="purple">must</strong> have a <code>Data</code> <code>Type</code> operand
+specified</p>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-OpImage-06376" href="#VUID-RuntimeSpirv-OpImage-06376"></a> <span class="vuid">VUID-RuntimeSpirv-OpImage-06376</span><br>
@@ -3150,29 +3286,27 @@ enabled</p>
 
 In compute shaders that enables SPIR-V capability <code>TileShadingQCOM</code>,
 the <code>x</code> size in <code>TileShadingRateQCOM</code> <strong class="purple">must</strong> be less than or equal
-to
-<a href="VkPhysicalDeviceTileShadingPropertiesQCOM.html">VkPhysicalDeviceTileShadingPropertiesQCOM</a>::<code>maxTileShadingRate</code>::<code>x</code></p>
+to <a href="VkPhysicalDeviceTileShadingPropertiesQCOM.html">VkPhysicalDeviceTileShadingPropertiesQCOM</a>.maxTileShadingRate.x</p>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-y-10703" href="#VUID-RuntimeSpirv-y-10703"></a> <span class="vuid">VUID-RuntimeSpirv-y-10703</span><br>
 
 In compute shaders that enables SPIR-V capability <code>TileShadingQCOM</code>,
 the <code>y</code> size in <code>TileShadingRateQCOM</code> <strong class="purple">must</strong> be less than or equal
-to
-<a href="VkPhysicalDeviceTileShadingPropertiesQCOM.html">VkPhysicalDeviceTileShadingPropertiesQCOM</a>::<code>maxTileShadingRate</code>::<code>y</code></p>
+to <a href="VkPhysicalDeviceTileShadingPropertiesQCOM.html">VkPhysicalDeviceTileShadingPropertiesQCOM</a>.maxTileShadingRate.y</p>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-z-10704" href="#VUID-RuntimeSpirv-z-10704"></a> <span class="vuid">VUID-RuntimeSpirv-z-10704</span><br>
 
 In compute shaders that enables SPIR-V capability <code>TileShadingQCOM</code>,
 the <code>z</code> size in <code>TileShadingRateQCOM</code> <strong class="purple">must</strong> be less than or equal
-to <a href="VkTilePropertiesQCOM.html">VkTilePropertiesQCOM</a>::<code>tileSize</code>::<code>z</code></p>
+to <a href="VkTilePropertiesQCOM.html">VkTilePropertiesQCOM</a>.tileSize.z</p>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-tileSize-10705" href="#VUID-RuntimeSpirv-tileSize-10705"></a> <span class="vuid">VUID-RuntimeSpirv-tileSize-10705</span><br>
 
 In compute shaders that enables SPIR-V capability <code>TileShadingQCOM</code>,
-<span class="eq"><a href="VkTilePropertiesQCOM.html">VkTilePropertiesQCOM</a>::<code>tileSize</code>::<code>z</code> %
+<span class="eq"><a href="VkTilePropertiesQCOM.html">VkTilePropertiesQCOM</a>.tileSize.z %
 <code>TileShadingRateQCOM</code>::<code>z</code></span> <strong class="purple">must</strong> equal <code>0</code></p>
 </li>
 <li>

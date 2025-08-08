@@ -1027,16 +1027,15 @@ corresponding <code>EqualMemorySemantics</code></p>
 <li>
 <p><a id="VUID-StandaloneSpirv-OpVariable-04651" href="#VUID-StandaloneSpirv-OpVariable-04651"></a> <span class="vuid">VUID-StandaloneSpirv-OpVariable-04651</span><br>
 
-Any <code>OpVariable</code> with an <code>Initializer</code> operand <strong class="purple">must</strong> have
-<code>Output</code>, <code>Private</code>, <code>Function</code>, or <code>Workgroup</code> as its
-<code>Storage</code> <code>Class</code> operand</p>
+Any variable with an <code>Initializer</code> operand <strong class="purple">must</strong> have <code>Output</code>,
+<code>Private</code>, <code>Function</code>, or <code>Workgroup</code> as its <code>Storage</code> <code>Class</code>
+operand</p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-OpVariable-04734" href="#VUID-StandaloneSpirv-OpVariable-04734"></a> <span class="vuid">VUID-StandaloneSpirv-OpVariable-04734</span><br>
 
-Any <code>OpVariable</code> with an <code>Initializer</code> operand and <code>Workgroup</code>
-as its <code>Storage</code> <code>Class</code> operand <strong class="purple">must</strong> use <code>OpConstantNull</code> as the
-initializer</p>
+Any variable with an <code>Initializer</code> operand and <code>Workgroup</code> as its
+<code>Storage</code> <code>Class</code> operand <strong class="purple">must</strong> use <code>OpConstantNull</code> as the initializer</p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-OpReadClockKHR-04652" href="#VUID-StandaloneSpirv-OpReadClockKHR-04652"></a> <span class="vuid">VUID-StandaloneSpirv-OpReadClockKHR-04652</span><br>
@@ -1218,8 +1217,8 @@ The <code>Location</code> decorations <strong class="purple">must</strong> be us
 <p><a id="VUID-StandaloneSpirv-Location-04917" href="#VUID-StandaloneSpirv-Location-04917"></a> <span class="vuid">VUID-StandaloneSpirv-Location-04917</span><br>
 
 If a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-iointerfaces-user" target="_blank" rel="noopener">user-defined variable</a> is not a
-pointer to a <code>Block</code> decorated <code>OpTypeStruct</code>, then the
-<code>OpVariable</code> <strong class="purple">must</strong> have a <code>Location</code> decoration</p>
+pointer to a <code>Block</code> decorated <code>OpTypeStruct</code>, then the variable
+<strong class="purple">must</strong> have a <code>Location</code> decoration</p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-Location-04918" href="#VUID-StandaloneSpirv-Location-04918"></a> <span class="vuid">VUID-StandaloneSpirv-Location-04918</span><br>
@@ -1245,20 +1244,19 @@ The <code>Component</code> decoration value <strong class="purple">must</strong>
 <li>
 <p><a id="VUID-StandaloneSpirv-Component-04921" href="#VUID-StandaloneSpirv-Component-04921"></a> <span class="vuid">VUID-StandaloneSpirv-Component-04921</span><br>
 
-If the <code>Component</code> decoration is used on an <code>OpVariable</code> that has
-a <code>OpTypeVector</code> type with a <code>Component</code> <code>Type</code> with a
-<code>Width</code> that is less than or equal to 32, the sum of its
-<code>Component</code> <code>Count</code> and the <code>Component</code> decoration value <strong class="purple">must</strong>
-be less than or equal to 4</p>
+If the <code>Component</code> decoration is used on a variable that has a
+<code>OpTypeVector</code> type with a <code>Component</code> <code>Type</code> with a <code>Width</code>
+that is less than or equal to 32, the sum of its <code>Component</code>
+<code>Count</code> and the <code>Component</code> decoration value <strong class="purple">must</strong> be less than or
+equal to 4</p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-Component-04922" href="#VUID-StandaloneSpirv-Component-04922"></a> <span class="vuid">VUID-StandaloneSpirv-Component-04922</span><br>
 
-If the <code>Component</code> decoration is used on an <code>OpVariable</code> that has
-a <code>OpTypeVector</code> type with a <code>Component</code> <code>Type</code> with a
-<code>Width</code> that is equal to 64, the sum of two times its <code>Component</code>
-<code>Count</code> and the <code>Component</code> decoration value <strong class="purple">must</strong> be less than or
-equal to 4</p>
+If the <code>Component</code> decoration is used on a variable that has a
+<code>OpTypeVector</code> type with a <code>Component</code> <code>Type</code> with a <code>Width</code>
+that is equal to 64, the sum of two times its <code>Component</code> <code>Count</code>
+and the <code>Component</code> decoration value <strong class="purple">must</strong> be less than or equal to 4</p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-Component-04923" href="#VUID-StandaloneSpirv-Component-04923"></a> <span class="vuid">VUID-StandaloneSpirv-Component-04923</span><br>
@@ -1454,7 +1452,7 @@ when used in an intersection shader</p>
 <li>
 <p><a id="VUID-StandaloneSpirv-OpTypeRuntimeArray-04680" href="#VUID-StandaloneSpirv-OpTypeRuntimeArray-04680"></a> <span class="vuid">VUID-StandaloneSpirv-OpTypeRuntimeArray-04680</span><br>
 
-<code>OpTypeRuntimeArray</code> <strong class="purple">must</strong> only be used for:</p>
+<code>OpTypeRuntimeArray</code> <strong class="purple">must</strong> only be instantiated by a variable as:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1471,7 +1469,7 @@ storage <code>Storage</code> <code>Class</code></p>
 <code>Storage</code> <code>Class</code></p>
 </li>
 <li>
-<p>variables in the <code>NodePayloadAMDX</code> storage <code>Storage</code> <code>Class</code> when the
+<p>the <code>NodePayloadAMDX</code> storage <code>Storage</code> <code>Class</code> when the
 <code>CoalescingAMDX</code> <code>Execution</code> <code>Mode</code> is specified</p>
 </li>
 </ul>
@@ -1685,23 +1683,26 @@ shaders</p>
 <li>
 <p><a id="VUID-StandaloneSpirv-Base-07650" href="#VUID-StandaloneSpirv-Base-07650"></a> <span class="vuid">VUID-StandaloneSpirv-Base-07650</span><br>
 
-The <code>Base</code> operand of <code>OpPtrAccessChain</code> <strong class="purple">must</strong> have a storage
-class of <code>Workgroup</code>, <code>StorageBuffer</code>, or
+The <code>Base</code> operand of <code>OpPtrAccessChain</code>
+or <code>OpUntypedPtrAccessChainKHR</code>
+<strong class="purple">must</strong> have a storage class of <code>Workgroup</code>, <code>StorageBuffer</code>, or
 <code>PhysicalStorageBuffer</code></p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-Base-07651" href="#VUID-StandaloneSpirv-Base-07651"></a> <span class="vuid">VUID-StandaloneSpirv-Base-07651</span><br>
 
-If the <code>Base</code> operand of <code>OpPtrAccessChain</code> has a <code>Workgroup</code>
-<code>Storage</code> <code>Class</code>, then the <code>VariablePointers</code> capability <strong class="purple">must</strong> be
-declared</p>
+If the <code>Base</code> operand of <code>OpPtrAccessChain</code>
+or <code>OpUntypedPtrAccessChainKHR</code>
+has a <code>Workgroup</code> <code>Storage</code> <code>Class</code>, then the <code>VariablePointers</code>
+capability <strong class="purple">must</strong> be declared</p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-Base-07652" href="#VUID-StandaloneSpirv-Base-07652"></a> <span class="vuid">VUID-StandaloneSpirv-Base-07652</span><br>
 
-If the <code>Base</code> operand of <code>OpPtrAccessChain</code> has a
-<code>StorageBuffer</code> <code>Storage</code> <code>Class</code>, then the <code>VariablePointers</code> or
-<code>VariablePointersStorageBuffer</code> capability <strong class="purple">must</strong> be declared</p>
+If the <code>Base</code> operand of <code>OpPtrAccessChain</code>
+or <code>OpUntypedPtrAccessChainKHR</code>
+has a <code>StorageBuffer</code> <code>Storage</code> <code>Class</code>, then the <code>VariablePointers</code>
+or <code>VariablePointersStorageBuffer</code> capability <strong class="purple">must</strong> be declared</p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-PhysicalStorageBuffer64-04708" href="#VUID-StandaloneSpirv-PhysicalStorageBuffer64-04708"></a> <span class="vuid">VUID-StandaloneSpirv-PhysicalStorageBuffer64-04708</span><br>
@@ -1740,15 +1741,14 @@ dynamically uniform indices</p>
 <li>
 <p><a id="VUID-StandaloneSpirv-OpVariable-06673" href="#VUID-StandaloneSpirv-OpVariable-06673"></a> <span class="vuid">VUID-StandaloneSpirv-OpVariable-06673</span><br>
 
-There <strong class="purple">must</strong> not be more than one <code>OpVariable</code> in the
-<code>PushConstant</code> <code>Storage</code> <code>Class</code> listed in the <code>Interface</code> for each
-<code>OpEntryPoint</code></p>
+There <strong class="purple">must</strong> not be more than one variable in the <code>PushConstant</code>
+<code>Storage</code> <code>Class</code> listed in the <code>Interface</code> for each <code>OpEntryPoint</code></p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-OpEntryPoint-06674" href="#VUID-StandaloneSpirv-OpEntryPoint-06674"></a> <span class="vuid">VUID-StandaloneSpirv-OpEntryPoint-06674</span><br>
 
-Each <code>OpEntryPoint</code> <strong class="purple">must</strong> not statically use more than one
-<code>OpVariable</code> in the <code>PushConstant</code> <code>Storage</code> <code>Class</code></p>
+Each <code>OpEntryPoint</code> <strong class="purple">must</strong> not statically use more than one variable
+in the <code>PushConstant</code> <code>Storage</code> <code>Class</code></p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-OpEntryPoint-08721" href="#VUID-StandaloneSpirv-OpEntryPoint-08721"></a> <span class="vuid">VUID-StandaloneSpirv-OpEntryPoint-08721</span><br>

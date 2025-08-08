@@ -904,7 +904,7 @@ table below.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>input</code>::<code>opType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>input.opType</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Format of <code>srcInfosArray</code></p></td>
 </tr>
 <tr>
@@ -939,9 +939,9 @@ table below.</p>
 <p><code>srcInfosCount</code> is the device address of memory containing the count
 of number of build or move operations to perform.
 The actual value is the minimum of this value and the value specified in
-<code>input</code>::<code>maxAccelerationStructureCount</code>.
+<code>input.maxAccelerationStructureCount</code>.
 If this value is <code>0</code>, the count is determined by
-<code>input</code>::<code>maxAccelerationStructureCount</code> alone.</p>
+<code>input.maxAccelerationStructureCount</code> alone.</p>
 </li>
 <li>
 <p><code>addressResolutionFlags</code> is a bitmask of
@@ -973,7 +973,7 @@ If <a href="VkClusterAccelerationStructureInputInfoNV.html">VkClusterAcceleratio
 
 If <a href="VkClusterAccelerationStructureInputInfoNV.html">VkClusterAccelerationStructureInputInfoNV</a>::<code>opMode</code> is
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_IMPLICIT_DESTINATIONS_NV</code>
-and <code>input</code>::<code>opType</code> is not
+and <code>input.opType</code> is not
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_MOVE_OBJECTS_NV</code>, the
 memory in <code>dstImplicitData</code> <strong class="purple">must</strong> be equal to or larger than the
 <a href="VkAccelerationStructureBuildSizesInfoKHR.html">VkAccelerationStructureBuildSizesInfoKHR</a>::<code>accelerationStructureSize</code>
@@ -985,7 +985,7 @@ with same input parameters</p>
 
 If <a href="VkClusterAccelerationStructureInputInfoNV.html">VkClusterAccelerationStructureInputInfoNV</a>::<code>opMode</code> is
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_IMPLICIT_DESTINATIONS_NV</code>
-and <code>input</code>::<code>opType</code> is
+and <code>input.opType</code> is
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_MOVE_OBJECTS_NV</code>, the
 memory in <code>dstImplicitData</code> <strong class="purple">must</strong> be equal to or larger than the sum
 of all the built acceleration structures that are being moved</p>
@@ -993,7 +993,7 @@ of all the built acceleration structures that are being moved</p>
 <li>
 <p><a id="VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10469" href="#VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10469"></a> <span class="vuid">VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10469</span><br>
 
-If <code>input</code>::<code>opType</code> is
+If <code>input.opType</code> is
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_MOVE_OBJECTS_NV</code>, the
 total memory moved <strong class="purple">must</strong> not be larger than the size provided in
 <a href="VkClusterAccelerationStructureMoveObjectsInputNV.html">VkClusterAccelerationStructureMoveObjectsInputNV</a>::<code>maxMovedBytes</code></p>
@@ -1051,7 +1051,7 @@ structure the address is describing</p>
 <li>
 <p><a id="VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10477" href="#VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10477"></a> <span class="vuid">VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10477</span><br>
 
-If <code>input</code>::<code>opType</code> is
+If <code>input.opType</code> is
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_NV</code>,
 then depending on the
 <a href="VkClusterAccelerationStructureInputInfoNV.html">VkClusterAccelerationStructureInputInfoNV</a>::<code>opMode</code>,
@@ -1062,7 +1062,7 @@ then depending on the
 <li>
 <p><a id="VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10478" href="#VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10478"></a> <span class="vuid">VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10478</span><br>
 
-If <code>input</code>::<code>opType</code> is
+If <code>input.opType</code> is
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_TEMPLATE_NV</code>,
 then depending on the
 <a href="VkClusterAccelerationStructureInputInfoNV.html">VkClusterAccelerationStructureInputInfoNV</a>::<code>opMode</code>,
@@ -1073,7 +1073,7 @@ then depending on the
 <li>
 <p><a id="VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10479" href="#VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10479"></a> <span class="vuid">VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10479</span><br>
 
-If <code>input</code>::<code>opType</code> is
+If <code>input.opType</code> is
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_INSTANTIATE_TRIANGLE_CLUSTER_NV</code>,
 then depending on the
 <a href="VkClusterAccelerationStructureInputInfoNV.html">VkClusterAccelerationStructureInputInfoNV</a>::<code>opMode</code>,
@@ -1095,7 +1095,7 @@ then depending on the
 <li>
 <p><a id="VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10482" href="#VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10482"></a> <span class="vuid">VUID-VkClusterAccelerationStructureCommandsInfoNV-input-10482</span><br>
 
-If <code>input</code>::<code>opType</code> is
+If <code>input.opType</code> is
 <code>VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_CLUSTERS_BOTTOM_LEVEL_NV</code>,
 the total and per argument number of cluster acceleration structures
 referenced in <code>srcInfosArray</code> <strong class="purple">must</strong> be equal or less than the

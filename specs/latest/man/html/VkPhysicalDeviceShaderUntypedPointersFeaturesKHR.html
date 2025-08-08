@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>VkShaderCreateInfoEXT(3)</title>
+<title>VkPhysicalDeviceShaderUntypedPointersFeaturesKHR(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,10 +796,10 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>VkShaderCreateInfoEXT(3) Manual Page</h1>
+<h1>VkPhysicalDeviceShaderUntypedPointersFeaturesKHR(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>VkShaderCreateInfoEXT - Structure specifying parameters of a newly created shader</p>
+<p>VkPhysicalDeviceShaderUntypedPointersFeaturesKHR - Structure describing support for untyped pointers in shader by an implementation</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -809,27 +809,17 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>VkShaderCreateInfoEXT</code> structure is defined as:</p>
+<p>The <code>VkPhysicalDeviceShaderUntypedPointersFeaturesKHR</code> structure is
+defined as:</p>
 </div>
-<div id="VkShaderCreateInfoEXT" class="listingblock">
+<div id="VkPhysicalDeviceShaderUntypedPointersFeaturesKHR" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_EXT_shader_object
-typedef struct VkShaderCreateInfoEXT {
-    VkStructureType                 sType;
-    const void*                     pNext;
-    VkShaderCreateFlagsEXT          flags;
-    VkShaderStageFlagBits           stage;
-    VkShaderStageFlags              nextStage;
-    VkShaderCodeTypeEXT             codeType;
-    size_t                          codeSize;
-    const void*                     pCode;
-    const char*                     pName;
-    uint32_t                        setLayoutCount;
-    const VkDescriptorSetLayout*    pSetLayouts;
-    uint32_t                        pushConstantRangeCount;
-    const VkPushConstantRange*      pPushConstantRanges;
-    const VkSpecializationInfo*     pSpecializationInfo;
-} VkShaderCreateInfoEXT;</code></pre>
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_KHR_shader_untyped_pointers
+typedef struct VkPhysicalDeviceShaderUntypedPointersFeaturesKHR {
+    VkStructureType    sType;
+    void*              pNext;
+    VkBool32           shaderUntypedPointers;
+} VkPhysicalDeviceShaderUntypedPointersFeaturesKHR;</code></pre>
 </div>
 </div>
 </div>
@@ -837,568 +827,31 @@ typedef struct VkShaderCreateInfoEXT {
 <div class="sect1">
 <h2 id="_members"><a class="anchor" href="#_members"></a>Members</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><code>sType</code> is a <a href="VkStructureType.html">VkStructureType</a> value identifying this structure.</p>
-</li>
-<li>
-<p><code>pNext</code> is <code>NULL</code> or a pointer to a structure extending this
-structure.</p>
-</li>
-<li>
-<p><code>flags</code> is a bitmask of <a href="VkShaderCreateFlagBitsEXT.html">VkShaderCreateFlagBitsEXT</a> describing
-additional parameters of the shader.</p>
-</li>
-<li>
-<p><code>stage</code> is a <a href="VkShaderStageFlagBits.html">VkShaderStageFlagBits</a> value specifying a single
-shader stage.</p>
-</li>
-<li>
-<p><code>nextStage</code> is a bitmask of <a href="VkShaderStageFlagBits.html">VkShaderStageFlagBits</a> specifying
-which stages <strong class="purple">may</strong> be used as a logically next bound stage when drawing
-with the shader bound.
-A value of zero indicates this shader stage <strong class="purple">must</strong> be the last one.</p>
-</li>
-<li>
-<p><code>codeType</code> is a <a href="VkShaderCodeTypeEXT.html">VkShaderCodeTypeEXT</a> value specifying the type
-of the shader code pointed to be <code>pCode</code>.</p>
-</li>
-<li>
-<p><code>codeSize</code> is the size in bytes of the shader code pointed to be
-<code>pCode</code>.</p>
-</li>
-<li>
-<p><code>pCode</code> is a pointer to the shader code to use to create the shader.</p>
-</li>
-<li>
-<p><code>pName</code> is a pointer to a null-terminated UTF-8 string specifying
-the entry point name of the shader for this stage.</p>
-</li>
-<li>
-<p><code>setLayoutCount</code> is the number of descriptor set layouts pointed to
-by <code>pSetLayouts</code>.</p>
-</li>
-<li>
-<p><code>pSetLayouts</code> is a pointer to an array of
-<a href="VkDescriptorSetLayout.html">VkDescriptorSetLayout</a> objects used by the shader stage.
-The implementation <strong class="purple">must</strong> not access these objects outside of the
-duration of the command this structure is passed to.</p>
-</li>
-<li>
-<p><code>pushConstantRangeCount</code> is the number of push constant ranges
-pointed to by <code>pPushConstantRanges</code>.</p>
-</li>
-<li>
-<p><code>pPushConstantRanges</code> is a pointer to an array of
-<a href="VkPushConstantRange.html">VkPushConstantRange</a> structures used by the shader stage.</p>
-</li>
-<li>
-<p><code>pSpecializationInfo</code> is a pointer to a <a href="VkSpecializationInfo.html">VkSpecializationInfo</a>
-structure, as described in
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-specialization-constants" target="_blank" rel="noopener">Specialization Constants</a>, or
-<code>NULL</code>.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>The members of <code>VkPhysicalDeviceShaderUntypedPointersFeaturesKHR</code>
+describe the following features:</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Valid Usage</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-VkShaderCreateInfoEXT-codeSize-08735" href="#VUID-VkShaderCreateInfoEXT-codeSize-08735"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-codeSize-08735</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, <code>codeSize</code> <strong class="purple">must</strong> be a multiple of 4</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08736" href="#VUID-VkShaderCreateInfoEXT-pCode-08736"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08736</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, <code>pCode</code> <strong class="purple">must</strong> point to valid SPIR-V code,
-formatted and packed as described by the <a href="#spirv-spec">Khronos SPIR-V
-Specification</a></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08737" href="#VUID-VkShaderCreateInfoEXT-pCode-08737"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08737</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, <code>pCode</code> <strong class="purple">must</strong> adhere to the validation rules
-described by the <a href="#spirvenv-module-validation">Validation Rules within a
-Module</a> section of the <a href="#spirvenv-capabilities">SPIR-V Environment</a>
-appendix</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08738" href="#VUID-VkShaderCreateInfoEXT-pCode-08738"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08738</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, <code>pCode</code> <strong class="purple">must</strong> declare the <code>Shader</code> capability
-for SPIR-V code</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08739" href="#VUID-VkShaderCreateInfoEXT-pCode-08739"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08739</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, <code>pCode</code> <strong class="purple">must</strong> not declare any capability that is
-not supported by the API, as described by the
-<a href="#spirvenv-module-validation">Capabilities</a> section of the
-<a href="#spirvenv-capabilities">SPIR-V Environment</a> appendix</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08740" href="#VUID-VkShaderCreateInfoEXT-pCode-08740"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08740</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and <code>pCode</code> declares any of the capabilities
-listed in the <a href="#spirvenv-capabilities-table">SPIR-V Environment</a>
-appendix, one of the corresponding requirements <strong class="purple">must</strong> be satisfied</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08741" href="#VUID-VkShaderCreateInfoEXT-pCode-08741"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08741</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, <code>pCode</code> <strong class="purple">must</strong> not declare any SPIR-V extension
-that is not supported by the API, as described by the
-<a href="#spirvenv-extensions">Extension</a> section of the
-<a href="#spirvenv-capabilities">SPIR-V Environment</a> appendix</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08742" href="#VUID-VkShaderCreateInfoEXT-pCode-08742"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08742</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and <code>pCode</code> declares any of the SPIR-V extensions
-listed in the <a href="#spirvenv-extensions-table">SPIR-V Environment</a>
-appendix, one of the corresponding requirements <strong class="purple">must</strong> be satisfied</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-08412" href="#VUID-VkShaderCreateInfoEXT-flags-08412"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-08412</span><br>
-
-If <code>stage</code> is not <code>VK_SHADER_STAGE_TASK_BIT_EXT</code>,
-<code>VK_SHADER_STAGE_MESH_BIT_EXT</code>, <code>VK_SHADER_STAGE_VERTEX_BIT</code>,
-<code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code>,
-<code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code>,
-<code>VK_SHADER_STAGE_GEOMETRY_BIT</code>, or
-<code>VK_SHADER_STAGE_FRAGMENT_BIT</code>, <code>flags</code> <strong class="purple">must</strong> not include
-<code>VK_SHADER_CREATE_LINK_STAGE_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-08486" href="#VUID-VkShaderCreateInfoEXT-flags-08486"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-08486</span><br>
-
-If <code>stage</code> is not <code>VK_SHADER_STAGE_FRAGMENT_BIT</code>, <code>flags</code>
-<strong class="purple">must</strong> not include
-<code>VK_SHADER_CREATE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-08487" href="#VUID-VkShaderCreateInfoEXT-flags-08487"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-08487</span><br>
-
-If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-attachmentFragmentShadingRate" target="_blank" rel="noopener"><code>attachmentFragmentShadingRate</code></a> feature is not enabled,
-<code>flags</code> <strong class="purple">must</strong> not include
-<code>VK_SHADER_CREATE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-08488" href="#VUID-VkShaderCreateInfoEXT-flags-08488"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-08488</span><br>
-
-If <code>stage</code> is not <code>VK_SHADER_STAGE_FRAGMENT_BIT</code>, <code>flags</code>
-<strong class="purple">must</strong> not include
-<code>VK_SHADER_CREATE_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-08489" href="#VUID-VkShaderCreateInfoEXT-flags-08489"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-08489</span><br>
-
-If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-fragmentDensityMap" target="_blank" rel="noopener"><code>fragmentDensityMap</code></a> feature
-is not enabled, <code>flags</code> <strong class="purple">must</strong> not include
-<code>VK_SHADER_CREATE_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-09404" href="#VUID-VkShaderCreateInfoEXT-flags-09404"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-09404</span><br>
-
-If <code>flags</code> includes
-<code>VK_SHADER_CREATE_ALLOW_VARYING_SUBGROUP_SIZE_BIT_EXT</code>, the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-subgroupSizeControl" target="_blank" rel="noopener"><code>subgroupSizeControl</code></a> feature
-<strong class="purple">must</strong> be enabled</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-09405" href="#VUID-VkShaderCreateInfoEXT-flags-09405"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-09405</span><br>
-
-If <code>flags</code> includes
-<code>VK_SHADER_CREATE_REQUIRE_FULL_SUBGROUPS_BIT_EXT</code>, the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-computeFullSubgroups" target="_blank" rel="noopener"><code>computeFullSubgroups</code></a> feature
-<strong class="purple">must</strong> be enabled</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-11005" href="#VUID-VkShaderCreateInfoEXT-flags-11005"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-11005</span><br>
-
-If <code>flags</code> includes
-<code>VK_SHADER_CREATE_INDIRECT_BINDABLE_BIT_EXT</code>, then the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-deviceGeneratedCommands" target="_blank" rel="noopener"><code>VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT</code>::<code>deviceGeneratedCommands</code></a>
-feature <strong class="purple">must</strong> be enabled</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-11006" href="#VUID-VkShaderCreateInfoEXT-flags-11006"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-11006</span><br>
-
-If <code>flags</code> includes
-<code>VK_SHADER_CREATE_INDIRECT_BINDABLE_BIT_EXT</code>, then the identified
-entry point <strong class="purple">must</strong> not specify <code>Xfb</code> execution mode</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-08992" href="#VUID-VkShaderCreateInfoEXT-flags-08992"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-08992</span><br>
-
-If <code>flags</code> includes
-<code>VK_SHADER_CREATE_REQUIRE_FULL_SUBGROUPS_BIT_EXT</code>, <code>stage</code> <strong class="purple">must</strong>
-be
-one of <code>VK_SHADER_STAGE_MESH_BIT_EXT</code>,
-<code>VK_SHADER_STAGE_TASK_BIT_EXT</code>, or
-<code>VK_SHADER_STAGE_COMPUTE_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-08485" href="#VUID-VkShaderCreateInfoEXT-flags-08485"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-08485</span><br>
-
-If <code>stage</code> is not <code>VK_SHADER_STAGE_COMPUTE_BIT</code>, <code>flags</code>
-<strong class="purple">must</strong> not include <code>VK_SHADER_CREATE_DISPATCH_BASE_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-08414" href="#VUID-VkShaderCreateInfoEXT-flags-08414"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-08414</span><br>
-
-If <code>stage</code> is not <code>VK_SHADER_STAGE_MESH_BIT_EXT</code>, <code>flags</code>
-<strong class="purple">must</strong> not include <code>VK_SHADER_CREATE_NO_TASK_SHADER_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-08416" href="#VUID-VkShaderCreateInfoEXT-flags-08416"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-08416</span><br>
-
-If <code>flags</code> includes both
-<code>VK_SHADER_CREATE_ALLOW_VARYING_SUBGROUP_SIZE_BIT_EXT</code> and
-<code>VK_SHADER_CREATE_REQUIRE_FULL_SUBGROUPS_BIT_EXT</code>, the local
-workgroup size in the X dimension of the shader <strong class="purple">must</strong> be a multiple of
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxSubgroupSize" target="_blank" rel="noopener"><code>maxSubgroupSize</code></a></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-08417" href="#VUID-VkShaderCreateInfoEXT-flags-08417"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-08417</span><br>
-
-If <code>flags</code> includes
-<code>VK_SHADER_CREATE_REQUIRE_FULL_SUBGROUPS_BIT_EXT</code> but not
-<code>VK_SHADER_CREATE_ALLOW_VARYING_SUBGROUP_SIZE_BIT_EXT</code> and no
-<a href="VkShaderRequiredSubgroupSizeCreateInfoEXT.html">VkShaderRequiredSubgroupSizeCreateInfoEXT</a> structure is included in
-the <code>pNext</code> chain, the local workgroup size in the X dimension of
-the shader <strong class="purple">must</strong> be a multiple of
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-subgroupSize" target="_blank" rel="noopener"><code>subgroupSize</code></a></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-stage-08418" href="#VUID-VkShaderCreateInfoEXT-stage-08418"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-stage-08418</span><br>
-
-<code>stage</code> <strong class="purple">must</strong> not be <code>VK_SHADER_STAGE_ALL_GRAPHICS</code> or
-<code>VK_SHADER_STAGE_ALL</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-stage-08419" href="#VUID-VkShaderCreateInfoEXT-stage-08419"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-stage-08419</span><br>
-
-If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tessellationShader" target="_blank" rel="noopener"><code>tessellationShader</code></a> feature
-is not enabled, <code>stage</code> <strong class="purple">must</strong> not be
-<code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> or
-<code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-stage-08420" href="#VUID-VkShaderCreateInfoEXT-stage-08420"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-stage-08420</span><br>
-
-If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-geometryShader" target="_blank" rel="noopener"><code>geometryShader</code></a> feature is not
-enabled, <code>stage</code> <strong class="purple">must</strong> not be <code>VK_SHADER_STAGE_GEOMETRY_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-stage-08421" href="#VUID-VkShaderCreateInfoEXT-stage-08421"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-stage-08421</span><br>
-
-If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-taskShader" target="_blank" rel="noopener"><code>taskShader</code></a> feature is not enabled,
-<code>stage</code> <strong class="purple">must</strong> not be <code>VK_SHADER_STAGE_TASK_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-stage-08422" href="#VUID-VkShaderCreateInfoEXT-stage-08422"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-stage-08422</span><br>
-
-If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-meshShader" target="_blank" rel="noopener"><code>meshShader</code></a> feature is not enabled,
-<code>stage</code> <strong class="purple">must</strong> not be <code>VK_SHADER_STAGE_MESH_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-stage-08425" href="#VUID-VkShaderCreateInfoEXT-stage-08425"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-stage-08425</span><br>
-
-<code>stage</code> <strong class="purple">must</strong> not be
-<code>VK_SHADER_STAGE_SUBPASS_SHADING_BIT_HUAWEI</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-stage-08426" href="#VUID-VkShaderCreateInfoEXT-stage-08426"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-stage-08426</span><br>
-
-<code>stage</code> <strong class="purple">must</strong> not be
-<code>VK_SHADER_STAGE_CLUSTER_CULLING_BIT_HUAWEI</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-nextStage-08427" href="#VUID-VkShaderCreateInfoEXT-nextStage-08427"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-nextStage-08427</span><br>
-
-If <code>stage</code> is <code>VK_SHADER_STAGE_VERTEX_BIT</code>, <code>nextStage</code>
-<strong class="purple">must</strong> not include any bits other than
-<code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code>,
-<code>VK_SHADER_STAGE_GEOMETRY_BIT</code>, and
-<code>VK_SHADER_STAGE_FRAGMENT_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-nextStage-08428" href="#VUID-VkShaderCreateInfoEXT-nextStage-08428"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-nextStage-08428</span><br>
-
-If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tessellationShader" target="_blank" rel="noopener"><code>tessellationShader</code></a> feature
-is not enabled, <code>nextStage</code> <strong class="purple">must</strong> not include
-<code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> or
-<code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-nextStage-08429" href="#VUID-VkShaderCreateInfoEXT-nextStage-08429"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-nextStage-08429</span><br>
-
-If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-geometryShader" target="_blank" rel="noopener"><code>geometryShader</code></a> feature is not
-enabled, <code>nextStage</code> <strong class="purple">must</strong> not include
-<code>VK_SHADER_STAGE_GEOMETRY_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-nextStage-08430" href="#VUID-VkShaderCreateInfoEXT-nextStage-08430"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-nextStage-08430</span><br>
-
-If <code>stage</code> is <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code>,
-<code>nextStage</code> <strong class="purple">must</strong> not include any bits other than
-<code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-nextStage-08431" href="#VUID-VkShaderCreateInfoEXT-nextStage-08431"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-nextStage-08431</span><br>
-
-If <code>stage</code> is <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code>,
-<code>nextStage</code> <strong class="purple">must</strong> not include any bits other than
-<code>VK_SHADER_STAGE_GEOMETRY_BIT</code> and
-<code>VK_SHADER_STAGE_FRAGMENT_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-nextStage-08433" href="#VUID-VkShaderCreateInfoEXT-nextStage-08433"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-nextStage-08433</span><br>
-
-If <code>stage</code> is <code>VK_SHADER_STAGE_GEOMETRY_BIT</code>, <code>nextStage</code>
-<strong class="purple">must</strong> not include any bits other than <code>VK_SHADER_STAGE_FRAGMENT_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-nextStage-08434" href="#VUID-VkShaderCreateInfoEXT-nextStage-08434"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-nextStage-08434</span><br>
-
-If <code>stage</code> is <code>VK_SHADER_STAGE_FRAGMENT_BIT</code> or
-<code>VK_SHADER_STAGE_COMPUTE_BIT</code>, <code>nextStage</code> <strong class="purple">must</strong> be 0</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-nextStage-08435" href="#VUID-VkShaderCreateInfoEXT-nextStage-08435"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-nextStage-08435</span><br>
-
-If <code>stage</code> is <code>VK_SHADER_STAGE_TASK_BIT_EXT</code>, <code>nextStage</code>
-<strong class="purple">must</strong> not include any bits other than <code>VK_SHADER_STAGE_MESH_BIT_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-nextStage-08436" href="#VUID-VkShaderCreateInfoEXT-nextStage-08436"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-nextStage-08436</span><br>
-
-If <code>stage</code> is <code>VK_SHADER_STAGE_MESH_BIT_EXT</code>, <code>nextStage</code>
-<strong class="purple">must</strong> not include any bits other than <code>VK_SHADER_STAGE_FRAGMENT_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pName-08440" href="#VUID-VkShaderCreateInfoEXT-pName-08440"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pName-08440</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, <code>pName</code>
-<strong class="purple">must</strong> be the name of an <code>OpEntryPoint</code> in <code>pCode</code> with an
-execution model that matches <code>stage</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08492" href="#VUID-VkShaderCreateInfoEXT-pCode-08492"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08492</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_BINARY_EXT</code>, <code>pCode</code>
-<strong class="purple">must</strong> be aligned to <code>16</code> bytes</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08493" href="#VUID-VkShaderCreateInfoEXT-pCode-08493"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08493</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, <code>pCode</code>
-<strong class="purple">must</strong> be aligned to <code>4</code> bytes</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08448" href="#VUID-VkShaderCreateInfoEXT-pCode-08448"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08448</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and the
-identified entry point includes any variable in its interface that is
-declared with the <code>ClipDistance</code> <code>BuiltIn</code> decoration, that
-variable <strong class="purple">must</strong> not have an array size greater than
-<code>VkPhysicalDeviceLimits</code>::<code>maxClipDistances</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08449" href="#VUID-VkShaderCreateInfoEXT-pCode-08449"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08449</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and the
-identified entry point includes any variable in its interface that is
-declared with the <code>CullDistance</code> <code>BuiltIn</code> decoration, that
-variable <strong class="purple">must</strong> not have an array size greater than
-<code>VkPhysicalDeviceLimits</code>::<code>maxCullDistances</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08450" href="#VUID-VkShaderCreateInfoEXT-pCode-08450"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08450</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and the
-identified entry point includes variables in its interface that are
-declared with the <code>ClipDistance</code> <code>BuiltIn</code> decoration and
-variables in its interface that are declared with the <code>CullDistance</code>
-<code>BuiltIn</code> decoration, those variables <strong class="purple">must</strong> not have array sizes
-which sum to more than
-<code>VkPhysicalDeviceLimits</code>::<code>maxCombinedClipAndCullDistances</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08451" href="#VUID-VkShaderCreateInfoEXT-pCode-08451"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08451</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and the
-identified entry point includes any variable in its interface that is
-declared with the <code>SampleMask</code> <code>BuiltIn</code> decoration, that variable
-<strong class="purple">must</strong> not have an array size greater than
-<code>VkPhysicalDeviceLimits</code>::<code>maxSampleMaskWords</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08453" href="#VUID-VkShaderCreateInfoEXT-pCode-08453"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08453</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and
-<code>stage</code> is <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> or
-<code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code>, and the identified
-entry point has an <code>OpExecutionMode</code> instruction specifying a patch
-size with <code>OutputVertices</code>, the patch size <strong class="purple">must</strong> be greater than <code>0</code>
-and less than or equal to
-<code>VkPhysicalDeviceLimits</code>::<code>maxTessellationPatchSize</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08454" href="#VUID-VkShaderCreateInfoEXT-pCode-08454"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08454</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and
-<code>stage</code> is <code>VK_SHADER_STAGE_GEOMETRY_BIT</code>, the identified entry
-point <strong class="purple">must</strong> have an <code>OpExecutionMode</code> instruction specifying a
-maximum output vertex count that is greater than <code>0</code> and less than or
-equal to <code>VkPhysicalDeviceLimits</code>::<code>maxGeometryOutputVertices</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08455" href="#VUID-VkShaderCreateInfoEXT-pCode-08455"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08455</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and
-<code>stage</code> is <code>VK_SHADER_STAGE_GEOMETRY_BIT</code>, the identified entry
-point <strong class="purple">must</strong> have an <code>OpExecutionMode</code> instruction specifying an
-invocation count that is greater than <code>0</code> and less than or equal to
-<code>VkPhysicalDeviceLimits</code>::<code>maxGeometryShaderInvocations</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08456" href="#VUID-VkShaderCreateInfoEXT-pCode-08456"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08456</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and
-<code>stage</code> is a
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-pre-rasterization" target="_blank" rel="noopener">pre-rasterization shader
-stage</a>, and the identified entry point writes to <code>Layer</code> for any
-primitive, it <strong class="purple">must</strong> write the same value to <code>Layer</code> for all vertices
-of a given primitive</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08457" href="#VUID-VkShaderCreateInfoEXT-pCode-08457"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08457</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and
-<code>stage</code> is a
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-pre-rasterization" target="_blank" rel="noopener">pre-rasterization shader
-stage</a>, and the identified entry point writes to <code>ViewportIndex</code> for
-any primitive, it <strong class="purple">must</strong> write the same value to <code>ViewportIndex</code> for
-all vertices of a given primitive</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08459" href="#VUID-VkShaderCreateInfoEXT-pCode-08459"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08459</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and
-<code>stage</code> is <code>VK_SHADER_STAGE_FRAGMENT_BIT</code>, and the identified
-entry point writes to <code>FragDepth</code> in any execution path, all
-execution paths that are not exclusive to helper invocations <strong class="purple">must</strong>
-either discard the fragment, or write or initialize the value of
-<code>FragDepth</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-08460" href="#VUID-VkShaderCreateInfoEXT-pCode-08460"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-08460</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, the shader
-code in <code>pCode</code> <strong class="purple">must</strong> be valid as described by the
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#spirv-spec" target="_blank" rel="noopener">Khronos SPIR-V Specification</a> after applying the
-specializations provided in <code>pSpecializationInfo</code>, if any, and then
-converting all specialization constants into fixed constants</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-codeType-08872" href="#VUID-VkShaderCreateInfoEXT-codeType-08872"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-codeType-08872</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and
-<code>stage</code> is <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code>,
-<code>pCode</code> <strong class="purple">must</strong> contain an <code>OpExecutionMode</code> instruction specifying
-the type of subdivision</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-codeType-08873" href="#VUID-VkShaderCreateInfoEXT-codeType-08873"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-codeType-08873</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and
-<code>stage</code> is <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code>,
-<code>pCode</code> <strong class="purple">must</strong> contain an <code>OpExecutionMode</code> instruction specifying
-the orientation of triangles generated by the tessellator</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-codeType-08874" href="#VUID-VkShaderCreateInfoEXT-codeType-08874"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-codeType-08874</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and
-<code>stage</code> is <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code>,
-<code>pCode</code> <strong class="purple">must</strong> contain an <code>OpExecutionMode</code> instruction specifying
-the spacing of segments on the edges of tessellated primitives</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-codeType-08875" href="#VUID-VkShaderCreateInfoEXT-codeType-08875"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-codeType-08875</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and
-<code>stage</code> is <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code>,
-<code>pCode</code> <strong class="purple">must</strong> contain an <code>OpExecutionMode</code> instruction specifying
-the output patch size</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pPushConstantRanges-10063" href="#VUID-VkShaderCreateInfoEXT-pPushConstantRanges-10063"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pPushConstantRanges-10063</span><br>
-
-Any two elements of <code>pPushConstantRanges</code> <strong class="purple">must</strong> not include the same
-stage in <code>stageFlags</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-codeType-10064" href="#VUID-VkShaderCreateInfoEXT-codeType-10064"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-codeType-10064</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and if a push
-constant block is declared in a shader, then an element of
-<code>pPushConstantRanges-&gt;stageFlags</code> <strong class="purple">must</strong> match <code>stage</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-codeType-10065" href="#VUID-VkShaderCreateInfoEXT-codeType-10065"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-codeType-10065</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and if a push
-constant block is declared in a shader, the block must be contained
-inside the element of <code>pPushConstantRanges</code> that matches the stage</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-codeType-10383" href="#VUID-VkShaderCreateInfoEXT-codeType-10383"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-codeType-10383</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and a
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-resources" target="_blank" rel="noopener">resource variable</a> is declared in a shader, the
-corresponding descriptor set in <code>pSetLayouts</code> <strong class="purple">must</strong> match the shader
-stage</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-codeType-10384" href="#VUID-VkShaderCreateInfoEXT-codeType-10384"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-codeType-10384</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and a
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-resources" target="_blank" rel="noopener">resource variable</a> is declared in a shader,
-and the descriptor type is not <code>VK_DESCRIPTOR_TYPE_MUTABLE_EXT</code>,
-the corresponding descriptor set in <code>pSetLayouts</code> <strong class="purple">must</strong> match the
-descriptor type</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-codeType-10385" href="#VUID-VkShaderCreateInfoEXT-codeType-10385"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-codeType-10385</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and a
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-resources" target="_blank" rel="noopener">resource variable</a> is declared in a shader as an
-array, the corresponding descriptor set in <code>pSetLayouts</code> <strong class="purple">must</strong> match
-the descriptor count</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-codeType-10386" href="#VUID-VkShaderCreateInfoEXT-codeType-10386"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-codeType-10386</span><br>
-
-If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and a
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-resources" target="_blank" rel="noopener">resource variable</a> is declared in a shader as an
-array of descriptors, then the descriptor type of that variable <strong class="purple">must</strong>
-not be <code>VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK</code></p>
+<p><a id="features-shaderUntypedPointers"></a> <code>shaderUntypedPointers</code> specifies
+whether shader modules <strong class="purple">can</strong> declare the <code>UntypedPointersKHR</code>
+capability and untyped pointers in any
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-resources-layout" target="_blank" rel="noopener">explicitly laid out storage class</a>.</p>
 </li>
 </ul>
 </div>
-</div>
+<div class="paragraph">
+<p>If the <code>VkPhysicalDeviceShaderUntypedPointersFeaturesKHR</code> structure is
+included in the <code>pNext</code> chain of <a href="VkPhysicalDeviceFeatures2.html">VkPhysicalDeviceFeatures2</a>, it is
+filled with values indicating whether the features are supported.
+<code>VkPhysicalDeviceShaderUntypedPointersFeaturesKHR</code> <strong class="purple">can</strong> also be included
+in the <code>pNext</code> chain of <a href="VkDeviceCreateInfo.html">VkDeviceCreateInfo</a> to enable the features.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1406,56 +859,8 @@ not be <code>VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-VkShaderCreateInfoEXT-sType-sType" href="#VUID-VkShaderCreateInfoEXT-sType-sType"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-sType-sType</span><br>
- <code>sType</code> <strong class="purple">must</strong> be <code>VK_STRUCTURE_TYPE_SHADER_CREATE_INFO_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pNext-pNext" href="#VUID-VkShaderCreateInfoEXT-pNext-pNext"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkPipelineShaderStageRequiredSubgroupSizeCreateInfo.html">VkPipelineShaderStageRequiredSubgroupSizeCreateInfo</a> or <a href="VkValidationFeaturesEXT.html">VkValidationFeaturesEXT</a></p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-sType-unique" href="#VUID-VkShaderCreateInfoEXT-sType-unique"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-sType-unique</span><br>
- The <code>sType</code> value of each structure in the <code>pNext</code> chain <strong class="purple">must</strong> be unique</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-flags-parameter" href="#VUID-VkShaderCreateInfoEXT-flags-parameter"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-parameter</span><br>
- <code>flags</code> <strong class="purple">must</strong> be a valid combination of <a href="VkShaderCreateFlagBitsEXT.html">VkShaderCreateFlagBitsEXT</a> values</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-stage-parameter" href="#VUID-VkShaderCreateInfoEXT-stage-parameter"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-stage-parameter</span><br>
- <code>stage</code> <strong class="purple">must</strong> be a valid <a href="VkShaderStageFlagBits.html">VkShaderStageFlagBits</a> value</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-nextStage-parameter" href="#VUID-VkShaderCreateInfoEXT-nextStage-parameter"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-nextStage-parameter</span><br>
- <code>nextStage</code> <strong class="purple">must</strong> be a valid combination of <a href="VkShaderStageFlagBits.html">VkShaderStageFlagBits</a> values</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-codeType-parameter" href="#VUID-VkShaderCreateInfoEXT-codeType-parameter"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-codeType-parameter</span><br>
- <code>codeType</code> <strong class="purple">must</strong> be a valid <a href="VkShaderCodeTypeEXT.html">VkShaderCodeTypeEXT</a> value</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pCode-parameter" href="#VUID-VkShaderCreateInfoEXT-pCode-parameter"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pCode-parameter</span><br>
- <code>pCode</code> <strong class="purple">must</strong> be a valid pointer to an array of <code>codeSize</code> bytes</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pName-parameter" href="#VUID-VkShaderCreateInfoEXT-pName-parameter"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pName-parameter</span><br>
- If <code>pName</code> is not <code>NULL</code>, <code>pName</code> <strong class="purple">must</strong> be a null-terminated UTF-8 string</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pSetLayouts-parameter" href="#VUID-VkShaderCreateInfoEXT-pSetLayouts-parameter"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pSetLayouts-parameter</span><br>
- If <code>setLayoutCount</code> is not <code>0</code>, and <code>pSetLayouts</code> is not <code>NULL</code>, <code>pSetLayouts</code> <strong class="purple">must</strong> be a valid pointer to an array of <code>setLayoutCount</code> valid <a href="VkDescriptorSetLayout.html">VkDescriptorSetLayout</a> handles</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pPushConstantRanges-parameter" href="#VUID-VkShaderCreateInfoEXT-pPushConstantRanges-parameter"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pPushConstantRanges-parameter</span><br>
- If <code>pushConstantRangeCount</code> is not <code>0</code>, and <code>pPushConstantRanges</code> is not <code>NULL</code>, <code>pPushConstantRanges</code> <strong class="purple">must</strong> be a valid pointer to an array of <code>pushConstantRangeCount</code> valid <a href="VkPushConstantRange.html">VkPushConstantRange</a> structures</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-pSpecializationInfo-parameter" href="#VUID-VkShaderCreateInfoEXT-pSpecializationInfo-parameter"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-pSpecializationInfo-parameter</span><br>
- If <code>pSpecializationInfo</code> is not <code>NULL</code>, <code>pSpecializationInfo</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkSpecializationInfo.html">VkSpecializationInfo</a> structure</p>
-</li>
-<li>
-<p><a id="VUID-VkShaderCreateInfoEXT-codeSize-arraylength" href="#VUID-VkShaderCreateInfoEXT-codeSize-arraylength"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-codeSize-arraylength</span><br>
- <code>codeSize</code> <strong class="purple">must</strong> be greater than <code>0</code></p>
+<p><a id="VUID-VkPhysicalDeviceShaderUntypedPointersFeaturesKHR-sType-sType" href="#VUID-VkPhysicalDeviceShaderUntypedPointersFeaturesKHR-sType-sType"></a> <span class="vuid">VUID-VkPhysicalDeviceShaderUntypedPointersFeaturesKHR-sType-sType</span><br>
+ <code>sType</code> <strong class="purple">must</strong> be <code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_UNTYPED_POINTERS_FEATURES_KHR</code></p>
 </li>
 </ul>
 </div>
@@ -1467,7 +872,7 @@ not be <code>VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK</code></p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_EXT_shader_object.html">VK_EXT_shader_object</a>, <a href="VkDescriptorSetLayout.html">VkDescriptorSetLayout</a>, <a href="VkPushConstantRange.html">VkPushConstantRange</a>, <a href="VkShaderCodeTypeEXT.html">VkShaderCodeTypeEXT</a>, <a href="VkShaderCreateFlagsEXT.html">VkShaderCreateFlagsEXT</a>, <a href="VkShaderStageFlagBits.html">VkShaderStageFlagBits</a>, <a href="VkShaderStageFlags.html">VkShaderStageFlags</a>, <a href="VkSpecializationInfo.html">VkSpecializationInfo</a>, <a href="VkStructureType.html">VkStructureType</a>, <a href="vkCreateShadersEXT.html">vkCreateShadersEXT</a></p>
+<p><a href="VK_KHR_shader_untyped_pointers.html">VK_KHR_shader_untyped_pointers</a>, <a href="VkBool32.html">VkBool32</a>, <a href="VkStructureType.html">VkStructureType</a></p>
 </div>
 </div>
 </div>
@@ -1475,7 +880,7 @@ not be <code>VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK</code></p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkShaderCreateInfoEXT" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDeviceShaderUntypedPointersFeaturesKHR" target="_blank" rel="noopener">Vulkan Specification</a></p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.
