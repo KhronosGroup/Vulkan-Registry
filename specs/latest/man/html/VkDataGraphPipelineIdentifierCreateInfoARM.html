@@ -852,21 +852,11 @@ describe the pipeline being created.</p>
 <div class="sect1">
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Valid Usage</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a id="VUID-VkDataGraphPipelineIdentifierCreateInfoARM-pIdentifer-09877" href="#VUID-VkDataGraphPipelineIdentifierCreateInfoARM-pIdentifer-09877"></a> <span class="vuid">VUID-VkDataGraphPipelineIdentifierCreateInfoARM-pIdentifer-09877</span><br>
-
-The data provided via <code>pIdentifer</code> <strong class="purple">must</strong> have been obtained by
-calling <a href="vkGetDataGraphPipelinePropertiesARM.html">vkGetDataGraphPipelinePropertiesARM</a> to query the value of
-the <code>VK_DATA_GRAPH_PIPELINE_PROPERTY_IDENTIFIER_ARM</code> property</p>
-</li>
-</ul>
-</div>
-</div>
+<div class="paragraph">
+<p>The <code>pIdentifier</code> <strong class="purple">can</strong> be retrieved from the device by calling
+<a href="vkGetDataGraphPipelinePropertiesARM.html">vkGetDataGraphPipelinePropertiesARM</a> and searching the results for a
+<a href="VkDataGraphPipelinePropertyQueryResultARM.html">VkDataGraphPipelinePropertyQueryResultARM</a> structure with
+<code>property</code> set to <code>VK_DATA_GRAPH_PIPELINE_PROPERTY_IDENTIFIER_ARM</code>.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -903,7 +893,7 @@ the <code>VK_DATA_GRAPH_PIPELINE_PROPERTY_IDENTIFIER_ARM</code> property</p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDataGraphPipelineIdentifierCreateInfoARM" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDataGraphPipelineIdentifierCreateInfoARM" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

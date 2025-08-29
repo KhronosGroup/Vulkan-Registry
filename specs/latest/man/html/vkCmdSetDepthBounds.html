@@ -873,6 +873,11 @@ If the <code><a href="VK_EXT_depth_range_unrestricted.html">VK_EXT_depth_range_u
 If the <code><a href="VK_EXT_depth_range_unrestricted.html">VK_EXT_depth_range_unrestricted</a></code> extension is not enabled
 <code>maxDepthBounds</code> <strong class="purple">must</strong> be between <code>0.0</code> and <code>1.0</code>, inclusive</p>
 </li>
+<li>
+<p><a id="VUID-vkCmdSetDepthBounds-minDepthBounds-10912" href="#VUID-vkCmdSetDepthBounds-minDepthBounds-10912"></a> <span class="vuid">VUID-vkCmdSetDepthBounds-minDepthBounds-10912</span><br>
+
+<code>minDepthBounds</code> <strong class="purple">must</strong> be less than or equal to <code>maxDepthBounds</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -972,7 +977,7 @@ Secondary</p></td>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdSetDepthBounds" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdSetDepthBounds" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

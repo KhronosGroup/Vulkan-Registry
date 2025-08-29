@@ -1370,13 +1370,6 @@ The XFB Stride value to <code>XfbStride</code> <strong class="purple">must</stro
 <a href="VkPhysicalDeviceTransformFeedbackPropertiesEXT.html">VkPhysicalDeviceTransformFeedbackPropertiesEXT</a>::<code>maxTransformFeedbackBufferDataStride</code></p>
 </li>
 <li>
-<p><a id="VUID-RuntimeSpirv-PhysicalStorageBuffer64-06314" href="#VUID-RuntimeSpirv-PhysicalStorageBuffer64-06314"></a> <span class="vuid">VUID-RuntimeSpirv-PhysicalStorageBuffer64-06314</span><br>
-
-If the <code>PhysicalStorageBuffer64</code> addressing model is enabled any load
-or store through a physical pointer type <strong class="purple">must</strong> be aligned to a multiple
-of the size of the largest scalar type in the pointed-to type</p>
-</li>
-<li>
 <p><a id="VUID-RuntimeSpirv-PhysicalStorageBuffer64-06315" href="#VUID-RuntimeSpirv-PhysicalStorageBuffer64-06315"></a> <span class="vuid">VUID-RuntimeSpirv-PhysicalStorageBuffer64-06315</span><br>
 
 If the <code>PhysicalStorageBuffer64</code> addressing model is enabled the
@@ -2856,12 +2849,6 @@ an alignment that satisfies <a href="https://registry.khronos.org/vulkan/specs/l
 Stride Assignment</a></p>
 </li>
 <li>
-<p><a id="VUID-RuntimeSpirv-OpUntypedVariableKHR-11167" href="#VUID-RuntimeSpirv-OpUntypedVariableKHR-11167"></a> <span class="vuid">VUID-RuntimeSpirv-OpUntypedVariableKHR-11167</span><br>
-
-Any <code>OpUntypedVariableKHR</code> <strong class="purple">must</strong> have a <code>Data</code> <code>Type</code> operand
-specified</p>
-</li>
-<li>
 <p><a id="VUID-RuntimeSpirv-OpImage-06376" href="#VUID-RuntimeSpirv-OpImage-06376"></a> <span class="vuid">VUID-RuntimeSpirv-OpImage-06376</span><br>
 
 If an <code>OpImage*Gather</code> operation has an image operand of <code>Offset</code>,
@@ -3654,7 +3641,7 @@ equal to the elements of the array that defines the <code>Shape</code> of the
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#RuntimeSpirv" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#RuntimeSpirv" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

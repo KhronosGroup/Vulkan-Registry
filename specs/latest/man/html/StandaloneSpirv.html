@@ -1683,26 +1683,30 @@ shaders</p>
 <li>
 <p><a id="VUID-StandaloneSpirv-Base-07650" href="#VUID-StandaloneSpirv-Base-07650"></a> <span class="vuid">VUID-StandaloneSpirv-Base-07650</span><br>
 
-The <code>Base</code> operand of <code>OpPtrAccessChain</code>
-or <code>OpUntypedPtrAccessChainKHR</code>
-<strong class="purple">must</strong> have a storage class of <code>Workgroup</code>, <code>StorageBuffer</code>, or
-<code>PhysicalStorageBuffer</code></p>
+The <code>Base</code> operand of <code>OpPtrAccessChain</code> or
+<code>OpUntypedPtrAccessChainKHR</code> <strong class="purple">must</strong> have a storage class of
+<code>Workgroup</code>, <code>StorageBuffer</code>, or <code>PhysicalStorageBuffer</code></p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-Base-07651" href="#VUID-StandaloneSpirv-Base-07651"></a> <span class="vuid">VUID-StandaloneSpirv-Base-07651</span><br>
 
-If the <code>Base</code> operand of <code>OpPtrAccessChain</code>
-or <code>OpUntypedPtrAccessChainKHR</code>
-has a <code>Workgroup</code> <code>Storage</code> <code>Class</code>, then the <code>VariablePointers</code>
-capability <strong class="purple">must</strong> be declared</p>
+If the <code>Base</code> operand of <code>OpPtrAccessChain</code> or
+<code>OpUntypedPtrAccessChainKHR</code> has a <code>Workgroup</code> <code>Storage</code> <code>Class</code>,
+then the <code>VariablePointers</code> capability <strong class="purple">must</strong> be declared</p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-Base-07652" href="#VUID-StandaloneSpirv-Base-07652"></a> <span class="vuid">VUID-StandaloneSpirv-Base-07652</span><br>
 
-If the <code>Base</code> operand of <code>OpPtrAccessChain</code>
-or <code>OpUntypedPtrAccessChainKHR</code>
-has a <code>StorageBuffer</code> <code>Storage</code> <code>Class</code>, then the <code>VariablePointers</code>
-or <code>VariablePointersStorageBuffer</code> capability <strong class="purple">must</strong> be declared</p>
+If the <code>Base</code> operand of <code>OpPtrAccessChain</code> or
+<code>OpUntypedPtrAccessChainKHR</code> has a <code>StorageBuffer</code> <code>Storage</code> <code>Class</code>,
+then the <code>VariablePointers</code> or <code>VariablePointersStorageBuffer</code>
+capability <strong class="purple">must</strong> be declared</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-OpUntypedVariableKHR-11167" href="#VUID-StandaloneSpirv-OpUntypedVariableKHR-11167"></a> <span class="vuid">VUID-StandaloneSpirv-OpUntypedVariableKHR-11167</span><br>
+
+Any <code>OpUntypedVariableKHR</code> <strong class="purple">must</strong> have a <code>Data</code> <code>Type</code> operand
+specified</p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-PhysicalStorageBuffer64-04708" href="#VUID-StandaloneSpirv-PhysicalStorageBuffer64-04708"></a> <span class="vuid">VUID-StandaloneSpirv-PhysicalStorageBuffer64-04708</span><br>
@@ -1724,6 +1728,14 @@ only be used as the <code>Pointer</code> operand to <code>OpLoad</code> or <code
 If the <code>PhysicalStorageBuffer64</code> addressing model is enabled,
 <code>OpConvertUToPtr</code> and <code>OpConvertPtrToU</code> <strong class="purple">must</strong> use an integer type
 whose <code>Width</code> is 64</p>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-PhysicalStorageBuffer64-06314" href="#VUID-StandaloneSpirv-PhysicalStorageBuffer64-06314"></a> <span class="vuid">VUID-StandaloneSpirv-PhysicalStorageBuffer64-06314</span><br>
+
+If the <code>PhysicalStorageBuffer64</code> addressing model is enabled any load
+or store through a physical pointer type <strong class="purple">must</strong> have an <code>Aligned</code>
+operand which is a multiple of the size of the largest scalar type in
+the pointed-to type</p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-OpTypeForwardPointer-04711" href="#VUID-StandaloneSpirv-OpTypeForwardPointer-04711"></a> <span class="vuid">VUID-StandaloneSpirv-OpTypeForwardPointer-04711</span><br>
@@ -2079,7 +2091,7 @@ The <code>OutputIndex</code> and <code>ElementIndex</code> operands to
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#StandaloneSpirv" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#StandaloneSpirv" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

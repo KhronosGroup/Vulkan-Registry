@@ -921,6 +921,14 @@ and <code>resolveMode</code> is not
 <code>VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID</code>,
 writes to the corresponding location by a fragment are discarded.</p>
 </div>
+<div class="paragraph">
+<p>The <code>aspectMask</code> of any image view specified for <code>pDepthAttachment</code>
+or <code>pStencilAttachment</code> is ignored.
+Instead, depth attachments are automatically treated as if
+<code>VK_IMAGE_ASPECT_DEPTH_BIT</code> was specified for their aspect masks, and
+stencil attachments are automatically treated as if
+<code>VK_IMAGE_ASPECT_STENCIL_BIT</code> was specified for their aspect masks.</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage</div>
@@ -1843,7 +1851,7 @@ in <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingC
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_KHR_dynamic_rendering.html">VK_KHR_dynamic_rendering</a>, <a href="VK_QCOM_tile_properties.html">VK_QCOM_tile_properties</a>, <a href="VK_VERSION_1_3.html">VK_VERSION_1_3</a>, <a href="VkRect2D.html">VkRect2D</a>, <a href="VkRenderingAttachmentInfo.html">VkRenderingAttachmentInfo</a>, <a href="VkRenderingFlags.html">VkRenderingFlags</a>, <a href="VkStructureType.html">VkStructureType</a>, <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>, <a href="vkCmdBeginRenderingKHR.html">vkCmdBeginRenderingKHR</a>, <a href="vkGetDynamicRenderingTilePropertiesQCOM.html">vkGetDynamicRenderingTilePropertiesQCOM</a></p>
+<p><a href="VK_KHR_dynamic_rendering.html">VK_KHR_dynamic_rendering</a>, <a href="VK_QCOM_tile_properties.html">VK_QCOM_tile_properties</a>, <a href="VK_VERSION_1_3.html">VK_VERSION_1_3</a>, <a href="VkRect2D.html">VkRect2D</a>, <a href="VkRenderingAttachmentInfo.html">VkRenderingAttachmentInfo</a>, <a href="VkRenderingFlags.html">VkRenderingFlags</a>, <a href="VkStructureType.html">VkStructureType</a>, <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>, <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>, <a href="vkGetDynamicRenderingTilePropertiesQCOM.html">vkGetDynamicRenderingTilePropertiesQCOM</a></p>
 </div>
 </div>
 </div>
@@ -1851,7 +1859,7 @@ in <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingC
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRenderingInfo" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRenderingInfo" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

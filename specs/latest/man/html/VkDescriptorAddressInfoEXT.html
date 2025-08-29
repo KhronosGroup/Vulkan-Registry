@@ -894,12 +894,6 @@ If <code>address</code> is not zero,
 <code>range</code> <strong class="purple">must</strong> not be <code>VK_WHOLE_SIZE</code></p>
 </li>
 <li>
-<p><a id="VUID-VkDescriptorAddressInfoEXT-None-08044" href="#VUID-VkDescriptorAddressInfoEXT-None-08044"></a> <span class="vuid">VUID-VkDescriptorAddressInfoEXT-None-08044</span><br>
-
-If <code>address</code> is not zero, <code>address</code> <strong class="purple">must</strong> be a valid
-<a href="VkDeviceAddress.html">VkDeviceAddress</a></p>
-</li>
-<li>
 <p><a id="VUID-VkDescriptorAddressInfoEXT-range-08045" href="#VUID-VkDescriptorAddressInfoEXT-range-08045"></a> <span class="vuid">VUID-VkDescriptorAddressInfoEXT-range-08045</span><br>
 
 <code>range</code> <strong class="purple">must</strong> be less than or equal to the size of the buffer
@@ -930,7 +924,7 @@ address of the buffer</p>
 </li>
 <li>
 <p><a id="VUID-VkDescriptorAddressInfoEXT-address-parameter" href="#VUID-VkDescriptorAddressInfoEXT-address-parameter"></a> <span class="vuid">VUID-VkDescriptorAddressInfoEXT-address-parameter</span><br>
- <code>address</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
+ If <code>address</code> is not <code>0</code>, <code>address</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
 </li>
 <li>
 <p><a id="VUID-VkDescriptorAddressInfoEXT-format-parameter" href="#VUID-VkDescriptorAddressInfoEXT-format-parameter"></a> <span class="vuid">VUID-VkDescriptorAddressInfoEXT-format-parameter</span><br>
@@ -960,7 +954,7 @@ null descriptor are discarded.</p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDescriptorAddressInfoEXT" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDescriptorAddressInfoEXT" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

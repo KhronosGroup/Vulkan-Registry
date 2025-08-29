@@ -1827,6 +1827,17 @@ is <code>VK_DYNAMIC_STATE_DEPTH_BOUNDS</code>, and the
 of <code>pDepthStencilState</code> <strong class="purple">must</strong> be between <code>0.0</code> and <code>1.0</code>, inclusive</p>
 </li>
 <li>
+<p><a id="VUID-VkGraphicsPipelineCreateInfo-pDynamicStates-10913" href="#VUID-VkGraphicsPipelineCreateInfo-pDynamicStates-10913"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-pDynamicStates-10913</span><br>
+
+If the pipeline requires <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-fragment-shader" target="_blank" rel="noopener">fragment shader state</a>, no element of the <code>pDynamicStates</code> member
+of <code>pDynamicState</code> is <code>VK_DYNAMIC_STATE_DEPTH_BOUNDS</code>, and
+<code>pDynamicStates</code> includes
+<code>VK_DYNAMIC_STATE_DEPTH_BOUNDS_TEST_ENABLE</code> or
+the <code>depthBoundsTestEnable</code> member of <code>pDepthStencilState</code> is
+<code>VK_TRUE</code>, <code>minDepthBounds</code> <strong class="purple">must</strong> be less than or equal to
+<code>maxDepthBounds</code></p>
+</li>
+<li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-pDynamicStates-07610" href="#VUID-VkGraphicsPipelineCreateInfo-pDynamicStates-07610"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-pDynamicStates-07610</span><br>
 
 If the pipeline requires <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-fragment-shader" target="_blank" rel="noopener">fragment shader state</a> or <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-fragment-output" target="_blank" rel="noopener">fragment output interface state</a>, and <code>rasterizationSamples</code> and
@@ -4640,7 +4651,7 @@ and the value of <code>renderPass</code> is <a href="VK_NULL_HANDLE.html">VK_NUL
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkGraphicsPipelineCreateInfo" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkGraphicsPipelineCreateInfo" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

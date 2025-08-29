@@ -817,7 +817,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_revision"><a class="anchor" href="#_revision"></a>Revision</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>1</p>
+<p>2</p>
 </div>
 </div>
 </div>
@@ -882,7 +882,7 @@ or<br>
 <dl>
 <dt class="hdlist1"><strong>Last Modified Date</strong></dt>
 <dd>
-<p>2025-5-12</p>
+<p>2025-8-13</p>
 </dd>
 <dt class="hdlist1"><strong>IP Status</strong></dt>
 <dd>
@@ -1219,12 +1219,13 @@ tiles that enable specific use cases.</p>
 <div class="sect1">
 <h2 id="_issues"><a class="anchor" href="#_issues"></a>Issues</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>none</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>1) Some early Adreno drivers advertised support for version 1 of this
+extension without supporting the required
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShadingApron" target="_blank" rel="noopener"><code>tileShadingApron</code></a> feature.
+To cover all Adreno devices on the market, applications should not assume
+any version of this extension supports the <code>tileShadingApron</code> feature
+without performing a feature query.</p>
 </div>
 </div>
 </div>
@@ -1233,6 +1234,16 @@ tiles that enable specific use cases.</p>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>Revision 2, 2025-08-13 (Matthew Netsch)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Make the <code>tileShadingApron</code> feature optional</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p>Revision 1, 2023-10-12 (Jeff Leger)</p>
 </li>
@@ -1252,7 +1263,7 @@ tiles that enable specific use cases.</p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_QCOM_tile_shading" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VK_QCOM_tile_shading" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is a generated document.

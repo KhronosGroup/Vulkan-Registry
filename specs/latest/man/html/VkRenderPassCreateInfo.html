@@ -1108,6 +1108,12 @@ is not <code>VK_ATTACHMENT_UNUSED</code>,
 <code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> <strong class="purple">must</strong> not be included
 in <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code></p>
 </li>
+<li>
+<p><a id="VUID-VkRenderPassCreateInfo-None-10915" href="#VUID-VkRenderPassCreateInfo-None-10915"></a> <span class="vuid">VUID-VkRenderPassCreateInfo-None-10915</span><br>
+
+If any subpass preserves an attachment, there <strong class="purple">must</strong> be a subpass
+dependency from a prior subpass which uses or preserves that attachment</p>
+</li>
 </ul>
 </div>
 </div>
@@ -1167,7 +1173,7 @@ in <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingC
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRenderPassCreateInfo" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRenderPassCreateInfo" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

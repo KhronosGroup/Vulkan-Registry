@@ -877,10 +877,12 @@ If the <code>pNext</code> chain includes a
 <p><a id="VUID-VkCommandPoolCreateInfo-pNext-09909" href="#VUID-VkCommandPoolCreateInfo-pNext-09909"></a> <span class="vuid">VUID-VkCommandPoolCreateInfo-pNext-09909</span><br>
 
 If the <code>pNext</code> chain includes a
-<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure, then the queue
-family designated by <code>queueFamilyIndex</code> <strong class="purple">must</strong> support the data graph
-processing engines specified in the
-<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure</p>
+<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure, each member of
+<code>pProcessingEngines</code> <strong class="purple">must</strong> be identical to
+<a href="VkQueueFamilyDataGraphPropertiesARM.html">VkQueueFamilyDataGraphPropertiesARM</a>::<code>engine</code> retrieved from
+<a href="vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM.html">vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM</a> with
+<code>queueFamilyIndex</code> and the <code>physicalDevice</code> that was used to
+create <code>device</code></p>
 </li>
 </ul>
 </div>
@@ -925,7 +927,7 @@ processing engines specified in the
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkCommandPoolCreateInfo" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkCommandPoolCreateInfo" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

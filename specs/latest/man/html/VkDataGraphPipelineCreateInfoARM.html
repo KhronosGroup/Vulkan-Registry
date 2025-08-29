@@ -874,6 +874,19 @@ specified by <code>VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</cod
 <strong class="purple">may</strong> fail pipeline creation with <code>VK_PIPELINE_COMPILE_REQUIRED</code> for any
 reason.</p>
 </div>
+<div class="paragraph">
+<p>The data graph engines for this pipeline <strong class="purple">can</strong> be selected by including a
+<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> to the <code>pNext</code> chain of
+this structure.
+Otherwise,
+<code>VK_PHYSICAL_DEVICE_DATA_GRAPH_PROCESSING_ENGINE_TYPE_DEFAULT_ARM</code> will
+be used as the sole data graph engine.</p>
+</div>
+<div class="paragraph">
+<p>The data graph operations that this pipeline uses <strong class="purple">must</strong> be supported for the
+data graph engines selected for this pipeline as retrieved by
+<a href="vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM.html">vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM</a>.</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage</div>
@@ -930,11 +943,14 @@ feature is not enabled, <code>flags</code> <strong class="purple">must</strong> 
 <code>VK_PIPELINE_CREATE_2_DESCRIPTOR_BUFFER_BIT_EXT</code></p>
 </li>
 <li>
-<p><a id="VUID-VkDataGraphPipelineCreateInfoARM-module-09769" href="#VUID-VkDataGraphPipelineCreateInfoARM-module-09769"></a> <span class="vuid">VUID-VkDataGraphPipelineCreateInfoARM-module-09769</span><br>
+<p><a id="VUID-VkDataGraphPipelineCreateInfoARM-layout-09769" href="#VUID-VkDataGraphPipelineCreateInfoARM-layout-09769"></a> <span class="vuid">VUID-VkDataGraphPipelineCreateInfoARM-layout-09769</span><br>
 
-If a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-resources" target="_blank" rel="noopener">resource variable</a> is declared in
-<a href="VkDataGraphPipelineShaderModuleCreateInfoARM.html">VkDataGraphPipelineShaderModuleCreateInfoARM</a>::<code>module</code>, a
-descriptor slot in <code>layout</code> <strong class="purple">must</strong> match the descriptor type</p>
+If a <a href="VkDataGraphPipelineShaderModuleCreateInfoARM.html">VkDataGraphPipelineShaderModuleCreateInfoARM</a> structure is
+included in the <code>pNext</code> chain and a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-resources" target="_blank" rel="noopener">resource
+variable</a> is declared in the shader module, the corresponding
+descriptor binding used to create <code>layout</code> <strong class="purple">must</strong> have a
+<code>descriptorType</code> that corresponds to the type of the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-resources" target="_blank" rel="noopener">resource variable</a></p>
 </li>
 <li>
 <p><a id="VUID-VkDataGraphPipelineCreateInfoARM-pNext-09875" href="#VUID-VkDataGraphPipelineCreateInfoARM-pNext-09875"></a> <span class="vuid">VUID-VkDataGraphPipelineCreateInfoARM-pNext-09875</span><br>
@@ -942,14 +958,6 @@ descriptor slot in <code>layout</code> <strong class="purple">must</strong> matc
 If a <a href="VkDataGraphPipelineIdentifierCreateInfoARM.html">VkDataGraphPipelineIdentifierCreateInfoARM</a> structure is
 included in the <code>pNext</code> chain, then <code>flags</code> <strong class="purple">must</strong> contain
 <code>VK_PIPELINE_CREATE_2_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkDataGraphPipelineCreateInfoARM-pNext-09876" href="#VUID-VkDataGraphPipelineCreateInfoARM-pNext-09876"></a> <span class="vuid">VUID-VkDataGraphPipelineCreateInfoARM-pNext-09876</span><br>
-
-If a <a href="VkDataGraphPipelineIdentifierCreateInfoARM.html">VkDataGraphPipelineIdentifierCreateInfoARM</a> structure is
-included in the <code>pNext</code> chain, then a
-<a href="VkDataGraphPipelineShaderModuleCreateInfoARM.html">VkDataGraphPipelineShaderModuleCreateInfoARM</a> structure <strong class="purple">must</strong> not
-be included in the <code>pNext</code> chain</p>
 </li>
 <li>
 <p><a id="VUID-VkDataGraphPipelineCreateInfoARM-pNext-09882" href="#VUID-VkDataGraphPipelineCreateInfoARM-pNext-09882"></a> <span class="vuid">VUID-VkDataGraphPipelineCreateInfoARM-pNext-09882</span><br>
@@ -967,11 +975,13 @@ feature is not enabled, a
 be included in the <code>pNext</code> chain</p>
 </li>
 <li>
-<p><a id="VUID-VkDataGraphPipelineCreateInfoARM-module-09934" href="#VUID-VkDataGraphPipelineCreateInfoARM-module-09934"></a> <span class="vuid">VUID-VkDataGraphPipelineCreateInfoARM-module-09934</span><br>
+<p><a id="VUID-VkDataGraphPipelineCreateInfoARM-layout-09934" href="#VUID-VkDataGraphPipelineCreateInfoARM-layout-09934"></a> <span class="vuid">VUID-VkDataGraphPipelineCreateInfoARM-layout-09934</span><br>
 
-If a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-resources" target="_blank" rel="noopener">resource variable</a> is declared in
-<code>module</code> as an array, a descriptor slot in <code>layout</code> <strong class="purple">must</strong> match
-the descriptor count</p>
+If a <a href="VkDataGraphPipelineShaderModuleCreateInfoARM.html">VkDataGraphPipelineShaderModuleCreateInfoARM</a> structure is
+included in the <code>pNext</code> chain and an array
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-resources" target="_blank" rel="noopener">resource variable</a> is declared in the shader
+module, the corresponding descriptor binding used to create <code>layout</code>
+<strong class="purple">must</strong> have a <code>descriptorCount</code> that matches the length of the array</p>
 </li>
 <li>
 <p><a id="VUID-VkDataGraphPipelineCreateInfoARM-pipelineCreationCacheControl-09871" href="#VUID-VkDataGraphPipelineCreateInfoARM-pipelineCreationCacheControl-09871"></a> <span class="vuid">VUID-VkDataGraphPipelineCreateInfoARM-pipelineCreationCacheControl-09871</span><br>
@@ -988,14 +998,6 @@ The descriptor set layouts in
 <a href="VkPipelineLayoutCreateInfo.html">VkPipelineLayoutCreateInfo</a>::<code>pSetLayouts</code> used to create
 <code>layout</code> <strong class="purple">must</strong> not include any <a href="VkDescriptorSetLayoutBinding.html">VkDescriptorSetLayoutBinding</a>
 whose descriptor type is <code>VK_DESCRIPTOR_TYPE_MUTABLE_EXT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkDataGraphPipelineCreateInfoARM-pResourceInfos-09771" href="#VUID-VkDataGraphPipelineCreateInfoARM-pResourceInfos-09771"></a> <span class="vuid">VUID-VkDataGraphPipelineCreateInfoARM-pResourceInfos-09771</span><br>
-
-For each of the structures in <code>pResourceInfos</code>,
-<a href="VkDataGraphPipelineResourceInfoARM.html">VkDataGraphPipelineResourceInfoARM</a>::<code>descriptorSet</code> and
-<a href="VkDataGraphPipelineResourceInfoARM.html">VkDataGraphPipelineResourceInfoARM</a>::<code>binding</code> <strong class="purple">must</strong> correspond
-to a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#interfaces-resources" target="_blank" rel="noopener">resource variable</a> declared in <code>module</code></p>
 </li>
 <li>
 <p><a id="VUID-VkDataGraphPipelineCreateInfoARM-pipelineProtectedAccess-09772" href="#VUID-VkDataGraphPipelineCreateInfoARM-pipelineProtectedAccess-09772"></a> <span class="vuid">VUID-VkDataGraphPipelineCreateInfoARM-pipelineProtectedAccess-09772</span><br>
@@ -1020,6 +1022,27 @@ If the <code>pNext</code> chain includes an
 <a href="VkPipelineCreationFeedbackCreateInfo.html">VkPipelineCreationFeedbackCreateInfo</a> structure, then its
 <code>pipelineStageCreationFeedbackCount</code> <strong class="purple">must</strong> be 0</p>
 </li>
+<li>
+<p><a id="VUID-VkDataGraphPipelineCreateInfoARM-pNext-09948" href="#VUID-VkDataGraphPipelineCreateInfoARM-pNext-09948"></a> <span class="vuid">VUID-VkDataGraphPipelineCreateInfoARM-pNext-09948</span><br>
+
+If a <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure is
+included in the <code>pNext</code> chain, each member of
+<code>pProcessingEngines</code> <strong class="purple">must</strong> be identical to an
+<a href="VkQueueFamilyDataGraphPropertiesARM.html">VkQueueFamilyDataGraphPropertiesARM</a>::<code>engine</code> retrieved from
+<a href="vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM.html">vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM</a> with the
+<code>physicalDevice</code> that was used to create <code>device</code></p>
+</li>
+<li>
+<p><a id="VUID-VkDataGraphPipelineCreateInfoARM-pNext-09949" href="#VUID-VkDataGraphPipelineCreateInfoARM-pNext-09949"></a> <span class="vuid">VUID-VkDataGraphPipelineCreateInfoARM-pNext-09949</span><br>
+
+If a <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure is not
+included in the <code>pNext</code> chain,
+<code>VK_PHYSICAL_DEVICE_DATA_GRAPH_PROCESSING_ENGINE_TYPE_DEFAULT_ARM</code>
+<strong class="purple">must</strong> be set in an
+<a href="VkQueueFamilyDataGraphPropertiesARM.html">VkQueueFamilyDataGraphPropertiesARM</a>::<code>engine</code> retrieved from
+<a href="vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM.html">vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM</a> with the
+<code>physicalDevice</code> that was used to create <code>device</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -1035,7 +1058,7 @@ If the <code>pNext</code> chain includes an
 </li>
 <li>
 <p><a id="VUID-VkDataGraphPipelineCreateInfoARM-pNext-pNext" href="#VUID-VkDataGraphPipelineCreateInfoARM-pNext-pNext"></a> <span class="vuid">VUID-VkDataGraphPipelineCreateInfoARM-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkDataGraphPipelineCompilerControlCreateInfoARM.html">VkDataGraphPipelineCompilerControlCreateInfoARM</a>, <a href="VkDataGraphPipelineIdentifierCreateInfoARM.html">VkDataGraphPipelineIdentifierCreateInfoARM</a>, <a href="VkDataGraphPipelineShaderModuleCreateInfoARM.html">VkDataGraphPipelineShaderModuleCreateInfoARM</a>, <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a>, or <a href="VkPipelineCreationFeedbackCreateInfo.html">VkPipelineCreationFeedbackCreateInfo</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkDataGraphPipelineCompilerControlCreateInfoARM.html">VkDataGraphPipelineCompilerControlCreateInfoARM</a>, <a href="VkDataGraphPipelineIdentifierCreateInfoARM.html">VkDataGraphPipelineIdentifierCreateInfoARM</a>, <a href="VkDataGraphPipelineShaderModuleCreateInfoARM.html">VkDataGraphPipelineShaderModuleCreateInfoARM</a>, <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a>, <a href="VkPipelineCreationFeedbackCreateInfo.html">VkPipelineCreationFeedbackCreateInfo</a>, or <a href="VkShaderModuleCreateInfo.html">VkShaderModuleCreateInfo</a></p>
 </li>
 <li>
 <p><a id="VUID-VkDataGraphPipelineCreateInfoARM-sType-unique" href="#VUID-VkDataGraphPipelineCreateInfoARM-sType-unique"></a> <span class="vuid">VUID-VkDataGraphPipelineCreateInfoARM-sType-unique</span><br>
@@ -1067,7 +1090,7 @@ If the <code>pNext</code> chain includes an
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_ARM_data_graph.html">VK_ARM_data_graph</a>, <a href="VkDataGraphPipelineResourceInfoARM.html">VkDataGraphPipelineResourceInfoARM</a>, <a href="VkPipelineCreateFlags2KHR.html">VkPipelineCreateFlags2KHR</a>, <a href="VkPipelineLayout.html">VkPipelineLayout</a>, <a href="VkStructureType.html">VkStructureType</a>, <a href="vkCreateDataGraphPipelinesARM.html">vkCreateDataGraphPipelinesARM</a></p>
+<p><a href="VK_ARM_data_graph.html">VK_ARM_data_graph</a>, <a href="VkDataGraphPipelineResourceInfoARM.html">VkDataGraphPipelineResourceInfoARM</a>, <a href="VkPipelineCreateFlags2.html">VkPipelineCreateFlags2</a>, <a href="VkPipelineLayout.html">VkPipelineLayout</a>, <a href="VkStructureType.html">VkStructureType</a>, <a href="vkCreateDataGraphPipelinesARM.html">vkCreateDataGraphPipelinesARM</a></p>
 </div>
 </div>
 </div>
@@ -1075,7 +1098,7 @@ If the <code>pNext</code> chain includes an
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDataGraphPipelineCreateInfoARM" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkDataGraphPipelineCreateInfoARM" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

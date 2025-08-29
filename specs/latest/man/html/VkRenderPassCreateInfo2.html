@@ -1180,6 +1180,12 @@ is not <code>VK_ATTACHMENT_UNUSED</code>,
 <code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> <strong class="purple">must</strong> not be included
 in <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code></p>
 </li>
+<li>
+<p><a id="VUID-VkRenderPassCreateInfo2-None-10916" href="#VUID-VkRenderPassCreateInfo2-None-10916"></a> <span class="vuid">VUID-VkRenderPassCreateInfo2-None-10916</span><br>
+
+If any subpass preserves an attachment, there <strong class="purple">must</strong> be a subpass
+dependency from a prior subpass which uses or preserves that attachment</p>
+</li>
 </ul>
 </div>
 </div>
@@ -1235,7 +1241,7 @@ in <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingC
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_KHR_create_renderpass2.html">VK_KHR_create_renderpass2</a>, <a href="VK_VERSION_1_2.html">VK_VERSION_1_2</a>, <a href="VkAttachmentDescription2.html">VkAttachmentDescription2</a>, <a href="VkRenderPassCreateFlags.html">VkRenderPassCreateFlags</a>, <a href="VkStructureType.html">VkStructureType</a>, <a href="VkSubpassDependency2.html">VkSubpassDependency2</a>, <a href="VkSubpassDescription2.html">VkSubpassDescription2</a>, <a href="vkCreateRenderPass2.html">vkCreateRenderPass2</a>, <a href="vkCreateRenderPass2KHR.html">vkCreateRenderPass2KHR</a></p>
+<p><a href="VK_KHR_create_renderpass2.html">VK_KHR_create_renderpass2</a>, <a href="VK_VERSION_1_2.html">VK_VERSION_1_2</a>, <a href="VkAttachmentDescription2.html">VkAttachmentDescription2</a>, <a href="VkRenderPassCreateFlags.html">VkRenderPassCreateFlags</a>, <a href="VkStructureType.html">VkStructureType</a>, <a href="VkSubpassDependency2.html">VkSubpassDependency2</a>, <a href="VkSubpassDescription2.html">VkSubpassDescription2</a>, <a href="vkCreateRenderPass2.html">vkCreateRenderPass2</a>, <a href="vkCreateRenderPass2.html">vkCreateRenderPass2</a></p>
 </div>
 </div>
 </div>
@@ -1243,7 +1249,7 @@ in <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingC
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRenderPassCreateInfo2" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkRenderPassCreateInfo2" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

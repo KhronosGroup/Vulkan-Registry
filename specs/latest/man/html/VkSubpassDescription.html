@@ -1006,12 +1006,41 @@ are true:</p>
 </ul>
 </div>
 <div class="paragraph">
+<p>For color attachments, this operation will be performed in the
+<code>VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT</code> pipeline stage, with any
+image accesses performed via <code>VK_ACCESS_INPUT_ATTACHMENT_READ_BIT</code>,
+<code>VK_ACCESS_COLOR_ATTACHMENT_READ_BIT</code>, and
+<code>VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT</code>.
+For depth/stencil attachments, this operation <strong class="purple">may</strong> be performed in either
+the <code>VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT</code> or
+<code>VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT</code> pipeline stage, with any
+image accesses performed via <code>VK_ACCESS_INPUT_ATTACHMENT_READ_BIT</code>,
+<code>VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT</code>, and
+<code>VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT</code>.</p>
+</div>
+<div class="paragraph">
 <p>Once the contents of an attachment become undefined in subpass <strong>S</strong>, they
 remain undefined for subpasses in subpass dependency chains starting with
 subpass <strong>S</strong> until they are written again.
 However, they remain valid for subpasses in other subpass dependency chains
-starting with subpass <strong>S<sub>1</sub></strong> if those subpasses use or preserve the
-attachment.</p>
+starting with subpass <strong>S<sub>1</sub></strong> if all subpasses in each chain use or preserve
+the attachment.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If a subpass has multiple dependency chains where some of the chains
+preserve the attachment, and others do not, the contents of the attachment
+are undefined for that subpass.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1402,7 +1431,7 @@ contain references to the same attachment</p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSubpassDescription" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkSubpassDescription" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

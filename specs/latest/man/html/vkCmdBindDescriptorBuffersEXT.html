@@ -919,6 +919,17 @@ contains resource descriptor data</p>
 For any element of <code>pBindingInfos</code>, <code>usage</code> <strong class="purple">must</strong> match the
 buffer from which <code>address</code> was queried</p>
 </li>
+<li>
+<p><a id="VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-09947" href="#VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-09947"></a> <span class="vuid">VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-09947</span><br>
+
+For all elements of <code>pBindingInfos</code>, the buffer from which
+<code>address</code> was queried <strong class="purple">must</strong> have been created with the
+<code>VK_BUFFER_USAGE_2_DATA_GRAPH_FOREIGN_DESCRIPTOR_BIT_ARM</code> bit set if
+the command pool from which <code>commandBuffer</code> was allocated from was
+created with any element of
+<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a>::pProcessingEngines with
+<code>isForeign</code> set to <code>VK_TRUE</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -1028,7 +1039,7 @@ Data_Graph</p></td>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdBindDescriptorBuffersEXT" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdBindDescriptorBuffersEXT" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

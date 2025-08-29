@@ -1020,6 +1020,15 @@ as defined in the definition of such
 which happens-before the acquire operation</p>
 </li>
 <li>
+<p><a id="VUID-vkQueueSubmit-pSubmits-10911" href="#VUID-vkQueueSubmit-pSubmits-10911"></a> <span class="vuid">VUID-vkQueueSubmit-pSubmits-10911</span><br>
+
+If any element of <code>pSubmits-&gt;pCommandBuffers</code> includes a
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers-acquire" target="_blank" rel="noopener">Queue Family Ownership
+Transfer Acquire Operation</a>, the affected resource <strong class="purple">must</strong> not be
+modified in any way between the last matching release operation and the
+acquire operation</p>
+</li>
+<li>
 <p><a id="VUID-vkQueueSubmit-pCommandBuffers-03220" href="#VUID-vkQueueSubmit-pCommandBuffers-03220"></a> <span class="vuid">VUID-vkQueueSubmit-pCommandBuffers-03220</span><br>
 
 If a command recorded into any element of <code>pCommandBuffers</code> was a
@@ -1183,7 +1192,7 @@ its <code>pNext</code> chain with <code>protectedSubmit</code> equal to <code>VK
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkQueueSubmit" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkQueueSubmit" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

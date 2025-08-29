@@ -861,6 +861,13 @@ For each of the session bind point requirements returned by
 objects <strong class="purple">must</strong> have been bound to <code>session</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDispatchDataGraphARM-dataGraphPipeline-09951" href="#VUID-vkCmdDispatchDataGraphARM-dataGraphPipeline-09951"></a> <span class="vuid">VUID-vkCmdDispatchDataGraphARM-dataGraphPipeline-09951</span><br>
+
+The <a href="VkPipeline.html">VkPipeline</a> bound to the pipeline bind point used by this
+command <strong class="purple">must</strong> be identical to the <code>dataGraphPipeline</code> used to create
+<code>session</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDispatchDataGraphARM-None-09797" href="#VUID-vkCmdDispatchDataGraphARM-None-09797"></a> <span class="vuid">VUID-vkCmdDispatchDataGraphARM-None-09797</span><br>
 
 For each set <em>n</em> that is statically used by a bound data graph pipeline,
@@ -929,23 +936,48 @@ result of this command, then the underlying <a href="VkTensorARM.html">VkTensorA
 contained <code>VK_TENSOR_USAGE_DATA_GRAPH_BIT_ARM</code></p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDispatchDataGraphARM-commandBuffer-09940" href="#VUID-vkCmdDispatchDataGraphARM-commandBuffer-09940"></a> <span class="vuid">VUID-vkCmdDispatchDataGraphARM-commandBuffer-09940</span><br>
+<p><a id="VUID-vkCmdDispatchDataGraphARM-pipeline-09940" href="#VUID-vkCmdDispatchDataGraphARM-pipeline-09940"></a> <span class="vuid">VUID-vkCmdDispatchDataGraphARM-pipeline-09940</span><br>
 
-If <code>commandBuffer</code> was allocated from a pool that was created with a
+If the <a href="VkPipeline.html">VkPipeline</a> bound to the pipeline bind point used by this
+command was created with a
 <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure in the
-<code>pNext</code> chain of <a href="VkCommandPoolCreateInfo.html">VkCommandPoolCreateInfo</a> that included a
-foreign data graph processing engine in its <code>pProcessingEngines</code>
-member, then all <code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> descriptors
-accessed as a result of this command <strong class="purple">must</strong> be tied to <a href="VkTensorARM.html">VkTensorARM</a>
-objects that have been bound to memory created from external handle
-types reported as supported in a
+<code>pNext</code> chain of <a href="VkDataGraphPipelineCreateInfoARM.html">VkDataGraphPipelineCreateInfoARM</a> that
+included a foreign data graph processing engine in its
+<code>pProcessingEngines</code> member, then all
+<code>VK_DESCRIPTOR_TYPE_TENSOR_ARM</code> descriptors accessed as a result of
+this command <strong class="purple">must</strong> be <a href="VkTensorARM.html">VkTensorARM</a> objects that have been bound to
+memory allocated with
+<a href="VkExportMemoryAllocateInfo.html">VkExportMemoryAllocateInfo</a>::<code>handleTypes</code> with set bits that
+are a subset of the bits in
 <a href="VkQueueFamilyDataGraphProcessingEnginePropertiesARM.html">VkQueueFamilyDataGraphProcessingEnginePropertiesARM</a>::<code>foreignMemoryHandleTypes</code>
-structure via
+structure queried via
 <a href="vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM.html">vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM</a>
-with a <code>queueFamilyIndex</code> matching the one the command pool was
-created for, for all the foreign data graph processing engines that were
-part of the <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> used to
-create the command pool</p>
+with a <code>queueFamilyIndex</code> matching the one the command pool used to
+create <code>commandBuffer</code> was created for and an identical
+<code>engineType</code>, for all the foreign data graph processing engines that
+were part of the <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> used to
+create the <a href="VkPipeline.html">VkPipeline</a></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDispatchDataGraphARM-pNext-09952" href="#VUID-vkCmdDispatchDataGraphARM-pNext-09952"></a> <span class="vuid">VUID-vkCmdDispatchDataGraphARM-pNext-09952</span><br>
+
+If the <a href="VkPipeline.html">VkPipeline</a> bound to the pipeline bind point used by this
+command was created with a
+<a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> structure in the
+<code>pNext</code> chain of <a href="VkDataGraphPipelineCreateInfoARM.html">VkDataGraphPipelineCreateInfoARM</a> that
+included a foreign data graph processing engine in its
+<code>pProcessingEngines</code> member, then all <code>session</code> bound memory
+<strong class="purple">must</strong> have been allocated with
+<a href="VkExportMemoryAllocateInfo.html">VkExportMemoryAllocateInfo</a>::<code>handleTypes</code> with set bits that
+are a subset of the bits in
+<a href="VkQueueFamilyDataGraphProcessingEnginePropertiesARM.html">VkQueueFamilyDataGraphProcessingEnginePropertiesARM</a>::<code>foreignMemoryHandleTypes</code>
+structure queried via
+<a href="vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM.html">vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM</a>
+with a <code>queueFamilyIndex</code> matching the one the command pool used to
+create <code>commandBuffer</code> was created for and an identical
+<code>engineType</code>, for all the foreign data graph processing engines that
+were part of the <a href="VkDataGraphProcessingEngineCreateInfoARM.html">VkDataGraphProcessingEngineCreateInfoARM</a> used to
+create the <a href="VkPipeline.html">VkPipeline</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDispatchDataGraphARM-commandBuffer-09800" href="#VUID-vkCmdDispatchDataGraphARM-commandBuffer-09800"></a> <span class="vuid">VUID-vkCmdDispatchDataGraphARM-commandBuffer-09800</span><br>
@@ -1086,7 +1118,7 @@ Secondary</p></td>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdDispatchDataGraphARM" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdDispatchDataGraphARM" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.325,</span>
-<span id="revdate">2025-08-08 13:20:26Z</span>
-<br><span id="revremark">from git branch: github-main commit: 72cd1f587fe55c80873fe6430d667056048a5113</span>
+<span id="revnumber">version 1.4.326,</span>
+<span id="revdate">2025-08-29 19:07:58Z</span>
+<br><span id="revremark">from git branch: github-main commit: 9c6d565f72ba6929c239c3e20f90b6375acad3bd</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2097,6 +2097,13 @@ Specifies the name of a <code>VkObjectType</code> enumerant which corresponds to
 this type.
 The enumerant must be defined.</p>
 </li>
+<li>
+<p><code>requiredlimittype</code> - only applicable if <code>"category"</code> is <code>struct</code> or
+<code>union</code>.
+If <code>"true"</code>, then this type&#8217;s <code>member</code> tags, other than <code>sType</code> and
+<code>pNext</code>, must include <code>limittype</code> attributes.
+Defaults to <code>"false"</code>.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -2161,33 +2168,37 @@ Each expression may be one of:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>the name of another member of this struct</p>
-</li>
-<li>
-<p><code>"null-terminated"</code>, indicating a pointer to a null-terminated UTF-8
-string</p>
-</li>
-<li>
-<p><code>"1"</code> to indicate it is just a pointer (used for nested pointers)</p>
-</li>
-<li>
 <p>an equation in math markup for incorporation in the specification (a
 LaTeX math expression delimited by <code><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">‘</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span><span class="mord">‘</span></span></span></span></code>.
 The only variables in the equation should be the names of members of
-the structure.</p>
+the structure;</p>
+</li>
+<li>
+<p>the name of another member of the structure specifying the length
+for the corresponding indirection;</p>
+</li>
+<li>
+<p><code>"null-terminated"</code>, indicating a pointer to a null-terminated UTF-8
+string;</p>
+</li>
+<li>
+<p><code>"1"</code> to indicate it is just a pointer (used for nested pointers);</p>
+</li>
+<li>
+<p>a C99 expression that refers to another member of the structure
+indirectly specifying the length for the corresponding indirection;</p>
+</li>
+<li>
+<p>or a custom expression that cannot be used directly by code generation
+and needs manual handling.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p><code>altlen</code> - if the <code>len</code> attribute is specified, and contains a
-<code>latexmath:</code> equation, this attribute should be specified with an
-equivalent equation using only C builtin operators, C math library
-function names, and variables as allowed for <code>len</code>.
-It must be a valid C99 expression whose result is equal to <code>len</code> for
-all possible inputs.
-It is a comma separated list that has size equal to only the <code>latexmath</code>
-item count in <code>len</code> list.
+<code>latexmath:</code> equation, this contains one or more of the other options
+above, separated by commas (one for each array indirection).
 This attribute is intended to support consumers of the XML who need to
 generate validation code from the allowed length.</p>
 </li>
@@ -3092,33 +3103,37 @@ Each expression may be one of:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>the name of another parameter of this command</p>
-</li>
-<li>
-<p><code>"null-terminated"</code>, indicating a pointer to a null-terminated UTF-8
-string</p>
-</li>
-<li>
-<p><code>"1"</code> to indicate it is just a pointer (used for nested pointers)</p>
-</li>
-<li>
 <p>an equation in math markup for incorporation in the specification (a
 LaTeX math expression delimited by <code><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">‘</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span><span class="mord">‘</span></span></span></span></code>.
 The only variables in the equation should be the names of parameters of
-the command.</p>
+the command;</p>
+</li>
+<li>
+<p>the name of another parameter of the command specifying the length
+for the corresponding indirection;</p>
+</li>
+<li>
+<p><code>"null-terminated"</code>, indicating a pointer to a null-terminated UTF-8
+string;</p>
+</li>
+<li>
+<p><code>"1"</code> to indicate it is just a pointer (used for nested pointers);</p>
+</li>
+<li>
+<p>a C99 expression that refers to another parameter of the command
+indirectly specifying the length for the corresponding indirection;</p>
+</li>
+<li>
+<p>or a custom expression that cannot be used directly by code generation
+and needs manual handling.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p><code>altlen</code> - if the <code>len</code> attribute is specified, and contains a
-<code>latexmath:</code> equation, this attribute should be specified with an
-equivalent equation using only C builtin operators, C math library
-function names, and variables as allowed for <code>len</code>.
-It must be a valid C99 expression whose result is equal to <code>len</code> for
-all possible inputs.
-It is a comma separated list that has size equal to only the <code>latexmath</code>
-item count in <code>len</code> list.
+<code>latexmath:</code> equation, this contains one or more of the other options
+above, separated by commas (one for each array indirection).
 This attribute is intended to support consumers of the XML who need to
 generate validation code from the allowed length.</p>
 </li>
@@ -4785,8 +4800,8 @@ capability is enabled.</p>
 <ul>
 <li>
 <p><code>struct</code> - required.
-An API feature structure name, matching a <code>struct</code> <code>name</code> attribute
-value.</p>
+An API feature structure name, matching a <code>type</code> <code>name</code> attribute
+of a structure <code>type</code>.</p>
 </li>
 <li>
 <p><code>feature</code> - required.
@@ -4821,8 +4836,8 @@ enabled in the feature structure, the SPIR-V capability is enabled.</p>
 <ul>
 <li>
 <p><code>property</code> - required.
-An API property structure name, matching a <code>struct</code> <code>name</code>
-attribute value.</p>
+An API feature structure name, matching a <code>type</code> <code>name</code> attribute
+of a structure <code>type</code>.</p>
 </li>
 <li>
 <p><code>member</code> - required.

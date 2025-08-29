@@ -888,6 +888,13 @@ used.</p>
 <div class="sect1">
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>For any depth/stencil attachments used by this framebuffer in
+<code>pAttachments</code>,
+or set later through
+<a href="VkRenderPassAttachmentBeginInfoKHR.html">VkRenderPassAttachmentBeginInfoKHR</a>::<code>pAttachments</code>,
+the <code>aspectMask</code> is ignored.</p>
+</div>
 <div id="renderpass-noattachments" class="paragraph">
 <p>It is legal for a subpass to use no color or depth/stencil attachments,
 either because it has no attachment references or because all of them are
@@ -961,6 +968,18 @@ include <code>VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT</code>, each element of
 <code>pAttachments</code> that is used as an input attachment by
 <code>renderPass</code> <strong class="purple">must</strong> have been created with a <code>usage</code> value
 including <code>VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-VkFramebufferCreateInfo-flags-10917" href="#VUID-VkFramebufferCreateInfo-flags-10917"></a> <span class="vuid">VUID-VkFramebufferCreateInfo-flags-10917</span><br>
+
+If <code>flags</code> does not include
+<code>VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT</code>, each element of
+<code>pAttachments</code> that is used as a color attachment or resolve
+attachment by <code>renderPass</code> <strong class="purple">must</strong> have been created with a
+<a href="VkImageSubresourceRange.html">VkImageSubresourceRange</a>::<code>aspectMask</code> including
+<code>VK_IMAGE_ASPECT_PLANE_0_BIT</code>, <code>VK_IMAGE_ASPECT_PLANE_1_BIT</code>,
+<code>VK_IMAGE_ASPECT_PLANE_2_BIT</code>, or
+<code>VK_IMAGE_ASPECT_COLOR_BIT</code></p>
 </li>
 <li>
 <p><a id="VUID-VkFramebufferCreateInfo-pAttachments-02552" href="#VUID-VkFramebufferCreateInfo-pAttachments-02552"></a> <span class="vuid">VUID-VkFramebufferCreateInfo-pAttachments-02552</span><br>
@@ -1529,7 +1548,7 @@ specified by the corresponding <a href="VkAttachmentDescription2.html">VkAttachm
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkFramebufferCreateInfo" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkFramebufferCreateInfo" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

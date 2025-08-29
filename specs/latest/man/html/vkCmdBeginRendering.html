@@ -886,6 +886,14 @@ feature is not enabled,
 <code>VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdBeginRendering-commandBuffer-10914" href="#VUID-vkCmdBeginRendering-commandBuffer-10914"></a> <span class="vuid">VUID-vkCmdBeginRendering-commandBuffer-10914</span><br>
+
+If <code>commandBuffer</code> is a secondary command buffer,
+<code>VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT</code> <strong class="purple">must</strong> not have
+been set in <a href="VkCommandBufferBeginInfo.html">VkCommandBufferBeginInfo</a>::<code>flags</code> when
+<code>commandBuffer</code> began</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdBeginRendering-pRenderingInfo-09588" href="#VUID-vkCmdBeginRendering-pRenderingInfo-09588"></a> <span class="vuid">VUID-vkCmdBeginRendering-pRenderingInfo-09588</span><br>
 
 If <code>pRenderingInfo-&gt;pDepthAttachment</code> is not <code>NULL</code> and
@@ -1072,7 +1080,7 @@ State</p></td>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdBeginRendering" target="_blank" rel="noopener">Vulkan Specification</a></p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdBeginRendering" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.
