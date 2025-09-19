@@ -852,7 +852,7 @@ These shaders will be automatically added to the set beginning at index
 <code>0</code>.</p>
 </li>
 <li>
-<p><code>pSetLayoutInfos</code> is a pointer to an array containing a
+<p><code>pSetLayoutInfos</code> is NULL or a pointer to an array containing a
 <a href="VkIndirectExecutionSetShaderLayoutInfoEXT.html">VkIndirectExecutionSetShaderLayoutInfoEXT</a> used by each
 corresponding <code>pInitialShaders</code> shader stage in the set.</p>
 </li>
@@ -882,6 +882,10 @@ shaders added to the set even if they are removed from the set or destroyed.</p>
 <div class="paragraph">
 <p>When an Indirect Execution Set created with shader objects is used,
 <code>pInitialShaders</code> constitutes the initial shader state.</p>
+</div>
+<div class="paragraph">
+<p>If <code>pSetLayoutInfos</code> is <code>NULL</code>, the descriptor layout parameters are
+inherited from the shader object.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -921,6 +925,13 @@ be unique</p>
 
 Each member of <code>pInitialShaders</code> <strong class="purple">must</strong> have been created with
 <code>VK_SHADER_CREATE_INDIRECT_BINDABLE_BIT_EXT</code></p>
+</li>
+<li>
+<p><a id="VUID-VkIndirectExecutionSetShaderInfoEXT-pSetLayoutInfos-10929" href="#VUID-VkIndirectExecutionSetShaderInfoEXT-pSetLayoutInfos-10929"></a> <span class="vuid">VUID-VkIndirectExecutionSetShaderInfoEXT-pSetLayoutInfos-10929</span><br>
+
+If <code>pSetLayoutInfos</code> is not <code>NULL</code>, the descriptor layout values
+specified <strong class="purple">must</strong> be compatible with the descriptor set layouts defined at
+the creation of the shader object</p>
 </li>
 </ul>
 </div>

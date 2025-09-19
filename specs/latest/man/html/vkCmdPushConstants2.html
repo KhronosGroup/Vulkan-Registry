@@ -871,7 +871,7 @@ structure.</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdPushConstants2-commandBuffer-cmdpool" href="#VUID-vkCmdPushConstants2-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdPushConstants2-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT, or VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdPushConstants2-videocoding" href="#VUID-vkCmdPushConstants2-videocoding"></a> <span class="vuid">VUID-vkCmdPushConstants2-videocoding</span><br>
@@ -922,8 +922,8 @@ structure.</p>
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
+VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">State</p></td>
 </tr>
 </tbody>

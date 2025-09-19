@@ -1167,6 +1167,24 @@ chain of this structure includes a
 <a href="vkGetPhysicalDeviceVideoCapabilitiesKHR.html">vkGetPhysicalDeviceVideoCapabilitiesKHR</a> for the video profile
 specified in <code>pVideoProfile</code></p>
 </li>
+<li>
+<p><a id="VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-10923" href="#VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-10923"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-10923</span><br>
+
+If the <code>pVideoProfile-&gt;pNext</code> chain includes a
+<a href="VkVideoEncodeProfileRgbConversionInfoVALVE.html">VkVideoEncodeProfileRgbConversionInfoVALVE</a> structure, then the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-videoEncodeRgbConversion" target="_blank" rel="noopener"><code>videoEncodeRgbConversion</code></a>
+feature <strong class="purple">must</strong> be enabled</p>
+</li>
+<li>
+<p><a id="VUID-VkVideoSessionCreateInfoKHR-pNext-10924" href="#VUID-VkVideoSessionCreateInfoKHR-pNext-10924"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-pNext-10924</span><br>
+
+If a <a href="VkVideoEncodeProfileRgbConversionInfoVALVE.html">VkVideoEncodeProfileRgbConversionInfoVALVE</a> structure is
+included in the <code>pNext</code> chain of <code>pVideoProfile</code> and
+<code>VkVideoEncodeProfileRgbConversionInfoVALVE</code>::<code>performEncodeRgbConversion</code>
+is enabled, a <a href="VkVideoEncodeSessionRgbConversionCreateInfoVALVE.html">VkVideoEncodeSessionRgbConversionCreateInfoVALVE</a>
+structure <strong class="purple">must</strong> be included in the <code>pNext</code> chain of
+<a href="VkVideoSessionCreateInfoKHR.html">VkVideoSessionCreateInfoKHR</a>.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -1182,7 +1200,7 @@ specified in <code>pVideoProfile</code></p>
 </li>
 <li>
 <p><a id="VUID-VkVideoSessionCreateInfoKHR-pNext-pNext" href="#VUID-VkVideoSessionCreateInfoKHR-pNext-pNext"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-pNext-pNext</span><br>
- Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkVideoEncodeAV1SessionCreateInfoKHR.html">VkVideoEncodeAV1SessionCreateInfoKHR</a>, <a href="VkVideoEncodeH264SessionCreateInfoKHR.html">VkVideoEncodeH264SessionCreateInfoKHR</a>, <a href="VkVideoEncodeH265SessionCreateInfoKHR.html">VkVideoEncodeH265SessionCreateInfoKHR</a>, or <a href="VkVideoEncodeSessionIntraRefreshCreateInfoKHR.html">VkVideoEncodeSessionIntraRefreshCreateInfoKHR</a></p>
+ Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class="purple">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href="VkVideoEncodeAV1SessionCreateInfoKHR.html">VkVideoEncodeAV1SessionCreateInfoKHR</a>, <a href="VkVideoEncodeH264SessionCreateInfoKHR.html">VkVideoEncodeH264SessionCreateInfoKHR</a>, <a href="VkVideoEncodeH265SessionCreateInfoKHR.html">VkVideoEncodeH265SessionCreateInfoKHR</a>, <a href="VkVideoEncodeSessionIntraRefreshCreateInfoKHR.html">VkVideoEncodeSessionIntraRefreshCreateInfoKHR</a>, or <a href="VkVideoEncodeSessionRgbConversionCreateInfoVALVE.html">VkVideoEncodeSessionRgbConversionCreateInfoVALVE</a></p>
 </li>
 <li>
 <p><a id="VUID-VkVideoSessionCreateInfoKHR-sType-unique" href="#VUID-VkVideoSessionCreateInfoKHR-sType-unique"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-sType-unique</span><br>

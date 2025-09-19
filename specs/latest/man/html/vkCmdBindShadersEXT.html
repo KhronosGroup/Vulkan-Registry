@@ -991,7 +991,7 @@ If <code>pStages</code> contains <code>VK_SHADER_STAGE_MESH_BIT_EXT</code> or
 </li>
 <li>
 <p><a id="VUID-vkCmdBindShadersEXT-commandBuffer-cmdpool" href="#VUID-vkCmdBindShadersEXT-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBindShadersEXT-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT, or VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBindShadersEXT-videocoding" href="#VUID-vkCmdBindShadersEXT-videocoding"></a> <span class="vuid">VUID-vkCmdBindShadersEXT-videocoding</span><br>
@@ -1050,8 +1050,8 @@ If <code>pStages</code> contains <code>VK_SHADER_STAGE_MESH_BIT_EXT</code> or
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
+VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">State</p></td>
 </tr>
 </tbody>

@@ -809,8 +809,15 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Tensors represent multidimensional arrays of data.
-Tensors <strong class="purple">can</strong> be used by binding them to pipelines via descriptor sets, or by
+<p>Tensors are similar to <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#images" target="_blank" rel="noopener">images</a>, in that they have
+multi-dimensional access as documented in the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#tensors" class="bare" target="_blank" rel="noopener">https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#tensors</a> chapter, but a
+tensor&#8217;s dimensions are not predefined.
+A tensor can have an arbitrary number of dimensions, up to
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-maxTensorDimensionCount" target="_blank" rel="noopener"><code>maxTensorDimensionCount</code></a>, with one
+index per dimension used to access the tensor.</p>
+</div>
+<div class="paragraph">
+<p>Tensors <strong class="purple">can</strong> be used by binding them to pipelines via descriptor sets, or by
 directly specifying them as parameters to certain commands.</p>
 </div>
 <div class="paragraph">

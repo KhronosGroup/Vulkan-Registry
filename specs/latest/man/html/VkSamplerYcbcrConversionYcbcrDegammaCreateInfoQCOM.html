@@ -810,10 +810,9 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <div class="sectionbody">
 <div class="paragraph">
 <p>Applications <strong class="purple">can</strong> enable sRGB to linear conversion for the R, G, and B
-components of a Y′C<sub>B</sub>C<sub>R</sub> image during <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-ycbcr-degamma" target="_blank" rel="noopener">format
-conversion</a> by including
-<code>VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM</code> structure in the
-<code>pNext</code> chain of <a href="VkSamplerYcbcrConversionCreateInfo.html">VkSamplerYcbcrConversionCreateInfo</a>.</p>
+components of a Y′C<sub>B</sub>C<sub>R</sub> image during <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-YCbCr-degamma" target="_blank" rel="noopener">sampling</a> by
+including <code>VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM</code> structure
+in the <code>pNext</code> chain of <a href="VkSamplerYcbcrConversionCreateInfo.html">VkSamplerYcbcrConversionCreateInfo</a>.</p>
 </div>
 <div class="paragraph">
 <p>The <code>VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM</code> structure is
@@ -845,11 +844,11 @@ typedef struct VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
 structure.</p>
 </li>
 <li>
-<p><code>enableYDegamma</code> indicates <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-ycbcr-degamma" target="_blank" rel="noopener">sRGB to linear</a>
-conversion is enabled for the G component.</p>
+<p><code>enableYDegamma</code> indicates <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-YCbCr-degamma" target="_blank" rel="noopener">sRGB to
+linear</a> conversion is enabled for the G component.</p>
 </li>
 <li>
-<p><code>enableCbCrDegamma</code> indicates <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-ycbcr-degamma" target="_blank" rel="noopener">sRGB to
+<p><code>enableCbCrDegamma</code> indicates <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-YCbCr-degamma" target="_blank" rel="noopener">sRGB to
 linear</a> conversion is enabled for the R and B components.</p>
 </li>
 </ul>

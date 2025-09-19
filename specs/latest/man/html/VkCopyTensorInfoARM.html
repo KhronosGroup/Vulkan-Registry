@@ -879,7 +879,7 @@ formats.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-VkCopyTensorInfoARM-srcTensor-09684" href="#VUID-VkCopyTensorInfoARM-srcTensor-09684"></a> <span class="vuid">VUID-VkCopyTensorInfoARM-srcTensor-09684</span><br>
+<p><a id="VUID-VkCopyTensorInfoARM-dimensionCount-09684" href="#VUID-VkCopyTensorInfoARM-dimensionCount-09684"></a> <span class="vuid">VUID-VkCopyTensorInfoARM-dimensionCount-09684</span><br>
 
 <code>srcTensor</code> and <code>dstTensor</code> <strong class="purple">must</strong> have been created with equal
 values for <a href="VkTensorDescriptionARM.html">VkTensorDescriptionARM</a>::<code>dimensionCount</code></p>
@@ -897,24 +897,34 @@ For each of the elements of
 <code>regionCount</code> must be equal to 1</p>
 </li>
 <li>
-<p><a id="VUID-VkCopyTensorInfoARM-pSrcOffset-09687" href="#VUID-VkCopyTensorInfoARM-pSrcOffset-09687"></a> <span class="vuid">VUID-VkCopyTensorInfoARM-pSrcOffset-09687</span><br>
+<p><a id="VUID-VkCopyTensorInfoARM-pRegions-09687" href="#VUID-VkCopyTensorInfoARM-pRegions-09687"></a> <span class="vuid">VUID-VkCopyTensorInfoARM-pRegions-09687</span><br>
 
-pRegions must point to a <a href="VkTensorCopyARM.html">VkTensorCopyARM</a> structure whose
-<code>pSrcOffset</code> is <code>NULL</code> or whose elements are all <code>0</code></p>
+Each element of <code>pRegions</code> <strong class="purple">must</strong> be a <a href="VkTensorCopyARM.html">VkTensorCopyARM</a>
+structure whose <code>pSrcOffset</code> is <code>NULL</code> or has all its elements equal
+to <code>0</code></p>
 </li>
 <li>
-<p><a id="VUID-VkCopyTensorInfoARM-pDstOffset-09688" href="#VUID-VkCopyTensorInfoARM-pDstOffset-09688"></a> <span class="vuid">VUID-VkCopyTensorInfoARM-pDstOffset-09688</span><br>
+<p><a id="VUID-VkCopyTensorInfoARM-pRegions-09688" href="#VUID-VkCopyTensorInfoARM-pRegions-09688"></a> <span class="vuid">VUID-VkCopyTensorInfoARM-pRegions-09688</span><br>
 
-pRegions must point to a <a href="VkTensorCopyARM.html">VkTensorCopyARM</a> structure whose
-<code>pDstOffset</code>, is <code>NULL</code> or whose elements are all <code>0</code></p>
+Each element of <code>pRegions</code> <strong class="purple">must</strong> be a <a href="VkTensorCopyARM.html">VkTensorCopyARM</a>
+structure whose <code>pDstOffset</code> is <code>NULL</code> or has all its elements equal
+to <code>0</code></p>
 </li>
 <li>
-<p><a id="VUID-VkCopyTensorInfoARM-pExtent-09689" href="#VUID-VkCopyTensorInfoARM-pExtent-09689"></a> <span class="vuid">VUID-VkCopyTensorInfoARM-pExtent-09689</span><br>
+<p><a id="VUID-VkCopyTensorInfoARM-pRegions-09689" href="#VUID-VkCopyTensorInfoARM-pRegions-09689"></a> <span class="vuid">VUID-VkCopyTensorInfoARM-pRegions-09689</span><br>
 
-pRegions must point to a <a href="VkTensorCopyARM.html">VkTensorCopyARM</a> structure whose
-<code>pExtent</code> is <code>NULL</code> or equal to the
+Each element of <code>pRegions</code> <strong class="purple">must</strong> be a <a href="VkTensorCopyARM.html">VkTensorCopyARM</a>
+structure whose <code>pExtent</code> is <code>NULL</code> or equal to the
 <a href="VkTensorDescriptionARM.html">VkTensorDescriptionARM</a>::<code>pDimensions</code> array specified when
 <code>srcTensor</code> and <code>dstTensor</code> were created</p>
+</li>
+<li>
+<p><a id="VUID-VkCopyTensorInfoARM-pRegions-09954" href="#VUID-VkCopyTensorInfoARM-pRegions-09954"></a> <span class="vuid">VUID-VkCopyTensorInfoARM-pRegions-09954</span><br>
+
+Each element of <code>pRegions</code> <strong class="purple">must</strong> be a <a href="VkTensorCopyARM.html">VkTensorCopyARM</a>
+structure whose <code>dimensionCount</code>, if it is not equal to 0, is equal
+to the largest of the <a href="VkTensorDescriptionARM.html">VkTensorDescriptionARM</a>::<code>dimensionCount</code>
+of <code>srcTensor</code> or <code>dstTensor</code></p>
 </li>
 <li>
 <p><a id="VUID-VkCopyTensorInfoARM-srcTensor-09690" href="#VUID-VkCopyTensorInfoARM-srcTensor-09690"></a> <span class="vuid">VUID-VkCopyTensorInfoARM-srcTensor-09690</span><br>

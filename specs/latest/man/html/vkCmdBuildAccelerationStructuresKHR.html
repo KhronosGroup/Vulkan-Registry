@@ -1647,7 +1647,7 @@ For each element of <code>pInfos</code>[i] whose <code>pGeometries</code> or
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-commandBuffer-cmdpool" href="#VUID-vkCmdBuildAccelerationStructuresKHR-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-renderpass" href="#VUID-vkCmdBuildAccelerationStructuresKHR-renderpass"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-renderpass</span><br>
@@ -1706,7 +1706,7 @@ For each element of <code>pInfos</code>[i] whose <code>pGeometries</code> or
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
 </tr>
 </tbody>

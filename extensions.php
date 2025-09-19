@@ -446,4 +446,5 @@
     <li> <a href="specs/latest/man/html/VK_VALVE_descriptor_set_host_mapping.html"> VK_VALVE_descriptor_set_host_mapping </a> </li>
     <li> <a href="specs/latest/man/html/VK_VALVE_fragment_density_map_layered.html"> VK_VALVE_fragment_density_map_layered </a> </li>
     <li> <a href="specs/latest/man/html/VK_VALVE_mutable_descriptor_type.html"> VK_VALVE_mutable_descriptor_type </a> </li>
+    <li> <a href="specs/latest/man/html/VK_VALVE_video_encode_rgb_conversion.html"> VK_VALVE_video_encode_rgb_conversion </a> </li>
 </ul>

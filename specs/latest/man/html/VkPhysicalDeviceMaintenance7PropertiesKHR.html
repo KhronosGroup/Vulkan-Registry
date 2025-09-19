@@ -852,8 +852,9 @@ the size of the attachment multiplied by the texel size <strong class="purple">m
 than or equal to the size of the render area.
 If it is <code>VK_TRUE</code> and the fragment shading rate attachment was
 created with <a href="VkImageSubresourceRange.html">VkImageSubresourceRange</a>::<code>baseMipLevel</code> equal to
-0, the scaled size <strong class="purple">can</strong> be smaller than the render area, and shading
-rates for missing texels are defined by <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-texel-replacement" target="_blank" rel="noopener">texel replacement for invalid texels</a>.</p>
+0, the scaled size <strong class="purple">can</strong> be smaller than the render area, with missing
+shading rates defined by <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-execution-memory-access-bounds" target="_blank" rel="noopener">out
+of bounds behavior</a>.</p>
 </li>
 <li>
 <p><a id="limits-separateDepthStencilAttachmentAccess"></a>

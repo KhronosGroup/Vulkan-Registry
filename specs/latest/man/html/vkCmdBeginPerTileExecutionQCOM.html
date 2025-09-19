@@ -955,7 +955,7 @@ must be enabled</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBeginPerTileExecutionQCOM-commandBuffer-cmdpool" href="#VUID-vkCmdBeginPerTileExecutionQCOM-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBeginPerTileExecutionQCOM-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT, or VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBeginPerTileExecutionQCOM-renderpass" href="#VUID-vkCmdBeginPerTileExecutionQCOM-renderpass"></a> <span class="vuid">VUID-vkCmdBeginPerTileExecutionQCOM-renderpass</span><br>
@@ -1007,8 +1007,8 @@ must be enabled</p>
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Inside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
+VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">State</p></td>
 </tr>
 </tbody>

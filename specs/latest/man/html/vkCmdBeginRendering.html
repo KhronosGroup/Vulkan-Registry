@@ -963,7 +963,7 @@ specified by <code>resolveImageLayout</code></p>
 
 If <code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> is included in
 <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code>,
-<code>commandBuffer</code> <strong class="purple">must</strong> not have been created with
+<code>commandBuffer</code> <strong class="purple">must</strong> not have been recorded with
 <code>VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT</code></p>
 </li>
 <li>
@@ -995,7 +995,7 @@ include <code>VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBeginRendering-commandBuffer-cmdpool" href="#VUID-vkCmdBeginRendering-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBeginRendering-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBeginRendering-renderpass" href="#VUID-vkCmdBeginRendering-renderpass"></a> <span class="vuid">VUID-vkCmdBeginRendering-renderpass</span><br>
@@ -1050,7 +1050,7 @@ include <code>VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM</code></p>
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action<br>
 State</p></td>
 </tr>

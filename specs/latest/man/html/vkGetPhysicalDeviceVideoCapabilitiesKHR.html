@@ -929,6 +929,14 @@ If <code>pVideoProfile-&gt;videoCodecOperation</code> is
 chain of <code>pCapabilities</code> <strong class="purple">must</strong> include a
 <a href="VkVideoEncodeAV1CapabilitiesKHR.html">VkVideoEncodeAV1CapabilitiesKHR</a> structure</p>
 </li>
+<li>
+<p><a id="VUID-vkGetPhysicalDeviceVideoCapabilitiesKHR-pNext-10921" href="#VUID-vkGetPhysicalDeviceVideoCapabilitiesKHR-pNext-10921"></a> <span class="vuid">VUID-vkGetPhysicalDeviceVideoCapabilitiesKHR-pNext-10921</span><br>
+
+If the <code>pNext</code> chain of <code>pVideoProfile</code> includes a
+<a href="VkVideoEncodeProfileRgbConversionInfoVALVE.html">VkVideoEncodeProfileRgbConversionInfoVALVE</a> structure, then the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-videoEncodeRgbConversion" target="_blank" rel="noopener"><code>videoEncodeRgbConversion</code></a>
+feature <strong class="purple">must</strong> be supported</p>
+</li>
 </ul>
 </div>
 </div>

@@ -855,23 +855,39 @@ be written to.</p>
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The command will write the 32-bit marker value into the buffer only after
-all preceding commands have finished executing up to at least the specified
-pipeline stage.
-This includes the completion of other preceding
-<code>vkCmdWriteBufferMarkerAMD</code> commands so long as their specified pipeline
-stages occur either at the same time or earlier than this command&#8217;s
-specified <code>pipelineStage</code>.</p>
+<p>When <code>vkCmdWriteBufferMarkerAMD</code> is submitted to a queue, it defines an
+execution dependency between prior operations and writing the marker value,
+as well as a memory dependency from earlier <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies-buffer-markers" target="_blank" rel="noopener">buffer
+marker write commands</a>.</p>
 </div>
 <div class="paragraph">
-<p>While consecutive buffer marker writes with the same <code>pipelineStage</code>
-parameter are implicitly complete in submission order, memory and execution
-dependencies between buffer marker writes and other operations <strong class="purple">must</strong> still
-be explicitly ordered using synchronization commands.
-The access scope for buffer marker writes falls under the
-<code>VK_ACCESS_TRANSFER_WRITE_BIT</code>, and the pipeline stages for identifying
-the synchronization scope <strong class="purple">must</strong> include both <code>pipelineStage</code> and
-<code>VK_PIPELINE_STAGE_TRANSFER_BIT</code>.</p>
+<p>The first <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes" target="_blank" rel="noopener">synchronization scope</a>
+includes operations performed by operations that occur earlier in
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-submission-order" target="_blank" rel="noopener">submission order</a> in the pipeline stage
+identified by <code>pipelineStage</code>.
+It additionally includes other <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies-buffer-markers" target="_blank" rel="noopener">buffer marker write
+commands</a> that occur earlier in <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-submission-order" target="_blank" rel="noopener">submission order</a> that specified either the same <code>pipelineStage</code> or a
+stage that is <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-order" target="_blank" rel="noopener">logically earlier</a>.</p>
+</div>
+<div class="paragraph">
+<p>The second <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-scopes" target="_blank" rel="noopener">synchronization scope</a>
+includes only the buffer marker write.</p>
+</div>
+<div class="paragraph">
+<p>The first <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes" target="_blank" rel="noopener">access scope</a>
+includes only accesses performed by other <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies-buffer-markers" target="_blank" rel="noopener">buffer
+marker write commands</a>.</p>
+</div>
+<div class="paragraph">
+<p>The second <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies-access-scopes" target="_blank" rel="noopener">access scope</a> is
+empty.</p>
+</div>
+<div class="paragraph">
+<p>The access scope for buffer marker writes falls under the
+<code>VK_ACCESS_TRANSFER_WRITE_BIT</code> flag, and is performed by either
+<code>pipelineStage</code> or <code>VK_PIPELINE_STAGE_TRANSFER_BIT</code>.
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization" target="_blank" rel="noopener">Synchronization commands</a> should specify this access
+flag and both pipeline stages when defining dependencies with this command.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1041,7 +1057,7 @@ contiguously to a single <code>VkDeviceMemory</code> object</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdWriteBufferMarkerAMD-commandBuffer-cmdpool" href="#VUID-vkCmdWriteBufferMarkerAMD-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdWriteBufferMarkerAMD-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support transfer, graphics, or compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT, VK_QUEUE_GRAPHICS_BIT, or VK_QUEUE_TRANSFER_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdWriteBufferMarkerAMD-videocoding" href="#VUID-vkCmdWriteBufferMarkerAMD-videocoding"></a> <span class="vuid">VUID-vkCmdWriteBufferMarkerAMD-videocoding</span><br>
@@ -1096,9 +1112,9 @@ contiguously to a single <code>VkDeviceMemory</code> object</p>
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Transfer<br>
-Graphics<br>
-Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
+VK_QUEUE_GRAPHICS_BIT<br>
+VK_QUEUE_TRANSFER_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
 </tr>
 </tbody>

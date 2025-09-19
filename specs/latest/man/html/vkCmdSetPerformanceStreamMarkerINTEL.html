@@ -865,7 +865,7 @@ to insert.</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdSetPerformanceStreamMarkerINTEL-commandBuffer-cmdpool" href="#VUID-vkCmdSetPerformanceStreamMarkerINTEL-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdSetPerformanceStreamMarkerINTEL-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, compute, or transfer operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT, VK_QUEUE_GRAPHICS_BIT, or VK_QUEUE_TRANSFER_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdSetPerformanceStreamMarkerINTEL-videocoding" href="#VUID-vkCmdSetPerformanceStreamMarkerINTEL-videocoding"></a> <span class="vuid">VUID-vkCmdSetPerformanceStreamMarkerINTEL-videocoding</span><br>
@@ -916,9 +916,9 @@ to insert.</p>
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute<br>
-Transfer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
+VK_QUEUE_GRAPHICS_BIT<br>
+VK_QUEUE_TRANSFER_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action<br>
 State</p></td>
 </tr>

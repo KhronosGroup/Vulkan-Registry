@@ -1040,7 +1040,7 @@ If <code>update</code> is <code>VK_TRUE</code>, the <code>src</code> and <code>d
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildAccelerationStructureNV-commandBuffer-cmdpool" href="#VUID-vkCmdBuildAccelerationStructureNV-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructureNV-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildAccelerationStructureNV-renderpass" href="#VUID-vkCmdBuildAccelerationStructureNV-renderpass"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructureNV-renderpass</span><br>
@@ -1099,7 +1099,7 @@ If <code>update</code> is <code>VK_TRUE</code>, the <code>src</code> and <code>d
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
 </tr>
 </tbody>

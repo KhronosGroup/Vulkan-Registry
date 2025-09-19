@@ -909,8 +909,8 @@ Most accesses <strong class="purple">must</strong> be tightly bounds-checked, ou
 discarded, out of bound reads <strong class="purple">must</strong> return zero.
 Rather than allowing multiple possible <span class="eq">(0,0,0,x)</span> vectors, the out of
 bounds values are treated as zero, and then missing components are inserted
-based on the format as described in <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-conversion-to-rgba" target="_blank" rel="noopener">Conversion to RGBA</a> and <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fxvertex-input-extraction" target="_blank" rel="noopener">vertex input attribute
-extraction</a>.</p>
+based on the format as described in <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#images-component-substitution" class="bare" target="_blank" rel="noopener">https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#images-component-substitution</a> and
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fxvertex-input-extraction" target="_blank" rel="noopener">vertex input attribute extraction</a>.</p>
 </div>
 <div class="paragraph">
 <p>These additional requirements <strong class="purple">may</strong> be expensive on some implementations, and

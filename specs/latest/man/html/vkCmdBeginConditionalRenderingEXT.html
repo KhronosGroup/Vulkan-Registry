@@ -876,7 +876,7 @@ Conditional rendering <strong class="purple">must</strong> not already be
 </li>
 <li>
 <p><a id="VUID-vkCmdBeginConditionalRenderingEXT-commandBuffer-cmdpool" href="#VUID-vkCmdBeginConditionalRenderingEXT-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBeginConditionalRenderingEXT-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT, or VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBeginConditionalRenderingEXT-videocoding" href="#VUID-vkCmdBeginConditionalRenderingEXT-videocoding"></a> <span class="vuid">VUID-vkCmdBeginConditionalRenderingEXT-videocoding</span><br>
@@ -927,8 +927,8 @@ Conditional rendering <strong class="purple">must</strong> not already be
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
+VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action<br>
 State</p></td>
 </tr>

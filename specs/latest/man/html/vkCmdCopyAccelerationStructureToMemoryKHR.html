@@ -831,7 +831,7 @@ void vkCmdCopyAccelerationStructureToMemoryKHR(
 recorded.</p>
 </li>
 <li>
-<p><code>pInfo</code> is an a pointer to a
+<p><code>pInfo</code> is a pointer to a
 <a href="VkCopyAccelerationStructureToMemoryInfoKHR.html">VkCopyAccelerationStructureToMemoryInfoKHR</a> structure defining the
 copy operation.</p>
 </li>
@@ -855,8 +855,8 @@ synchronized with the
 <code>VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_COPY_BIT_KHR</code>
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages" target="_blank" rel="noopener">pipeline stage</a> or the
 <code>VK_PIPELINE_STAGE_ACCELERATION_STRUCTURE_BUILD_BIT_KHR</code>
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages" target="_blank" rel="noopener">pipeline stage</a>, and an and an access
-type of <code>VK_ACCESS_TRANSFER_WRITE_BIT</code>.</p>
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages" target="_blank" rel="noopener">pipeline stage</a>, and an access type of
+<code>VK_ACCESS_TRANSFER_WRITE_BIT</code>.</p>
 </div>
 <div class="paragraph">
 <p>This command produces the same results as
@@ -962,7 +962,7 @@ device memory</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdCopyAccelerationStructureToMemoryKHR-commandBuffer-cmdpool" href="#VUID-vkCmdCopyAccelerationStructureToMemoryKHR-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdCopyAccelerationStructureToMemoryKHR-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdCopyAccelerationStructureToMemoryKHR-renderpass" href="#VUID-vkCmdCopyAccelerationStructureToMemoryKHR-renderpass"></a> <span class="vuid">VUID-vkCmdCopyAccelerationStructureToMemoryKHR-renderpass</span><br>
@@ -1017,7 +1017,7 @@ device memory</p>
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
 </tr>
 </tbody>

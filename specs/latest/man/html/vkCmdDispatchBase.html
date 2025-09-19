@@ -1692,7 +1692,7 @@ or the bound compute shader object <strong class="purple">must</strong> have bee
 </li>
 <li>
 <p><a id="VUID-vkCmdDispatchBase-commandBuffer-cmdpool" href="#VUID-vkCmdDispatchBase-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdDispatchBase-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDispatchBase-videocoding" href="#VUID-vkCmdDispatchBase-videocoding"></a> <span class="vuid">VUID-vkCmdDispatchBase-videocoding</span><br>
@@ -1743,7 +1743,7 @@ or the bound compute shader object <strong class="purple">must</strong> have bee
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
 </tr>
 </tbody>

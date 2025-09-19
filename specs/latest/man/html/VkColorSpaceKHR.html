@@ -1041,10 +1041,9 @@ triggering a <code>surface_exists</code> protocol error.</p>
 components as having been encoded using an appropriate transfer function.
 Applications <strong class="purple">should</strong> ensure that the appropriate transfer function has been
 applied.
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#textures-output-format-conversion" target="_blank" rel="noopener">Textures Output Format Conversion</a>
-requires that all implementations implicitly apply the sRGB EOTF<sup>-1</sup> on R,
-G, and B components when shaders write to an sRGB pixel format image, which
-is useful for sRGB color spaces.
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#images-texel-encode" target="_blank" rel="noopener">Texel encode</a> requires that all implementations
+implicitly apply the sRGB EOTF<sup>-1</sup> on R, G, and B components when shaders
+write to an sRGB pixel format image, which is useful for sRGB color spaces.
 For sRGB color spaces with other pixel formats, or other non-linear color
 spaces, applications <strong class="purple">can</strong> apply the transfer function explicitly in a
 shader.

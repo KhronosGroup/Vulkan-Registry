@@ -873,10 +873,11 @@ This can be used for compiling pipelines or shaders for the purpose of
 filling pipeline caches.</p>
 </li>
 <li>
-<p>Queue family ownership transfers are no longer required when
-transitioning resources created with <code>VK_SHARING_MODE_EXCLUSIVE</code>
-between queue families that support <code>VK_QUEUE_GRAPHICS_BIT</code> and
-those that support only <code>VK_QUEUE_TRANSFER_BIT</code>.</p>
+<p>Queue family ownership transfers are no longer required for buffers and
+linear images.
+For optimally tiled images, a new physical device query is added to
+check if resources created with <code>VK_SHARING_MODE_EXCLUSIVE</code> <strong class="purple">can</strong>
+automatically transfer ownership between two queue families.</p>
 </li>
 <li>
 <p><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-image2DViewOf3DSparse" target="_blank" rel="noopener"><code>image2DViewOf3DSparse</code></a> enables

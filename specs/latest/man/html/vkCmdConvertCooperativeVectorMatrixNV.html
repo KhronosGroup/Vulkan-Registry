@@ -929,7 +929,7 @@ conversions <strong class="purple">must</strong> not overlap</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdConvertCooperativeVectorMatrixNV-commandBuffer-cmdpool" href="#VUID-vkCmdConvertCooperativeVectorMatrixNV-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdConvertCooperativeVectorMatrixNV-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT, or VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdConvertCooperativeVectorMatrixNV-renderpass" href="#VUID-vkCmdConvertCooperativeVectorMatrixNV-renderpass"></a> <span class="vuid">VUID-vkCmdConvertCooperativeVectorMatrixNV-renderpass</span><br>
@@ -988,8 +988,8 @@ conversions <strong class="purple">must</strong> not overlap</p>
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
+VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
 </tr>
 </tbody>

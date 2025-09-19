@@ -2861,8 +2861,8 @@ or
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-pNext-07935" href="#VUID-vkCmdDrawMeshTasksEXT-pNext-07935"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-pNext-07935</span><br>
 
-If this command has been called inside a render pass instance started
-with <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>, and the <code>pNext</code> chain of
+If this command is called inside a render pass instance started with
+<a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>, and the <code>pNext</code> chain of
 <a href="VkRenderingInfo.html">VkRenderingInfo</a> includes a
 <a href="VkMultisampledRenderToSingleSampledInfoEXT.html">VkMultisampledRenderToSingleSampledInfoEXT</a> structure with
 <code>multisampledRenderToSingleSampledEnable</code> equal to <code>VK_TRUE</code>,
@@ -2915,9 +2915,9 @@ to create the pipeline <strong class="purple">must</strong> not be <code>VK_FORM
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-flags-10582" href="#VUID-vkCmdDrawMeshTasksEXT-flags-10582"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-flags-10582</span><br>
 
-If the current render pass instance was begun with
-<a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>, its <a href="VkRenderingInfo.html">VkRenderingInfo</a>::<code>flags</code>
-parameter <strong class="purple">must</strong> not have
+If the current render pass instance was begun with a
+<a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a> call in <code>commandBuffer</code>, its
+<a href="VkRenderingInfo.html">VkRenderingInfo</a>::<code>flags</code> parameter <strong class="purple">must</strong> not have
 <code>VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT</code> set
 unless <code>VK_RENDERING_CONTENTS_INLINE_BIT_KHR</code> is also set</p>
 </li>
@@ -4050,20 +4050,40 @@ used</a> in the <code>Fragment</code> <code>Execution</code> <code>Model</code> 
 
 If the current render pass was begun with <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>,
 there is no shader object bound to any graphics stage,
-and <a href="vkCmdSetRenderingAttachmentLocations.html">vkCmdSetRenderingAttachmentLocations</a> has been called inside
-the render pass instance, the value of each element of
+the value of each element of
 <a href="VkRenderingAttachmentLocationInfo.html">VkRenderingAttachmentLocationInfo</a>::<code>pColorAttachmentLocations</code>
-set by <a href="vkCmdSetRenderingAttachmentLocations.html">vkCmdSetRenderingAttachmentLocations</a> <strong class="purple">must</strong> match the value
-set for the corresponding element in the bound pipeline</p>
+in the bound pipeline <strong class="purple">must</strong> match the value for the corresponding
+locations set currently in the current render pass instance</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-None-09549" href="#VUID-vkCmdDrawMeshTasksEXT-None-09549"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-None-09549</span><br>
 
 If the current render pass was begun with <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>,
 and there is no shader object bound to any graphics stage,
-input attachment index mappings in the bound pipeline <strong class="purple">must</strong> match those
-set for the current render pass instance via
-<a href="VkRenderingInputAttachmentIndexInfo.html">VkRenderingInputAttachmentIndexInfo</a></p>
+the value of each element of
+<a href="VkRenderingInputAttachmentIndexInfo.html">VkRenderingInputAttachmentIndexInfo</a>::<code>pColorAttachmentInputIndices</code>
+in the bound pipeline <strong class="purple">must</strong> match the value for the corresponding index
+set currently in the current render pass instance</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawMeshTasksEXT-None-10927" href="#VUID-vkCmdDrawMeshTasksEXT-None-10927"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-None-10927</span><br>
+
+If the current render pass was begun with <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>,
+and there is no shader object bound to any graphics stage,
+the value of
+<a href="VkRenderingInputAttachmentIndexInfo.html">VkRenderingInputAttachmentIndexInfo</a>::<code>pDepthInputAttachmentIndex</code>
+in the bound pipeline <strong class="purple">must</strong> match the value set currently in the current
+render pass instance</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawMeshTasksEXT-None-10928" href="#VUID-vkCmdDrawMeshTasksEXT-None-10928"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-None-10928</span><br>
+
+If the current render pass was begun with <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>,
+and there is no shader object bound to any graphics stage,
+the value of
+<a href="VkRenderingInputAttachmentIndexInfo.html">VkRenderingInputAttachmentIndexInfo</a>::<code>pStencilInputAttachmentIndex</code>
+in the bound pipeline <strong class="purple">must</strong> match the value set currently in the current
+render pass instance</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-None-09642" href="#VUID-vkCmdDrawMeshTasksEXT-None-09642"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-None-09642</span><br>
@@ -4269,7 +4289,7 @@ The current pipeline bound to <code>VK_PIPELINE_BIND_POINT_GRAPHICS</code>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-commandBuffer-cmdpool" href="#VUID-vkCmdDrawMeshTasksEXT-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-renderpass" href="#VUID-vkCmdDrawMeshTasksEXT-renderpass"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-renderpass</span><br>
@@ -4324,7 +4344,7 @@ The current pipeline bound to <code>VK_PIPELINE_BIND_POINT_GRAPHICS</code>
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Inside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
 </tr>
 </tbody>

@@ -888,7 +888,7 @@ feature <strong class="purple">must</strong> be enabled</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdPreprocessGeneratedCommandsNV-commandBuffer-cmdpool" href="#VUID-vkCmdPreprocessGeneratedCommandsNV-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdPreprocessGeneratedCommandsNV-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT, or VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdPreprocessGeneratedCommandsNV-renderpass" href="#VUID-vkCmdPreprocessGeneratedCommandsNV-renderpass"></a> <span class="vuid">VUID-vkCmdPreprocessGeneratedCommandsNV-renderpass</span><br>
@@ -943,8 +943,8 @@ feature <strong class="purple">must</strong> be enabled</p>
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
+VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
 </tr>
 </tbody>

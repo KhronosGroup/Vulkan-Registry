@@ -853,10 +853,8 @@ state is updated by the command.</p>
 <p><code>pSizes</code> is <code>NULL</code> or a pointer to an array of <a href="VkDeviceSize.html">VkDeviceSize</a>
 buffer sizes, specifying the maximum number of bytes to capture to the
 corresponding transform feedback buffer.
-If <code>pSizes</code> is <code>NULL</code>, or the value of the <code>pSizes</code> array
-element is <code>VK_WHOLE_SIZE</code>, then the maximum number of bytes
-captured will be the size of the corresponding buffer minus the buffer
-offset.</p>
+If <code>pSizes</code> is <code>NULL</code>, it is equivalent to setting a <code>pSizes</code>
+array where every element is <code>VK_WHOLE_SIZE</code>.</p>
 </li>
 </ul>
 </div>
@@ -872,6 +870,12 @@ offset.</p>
 <code>bindingCount</code>)</span>.
 The transform feedback binding is updated to start at the offset indicated
 by <code>pOffsets</code>[i] from the start of the buffer <code>pBuffers</code>[i].</p>
+</div>
+<div id="transform-feedback-effective-size" class="paragraph">
+<p>When an element of <code>pSizes</code>[i] is <code>VK_WHOLE_SIZE</code>, or <code>pSizes</code>
+is <code>NULL</code>, the effective range is calculated by taking the size of
+<code>pBuffers</code>[i] minus <code>pOffsets</code>[i].
+Otherwise, the effective range is equal to the element in <code>pSizes</code>[i].</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -915,26 +919,12 @@ All elements of <code>pBuffers</code> <strong class="purple">must</strong> have 
 <code>VK_BUFFER_USAGE_TRANSFORM_FEEDBACK_BUFFER_BIT_EXT</code> flag</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdBindTransformFeedbackBuffersEXT-pSize-02361" href="#VUID-vkCmdBindTransformFeedbackBuffersEXT-pSize-02361"></a> <span class="vuid">VUID-vkCmdBindTransformFeedbackBuffersEXT-pSize-02361</span><br>
-
-If the optional <code>pSize</code> array is specified, each element of
-<code>pSizes</code> <strong class="purple">must</strong> either be <code>VK_WHOLE_SIZE</code>, or be less than or
-equal to
-<code>VkPhysicalDeviceTransformFeedbackPropertiesEXT</code>::<code>maxTransformFeedbackBufferSize</code></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdBindTransformFeedbackBuffersEXT-pSizes-02362" href="#VUID-vkCmdBindTransformFeedbackBuffersEXT-pSizes-02362"></a> <span class="vuid">VUID-vkCmdBindTransformFeedbackBuffersEXT-pSizes-02362</span><br>
-
-All elements of <code>pSizes</code> <strong class="purple">must</strong> be either <code>VK_WHOLE_SIZE</code>, or
-less than or equal to the size of the corresponding buffer in
-<code>pBuffers</code></p>
-</li>
-<li>
 <p><a id="VUID-vkCmdBindTransformFeedbackBuffersEXT-pOffsets-02363" href="#VUID-vkCmdBindTransformFeedbackBuffersEXT-pOffsets-02363"></a> <span class="vuid">VUID-vkCmdBindTransformFeedbackBuffersEXT-pOffsets-02363</span><br>
 
-All elements of <code>pOffsets</code> plus <code>pSizes</code>, where the
-<code>pSizes</code>, element is not <code>VK_WHOLE_SIZE</code>, <strong class="purple">must</strong> be less than or
-equal to the size of the corresponding buffer in <code>pBuffers</code></p>
+All elements of <code>pOffsets</code> plus the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#transform-feedback-effective-size" target="_blank" rel="noopener">effective size</a> of the element,
+<strong class="purple">must</strong> be less than or equal to the size of the corresponding buffer in
+<code>pBuffers</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBindTransformFeedbackBuffersEXT-pBuffers-02364" href="#VUID-vkCmdBindTransformFeedbackBuffersEXT-pBuffers-02364"></a> <span class="vuid">VUID-vkCmdBindTransformFeedbackBuffersEXT-pBuffers-02364</span><br>
@@ -975,7 +965,7 @@ Transform feedback <strong class="purple">must</strong> not be active when the
 </li>
 <li>
 <p><a id="VUID-vkCmdBindTransformFeedbackBuffersEXT-commandBuffer-cmdpool" href="#VUID-vkCmdBindTransformFeedbackBuffersEXT-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBindTransformFeedbackBuffersEXT-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBindTransformFeedbackBuffersEXT-videocoding" href="#VUID-vkCmdBindTransformFeedbackBuffersEXT-videocoding"></a> <span class="vuid">VUID-vkCmdBindTransformFeedbackBuffersEXT-videocoding</span><br>
@@ -1034,7 +1024,7 @@ Transform feedback <strong class="purple">must</strong> not be active when the
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">State</p></td>
 </tr>
 </tbody>

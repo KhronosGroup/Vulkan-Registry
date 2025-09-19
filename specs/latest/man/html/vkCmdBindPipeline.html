@@ -1083,7 +1083,7 @@ its <code>pNext</code> chain, then the command pool from which
 </li>
 <li>
 <p><a id="VUID-vkCmdBindPipeline-commandBuffer-cmdpool" href="#VUID-vkCmdBindPipeline-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBindPipeline-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, compute, or data_graph operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT, VK_QUEUE_DATA_GRAPH_BIT_ARM, or VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBindPipeline-videocoding" href="#VUID-vkCmdBindPipeline-videocoding"></a> <span class="vuid">VUID-vkCmdBindPipeline-videocoding</span><br>
@@ -1138,9 +1138,9 @@ its <code>pNext</code> chain, then the command pool from which
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute<br>
-Data_Graph</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
+VK_QUEUE_DATA_GRAPH_BIT_ARM<br>
+VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">State</p></td>
 </tr>
 </tbody>

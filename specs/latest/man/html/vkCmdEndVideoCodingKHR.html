@@ -881,7 +881,7 @@ There <strong class="purple">must</strong> be no <a href="https://registry.khron
 </li>
 <li>
 <p><a id="VUID-vkCmdEndVideoCodingKHR-commandBuffer-cmdpool" href="#VUID-vkCmdEndVideoCodingKHR-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdEndVideoCodingKHR-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support decode, or encode operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_VIDEO_DECODE_BIT_KHR, or VK_QUEUE_VIDEO_ENCODE_BIT_KHR operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdEndVideoCodingKHR-renderpass" href="#VUID-vkCmdEndVideoCodingKHR-renderpass"></a> <span class="vuid">VUID-vkCmdEndVideoCodingKHR-renderpass</span><br>
@@ -939,8 +939,8 @@ There <strong class="purple">must</strong> be no <a href="https://registry.khron
 <td class="tableblock halign-left valign-top"><p class="tableblock">Primary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Inside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Decode<br>
-Encode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_VIDEO_DECODE_BIT_KHR<br>
+VK_QUEUE_VIDEO_ENCODE_BIT_KHR</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action<br>
 State</p></td>
 </tr>

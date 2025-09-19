@@ -871,9 +871,8 @@ and <a href="VkClusterAccelerationStructureCommandsInfoNV.html">VkClusterAcceler
 </div>
 <div class="paragraph">
 <p>Accesses to memory with input data as identified by any used values of
-<a href="VkClusterAccelerationStructureCommandsInfoNV.html">VkClusterAccelerationStructureCommandsInfoNV</a>::<code>srcInfosArray</code>,
-<a href="VkClusterAccelerationStructureCommandsInfoNV.html">VkClusterAccelerationStructureCommandsInfoNV</a>::<code>srcInfosCount</code> and
-<a href="VkClusterAccelerationStructureCommandsInfoNV.html">VkClusterAccelerationStructureCommandsInfoNV</a>::<code>addressResolutionFlags</code>
+<a href="VkClusterAccelerationStructureCommandsInfoNV.html">VkClusterAccelerationStructureCommandsInfoNV</a>::<code>srcInfosArray</code> and
+<a href="VkClusterAccelerationStructureCommandsInfoNV.html">VkClusterAccelerationStructureCommandsInfoNV</a>::<code>srcInfosCount</code>
 <strong class="purple">must</strong> be <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-dependencies" target="_blank" rel="noopener">synchronized</a> with the
 <code>VK_PIPELINE_STAGE_ACCELERATION_STRUCTURE_BUILD_BIT_KHR</code>
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages" target="_blank" rel="noopener">pipeline stage</a> and an
@@ -1014,9 +1013,9 @@ the <code>VK_BUFFER_USAGE_STORAGE_BUFFER_BIT</code> usage flag</p>
 <p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10458" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10458"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-pCommandInfos-10458</span><br>
 
 The buffers from which the buffer device addresses for
-<code>pCommandInfos-&gt;srcInfosArray</code>, <code>pCommandInfos-&gt;srcInfosCount</code>
-and <code>pCommandInfos-&gt;addressResolutionFlags</code> are queried <strong class="purple">must</strong> have
-been created with the
+<code>pCommandInfos-&gt;srcInfosArray</code> and
+<code>pCommandInfos-&gt;srcInfosCount</code> are queried <strong class="purple">must</strong> have been created
+with the
 <code>VK_BUFFER_USAGE_ACCELERATION_STRUCTURE_BUILD_INPUT_READ_ONLY_BIT_KHR</code>
 usage flag</p>
 </li>
@@ -1052,7 +1051,7 @@ created with the
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-commandBuffer-cmdpool" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-renderpass" href="#VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-renderpass"></a> <span class="vuid">VUID-vkCmdBuildClusterAccelerationStructureIndirectNV-renderpass</span><br>
@@ -1107,7 +1106,7 @@ created with the
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
 </tr>
 </tbody>

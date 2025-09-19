@@ -884,8 +884,8 @@ At least one of <code>image</code> and <code>buffer</code> <strong class="purple
 Android Hardware Buffer
 or an imported
 QNX Screen buffer
-    , <code>VkMemoryAllocateInfo</code>::<code>allocationSize</code> <strong class="purple">must</strong> equal the
-    <code>VkMemoryRequirements</code>::<code>size</code> of the image</p>
+    , <code>VkMemoryAllocateInfo</code>::<code>allocationSize</code> <strong class="purple">must</strong> be greater than
+    or equal to the <code>VkMemoryRequirements</code>::<code>size</code> of the image</p>
 </li>
 <li>
 <p><a id="VUID-VkMemoryDedicatedAllocateInfo-image-01434" href="#VUID-VkMemoryDedicatedAllocateInfo-image-01434"></a> <span class="vuid">VUID-VkMemoryDedicatedAllocateInfo-image-01434</span><br>
@@ -902,8 +902,8 @@ created without <code>VK_IMAGE_CREATE_SPARSE_BINDING_BIT</code> set in
 Android Hardware Buffer
 or an imported
 QNX Screen buffer
-    , <code>VkMemoryAllocateInfo</code>::<code>allocationSize</code> <strong class="purple">must</strong> equal the
-    <code>VkMemoryRequirements</code>::<code>size</code> of the buffer</p>
+    , <code>VkMemoryAllocateInfo</code>::<code>allocationSize</code> <strong class="purple">must</strong> be greater than
+    or equal to the <code>VkMemoryRequirements</code>::<code>size</code> of the buffer</p>
 </li>
 <li>
 <p><a id="VUID-VkMemoryDedicatedAllocateInfo-buffer-01436" href="#VUID-VkMemoryDedicatedAllocateInfo-buffer-01436"></a> <span class="vuid">VUID-VkMemoryDedicatedAllocateInfo-buffer-01436</span><br>

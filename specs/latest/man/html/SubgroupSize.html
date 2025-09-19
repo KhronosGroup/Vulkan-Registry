@@ -831,7 +831,11 @@ This value <strong class="purple">must</strong> be between <a href="https://regi
 The value <strong class="purple">may</strong> vary across a single draw call, and for fragment shaders <strong class="purple">may</strong>
 vary across a single primitive.
 In compute dispatches, <code>SubgroupSize</code> <strong class="purple">must</strong> be uniform with
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-scope-command" target="_blank" rel="noopener">command scope</a>.</p>
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-scope-command" target="_blank" rel="noopener">command scope</a>.
+In mesh and task shaders, <code>SubgroupSize</code> <strong class="purple">must</strong> be uniform with
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-scope-command" target="_blank" rel="noopener">command scope</a>.
+In a single <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#shaders-scope-command" target="_blank" rel="noopener">command scope</a>, the mesh and task
+shader <strong class="purple">may</strong> have different <code>SubgroupSize</code>.</p>
 </div>
 <div class="paragraph">
 <p>If the pipeline was created with a chained

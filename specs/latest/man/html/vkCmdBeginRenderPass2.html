@@ -1094,7 +1094,7 @@ specified in the <code>framebuffer</code> member of <code>pRenderPassBegin</code
 
 If <code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> was included in the
 <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code> used to create
-the <code>renderPass</code>, <code>commandBuffer</code> <strong class="purple">must</strong> not have been created
+the <code>renderPass</code>, <code>commandBuffer</code> <strong class="purple">must</strong> not have been recorded
 with <code>VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT</code></p>
 </li>
 </ul>
@@ -1124,7 +1124,7 @@ with <code>VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBeginRenderPass2-commandBuffer-cmdpool" href="#VUID-vkCmdBeginRenderPass2-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBeginRenderPass2-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBeginRenderPass2-renderpass" href="#VUID-vkCmdBeginRenderPass2-renderpass"></a> <span class="vuid">VUID-vkCmdBeginRenderPass2-renderpass</span><br>
@@ -1182,7 +1182,7 @@ with <code>VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT</code></p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Primary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action<br>
 State<br>
 Synchronization</p></td>

@@ -913,8 +913,9 @@ written to <code>pCopyDstLayouts</code>.
 The implementation <strong class="purple">must</strong> include the <code>VK_IMAGE_LAYOUT_GENERAL</code> image
 layout in <code>pCopyDstLayouts</code>.
 If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayouts" target="_blank" rel="noopener"><code>unifiedImageLayouts</code></a> feature
-is enabled, the implementation <strong class="purple">must</strong> include all the image layouts that are
-interchangeable with <code>VK_IMAGE_LAYOUT_GENERAL</code> in <code>pCopyDstLayouts</code>.</p>
+is supported, the implementation <strong class="purple">must</strong> include all the image layouts that
+are interchangeable with <code>VK_IMAGE_LAYOUT_GENERAL</code> in
+<code>pCopyDstLayouts</code>.</p>
 </div>
 <div class="paragraph">
 <p>If <code>pCopySrcLayouts</code> is <code>NULL</code>, then the number of image layouts that
@@ -931,8 +932,9 @@ written to <code>pCopySrcLayouts</code>.
 The implementation <strong class="purple">must</strong> include the <code>VK_IMAGE_LAYOUT_GENERAL</code> image
 layout in <code>pCopySrcLayouts</code>.
 If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-unifiedImageLayouts" target="_blank" rel="noopener"><code>unifiedImageLayouts</code></a> feature
-is enabled, the implementation <strong class="purple">must</strong> include all the image layouts that are
-interchangeable with <code>VK_IMAGE_LAYOUT_GENERAL</code> in <code>pCopySrcLayouts</code>.</p>
+is supported, the implementation <strong class="purple">must</strong> include all the image layouts that
+are interchangeable with <code>VK_IMAGE_LAYOUT_GENERAL</code> in
+<code>pCopySrcLayouts</code>.</p>
 </div>
 <div class="paragraph">
 <p>The <code>optimalTilingLayoutUUID</code> value can be used to ensure compatible

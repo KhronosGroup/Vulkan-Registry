@@ -958,6 +958,14 @@ its <code>pNext</code> chain, and
 <code>memoryOffset</code> <strong class="purple">must</strong> be zero</p>
 </li>
 <li>
+<p><a id="VUID-VkBindBufferMemoryInfo-memory-10925" href="#VUID-VkBindBufferMemoryInfo-memory-10925"></a> <span class="vuid">VUID-VkBindBufferMemoryInfo-memory-10925</span><br>
+
+If the <code>VkMemoryAllocateInfo</code> provided when <code>memory</code> was
+allocated included a <a href="VkMemoryDedicatedAllocateInfo.html">VkMemoryDedicatedAllocateInfo</a> structure in
+its <code>pNext</code> chain, <a href="VkMemoryDedicatedAllocateInfo.html">VkMemoryDedicatedAllocateInfo</a>::<code>image</code>
+<strong class="purple">must</strong> have been <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a></p>
+</li>
+<li>
 <p><a id="VUID-VkBindBufferMemoryInfo-None-01898" href="#VUID-VkBindBufferMemoryInfo-None-01898"></a> <span class="vuid">VUID-VkBindBufferMemoryInfo-None-01898</span><br>
 
 If <code>buffer</code> was created with the

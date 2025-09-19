@@ -907,7 +907,7 @@ If <code>commandBuffer</code> is a protected command buffer and
 </li>
 <li>
 <p><a id="VUID-vkCmdBlitImage2-commandBuffer-cmdpool" href="#VUID-vkCmdBlitImage2-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBlitImage2-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBlitImage2-renderpass" href="#VUID-vkCmdBlitImage2-renderpass"></a> <span class="vuid">VUID-vkCmdBlitImage2-renderpass</span><br>
@@ -962,7 +962,7 @@ If <code>commandBuffer</code> is a protected command buffer and
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
 </tr>
 </tbody>

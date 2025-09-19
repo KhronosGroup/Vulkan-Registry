@@ -1098,6 +1098,14 @@ The <code>pNext</code> chain of <code>pVideoFormatInfo</code> <strong class="pur
 <a href="VkVideoProfileListInfoKHR.html">VkVideoProfileListInfoKHR</a> structure with <code>profileCount</code>
 greater than <code>0</code></p>
 </li>
+<li>
+<p><a id="VUID-vkGetPhysicalDeviceVideoFormatPropertiesKHR-pNext-10922" href="#VUID-vkGetPhysicalDeviceVideoFormatPropertiesKHR-pNext-10922"></a> <span class="vuid">VUID-vkGetPhysicalDeviceVideoFormatPropertiesKHR-pNext-10922</span><br>
+
+If the <code>pNext</code> chain of <code>pVideoFormatInfo</code> includes a
+<a href="VkVideoEncodeProfileRgbConversionInfoVALVE.html">VkVideoEncodeProfileRgbConversionInfoVALVE</a> structure, then the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-videoEncodeRgbConversion" target="_blank" rel="noopener"><code>videoEncodeRgbConversion</code></a>
+feature <strong class="purple">must</strong> be supported</p>
+</li>
 </ul>
 </div>
 </div>

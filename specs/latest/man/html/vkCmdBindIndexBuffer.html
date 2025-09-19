@@ -937,7 +937,7 @@ If <code>buffer</code> is <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, offs
 </li>
 <li>
 <p><a id="VUID-vkCmdBindIndexBuffer-commandBuffer-cmdpool" href="#VUID-vkCmdBindIndexBuffer-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBindIndexBuffer-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBindIndexBuffer-videocoding" href="#VUID-vkCmdBindIndexBuffer-videocoding"></a> <span class="vuid">VUID-vkCmdBindIndexBuffer-videocoding</span><br>
@@ -992,7 +992,7 @@ If <code>buffer</code> is <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, offs
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">State</p></td>
 </tr>
 </tbody>

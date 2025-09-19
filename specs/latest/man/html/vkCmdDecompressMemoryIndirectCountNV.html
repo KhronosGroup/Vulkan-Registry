@@ -952,7 +952,7 @@ equal to the last valid address in the <a href="VkBuffer.html">VkBuffer</a> that
 </li>
 <li>
 <p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT, or VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-renderpass" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-renderpass"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-renderpass</span><br>
@@ -1007,8 +1007,8 @@ equal to the last valid address in the <a href="VkBuffer.html">VkBuffer</a> that
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
+VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
 </tr>
 </tbody>

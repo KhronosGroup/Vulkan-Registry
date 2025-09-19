@@ -869,6 +869,21 @@ the total number of elements in each dimension of the source tensor.</p>
 <div class="sectionbody">
 <div class="sidebarblock">
 <div class="content">
+<div class="title">Valid Usage</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a id="VUID-VkTensorCopyARM-dimensionCount-09955" href="#VUID-VkTensorCopyARM-dimensionCount-09955"></a> <span class="vuid">VUID-VkTensorCopyARM-dimensionCount-09955</span><br>
+
+<code>dimensionCount</code> <strong class="purple">must</strong> be greater than 0 if <code>pSrcOffset</code>,
+<code>pDstOffset</code>, or <code>pExtent</code> is not <code>NULL</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="title">Valid Usage (Implicit)</div>
 <div class="ulist">
 <ul>
@@ -882,19 +897,15 @@ the total number of elements in each dimension of the source tensor.</p>
 </li>
 <li>
 <p><a id="VUID-VkTensorCopyARM-pSrcOffset-parameter" href="#VUID-VkTensorCopyARM-pSrcOffset-parameter"></a> <span class="vuid">VUID-VkTensorCopyARM-pSrcOffset-parameter</span><br>
- If <code>pSrcOffset</code> is not <code>NULL</code>, <code>pSrcOffset</code> <strong class="purple">must</strong> be a valid pointer to an array of <code>dimensionCount</code> <code>uint64_t</code> values</p>
+ If <code>dimensionCount</code> is not <code>0</code>, and <code>pSrcOffset</code> is not <code>NULL</code>, <code>pSrcOffset</code> <strong class="purple">must</strong> be a valid pointer to an array of <code>dimensionCount</code> <code>uint64_t</code> values</p>
 </li>
 <li>
 <p><a id="VUID-VkTensorCopyARM-pDstOffset-parameter" href="#VUID-VkTensorCopyARM-pDstOffset-parameter"></a> <span class="vuid">VUID-VkTensorCopyARM-pDstOffset-parameter</span><br>
- If <code>pDstOffset</code> is not <code>NULL</code>, <code>pDstOffset</code> <strong class="purple">must</strong> be a valid pointer to an array of <code>dimensionCount</code> <code>uint64_t</code> values</p>
+ If <code>dimensionCount</code> is not <code>0</code>, and <code>pDstOffset</code> is not <code>NULL</code>, <code>pDstOffset</code> <strong class="purple">must</strong> be a valid pointer to an array of <code>dimensionCount</code> <code>uint64_t</code> values</p>
 </li>
 <li>
 <p><a id="VUID-VkTensorCopyARM-pExtent-parameter" href="#VUID-VkTensorCopyARM-pExtent-parameter"></a> <span class="vuid">VUID-VkTensorCopyARM-pExtent-parameter</span><br>
- If <code>pExtent</code> is not <code>NULL</code>, <code>pExtent</code> <strong class="purple">must</strong> be a valid pointer to an array of <code>dimensionCount</code> <code>uint64_t</code> values</p>
-</li>
-<li>
-<p><a id="VUID-VkTensorCopyARM-dimensionCount-arraylength" href="#VUID-VkTensorCopyARM-dimensionCount-arraylength"></a> <span class="vuid">VUID-VkTensorCopyARM-dimensionCount-arraylength</span><br>
- <code>dimensionCount</code> <strong class="purple">must</strong> be greater than <code>0</code></p>
+ If <code>dimensionCount</code> is not <code>0</code>, and <code>pExtent</code> is not <code>NULL</code>, <code>pExtent</code> <strong class="purple">must</strong> be a valid pointer to an array of <code>dimensionCount</code> <code>uint64_t</code> values</p>
 </li>
 </ul>
 </div>

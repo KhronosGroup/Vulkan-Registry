@@ -918,6 +918,14 @@ original image for which the allocation was created; and the
 or smaller than the original image for which the allocation was created</p>
 </li>
 <li>
+<p><a id="VUID-vkBindImageMemory-memory-10926" href="#VUID-vkBindImageMemory-memory-10926"></a> <span class="vuid">VUID-vkBindImageMemory-memory-10926</span><br>
+
+If the <code>VkMemoryAllocateInfo</code> provided when <code>memory</code> was
+allocated included a <a href="VkMemoryDedicatedAllocateInfo.html">VkMemoryDedicatedAllocateInfo</a> structure in
+its <code>pNext</code> chain, <a href="VkMemoryDedicatedAllocateInfo.html">VkMemoryDedicatedAllocateInfo</a>::<code>buffer</code>
+<strong class="purple">must</strong> have been <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a></p>
+</li>
+<li>
 <p><a id="VUID-vkBindImageMemory-None-01901" href="#VUID-vkBindImageMemory-None-01901"></a> <span class="vuid">VUID-vkBindImageMemory-None-01901</span><br>
 
 If image was created with the <code>VK_IMAGE_CREATE_PROTECTED_BIT</code> bit

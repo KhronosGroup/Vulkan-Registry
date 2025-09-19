@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.326,</span>
-<span id="revdate">2025-08-29 19:07:58Z</span>
-<br><span id="revremark">from git branch: github-main commit: 9c6d565f72ba6929c239c3e20f90b6375acad3bd</span>
+<span id="revnumber">version 1.4.327,</span>
+<span id="revdate">2025-09-19 13:11:30Z</span>
+<br><span id="revremark">from git branch: github-main commit: ca418640d46475ae2d297dc1631c82ce3819eee4</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1207,82 +1207,88 @@ pre.rouge .w {
 <li><a href="#_contents_of_syncpipeline_tags">33.2. Contents of <code>syncpipeline</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-syncsupport">34. Sync Support (<code>syncsupport</code> Tag)</a>
+<li><a href="#tag-syncpipelinestage">34. Sync Pipeline Stage (<code>syncpipelinestage</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_syncsupport_tags">34.1. Attributes of <code>syncsupport</code> Tags</a></li>
+<li><a href="#_attributes_of_syncpipelinestage_tags">34.1. Attributes of <code>syncpipelinestage</code> Tags</a></li>
+<li><a href="#_contents_of_syncpipeline_tags_2">34.2. Contents of <code>syncpipeline</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-syncequivalent">35. Sync Equivalent (<code>syncequivalent</code> Tag)</a>
+<li><a href="#tag-syncsupport">35. Sync Support (<code>syncsupport</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_syncsupport_tags_2">35.1. Attributes of <code>syncsupport</code> Tags</a></li>
+<li><a href="#_attributes_of_syncsupport_tags">35.1. Attributes of <code>syncsupport</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videocodecs">36. Video Codecs (<code>videocodecs</code> Tag)</a></li>
-<li><a href="#tag-videocodec">37. Video Codec (<code>videocodec</code> Tag)</a>
+<li><a href="#tag-syncequivalent">36. Sync Equivalent (<code>syncequivalent</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videocodec_tags">37.1. Attributes of <code>videocodec</code> Tags</a></li>
+<li><a href="#_attributes_of_syncequivalent_tags">36.1. Attributes of <code>syncequivalent</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videoprofiles">38. Video Profiles (<code>videoprofiles</code> Tag)</a>
+<li><a href="#tag-videocodecs">37. Video Codecs (<code>videocodecs</code> Tag)</a></li>
+<li><a href="#tag-videocodec">38. Video Codec (<code>videocodec</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videoprofiles_tags">38.1. Attributes of <code>videoprofiles</code> Tags</a></li>
+<li><a href="#_attributes_of_videocodec_tags">38.1. Attributes of <code>videocodec</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videoprofilemember">39. Video Profile Member (<code>videoprofilemember</code> Tag)</a>
+<li><a href="#tag-videoprofiles">39. Video Profiles (<code>videoprofiles</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videoprofilemember_tags">39.1. Attributes of <code>videoprofilemember</code> Tags</a></li>
+<li><a href="#_attributes_of_videoprofiles_tags">39.1. Attributes of <code>videoprofiles</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videoprofile">40. Video Profile (<code>videoprofile</code> Tag)</a>
+<li><a href="#tag-videoprofilemember">40. Video Profile Member (<code>videoprofilemember</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videoprofile_tags">40.1. Attributes of <code>videoprofile</code> Tags</a></li>
+<li><a href="#_attributes_of_videoprofilemember_tags">40.1. Attributes of <code>videoprofilemember</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videocapabilities">41. Video Capabilities (<code>videocapabilities</code> Tag)</a>
+<li><a href="#tag-videoprofile">41. Video Profile (<code>videoprofile</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videocapabilities_tags">41.1. Attributes of <code>videocapabilities</code> Tags</a></li>
+<li><a href="#_attributes_of_videoprofile_tags">41.1. Attributes of <code>videoprofile</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videoformat">42. Video Format (<code>videoformat</code> Tag)</a>
+<li><a href="#tag-videocapabilities">42. Video Capabilities (<code>videocapabilities</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videoformat_tags">42.1. Attributes of <code>videoformat</code> Tags</a></li>
+<li><a href="#_attributes_of_videocapabilities_tags">42.1. Attributes of <code>videocapabilities</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videoformatproperties">43. Video Format Properties (<code>videoformatproperties</code> Tag)</a>
+<li><a href="#tag-videoformat">43. Video Format (<code>videoformat</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videoformatproperties_tags">43.1. Attributes of <code>videoformatproperties</code> Tags</a></li>
+<li><a href="#_attributes_of_videoformat_tags">43.1. Attributes of <code>videoformat</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videorequirecapabilities">44. Video Capability Prerequisites (<code>videorequirecapabilities</code> Tag)</a>
+<li><a href="#tag-videoformatproperties">44. Video Format Properties (<code>videoformatproperties</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videorequirecapabilities_tags">44.1. Attributes of <code>videorequirecapabilities</code> Tags</a></li>
+<li><a href="#_attributes_of_videoformatproperties_tags">44.1. Attributes of <code>videoformatproperties</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#examples">45. Examples / FAQ / How Do I?</a>
+<li><a href="#tag-videorequirecapabilities">45. Video Capability Prerequisites (<code>videorequirecapabilities</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_general_strategy">45.1. General Strategy</a></li>
-<li><a href="#_api_feature_dependencies">45.2. API Feature Dependencies</a>
+<li><a href="#_attributes_of_videorequirecapabilities_tags">45.1. Attributes of <code>videorequirecapabilities</code> Tags</a></li>
+</ul>
+</li>
+<li><a href="#examples">46. Examples / FAQ / How Do I?</a>
+<ul class="sectlevel2">
+<li><a href="#_general_strategy">46.1. General Strategy</a></li>
+<li><a href="#_api_feature_dependencies">46.2. API Feature Dependencies</a>
 <ul class="sectlevel3">
-<li><a href="#_api_feature_walkthrough">45.2.1. API Feature Walkthrough</a></li>
+<li><a href="#_api_feature_walkthrough">46.2.1. API Feature Walkthrough</a></li>
 </ul>
 </li>
-<li><a href="#compile-time-constants">45.3. How to Add a Compile Time Constant</a></li>
-<li><a href="#compile-time-constants-format">45.4. Allowed Format of Compile Time Constants</a></li>
-<li><a href="#_how_to_add_a_struct_or_union_type">45.5. How to Add a Struct or Union Type</a></li>
-<li><a href="#_how_to_add_an_enumerated_type">45.6. How to Add an Enumerated Type</a></li>
-<li><a href="#adding-bitflags">45.7. How to Add Bit Flags</a>
+<li><a href="#compile-time-constants">46.3. How to Add a Compile Time Constant</a></li>
+<li><a href="#compile-time-constants-format">46.4. Allowed Format of Compile Time Constants</a></li>
+<li><a href="#_how_to_add_a_struct_or_union_type">46.5. How to Add a Struct or Union Type</a></li>
+<li><a href="#_how_to_add_an_enumerated_type">46.6. How to Add an Enumerated Type</a></li>
+<li><a href="#adding-bitflags">46.7. How to Add Bit Flags</a>
 <ul class="sectlevel3">
-<li><a href="#_32_bit_flags">45.7.1. 32-bit Flags</a></li>
+<li><a href="#_32_bit_flags">46.7.1. 32-bit Flags</a></li>
 </ul>
 </li>
-<li><a href="#_how_to_add_a_command">45.8. How to Add a Command</a></li>
-<li><a href="#_more_complicated_api_representations">45.9. More Complicated API Representations</a></li>
-<li><a href="#_more_complicated_output_formats_and_other_languages">45.10. More Complicated Output Formats and Other Languages</a></li>
-<li><a href="#_additional_semantic_tagging">45.11. Additional Semantic Tagging</a></li>
-<li><a href="#general:stability">45.12. Stability of the XML Database and Schema</a></li>
+<li><a href="#_how_to_add_a_command">46.8. How to Add a Command</a></li>
+<li><a href="#_more_complicated_api_representations">46.9. More Complicated API Representations</a></li>
+<li><a href="#_more_complicated_output_formats_and_other_languages">46.10. More Complicated Output Formats and Other Languages</a></li>
+<li><a href="#_additional_semantic_tagging">46.11. Additional Semantic Tagging</a></li>
+<li><a href="#general:stability">46.12. Stability of the XML Database and Schema</a></li>
 </ul>
 </li>
-<li><a href="#changelog">46. Change Log</a></li>
+<li><a href="#changelog">47. Change Log</a></li>
 </ul>
 </div>
 </div>
@@ -1399,7 +1405,7 @@ which documentation authors must comply.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>See
-<a href="https://gitlab.khronos.org/vulkan/vulkan/blob/main/xml/README.adoc"><code>xml/README.adoc</code></a>
+<a href="https://gitlab.khronos.org/vulkan/vulkan/blob/main/xml/BUILD.adoc"><code>xml/BUILD.adoc</code></a>
 in the <code>Vulkan-Docs</code> repository for information on required toolchain
 components such as Python 3, g++, and GNU make.</p>
 </div>
@@ -2855,29 +2861,28 @@ In this case the allowed attributes include:</p>
 <ul>
 <li>
 <p><code>tasks</code> - optional.
-A string identifying the tasks this command performs, as described in
+A comma-separated list of tasks this command performs, as described in
 the &#8220;Queue Operation&#8221; section of the <a href="#vulkan-spec">Vulkan API
 Specification</a>.
-The format of the string is one or more of the terms <code>"action"</code>,
-<code>"synchronization"</code>, <code>"state"</code>, and <code>"indirection"</code>, with multiple terms
-separated by commas (<code>","</code>).</p>
+The tasks may include <code>"action"</code>, <code>"indirection"</code>, <code>"state"</code>, and
+<code>"synchronization"</code>.</p>
 </li>
 <li>
 <p><code>queues</code> - optional.
-A string identifying the command queues this command can be placed on.
-The format of the string is one or more of the terms <code>"compute"</code>,
-<code>"decode"</code>, <code>"encode"</code>, <code>"graphics"</code>, <code>"transfer"</code>, <code>"sparse_binding"</code>,
-and <code>"opticalflow"</code>, with multiple terms separated by commas (<code>","</code>).</p>
+A comma-separated list of command queue types this command can be placed
+on.
+The queue types are Vulkan <code>VkQueueFlagBits</code> names.</p>
 </li>
 <li>
 <p><code>successcodes</code> - optional.
-A string describing possible successful return codes from the command,
-as a comma-separated list of Vulkan result code names.</p>
+A comma-separated list of possible successful return codes from the
+command.
+The codes are Vulkan <code>VkResult</code> code names.</p>
 </li>
 <li>
 <p><code>errorcodes</code> - optional.
-A string describing possible error return codes from the command, as a
-comma-separated list of Vulkan result code names.</p>
+A comma-separated list of possible error return codes from the command.
+The codes are Vulkan <code>VkResult</code> code names.</p>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -2929,6 +2934,12 @@ conditional rendering, and <code>"false"</code> that it is not affected.</p>
 <p><code>allownoqueues</code> - optional.
 A value of <code>"true"</code> specifies that this command can be used in a device
 with no queues. If not present, the value is assumed to be <code>"false"</code>.</p>
+</li>
+<li>
+<p><code>export</code> - optional.
+A comma-separated list of names exporting this command.
+The names are arbitrary words, but usually correspond to Vulkan loader
+or library names.</p>
 </li>
 <li>
 <p><code>comment</code> - optional.
@@ -4489,6 +4500,10 @@ Must be one of the following values:</p>
 <div class="ulist">
 <ul>
 <li>
+<p><code>"BOOL"</code> - boolean integer values where 0 is false, and non-zero is
+true.</p>
+</li>
+<li>
 <p><code>"SFIXED5"</code> - signed fractional integer values that get converted to
 floating-point in the range <span class="eq">[-1024,1023.96875]</span></p>
 </li>
@@ -4889,11 +4904,12 @@ is enabled.</p>
 <ul>
 <li>
 <p><code>name</code> - required.
-VkPipelineStageFlagBits2 name</p>
+A Vulkan <code>VkPipelineStageFlagBits2</code> name.</p>
 </li>
 <li>
 <p><code>alias</code> - optional.
-Semantically equivalent name which is an alias of <code>name</code>.</p>
+A semantically equivalent Vulkan <code>VkPipelineStageFlagBits</code> name which is
+an alias of <code>name</code>.</p>
 </li>
 </ul>
 </div>
@@ -4919,11 +4935,12 @@ Semantically equivalent name which is an alias of <code>name</code>.</p>
 <ul>
 <li>
 <p><code>name</code> - required.
-VkAccessFlagBits2 name</p>
+A Vulkan <code>VkAccessFlagBits2</code> name.</p>
 </li>
 <li>
 <p><code>alias</code> - optional.
-Semantically equivalent name which is an alias of <code>name</code>.</p>
+A semantically equivalent Vulkan <code>VkAccessFlagBits</code> name which is an
+alias of <code>name</code>.</p>
 </li>
 </ul>
 </div>
@@ -4957,31 +4974,68 @@ A unique string identifying the pipeline.</p>
 <div class="sect2">
 <h3 id="_contents_of_syncpipeline_tags"><a class="anchor" href="#_contents_of_syncpipeline_tags"></a>33.2. Contents of <code>syncpipeline</code> Tags</h3>
 <div class="paragraph">
-<p>The <code>syncpipeline</code> lists each pipeline stage in logical order using
-<code>syncpipelinestage</code>. Stages have extra attributes to describe
-special ordering within the list</p>
+<p>Zero or more <code>syncpipelinestage</code> tags describing each pipeline stage in
+logical order.
+Stages have extra attributes describing special ordering within the list.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-syncsupport"><a class="anchor" href="#tag-syncsupport"></a>34. Sync Support (<code>syncsupport</code> Tag)</h2>
+<h2 id="tag-syncpipelinestage"><a class="anchor" href="#tag-syncpipelinestage"></a>34. Sync Pipeline Stage (<code>syncpipelinestage</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>syncsupport</code> tag contains information what support there is for
-a given Sync element.</p>
+<p>The <code>syncpipelinestage</code> tag contains definitions of a stage for a
+<code>syncpipeline</code>.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_syncsupport_tags"><a class="anchor" href="#_attributes_of_syncsupport_tags"></a>34.1. Attributes of <code>syncsupport</code> Tags</h3>
+<h3 id="_attributes_of_syncpipelinestage_tags"><a class="anchor" href="#_attributes_of_syncpipelinestage_tags"></a>34.1. Attributes of <code>syncpipelinestage</code> Tags</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>order - optional.
+Must be <code>"None"</code> if present, indicating ???.</p>
+</li>
+<li>
+<p>before - optional.
+A Vulkan <code>VkPipelineStageFlagBits2</code> name of a pipeline stage following
+this stage.</p>
+</li>
+<li>
+<p>after - optional.
+A Vulkan <code>VkPipelineStageFlagBits2</code> name of a pipeline stage preceding
+this stage.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contents_of_syncpipeline_tags_2"><a class="anchor" href="#_contents_of_syncpipeline_tags_2"></a>34.2. Contents of <code>syncpipeline</code> Tags</h3>
+<div class="paragraph">
+<p>A Vulkan <code>VkPipelineStageFlagBits2</code> name of this pipeline stage.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tag-syncsupport"><a class="anchor" href="#tag-syncsupport"></a>35. Sync Support (<code>syncsupport</code> Tag)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>syncsupport</code> tag defines support for a given Sync element.</p>
+</div>
+<div class="sect2">
+<h3 id="_attributes_of_syncsupport_tags"><a class="anchor" href="#_attributes_of_syncsupport_tags"></a>35.1. Attributes of <code>syncsupport</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
 <p><code>queues</code> - optional.
-A comma-separated list of Queue types that are supported.</p>
+A comma-separated list of queue types that are supported.
+Each queue type is a Vulkan <code>VkQueueFlagBits</code> name.</p>
 </li>
 <li>
 <p><code>stage</code> - optional.
-A comma-separated list of Sync Stages that are supported.
+A comma-separated list of <a href="#tag-syncstage">sync stage names</a> that are
+supported.
 This is used to cross-reference with <code>syncstage</code></p>
 </li>
 </ul>
@@ -4990,25 +5044,25 @@ This is used to cross-reference with <code>syncstage</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-syncequivalent"><a class="anchor" href="#tag-syncequivalent"></a>35. Sync Equivalent (<code>syncequivalent</code> Tag)</h2>
+<h2 id="tag-syncequivalent"><a class="anchor" href="#tag-syncequivalent"></a>36. Sync Equivalent (<code>syncequivalent</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>syncequivalent</code> tag contains information showing a one-to-many
-relationship of Sync elements</p>
+<p>The <code>syncequivalent</code> tag defines a one-to-many relationship of Sync
+elements</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_syncsupport_tags_2"><a class="anchor" href="#_attributes_of_syncsupport_tags_2"></a>35.1. Attributes of <code>syncsupport</code> Tags</h3>
+<h3 id="_attributes_of_syncequivalent_tags"><a class="anchor" href="#_attributes_of_syncequivalent_tags"></a>36.1. Attributes of <code>syncequivalent</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
 <p><code>stage</code> - optional.
-A comma-separated list of Sync Stages that are the OR logical
-equivalence of the parent Sync Element</p>
+A comma-separated list of <a href="#tag-syncstage">sync stages</a> that are the OR
+logical equivalence of the parent <a href="#tag-syncstage"><code>syncstage</code></a>.</p>
 </li>
 <li>
 <p><code>access</code> - optional.
-A comma-separated list of Sync Accesses that are the OR logical
-equivalence of the parent Sync Element</p>
+A comma-separated list of <a href="#tag-syncaccess">sync accesses</a> that are the
+OR logical equivalence of the parent <a href="#tag-syncstage"><code>syncstage</code></a>.</p>
 </li>
 </ul>
 </div>
@@ -5016,7 +5070,7 @@ equivalence of the parent Sync Element</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videocodecs"><a class="anchor" href="#tag-videocodecs"></a>36. Video Codecs (<code>videocodecs</code> Tag)</h2>
+<h2 id="tag-videocodecs"><a class="anchor" href="#tag-videocodecs"></a>37. Video Codecs (<code>videocodecs</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videocodecs</code> tag contains information about video codecs.</p>
@@ -5024,14 +5078,14 @@ equivalence of the parent Sync Element</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videocodec"><a class="anchor" href="#tag-videocodec"></a>37. Video Codec (<code>videocodec</code> Tag)</h2>
+<h2 id="tag-videocodec"><a class="anchor" href="#tag-videocodec"></a>38. Video Codec (<code>videocodec</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videocodec</code> tag defines a video codec category (e.g. decode or
 encode) or specific video codec (e.g. H.264 decode).</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videocodec_tags"><a class="anchor" href="#_attributes_of_videocodec_tags"></a>37.1. Attributes of <code>videocodec</code> Tags</h3>
+<h3 id="_attributes_of_videocodec_tags"><a class="anchor" href="#_attributes_of_videocodec_tags"></a>38.1. Attributes of <code>videocodec</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5043,7 +5097,7 @@ video codec</p>
 video codec specializes</p>
 </li>
 <li>
-<p><code>value</code> - the <code>VkVideoCodecOperationFlagBitsKHR`</code> value identifying a
+<p><code>value</code> - the <code>VkVideoCodecOperationFlagBitsKHR</code> value identifying a
 specific video codec</p>
 </li>
 </ul>
@@ -5052,7 +5106,7 @@ specific video codec</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videoprofiles"><a class="anchor" href="#tag-videoprofiles"></a>38. Video Profiles (<code>videoprofiles</code> Tag)</h2>
+<h2 id="tag-videoprofiles"><a class="anchor" href="#tag-videoprofiles"></a>39. Video Profiles (<code>videoprofiles</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videoprofiles</code> tag defines video profiles supported by a specific
@@ -5061,7 +5115,7 @@ video profile information included in <code>VkVideoProfileInfoKHR</code> and add
 video codec specific video profile structure member values.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videoprofiles_tags"><a class="anchor" href="#_attributes_of_videoprofiles_tags"></a>38.1. Attributes of <code>videoprofiles</code> Tags</h3>
+<h3 id="_attributes_of_videoprofiles_tags"><a class="anchor" href="#_attributes_of_videoprofiles_tags"></a>39.1. Attributes of <code>videoprofiles</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5074,14 +5128,14 @@ the specific video codec</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videoprofilemember"><a class="anchor" href="#tag-videoprofilemember"></a>39. Video Profile Member (<code>videoprofilemember</code> Tag)</h2>
+<h2 id="tag-videoprofilemember"><a class="anchor" href="#tag-videoprofilemember"></a>40. Video Profile Member (<code>videoprofilemember</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videoprofilemember</code> tag defines video profiles with respect to
 specific video profile structure members.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videoprofilemember_tags"><a class="anchor" href="#_attributes_of_videoprofilemember_tags"></a>39.1. Attributes of <code>videoprofilemember</code> Tags</h3>
+<h3 id="_attributes_of_videoprofilemember_tags"><a class="anchor" href="#_attributes_of_videoprofilemember_tags"></a>40.1. Attributes of <code>videoprofilemember</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5093,14 +5147,14 @@ specific video profile structure members.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videoprofile"><a class="anchor" href="#tag-videoprofile"></a>40. Video Profile (<code>videoprofile</code> Tag)</h2>
+<h2 id="tag-videoprofile"><a class="anchor" href="#tag-videoprofile"></a>41. Video Profile (<code>videoprofile</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videoprofile</code> tag defines a video profile with respect to specific
 video profile structure members.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videoprofile_tags"><a class="anchor" href="#_attributes_of_videoprofile_tags"></a>40.1. Attributes of <code>videoprofile</code> Tags</h3>
+<h3 id="_attributes_of_videoprofile_tags"><a class="anchor" href="#_attributes_of_videoprofile_tags"></a>41.1. Attributes of <code>videoprofile</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5116,14 +5170,14 @@ video profile</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videocapabilities"><a class="anchor" href="#tag-videocapabilities"></a>41. Video Capabilities (<code>videocapabilities</code> Tag)</h2>
+<h2 id="tag-videocapabilities"><a class="anchor" href="#tag-videocapabilities"></a>42. Video Capabilities (<code>videocapabilities</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videocapabilities</code> tag specifies a capability structure that applies
 to the video codec category or specific video codec.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videocapabilities_tags"><a class="anchor" href="#_attributes_of_videocapabilities_tags"></a>41.1. Attributes of <code>videocapabilities</code> Tags</h3>
+<h3 id="_attributes_of_videocapabilities_tags"><a class="anchor" href="#_attributes_of_videocapabilities_tags"></a>42.1. Attributes of <code>videocapabilities</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5135,14 +5189,14 @@ to the video codec category or specific video codec.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videoformat"><a class="anchor" href="#tag-videoformat"></a>42. Video Format (<code>videoformat</code> Tag)</h2>
+<h2 id="tag-videoformat"><a class="anchor" href="#tag-videoformat"></a>43. Video Format (<code>videoformat</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videoformat</code> tag defines a video format category that applies to the
 video codec category or specific video codec.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videoformat_tags"><a class="anchor" href="#_attributes_of_videoformat_tags"></a>42.1. Attributes of <code>videoformat</code> Tags</h3>
+<h3 id="_attributes_of_videoformat_tags"><a class="anchor" href="#_attributes_of_videoformat_tags"></a>43.1. Attributes of <code>videoformat</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5160,14 +5214,14 @@ express disjunction and conjunction, respectively)</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videoformatproperties"><a class="anchor" href="#tag-videoformatproperties"></a>43. Video Format Properties (<code>videoformatproperties</code> Tag)</h2>
+<h2 id="tag-videoformatproperties"><a class="anchor" href="#tag-videoformatproperties"></a>44. Video Format Properties (<code>videoformatproperties</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videoformatproperties</code> tag specifies a video format property
 structure that applies to a video format category.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videoformatproperties_tags"><a class="anchor" href="#_attributes_of_videoformatproperties_tags"></a>43.1. Attributes of <code>videoformatproperties</code> Tags</h3>
+<h3 id="_attributes_of_videoformatproperties_tags"><a class="anchor" href="#_attributes_of_videoformatproperties_tags"></a>44.1. Attributes of <code>videoformatproperties</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5179,7 +5233,7 @@ structure that applies to a video format category.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videorequirecapabilities"><a class="anchor" href="#tag-videorequirecapabilities"></a>44. Video Capability Prerequisites (<code>videorequirecapabilities</code> Tag)</h2>
+<h2 id="tag-videorequirecapabilities"><a class="anchor" href="#tag-videorequirecapabilities"></a>45. Video Capability Prerequisites (<code>videorequirecapabilities</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videorequirecapabilities</code> tag can be used inside
@@ -5189,7 +5243,7 @@ If more <code>videorequirecapabilities</code> elements are specified, then the
 overall precondition is the conjunction of the individual preconditions.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videorequirecapabilities_tags"><a class="anchor" href="#_attributes_of_videorequirecapabilities_tags"></a>44.1. Attributes of <code>videorequirecapabilities</code> Tags</h3>
+<h3 id="_attributes_of_videorequirecapabilities_tags"><a class="anchor" href="#_attributes_of_videorequirecapabilities_tags"></a>45.1. Attributes of <code>videorequirecapabilities</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5211,7 +5265,7 @@ respectively)</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="examples"><a class="anchor" href="#examples"></a>45. Examples / FAQ / How Do I?</h2>
+<h2 id="examples"><a class="anchor" href="#examples"></a>46. Examples / FAQ / How Do I?</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>For people new to the Registry, it will not be immediately obvious how to
@@ -5227,7 +5281,7 @@ Once you are able to regenerate the Vulkan headers from <code>vk.xml</code>, you
 start making changes.</p>
 </div>
 <div class="sect2">
-<h3 id="_general_strategy"><a class="anchor" href="#_general_strategy"></a>45.1. General Strategy</h3>
+<h3 id="_general_strategy"><a class="anchor" href="#_general_strategy"></a>46.1. General Strategy</h3>
 <div class="paragraph">
 <p>If you are <em>adding</em> to the API, perform the following steps to <em>create</em> the
 description of that API element:</p>
@@ -5261,7 +5315,7 @@ dependencies on the changed feature.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_api_feature_dependencies"><a class="anchor" href="#_api_feature_dependencies"></a>45.2. API Feature Dependencies</h3>
+<h3 id="_api_feature_dependencies"><a class="anchor" href="#_api_feature_dependencies"></a>46.2. API Feature Dependencies</h3>
 <div class="paragraph">
 <p>When you add new API elements, they will not result in corresponding changes
 in the generated header unless they are <em>required</em> by the interface being
@@ -5286,7 +5340,7 @@ Some of these tags are used to express extension interactions, and others
 only as a logical grouping mechanism for related parts of that API feature.</p>
 </div>
 <div class="sect3">
-<h4 id="_api_feature_walkthrough"><a class="anchor" href="#_api_feature_walkthrough"></a>45.2.1. API Feature Walkthrough</h4>
+<h4 id="_api_feature_walkthrough"><a class="anchor" href="#_api_feature_walkthrough"></a>46.2.1. API Feature Walkthrough</h4>
 <div class="paragraph">
 <p>This section walks through the first few required API features in the
 <code>vk.xml</code> <code>feature</code> tag, showing how each requirement pulls in type, token,
@@ -5434,7 +5488,7 @@ name in exactly the same fashion.</p>
 </div>
 <div class="paragraph">
 <p>In this case, the type <code>VkInstance</code> is defined by a special compile time
-macro which defines it as a derived class of <code>VkObject</code> (for <code>C``</code>) or a
+macro which defines it as a derived class of <code>VkObject</code> (for C++) or a
 less typesafe definition (for C).
 This macro is not part of the type dependency analysis, just the boilerplate
 used in the header.</p>
@@ -5559,7 +5613,7 @@ specified features are generated.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="compile-time-constants"><a class="anchor" href="#compile-time-constants"></a>45.3. How to Add a Compile Time Constant</h3>
+<h3 id="compile-time-constants"><a class="anchor" href="#compile-time-constants"></a>46.3. How to Add a Compile Time Constant</h3>
 <div class="paragraph">
 <p>Go to the desired <code>feature</code> or <code>extension</code> tag.
 Add (if not present) a nested <code>require</code> block labeled</p>
@@ -5601,7 +5655,7 @@ values <code>uint32_t</code>, <code>uint64_t</code>, or <code>float</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="compile-time-constants-format"><a class="anchor" href="#compile-time-constants-format"></a>45.4. Allowed Format of Compile Time Constants</h3>
+<h3 id="compile-time-constants-format"><a class="anchor" href="#compile-time-constants-format"></a>46.4. Allowed Format of Compile Time Constants</h3>
 <div class="paragraph">
 <p>The <code>value</code> attribute must be a legal C99 constant scalar expression when
 evaluated at compilation time.
@@ -5625,7 +5679,7 @@ Allowed expressions are additionally restricted to the following syntax:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_to_add_a_struct_or_union_type"><a class="anchor" href="#_how_to_add_a_struct_or_union_type"></a>45.5. How to Add a Struct or Union Type</h3>
+<h3 id="_how_to_add_a_struct_or_union_type"><a class="anchor" href="#_how_to_add_a_struct_or_union_type"></a>46.5. How to Add a Struct or Union Type</h3>
 <div class="paragraph">
 <p>For this example, assume we want to define a type corresponding to a C
 <code>struct</code> defined as follows:</p>
@@ -5708,7 +5762,7 @@ the <code>category</code> attribute to <code>"union"</code> instead of <code>"st
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_to_add_an_enumerated_type"><a class="anchor" href="#_how_to_add_an_enumerated_type"></a>45.6. How to Add an Enumerated Type</h3>
+<h3 id="_how_to_add_an_enumerated_type"><a class="anchor" href="#_how_to_add_an_enumerated_type"></a>46.6. How to Add an Enumerated Type</h3>
 <div class="paragraph">
 <p>For this example, assume we want to define a type corresponding to a C
 <code>enum</code> defined as follows:</p>
@@ -5775,7 +5829,7 @@ the C header unchanged.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-bitflags"><a class="anchor" href="#adding-bitflags"></a>45.7. How to Add Bit Flags</h3>
+<h3 id="adding-bitflags"><a class="anchor" href="#adding-bitflags"></a>46.7. How to Add Bit Flags</h3>
 <div class="paragraph">
 <p>Bit masks are defined by two types in the xml - the type of the mask itself,
 and the type of the valid flags.</p>
@@ -5886,7 +5940,7 @@ specifying a single bit number, and the resulting value is printed as a
 hexadecimal constant corresponding to that bit.</p>
 </div>
 <div class="sect3">
-<h4 id="_32_bit_flags"><a class="anchor" href="#_32_bit_flags"></a>45.7.1. 32-bit Flags</h4>
+<h4 id="_32_bit_flags"><a class="anchor" href="#_32_bit_flags"></a>46.7.1. 32-bit Flags</h4>
 <div class="paragraph">
 <p>Bit flags can also be defined using 32-bit C enum types.
 Doing so is broadly similar to 64-bit bit flags, but with a few key
@@ -5938,7 +5992,7 @@ The generator scripts will warn about values exceeding this range.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_to_add_a_command"><a class="anchor" href="#_how_to_add_a_command"></a>45.8. How to Add a Command</h3>
+<h3 id="_how_to_add_a_command"><a class="anchor" href="#_how_to_add_a_command"></a>46.8. How to Add a Command</h3>
 <div class="paragraph">
 <p>For this example, assume we want to define the command:</p>
 </div>
@@ -6005,7 +6059,7 @@ described previously.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_more_complicated_api_representations"><a class="anchor" href="#_more_complicated_api_representations"></a>45.9. More Complicated API Representations</h3>
+<h3 id="_more_complicated_api_representations"><a class="anchor" href="#_more_complicated_api_representations"></a>46.9. More Complicated API Representations</h3>
 <div class="paragraph">
 <p>The registry schema can represent a good deal of additional information, for
 example by creating multiple <code>feature</code> tags defining different API
@@ -6015,7 +6069,7 @@ Those capabilities will be documented as they are needed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_more_complicated_output_formats_and_other_languages"><a class="anchor" href="#_more_complicated_output_formats_and_other_languages"></a>45.10. More Complicated Output Formats and Other Languages</h3>
+<h3 id="_more_complicated_output_formats_and_other_languages"><a class="anchor" href="#_more_complicated_output_formats_and_other_languages"></a>46.10. More Complicated Output Formats and Other Languages</h3>
 <div class="paragraph">
 <p>The registry schema is oriented towards C-language APIs.
 Types and commands are defined using syntax which is a subset of C,
@@ -6039,7 +6093,7 @@ text, or specialize the tags by language, to support such generators.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_additional_semantic_tagging"><a class="anchor" href="#_additional_semantic_tagging"></a>45.11. Additional Semantic Tagging</h3>
+<h3 id="_additional_semantic_tagging"><a class="anchor" href="#_additional_semantic_tagging"></a>46.11. Additional Semantic Tagging</h3>
 <div class="paragraph">
 <p>The schema is being extended to support semantic tags describing various
 properties of API features, such as:</p>
@@ -6070,7 +6124,7 @@ Please make suggestions on the GitHub issue tracker.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="general:stability"><a class="anchor" href="#general:stability"></a>45.12. Stability of the XML Database and Schema</h3>
+<h3 id="general:stability"><a class="anchor" href="#general:stability"></a>46.12. Stability of the XML Database and Schema</h3>
 <div class="paragraph">
 <p>The Vulkan XML schema is evolving in response to corresponding changes in
 the Vulkan API and ecosystem.
@@ -6085,10 +6139,17 @@ Changes to the <code>.xml</code> files and Python scripts are logged in GitHub h
 </div>
 </div>
 <div class="sect1">
-<h2 id="changelog"><a class="anchor" href="#changelog"></a>46. Change Log</h2>
+<h2 id="changelog"><a class="anchor" href="#changelog"></a>47. Change Log</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2025-07-31 - Update the <code>queues</code> attribute to use Vulkan flag bit
+names instead of colloquial simplifications of them, add descriptions of
+a few missing tags and attributes, and use more consistent phrasing in
+describing attribute values which are comma-separated lists of separate
+values (internal issue 4393).</p>
+</li>
 <li>
 <p>2025-06-18 - Allow <code>selection</code> attributes of members of <a href="#tag-type"><code>"union"</code></a> types to include multiple comma-separated selections of the
 same member (internal issue 4246).</p>

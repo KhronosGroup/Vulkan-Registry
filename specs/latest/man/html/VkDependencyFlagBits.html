@@ -864,6 +864,13 @@ specifies that source and destination stages are not ignored when
 performing a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-queue-transfers" target="_blank" rel="noopener">queue family ownership
 transfer</a>.</p>
 </li>
+<li>
+<p><code>VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR</code> specifies that
+<a href="vkCmdSetEvent2.html">vkCmdSetEvent2</a> <strong class="purple">must</strong> only include the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#synchronization-pipeline-stages-masks" target="_blank" rel="noopener">source stage mask</a> of the
+first synchronization scope, and that <a href="vkCmdWaitEvents2.html">vkCmdWaitEvents2</a> <strong class="purple">must</strong>
+specify the complete barrier.</p>
+</li>
 </ul>
 </div>
 </div>

@@ -1162,52 +1162,44 @@ If <code>usage</code> contains
 <li>
 <p><a id="VUID-VkImageViewCreateInfo-image-08333" href="#VUID-VkImageViewCreateInfo-image-08333"></a> <span class="vuid">VUID-VkImageViewCreateInfo-image-08333</span><br>
 
-If <code>image</code> was created with
-<code>VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR</code> and <code>usage</code>
-contains <code>VK_IMAGE_USAGE_VIDEO_DECODE_DST_BIT_KHR</code>, then the image
-view&#8217;s <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features" target="_blank" rel="noopener">format features</a> <strong class="purple">must</strong>
-contain <code>VK_FORMAT_FEATURE_VIDEO_DECODE_OUTPUT_BIT_KHR</code></p>
+If <code>usage</code> contains <code>VK_IMAGE_USAGE_VIDEO_DECODE_DST_BIT_KHR</code>,
+then the image view&#8217;s <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features" target="_blank" rel="noopener">format
+features</a> <strong class="purple">must</strong> contain
+<code>VK_FORMAT_FEATURE_VIDEO_DECODE_OUTPUT_BIT_KHR</code></p>
 </li>
 <li>
 <p><a id="VUID-VkImageViewCreateInfo-image-08334" href="#VUID-VkImageViewCreateInfo-image-08334"></a> <span class="vuid">VUID-VkImageViewCreateInfo-image-08334</span><br>
 
-If <code>image</code> was created with
-<code>VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR</code> and <code>usage</code>
-contains <code>VK_IMAGE_USAGE_VIDEO_DECODE_DPB_BIT_KHR</code>, then the image
-view&#8217;s <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features" target="_blank" rel="noopener">format features</a> <strong class="purple">must</strong>
-contain <code>VK_FORMAT_FEATURE_VIDEO_DECODE_DPB_BIT_KHR</code></p>
+If <code>usage</code> contains <code>VK_IMAGE_USAGE_VIDEO_DECODE_DPB_BIT_KHR</code>,
+then the image view&#8217;s <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features" target="_blank" rel="noopener">format
+features</a> <strong class="purple">must</strong> contain
+<code>VK_FORMAT_FEATURE_VIDEO_DECODE_DPB_BIT_KHR</code></p>
 </li>
 <li>
 <p><a id="VUID-VkImageViewCreateInfo-image-08335" href="#VUID-VkImageViewCreateInfo-image-08335"></a> <span class="vuid">VUID-VkImageViewCreateInfo-image-08335</span><br>
 
-If <code>image</code> was created with
-<code>VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR</code>, then
 <code>usage</code> <strong class="purple">must</strong> not include
 <code>VK_IMAGE_USAGE_VIDEO_DECODE_SRC_BIT_KHR</code></p>
 </li>
 <li>
 <p><a id="VUID-VkImageViewCreateInfo-image-08336" href="#VUID-VkImageViewCreateInfo-image-08336"></a> <span class="vuid">VUID-VkImageViewCreateInfo-image-08336</span><br>
 
-If <code>image</code> was created with
-<code>VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR</code> and <code>usage</code>
-contains <code>VK_IMAGE_USAGE_VIDEO_ENCODE_SRC_BIT_KHR</code>, then the image
-view&#8217;s <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features" target="_blank" rel="noopener">format features</a> <strong class="purple">must</strong>
-contain <code>VK_FORMAT_FEATURE_VIDEO_ENCODE_INPUT_BIT_KHR</code></p>
+If <code>usage</code> contains <code>VK_IMAGE_USAGE_VIDEO_ENCODE_SRC_BIT_KHR</code>,
+then the image view&#8217;s <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features" target="_blank" rel="noopener">format
+features</a> <strong class="purple">must</strong> contain
+<code>VK_FORMAT_FEATURE_VIDEO_ENCODE_INPUT_BIT_KHR</code></p>
 </li>
 <li>
 <p><a id="VUID-VkImageViewCreateInfo-image-08337" href="#VUID-VkImageViewCreateInfo-image-08337"></a> <span class="vuid">VUID-VkImageViewCreateInfo-image-08337</span><br>
 
-If <code>image</code> was created with
-<code>VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR</code> and <code>usage</code>
-contains <code>VK_IMAGE_USAGE_VIDEO_ENCODE_DPB_BIT_KHR</code>, then the image
-view&#8217;s <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features" target="_blank" rel="noopener">format features</a> <strong class="purple">must</strong>
-contain <code>VK_FORMAT_FEATURE_VIDEO_ENCODE_DPB_BIT_KHR</code></p>
+If <code>usage</code> contains <code>VK_IMAGE_USAGE_VIDEO_ENCODE_DPB_BIT_KHR</code>,
+then the image view&#8217;s <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#resources-image-view-format-features" target="_blank" rel="noopener">format
+features</a> <strong class="purple">must</strong> contain
+<code>VK_FORMAT_FEATURE_VIDEO_ENCODE_DPB_BIT_KHR</code></p>
 </li>
 <li>
 <p><a id="VUID-VkImageViewCreateInfo-image-08338" href="#VUID-VkImageViewCreateInfo-image-08338"></a> <span class="vuid">VUID-VkImageViewCreateInfo-image-08338</span><br>
 
-If <code>image</code> was created with
-<code>VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR</code>, then
 <code>usage</code> <strong class="purple">must</strong> not include
 <code>VK_IMAGE_USAGE_VIDEO_ENCODE_DST_BIT_KHR</code></p>
 </li>

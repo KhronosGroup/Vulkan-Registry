@@ -2203,8 +2203,7 @@ is <code>VK_TRUE</code> and they are accessed in:</p>
 <p>32-bit multiples, or</p>
 </li>
 <li>
-<p>16-bit multiples if &lt;features-storagePushConstant16,
-<code>storagePushConstant16</code>&gt;&gt; is <code>VK_TRUE</code>.</p>
+<p>16-bit multiples if <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storagePushConstant16" target="_blank" rel="noopener"><code>storagePushConstant16</code></a> is <code>VK_TRUE</code>.</p>
 </li>
 </ul>
 </div>
@@ -3090,6 +3089,14 @@ decorated variable <strong class="purple">must</strong> be written to for each o
 If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance5" target="_blank" rel="noopener"><code>maintenance5</code></a> feature is enabled
 and a <code>PointSize</code> decorated variable is written to, all execution
 paths <strong class="purple">must</strong> write to a <code>PointSize</code> decorated variable</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-maintenance5-10934" href="#VUID-RuntimeSpirv-maintenance5-10934"></a> <span class="vuid">VUID-RuntimeSpirv-maintenance5-10934</span><br>
+
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance5" target="_blank" rel="noopener"><code>maintenance5</code></a> feature is enabled
+and a <code>PointSize</code> decorated variable is written to for any output
+vertex in the <code>Geometry</code> <code>Execution</code> <code>Model</code>, all execution paths for
+all output vertices <strong class="purple">must</strong> write to a <code>PointSize</code> decorated variable</p>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-ShaderEnqueueAMDX-09191" href="#VUID-RuntimeSpirv-ShaderEnqueueAMDX-09191"></a> <span class="vuid">VUID-RuntimeSpirv-ShaderEnqueueAMDX-09191</span><br>

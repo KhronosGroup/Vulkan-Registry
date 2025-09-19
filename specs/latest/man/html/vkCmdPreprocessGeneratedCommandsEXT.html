@@ -941,7 +941,7 @@ Only stages specified in <a href="https://registry.khronos.org/vulkan/specs/late
 </li>
 <li>
 <p><a id="VUID-vkCmdPreprocessGeneratedCommandsEXT-commandBuffer-cmdpool" href="#VUID-vkCmdPreprocessGeneratedCommandsEXT-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdPreprocessGeneratedCommandsEXT-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support graphics, or compute operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT, or VK_QUEUE_GRAPHICS_BIT operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdPreprocessGeneratedCommandsEXT-renderpass" href="#VUID-vkCmdPreprocessGeneratedCommandsEXT-renderpass"></a> <span class="vuid">VUID-vkCmdPreprocessGeneratedCommandsEXT-renderpass</span><br>
@@ -1006,8 +1006,8 @@ Only stages specified in <a href="https://registry.khronos.org/vulkan/specs/late
 <td class="tableblock halign-left valign-top"><p class="tableblock">Primary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Graphics<br>
-Compute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
+VK_QUEUE_GRAPHICS_BIT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
 </tr>
 </tbody>

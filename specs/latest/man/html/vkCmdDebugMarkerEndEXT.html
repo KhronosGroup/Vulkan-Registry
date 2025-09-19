@@ -890,7 +890,7 @@ enabled</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDebugMarkerEndEXT-commandBuffer-cmdpool" href="#VUID-vkCmdDebugMarkerEndEXT-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdDebugMarkerEndEXT-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support transfer, graphics, compute, decode, encode, or optical flow operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT, VK_QUEUE_GRAPHICS_BIT, VK_QUEUE_OPTICAL_FLOW_BIT_NV, VK_QUEUE_TRANSFER_BIT, VK_QUEUE_VIDEO_DECODE_BIT_KHR, or VK_QUEUE_VIDEO_ENCODE_BIT_KHR operations</p>
 </li>
 </ul>
 </div>
@@ -937,12 +937,12 @@ enabled</p>
 Secondary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Both</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Transfer<br>
-Graphics<br>
-Compute<br>
-Decode<br>
-Encode<br>
-Opticalflow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
+VK_QUEUE_GRAPHICS_BIT<br>
+VK_QUEUE_OPTICAL_FLOW_BIT_NV<br>
+VK_QUEUE_TRANSFER_BIT<br>
+VK_QUEUE_VIDEO_DECODE_BIT_KHR<br>
+VK_QUEUE_VIDEO_ENCODE_BIT_KHR</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
 </tr>
 </tbody>
