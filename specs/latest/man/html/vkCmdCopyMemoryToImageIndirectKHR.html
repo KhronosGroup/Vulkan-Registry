@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>VkPipelineStageFlagBits2(3)</title>
+<title>vkCmdCopyMemoryToImageIndirectKHR(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,10 +796,10 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>VkPipelineStageFlagBits2(3) Manual Page</h1>
+<h1>vkCmdCopyMemoryToImageIndirectKHR(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>VkPipelineStageFlagBits2 - Pipeline stage flags for VkPipelineStageFlags2</p>
+<p>vkCmdCopyMemoryToImageIndirectKHR - Copy data from a memory region to an image object</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -809,538 +809,170 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Bits which <strong class="purple">can</strong> be set in a <a href="VkPipelineStageFlags2.html">VkPipelineStageFlags2</a> mask, specifying
-stages of execution, are:</p>
+<p>To copy data from a memory region to an image object by specifying copy
+parameters in memory, call:</p>
 </div>
-<div id="VkPipelineStageFlagBits2" class="listingblock">
+<div id="vkCmdCopyMemoryToImageIndirectKHR" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_VERSION_1_3
-// Flag bits for VkPipelineStageFlagBits2
-typedef VkFlags64 VkPipelineStageFlagBits2;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_NONE = 0ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TOP_OF_PIPE_BIT = 0x00000001ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_DRAW_INDIRECT_BIT = 0x00000002ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_VERTEX_INPUT_BIT = 0x00000004ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT = 0x00000008ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT = 0x00000010ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT = 0x00000020ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT = 0x00000040ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT = 0x00000080ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_EARLY_FRAGMENT_TESTS_BIT = 0x00000100ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_LATE_FRAGMENT_TESTS_BIT = 0x00000200ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT = 0x00000400ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT = 0x00000800ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT = 0x00001000ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TRANSFER_BIT = 0x00001000ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_BOTTOM_OF_PIPE_BIT = 0x00002000ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_HOST_BIT = 0x00004000ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_ALL_GRAPHICS_BIT = 0x00008000ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT = 0x00010000ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_COPY_BIT = 0x100000000ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_RESOLVE_BIT = 0x200000000ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_BLIT_BIT = 0x400000000ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_CLEAR_BIT = 0x800000000ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_INDEX_INPUT_BIT = 0x1000000000ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_VERTEX_ATTRIBUTE_INPUT_BIT = 0x2000000000ULL;
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_PRE_RASTERIZATION_SHADERS_BIT = 0x4000000000ULL;
-// Provided by VK_KHR_video_decode_queue
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_VIDEO_DECODE_BIT_KHR = 0x04000000ULL;
-// Provided by VK_KHR_video_encode_queue
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_VIDEO_ENCODE_BIT_KHR = 0x08000000ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_NONE_KHR = 0ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TOP_OF_PIPE_BIT_KHR = 0x00000001ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_DRAW_INDIRECT_BIT_KHR = 0x00000002ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_VERTEX_INPUT_BIT_KHR = 0x00000004ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT_KHR = 0x00000008ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT_KHR = 0x00000010ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT_KHR = 0x00000020ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT_KHR = 0x00000040ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT_KHR = 0x00000080ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_EARLY_FRAGMENT_TESTS_BIT_KHR = 0x00000100ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_LATE_FRAGMENT_TESTS_BIT_KHR = 0x00000200ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT_KHR = 0x00000400ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT_KHR = 0x00000800ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT_KHR = 0x00001000ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TRANSFER_BIT_KHR = 0x00001000ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_BOTTOM_OF_PIPE_BIT_KHR = 0x00002000ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_HOST_BIT_KHR = 0x00004000ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_ALL_GRAPHICS_BIT_KHR = 0x00008000ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT_KHR = 0x00010000ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_COPY_BIT_KHR = 0x100000000ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_RESOLVE_BIT_KHR = 0x200000000ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_BLIT_BIT_KHR = 0x400000000ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_CLEAR_BIT_KHR = 0x800000000ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_INDEX_INPUT_BIT_KHR = 0x1000000000ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_VERTEX_ATTRIBUTE_INPUT_BIT_KHR = 0x2000000000ULL;
-// Provided by VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_PRE_RASTERIZATION_SHADERS_BIT_KHR = 0x4000000000ULL;
-// Provided by VK_KHR_synchronization2 with VK_EXT_transform_feedback
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TRANSFORM_FEEDBACK_BIT_EXT = 0x01000000ULL;
-// Provided by VK_KHR_synchronization2 with VK_EXT_conditional_rendering
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_CONDITIONAL_RENDERING_BIT_EXT = 0x00040000ULL;
-// Provided by VK_KHR_synchronization2 with VK_NV_device_generated_commands
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_NV = 0x00020000ULL;
-// Provided by VK_KHR_synchronization2 with VK_EXT_device_generated_commands
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_EXT = 0x00020000ULL;
-// Provided by VK_KHR_fragment_shading_rate with VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR = 0x00400000ULL;
-// Provided by VK_KHR_synchronization2 with VK_NV_shading_rate_image
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_SHADING_RATE_IMAGE_BIT_NV = 0x00400000ULL;
-// Provided by VK_KHR_acceleration_structure with VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR = 0x02000000ULL;
-// Provided by VK_KHR_ray_tracing_pipeline with VK_KHR_synchronization2
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR = 0x00200000ULL;
-// Provided by VK_KHR_synchronization2 with VK_NV_ray_tracing
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_NV = 0x00200000ULL;
-// Provided by VK_KHR_synchronization2 with VK_NV_ray_tracing
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_NV = 0x02000000ULL;
-// Provided by VK_KHR_synchronization2 with VK_EXT_fragment_density_map
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_FRAGMENT_DENSITY_PROCESS_BIT_EXT = 0x00800000ULL;
-// Provided by VK_KHR_synchronization2 with VK_NV_mesh_shader
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_NV = 0x00080000ULL;
-// Provided by VK_KHR_synchronization2 with VK_NV_mesh_shader
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_NV = 0x00100000ULL;
-// Provided by VK_KHR_synchronization2 with VK_EXT_mesh_shader
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT = 0x00080000ULL;
-// Provided by VK_KHR_synchronization2 with VK_EXT_mesh_shader
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT = 0x00100000ULL;
-// Provided by VK_HUAWEI_subpass_shading
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI = 0x8000000000ULL;
-// VK_PIPELINE_STAGE_2_SUBPASS_SHADING_BIT_HUAWEI is a deprecated alias
-// Provided by VK_HUAWEI_subpass_shading
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_SUBPASS_SHADING_BIT_HUAWEI = 0x8000000000ULL;
-// Provided by VK_HUAWEI_invocation_mask
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_INVOCATION_MASK_BIT_HUAWEI = 0x10000000000ULL;
-// Provided by VK_KHR_ray_tracing_maintenance1 with VK_KHR_synchronization2 or VK_VERSION_1_3
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_COPY_BIT_KHR = 0x10000000ULL;
-// Provided by VK_EXT_opacity_micromap
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT = 0x40000000ULL;
-// Provided by VK_HUAWEI_cluster_culling_shader
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI = 0x20000000000ULL;
-// Provided by VK_NV_optical_flow
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_OPTICAL_FLOW_BIT_NV = 0x20000000ULL;
-// Provided by VK_NV_cooperative_vector
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_CONVERT_COOPERATIVE_VECTOR_MATRIX_BIT_NV = 0x100000000000ULL;
-// Provided by VK_ARM_data_graph
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_DATA_GRAPH_BIT_ARM = 0x40000000000ULL;
-// Provided by VK_KHR_copy_memory_indirect
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_COPY_INDIRECT_BIT_KHR = 0x400000000000ULL;</code></pre>
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_KHR_copy_memory_indirect
+void vkCmdCopyMemoryToImageIndirectKHR(
+    VkCommandBuffer                             commandBuffer,
+    const VkCopyMemoryToImageIndirectInfoKHR*   pCopyMemoryToImageIndirectInfo);</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>or the equivalent</p>
 </div>
-<div id="VkPipelineStageFlagBits2KHR" class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_KHR_synchronization2
-typedef VkPipelineStageFlagBits2 VkPipelineStageFlagBits2KHR;</code></pre>
 </div>
+<div class="sect1">
+<h2 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>commandBuffer</code> is the command buffer into which the command will be
+recorded.</p>
+</li>
+<li>
+<p><code>pCopyMemoryToImageIndirectInfo</code> is a pointer to a
+<a href="VkCopyMemoryToImageIndirectInfoKHR.html">VkCopyMemoryToImageIndirectInfoKHR</a> structure which contains the
+copy parameters, including the number of copies to execute and a strided
+array of <a href="VkCopyMemoryToImageIndirectCommandKHR.html">VkCopyMemoryToImageIndirectCommandKHR</a> structures.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_NONE</code> specifies no stages of execution.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_DRAW_INDIRECT_BIT</code> specifies the stage of the
-pipeline where indirect command parameters are consumed.
-This stage also includes reading commands written by
-<a href="vkCmdPreprocessGeneratedCommandsNV.html">vkCmdPreprocessGeneratedCommandsNV</a>.
-This stage also includes reading commands written by
-<a href="vkCmdPreprocessGeneratedCommandsEXT.html">vkCmdPreprocessGeneratedCommandsEXT</a>.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT</code> specifies the task shader
-stage.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT</code> specifies the mesh shader
-stage.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_INDEX_INPUT_BIT</code> specifies the stage of the
-pipeline where index buffers are consumed.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_VERTEX_ATTRIBUTE_INPUT_BIT</code> specifies the stage
-of the pipeline where vertex buffers are consumed.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_VERTEX_INPUT_BIT</code> is equivalent to the logical
-OR of:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_INDEX_INPUT_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_VERTEX_ATTRIBUTE_INPUT_BIT</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT</code> specifies the vertex shader
-stage.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT</code> specifies the
-tessellation control shader stage.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT</code> specifies
-the tessellation evaluation shader stage.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT</code> specifies the geometry
-shader stage.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_PRE_RASTERIZATION_SHADERS_BIT</code> is equivalent to
-specifying all supported
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-pre-rasterization" target="_blank" rel="noopener">pre-rasterization shader
-stages</a>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code> specifies the fragment
-shader stage.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_EARLY_FRAGMENT_TESTS_BIT</code> specifies the stage
-of the pipeline where early fragment tests (depth and stencil tests
-before fragment shading) are performed.
-This stage also includes <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-load-operations" target="_blank" rel="noopener">render pass load
-operations</a> for framebuffer attachments with a depth/stencil format.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_LATE_FRAGMENT_TESTS_BIT</code> specifies the stage of
-the pipeline where late fragment tests (depth and stencil tests after
-fragment shading) are performed.
-This stage also includes <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-store-operations" target="_blank" rel="noopener">render pass
-store operations</a> for framebuffer attachments with a depth/stencil
-format.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT</code> specifies the
-stage of the pipeline where final color values are output from the
-pipeline.
-This stage includes <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#framebuffer-blending" target="_blank" rel="noopener">blending</a>,
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#framebuffer-logicop" target="_blank" rel="noopener">logic operations</a>, render pass
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-load-operations" target="_blank" rel="noopener">load</a> and <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-store-operations" target="_blank" rel="noopener">store</a> operations for color attachments,
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#renderpass-resolve-operations" target="_blank" rel="noopener">render pass multisample resolve
-operations</a>, and <a href="vkCmdClearAttachments.html">vkCmdClearAttachments</a>.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code> specifies the compute
-shader stage.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_HOST_BIT</code> specifies a pseudo-stage indicating
-execution on the host of reads/writes of device memory.
-This stage is not invoked by any commands recorded in a command buffer.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_COPY_BIT</code> specifies the execution of all
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#copies" target="_blank" rel="noopener">copy commands</a>, including <a href="vkCmdCopyQueryPoolResults.html">vkCmdCopyQueryPoolResults</a>.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_BLIT_BIT</code> specifies the execution of
-<a href="vkCmdBlitImage.html">vkCmdBlitImage</a>.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_RESOLVE_BIT</code> specifies the execution of
-<a href="vkCmdResolveImage.html">vkCmdResolveImage</a>.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_CLEAR_BIT</code> specifies the execution of
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#clears" target="_blank" rel="noopener">clear commands</a>, with the exception of
-<a href="vkCmdClearAttachments.html">vkCmdClearAttachments</a>.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT</code> is equivalent to specifying
-all of:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_COPY_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_BLIT_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_RESOLVE_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_CLEAR_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_COPY_BIT_KHR</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR</code> specifies the
-execution of the ray tracing shader stages.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR</code> specifies
-the execution of <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#acceleration-structure" target="_blank" rel="noopener">acceleration structure
-commands</a> or <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#acceleration-structure-copying" target="_blank" rel="noopener">acceleration structure
-copy commands</a>.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_COPY_BIT_KHR</code> specifies
-the execution of <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#acceleration-structure-copying" target="_blank" rel="noopener">acceleration
-structure copy commands</a>.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_ALL_GRAPHICS_BIT</code> specifies the execution of
-all graphics pipeline stages, and is equivalent to the logical OR of:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_DRAW_INDIRECT_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_COPY_INDIRECT_BIT_KHR</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_VERTEX_INPUT_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_EARLY_FRAGMENT_TESTS_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_LATE_FRAGMENT_TESTS_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_CONDITIONAL_RENDERING_BIT_EXT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_TRANSFORM_FEEDBACK_BIT_EXT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_FRAGMENT_DENSITY_PROCESS_BIT_EXT</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_INVOCATION_MASK_BIT_HUAWEI</code></p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT</code> specifies all operations
-performed by all commands supported on the queue it is used with.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_CONDITIONAL_RENDERING_BIT_EXT</code> specifies the
-stage of the pipeline where the predicate of conditional rendering is
-consumed.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_TRANSFORM_FEEDBACK_BIT_EXT</code> specifies the stage
-of the pipeline where vertex attribute output values are written to the
-transform feedback buffers.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_NV</code> specifies the stage
-of the pipeline where device-side generation of commands via
-<a href="vkCmdPreprocessGeneratedCommandsNV.html">vkCmdPreprocessGeneratedCommandsNV</a> is handled.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_EXT</code> specifies the stage
-of the pipeline where device-side generation of commands via
-<a href="vkCmdPreprocessGeneratedCommandsEXT.html">vkCmdPreprocessGeneratedCommandsEXT</a> is handled.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</code>
-    specifies the stage of the pipeline where the
-    <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#primsrast-fragment-shading-rate-attachment" target="_blank" rel="noopener">fragment shading rate
-    attachment</a>
-or
-    <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#primsrast-shading-rate-image" target="_blank" rel="noopener">shading rate image</a>
-    is read to determine the fragment shading rate for portions of a
-    rasterized primitive.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_FRAGMENT_DENSITY_PROCESS_BIT_EXT</code> specifies the
-stage of the pipeline where the fragment density map is read to
-<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fragmentdensitymapops" target="_blank" rel="noopener">generate the fragment areas</a>.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_INVOCATION_MASK_BIT_HUAWEI</code> specifies the stage
-of the pipeline where the invocation mask image is read by the
-implementation to optimize the ray dispatch.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_VIDEO_DECODE_BIT_KHR</code> specifies the execution
-of <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-decode-operations" target="_blank" rel="noopener">video decode operations</a>.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_VIDEO_ENCODE_BIT_KHR</code> specifies the execution
-of <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-encode-operations" target="_blank" rel="noopener">video encode operations</a>.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_OPTICAL_FLOW_BIT_NV</code> specifies the stage of the
-pipeline where <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#opticalflow-operations" target="_blank" rel="noopener">optical flow operation</a> are
-performed.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI</code> specifies the
-subpass shading shader stage.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT</code> specifies the execution
-of <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#micromap" target="_blank" rel="noopener">micromap commands</a>.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI</code> specifies
-the cluster culling shader stage.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_CONVERT_COOPERATIVE_VECTOR_MATRIX_BIT_NV</code>
-specifies the execution of <a href="vkCmdConvertCooperativeVectorMatrixNV.html">vkCmdConvertCooperativeVectorMatrixNV</a>.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_COPY_INDIRECT_BIT_KHR</code> specifies the stage of
-the pipeline where indirect copy commands (vkCmdCopyMemoryIndirect* and
-vkCmdCopyMemoryToImageIndirect*) parameters are consumed.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_TOP_OF_PIPE_BIT</code> is equivalent to
-<code>VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT</code> with <a href="VkAccessFlags2.html">VkAccessFlags2</a> set
-to <code>0</code> when specified in the second synchronization scope, but
-equivalent to <code>VK_PIPELINE_STAGE_2_NONE</code> in the first scope.</p>
-</li>
-<li>
-<p><code>VK_PIPELINE_STAGE_2_BOTTOM_OF_PIPE_BIT</code> is equivalent to
-<code>VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT</code> with <a href="VkAccessFlags2.html">VkAccessFlags2</a> set
-to <code>0</code> when specified in the first synchronization scope, but equivalent
-to <code>VK_PIPELINE_STAGE_2_NONE</code> in the second scope.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>The <code>TOP</code> and <code>BOTTOM</code> pipeline stages are deprecated, and
-applications should prefer <code>VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT</code> and
-<code>VK_PIPELINE_STAGE_2_NONE</code>.</p>
+<p>Each region specified in the memory referenced by
+<code>pCopyMemoryToImageIndirectInfo-&gt;copyAddressRange</code> is copied from the
+source region to an image region in the destination image.
+If the destination image is of type <code>VK_IMAGE_TYPE_3D</code>, the starting
+slice and number of slices to copy are specified in
+<code>pImageSubresources-&gt;baseArrayLayer</code> and
+<code>pImageSubresources-&gt;layerCount</code> respectively as <code>imageOffset</code> and
+<code>imageExtent</code> from <a href="VkCopyMemoryToImageIndirectCommandKHR.html">VkCopyMemoryToImageIndirectCommandKHR</a> are only
+available at device execution time.
+The results are undefined if any of the source and destination regions
+overlap in memory.</p>
 </div>
-</td>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Valid Usage</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectKHR-indirectMemoryToImageCopy-10947" href="#VUID-vkCmdCopyMemoryToImageIndirectKHR-indirectMemoryToImageCopy-10947"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectKHR-indirectMemoryToImageCopy-10947</span><br>
+
+The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-indirectMemoryToImageCopy" target="_blank" rel="noopener"><code>indirectMemoryToImageCopy</code></a> feature <strong class="purple">must</strong> be enabled</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-10948" href="#VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-10948"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-10948</span><br>
+
+The <a href="VkCommandPool.html">VkCommandPool</a> that <code>commandBuffer</code> was allocated from
+<strong class="purple">must</strong> support at least one of the queue types specified in
+<a href="VkPhysicalDeviceCopyMemoryIndirectPropertiesKHR.html">VkPhysicalDeviceCopyMemoryIndirectPropertiesKHR</a>::<code>supportedQueues</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-10949" href="#VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-10949"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-10949</span><br>
+
+<code>commandBuffer</code> must not be a protected command buffer</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Valid Usage (Implicit)</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-parameter" href="#VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-parameter"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-parameter</span><br>
+ <code>commandBuffer</code> <strong class="purple">must</strong> be a valid <a href="VkCommandBuffer.html">VkCommandBuffer</a> handle</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectKHR-pCopyMemoryToImageIndirectInfo-parameter" href="#VUID-vkCmdCopyMemoryToImageIndirectKHR-pCopyMemoryToImageIndirectInfo-parameter"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectKHR-pCopyMemoryToImageIndirectInfo-parameter</span><br>
+ <code>pCopyMemoryToImageIndirectInfo</code> <strong class="purple">must</strong> be a valid pointer to a valid <a href="VkCopyMemoryToImageIndirectInfoKHR.html">VkCopyMemoryToImageIndirectInfoKHR</a> structure</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-recording" href="#VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-recording"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-recording</span><br>
+ <code>commandBuffer</code> <strong class="purple">must</strong> be in the <a href="#commandbuffers-lifecycle">recording state</a></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-cmdpool" href="#VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectKHR-commandBuffer-cmdpool</span><br>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT, VK_QUEUE_GRAPHICS_BIT, or VK_QUEUE_TRANSFER_BIT operations</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectKHR-renderpass" href="#VUID-vkCmdCopyMemoryToImageIndirectKHR-renderpass"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectKHR-renderpass</span><br>
+ This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectKHR-videocoding" href="#VUID-vkCmdCopyMemoryToImageIndirectKHR-videocoding"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectKHR-videocoding</span><br>
+ This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Host Synchronization</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Host access to <code>commandBuffer</code> <strong class="purple">must</strong> be externally synchronized</p>
+</li>
+<li>
+<p>Host access to the <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> be externally synchronized</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Command Properties</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><a href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
+<th class="tableblock halign-left valign-top"><a href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
+<th class="tableblock halign-left valign-top"><a href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
+<th class="tableblock halign-left valign-top"><a href="#VkQueueFlagBits">Supported Queue Types</a></th>
+<th class="tableblock halign-left valign-top"><a href="#fundamentals-queueoperation-command-types">Command Type</a></th>
 </tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Primary<br>
+Secondary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
+VK_QUEUE_GRAPHICS_BIT<br>
+VK_QUEUE_TRANSFER_BIT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
+</tr>
+</tbody>
 </table>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The <code>VkPipelineStageFlags2</code> bitmask goes beyond the 31 individual bit
-flags allowable within a C99 enum, which is how
-<a href="VkPipelineStageFlagBits.html">VkPipelineStageFlagBits</a> is defined.
-The first 31 values are common to both, and are interchangeable.</p>
 </div>
-</td>
-</tr>
-</table>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Conditional Rendering</div>
+<div class="paragraph">
+<p>vkCmdCopyMemoryToImageIndirectKHR is not affected by <a href="#drawing-conditional-rendering">conditional rendering</a></p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1348,7 +980,7 @@ The first 31 values are common to both, and are interchangeable.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_KHR_synchronization2.html">VK_KHR_synchronization2</a>, <a href="VK_VERSION_1_3.html">VK_VERSION_1_3</a>, <a href="VkPipelineStageFlags2.html">VkPipelineStageFlags2</a></p>
+<p><a href="VK_KHR_copy_memory_indirect.html">VK_KHR_copy_memory_indirect</a>, <a href="VkCommandBuffer.html">VkCommandBuffer</a>, <a href="VkCopyMemoryToImageIndirectInfoKHR.html">VkCopyMemoryToImageIndirectInfoKHR</a></p>
 </div>
 </div>
 </div>
@@ -1356,7 +988,7 @@ The first 31 values are common to both, and are interchangeable.</p>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPipelineStageFlagBits2" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdCopyMemoryToImageIndirectKHR" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

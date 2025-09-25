@@ -981,7 +981,10 @@ build,
 trace,
     drawing or dispatch command.
     Such access occurs in the <code>VK_PIPELINE_STAGE_2_DRAW_INDIRECT_BIT</code>
-    pipeline stage.</p>
+    pipeline stage.
+    It also specifies read access to command data read from indirect buffers
+    as part of a copy command with access occurring in the
+    <code>VK_PIPELINE_STAGE_2_COPY_INDIRECT_BIT_KHR</code> pipeline stage.</p>
 </li>
 <li>
 <p><code>VK_ACCESS_2_INDEX_READ_BIT</code> specifies read access to an index

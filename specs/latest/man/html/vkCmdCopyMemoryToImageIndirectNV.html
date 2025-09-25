@@ -799,7 +799,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h1>vkCmdCopyMemoryToImageIndirectNV(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>vkCmdCopyMemoryToImageIndirectNV - Copy data from a memory region into an image</p>
+<p>vkCmdCopyMemoryToImageIndirectNV - Copy data from a memory region to an image object</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -810,7 +810,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <div class="sectionbody">
 <div class="paragraph">
 <p>To copy data from a memory region to an image object by specifying copy
-parameters in a buffer, call:</p>
+parameters in memory, call:</p>
 </div>
 <div id="vkCmdCopyMemoryToImageIndirectNV" class="listingblock">
 <div class="content">
@@ -837,13 +837,12 @@ void vkCmdCopyMemoryToImageIndirectNV(
 recorded.</p>
 </li>
 <li>
-<p><code>copyBufferAddress</code> is the buffer address specifying the copy
-parameters.
-This buffer is laid out in memory as an array of
+<p><code>copyBufferAddress</code> is the address specifying the copy parameters
+which are laid out in memory as an array of
 <a href="VkCopyMemoryToImageIndirectCommandNV.html">VkCopyMemoryToImageIndirectCommandNV</a> structures.</p>
 </li>
 <li>
-<p><code>copyCount</code> is the number of copies to execute, and can be zero.</p>
+<p><code>copyCount</code> is the number of copies to execute, and <strong class="purple">can</strong> be zero.</p>
 </li>
 <li>
 <p><code>stride</code> is the byte stride between successive sets of copy
@@ -857,9 +856,9 @@ parameters.</p>
 for the copy.</p>
 </li>
 <li>
-<p><code>pImageSubresources</code> is a pointer to an array of size
-<code>copyCount</code> of <a href="VkImageSubresourceLayers.html">VkImageSubresourceLayers</a> used to specify the
-specific image subresource of the destination image data for that copy.</p>
+<p><code>pImageSubresources</code> is a pointer to an array of <code>copyCount</code>
+<a href="VkImageSubresourceLayers.html">VkImageSubresourceLayers</a> structures, specifying the image
+subresources of the destination image data for the copy operation.</p>
 </li>
 </ul>
 </div>
@@ -874,9 +873,7 @@ region to an image region in the destination image.
 If the destination image is of type <code>VK_IMAGE_TYPE_3D</code>, the starting
 slice and number of slices to copy are specified in
 <code>pImageSubresources-&gt;baseArrayLayer</code> and
-<code>pImageSubresources-&gt;layerCount</code> respectively.
-The copy <strong class="purple">must</strong> be performed on a queue that supports indirect copy
-operations, see <a href="VkPhysicalDeviceCopyMemoryIndirectPropertiesNV.html">VkPhysicalDeviceCopyMemoryIndirectPropertiesNV</a>.</p>
+<code>pImageSubresources-&gt;layerCount</code> respectively.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -889,6 +886,28 @@ operations, see <a href="VkPhysicalDeviceCopyMemoryIndirectPropertiesNV.html">Vk
 The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-indirectCopy" target="_blank" rel="noopener"><code>indirectCopy</code></a> feature <strong class="purple">must</strong> be
 enabled</p>
 </li>
+<li>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-offset-07676" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-offset-07676"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-offset-07676</span><br>
+
+<code>copyBufferAddress</code> <strong class="purple">must</strong> be 4 byte aligned</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-stride-07677" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-stride-07677"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-stride-07677</span><br>
+
+<code>stride</code> <strong class="purple">must</strong> be a multiple of <code>4</code> and <strong class="purple">must</strong> be greater than or
+equal to sizeof(<a href="VkCopyMemoryToImageIndirectCommandNV.html">VkCopyMemoryToImageIndirectCommandNV</a>)</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-commandBuffer-10956" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-commandBuffer-10956"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-commandBuffer-10956</span><br>
+
+The <a href="VkCommandPool.html">VkCommandPool</a> that <code>commandBuffer</code> was allocated from
+<strong class="purple">must</strong> support at least one of the queue types specified in
+<a href="VkPhysicalDeviceCopyMemoryIndirectPropertiesKHR.html">VkPhysicalDeviceCopyMemoryIndirectPropertiesKHR</a>::<code>supportedQueues</code></p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-07661" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-07661"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-07661</span><br>
 
@@ -946,25 +965,19 @@ or <code>VK_IMAGE_LAYOUT_GENERAL</code></p>
 <li>
 <p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-mipLevel-07670" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-mipLevel-07670"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-mipLevel-07670</span><br>
 
-The specified <code>mipLevel</code> of each region <strong class="purple">must</strong> be less than the
-<code>mipLevels</code> specified in <a href="VkImageCreateInfo.html">VkImageCreateInfo</a> when <code>dstImage</code>
-was created</p>
+The specified <code>mipLevel</code> of each region in <code>pImageSubresources</code>
+<strong class="purple">must</strong> be less than the <code>mipLevels</code> specified in
+<a href="VkImageCreateInfo.html">VkImageCreateInfo</a> when <code>dstImage</code> was created</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-layerCount-08764" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-layerCount-08764"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-layerCount-08764</span><br>
 
-If <code>layerCount</code> is not <code>VK_REMAINING_ARRAY_LAYERS</code>, the
-specified <code>baseArrayLayer</code> +  <code>layerCount</code> of each region
-<strong class="purple">must</strong> be less than or equal to the <code>arrayLayers</code> specified in
-<a href="VkImageCreateInfo.html">VkImageCreateInfo</a> when <code>dstImage</code> was created</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-imageOffset-07672" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-imageOffset-07672"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-imageOffset-07672</span><br>
-
-The <code>imageOffset</code> and <code>imageExtent</code> members of each region <strong class="purple">must</strong>
-respect the image transfer granularity requirements of
-<code>commandBuffer</code>&#8217;s command pool&#8217;s queue family, as described in
-<a href="VkQueueFamilyProperties.html">VkQueueFamilyProperties</a></p>
+If the specified <code>layerCount</code> of each region in
+<code>pImageSubresources</code> is not <code>VK_REMAINING_ARRAY_LAYERS</code>, the
+specified <code>baseArrayLayer</code> +  <code>layerCount</code> of each region in
+<code>pImageSubresources</code> <strong class="purple">must</strong> be less than or equal to the
+<code>arrayLayers</code> specified in <a href="VkImageCreateInfo.html">VkImageCreateInfo</a> when
+<code>dstImage</code> was created</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-07673" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-07673"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-07673</span><br>
@@ -982,23 +995,17 @@ member of <code>pImageSubresources</code> <strong class="purple">must</strong> n
 <code>VK_IMAGE_ASPECT_DEPTH_BIT</code> or <code>VK_IMAGE_ASPECT_STENCIL_BIT</code></p>
 </li>
 <li>
-<p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-imageOffset-07675" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-imageOffset-07675"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-imageOffset-07675</span><br>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-10974" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-10974"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-dstImage-10974</span><br>
 
-For each region in <code>copyBufferAddress</code>, <code>imageOffset.y</code> and
-<span class="eq">(<code>imageExtent.height</code> +  <code>imageOffset.y</code>)</span> <strong class="purple">must</strong> both
-be greater than or equal to <code>0</code> and less than or equal to the height of
-the specified subresource</p>
+The format features of <code>dstImage</code> <strong class="purple">must</strong> contain
+<code>VK_FORMAT_FEATURE_TRANSFER_DST_BIT</code></p>
 </li>
 <li>
-<p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-offset-07676" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-offset-07676"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-offset-07676</span><br>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-copyBufferAddress-10975" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-copyBufferAddress-10975"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-copyBufferAddress-10975</span><br>
 
-<code>offset</code> <strong class="purple">must</strong> be 4 byte aligned</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-stride-07677" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-stride-07677"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-stride-07677</span><br>
-
-<code>stride</code> <strong class="purple">must</strong> be a multiple of <code>4</code> and <strong class="purple">must</strong> be greater than or
-equal to sizeof(<code>VkCopyMemoryToImageIndirectCommandNV</code>)</p>
+Any of the source or destination memory regions specified in
+<code>copyBufferAddress</code> <strong class="purple">must</strong> not overlap with any of the specified
+destination memory regions</p>
 </li>
 </ul>
 </div>

@@ -10,6 +10,7 @@
     <li> <a href="specs/latest/man/html/VK_KHR_compute_shader_derivatives.html"> VK_KHR_compute_shader_derivatives </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_cooperative_matrix.html"> VK_KHR_cooperative_matrix </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_copy_commands2.html"> VK_KHR_copy_commands2 </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_copy_memory_indirect.html"> VK_KHR_copy_memory_indirect </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_create_renderpass2.html"> VK_KHR_create_renderpass2 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_dedicated_allocation.html"> VK_KHR_dedicated_allocation </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_deferred_host_operations.html"> VK_KHR_deferred_host_operations </a> </li>
