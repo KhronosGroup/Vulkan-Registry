@@ -1128,6 +1128,14 @@ command and the bound <a href="VkPipeline.html">VkPipeline</a> was not created w
 <code>VK_PIPELINE_CREATE_DESCRIPTOR_BUFFER_BIT_EXT</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDispatch-imageLayout-00344" href="#VUID-vkCmdDispatch-imageLayout-00344"></a> <span class="vuid">VUID-vkCmdDispatch-imageLayout-00344</span><br>
+
+If an image descriptor is accessed by a shader, the <a href="VkImageLayout.html">VkImageLayout</a>
+<strong class="purple">must</strong> match the subresource accessible from the <a href="VkImageView.html">VkImageView</a> as
+defined by the <a href="#resources-image-layouts-matching-rule">image layout
+matching rules</a></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDispatch-None-08115" href="#VUID-vkCmdDispatch-None-08115"></a> <span class="vuid">VUID-vkCmdDispatch-None-08115</span><br>
 
 If the descriptors used by the <a href="VkPipeline.html">VkPipeline</a> bound to the pipeline
@@ -1626,7 +1634,7 @@ buffer</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDispatch-commandBuffer-cmdpool" href="#VUID-vkCmdDispatch-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdDispatch-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support <code>VK_QUEUE_COMPUTE_BIT</code> operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDispatch-videocoding" href="#VUID-vkCmdDispatch-videocoding"></a> <span class="vuid">VUID-vkCmdDispatch-videocoding</span><br>

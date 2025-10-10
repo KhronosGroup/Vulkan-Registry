@@ -819,12 +819,10 @@ void vkCmdPipelineBarrier2(
     const VkDependencyInfo*                     pDependencyInfo);</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>or the equivalent command</p>
-</div>
 <div id="vkCmdPipelineBarrier2KHR" class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_KHR_synchronization2
+// Equivalent to vkCmdPipelineBarrier2
 void vkCmdPipelineBarrier2KHR(
     VkCommandBuffer                             commandBuffer,
     const VkDependencyInfo*                     pDependencyInfo);</code></pre>
@@ -1113,7 +1111,7 @@ equal</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdPipelineBarrier2-commandBuffer-cmdpool" href="#VUID-vkCmdPipelineBarrier2-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdPipelineBarrier2-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_COMPUTE_BIT, VK_QUEUE_GRAPHICS_BIT, VK_QUEUE_TRANSFER_BIT, VK_QUEUE_VIDEO_DECODE_BIT_KHR, or VK_QUEUE_VIDEO_ENCODE_BIT_KHR operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support <code>VK_QUEUE_COMPUTE_BIT</code>, <code>VK_QUEUE_GRAPHICS_BIT</code>, <code>VK_QUEUE_TRANSFER_BIT</code>, <code>VK_QUEUE_VIDEO_DECODE_BIT_KHR</code>, or <code>VK_QUEUE_VIDEO_ENCODE_BIT_KHR</code> operations</p>
 </li>
 </ul>
 </div>

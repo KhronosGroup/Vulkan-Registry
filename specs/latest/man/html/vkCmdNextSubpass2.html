@@ -833,12 +833,10 @@ void vkCmdNextSubpass2(
     const VkSubpassEndInfo*                     pSubpassEndInfo);</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>or the equivalent command</p>
-</div>
 <div id="vkCmdNextSubpass2KHR" class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_KHR_create_renderpass2
+// Equivalent to vkCmdNextSubpass2
 void vkCmdNextSubpass2KHR(
     VkCommandBuffer                             commandBuffer,
     const VkSubpassBeginInfo*                   pSubpassBeginInfo,
@@ -920,7 +918,7 @@ This command <strong class="purple">must</strong> not be recorded when transform
 </li>
 <li>
 <p><a id="VUID-vkCmdNextSubpass2-commandBuffer-cmdpool" href="#VUID-vkCmdNextSubpass2-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdNextSubpass2-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_GRAPHICS_BIT operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support <code>VK_QUEUE_GRAPHICS_BIT</code> operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdNextSubpass2-renderpass" href="#VUID-vkCmdNextSubpass2-renderpass"></a> <span class="vuid">VUID-vkCmdNextSubpass2-renderpass</span><br>

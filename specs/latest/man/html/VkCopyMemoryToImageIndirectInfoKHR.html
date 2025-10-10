@@ -887,27 +887,19 @@ source memory regions accessed <strong class="purple">must</strong> be fully-res
 <p><a id="VUID-VkCopyMemoryToImageIndirectInfoKHR-copyCount-10951" href="#VUID-VkCopyMemoryToImageIndirectInfoKHR-copyCount-10951"></a> <span class="vuid">VUID-VkCopyMemoryToImageIndirectInfoKHR-copyCount-10951</span><br>
 
 <code>copyCount</code> <strong class="purple">must</strong> be less than or equal to
-<span class="eq"><code>copyAddressRange.pname</code>:size /
-<code>copyAddressRange.pname</code>:stride</span></p>
+<span class="eq"><code>copyAddressRange.size</code> / <code>copyAddressRange.stride</code></span></p>
 </li>
 <li>
 <p><a id="VUID-VkCopyMemoryToImageIndirectInfoKHR-copyAddressRange-10952" href="#VUID-VkCopyMemoryToImageIndirectInfoKHR-copyAddressRange-10952"></a> <span class="vuid">VUID-VkCopyMemoryToImageIndirectInfoKHR-copyAddressRange-10952</span><br>
 
-<code>copyAddressRange.pname</code>:address <strong class="purple">must</strong> be 4 byte aligned</p>
+<code>copyAddressRange.address</code> <strong class="purple">must</strong> be 4 byte aligned</p>
 </li>
 <li>
 <p><a id="VUID-VkCopyMemoryToImageIndirectInfoKHR-copyAddressRange-10953" href="#VUID-VkCopyMemoryToImageIndirectInfoKHR-copyAddressRange-10953"></a> <span class="vuid">VUID-VkCopyMemoryToImageIndirectInfoKHR-copyAddressRange-10953</span><br>
 
-<code>copyAddressRange.pname</code>:stride <strong class="purple">must</strong> be a multiple of <code>4</code> and <strong class="purple">must</strong>
-be greater than or equal to
+<code>copyAddressRange.stride</code> <strong class="purple">must</strong> be a multiple of <code>4</code> and <strong class="purple">must</strong> be
+greater than or equal to
 sizeof(<a href="VkCopyMemoryToImageIndirectCommandKHR.html">VkCopyMemoryToImageIndirectCommandKHR</a>)</p>
-</li>
-<li>
-<p><a id="VUID-VkCopyMemoryToImageIndirectInfoKHR-copyAddressRange-10954" href="#VUID-VkCopyMemoryToImageIndirectInfoKHR-copyAddressRange-10954"></a> <span class="vuid">VUID-VkCopyMemoryToImageIndirectInfoKHR-copyAddressRange-10954</span><br>
-
-Any of the source or destination memory regions specified in
-<code>copyAddressRange</code> <strong class="purple">must</strong> not overlap with any of the specified
-destination memory regions</p>
 </li>
 <li>
 <p><a id="VUID-VkCopyMemoryToImageIndirectInfoKHR-dstImage-10955" href="#VUID-VkCopyMemoryToImageIndirectInfoKHR-dstImage-10955"></a> <span class="vuid">VUID-VkCopyMemoryToImageIndirectInfoKHR-dstImage-10955</span><br>
@@ -933,8 +925,8 @@ The <code>aspectMask</code> member for every subresource in
 <li>
 <p><a id="VUID-VkCopyMemoryToImageIndirectInfoKHR-dstImage-07663" href="#VUID-VkCopyMemoryToImageIndirectInfoKHR-dstImage-07663"></a> <span class="vuid">VUID-VkCopyMemoryToImageIndirectInfoKHR-dstImage-07663</span><br>
 
-The image region specified by each element in <code>copyBufferAddress</code>
-<strong class="purple">must</strong> be a region that is contained within <code>dstImage</code></p>
+The image region specified by each element in <code>copyAddressRange</code> <strong class="purple">must</strong> be
+a region that is contained within <code>dstImage</code></p>
 </li>
 <li>
 <p><a id="VUID-VkCopyMemoryToImageIndirectInfoKHR-dstImage-07664" href="#VUID-VkCopyMemoryToImageIndirectInfoKHR-dstImage-07664"></a> <span class="vuid">VUID-VkCopyMemoryToImageIndirectInfoKHR-dstImage-07664</span><br>
@@ -1012,10 +1004,10 @@ The format features of <code>dstImage</code> <strong class="purple">must</strong
 <code>VK_FORMAT_FEATURE_TRANSFER_DST_BIT</code></p>
 </li>
 <li>
-<p><a id="VUID-VkCopyMemoryToImageIndirectInfoKHR-copyBufferAddress-10975" href="#VUID-VkCopyMemoryToImageIndirectInfoKHR-copyBufferAddress-10975"></a> <span class="vuid">VUID-VkCopyMemoryToImageIndirectInfoKHR-copyBufferAddress-10975</span><br>
+<p><a id="VUID-VkCopyMemoryToImageIndirectInfoKHR-copyAddressRange-10975" href="#VUID-VkCopyMemoryToImageIndirectInfoKHR-copyAddressRange-10975"></a> <span class="vuid">VUID-VkCopyMemoryToImageIndirectInfoKHR-copyAddressRange-10975</span><br>
 
 Any of the source or destination memory regions specified in
-<code>copyBufferAddress</code> <strong class="purple">must</strong> not overlap with any of the specified
+<code>copyAddressRange</code> <strong class="purple">must</strong> not overlap with any of the specified
 destination memory regions</p>
 </li>
 </ul>

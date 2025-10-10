@@ -825,12 +825,10 @@ void vkCmdDrawIndirectCount(
     uint32_t                                    stride);</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>or the equivalent command</p>
-</div>
 <div id="vkCmdDrawIndirectCountKHR" class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_KHR_draw_indirect_count
+// Equivalent to vkCmdDrawIndirectCount
 void vkCmdDrawIndirectCountKHR(
     VkCommandBuffer                             commandBuffer,
     VkBuffer                                    buffer,
@@ -841,12 +839,10 @@ void vkCmdDrawIndirectCountKHR(
     uint32_t                                    stride);</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>or the equivalent command</p>
-</div>
 <div id="vkCmdDrawIndirectCountAMD" class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_AMD_draw_indirect_count
+// Equivalent to vkCmdDrawIndirectCount
 void vkCmdDrawIndirectCountAMD(
     VkCommandBuffer                             commandBuffer,
     VkBuffer                                    buffer,
@@ -1176,6 +1172,14 @@ by
 the <a href="VkPipeline.html">VkPipeline</a> bound to the pipeline bind point used by this
 command and the bound <a href="VkPipeline.html">VkPipeline</a> was not created with
 <code>VK_PIPELINE_CREATE_DESCRIPTOR_BUFFER_BIT_EXT</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawIndirectCount-imageLayout-00344" href="#VUID-vkCmdDrawIndirectCount-imageLayout-00344"></a> <span class="vuid">VUID-vkCmdDrawIndirectCount-imageLayout-00344</span><br>
+
+If an image descriptor is accessed by a shader, the <a href="VkImageLayout.html">VkImageLayout</a>
+<strong class="purple">must</strong> match the subresource accessible from the <a href="VkImageView.html">VkImageView</a> as
+defined by the <a href="#resources-image-layouts-matching-rule">image layout
+matching rules</a></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawIndirectCount-None-08115" href="#VUID-vkCmdDrawIndirectCount-None-08115"></a> <span class="vuid">VUID-vkCmdDrawIndirectCount-None-08115</span><br>
@@ -3323,8 +3327,7 @@ command buffer prior to this drawing command</p>
 <p><a id="VUID-vkCmdDrawIndirectCount-None-07642" href="#VUID-vkCmdDrawIndirectCount-None-07642"></a> <span class="vuid">VUID-vkCmdDrawIndirectCount-None-07642</span><br>
 
 If the <code><a href="VK_NV_fragment_coverage_to_color.html">VK_NV_fragment_coverage_to_color</a></code> extension is enabled,
-a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code> stage
-or
+a shader object is bound to any graphics stage or
 a graphics pipeline is bound which was created with the
 <code>VK_DYNAMIC_STATE_COVERAGE_TO_COLOR_ENABLE_NV</code> dynamic state
 enabled, and the <a href="#dynamic-state-current-value">current value</a> of
@@ -3337,8 +3340,7 @@ command buffer prior to this drawing command</p>
 <p><a id="VUID-vkCmdDrawIndirectCount-None-07643" href="#VUID-vkCmdDrawIndirectCount-None-07643"></a> <span class="vuid">VUID-vkCmdDrawIndirectCount-None-07643</span><br>
 
 If the <code><a href="VK_NV_fragment_coverage_to_color.html">VK_NV_fragment_coverage_to_color</a></code> extension is enabled,
-a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code> stage
-or
+a shader object is bound to any graphics stage or
 a graphics pipeline is bound which was created with the
 <code>VK_DYNAMIC_STATE_COVERAGE_TO_COLOR_LOCATION_NV</code> dynamic state
 enabled, the <a href="#dynamic-state-current-value">current value</a> of
@@ -3411,8 +3413,7 @@ command buffer prior to this drawing command</p>
 <p><a id="VUID-vkCmdDrawIndirectCount-pipelineFragmentShadingRate-09238" href="#VUID-vkCmdDrawIndirectCount-pipelineFragmentShadingRate-09238"></a> <span class="vuid">VUID-vkCmdDrawIndirectCount-pipelineFragmentShadingRate-09238</span><br>
 
 If the <a href="#features-pipelineFragmentShadingRate"><code>pipelineFragmentShadingRate</code></a> feature is enabled,
-a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code> stage
-or
+a shader object is bound to any graphics stage or
 a graphics pipeline is bound which was created with the
 <code>VK_DYNAMIC_STATE_FRAGMENT_SHADING_RATE_KHR</code> dynamic state enabled,
 and the <a href="#dynamic-state-current-value">current value</a> of
@@ -4572,7 +4573,7 @@ to the size of <code>buffer</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawIndirectCount-commandBuffer-cmdpool" href="#VUID-vkCmdDrawIndirectCount-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdDrawIndirectCount-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_GRAPHICS_BIT operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support <code>VK_QUEUE_GRAPHICS_BIT</code> operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawIndirectCount-renderpass" href="#VUID-vkCmdDrawIndirectCount-renderpass"></a> <span class="vuid">VUID-vkCmdDrawIndirectCount-renderpass</span><br>

@@ -1128,6 +1128,14 @@ command and the bound <a href="VkPipeline.html">VkPipeline</a> was not created w
 <code>VK_PIPELINE_CREATE_DESCRIPTOR_BUFFER_BIT_EXT</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDrawMeshTasksEXT-imageLayout-00344" href="#VUID-vkCmdDrawMeshTasksEXT-imageLayout-00344"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-imageLayout-00344</span><br>
+
+If an image descriptor is accessed by a shader, the <a href="VkImageLayout.html">VkImageLayout</a>
+<strong class="purple">must</strong> match the subresource accessible from the <a href="VkImageView.html">VkImageView</a> as
+defined by the <a href="#resources-image-layouts-matching-rule">image layout
+matching rules</a></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-None-08115" href="#VUID-vkCmdDrawMeshTasksEXT-None-08115"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-None-08115</span><br>
 
 If the descriptors used by the <a href="VkPipeline.html">VkPipeline</a> bound to the pipeline
@@ -3273,8 +3281,7 @@ command buffer prior to this drawing command</p>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-None-07642" href="#VUID-vkCmdDrawMeshTasksEXT-None-07642"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-None-07642</span><br>
 
 If the <code><a href="VK_NV_fragment_coverage_to_color.html">VK_NV_fragment_coverage_to_color</a></code> extension is enabled,
-a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code> stage
-or
+a shader object is bound to any graphics stage or
 a graphics pipeline is bound which was created with the
 <code>VK_DYNAMIC_STATE_COVERAGE_TO_COLOR_ENABLE_NV</code> dynamic state
 enabled, and the <a href="#dynamic-state-current-value">current value</a> of
@@ -3287,8 +3294,7 @@ command buffer prior to this drawing command</p>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-None-07643" href="#VUID-vkCmdDrawMeshTasksEXT-None-07643"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-None-07643</span><br>
 
 If the <code><a href="VK_NV_fragment_coverage_to_color.html">VK_NV_fragment_coverage_to_color</a></code> extension is enabled,
-a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code> stage
-or
+a shader object is bound to any graphics stage or
 a graphics pipeline is bound which was created with the
 <code>VK_DYNAMIC_STATE_COVERAGE_TO_COLOR_LOCATION_NV</code> dynamic state
 enabled, the <a href="#dynamic-state-current-value">current value</a> of
@@ -3361,8 +3367,7 @@ command buffer prior to this drawing command</p>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-pipelineFragmentShadingRate-09238" href="#VUID-vkCmdDrawMeshTasksEXT-pipelineFragmentShadingRate-09238"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-pipelineFragmentShadingRate-09238</span><br>
 
 If the <a href="#features-pipelineFragmentShadingRate"><code>pipelineFragmentShadingRate</code></a> feature is enabled,
-a shader object is bound to the <code>VK_SHADER_STAGE_FRAGMENT_BIT</code> stage
-or
+a shader object is bound to any graphics stage or
 a graphics pipeline is bound which was created with the
 <code>VK_DYNAMIC_STATE_FRAGMENT_SHADING_RATE_KHR</code> dynamic state enabled,
 and the <a href="#dynamic-state-current-value">current value</a> of
@@ -4289,7 +4294,7 @@ The current pipeline bound to <code>VK_PIPELINE_BIND_POINT_GRAPHICS</code>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-commandBuffer-cmdpool" href="#VUID-vkCmdDrawMeshTasksEXT-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_GRAPHICS_BIT operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support <code>VK_QUEUE_GRAPHICS_BIT</code> operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-renderpass" href="#VUID-vkCmdDrawMeshTasksEXT-renderpass"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-renderpass</span><br>

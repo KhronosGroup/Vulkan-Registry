@@ -894,20 +894,19 @@ destination memory regions accessed <strong class="purple">must</strong> be full
 <li>
 <p><a id="VUID-VkCopyMemoryIndirectInfoKHR-copyAddressRange-10942" href="#VUID-VkCopyMemoryIndirectInfoKHR-copyAddressRange-10942"></a> <span class="vuid">VUID-VkCopyMemoryIndirectInfoKHR-copyAddressRange-10942</span><br>
 
-<code>copyAddressRange.pname</code>:address <strong class="purple">must</strong> be 4 byte aligned</p>
+<code>copyAddressRange.address</code> <strong class="purple">must</strong> be 4 byte aligned</p>
 </li>
 <li>
 <p><a id="VUID-VkCopyMemoryIndirectInfoKHR-copyAddressRange-10943" href="#VUID-VkCopyMemoryIndirectInfoKHR-copyAddressRange-10943"></a> <span class="vuid">VUID-VkCopyMemoryIndirectInfoKHR-copyAddressRange-10943</span><br>
 
-<code>copyAddressRange.pname</code>:stride <strong class="purple">must</strong> be a multiple of <code>4</code> and <strong class="purple">must</strong>
-be greater than or equal to sizeof(<a href="VkCopyMemoryIndirectCommandKHR.html">VkCopyMemoryIndirectCommandKHR</a>)</p>
+<code>copyAddressRange.stride</code> <strong class="purple">must</strong> be a multiple of <code>4</code> and <strong class="purple">must</strong> be
+greater than or equal to sizeof(<a href="VkCopyMemoryIndirectCommandKHR.html">VkCopyMemoryIndirectCommandKHR</a>)</p>
 </li>
 <li>
 <p><a id="VUID-VkCopyMemoryIndirectInfoKHR-copyCount-10944" href="#VUID-VkCopyMemoryIndirectInfoKHR-copyCount-10944"></a> <span class="vuid">VUID-VkCopyMemoryIndirectInfoKHR-copyCount-10944</span><br>
 
 <code>copyCount</code> <strong class="purple">must</strong> be less than or equal to
-<span class="eq"><code>copyAddressRange.pname</code>:size /
-<code>copyAddressRange.pname</code>:stride</span></p>
+<span class="eq"><code>copyAddressRange.size</code> / <code>copyAddressRange.stride</code></span></p>
 </li>
 <li>
 <p><a id="VUID-VkCopyMemoryIndirectInfoKHR-copyAddressRange-10945" href="#VUID-VkCopyMemoryIndirectInfoKHR-copyAddressRange-10945"></a> <span class="vuid">VUID-VkCopyMemoryIndirectInfoKHR-copyAddressRange-10945</span><br>

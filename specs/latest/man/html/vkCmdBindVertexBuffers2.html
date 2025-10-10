@@ -825,12 +825,10 @@ void vkCmdBindVertexBuffers2(
     const VkDeviceSize*                         pStrides);</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>or the equivalent command</p>
-</div>
 <div id="vkCmdBindVertexBuffers2EXT" class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_EXT_extended_dynamic_state, VK_EXT_shader_object
+// Equivalent to vkCmdBindVertexBuffers2
 void vkCmdBindVertexBuffers2EXT(
     VkCommandBuffer                             commandBuffer,
     uint32_t                                    firstBinding,
@@ -1072,7 +1070,7 @@ extent is calculated as the
 </li>
 <li>
 <p><a id="VUID-vkCmdBindVertexBuffers2-commandBuffer-cmdpool" href="#VUID-vkCmdBindVertexBuffers2-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBindVertexBuffers2-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_GRAPHICS_BIT operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support <code>VK_QUEUE_GRAPHICS_BIT</code> operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBindVertexBuffers2-videocoding" href="#VUID-vkCmdBindVertexBuffers2-videocoding"></a> <span class="vuid">VUID-vkCmdBindVertexBuffers2-videocoding</span><br>

@@ -1325,6 +1325,27 @@ operand type that includes a 64-bit float <strong class="purple">must</strong> i
 <code>NotInf</code>, and <code>NotNaN</code> flags</p>
 </li>
 <li>
+<p><a id="VUID-RuntimeSpirv-shaderFmaFloat16-10977" href="#VUID-RuntimeSpirv-shaderFmaFloat16-10977"></a> <span class="vuid">VUID-RuntimeSpirv-shaderFmaFloat16-10977</span><br>
+
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderFmaFloat16" target="_blank" rel="noopener"><code>shaderFmaFloat16</code></a> <strong class="purple">must</strong> be enabled
+for <code>OpFmaKHR</code> to be supported with a result type that includes a
+16-bit float</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-shaderFmaFloat32-10978" href="#VUID-RuntimeSpirv-shaderFmaFloat32-10978"></a> <span class="vuid">VUID-RuntimeSpirv-shaderFmaFloat32-10978</span><br>
+
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderFmaFloat32" target="_blank" rel="noopener"><code>shaderFmaFloat32</code></a> <strong class="purple">must</strong> be enabled
+for <code>OpFmaKHR</code> to be supported with a result type that includes a
+32-bit float</p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-shaderFmaFloat64-10979" href="#VUID-RuntimeSpirv-shaderFmaFloat64-10979"></a> <span class="vuid">VUID-RuntimeSpirv-shaderFmaFloat64-10979</span><br>
+
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderFmaFloat64" target="_blank" rel="noopener"><code>shaderFmaFloat64</code></a> <strong class="purple">must</strong> be enabled
+for <code>OpFmaKHR</code> to be supported with a result type that includes a
+64-bit float</p>
+</li>
+<li>
 <p><a id="VUID-RuntimeSpirv-Offset-06308" href="#VUID-RuntimeSpirv-Offset-06308"></a> <span class="vuid">VUID-RuntimeSpirv-Offset-06308</span><br>
 
 The <code>Offset</code> plus size of the type of each variable, in the output
@@ -2267,7 +2288,7 @@ unless:</p>
 <li>
 <p>members are accessed in 32-bit multiples and
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers" target="_blank" rel="noopener"><code>shaderUntypedPointers</code></a> is
-<code>VK_TRUE</code>.</p>
+<code>VK_TRUE</code></p>
 </li>
 </ul>
 </div>
@@ -2289,7 +2310,7 @@ unless:</p>
 <li>
 <p>elements are accessed in 32-bit multiples if
 <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shaderUntypedPointers" target="_blank" rel="noopener"><code>shaderUntypedPointers</code></a> is
-<code>VK_TRUE</code>.</p>
+<code>VK_TRUE</code></p>
 </li>
 </ul>
 </div>
@@ -2300,7 +2321,13 @@ unless:</p>
 If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-storageInputOutput16" target="_blank" rel="noopener"><code>storageInputOutput16</code></a> is
 <code>VK_FALSE</code>, then objects containing 16-bit integer or 16-bit
 floating-point elements <strong class="purple">must</strong> not have storage class of <strong>Input</strong> or
-<strong>Output</strong>.</p>
+<strong>Output</strong></p>
+</li>
+<li>
+<p><a id="VUID-RuntimeSpirv-None-10980" href="#VUID-RuntimeSpirv-None-10980"></a> <span class="vuid">VUID-RuntimeSpirv-None-10980</span><br>
+
+Objects containing 8-bit integer or 8-bit floating-point elements <strong class="purple">must</strong>
+not have storage class of <strong>Input</strong> or <strong>Output</strong></p>
 </li>
 <li>
 <p><a id="VUID-RuntimeSpirv-workgroupMemoryExplicitLayout16BitAccess-10757" href="#VUID-RuntimeSpirv-workgroupMemoryExplicitLayout16BitAccess-10757"></a> <span class="vuid">VUID-RuntimeSpirv-workgroupMemoryExplicitLayout16BitAccess-10757</span><br>

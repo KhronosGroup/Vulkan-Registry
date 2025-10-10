@@ -91,6 +91,7 @@
     <li> <a href="specs/latest/man/html/VK_KHR_shader_float16_int8.html"> VK_KHR_shader_float16_int8 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_shader_float_controls.html"> VK_KHR_shader_float_controls </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_shader_float_controls2.html"> VK_KHR_shader_float_controls2 </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_shader_fma.html"> VK_KHR_shader_fma </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_shader_integer_dot_product.html"> VK_KHR_shader_integer_dot_product </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_shader_maximal_reconvergence.html"> VK_KHR_shader_maximal_reconvergence </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_shader_non_semantic_info.html"> VK_KHR_shader_non_semantic_info </a> </li>

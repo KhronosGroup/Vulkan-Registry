@@ -822,9 +822,6 @@ typedef struct VkCopyMemoryIndirectCommandKHR {
 } VkCopyMemoryIndirectCommandKHR;</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>or the equivalent</p>
-</div>
 <div id="VkCopyMemoryIndirectCommandNV" class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_NV_copy_memory_indirect
@@ -879,14 +876,14 @@ The <code>size</code> <strong class="purple">must</strong> be 4 byte aligned</p>
 <li>
 <p><a id="VUID-VkCopyMemoryIndirectCommandKHR-srcAddress-10961" href="#VUID-VkCopyMemoryIndirectCommandKHR-srcAddress-10961"></a> <span class="vuid">VUID-VkCopyMemoryIndirectCommandKHR-srcAddress-10961</span><br>
 
-The memory in range <span class="eq">[<code>srcAddress</code>, <code>srcAddress</code><br>
+The memory in range <span class="eq">[<code>srcAddress</code>, <code>srcAddress</code> + 
 <code>size</code> - 1]</span> <strong class="purple">must</strong> be within the bounds of the memory allocation
 backing <code>srcAddress</code></p>
 </li>
 <li>
 <p><a id="VUID-VkCopyMemoryIndirectCommandKHR-dstAddress-10962" href="#VUID-VkCopyMemoryIndirectCommandKHR-dstAddress-10962"></a> <span class="vuid">VUID-VkCopyMemoryIndirectCommandKHR-dstAddress-10962</span><br>
 
-The memory in range <span class="eq">[<code>dstAddress</code>, <code>dstAddress</code><br>
+The memory in range <span class="eq">[<code>dstAddress</code>, <code>dstAddress</code> + 
 <code>size</code> - 1]</span> <strong class="purple">must</strong> be within the bounds of the memory allocation
 backing <code>dstAddress</code></p>
 </li>

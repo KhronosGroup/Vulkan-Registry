@@ -820,12 +820,10 @@ void vkCmdBlitImage2(
     const VkBlitImageInfo2*                     pBlitImageInfo);</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>or the equivalent command</p>
-</div>
 <div id="vkCmdBlitImage2KHR" class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_KHR_copy_commands2
+// Equivalent to vkCmdBlitImage2
 void vkCmdBlitImage2KHR(
     VkCommandBuffer                             commandBuffer,
     const VkBlitImageInfo2*                     pBlitImageInfo);</code></pre>
@@ -907,7 +905,7 @@ If <code>commandBuffer</code> is a protected command buffer and
 </li>
 <li>
 <p><a id="VUID-vkCmdBlitImage2-commandBuffer-cmdpool" href="#VUID-vkCmdBlitImage2-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdBlitImage2-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support VK_QUEUE_GRAPHICS_BIT operations</p>
+ The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support <code>VK_QUEUE_GRAPHICS_BIT</code> operations</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBlitImage2-renderpass" href="#VUID-vkCmdBlitImage2-renderpass"></a> <span class="vuid">VUID-vkCmdBlitImage2-renderpass</span><br>

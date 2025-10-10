@@ -852,9 +852,9 @@ elements over the range.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-VkStridedDeviceAddressRangeKHR-stride-10957" href="#VUID-VkStridedDeviceAddressRangeKHR-stride-10957"></a> <span class="vuid">VUID-VkStridedDeviceAddressRangeKHR-stride-10957</span><br>
+<p><a id="VUID-VkStridedDeviceAddressRangeKHR-size-11411" href="#VUID-VkStridedDeviceAddressRangeKHR-size-11411"></a> <span class="vuid">VUID-VkStridedDeviceAddressRangeKHR-size-11411</span><br>
 
-<code>stride</code> <strong class="purple">must</strong> be less than or equal to <code>size</code></p>
+If <code>size</code> is not 0, <code>address</code> <strong class="purple">must</strong> not be 0</p>
 </li>
 <li>
 <p><a id="VUID-VkStridedDeviceAddressRangeKHR-address-11365" href="#VUID-VkStridedDeviceAddressRangeKHR-address-11365"></a> <span class="vuid">VUID-VkStridedDeviceAddressRangeKHR-address-11365</span><br>
@@ -864,11 +864,9 @@ the sum of an address retrieved from a <a href="VkBuffer.html">VkBuffer</a> and 
 <a href="VkBufferCreateInfo.html">VkBufferCreateInfo</a>::<code>size</code> used to create that <a href="VkBuffer.html">VkBuffer</a></p>
 </li>
 <li>
-<p><a id="VUID-VkStridedDeviceAddressRangeKHR-size-11366" href="#VUID-VkStridedDeviceAddressRangeKHR-size-11366"></a> <span class="vuid">VUID-VkStridedDeviceAddressRangeKHR-size-11366</span><br>
+<p><a id="VUID-VkStridedDeviceAddressRangeKHR-stride-10957" href="#VUID-VkStridedDeviceAddressRangeKHR-stride-10957"></a> <span class="vuid">VUID-VkStridedDeviceAddressRangeKHR-stride-10957</span><br>
 
-If <code>size</code> is not 0 and the buffer from which <code>address</code> was
-queried is non-sparse, then the buffer <strong class="purple">must</strong> be bound completely and
-contiguously to a single <a href="VkDeviceMemory.html">VkDeviceMemory</a> object</p>
+<code>stride</code> <strong class="purple">must</strong> be less than or equal to <code>size</code></p>
 </li>
 </ul>
 </div>
@@ -881,7 +879,7 @@ contiguously to a single <a href="VkDeviceMemory.html">VkDeviceMemory</a> object
 <ul>
 <li>
 <p><a id="VUID-VkStridedDeviceAddressRangeKHR-address-parameter" href="#VUID-VkStridedDeviceAddressRangeKHR-address-parameter"></a> <span class="vuid">VUID-VkStridedDeviceAddressRangeKHR-address-parameter</span><br>
- <code>address</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
+ If <code>address</code> is not <code>0</code>, <code>address</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
 </li>
 </ul>
 </div>
