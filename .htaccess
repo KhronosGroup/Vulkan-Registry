@@ -10,7 +10,8 @@ RewriteBase /vulkan/
 
 # Refpages and style guide / registry schema docs move to the latest Vulkan
 # version at any time
-RewriteRule ^specs/1.0/man/(.*)$                                specs/latest/man/$1 [L,R=301]
-RewriteRule ^specs/1.[123]-extensions/man/(.*)$                 specs/latest/man/$1 [L,R=301]
+RewriteRule ^specs/1.0/man/html/(.*)$                           https://docs.vulkan.org/refpages/latest/refpages/source/$1 [L,R=301]
+RewriteRule ^specs/1.[123]-extensions/man/html/(.*)$            https://docs.vulkan.org/refpages/latest/refpages/source/$1 [L,R=301]
+RewriteRule ^specs/latest/man/html/(.*)$                        https://docs.vulkan.org/refpages/latest/refpages/source/$1 [L,R=301]
 RewriteRule ^specs/1.[0123]/styleguide.html$                    specs/latest/styleguide.html [L,R=301]
 RewriteRule ^specs/1.[0123]/registry.html$                      specs/latest/registry.html [L,R=301]
