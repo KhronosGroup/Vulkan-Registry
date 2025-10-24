@@ -1480,6 +1480,10 @@ If <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_1D</code> or
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdBlitImage-suspended" href="#VUID-vkCmdBlitImage-suspended"></a> <span class="vuid">VUID-vkCmdBlitImage-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdBlitImage-videocoding" href="#VUID-vkCmdBlitImage-videocoding"></a> <span class="vuid">VUID-vkCmdBlitImage-videocoding</span><br>
  This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
 </li>

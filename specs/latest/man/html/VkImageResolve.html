@@ -835,7 +835,9 @@ typedef struct VkImageResolve {
 <a href="VkImageSubresourceLayers.html">VkImageSubresourceLayers</a> structures specifying the image
 subresources of the images used for the source and destination image
 data, respectively.
-Resolve of depth/stencil images is not supported.</p>
+Resolve of depth/stencil images is not supported.
+<a href="VkImageResolve2.html">VkImageResolve2</a> <strong class="purple">can</strong> support resolve of depth/stencil images with
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance10" target="_blank" rel="noopener"><code>maintenance10</code></a> instead.</p>
 </li>
 <li>
 <p><code>srcOffset</code> and <code>dstOffset</code> select the initial <code>x</code>, <code>y</code>,
@@ -859,11 +861,15 @@ destination image data.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-VkImageResolve-aspectMask-00266" href="#VUID-VkImageResolve-aspectMask-00266"></a> <span class="vuid">VUID-VkImageResolve-aspectMask-00266</span><br>
+<p><a id="VUID-VkImageResolve-aspectMask-10981" href="#VUID-VkImageResolve-aspectMask-10981"></a> <span class="vuid">VUID-VkImageResolve-aspectMask-10981</span><br>
 
 The <code>aspectMask</code> member of <code>srcSubresource</code> and
 <code>dstSubresource</code> <strong class="purple">must</strong> only contain <code>VK_IMAGE_ASPECT_COLOR_BIT</code></p>
 </li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><a id="VUID-VkImageResolve-layerCount-08803" href="#VUID-VkImageResolve-layerCount-08803"></a> <span class="vuid">VUID-VkImageResolve-layerCount-08803</span><br>
 

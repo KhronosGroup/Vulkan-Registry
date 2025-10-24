@@ -892,6 +892,8 @@ static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_COMPRESSED_DATA_DGF1_BIT_A
 static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_DATA_GRAPH_FOREIGN_DESCRIPTOR_BIT_ARM = 0x20000000ULL;
 // Provided by VK_QCOM_tile_memory_heap
 static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_TILE_MEMORY_BIT_QCOM = 0x08000000ULL;
+// Provided by VK_EXT_memory_decompression
+static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_MEMORY_DECOMPRESSION_BIT_EXT = 0x100000000ULL;
 // Provided by VK_EXT_device_generated_commands
 static const VkBufferUsageFlagBits2 VK_BUFFER_USAGE_2_PREPROCESS_BUFFER_BIT_EXT = 0x80000000ULL;</code></pre>
 </div>
@@ -1077,6 +1079,10 @@ that the buffer is suitable to contain resource descriptors when bound
 as a descriptor buffer in command buffers allocated from a command pool
 that <strong class="purple">can</strong> target foreign <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#graphs-processing-engines" target="_blank" rel="noopener">data graph
 processing engines</a>.</p>
+</li>
+<li>
+<p><code>VK_BUFFER_USAGE_2_MEMORY_DECOMPRESSION_BIT_EXT</code> specifies that the
+buffer <strong class="purple">can</strong> be used as a destination buffer in <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#memory-decompression" target="_blank" rel="noopener">memory decompression</a>.</p>
 </li>
 </ul>
 </div>

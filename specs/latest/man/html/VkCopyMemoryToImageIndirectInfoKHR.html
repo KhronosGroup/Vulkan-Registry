@@ -881,7 +881,8 @@ subresources of the destination image data for the copy operation.</p>
 <p><a id="VUID-VkCopyMemoryToImageIndirectInfoKHR-srcCopyFlags-10950" href="#VUID-VkCopyMemoryToImageIndirectInfoKHR-srcCopyFlags-10950"></a> <span class="vuid">VUID-VkCopyMemoryToImageIndirectInfoKHR-srcCopyFlags-10950</span><br>
 
 If <code>srcCopyFlags</code> contains <code>VK_ADDRESS_COPY_SPARSE_BIT_KHR</code>, the
-source memory regions accessed <strong class="purple">must</strong> be fully-resident</p>
+source memory regions accessed <strong class="purple">must</strong> be <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#sparsememory" target="_blank" rel="noopener">bound to
+memory</a></p>
 </li>
 <li>
 <p><a id="VUID-VkCopyMemoryToImageIndirectInfoKHR-copyCount-10951" href="#VUID-VkCopyMemoryToImageIndirectInfoKHR-copyCount-10951"></a> <span class="vuid">VUID-VkCopyMemoryToImageIndirectInfoKHR-copyCount-10951</span><br>

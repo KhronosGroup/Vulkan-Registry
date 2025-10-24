@@ -1617,6 +1617,10 @@ the <code>primitiveCount</code> value specified by the
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdBuildAccelerationStructuresIndirectKHR-suspended" href="#VUID-vkCmdBuildAccelerationStructuresIndirectKHR-suspended"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresIndirectKHR-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresIndirectKHR-videocoding" href="#VUID-vkCmdBuildAccelerationStructuresIndirectKHR-videocoding"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresIndirectKHR-videocoding</span><br>
  This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
 </li>

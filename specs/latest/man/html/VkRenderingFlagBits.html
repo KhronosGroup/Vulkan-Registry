@@ -825,6 +825,8 @@ typedef enum VkRenderingFlagBits {
     VK_RENDERING_CONTENTS_INLINE_BIT_KHR = 0x00000010,
   // Provided by VK_VALVE_fragment_density_map_layered
     VK_RENDERING_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE = 0x00000020,
+  // Provided by VK_KHR_maintenance10 with (VK_VERSION_1_4 or VK_KHR_dynamic_rendering_local_read) and (VK_VERSION_1_3 or VK_KHR_dynamic_rendering)
+    VK_RENDERING_LOCAL_READ_CONCURRENT_ACCESS_CONTROL_BIT_KHR = 0x00000100,
   // Provided by VK_KHR_dynamic_rendering
     VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT_KHR = VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT,
   // Provided by VK_KHR_dynamic_rendering
@@ -881,6 +883,14 @@ draw calls to be recorded both inline and in secondary command buffers.</p>
 <li>
 <p><code>VK_RENDERING_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE</code> specifies that
 the render pass <strong class="purple">can</strong> be used with layered fragment density maps.</p>
+</li>
+<li>
+<p><code>VK_RENDERING_LOCAL_READ_CONCURRENT_ACCESS_CONTROL_BIT_KHR</code>
+specifies that
+<code>VK_RENDERING_ATTACHMENT_INPUT_ATTACHMENT_FEEDBACK_BIT_KHR</code> will
+always be specified for any attachment which invokes the behavior
+described by <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#rendering-attachment-input-attachment-feedback" target="_blank" rel="noopener">that
+flag</a>.</p>
 </li>
 </ul>
 </div>

@@ -967,6 +967,10 @@ of queries <span class="eq">[<code>firstQuery</code>, <code>firstQuery</code> +
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdResetQueryPool-suspended" href="#VUID-vkCmdResetQueryPool-suspended"></a> <span class="vuid">VUID-vkCmdResetQueryPool-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdResetQueryPool-videocoding" href="#VUID-vkCmdResetQueryPool-videocoding"></a> <span class="vuid">VUID-vkCmdResetQueryPool-videocoding</span><br>
  This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
 </li>

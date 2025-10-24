@@ -1396,6 +1396,13 @@ If <code>codeType</code> is <code>VK_SHADER_CODE_TYPE_SPIRV_EXT</code>, and a
 array of descriptors, then the descriptor type of that variable <strong class="purple">must</strong>
 not be <code>VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK</code></p>
 </li>
+<li>
+<p><a id="VUID-VkShaderCreateInfoEXT-flags-11758" href="#VUID-VkShaderCreateInfoEXT-flags-11758"></a> <span class="vuid">VUID-VkShaderCreateInfoEXT-flags-11758</span><br>
+
+If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shader64BitIndexing" target="_blank" rel="noopener">shader64BitIndexing</a> feature is not
+enabled, <code>flags</code> <strong class="purple">must</strong> not contain
+<code>VK_SHADER_CREATE_64_BIT_INDEXING_BIT_EXT</code></p>
+</li>
 </ul>
 </div>
 </div>

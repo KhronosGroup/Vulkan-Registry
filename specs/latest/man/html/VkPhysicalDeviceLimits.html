@@ -1005,7 +1005,9 @@ maximum value that <strong class="purple">can</strong> be specified in the <code
 <a href="VkDescriptorBufferInfo.html">VkDescriptorBufferInfo</a> structure passed to
 <a href="vkUpdateDescriptorSets.html">vkUpdateDescriptorSets</a> for descriptors of type
 <code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER</code> or
-<code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC</code>.</p>
+<code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC</code>.
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-shader64BitIndexing" target="_blank" rel="noopener"><code>shader64BitIndexing</code></a>
+feature is enabled, this limit does not apply.</p>
 </li>
 <li>
 <p><a id="limits-maxPushConstantsSize"></a> <code>maxPushConstantsSize</code> is the

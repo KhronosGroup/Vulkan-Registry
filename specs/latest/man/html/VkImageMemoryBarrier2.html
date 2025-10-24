@@ -1528,6 +1528,22 @@ If <code>srcAccessMask</code> includes
 <code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code> or
 <code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code></p>
 </li>
+<li>
+<p><a id="VUID-VkImageMemoryBarrier2-srcAccessMask-11771" href="#VUID-VkImageMemoryBarrier2-srcAccessMask-11771"></a> <span class="vuid">VUID-VkImageMemoryBarrier2-srcAccessMask-11771</span><br>
+
+If <code>srcAccessMask</code> includes
+<code>VK_ACCESS_2_MEMORY_DECOMPRESSION_READ_BIT_EXT</code>,
+<code>srcStageMask</code> <strong class="purple">must</strong> include
+<code>VK_PIPELINE_STAGE_2_MEMORY_DECOMPRESSION_BIT_EXT</code></p>
+</li>
+<li>
+<p><a id="VUID-VkImageMemoryBarrier2-srcAccessMask-11772" href="#VUID-VkImageMemoryBarrier2-srcAccessMask-11772"></a> <span class="vuid">VUID-VkImageMemoryBarrier2-srcAccessMask-11772</span><br>
+
+If <code>srcAccessMask</code> includes
+<code>VK_ACCESS_2_MEMORY_DECOMPRESSION_WRITE_BIT_EXT</code>,
+<code>srcStageMask</code> <strong class="purple">must</strong> include
+<code>VK_PIPELINE_STAGE_2_MEMORY_DECOMPRESSION_BIT_EXT</code></p>
+</li>
 </ul>
 </div>
 <div class="ulist">
@@ -2030,6 +2046,22 @@ If <code>dstAccessMask</code> includes
 <code>dstStageMask</code> <strong class="purple">must</strong> include
 <code>VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT</code> or
 <code>VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-VkImageMemoryBarrier2-dstAccessMask-11771" href="#VUID-VkImageMemoryBarrier2-dstAccessMask-11771"></a> <span class="vuid">VUID-VkImageMemoryBarrier2-dstAccessMask-11771</span><br>
+
+If <code>dstAccessMask</code> includes
+<code>VK_ACCESS_2_MEMORY_DECOMPRESSION_READ_BIT_EXT</code>,
+<code>dstStageMask</code> <strong class="purple">must</strong> include
+<code>VK_PIPELINE_STAGE_2_MEMORY_DECOMPRESSION_BIT_EXT</code></p>
+</li>
+<li>
+<p><a id="VUID-VkImageMemoryBarrier2-dstAccessMask-11772" href="#VUID-VkImageMemoryBarrier2-dstAccessMask-11772"></a> <span class="vuid">VUID-VkImageMemoryBarrier2-dstAccessMask-11772</span><br>
+
+If <code>dstAccessMask</code> includes
+<code>VK_ACCESS_2_MEMORY_DECOMPRESSION_WRITE_BIT_EXT</code>,
+<code>dstStageMask</code> <strong class="purple">must</strong> include
+<code>VK_PIPELINE_STAGE_2_MEMORY_DECOMPRESSION_BIT_EXT</code></p>
 </li>
 </ul>
 </div>

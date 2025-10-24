@@ -849,8 +849,7 @@ structure.</p>
 <p><code>srcSubresource</code> and <code>dstSubresource</code> are
 <a href="VkImageSubresourceLayers.html">VkImageSubresourceLayers</a> structures specifying the image
 subresources of the images used for the source and destination image
-data, respectively.
-Resolve of depth/stencil images is not supported.</p>
+data, respectively.</p>
 </li>
 <li>
 <p><code>srcOffset</code> and <code>dstOffset</code> select the initial <code>x</code>, <code>y</code>,
@@ -874,11 +873,24 @@ destination image data.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-VkImageResolve2-aspectMask-00266" href="#VUID-VkImageResolve2-aspectMask-00266"></a> <span class="vuid">VUID-VkImageResolve2-aspectMask-00266</span><br>
+<p><a id="VUID-VkImageResolve2-aspectMask-10993" href="#VUID-VkImageResolve2-aspectMask-10993"></a> <span class="vuid">VUID-VkImageResolve2-aspectMask-10993</span><br>
 
 The <code>aspectMask</code> member of <code>srcSubresource</code> and
-<code>dstSubresource</code> <strong class="purple">must</strong> only contain <code>VK_IMAGE_ASPECT_COLOR_BIT</code></p>
+<code>dstSubresource</code> <strong class="purple">must</strong> only contain
+<code>VK_IMAGE_ASPECT_DEPTH_BIT</code>, <code>VK_IMAGE_ASPECT_STENCIL_BIT</code>, or
+<code>VK_IMAGE_ASPECT_COLOR_BIT</code></p>
 </li>
+<li>
+<p><a id="VUID-VkImageResolve2-maintenance10-10994" href="#VUID-VkImageResolve2-maintenance10-10994"></a> <span class="vuid">VUID-VkImageResolve2-maintenance10-10994</span><br>
+
+If <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance10" target="_blank" rel="noopener"><code>maintenance10</code></a> feature is not
+enabled, <code>srcSubresource</code> and <code>dstSubresource</code> <strong class="purple">must</strong> not contain
+<code>VK_IMAGE_ASPECT_DEPTH_BIT</code> or <code>VK_IMAGE_ASPECT_STENCIL_BIT</code></p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><a id="VUID-VkImageResolve2-layerCount-08803" href="#VUID-VkImageResolve2-layerCount-08803"></a> <span class="vuid">VUID-VkImageResolve2-layerCount-08803</span><br>
 

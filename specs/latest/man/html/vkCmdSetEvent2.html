@@ -1036,6 +1036,10 @@ If the <code>dependencyFlags</code> member of <code>pDependencyInfo</code> inclu
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdSetEvent2-suspended" href="#VUID-vkCmdSetEvent2-suspended"></a> <span class="vuid">VUID-vkCmdSetEvent2-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdSetEvent2-commonparent" href="#VUID-vkCmdSetEvent2-commonparent"></a> <span class="vuid">VUID-vkCmdSetEvent2-commonparent</span><br>
  Both of <code>commandBuffer</code>, and <code>event</code> <strong class="purple">must</strong> have been created, allocated, or retrieved from the same <a href="VkDevice.html">VkDevice</a></p>
 </li>

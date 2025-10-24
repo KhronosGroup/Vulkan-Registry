@@ -1030,6 +1030,23 @@ The <a href="VkDescriptorSetLayout.html">VkDescriptorSetLayout</a> for each set 
 <code>VK_DESCRIPTOR_SET_LAYOUT_CREATE_DESCRIPTOR_BUFFER_BIT_EXT</code> bit set</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdSetDescriptorBufferOffsetsEXT-firstSet-11803" href="#VUID-vkCmdSetDescriptorBufferOffsetsEXT-firstSet-11803"></a> <span class="vuid">VUID-vkCmdSetDescriptorBufferOffsetsEXT-firstSet-11803</span><br>
+
+The <a href="VkDescriptorSetLayout.html">VkDescriptorSetLayout</a> for each set from <code>firstSet</code> to
+<span class="eq"><code>firstSet</code> +  <code>setCount</code></span> when <code>layout</code> was created
+<strong class="purple">must</strong> not have been created with the
+<code>VK_DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR</code> bit set</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdSetDescriptorBufferOffsetsEXT-firstSet-11804" href="#VUID-vkCmdSetDescriptorBufferOffsetsEXT-firstSet-11804"></a> <span class="vuid">VUID-vkCmdSetDescriptorBufferOffsetsEXT-firstSet-11804</span><br>
+
+The <a href="VkDescriptorSetLayout.html">VkDescriptorSetLayout</a> for each set from <code>firstSet</code> to
+<span class="eq"><code>firstSet</code> +  <code>setCount</code></span> when <code>layout</code> was created
+<strong class="purple">must</strong> not have been created with the
+<code>VK_DESCRIPTOR_SET_LAYOUT_CREATE_EMBEDDED_IMMUTABLE_SAMPLERS_BIT_EXT</code>
+bit set</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdSetDescriptorBufferOffsetsEXT-None-08060" href="#VUID-vkCmdSetDescriptorBufferOffsetsEXT-None-08060"></a> <span class="vuid">VUID-vkCmdSetDescriptorBufferOffsetsEXT-None-08060</span><br>
 
 The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-descriptorBuffer" target="_blank" rel="noopener"><code>descriptorBuffer</code></a> feature <strong class="purple">must</strong>

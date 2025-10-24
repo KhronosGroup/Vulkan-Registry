@@ -989,9 +989,62 @@ of <code>commandBuffer</code>&#8217;s command pool&#8217;s queue family, as desc
 
 If the queue family used to create the <a href="VkCommandPool.html">VkCommandPool</a> which
 <code>commandBuffer</code> was allocated from does not support
-<code>VK_QUEUE_GRAPHICS_BIT</code>, for each element of <code>pRegions</code>, the
-<code>aspectMask</code> member of <code>imageSubresource</code> <strong class="purple">must</strong> not be
-<code>VK_IMAGE_ASPECT_DEPTH_BIT</code> or <code>VK_IMAGE_ASPECT_STENCIL_BIT</code></p>
+<code>VK_QUEUE_GRAPHICS_BIT</code>,
+and the <a href="#features-maintenance10"><code>maintenance10</code></a> feature is not
+enabled,
+for each element of <code>pRegions</code>, the <code>aspectMask</code> member of
+<code>imageSubresource</code> <strong class="purple">must</strong> not be <code>VK_IMAGE_ASPECT_DEPTH_BIT</code> or
+<code>VK_IMAGE_ASPECT_STENCIL_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyBufferToImage-commandBuffer-11778" href="#VUID-vkCmdCopyBufferToImage-commandBuffer-11778"></a> <span class="vuid">VUID-vkCmdCopyBufferToImage-commandBuffer-11778</span><br>
+
+If the queue family used to create the <a href="VkCommandPool.html">VkCommandPool</a> which
+<code>commandBuffer</code> was allocated from does not support
+<code>VK_QUEUE_GRAPHICS_BIT</code> but does support <code>VK_QUEUE_COMPUTE_BIT</code>,
+and in any element of <code>pRegions</code> the <code>aspectMask</code> member of
+<code>imageSubresource</code> is <code>VK_IMAGE_ASPECT_DEPTH_BIT</code>, then the
+<a href="#resources-image-format-features">format features</a> of <code>dstImage</code>
+<strong class="purple">must</strong> contain
+<code>VK_FORMAT_FEATURE_2_DEPTH_COPY_ON_COMPUTE_QUEUE_BIT_KHR</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyBufferToImage-commandBuffer-11779" href="#VUID-vkCmdCopyBufferToImage-commandBuffer-11779"></a> <span class="vuid">VUID-vkCmdCopyBufferToImage-commandBuffer-11779</span><br>
+
+If the queue family used to create the <a href="VkCommandPool.html">VkCommandPool</a> which
+<code>commandBuffer</code> was allocated from does not support
+<code>VK_QUEUE_GRAPHICS_BIT</code> and <code>VK_QUEUE_COMPUTE_BIT</code>, but does
+support <code>VK_QUEUE_TRANSFER_BIT</code>, and in any element of
+<code>pRegions</code> the <code>aspectMask</code> member of <code>imageSubresource</code> is
+<code>VK_IMAGE_ASPECT_DEPTH_BIT</code>, then the
+<a href="#resources-image-format-features">format features</a> of <code>dstImage</code>
+<strong class="purple">must</strong> contain
+<code>VK_FORMAT_FEATURE_2_DEPTH_COPY_ON_TRANSFER_QUEUE_BIT_KHR</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyBufferToImage-commandBuffer-11780" href="#VUID-vkCmdCopyBufferToImage-commandBuffer-11780"></a> <span class="vuid">VUID-vkCmdCopyBufferToImage-commandBuffer-11780</span><br>
+
+If the queue family used to create the <a href="VkCommandPool.html">VkCommandPool</a> which
+<code>commandBuffer</code> was allocated from does not support
+<code>VK_QUEUE_GRAPHICS_BIT</code> but does support <code>VK_QUEUE_COMPUTE_BIT</code>,
+and in any element of <code>pRegions</code> the <code>aspectMask</code> member of
+<code>imageSubresource</code> is <code>VK_IMAGE_ASPECT_STENCIL_BIT</code>, then the
+<a href="#resources-image-format-features">format features</a> of <code>dstImage</code>
+<strong class="purple">must</strong> contain
+<code>VK_FORMAT_FEATURE_2_STENCIL_COPY_ON_COMPUTE_QUEUE_BIT_KHR</code></p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyBufferToImage-commandBuffer-11781" href="#VUID-vkCmdCopyBufferToImage-commandBuffer-11781"></a> <span class="vuid">VUID-vkCmdCopyBufferToImage-commandBuffer-11781</span><br>
+
+If the queue family used to create the <a href="VkCommandPool.html">VkCommandPool</a> which
+<code>commandBuffer</code> was allocated from does not support
+<code>VK_QUEUE_GRAPHICS_BIT</code> and <code>VK_QUEUE_COMPUTE_BIT</code>, but does
+support <code>VK_QUEUE_TRANSFER_BIT</code>, and in any element of
+<code>pRegions</code> the <code>aspectMask</code> member of <code>imageSubresource</code> is
+<code>VK_IMAGE_ASPECT_STENCIL_BIT</code>, then the
+<a href="#resources-image-format-features">format features</a> of <code>dstImage</code>
+<strong class="purple">must</strong> contain
+<code>VK_FORMAT_FEATURE_2_STENCIL_COPY_ON_TRANSFER_QUEUE_BIT_KHR</code></p>
 </li>
 </ul>
 </div>
@@ -1349,6 +1402,10 @@ member of any element of <code>pRegions</code> <strong class="purple">must</stro
 <li>
 <p><a id="VUID-vkCmdCopyBufferToImage-renderpass" href="#VUID-vkCmdCopyBufferToImage-renderpass"></a> <span class="vuid">VUID-vkCmdCopyBufferToImage-renderpass</span><br>
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdCopyBufferToImage-suspended" href="#VUID-vkCmdCopyBufferToImage-suspended"></a> <span class="vuid">VUID-vkCmdCopyBufferToImage-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdCopyBufferToImage-videocoding" href="#VUID-vkCmdCopyBufferToImage-videocoding"></a> <span class="vuid">VUID-vkCmdCopyBufferToImage-videocoding</span><br>

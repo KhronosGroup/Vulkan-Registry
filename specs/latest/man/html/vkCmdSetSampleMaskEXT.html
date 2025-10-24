@@ -837,7 +837,10 @@ recorded.</p>
 </li>
 <li>
 <p><code>pSampleMask</code> is a pointer to an array of <a href="VkSampleMask.html">VkSampleMask</a>
-values, where the array size is based on the <code>samples</code> parameter.</p>
+values, where the array size is based on the <code>samples</code> parameter.
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance10" target="_blank" rel="noopener"><code>maintenance10</code></a> feature is
+enabled, and this parameter is set to <code>NULL</code>, it is treated as if the
+mask has all bits set to <code>1</code>.</p>
 </li>
 </ul>
 </div>
@@ -877,6 +880,13 @@ enabled</p>
 </ul>
 </div>
 </li>
+<li>
+<p><a id="VUID-vkCmdSetSampleMaskEXT-pSampleMask-10999" href="#VUID-vkCmdSetSampleMaskEXT-pSampleMask-10999"></a> <span class="vuid">VUID-vkCmdSetSampleMaskEXT-pSampleMask-10999</span><br>
+
+<code>pSampleMask</code> <strong class="purple">must</strong> not be <code>NULL</code>
+if the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance10" target="_blank" rel="noopener"><code>maintenance10</code></a> feature is not
+enabled</p>
+</li>
 </ul>
 </div>
 </div>
@@ -896,7 +906,7 @@ enabled</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdSetSampleMaskEXT-pSampleMask-parameter" href="#VUID-vkCmdSetSampleMaskEXT-pSampleMask-parameter"></a> <span class="vuid">VUID-vkCmdSetSampleMaskEXT-pSampleMask-parameter</span><br>
- <code>pSampleMask</code> <strong class="purple">must</strong> be a valid pointer to an array of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2772em;vertical-align:-0.345em;"></span><span class="mopen">⌈</span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9322em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">32</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4461em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">samples</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mclose">⌉</span></span></span></span> <a href="VkSampleMask.html">VkSampleMask</a> values</p>
+ If <code>pSampleMask</code> is not <code>NULL</code>, <code>pSampleMask</code> <strong class="purple">must</strong> be a valid pointer to an array of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2772em;vertical-align:-0.345em;"></span><span class="mopen">⌈</span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9322em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">32</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4461em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">samples</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mclose">⌉</span></span></span></span> <a href="VkSampleMask.html">VkSampleMask</a> values</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdSetSampleMaskEXT-commandBuffer-recording" href="#VUID-vkCmdSetSampleMaskEXT-commandBuffer-recording"></a> <span class="vuid">VUID-vkCmdSetSampleMaskEXT-commandBuffer-recording</span><br>

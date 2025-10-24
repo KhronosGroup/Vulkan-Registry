@@ -916,8 +916,8 @@ contains resource descriptor data</p>
 <li>
 <p><a id="VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-08055" href="#VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-08055"></a> <span class="vuid">VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-08055</span><br>
 
-For any element of <code>pBindingInfos</code>, <code>usage</code> <strong class="purple">must</strong> match the
-buffer from which <code>address</code> was queried</p>
+For any element of <code>pBindingInfos</code>, at least one buffer from which
+<code>address</code> was queried must contain <code>usage</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-09947" href="#VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-09947"></a> <span class="vuid">VUID-vkCmdBindDescriptorBuffersEXT-pBindingInfos-09947</span><br>

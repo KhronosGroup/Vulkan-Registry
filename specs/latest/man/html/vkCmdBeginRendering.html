@@ -970,6 +970,21 @@ If <code>VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM</code> is included in
 <a href="VkRenderPassTileShadingCreateInfoQCOM.html">VkRenderPassTileShadingCreateInfoQCOM</a>::<code>flags</code> <strong class="purple">must</strong> not
 include <code>VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM</code></p>
 </li>
+<li>
+<p><a id="VUID-vkCmdBeginRendering-pRenderingInfo-11750" href="#VUID-vkCmdBeginRendering-pRenderingInfo-11750"></a> <span class="vuid">VUID-vkCmdBeginRendering-pRenderingInfo-11750</span><br>
+
+If <code>pRenderingInfo-&gt;flags</code> contains
+<code>VK_RENDERING_LOCAL_READ_CONCURRENT_ACCESS_CONTROL_BIT_KHR</code>,
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance10" target="_blank" rel="noopener"><code>maintenance10</code></a> <strong class="purple">must</strong> be enabled</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBeginRendering-pRenderingInfo-11751" href="#VUID-vkCmdBeginRendering-pRenderingInfo-11751"></a> <span class="vuid">VUID-vkCmdBeginRendering-pRenderingInfo-11751</span><br>
+
+If <code>pRenderingInfo-&gt;flags</code> does not contain
+<code>VK_RENDERING_LOCAL_READ_CONCURRENT_ACCESS_CONTROL_BIT_KHR</code>,
+attachments <strong class="purple">must</strong> not specify
+<code>VK_RENDERING_ATTACHMENT_INPUT_ATTACHMENT_FEEDBACK_BIT_KHR</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -998,6 +1013,10 @@ include <code>VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM</code></p>
 <li>
 <p><a id="VUID-vkCmdBeginRendering-renderpass" href="#VUID-vkCmdBeginRendering-renderpass"></a> <span class="vuid">VUID-vkCmdBeginRendering-renderpass</span><br>
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBeginRendering-suspended" href="#VUID-vkCmdBeginRendering-suspended"></a> <span class="vuid">VUID-vkCmdBeginRendering-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBeginRendering-videocoding" href="#VUID-vkCmdBeginRendering-videocoding"></a> <span class="vuid">VUID-vkCmdBeginRendering-videocoding</span><br>

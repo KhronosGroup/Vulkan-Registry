@@ -819,7 +819,7 @@ recording the commands for a subpass, call:</p>
 <div class="title">Warning</div>
 </td>
 <td class="content">
-This functionality is deprecated by <a href="#versions-1.2">Vulkan Version 1.2</a>. See <a href="#deprecation-renderpass2">Deprecated Functionality</a> for more information.
+This functionality is superseded by <a href="#versions-1.2">Vulkan Version 1.2</a>. See <a href="#legacy-renderpass2">Legacy Functionality</a> for more information.
 </td>
 </tr>
 </table>
@@ -908,6 +908,10 @@ This command <strong class="purple">must</strong> not be recorded when transform
 <li>
 <p><a id="VUID-vkCmdNextSubpass-renderpass" href="#VUID-vkCmdNextSubpass-renderpass"></a> <span class="vuid">VUID-vkCmdNextSubpass-renderpass</span><br>
  This command <strong class="purple">must</strong> only be called inside of a render pass instance</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdNextSubpass-suspended" href="#VUID-vkCmdNextSubpass-suspended"></a> <span class="vuid">VUID-vkCmdNextSubpass-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdNextSubpass-videocoding" href="#VUID-vkCmdNextSubpass-videocoding"></a> <span class="vuid">VUID-vkCmdNextSubpass-videocoding</span><br>

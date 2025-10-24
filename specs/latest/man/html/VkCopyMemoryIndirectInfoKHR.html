@@ -871,13 +871,15 @@ structures.</p>
 <p><a id="VUID-VkCopyMemoryIndirectInfoKHR-srcCopyFlags-10938" href="#VUID-VkCopyMemoryIndirectInfoKHR-srcCopyFlags-10938"></a> <span class="vuid">VUID-VkCopyMemoryIndirectInfoKHR-srcCopyFlags-10938</span><br>
 
 If <code>srcCopyFlags</code> contains <code>VK_ADDRESS_COPY_SPARSE_BIT_KHR</code>, the
-source memory regions accessed <strong class="purple">must</strong> be fully-resident</p>
+source memory regions accessed <strong class="purple">must</strong> be <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#sparsememory" target="_blank" rel="noopener">bound to
+memory</a></p>
 </li>
 <li>
 <p><a id="VUID-VkCopyMemoryIndirectInfoKHR-dstCopyFlags-10939" href="#VUID-VkCopyMemoryIndirectInfoKHR-dstCopyFlags-10939"></a> <span class="vuid">VUID-VkCopyMemoryIndirectInfoKHR-dstCopyFlags-10939</span><br>
 
 If <code>dstCopyFlags</code> contains <code>VK_ADDRESS_COPY_SPARSE_BIT_KHR</code>, the
-destination memory regions accessed <strong class="purple">must</strong> be fully-resident</p>
+destination memory regions accessed <strong class="purple">must</strong> be <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#sparsememory" target="_blank" rel="noopener">bound to
+memory</a></p>
 </li>
 <li>
 <p><a id="VUID-VkCopyMemoryIndirectInfoKHR-srcCopyFlags-10940" href="#VUID-VkCopyMemoryIndirectInfoKHR-srcCopyFlags-10940"></a> <span class="vuid">VUID-VkCopyMemoryIndirectInfoKHR-srcCopyFlags-10940</span><br>

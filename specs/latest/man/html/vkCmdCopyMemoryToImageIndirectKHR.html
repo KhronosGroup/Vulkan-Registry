@@ -909,6 +909,10 @@ The <a href="VkCommandPool.html">VkCommandPool</a> that <code>commandBuffer</cod
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectKHR-suspended" href="#VUID-vkCmdCopyMemoryToImageIndirectKHR-suspended"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectKHR-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdCopyMemoryToImageIndirectKHR-videocoding" href="#VUID-vkCmdCopyMemoryToImageIndirectKHR-videocoding"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectKHR-videocoding</span><br>
  This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
 </li>

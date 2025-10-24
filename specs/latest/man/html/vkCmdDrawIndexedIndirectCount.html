@@ -2795,6 +2795,21 @@ been created with
 <code>VK_PIPELINE_CREATE_RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDrawIndexedIndirectCount-dynamicRenderingLocalRead-11797" href="#VUID-vkCmdDrawIndexedIndirectCount-dynamicRenderingLocalRead-11797"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirectCount-dynamicRenderingLocalRead-11797</span><br>
+
+If the current render pass instance was begun with
+<a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>, the
+<a href="#features-dynamicRenderingLocalRead"><code>dynamicRenderingLocalRead</code></a>
+feature is enabled, the
+<code>VK_RENDERING_LOCAL_READ_CONCURRENT_ACCESS_CONTROL_BIT_KHR</code> flag is
+specified, and an attachment is being used as a feedback loop as
+specified by
+<a href="#rendering-attachment-input-attachment-feedback"><code>VK_RENDERING_ATTACHMENT_INPUT_ATTACHMENT_FEEDBACK_BIT_KHR</code></a>,
+<a href="VkRenderingAttachmentFlagsInfoKHR.html">VkRenderingAttachmentFlagsInfoKHR</a>::<code>flags</code> for that attachment
+<strong class="purple">must</strong> include
+<code>VK_RENDERING_ATTACHMENT_INPUT_ATTACHMENT_FEEDBACK_BIT_KHR</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDrawIndexedIndirectCount-imageView-06184" href="#VUID-vkCmdDrawIndexedIndirectCount-imageView-06184"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirectCount-imageView-06184</span><br>
 
 If the current render pass instance was begun with
@@ -2949,7 +2964,7 @@ to create the pipeline <strong class="purple">must</strong> not be <code>VK_FORM
 
 If the current render pass instance was begun with
 <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>, there is a graphics pipeline bound, depth
-test is enabled, depth write is enabled, and the
+test is enabled, and the
 <a href="VkRenderingInfo.html">VkRenderingInfo</a>::<code>pDepthAttachment-&gt;imageView</code> was not
 <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, then the
 <a href="VkPipelineRenderingCreateInfo.html">VkPipelineRenderingCreateInfo</a>::<code>depthAttachmentFormat</code> used to
@@ -4590,6 +4605,10 @@ or equal to the size of <code>buffer</code></p>
 <li>
 <p><a id="VUID-vkCmdDrawIndexedIndirectCount-renderpass" href="#VUID-vkCmdDrawIndexedIndirectCount-renderpass"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirectCount-renderpass</span><br>
  This command <strong class="purple">must</strong> only be called inside of a render pass instance</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawIndexedIndirectCount-suspended" href="#VUID-vkCmdDrawIndexedIndirectCount-suspended"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirectCount-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawIndexedIndirectCount-videocoding" href="#VUID-vkCmdDrawIndexedIndirectCount-videocoding"></a> <span class="vuid">VUID-vkCmdDrawIndexedIndirectCount-videocoding</span><br>

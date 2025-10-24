@@ -1049,6 +1049,10 @@ destination memory regions</p>
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-suspended" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-suspended"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdCopyMemoryToImageIndirectNV-videocoding" href="#VUID-vkCmdCopyMemoryToImageIndirectNV-videocoding"></a> <span class="vuid">VUID-vkCmdCopyMemoryToImageIndirectNV-videocoding</span><br>
  This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
 </li>

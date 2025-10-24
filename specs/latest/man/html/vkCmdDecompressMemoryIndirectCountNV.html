@@ -839,8 +839,8 @@ decompression parameters laid out as an array of
 <a href="VkDecompressMemoryRegionNV.html">VkDecompressMemoryRegionNV</a> structures.</p>
 </li>
 <li>
-<p><code>indirectCommandsCountAddress</code> is the device address containing the
-decompression count.</p>
+<p><code>indirectCommandsCountAddress</code> is the device address containing a
+32-bit integer value specifying the decompression count.</p>
 </li>
 <li>
 <p><code>stride</code> is the byte stride between successive sets of decompression
@@ -855,8 +855,8 @@ parameters located starting from <code>indirectCommandsAddress</code>.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Each region specified in <code>indirectCommandsAddress</code> is decompressed from
-the source to destination region based on the specified decompression
-method.</p>
+the source to destination region based on the specified
+<code>decompressionMethod</code>.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -866,7 +866,7 @@ method.</p>
 <li>
 <p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-None-07692" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-None-07692"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-None-07692</span><br>
 
-The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-memoryDecompression" target="_blank" rel="noopener"><code>memoryDecompression</code></a> feature
+The <a href="#features-memoryDecompression"><code>memoryDecompression</code></a> feature
 <strong class="purple">must</strong> be enabled</p>
 </li>
 <li>
@@ -877,9 +877,9 @@ have been created with the <code>VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT</code> bit
 set</p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-offset-07695" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-offset-07695"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-offset-07695</span><br>
+<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-07695" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-07695"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-07695</span><br>
 
-<code>offset</code> <strong class="purple">must</strong> be a multiple of <code>4</code></p>
+<code>indirectCommandsAddress</code> <strong class="purple">must</strong> be a multiple of <code>4</code></p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07697" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07697"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07697</span><br>
@@ -898,128 +898,23 @@ The <a href="VkBuffer.html">VkBuffer</a> that <code>indirectCommandsCountAddress
 
 The count stored in <code>indirectCommandsCountAddress</code> <strong class="purple">must</strong> be less
 than or equal to
-<code>VkPhysicalDeviceMemoryDecompressionPropertiesNV</code>::<code>maxDecompressionIndirectCount</code></p>
+<code>VkPhysicalDeviceMemoryDecompressionPropertiesEXT</code>::<code>maxDecompressionIndirectCount</code></p>
 </li>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-stride-07700" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-stride-07700"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-stride-07700</span><br>
+<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-11794" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-11794"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-11794</span><br>
+
+All device addresses between <code>indirectCommandsAddress</code> and
+<span class="eq"><code>indirectCommandsAddress</code> +  (<code>stride</code> × (count
+stored in <code>indirectCommandsCountAddress</code>)) - 1</span> <strong class="purple">must</strong> be in the
+buffer device address range of the same buffer</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-stride-11770" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-stride-11770"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-stride-11770</span><br>
 
 <code>stride</code> <strong class="purple">must</strong> be a multiple of <code>4</code> and <strong class="purple">must</strong> be greater than or
-equal to sizeof(<code>VkDecompressMemoryRegionNV</code>)</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07701" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07701"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07701</span><br>
-
-If the count stored in <code>indirectCommandsCountAddress</code> is equal to
-<code>1</code>, <span class="eq">(<code>offset</code> + 
-sizeof(<code>VkDecompressMemoryRegionNV</code>))</span> <strong class="purple">must</strong> be less than or equal
-to the size of the <a href="VkBuffer.html">VkBuffer</a> that <code>indirectCommandsAddress</code>
-comes from</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07702" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07702"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-07702</span><br>
-
-If the count stored in <code>indirectCommandsCountAddress</code> is greater
-than <code>1</code>, <code>indirectCommandsAddress</code> + 
-sizeof(<code>VkDecompressMemoryRegionNV</code>) +  <span class="eq">(<code>stride</code>
-× (count stored in <code>countBuffer</code> - 1))</span> <strong class="purple">must</strong> be less than or
-equal to the last valid address in the <a href="VkBuffer.html">VkBuffer</a> that
-<code>indirectCommandsAddress</code> was created from</p>
+equal to sizeof(<a href="VkDecompressMemoryRegionNV.html">VkDecompressMemoryRegionNV</a>)</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Valid Usage (Implicit)</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-parameter" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-parameter"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-parameter</span><br>
- <code>commandBuffer</code> <strong class="purple">must</strong> be a valid <a href="VkCommandBuffer.html">VkCommandBuffer</a> handle</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-parameter" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-parameter"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsAddress-parameter</span><br>
- <code>indirectCommandsAddress</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-parameter" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-parameter"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-indirectCommandsCountAddress-parameter</span><br>
- <code>indirectCommandsCountAddress</code> <strong class="purple">must</strong> be a valid <a href="VkDeviceAddress.html">VkDeviceAddress</a> value</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-recording" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-recording"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-recording</span><br>
- <code>commandBuffer</code> <strong class="purple">must</strong> be in the <a href="#commandbuffers-lifecycle">recording state</a></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support <code>VK_QUEUE_COMPUTE_BIT</code>, or <code>VK_QUEUE_GRAPHICS_BIT</code> operations</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-renderpass" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-renderpass"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-renderpass</span><br>
- This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryIndirectCountNV-videocoding" href="#VUID-vkCmdDecompressMemoryIndirectCountNV-videocoding"></a> <span class="vuid">VUID-vkCmdDecompressMemoryIndirectCountNV-videocoding</span><br>
- This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Host Synchronization</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Host access to <code>commandBuffer</code> <strong class="purple">must</strong> be externally synchronized</p>
-</li>
-<li>
-<p>Host access to the <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> be externally synchronized</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Command Properties</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
-<th class="tableblock halign-left valign-top"><a href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
-<th class="tableblock halign-left valign-top"><a href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
-<th class="tableblock halign-left valign-top"><a href="#VkQueueFlagBits">Supported Queue Types</a></th>
-<th class="tableblock halign-left valign-top"><a href="#fundamentals-queueoperation-command-types">Command Type</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Primary<br>
-Secondary</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
-VK_QUEUE_GRAPHICS_BIT</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Conditional Rendering</div>
-<div class="paragraph">
-<p>vkCmdDecompressMemoryIndirectCountNV is not affected by <a href="#drawing-conditional-rendering">conditional rendering</a></p>
 </div>
 </div>
 </div>

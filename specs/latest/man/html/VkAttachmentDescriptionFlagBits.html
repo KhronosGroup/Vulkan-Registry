@@ -817,6 +817,10 @@ describing additional properties of the attachment, are:</p>
 <pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_VERSION_1_0
 typedef enum VkAttachmentDescriptionFlagBits {
     VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT = 0x00000001,
+  // Provided by VK_KHR_maintenance10
+    VK_ATTACHMENT_DESCRIPTION_RESOLVE_SKIP_TRANSFER_FUNCTION_BIT_KHR = 0x00000002,
+  // Provided by VK_KHR_maintenance10
+    VK_ATTACHMENT_DESCRIPTION_RESOLVE_ENABLE_TRANSFER_FUNCTION_BIT_KHR = 0x00000004,
 } VkAttachmentDescriptionFlagBits;</code></pre>
 </div>
 </div>
@@ -830,6 +834,18 @@ typedef enum VkAttachmentDescriptionFlagBits {
 <li>
 <p><code>VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT</code> specifies that the
 attachment aliases the same device memory as other attachments.</p>
+</li>
+<li>
+<p><code>VK_ATTACHMENT_DESCRIPTION_RESOLVE_SKIP_TRANSFER_FUNCTION_BIT_KHR</code>
+specifies that resolve operations happening to an sRGB encoded
+attachment <strong class="purple">must</strong> not convert samples from nonlinear to linear before
+averaging.</p>
+</li>
+<li>
+<p><code>VK_ATTACHMENT_DESCRIPTION_RESOLVE_ENABLE_TRANSFER_FUNCTION_BIT_KHR</code>
+specifies that resolve operations happening to an sRGB encoded
+attachment <strong class="purple">must</strong> convert samples from nonlinear to linear before
+averaging.</p>
 </li>
 </ul>
 </div>

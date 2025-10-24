@@ -1001,6 +1001,10 @@ physical device</p>
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdResetEvent-suspended" href="#VUID-vkCmdResetEvent-suspended"></a> <span class="vuid">VUID-vkCmdResetEvent-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdResetEvent-commonparent" href="#VUID-vkCmdResetEvent-commonparent"></a> <span class="vuid">VUID-vkCmdResetEvent-commonparent</span><br>
  Both of <code>commandBuffer</code>, and <code>event</code> <strong class="purple">must</strong> have been created, allocated, or retrieved from the same <a href="VkDevice.html">VkDevice</a></p>
 </li>

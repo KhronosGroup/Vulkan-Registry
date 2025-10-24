@@ -1431,6 +1431,13 @@ as an array of descriptors, then the descriptor type of that variable
 <strong class="purple">must</strong> not be <code>VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK</code></p>
 </li>
 <li>
+<p><a id="VUID-VkGraphicsPipelineCreateInfo-flags-11798" href="#VUID-VkGraphicsPipelineCreateInfo-flags-11798"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-flags-11798</span><br>
+
+If <a href="#features-shader64BitIndexing">shader64BitIndexing</a> feature is not
+enabled, <code>flags</code> <strong class="purple">must</strong> not contain
+<code>VK_PIPELINE_CREATE_2_64_BIT_INDEXING_BIT_EXT</code></p>
+</li>
+<li>
 <p><a id="VUID-VkGraphicsPipelineCreateInfo-stage-02096" href="#VUID-VkGraphicsPipelineCreateInfo-stage-02096"></a> <span class="vuid">VUID-VkGraphicsPipelineCreateInfo-stage-02096</span><br>
 
 If the pipeline requires <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#pipelines-graphics-subsets-pre-rasterization" target="_blank" rel="noopener">pre-rasterization shader state</a> the <code>stage</code> member of one element

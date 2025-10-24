@@ -2337,7 +2337,7 @@ whether or not the feature is enabled.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>uint64_t</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxDecompressionIndirectCount</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="VK_NV_memory_decompression.html">VK_NV_memory_decompression</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="VK_NV_memory_decompression.html">VK_NV_memory_decompression</a></code>, <code><a href="VK_EXT_memory_decompression.html">VK_EXT_memory_decompression</a></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">3 × <code>uint32_t</code></p></td>
@@ -2498,6 +2498,16 @@ whether or not the feature is enabled.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2 × <code>uint32_t</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>maxTileShadingRate</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-tileShadingDispatchTile" target="_blank" rel="noopener"><code>tileShadingDispatchTile</code></a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="VkBool32.html">VkBool32</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>resolveSrgbFormatAppliesTransferFunction</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance10" target="_blank" rel="noopener"><code>maintenance10</code></a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="VkBool32.html">VkBool32</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>resolveSrgbFormatSupportsTransferFunctionControl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance10" target="_blank" rel="noopener"><code>maintenance10</code></a></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -4927,6 +4937,18 @@ whether or not the feature is enabled.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_SHADER_STAGE_COMPUTE_BIT</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">bitfield</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>resolveSrgbFormatAppliesTransferFunction</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">implementation-depdendent</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>resolveSrgbFormatSupportsTransferFunctionControl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_FALSE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VK_FALSE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
 </tr>
 </tbody>
 </table>

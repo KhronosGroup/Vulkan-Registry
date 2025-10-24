@@ -862,9 +862,9 @@ typedef enum VkResult {
   // Provided by VK_VERSION_1_1
     VK_ERROR_INVALID_EXTERNAL_HANDLE = -1000072003,
   // Provided by VK_VERSION_1_2
-    VK_ERROR_FRAGMENTATION = -1000161000,
-  // Provided by VK_VERSION_1_2
     VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS = -1000257000,
+  // Provided by VK_VERSION_1_2
+    VK_ERROR_FRAGMENTATION = -1000161000,
   // Provided by VK_VERSION_1_3
     VK_PIPELINE_COMPILE_REQUIRED = 1000297000,
   // Provided by VK_VERSION_1_4
@@ -936,7 +936,7 @@ typedef enum VkResult {
   // Provided by VK_EXT_pipeline_creation_cache_control
     VK_ERROR_PIPELINE_COMPILE_REQUIRED_EXT = VK_PIPELINE_COMPILE_REQUIRED,
   // Provided by VK_EXT_shader_object
-  // VK_ERROR_INCOMPATIBLE_SHADER_BINARY_EXT is a deprecated alias
+  // VK_ERROR_INCOMPATIBLE_SHADER_BINARY_EXT is a legacy alias
     VK_ERROR_INCOMPATIBLE_SHADER_BINARY_EXT = VK_INCOMPATIBLE_SHADER_BINARY_EXT,
 } VkResult;</code></pre>
 </div>

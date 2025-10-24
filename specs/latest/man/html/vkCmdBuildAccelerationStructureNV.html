@@ -1047,6 +1047,10 @@ If <code>update</code> is <code>VK_TRUE</code>, the <code>src</code> and <code>d
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdBuildAccelerationStructureNV-suspended" href="#VUID-vkCmdBuildAccelerationStructureNV-suspended"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructureNV-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdBuildAccelerationStructureNV-videocoding" href="#VUID-vkCmdBuildAccelerationStructureNV-videocoding"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructureNV-videocoding</span><br>
  This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
 </li>

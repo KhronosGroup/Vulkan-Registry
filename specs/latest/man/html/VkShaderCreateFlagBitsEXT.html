@@ -831,6 +831,8 @@ typedef enum VkShaderCreateFlagBitsEXT {
     VK_SHADER_CREATE_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT = 0x00000040,
   // Provided by VK_EXT_device_generated_commands
     VK_SHADER_CREATE_INDIRECT_BINDABLE_BIT_EXT = 0x00000080,
+  // Provided by VK_EXT_shader_64bit_indexing
+    VK_SHADER_CREATE_64_BIT_INDEXING_BIT_EXT = 0x00008000,
 } VkShaderCreateFlagBitsEXT;</code></pre>
 </div>
 </div>
@@ -883,6 +885,10 @@ attachment.</p>
 <li>
 <p><code>VK_SHADER_CREATE_INDIRECT_BINDABLE_BIT_EXT</code> specifies that the
 shader <strong class="purple">can</strong> be used in combination with <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#device-generated-commands" class="bare" target="_blank" rel="noopener">https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#device-generated-commands</a>.</p>
+</li>
+<li>
+<p><code>VK_SHADER_CREATE_64_BIT_INDEXING_BIT_EXT</code> specifies that the shader
+enables <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#spirvenv-64bindexing" target="_blank" rel="noopener">64-bit indexing</a>.</p>
 </li>
 </ul>
 </div>

@@ -852,6 +852,10 @@ part of the query result.</p>
  The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support <code>VK_QUEUE_COMPUTE_BIT</code>, <code>VK_QUEUE_GRAPHICS_BIT</code>, or <code>VK_QUEUE_TRANSFER_BIT</code> operations</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdSetPerformanceMarkerINTEL-suspended" href="#VUID-vkCmdSetPerformanceMarkerINTEL-suspended"></a> <span class="vuid">VUID-vkCmdSetPerformanceMarkerINTEL-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdSetPerformanceMarkerINTEL-videocoding" href="#VUID-vkCmdSetPerformanceMarkerINTEL-videocoding"></a> <span class="vuid">VUID-vkCmdSetPerformanceMarkerINTEL-videocoding</span><br>
  This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
 </li>

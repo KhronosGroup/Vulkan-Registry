@@ -895,40 +895,38 @@ profiles, then this command returns
 <code>VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR</code>.</p>
 </div>
 <div class="paragraph">
-<p>This command also returns <code>VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR</code> if
-<a href="VkPhysicalDeviceVideoFormatInfoKHR.html">VkPhysicalDeviceVideoFormatInfoKHR</a>::<code>imageUsage</code> does not include
-the appropriate flags as dictated by the decode capability flags returned in
-<a href="VkVideoDecodeCapabilitiesKHR.html">VkVideoDecodeCapabilitiesKHR</a>::<code>flags</code> for any of the profiles
-specified in the <a href="VkVideoProfileListInfoKHR.html">VkVideoProfileListInfoKHR</a> structure provided in the
-<code>pNext</code> chain of <code>pVideoFormatInfo</code>.</p>
-</div>
-<div class="paragraph">
 <p>If the decode capability flags include
-<code>VK_VIDEO_DECODE_CAPABILITY_DPB_AND_OUTPUT_COINCIDE_BIT_KHR</code> but not
-<code>VK_VIDEO_DECODE_CAPABILITY_DPB_AND_OUTPUT_DISTINCT_BIT_KHR</code>, then in
-order to query video format properties for decode DPB and output usage,
-<a href="VkPhysicalDeviceVideoFormatInfoKHR.html">VkPhysicalDeviceVideoFormatInfoKHR</a>::<code>imageUsage</code> <strong class="purple">must</strong> include
-both <code>VK_IMAGE_USAGE_VIDEO_DECODE_DPB_BIT_KHR</code> and
-<code>VK_IMAGE_USAGE_VIDEO_DECODE_DST_BIT_KHR</code>.
-Otherwise, the call will fail with
-<code>VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR</code>.</p>
+<code>VK_VIDEO_DECODE_CAPABILITY_DPB_AND_OUTPUT_COINCIDE_BIT_KHR</code>, then
+querying video format properties that support both decode DPB and output
+usage <strong class="purple">can</strong> be done by including both
+<code>VK_IMAGE_USAGE_VIDEO_DECODE_DPB_BIT_KHR</code> and
+<code>VK_IMAGE_USAGE_VIDEO_DECODE_DST_BIT_KHR</code> in
+<a href="VkPhysicalDeviceVideoFormatInfoKHR.html">VkPhysicalDeviceVideoFormatInfoKHR</a>::<code>imageUsage</code>.
+However, even in this case, querying video format properties with
+<a href="VkPhysicalDeviceVideoFormatInfoKHR.html">VkPhysicalDeviceVideoFormatInfoKHR</a>::<code>imageUsage</code> including only
+<code>VK_IMAGE_USAGE_VIDEO_DECODE_DPB_BIT_KHR</code> or
+<code>VK_IMAGE_USAGE_VIDEO_DECODE_DST_BIT_KHR</code> will also return formats
+supporting both.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>If the decode capability flags include
-<code>VK_VIDEO_DECODE_CAPABILITY_DPB_AND_OUTPUT_DISTINCT_BIT_KHR</code> but not
-<code>VK_VIDEO_DECODE_CAPABILITY_DPB_AND_OUTPUT_COINCIDE_BIT_KHR</code>, then in
-order to query video format properties for decode DPB usage,
-<a href="VkPhysicalDeviceVideoFormatInfoKHR.html">VkPhysicalDeviceVideoFormatInfoKHR</a>::<code>imageUsage</code> <strong class="purple">must</strong> include
-<code>VK_IMAGE_USAGE_VIDEO_DECODE_DPB_BIT_KHR</code>, but not
-<code>VK_IMAGE_USAGE_VIDEO_DECODE_DST_BIT_KHR</code>.
-Otherwise, the call will fail with
-<code>VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR</code>.
-Similarly, to query video format properties for decode output usage,
-<a href="VkPhysicalDeviceVideoFormatInfoKHR.html">VkPhysicalDeviceVideoFormatInfoKHR</a>::<code>imageUsage</code> <strong class="purple">must</strong> include
-<code>VK_IMAGE_USAGE_VIDEO_DECODE_DST_BIT_KHR</code>, but not
-<code>VK_IMAGE_USAGE_VIDEO_DECODE_DPB_BIT_KHR</code>.
-Otherwise, the call will fail with
-<code>VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR</code>.</p>
+<p>This enables application to be able to query all formats supporting
+<code>VK_IMAGE_USAGE_VIDEO_DECODE_DPB_BIT_KHR</code> and/or
+<code>VK_IMAGE_USAGE_VIDEO_DECODE_DST_BIT_KHR</code> by just including one of the
+flags, respectively, regardless of whether the implementation supports
+<code>VK_VIDEO_DECODE_CAPABILITY_DPB_AND_OUTPUT_COINCIDE_BIT_KHR</code>,
+<code>VK_VIDEO_DECODE_CAPABILITY_DPB_AND_OUTPUT_DISTINCT_BIT_KHR</code>, or both.
+This makes enumerating decode DPB and output formats simpler and unified.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The <code>imageUsage</code> member of the <a href="VkPhysicalDeviceVideoFormatInfoKHR.html">VkPhysicalDeviceVideoFormatInfoKHR</a>

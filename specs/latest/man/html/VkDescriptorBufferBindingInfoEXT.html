@@ -844,7 +844,12 @@ address defining the descriptor buffer to be bound.</p>
 <li>
 <p><code>usage</code> is a bitmask of <a href="VkBufferUsageFlagBits.html">VkBufferUsageFlagBits</a> specifying the
 <a href="VkBufferCreateInfo.html">VkBufferCreateInfo</a>::<code>usage</code> for the buffer from which
-<code>address</code> was queried.</p>
+<code>address</code> was queried.
+Usage flags other than
+<code>VK_BUFFER_USAGE_RESOURCE_DESCRIPTOR_BUFFER_BIT_EXT</code>,
+<code>VK_BUFFER_USAGE_SAMPLER_DESCRIPTOR_BUFFER_BIT_EXT</code>, and
+<code>VK_BUFFER_USAGE_PUSH_DESCRIPTORS_DESCRIPTOR_BUFFER_BIT_EXT</code> are
+ignored.</p>
 </li>
 </ul>
 </div>
@@ -879,6 +884,14 @@ values</p>
 If the <code>pNext</code> chain does not include a
 <a href="VkBufferUsageFlags2CreateInfo.html">VkBufferUsageFlags2CreateInfo</a> structure,
 <code>usage</code> <strong class="purple">must</strong> not be 0</p>
+</li>
+<li>
+<p><a id="VUID-VkDescriptorBufferBindingInfoEXT-usage-10998" href="#VUID-VkDescriptorBufferBindingInfoEXT-usage-10998"></a> <span class="vuid">VUID-VkDescriptorBufferBindingInfoEXT-usage-10998</span><br>
+
+The <code>usage</code> must include at least one of
+<code>VK_BUFFER_USAGE_RESOURCE_DESCRIPTOR_BUFFER_BIT_EXT</code>,
+<code>VK_BUFFER_USAGE_SAMPLER_DESCRIPTOR_BUFFER_BIT_EXT</code>, or
+<code>VK_BUFFER_USAGE_PUSH_DESCRIPTORS_DESCRIPTOR_BUFFER_BIT_EXT</code></p>
 </li>
 <li>
 <p><a id="VUID-VkDescriptorBufferBindingInfoEXT-bufferlessPushDescriptors-08056" href="#VUID-VkDescriptorBufferBindingInfoEXT-bufferlessPushDescriptors-08056"></a> <span class="vuid">VUID-VkDescriptorBufferBindingInfoEXT-bufferlessPushDescriptors-08056</span><br>

@@ -964,6 +964,10 @@ If <code>commandBuffer</code> is a protected command buffer and
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdFillBuffer-suspended" href="#VUID-vkCmdFillBuffer-suspended"></a> <span class="vuid">VUID-vkCmdFillBuffer-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdFillBuffer-videocoding" href="#VUID-vkCmdFillBuffer-videocoding"></a> <span class="vuid">VUID-vkCmdFillBuffer-videocoding</span><br>
  This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
 </li>

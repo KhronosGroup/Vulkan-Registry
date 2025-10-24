@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.329,</span>
-<span id="revdate">2025-10-10 00:26:47Z</span>
-<br><span id="revremark">from git branch: github-main commit: ac3d0660c45ecf86b2952b298d125270228150d1</span>
+<span id="revnumber">version 1.4.330,</span>
+<span id="revdate">2025-10-24 01:28:10Z</span>
+<br><span id="revremark">from git branch: github-main commit: 805d2ca04d00074ee4debe327fc7d7eb3016f67e</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2053,12 +2053,12 @@ Arbitrary string (unused).</p>
 </li>
 <li>
 <p><code>deprecated</code> - optional.
-Indicates that this type has been deprecated.
+Indicates that this type has been marked as legacy.
 Possible values are:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>"true"</code> - deprecated, but no explanation given.</p>
+<p><code>"true"</code> - marked as legacy, but no explanation given.</p>
 </li>
 <li>
 <p><code>"aliased"</code> - an old name not following Vulkan conventions.
@@ -2215,12 +2215,12 @@ in the array. The array is assumed to be tightly packed if omitted.</p>
 </li>
 <li>
 <p><code>deprecated</code> - optional.
-Indicates that this member has been deprecated.
+Indicates that this member has been marked as legacy.
 Possible values are:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>"true"</code> - deprecated, but no explanation given.</p>
+<p><code>"true"</code> - marked as legacy, but no explanation given.</p>
 </li>
 <li>
 <p><code>"ignored"</code> - functionality described by this member no longer
@@ -2656,12 +2656,12 @@ May be used to address subtle incompatibilities.</p>
 </li>
 <li>
 <p><code>deprecated</code> - optional.
-Indicates that this enum has been deprecated.
+Indicates that this enum has been marked as legacy.
 Possible values are:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>"true"</code> - deprecated, but no explanation given.</p>
+<p><code>"true"</code> - marked as legacy, but no explanation given.</p>
 </li>
 <li>
 <p><code>"ignored"</code> - functionality described by this enum no longer operates.</p>
@@ -3308,6 +3308,15 @@ A feature is the set of interfaces (enumerants and commands) defined by a
 particular API and version, such as Vulkan 1.0, and includes all profiles of
 that API and version.</p>
 </div>
+<div class="paragraph">
+<p>Some API features may be defined for internal usage only, and not exposed to
+the public. These are tagged with the <code>apitype</code> attribute set to <code>internal</code>.
+These features are not emitted in the generated headers and other artifacts.
+Instead, they are merged into the first public feature that depends on them.
+This is done automatically by the generator scripts. If you wish to avoid
+this merging behavior, you can specify the <code>-no-internal-api-merging</code> option
+to the genvk.py script.</p>
+</div>
 <div class="sect2">
 <h3 id="_attributes_of_feature_tags"><a class="anchor" href="#_attributes_of_feature_tags"></a>17.1. Attributes of <code>feature</code> Tags</h3>
 <div class="ulist">
@@ -3315,6 +3324,12 @@ that API and version.</p>
 <li>
 <p><code>api</code> - required comma-separated list of <a href="#schema:apiname">API
 names</a> for which this feature is defined, such as <code>vulkan</code>.</p>
+</li>
+<li>
+<p><code>apitype</code> - optional.
+Whether the API block should be exposed publicly (default) or if it is for
+internal usage. Valid values are <code>internal</code> or <code>public</code>.
+Defaults to <code>public</code> if not specified.</p>
 </li>
 <li>
 <p><code>name</code> - required.
@@ -3849,12 +3864,14 @@ Extensions should never remove interfaces, although this usage is allowed by
 the schema.</p>
 </div>
 <div class="paragraph">
-<p>A <code>deprecate</code> block defines a set of interfaces 'deprecated' by a
+<p>A <code>deprecate</code> block defines a set of interfaces marked as 'legacy' by a
 <code>feature</code>.
-This will mark the tagged functionality in the spec as deprecated by this
-version.
+This will mark the tagged functionality in the spec as legacy or superseded
+by this version.
 Extensions should never deprecate interfaces, although this usage is allowed
-by the schema.</p>
+by the schema.
+For historical reasons, the <code>deprecate</code> block is still called 'deprecate',
+but we now use the terms 'legacy' or 'superseded' in the specification instead.</p>
 </div>
 <div class="paragraph">
 <p>Except for the tag name and behavior, the contents of <code>require</code>, <code>remove</code>

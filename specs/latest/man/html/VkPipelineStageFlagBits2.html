@@ -931,7 +931,7 @@ static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT = 
 static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT = 0x00100000ULL;
 // Provided by VK_HUAWEI_subpass_shading
 static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_SUBPASS_SHADER_BIT_HUAWEI = 0x8000000000ULL;
-// VK_PIPELINE_STAGE_2_SUBPASS_SHADING_BIT_HUAWEI is a deprecated alias
+// VK_PIPELINE_STAGE_2_SUBPASS_SHADING_BIT_HUAWEI is a legacy alias
 // Provided by VK_HUAWEI_subpass_shading
 static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_SUBPASS_SHADING_BIT_HUAWEI = 0x8000000000ULL;
 // Provided by VK_HUAWEI_invocation_mask
@@ -949,7 +949,9 @@ static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_CONVERT_COOPERATIVE_VE
 // Provided by VK_ARM_data_graph
 static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_DATA_GRAPH_BIT_ARM = 0x40000000000ULL;
 // Provided by VK_KHR_copy_memory_indirect
-static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_COPY_INDIRECT_BIT_KHR = 0x400000000000ULL;</code></pre>
+static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_COPY_INDIRECT_BIT_KHR = 0x400000000000ULL;
+// Provided by VK_EXT_memory_decompression
+static const VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_MEMORY_DECOMPRESSION_BIT_EXT = 0x200000000000ULL;</code></pre>
 </div>
 </div>
 <div id="VkPipelineStageFlagBits2KHR" class="listingblock">
@@ -1314,8 +1316,8 @@ to <code>VK_PIPELINE_STAGE_2_NONE</code> in the second scope.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The <code>TOP</code> and <code>BOTTOM</code> pipeline stages are deprecated, and
-applications should prefer <code>VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT</code> and
+<p>The <code>TOP</code> and <code>BOTTOM</code> pipeline stages are legacy, and applications
+should prefer <code>VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT</code> and
 <code>VK_PIPELINE_STAGE_2_NONE</code>.</p>
 </div>
 </td>

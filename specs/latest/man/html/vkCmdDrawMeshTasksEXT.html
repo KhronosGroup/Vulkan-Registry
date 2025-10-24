@@ -2749,6 +2749,21 @@ been created with
 <code>VK_PIPELINE_CREATE_RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</code></p>
 </li>
 <li>
+<p><a id="VUID-vkCmdDrawMeshTasksEXT-dynamicRenderingLocalRead-11797" href="#VUID-vkCmdDrawMeshTasksEXT-dynamicRenderingLocalRead-11797"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-dynamicRenderingLocalRead-11797</span><br>
+
+If the current render pass instance was begun with
+<a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>, the
+<a href="#features-dynamicRenderingLocalRead"><code>dynamicRenderingLocalRead</code></a>
+feature is enabled, the
+<code>VK_RENDERING_LOCAL_READ_CONCURRENT_ACCESS_CONTROL_BIT_KHR</code> flag is
+specified, and an attachment is being used as a feedback loop as
+specified by
+<a href="#rendering-attachment-input-attachment-feedback"><code>VK_RENDERING_ATTACHMENT_INPUT_ATTACHMENT_FEEDBACK_BIT_KHR</code></a>,
+<a href="VkRenderingAttachmentFlagsInfoKHR.html">VkRenderingAttachmentFlagsInfoKHR</a>::<code>flags</code> for that attachment
+<strong class="purple">must</strong> include
+<code>VK_RENDERING_ATTACHMENT_INPUT_ATTACHMENT_FEEDBACK_BIT_KHR</code></p>
+</li>
+<li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-imageView-06184" href="#VUID-vkCmdDrawMeshTasksEXT-imageView-06184"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-imageView-06184</span><br>
 
 If the current render pass instance was begun with
@@ -2903,7 +2918,7 @@ to create the pipeline <strong class="purple">must</strong> not be <code>VK_FORM
 
 If the current render pass instance was begun with
 <a href="vkCmdBeginRendering.html">vkCmdBeginRendering</a>, there is a graphics pipeline bound, depth
-test is enabled, depth write is enabled, and the
+test is enabled, and the
 <a href="VkRenderingInfo.html">VkRenderingInfo</a>::<code>pDepthAttachment-&gt;imageView</code> was not
 <a href="VK_NULL_HANDLE.html">VK_NULL_HANDLE</a>, then the
 <a href="VkPipelineRenderingCreateInfo.html">VkPipelineRenderingCreateInfo</a>::<code>depthAttachmentFormat</code> used to
@@ -4299,6 +4314,10 @@ The current pipeline bound to <code>VK_PIPELINE_BIND_POINT_GRAPHICS</code>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-renderpass" href="#VUID-vkCmdDrawMeshTasksEXT-renderpass"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-renderpass</span><br>
  This command <strong class="purple">must</strong> only be called inside of a render pass instance</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdDrawMeshTasksEXT-suspended" href="#VUID-vkCmdDrawMeshTasksEXT-suspended"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdDrawMeshTasksEXT-videocoding" href="#VUID-vkCmdDrawMeshTasksEXT-videocoding"></a> <span class="vuid">VUID-vkCmdDrawMeshTasksEXT-videocoding</span><br>

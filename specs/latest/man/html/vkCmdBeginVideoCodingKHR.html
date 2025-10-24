@@ -1010,13 +1010,11 @@ and <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#e
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-vkCmdBeginVideoCodingKHR-commandBuffer-07231" href="#VUID-vkCmdBeginVideoCodingKHR-commandBuffer-07231"></a> <span class="vuid">VUID-vkCmdBeginVideoCodingKHR-commandBuffer-07231</span><br>
+<p><a id="VUID-vkCmdBeginVideoCodingKHR-commandBuffer-11760" href="#VUID-vkCmdBeginVideoCodingKHR-commandBuffer-11760"></a> <span class="vuid">VUID-vkCmdBeginVideoCodingKHR-commandBuffer-11760</span><br>
 
 The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from
-<strong class="purple">must</strong> support the video codec operation <code>pBeginInfo-&gt;videoSession</code>
-was created with, as returned by
-<a href="vkGetPhysicalDeviceQueueFamilyProperties2.html">vkGetPhysicalDeviceQueueFamilyProperties2</a> in
-<a href="VkQueueFamilyVideoPropertiesKHR.html">VkQueueFamilyVideoPropertiesKHR</a>::<code>videoCodecOperations</code></p>
+<strong class="purple">must</strong> have been created with the same queue family index that
+<code>pBeginInfo-&gt;videoSession</code> was created with</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBeginVideoCodingKHR-None-07232" href="#VUID-vkCmdBeginVideoCodingKHR-None-07232"></a> <span class="vuid">VUID-vkCmdBeginVideoCodingKHR-None-07232</span><br>
@@ -1175,6 +1173,10 @@ chain of <code>pBeginInfo</code> <strong class="purple">must</strong> include an
 <li>
 <p><a id="VUID-vkCmdBeginVideoCodingKHR-renderpass" href="#VUID-vkCmdBeginVideoCodingKHR-renderpass"></a> <span class="vuid">VUID-vkCmdBeginVideoCodingKHR-renderpass</span><br>
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBeginVideoCodingKHR-suspended" href="#VUID-vkCmdBeginVideoCodingKHR-suspended"></a> <span class="vuid">VUID-vkCmdBeginVideoCodingKHR-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBeginVideoCodingKHR-videocoding" href="#VUID-vkCmdBeginVideoCodingKHR-videocoding"></a> <span class="vuid">VUID-vkCmdBeginVideoCodingKHR-videocoding</span><br>

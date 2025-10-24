@@ -973,6 +973,10 @@ or <code>VK_QUERY_TYPE_MICROMAP_SERIALIZATION_SIZE_EXT</code></p>
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdWriteMicromapsPropertiesEXT-suspended" href="#VUID-vkCmdWriteMicromapsPropertiesEXT-suspended"></a> <span class="vuid">VUID-vkCmdWriteMicromapsPropertiesEXT-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdWriteMicromapsPropertiesEXT-videocoding" href="#VUID-vkCmdWriteMicromapsPropertiesEXT-videocoding"></a> <span class="vuid">VUID-vkCmdWriteMicromapsPropertiesEXT-videocoding</span><br>
  This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
 </li>

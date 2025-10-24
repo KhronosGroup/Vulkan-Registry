@@ -2771,6 +2771,10 @@ for the <a href="VkVideoEncodeAV1PictureInfoKHR.html">VkVideoEncodeAV1PictureInf
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdEncodeVideoKHR-suspended" href="#VUID-vkCmdEncodeVideoKHR-suspended"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdEncodeVideoKHR-videocoding" href="#VUID-vkCmdEncodeVideoKHR-videocoding"></a> <span class="vuid">VUID-vkCmdEncodeVideoKHR-videocoding</span><br>
  This command <strong class="purple">must</strong> only be called inside of a video coding scope</p>
 </li>

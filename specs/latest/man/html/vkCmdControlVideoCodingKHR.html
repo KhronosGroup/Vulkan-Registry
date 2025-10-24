@@ -937,6 +937,10 @@ then <code>pCodingControlInfo-&gt;flags</code> <strong class="purple">must</stro
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdControlVideoCodingKHR-suspended" href="#VUID-vkCmdControlVideoCodingKHR-suspended"></a> <span class="vuid">VUID-vkCmdControlVideoCodingKHR-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdControlVideoCodingKHR-videocoding" href="#VUID-vkCmdControlVideoCodingKHR-videocoding"></a> <span class="vuid">VUID-vkCmdControlVideoCodingKHR-videocoding</span><br>
  This command <strong class="purple">must</strong> only be called inside of a video coding scope</p>
 </li>

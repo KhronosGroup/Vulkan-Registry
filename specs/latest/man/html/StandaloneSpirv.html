@@ -1464,6 +1464,10 @@ when used in an intersection shader</p>
 storage <code>Storage</code> <code>Class</code></p>
 </li>
 <li>
+<p>the last member of a <code>Block</code>-decorated <code>OpTypeStruct</code> in the
+<code>Uniform</code> storage <code>Storage</code> <code>Class</code></p>
+</li>
+<li>
 <p>the outermost dimension of an arrayed variable in the
 <code>StorageBuffer</code>, <code>Uniform</code>, or <code>UniformConstant</code> storage
 <code>Storage</code> <code>Class</code></p>
@@ -1474,6 +1478,15 @@ storage <code>Storage</code> <code>Class</code></p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p><a id="VUID-StandaloneSpirv-OpArrayLength-11805" href="#VUID-StandaloneSpirv-OpArrayLength-11805"></a> <span class="vuid">VUID-StandaloneSpirv-OpArrayLength-11805</span><br>
+
+<code>OpArrayLength</code>
+and <code>OpUntypedArrayLengthKHR</code>
+<strong class="purple">must</strong> not be used with an <code>OpTypeRuntimeArray</code> that is the last
+member of a <code>Block</code>-decorated <code>OpTypeStruct</code> in the <code>Uniform</code>
+storage <code>Storage</code> <code>Class</code></p>
 </li>
 <li>
 <p><a id="VUID-StandaloneSpirv-Function-04681" href="#VUID-StandaloneSpirv-Function-04681"></a> <span class="vuid">VUID-StandaloneSpirv-Function-04681</span><br>

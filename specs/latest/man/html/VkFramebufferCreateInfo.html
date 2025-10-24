@@ -818,7 +818,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <div class="title">Warning</div>
 </td>
 <td class="content">
-This functionality is deprecated by <a href="#versions-1.4">Vulkan Version 1.4</a>. See <a href="#deprecation-dynamicrendering">Deprecated Functionality</a> for more information.
+This functionality is superseded by <a href="#versions-1.4">Vulkan Version 1.4</a>. See <a href="#legacy-dynamicrendering">Legacy Functionality</a> for more information.
 </td>
 </tr>
 </table>
@@ -968,18 +968,6 @@ include <code>VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT</code>, each element of
 <code>pAttachments</code> that is used as an input attachment by
 <code>renderPass</code> <strong class="purple">must</strong> have been created with a <code>usage</code> value
 including <code>VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT</code></p>
-</li>
-<li>
-<p><a id="VUID-VkFramebufferCreateInfo-flags-10917" href="#VUID-VkFramebufferCreateInfo-flags-10917"></a> <span class="vuid">VUID-VkFramebufferCreateInfo-flags-10917</span><br>
-
-If <code>flags</code> does not include
-<code>VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT</code>, each element of
-<code>pAttachments</code> that is used as a color attachment or resolve
-attachment by <code>renderPass</code> <strong class="purple">must</strong> have been created with a
-<a href="VkImageSubresourceRange.html">VkImageSubresourceRange</a>::<code>aspectMask</code> including
-<code>VK_IMAGE_ASPECT_PLANE_0_BIT</code>, <code>VK_IMAGE_ASPECT_PLANE_1_BIT</code>,
-<code>VK_IMAGE_ASPECT_PLANE_2_BIT</code>, or
-<code>VK_IMAGE_ASPECT_COLOR_BIT</code></p>
 </li>
 <li>
 <p><a id="VUID-VkFramebufferCreateInfo-pAttachments-02552" href="#VUID-VkFramebufferCreateInfo-pAttachments-02552"></a> <span class="vuid">VUID-VkFramebufferCreateInfo-pAttachments-02552</span><br>

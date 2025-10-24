@@ -52,6 +52,7 @@
     <li> <a href="specs/latest/man/html/VK_KHR_line_rasterization.html"> VK_KHR_line_rasterization </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_load_store_op_none.html"> VK_KHR_load_store_op_none </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_maintenance1.html"> VK_KHR_maintenance1 </a> </li>
+    <li> <a href="specs/latest/man/html/VK_KHR_maintenance10.html"> VK_KHR_maintenance10 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_maintenance2.html"> VK_KHR_maintenance2 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_maintenance3.html"> VK_KHR_maintenance3 </a> </li>
     <li> <a href="specs/latest/man/html/VK_KHR_maintenance4.html"> VK_KHR_maintenance4 </a> </li>
@@ -212,6 +213,7 @@
     <li> <a href="specs/latest/man/html/VK_EXT_load_store_op_none.html"> VK_EXT_load_store_op_none </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_map_memory_placed.html"> VK_EXT_map_memory_placed </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_memory_budget.html"> VK_EXT_memory_budget </a> </li>
+    <li> <a href="specs/latest/man/html/VK_EXT_memory_decompression.html"> VK_EXT_memory_decompression </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_memory_priority.html"> VK_EXT_memory_priority </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_mesh_shader.html"> VK_EXT_mesh_shader </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_metal_objects.html"> VK_EXT_metal_objects </a> </li>
@@ -245,6 +247,7 @@
     <li> <a href="specs/latest/man/html/VK_EXT_sampler_filter_minmax.html"> VK_EXT_sampler_filter_minmax </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_scalar_block_layout.html"> VK_EXT_scalar_block_layout </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_separate_stencil_usage.html"> VK_EXT_separate_stencil_usage </a> </li>
+    <li> <a href="specs/latest/man/html/VK_EXT_shader_64bit_indexing.html"> VK_EXT_shader_64bit_indexing </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_shader_atomic_float.html"> VK_EXT_shader_atomic_float </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_shader_atomic_float2.html"> VK_EXT_shader_atomic_float2 </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_shader_demote_to_helper_invocation.html"> VK_EXT_shader_demote_to_helper_invocation </a> </li>
@@ -257,6 +260,7 @@
     <li> <a href="specs/latest/man/html/VK_EXT_shader_subgroup_ballot.html"> VK_EXT_shader_subgroup_ballot </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_shader_subgroup_vote.html"> VK_EXT_shader_subgroup_vote </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_shader_tile_image.html"> VK_EXT_shader_tile_image </a> </li>
+    <li> <a href="specs/latest/man/html/VK_EXT_shader_uniform_buffer_unsized_array.html"> VK_EXT_shader_uniform_buffer_unsized_array </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_shader_viewport_index_layer.html"> VK_EXT_shader_viewport_index_layer </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_subgroup_size_control.html"> VK_EXT_subgroup_size_control </a> </li>
     <li> <a href="specs/latest/man/html/VK_EXT_subpass_merge_feedback.html"> VK_EXT_subpass_merge_feedback </a> </li>
@@ -421,6 +425,7 @@
     <li> <a href="specs/latest/man/html/VK_NVX_image_view_handle.html"> VK_NVX_image_view_handle </a> </li>
     <li> <a href="specs/latest/man/html/VK_NVX_multiview_per_view_attributes.html"> VK_NVX_multiview_per_view_attributes </a> </li>
     <li> <b>  OHOS Extensions (Huawei Technologies Co. Ltd.)  </b> </li>
+    <li> <a href="specs/latest/man/html/VK_OHOS_native_buffer.html"> VK_OHOS_native_buffer </a> </li>
     <li> <a href="specs/latest/man/html/VK_OHOS_surface.html"> VK_OHOS_surface </a> </li>
     <li> <b>  QCOM Extensions (Qualcomm Technologies, Inc.)  </b> </li>
     <li> <a href="specs/latest/man/html/VK_QCOM_filter_cubic_clamp.html"> VK_QCOM_filter_cubic_clamp </a> </li>

@@ -942,7 +942,11 @@ static const VkAccessFlagBits2 VK_ACCESS_2_OPTICAL_FLOW_WRITE_BIT_NV = 0x8000000
 // Provided by VK_ARM_data_graph
 static const VkAccessFlagBits2 VK_ACCESS_2_DATA_GRAPH_READ_BIT_ARM = 0x800000000000ULL;
 // Provided by VK_ARM_data_graph
-static const VkAccessFlagBits2 VK_ACCESS_2_DATA_GRAPH_WRITE_BIT_ARM = 0x1000000000000ULL;</code></pre>
+static const VkAccessFlagBits2 VK_ACCESS_2_DATA_GRAPH_WRITE_BIT_ARM = 0x1000000000000ULL;
+// Provided by VK_EXT_memory_decompression
+static const VkAccessFlagBits2 VK_ACCESS_2_MEMORY_DECOMPRESSION_READ_BIT_EXT = 0x80000000000000ULL;
+// Provided by VK_EXT_memory_decompression
+static const VkAccessFlagBits2 VK_ACCESS_2_MEMORY_DECOMPRESSION_WRITE_BIT_EXT = 0x100000000000000ULL;</code></pre>
 </div>
 </div>
 <div id="VkAccessFlagBits2KHR" class="listingblock">
@@ -1179,6 +1183,22 @@ Such access occurs in the
 the target command buffer preprocess outputs.
 Such access occurs in the
 <code>VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_EXT</code> pipeline stage.</p>
+</li>
+<li>
+<p><code>VK_ACCESS_2_MEMORY_DECOMPRESSION_READ_BIT_EXT</code> specifies read
+access to memory in decompression commands
+<a href="vkCmdDecompressMemoryEXT.html">vkCmdDecompressMemoryEXT</a> and
+<a href="vkCmdDecompressMemoryIndirectCountEXT.html">vkCmdDecompressMemoryIndirectCountEXT</a>.
+Such access occurs in
+<code>VK_PIPELINE_STAGE_2_MEMORY_DECOMPRESSION_BIT_EXT</code> pipeline stage.</p>
+</li>
+<li>
+<p><code>VK_ACCESS_2_MEMORY_DECOMPRESSION_WRITE_BIT_EXT</code> specifies write
+access to memory in decompression commands
+<a href="vkCmdDecompressMemoryEXT.html">vkCmdDecompressMemoryEXT</a> and
+<a href="vkCmdDecompressMemoryIndirectCountEXT.html">vkCmdDecompressMemoryIndirectCountEXT</a>.
+Such access occurs in
+<code>VK_PIPELINE_STAGE_2_MEMORY_DECOMPRESSION_BIT_EXT</code> pipeline stage.</p>
 </li>
 <li>
 <p><code>VK_ACCESS_2_COLOR_ATTACHMENT_READ_NONCOHERENT_BIT_EXT</code> specifies

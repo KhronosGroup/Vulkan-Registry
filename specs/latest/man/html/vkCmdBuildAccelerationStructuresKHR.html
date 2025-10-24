@@ -899,6 +899,23 @@ building an acceleration structure with a geometry type of
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The required alignment of the device addresses passed in to parameters below
+might not be provided by the base address of a <a href="VkBuffer.html">VkBuffer</a> created with
+the correct usage flags and must still be manually aligned by the
+application code.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div id="acceleration-structure-scratch" class="paragraph">
 <p>Accesses to the acceleration structure scratch buffers as identified by the
 <a href="VkAccelerationStructureBuildGeometryInfoKHR.html">VkAccelerationStructureBuildGeometryInfoKHR</a>::<code>scratchData</code> buffer
@@ -1652,6 +1669,10 @@ For each element of <code>pInfos</code>[i] whose <code>pGeometries</code> or
 <li>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-renderpass" href="#VUID-vkCmdBuildAccelerationStructuresKHR-renderpass"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-renderpass</span><br>
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-suspended" href="#VUID-vkCmdBuildAccelerationStructuresKHR-suspended"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBuildAccelerationStructuresKHR-videocoding" href="#VUID-vkCmdBuildAccelerationStructuresKHR-videocoding"></a> <span class="vuid">VUID-vkCmdBuildAccelerationStructuresKHR-videocoding</span><br>

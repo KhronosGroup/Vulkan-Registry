@@ -874,6 +874,43 @@ structures specifying the regions to resolve.</p>
 <div class="sect1">
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>If the source format is a floating-point or normalized type, the resolve
+mode is chosen as implementation-dependent behavior, unless
+<a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a> is included in the <code>pNext</code> chain, in
+which case it is defined by
+<a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a>::<code>resolveMode</code>.
+If the resolve mode requires to calculate the result from multiple samples,
+such as by computing an average or weighted average of the samples, the
+values for each pixel are resolved with implementation-defined numerical
+precision.</p>
+</div>
+<div class="paragraph">
+<p>If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#formats-numericformat" target="_blank" rel="noopener">numeric format</a> of <code>srcImage</code> uses sRGB
+encoding and the resolve mode requires the implementation to convert the
+samples to floating-point to perform the calculations, the implementation
+<strong class="purple">should</strong> convert samples from nonlinear to linear before resolving the
+samples as described in the &#8220;sRGB EOTF&#8221; section of the
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#data-format" target="_blank" rel="noopener">Khronos Data Format Specification</a>.
+In this case, the implementation <strong class="purple">must</strong> convert the linear averaged value to
+nonlinear before writing the resolved result to <code>dstImage</code>.
+If the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-maintenance10" target="_blank" rel="noopener"><code>maintenance10</code></a> feature is enabled,
+whether a nonlinear to linear conversion happens for sRGB encoded resolve is
+controlled by
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#limits-resolveSrgbFormatAppliesTransferFunction" target="_blank" rel="noopener"><code>resolveSrgbFormatAppliesTransferFunction</code></a>.
+If <a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a> is included in the <code>pNext</code> chain,
+this default behavior <strong class="purple">can</strong> be overridden with
+<code>VK_RESOLVE_IMAGE_SKIP_TRANSFER_FUNCTION_BIT_KHR</code> or
+<code>VK_RESOLVE_IMAGE_ENABLE_TRANSFER_FUNCTION_BIT_KHR</code> flags.</p>
+</div>
+<div class="paragraph">
+<p>If the source format is an integer type, a single sample&#8217;s value is selected
+for each pixel, unless <a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a> is included in the
+<code>pNext</code> chain, in which case it is defined by
+<a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a>::<code>resolveMode</code> or
+<a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a>::<code>stencilResolveMode</code> depending on which
+aspect is being resolved.</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage</div>
@@ -941,11 +978,22 @@ is executed on a <code>VkDevice</code></p>
 <code>VK_IMAGE_LAYOUT_GENERAL</code></p>
 </li>
 <li>
+<p><a id="VUID-VkResolveImageInfo2-maintenance10-11799" href="#VUID-VkResolveImageInfo2-maintenance10-11799"></a> <span class="vuid">VUID-VkResolveImageInfo2-maintenance10-11799</span><br>
+
+If the <a href="#features-maintenance10"><code>maintenance10</code></a> feature is
+enabled, the <a href="#resources-image-format-features">format features</a> of
+<code>dstImage</code> <strong class="purple">must</strong> contain
+<code>VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT</code> or
+<code>VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT</code></p>
+</li>
+<li>
 <p><a id="VUID-VkResolveImageInfo2-dstImage-02003" href="#VUID-VkResolveImageInfo2-dstImage-02003"></a> <span class="vuid">VUID-VkResolveImageInfo2-dstImage-02003</span><br>
 
 The <a href="#resources-image-format-features">format features</a> of
 <code>dstImage</code> <strong class="purple">must</strong> contain
-<code>VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT</code></p>
+<code>VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT</code>
+if the <a href="#features-maintenance10"><code>maintenance10</code></a> feature is not
+enabled</p>
 </li>
 <li>
 <p><a id="VUID-VkResolveImageInfo2-linearColorAttachment-06519" href="#VUID-VkResolveImageInfo2-linearColorAttachment-06519"></a> <span class="vuid">VUID-VkResolveImageInfo2-linearColorAttachment-06519</span><br>
@@ -1115,6 +1163,116 @@ The <a href="#resources-image-format-features">format features</a> of
 The <a href="#resources-image-format-features">format features</a> of
 <code>dstImage</code> <strong class="purple">must</strong> contain <code>VK_FORMAT_FEATURE_TRANSFER_DST_BIT</code></p>
 </li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-srcSubresource-11800" href="#VUID-VkResolveImageInfo2-srcSubresource-11800"></a> <span class="vuid">VUID-VkResolveImageInfo2-srcSubresource-11800</span><br>
+
+<code>srcSubresource.aspectMask</code> for each element in <code>pRegions</code> <strong class="purple">must</strong>
+not specify an aspect which is not part of the image format of
+<code>srcImage</code></p>
+</li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-dstSubresource-11801" href="#VUID-VkResolveImageInfo2-dstSubresource-11801"></a> <span class="vuid">VUID-VkResolveImageInfo2-dstSubresource-11801</span><br>
+
+<code>dstSubresource.aspectMask</code> for each element in <code>pRegions</code> <strong class="purple">must</strong>
+not specify an aspect which is not part of the image format of
+<code>dstImage</code></p>
+</li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-srcSubresource-11802" href="#VUID-VkResolveImageInfo2-srcSubresource-11802"></a> <span class="vuid">VUID-VkResolveImageInfo2-srcSubresource-11802</span><br>
+
+<code>srcSubresource.aspectMask</code> <strong class="purple">must</strong> equal
+<code>dstSubresource.aspectMask</code> for each element in <code>pRegions</code></p>
+</li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-pNext-10982" href="#VUID-VkResolveImageInfo2-pNext-10982"></a> <span class="vuid">VUID-VkResolveImageInfo2-pNext-10982</span><br>
+
+If <a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a> is included in the <code>pNext</code> chain,
+<code>flags</code> includes
+<code>VK_RESOLVE_IMAGE_SKIP_TRANSFER_FUNCTION_BIT_KHR</code> or
+<code>VK_RESOLVE_IMAGE_ENABLE_TRANSFER_FUNCTION_BIT_KHR</code>, then the format
+of <code>srcImage</code> and <code>dstImage</code> <strong class="purple">must</strong> use sRGB encoding</p>
+</li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-srcImage-10983" href="#VUID-VkResolveImageInfo2-srcImage-10983"></a> <span class="vuid">VUID-VkResolveImageInfo2-srcImage-10983</span><br>
+
+If <code>srcImage</code> has a color format and <a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a>
+is included in the <code>pNext</code> chain, its <code>resolveMode</code> <strong class="purple">must</strong> not be
+<code>VK_RESOLVE_MODE_NONE</code></p>
+</li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-srcImage-10984" href="#VUID-VkResolveImageInfo2-srcImage-10984"></a> <span class="vuid">VUID-VkResolveImageInfo2-srcImage-10984</span><br>
+
+If <code>srcImage</code> has a non-integer color format, and
+<a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a> is included in the <code>pNext</code> chain,
+its <code>resolveMode</code> <strong class="purple">must</strong> be <code>VK_RESOLVE_MODE_AVERAGE_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-srcImage-10985" href="#VUID-VkResolveImageInfo2-srcImage-10985"></a> <span class="vuid">VUID-VkResolveImageInfo2-srcImage-10985</span><br>
+
+If <code>srcImage</code> has an integer color format, and
+<a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a> is included in the <code>pNext</code> chain,
+its <code>resolveMode</code> <strong class="purple">must</strong> be <code>VK_RESOLVE_MODE_SAMPLE_ZERO_BIT</code></p>
+</li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-srcImage-10986" href="#VUID-VkResolveImageInfo2-srcImage-10986"></a> <span class="vuid">VUID-VkResolveImageInfo2-srcImage-10986</span><br>
+
+If <code>srcImage</code> has a depth-stencil format,
+<a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a> <strong class="purple">must</strong> be included in the <code>pNext</code>
+chain</p>
+</li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-srcImage-10987" href="#VUID-VkResolveImageInfo2-srcImage-10987"></a> <span class="vuid">VUID-VkResolveImageInfo2-srcImage-10987</span><br>
+
+If <code>srcImage</code> has a depth-stencil format, and a depth aspect is
+referenced by <code>pRegions</code>,
+<a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a>::<code>resolveMode</code> <strong class="purple">must</strong> not be
+<code>VK_RESOLVE_MODE_NONE</code></p>
+</li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-srcImage-10988" href="#VUID-VkResolveImageInfo2-srcImage-10988"></a> <span class="vuid">VUID-VkResolveImageInfo2-srcImage-10988</span><br>
+
+If <code>srcImage</code> has a depth-stencil format, and a stencil aspect is
+referenced by <code>pRegions</code>,
+<a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a>::<code>stencilResolveMode</code> <strong class="purple">must</strong> not be
+<code>VK_RESOLVE_MODE_NONE</code></p>
+</li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-srcImage-10989" href="#VUID-VkResolveImageInfo2-srcImage-10989"></a> <span class="vuid">VUID-VkResolveImageInfo2-srcImage-10989</span><br>
+
+If <code>srcImage</code> has a depth-stencil format, and a depth aspect is
+referenced by <code>pRegions</code>,
+<a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a>::<code>resolveMode</code> <strong class="purple">must</strong> be one of the
+bits set in
+<a href="VkPhysicalDeviceDepthStencilResolveProperties.html">VkPhysicalDeviceDepthStencilResolveProperties</a>::<code>supportedDepthResolveModes</code></p>
+</li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-srcImage-10990" href="#VUID-VkResolveImageInfo2-srcImage-10990"></a> <span class="vuid">VUID-VkResolveImageInfo2-srcImage-10990</span><br>
+
+If <code>srcImage</code> has a depth-stencil format, and a stencil aspect is
+referenced by <code>pRegions</code>,
+<a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a>::<code>stencilResolveMode</code> <strong class="purple">must</strong> be one
+of the bits set in
+<a href="VkPhysicalDeviceDepthStencilResolveProperties.html">VkPhysicalDeviceDepthStencilResolveProperties</a>::<code>supportedStencilResolveModes</code></p>
+</li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-srcImage-10991" href="#VUID-VkResolveImageInfo2-srcImage-10991"></a> <span class="vuid">VUID-VkResolveImageInfo2-srcImage-10991</span><br>
+
+If <code>srcImage</code> has a depth-stencil format, and both a depth aspect
+and stencil aspect is referenced by <code>pRegions</code>, and
+<a href="VkPhysicalDeviceDepthStencilResolveProperties.html">VkPhysicalDeviceDepthStencilResolveProperties</a>::<code>indepdendentResolve</code>
+is <code>VK_FALSE</code>, <a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a>::<code>resolveMode</code>
+<strong class="purple">must</strong> be equal to
+<a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a>::<code>stencilResolveMode</code></p>
+</li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-srcImage-10992" href="#VUID-VkResolveImageInfo2-srcImage-10992"></a> <span class="vuid">VUID-VkResolveImageInfo2-srcImage-10992</span><br>
+
+If <code>srcImage</code> has a depth-stencil format containing both a depth
+aspect and stencil aspect, and
+<a href="VkPhysicalDeviceDepthStencilResolveProperties.html">VkPhysicalDeviceDepthStencilResolveProperties</a>::<code>indepdendentResolveNone</code>
+is <code>VK_FALSE</code>, every element of <code>pRegions</code> <strong class="purple">must</strong> contain both
+depth and stencil aspects</p>
+</li>
 </ul>
 </div>
 </div>
@@ -1130,7 +1288,11 @@ The <a href="#resources-image-format-features">format features</a> of
 </li>
 <li>
 <p><a id="VUID-VkResolveImageInfo2-pNext-pNext" href="#VUID-VkResolveImageInfo2-pNext-pNext"></a> <span class="vuid">VUID-VkResolveImageInfo2-pNext-pNext</span><br>
- <code>pNext</code> <strong class="purple">must</strong> be <code>NULL</code></p>
+ <code>pNext</code> <strong class="purple">must</strong> be <code>NULL</code> or a pointer to a valid instance of <a href="VkResolveImageModeInfoKHR.html">VkResolveImageModeInfoKHR</a></p>
+</li>
+<li>
+<p><a id="VUID-VkResolveImageInfo2-sType-unique" href="#VUID-VkResolveImageInfo2-sType-unique"></a> <span class="vuid">VUID-VkResolveImageInfo2-sType-unique</span><br>
+ The <code>sType</code> value of each structure in the <code>pNext</code> chain <strong class="purple">must</strong> be unique</p>
 </li>
 <li>
 <p><a id="VUID-VkResolveImageInfo2-srcImage-parameter" href="#VUID-VkResolveImageInfo2-srcImage-parameter"></a> <span class="vuid">VUID-VkResolveImageInfo2-srcImage-parameter</span><br>

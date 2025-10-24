@@ -967,11 +967,12 @@ size and rounded up.</p>
 <p>The <a href="VkComponentMapping.html">VkComponentMapping</a> <code>components</code> member describes a remapping
 from components of the image to components of the vector returned by shader
 image instructions.
-This remapping <strong class="purple">must</strong> be the identity swizzle for storage image descriptors,
-input attachment descriptors,
-framebuffer attachments, and any <code>VkImageView</code> used with a combined
-image sampler that enables <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#samplers-YCbCr-conversion" target="_blank" rel="noopener">sampler Y′C<sub>B</sub>C<sub>R</sub>
-conversion</a>.</p>
+This remapping <strong class="purple">must</strong> be the identity swizzle for
+any <code>VkImageView</code> used with a combined image sampler that enables
+<a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#samplers-YCbCr-conversion" target="_blank" rel="noopener">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>,
+input attachment descriptors, framebuffer attachments,
+and
+storage image descriptors.</p>
 </div>
 <div class="paragraph">
 <p>If the image view is to be used with a sampler which supports

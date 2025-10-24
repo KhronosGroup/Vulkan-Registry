@@ -924,6 +924,10 @@ graph pipeline</p>
  The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support <code>VK_QUEUE_COMPUTE_BIT</code>, or <code>VK_QUEUE_GRAPHICS_BIT</code> operations</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdInitializeGraphScratchMemoryAMDX-suspended" href="#VUID-vkCmdInitializeGraphScratchMemoryAMDX-suspended"></a> <span class="vuid">VUID-vkCmdInitializeGraphScratchMemoryAMDX-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdInitializeGraphScratchMemoryAMDX-videocoding" href="#VUID-vkCmdInitializeGraphScratchMemoryAMDX-videocoding"></a> <span class="vuid">VUID-vkCmdInitializeGraphScratchMemoryAMDX-videocoding</span><br>
  This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
 </li>

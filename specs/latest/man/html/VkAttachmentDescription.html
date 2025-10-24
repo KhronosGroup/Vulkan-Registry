@@ -818,7 +818,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <div class="title">Warning</div>
 </td>
 <td class="content">
-This functionality is deprecated by <a href="#versions-1.2">Vulkan Version 1.2</a>. See <a href="#deprecation-renderpass2">Deprecated Functionality</a> for more information.
+This functionality is superseded by <a href="#versions-1.2">Vulkan Version 1.2</a>. See <a href="#legacy-renderpass2">Legacy Functionality</a> for more information.
 </td>
 </tr>
 </table>
@@ -1182,6 +1182,51 @@ If the <a href="#features-dynamicRenderingLocalRead"><code>dynamicRenderingLocal
 If the <a href="#features-dynamicRenderingLocalRead"><code>dynamicRenderingLocalRead</code></a> feature is not enabled,
 <code>finalLayout</code> <strong class="purple">must</strong> not be
 <code>VK_IMAGE_LAYOUT_RENDERING_LOCAL_READ</code></p>
+</li>
+<li>
+<p><a id="VUID-VkAttachmentDescription-flags-11773" href="#VUID-VkAttachmentDescription-flags-11773"></a> <span class="vuid">VUID-VkAttachmentDescription-flags-11773</span><br>
+
+If <code>flags</code> includes
+<code>VK_ATTACHMENT_DESCRIPTION_RESOLVE_SKIP_TRANSFER_FUNCTION_BIT_KHR</code>,
+<code>flags</code> <strong class="purple">must</strong> not include
+<code>VK_ATTACHMENT_DESCRIPTION_RESOLVE_ENABLE_TRANSFER_FUNCTION_BIT_KHR</code></p>
+</li>
+<li>
+<p><a id="VUID-VkAttachmentDescription-flags-11774" href="#VUID-VkAttachmentDescription-flags-11774"></a> <span class="vuid">VUID-VkAttachmentDescription-flags-11774</span><br>
+
+If <code>flags</code> includes
+<code>VK_ATTACHMENT_DESCRIPTION_RESOLVE_SKIP_TRANSFER_FUNCTION_BIT_KHR</code>
+or
+<code>VK_ATTACHMENT_DESCRIPTION_RESOLVE_ENABLE_TRANSFER_FUNCTION_BIT_KHR</code>,
+<a href="#limits-resolveSrgbFormatSupportsTransferFunctionControl"><code>resolveSrgbFormatSupportsTransferFunctionControl</code></a>
+<strong class="purple">must</strong> be <code>VK_TRUE</code></p>
+</li>
+<li>
+<p><a id="VUID-VkAttachmentDescription-flags-11775" href="#VUID-VkAttachmentDescription-flags-11775"></a> <span class="vuid">VUID-VkAttachmentDescription-flags-11775</span><br>
+
+If <code>flags</code> includes
+<code>VK_ATTACHMENT_DESCRIPTION_RESOLVE_SKIP_TRANSFER_FUNCTION_BIT_KHR</code>
+or
+<code>VK_ATTACHMENT_DESCRIPTION_RESOLVE_ENABLE_TRANSFER_FUNCTION_BIT_KHR</code>,
+<a href="#features-maintenance10"><code>maintenance10</code></a> <strong class="purple">must</strong> be enabled</p>
+</li>
+<li>
+<p><a id="VUID-VkAttachmentDescription-flags-11776" href="#VUID-VkAttachmentDescription-flags-11776"></a> <span class="vuid">VUID-VkAttachmentDescription-flags-11776</span><br>
+
+If <code>flags</code> includes
+<code>VK_ATTACHMENT_DESCRIPTION_RESOLVE_SKIP_TRANSFER_FUNCTION_BIT_KHR</code>
+or
+<code>VK_ATTACHMENT_DESCRIPTION_RESOLVE_ENABLE_TRANSFER_FUNCTION_BIT_KHR</code>,
+<code>format</code> <strong class="purple">must</strong> use sRGB encoding</p>
+</li>
+<li>
+<p><a id="VUID-VkAttachmentDescription-flags-11777" href="#VUID-VkAttachmentDescription-flags-11777"></a> <span class="vuid">VUID-VkAttachmentDescription-flags-11777</span><br>
+
+If <code>flags</code> includes
+<code>VK_ATTACHMENT_DESCRIPTION_RESOLVE_SKIP_TRANSFER_FUNCTION_BIT_KHR</code>
+or
+<code>VK_ATTACHMENT_DESCRIPTION_RESOLVE_ENABLE_TRANSFER_FUNCTION_BIT_KHR</code>,
+<code>samples</code> <strong class="purple">must</strong> be <code>VK_SAMPLE_COUNT_1_BIT</code></p>
 </li>
 <li>
 <p><a id="VUID-VkAttachmentDescription-format-06698" href="#VUID-VkAttachmentDescription-format-06698"></a> <span class="vuid">VUID-VkAttachmentDescription-format-06698</span><br>

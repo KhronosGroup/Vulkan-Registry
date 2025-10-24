@@ -906,7 +906,9 @@ static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_CAPTURE_DATA_BIT_KHR
 // Provided by VK_EXT_device_generated_commands
 static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_INDIRECT_BINDABLE_BIT_EXT = 0x4000000000ULL;
 // Provided by VK_VALVE_fragment_density_map_layered
-static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE = 0x10000000000ULL;</code></pre>
+static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE = 0x10000000000ULL;
+// Provided by VK_EXT_shader_64bit_indexing
+static const VkPipelineCreateFlagBits2 VK_PIPELINE_CREATE_2_64_BIT_INDEXING_BIT_EXT = 0x80000000000ULL;</code></pre>
 </div>
 </div>
 <div id="VkPipelineCreateFlagBits2KHR" class="listingblock">
@@ -1158,6 +1160,10 @@ pipeline will be used in an <a href="https://registry.khronos.org/vulkan/specs/l
 <p><code>VK_PIPELINE_CREATE_2_DISALLOW_OPACITY_MICROMAP_BIT_ARM</code> specifies
 that the pipeline <strong class="purple">must</strong> not be used with acceleration structures which
 reference an opacity micromap array.</p>
+</li>
+<li>
+<p><code>VK_PIPELINE_CREATE_2_64_BIT_INDEXING_BIT_EXT</code> specifies that the
+pipeline enables <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#spirvenv-64bindexing" target="_blank" rel="noopener">64-bit indexing</a>.</p>
 </li>
 </ul>
 </div>

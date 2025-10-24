@@ -948,6 +948,10 @@ Only stages specified in <a href="https://registry.khronos.org/vulkan/specs/late
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdPreprocessGeneratedCommandsEXT-suspended" href="#VUID-vkCmdPreprocessGeneratedCommandsEXT-suspended"></a> <span class="vuid">VUID-vkCmdPreprocessGeneratedCommandsEXT-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdPreprocessGeneratedCommandsEXT-videocoding" href="#VUID-vkCmdPreprocessGeneratedCommandsEXT-videocoding"></a> <span class="vuid">VUID-vkCmdPreprocessGeneratedCommandsEXT-videocoding</span><br>
  This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
 </li>

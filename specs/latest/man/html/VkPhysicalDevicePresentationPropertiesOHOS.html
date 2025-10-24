@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>vkCmdDecompressMemoryNV(3)</title>
+<title>VkPhysicalDevicePresentationPropertiesOHOS(3)</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -796,10 +796,10 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 </head>
 <body class="manpage">
 <div id="header">
-<h1>vkCmdDecompressMemoryNV(3) Manual Page</h1>
+<h1>VkPhysicalDevicePresentationPropertiesOHOS(3) Manual Page</h1>
 <h2 id="_name">Name</h2>
 <div class="sectionbody">
-<p>vkCmdDecompressMemoryNV - Decompress data between memory regions</p>
+<p>VkPhysicalDevicePresentationPropertiesOHOS - The presentation properties of a physical device</p>
 </div>
 </div>
 <div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
@@ -809,36 +809,36 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <h2 id="_c_specification"><a class="anchor" href="#_c_specification"></a>C Specification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To decompress data between one or more memory regions call:</p>
+<p>The <code>VkPhysicalDevicePresentationPropertiesOHOS</code> structure is defined
+as:</p>
 </div>
-<div id="vkCmdDecompressMemoryNV" class="listingblock">
+<div id="VkPhysicalDevicePresentationPropertiesOHOS" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_NV_memory_decompression
-void vkCmdDecompressMemoryNV(
-    VkCommandBuffer                             commandBuffer,
-    uint32_t                                    decompressRegionCount,
-    const VkDecompressMemoryRegionNV*           pDecompressMemoryRegions);</code></pre>
+<pre class="highlight"><code class="language-c++" data-lang="c++">// Provided by VK_OHOS_native_buffer
+typedef struct VkPhysicalDevicePresentationPropertiesOHOS {
+    VkStructureType    sType;
+    const void*        pNext;
+    VkBool32           sharedImage;
+} VkPhysicalDevicePresentationPropertiesOHOS;</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h2>
+<h2 id="_members"><a class="anchor" href="#_members"></a>Members</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><code>commandBuffer</code> is the command buffer into which the command will be
-recorded.</p>
+<p><code>sType</code> is a <a href="VkStructureType.html">VkStructureType</a> value identifying this structure.</p>
 </li>
 <li>
-<p><code>decompressRegionCount</code> is the number of memory regions to
-decompress.</p>
+<p><code>pNext</code> is <code>NULL</code> or a pointer to a structure extending this
+structure.</p>
 </li>
 <li>
-<p><code>pDecompressMemoryRegions</code> is a pointer to an array of
-<code>decompressRegionCount</code> <a href="VkDecompressMemoryRegionNV.html">VkDecompressMemoryRegionNV</a> structures
-specifying decompression parameters.</p>
+<p><code>sharedImage</code> will be set to <code>VK_TRUE</code> if the driver can share
+the ownership of a image with the display system.</p>
 </li>
 </ul>
 </div>
@@ -847,117 +847,16 @@ specifying decompression parameters.</p>
 <div class="sect1">
 <h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Each region specified in <code>pDecompressMemoryRegions</code> is decompressed from
-the source to destination region based on the specified decompression
-method.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Valid Usage</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryNV-None-07684" href="#VUID-vkCmdDecompressMemoryNV-None-07684"></a> <span class="vuid">VUID-vkCmdDecompressMemoryNV-None-07684</span><br>
-
-The <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#features-memoryDecompression" target="_blank" rel="noopener"><code>memoryDecompression</code></a> feature
-<strong class="purple">must</strong> be enabled</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Valid Usage (Implicit)</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="VUID-vkCmdDecompressMemoryNV-commandBuffer-parameter" href="#VUID-vkCmdDecompressMemoryNV-commandBuffer-parameter"></a> <span class="vuid">VUID-vkCmdDecompressMemoryNV-commandBuffer-parameter</span><br>
- <code>commandBuffer</code> <strong class="purple">must</strong> be a valid <a href="VkCommandBuffer.html">VkCommandBuffer</a> handle</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryNV-pDecompressMemoryRegions-parameter" href="#VUID-vkCmdDecompressMemoryNV-pDecompressMemoryRegions-parameter"></a> <span class="vuid">VUID-vkCmdDecompressMemoryNV-pDecompressMemoryRegions-parameter</span><br>
- <code>pDecompressMemoryRegions</code> <strong class="purple">must</strong> be a valid pointer to an array of <code>decompressRegionCount</code> valid <a href="VkDecompressMemoryRegionNV.html">VkDecompressMemoryRegionNV</a> structures</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryNV-commandBuffer-recording" href="#VUID-vkCmdDecompressMemoryNV-commandBuffer-recording"></a> <span class="vuid">VUID-vkCmdDecompressMemoryNV-commandBuffer-recording</span><br>
- <code>commandBuffer</code> <strong class="purple">must</strong> be in the <a href="#commandbuffers-lifecycle">recording state</a></p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryNV-commandBuffer-cmdpool" href="#VUID-vkCmdDecompressMemoryNV-commandBuffer-cmdpool"></a> <span class="vuid">VUID-vkCmdDecompressMemoryNV-commandBuffer-cmdpool</span><br>
- The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> support <code>VK_QUEUE_COMPUTE_BIT</code>, or <code>VK_QUEUE_GRAPHICS_BIT</code> operations</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryNV-renderpass" href="#VUID-vkCmdDecompressMemoryNV-renderpass"></a> <span class="vuid">VUID-vkCmdDecompressMemoryNV-renderpass</span><br>
- This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryNV-videocoding" href="#VUID-vkCmdDecompressMemoryNV-videocoding"></a> <span class="vuid">VUID-vkCmdDecompressMemoryNV-videocoding</span><br>
- This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
-</li>
-<li>
-<p><a id="VUID-vkCmdDecompressMemoryNV-decompressRegionCount-arraylength" href="#VUID-vkCmdDecompressMemoryNV-decompressRegionCount-arraylength"></a> <span class="vuid">VUID-vkCmdDecompressMemoryNV-decompressRegionCount-arraylength</span><br>
- <code>decompressRegionCount</code> <strong class="purple">must</strong> be greater than <code>0</code></p>
+<p><a id="VUID-VkPhysicalDevicePresentationPropertiesOHOS-sType-sType" href="#VUID-VkPhysicalDevicePresentationPropertiesOHOS-sType-sType"></a> <span class="vuid">VUID-VkPhysicalDevicePresentationPropertiesOHOS-sType-sType</span><br>
+ <code>sType</code> <strong class="purple">must</strong> be <code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENTATION_PROPERTIES_OHOS</code></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Host Synchronization</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Host access to <code>commandBuffer</code> <strong class="purple">must</strong> be externally synchronized</p>
-</li>
-<li>
-<p>Host access to the <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class="purple">must</strong> be externally synchronized</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Command Properties</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><a href="#VkCommandBufferLevel">Command Buffer Levels</a></th>
-<th class="tableblock halign-left valign-top"><a href="#vkCmdBeginRenderPass">Render Pass Scope</a></th>
-<th class="tableblock halign-left valign-top"><a href="#vkCmdBeginVideoCodingKHR">Video Coding Scope</a></th>
-<th class="tableblock halign-left valign-top"><a href="#VkQueueFlagBits">Supported Queue Types</a></th>
-<th class="tableblock halign-left valign-top"><a href="#fundamentals-queueoperation-command-types">Command Type</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Primary<br>
-Secondary</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Outside</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">VK_QUEUE_COMPUTE_BIT<br>
-VK_QUEUE_GRAPHICS_BIT</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Conditional Rendering</div>
-<div class="paragraph">
-<p>vkCmdDecompressMemoryNV is not affected by <a href="#drawing-conditional-rendering">conditional rendering</a></p>
 </div>
 </div>
 </div>
@@ -967,7 +866,7 @@ VK_QUEUE_GRAPHICS_BIT</p></td>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="VK_NV_memory_decompression.html">VK_NV_memory_decompression</a>, <a href="VkCommandBuffer.html">VkCommandBuffer</a>, <a href="VkDecompressMemoryRegionNV.html">VkDecompressMemoryRegionNV</a></p>
+<p><a href="VK_OHOS_native_buffer.html">VK_OHOS_native_buffer</a>, <a href="VkBool32.html">VkBool32</a>, <a href="VkStructureType.html">VkStructureType</a></p>
 </div>
 </div>
 </div>
@@ -975,7 +874,7 @@ VK_QUEUE_GRAPHICS_BIT</p></td>
 <h2 id="_document_notes"><a class="anchor" href="#_document_notes"></a>Document Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#vkCmdDecompressMemoryNV" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
+<p>For more information, see the <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#VkPhysicalDevicePresentationPropertiesOHOS" target="_blank" rel="noopener">Vulkan Specification</a>.</p>
 </div>
 <div class="paragraph">
 <p>This page is extracted from the Vulkan Specification.

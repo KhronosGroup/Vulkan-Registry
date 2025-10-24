@@ -912,6 +912,10 @@ If <code>commandBuffer</code> is a protected command buffer and
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
 </li>
 <li>
+<p><a id="VUID-vkCmdBlitImage2-suspended" href="#VUID-vkCmdBlitImage2-suspended"></a> <span class="vuid">VUID-vkCmdBlitImage2-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
+</li>
+<li>
 <p><a id="VUID-vkCmdBlitImage2-videocoding" href="#VUID-vkCmdBlitImage2-videocoding"></a> <span class="vuid">VUID-vkCmdBlitImage2-videocoding</span><br>
  This command <strong class="purple">must</strong> only be called outside of a video coding scope</p>
 </li>

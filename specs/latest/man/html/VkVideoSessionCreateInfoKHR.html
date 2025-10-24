@@ -980,6 +980,13 @@ specified by <code>pVideoProfile</code>, then <code>flags</code> <strong class="
 <code>VK_VIDEO_SESSION_CREATE_ALLOW_ENCODE_EMPHASIS_MAP_BIT_KHR</code></p>
 </li>
 <li>
+<p><a id="VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-11759" href="#VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-11759"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-11759</span><br>
+
+<code>pVideoProfile-&gt;videoCodecOperation</code> <strong class="purple">must</strong> be supported by the queue
+family index specified in <code>queueFamilyIndex</code>, as reported in
+<a href="VkQueueFamilyVideoPropertiesKHR.html">VkQueueFamilyVideoPropertiesKHR</a>::<code>videoCodecOperations</code></p>
+</li>
+<li>
 <p><a id="VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-04845" href="#VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-04845"></a> <span class="vuid">VUID-VkVideoSessionCreateInfoKHR-pVideoProfile-04845</span><br>
 
 <code>pVideoProfile</code> <strong class="purple">must</strong> be a <a href="https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#video-profile-support" target="_blank" rel="noopener">supported video

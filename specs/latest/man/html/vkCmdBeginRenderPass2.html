@@ -818,7 +818,7 @@ li > p > a[id^="VUID-"].link:hover { color: black; }
 <div class="title">Warning</div>
 </td>
 <td class="content">
-This functionality is deprecated by <a href="#versions-1.4">Vulkan Version 1.4</a>. See <a href="#deprecation-dynamicrendering">Deprecated Functionality</a> for more information.
+This functionality is superseded by <a href="#versions-1.4">Vulkan Version 1.4</a>. See <a href="#legacy-dynamicrendering">Legacy Functionality</a> for more information.
 </td>
 </tr>
 </table>
@@ -1127,6 +1127,10 @@ with <code>VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT</code></p>
 <li>
 <p><a id="VUID-vkCmdBeginRenderPass2-renderpass" href="#VUID-vkCmdBeginRenderPass2-renderpass"></a> <span class="vuid">VUID-vkCmdBeginRenderPass2-renderpass</span><br>
  This command <strong class="purple">must</strong> only be called outside of a render pass instance</p>
+</li>
+<li>
+<p><a id="VUID-vkCmdBeginRenderPass2-suspended" href="#VUID-vkCmdBeginRenderPass2-suspended"></a> <span class="vuid">VUID-vkCmdBeginRenderPass2-suspended</span><br>
+ This command <strong class="purple">must</strong> not be called between suspended render pass instances</p>
 </li>
 <li>
 <p><a id="VUID-vkCmdBeginRenderPass2-videocoding" href="#VUID-vkCmdBeginRenderPass2-videocoding"></a> <span class="vuid">VUID-vkCmdBeginRenderPass2-videocoding</span><br>
