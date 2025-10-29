@@ -284,8 +284,8 @@ include_once("../../assets/static_pages/khr_page_top.php");
 <p> Khronos welcomes comments and bug reports.
     To provide feedback on the Vulkan registry itself (such as reporting
     missing content, bad links, etc.), file an issue in the <a
-    href="https://github.com/KhronosGroup/Vulkan-Web-Registry/issues">
-    Vulkan-Web-Registry </a> Github project. </p>
+    href="https://github.com/KhronosGroup/Vulkan-Registry/issues">
+    Vulkan-Registry </a> Github project. </p>
 
 <p> For the Vulkan Specification or other documentation and tools, file an
     Issue on the appropriate <a href="#repos">GitHub Repository</a>. </p>
