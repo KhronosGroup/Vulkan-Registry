@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>Vulkan<sup>®</sup> Documentation and Extensions: Procedures and Conventions</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech, Tobias Hector</span><br>
-<span id="revnumber">version 1.4.330,</span>
-<span id="revdate">2025-10-24 01:28:10Z</span>
-<br><span id="revremark">from git branch: github-main commit: 805d2ca04d00074ee4debe327fc7d7eb3016f67e</span>
+<span id="revnumber">version 1.4.331,</span>
+<span id="revdate">2025-10-30 23:18:15Z</span>
+<br><span id="revremark">from git branch: github-main commit: 48034cad6dd20ad6f2b01194436f87eecf71a9bb</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1644,8 +1644,8 @@ word is lower case.</p>
 <dl>
 <dt class="hdlist1"><code><em>prefix</em></code></dt>
 <dd>
-<p>This is usually "vk", but will be "vkCmd" if it is a command used to
-record into a command buffer, or "vkQueue" if it directly affects a
+<p>This is usually &#8220;vk&#8221;, but will be &#8220;vkCmd&#8221; if it is a command used to
+record into a command buffer, or &#8220;vkQueue&#8221; if it directly affects a
 queue.</p>
 </dd>
 <dt class="hdlist1"><code><em>Verb</em></code></dt>
@@ -1738,7 +1738,7 @@ of Retrieved Results</a> in the specification for more information.</p>
 <dd>
 <p>These are commands which query capabilities of objects that an
 implementation can provide.
-Such commands use the verb "Enumerate" to identify themselves.</p>
+Such commands use the verb &#8220;Enumerate&#8221; to identify themselves.</p>
 <div class="paragraph">
 <p>e.g. <code>vkEnumeratePhysicalDeviceProperties</code></p>
 </div>
@@ -1752,7 +1752,7 @@ parameter for the parent type.</p>
 <dd>
 <p>These commands are used to query the current properties of an object that
 has been created.
-Such commands use the verb "Get" to identify themselves.</p>
+Such commands use the verb &#8220;Get&#8221; to identify themselves.</p>
 <div class="paragraph">
 <p>e.g. <code>vkGetPhysicalDeviceQueueFamilyProperties</code></p>
 </div>
@@ -1789,11 +1789,11 @@ verbs at the time of writing.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Allocate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allocates memory in a pool or memory heap and creates object - paired with "Free"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allocates memory in a pool or memory heap and creates object - paired with &#8220;Free&#8221;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Begin</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Start of a range of command buffer commands with different behavior than those outside the range - "End" marks the end of the range</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start of a range of command buffer commands with different behavior than those outside the range - &#8220;End&#8221; marks the end of the range</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Bind</p></td>
@@ -1813,11 +1813,11 @@ verbs at the time of writing.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creates an object - paired with "Destroy"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates an object - paired with &#8220;Destroy&#8221;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Destroy</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Destroys an object - paired with "Create"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Destroys an object - paired with &#8220;Create&#8221;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dispatch</p></td>
@@ -1829,7 +1829,7 @@ verbs at the time of writing.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">End</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">End of a range of command buffer commands with different behavior than those outside the range - "Begin" marks the start of the range</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End of a range of command buffer commands with different behavior than those outside the range - &#8220;Begin&#8221; marks the start of the range</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enumerate</p></td>
@@ -1849,7 +1849,7 @@ verbs at the time of writing.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Free</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Destroys an object and then frees memory back to a pool or memory heap - paired with "Allocate"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Destroys an object and then frees memory back to a pool or memory heap - paired with &#8220;Allocate&#8221;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Get</p></td>
@@ -1865,7 +1865,7 @@ verbs at the time of writing.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Map</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Maps an allocation into host memory - paired with "Unmap"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maps an allocation into host memory - paired with &#8220;Unmap&#8221;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Merge</p></td>
@@ -1901,7 +1901,7 @@ verbs at the time of writing.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Unmap</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unmaps an allocation from host memory - paired with "Map"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unmaps an allocation from host memory - paired with &#8220;Map&#8221;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Update</p></td>
@@ -8624,10 +8624,10 @@ Use consistent conventions for defining structures.
 Use American rather than British spelling conventions.</p>
 </li>
 <li>
-<p>2016-03-12 - Recommend against "the value of".</p>
+<p>2016-03-12 - Recommend against &#8220;the value of&#8221;.</p>
 </li>
 <li>
-<p>2016-02-26 - Replace use of the "maynot&#x3a;" macro with "may&#x3a; not".</p>
+<p>2016-02-26 - Replace use of the &#8220;maynot&#x3a;&#8221; macro with &#8220;may&#x3a; not&#8221;.</p>
 </li>
 <li>
 <p>2016-02-16 - Place asciidoc conversion post-release.</p>
