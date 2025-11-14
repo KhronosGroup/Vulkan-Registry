@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>Vulkan<sup>®</sup> Documentation and Extensions: Procedures and Conventions</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech, Tobias Hector</span><br>
-<span id="revnumber">version 1.4.332,</span>
-<span id="revdate">2025-11-07 01:31:08Z</span>
-<br><span id="revremark">from git branch: github-main commit: 09d464f85360160747c4ad6dc5a9841e15822aa5</span>
+<span id="revnumber">version 1.4.333,</span>
+<span id="revdate">2025-11-14 01:25:59Z</span>
+<br><span id="revremark">from git branch: github-main commit: e554740a488b6733d4984252351eda7d69b1d9c2</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -7515,14 +7515,19 @@ In many cases, it may lead to a simpler VU statement, or splitting one large
 VU into multiple new ones.</p>
 </div>
 <div class="paragraph">
-<p>A valid usage statement may used nested bullet lists or other asciidoc
-markup.</p>
-</div>
-<div class="paragraph">
 <p>Be clear on the distinction between a &#8220;valid pointer&#8221; and a &#8220;pointer to a
 valid object&#8221; when writing valid usage statements.
 See the &#8220;Valid Usage&#8221; section of the Vulkan Specification, and
 particularly the &#8220;Valid Usage for Pointers&#8221; section.</p>
+</div>
+<div class="paragraph">
+<p>When a valid usage statement must apply independently to every element of an
+array parameter or member, write it starting with &#8220;For each element&#8221;
+instead of &#8220;For any element&#8221;.</p>
+</div>
+<div class="paragraph">
+<p>A valid usage statement may used nested bullet lists or other asciidoc
+markup.</p>
 </div>
 <div class="paragraph">
 <p>When clauses in valid usage statements apply only when specific extensions
@@ -8157,6 +8162,11 @@ to by the Vulkan Working Group.</p>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2025-11-13 - Require use of &#8220;for each element&#8221; when writing
+<a href="#sample-writing-explicit-vu">explicit valid usage statements</a> to be
+evaluated independent for elements of an array (internal issue 4534).</p>
+</li>
 <li>
 <p>2025-11-06 - Add &#8220;regardless of&#8221; to the preferred <a href="#markup-word-choices">Word Choices</a> (internal MR 7799).</p>
 </li>

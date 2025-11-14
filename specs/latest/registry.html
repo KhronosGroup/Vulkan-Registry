@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.332,</span>
-<span id="revdate">2025-11-07 01:31:08Z</span>
-<br><span id="revremark">from git branch: github-main commit: 09d464f85360160747c4ad6dc5a9841e15822aa5</span>
+<span id="revnumber">version 1.4.333,</span>
+<span id="revdate">2025-11-14 01:25:59Z</span>
+<br><span id="revremark">from git branch: github-main commit: e554740a488b6733d4984252351eda7d69b1d9c2</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2078,6 +2078,26 @@ object for this type.</p>
 <code>union</code>.
 Notes that this struct/union is going to be filled in by the API, rather
 than an application filling it out and passing it to the API.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the <code>returnedonly</code> attribute is true, the <code>pNext</code> member of that
+structure must not be <code>const</code>.
+This is now enforced by CI.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 </li>
 <li>
 <p><code>structextends</code> only applicable if category is <code>struct</code> or <code>union</code>.
@@ -6160,6 +6180,10 @@ Changes to the <code>.xml</code> files and Python scripts are logged in GitHub h
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2025-11-11 - Update the <code>returnedonly</code> attribute of <a href="#tag-type">structure type tags</a> to note that <code>pNext</code> members must not be <code>const</code>
+if <code>returnedonly</code> is true (internal issue 2734).</p>
+</li>
 <li>
 <p>2025-07-31 - Update the <code>queues</code> attribute to use Vulkan flag bit
 names instead of colloquial simplifications of them, add descriptions of
