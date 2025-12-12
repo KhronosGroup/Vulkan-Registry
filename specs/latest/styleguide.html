@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>Vulkan<sup>®</sup> Documentation and Extensions: Procedures and Conventions</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech, Tobias Hector</span><br>
-<span id="revnumber">version 1.4.335,</span>
-<span id="revdate">2025-11-27 22:58:42Z</span>
-<br><span id="revremark">from git branch: github-main commit: 60a4ad187cf3be4ede658f0fae7dd392192a314b</span>
+<span id="revnumber">version 1.4.336,</span>
+<span id="revdate">2025-12-12 00:31:34Z</span>
+<br><span id="revremark">from git branch: github-main commit: 859d40c2360730c4d0d77cd227ca71c2c509b922</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1367,7 +1367,7 @@ used in place of the full word unless there is good reason not to.</p>
 <div class="paragraph">
 <p>When a number is part of an identifier, it is treated as a word if it is a
 standalone number, such as the extension name token
-<code>VK_KHR_GET_MEMORY_REQUIREMENTS_2_EXTENSION_NAME</code> for the
+<a href="#VK_KHR_GET_MEMORY_REQUIREMENTS_2_EXTENSION_NAME">VK_KHR_GET_MEMORY_REQUIREMENTS_2_EXTENSION_NAME</a> for the
 <code>VK_KHR_get_memory_requirements2</code> extension.
 For uses where the number is part of a common abbreviation such as <code>2D</code>
 or <code>R8B8</code>`, the entire abbreviation is treated as a word.</p>
@@ -2100,7 +2100,7 @@ This functionality was included in the original specification, but quickly
 separated out at release.
 Due to this late change, the single enum exposed has retained its original
 identifier to avoid compatibility issues:
-<code>VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE</code></p>
+<a href="#VkSamplerAddressMode">VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE</a></p>
 </div>
 </td>
 </tr>
@@ -2174,7 +2174,7 @@ for mip-related terms</a></p>
 <div class="paragraph">
 <p>The names <code>mipmapMode</code>, <code>mipmapPrecisionBits</code>,
 <code>VkSamplerMipmapMode</code>, and
-<code>VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT</code> are exceptions to this
+<a href="#VkSparseImageFormatFlagBits">VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT</a> are exceptions to this
 general usage guideline, for historical reasons.</p>
 </div>
 </td>
@@ -3483,7 +3483,7 @@ These flag types have corresponding 32- and 64-bit bitmask types
 (<a href="#VkAccessFlagBits">VkAccessFlagBits</a> and <a href="#VkAccessFlagBits2KHR">VkAccessFlagBits2KHR</a>).
 When reserving remaining bits at bit positions 0 through 30, a similarly
 named bit should be reserved in both bitmask types
-(<code>VK_ACCESS_MEMORY_READ_BIT</code> and <code>VK_ACCESS_2_MEMORY_READ_BIT</code>), to
+(<a href="#VkAccessFlagBits">VK_ACCESS_MEMORY_READ_BIT</a> and <a href="#VkAccessFlagBits2KHR">VK_ACCESS_2_MEMORY_READ_BIT</a>), to
 avoid having the same bit used for different purposes in two otherwise very
 similar interfaces.
 If that usage is not actually supported by one or the other bitmask type,
@@ -3624,7 +3624,7 @@ Khronos.</p>
 </div>
 <div class="paragraph">
 <p>If the extension adds a new handle to Vulkan, a corresponding value must be
-added to <code>VkObjectType</code> (as defined in the &#8220;Debugging&#8221; section of the
+added to <a href="#VkObjectType">VkObjectType</a> (as defined in the &#8220;Debugging&#8221; section of the
 <a href="#vulkan-spec">Vulkan API Specification</a>) in order to allow components to
 identify and track objects of the new type.</p>
 </div>
@@ -4837,7 +4837,7 @@ unrelated document).</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ename&#x3a;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Formats the macro argument as a Vulkan enumerant name.
-                  Example: ename&#x3a;VK_EVENT_SET &#8594; <code>VK_EVENT_SET</code>.
+                  Example: ename&#x3a;VK_EVENT_SET &#8594; <a href="#VkResult">VK_EVENT_SET</a>.
                   Note that this is not related to elink&#x3a;, unlike the
                   other macro link&#x3a;/text&#x3a; pairings.</p></td>
 </tr>
@@ -5949,7 +5949,7 @@ the <a href="#markup-macros">markup macros</a>.
 For example, if you wanted to say:</p>
 </div>
 <div class="paragraph">
-<p>A <code>VK_ERROR_DEVICE_LOST</code> error</p>
+<p>A <a href="#VkResult">VK_ERROR_DEVICE_LOST</a> error</p>
 </div>
 <div class="paragraph">
 <p>the correct way to mark this up in asciidoc would be:</p>
@@ -6494,7 +6494,7 @@ Occasional non-normative explanations can be included in the
 <div class="paragraph">
 <p>Commands which return <a href="#VkResult">VkResult</a> values must list all possible error
 codes for the command in the <code>errorcodes</code> XML attribute for the command.
-Almost all such commands may return the <code>VK_ERROR_OUT_OF_HOST_MEMORY</code>
+Almost all such commands may return the <a href="#VkResult">VK_ERROR_OUT_OF_HOST_MEMORY</a>
 error code.
 Any exceptions to this rule should be carefully considered by the
 specification author, and a rationale for this anomalous behavior may be
@@ -7073,7 +7073,7 @@ available in the logical device <code>device</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VK_SUCCESS</code></p>
+<p><a href="#VkResult">VK_SUCCESS</a></p>
 </li>
 </ul>
 </div>
@@ -7083,16 +7083,16 @@ available in the logical device <code>device</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VK_ERROR_OUT_OF_DEVICE_MEMORY</code></p>
+<p><a href="#VkResult">VK_ERROR_OUT_OF_DEVICE_MEMORY</a></p>
 </li>
 <li>
-<p><code>VK_ERROR_OUT_OF_HOST_MEMORY</code></p>
+<p><a href="#VkResult">VK_ERROR_OUT_OF_HOST_MEMORY</a></p>
 </li>
 <li>
-<p><code>VK_ERROR_UNKNOWN</code></p>
+<p><a href="#VkResult">VK_ERROR_UNKNOWN</a></p>
 </li>
 <li>
-<p><code>VK_ERROR_VALIDATION_FAILED</code></p>
+<p><a href="#VkResult">VK_ERROR_VALIDATION_FAILED</a></p>
 </li>
 </ul>
 </div>
@@ -7327,7 +7327,7 @@ No general description is shown in this example.</p>
 <p><a id="VUID-VkCommandPoolCreateInfo-flags-02860" href="#VUID-VkCommandPoolCreateInfo-flags-02860"></a> <span class="vuid">VUID-VkCommandPoolCreateInfo-flags-02860</span><br>
 
 If the <a href="#features-protectedMemory"><code>protectedMemory</code></a> feature is
-not enabled, the <code>VK_COMMAND_POOL_CREATE_PROTECTED_BIT</code> bit of
+not enabled, the <a href="#VkCommandPoolCreateFlagBits">VK_COMMAND_POOL_CREATE_PROTECTED_BIT</a> bit of
 <code>flags</code> <strong class="purple">must</strong> not be set</p>
 </li>
 </ul>
@@ -7341,7 +7341,7 @@ not enabled, the <code>VK_COMMAND_POOL_CREATE_PROTECTED_BIT</code> bit of
 <ul>
 <li>
 <p><a id="VUID-VkCommandPoolCreateInfo-sType-sType" href="#VUID-VkCommandPoolCreateInfo-sType-sType"></a> <span class="vuid">VUID-VkCommandPoolCreateInfo-sType-sType</span><br>
- <code>sType</code> <strong class="purple">must</strong> be <code>VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO</code></p>
+ <code>sType</code> <strong class="purple">must</strong> be <a href="#VkStructureType">VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO</a></p>
 </li>
 <li>
 <p><a id="VUID-VkCommandPoolCreateInfo-pNext-pNext" href="#VUID-VkCommandPoolCreateInfo-pNext-pNext"></a> <span class="vuid">VUID-VkCommandPoolCreateInfo-pNext-pNext</span><br>
@@ -7442,14 +7442,14 @@ include::{generated}/api/enums/VkCommandPoolCreateFlagBits.adoc[]</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VK_COMMAND_POOL_CREATE_TRANSIENT_BIT</code> specifies that command
+<p><a href="#VkCommandPoolCreateFlagBits">VK_COMMAND_POOL_CREATE_TRANSIENT_BIT</a> specifies that command
 buffers allocated from the pool will be short-lived, meaning that they
 will be reset or freed in a relatively short timeframe.
 This flag <strong class="purple">may</strong> be used by the implementation to control memory
 allocation behavior within the pool.</p>
 </li>
 <li>
-<p><code>VK_COMMAND_POOL_CREATE_PROTECTED_BIT</code> specifies that command
+<p><a href="#VkCommandPoolCreateFlagBits">VK_COMMAND_POOL_CREATE_PROTECTED_BIT</a> specifies that command
 buffers allocated from the pool are protected command buffers.</p>
 </li>
 </ul>
@@ -7654,7 +7654,7 @@ relevant extensions are enabled.</p>
 </div>
 <div class="paragraph">
 <p>For example, the relevant part of the
-<code>VkDescriptorSetLayoutCreateFlagBits</code> description, whose only value is
+<a href="#VkDescriptorSetLayoutCreateFlagBits">VkDescriptorSetLayoutCreateFlagBits</a> description, whose only value is
 defined by an extension, will look like this:</p>
 </div>
 <div class="listingblock">
