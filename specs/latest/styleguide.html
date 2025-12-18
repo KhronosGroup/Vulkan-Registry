@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>Vulkan<sup>®</sup> Documentation and Extensions: Procedures and Conventions</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech, Tobias Hector</span><br>
-<span id="revnumber">version 1.4.336,</span>
-<span id="revdate">2025-12-12 00:31:34Z</span>
-<br><span id="revremark">from git branch: github-main commit: 859d40c2360730c4d0d77cd227ca71c2c509b922</span>
+<span id="revnumber">version 1.4.337,</span>
+<span id="revdate">2025-12-18 21:52:28Z</span>
+<br><span id="revremark">from git branch: github-main commit: a0e5b1525597a57e40d00449522846c5d9a89699</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1487,7 +1487,7 @@ typedefs, and enumerant types.</p>
 <div class="sect3">
 <h4 id="naming-extension-structures"><a class="anchor" href="#naming-extension-structures"></a>2.3.1. Extending Structure Names</h4>
 <div class="paragraph">
-<p>Structures which extend a base structures through its <code>pNext</code> chain
+<p>Structures which extend a base structure through its <code>pNext</code> chain
 should reflect the name of the base structure.
 Currently there are two examples of such naming schemes.</p>
 </div>
@@ -2834,13 +2834,18 @@ extensions; and core API with all registered extensions.</p>
 <h4 id="extensions-documenting-extensions"><a class="anchor" href="#extensions-documenting-extensions"></a>3.10.1. Changes for New Extensions</h4>
 <div class="paragraph">
 <p>If a new extension, or a related group of them is of sufficient scope to
-require a new chapter of the specification, localize such changes into a
-small number of asciidoc include files located under a subdirectory with the
-name of the extension.
-An example can be found in <code>chapters/VK_KHR_surface/wsi.adoc</code>.
-Most extensions are not entirely self-contained, and also require changes in
+require a new chapter of the specification, localize such changes into a new
+asciidoc file.
+Include the new chapter file at a relevant point in <code>vkspec.adoc</code> so it is
+incorporated in the specification build, with appropriate asciidoc
+conditional protections so it is only included when needed for the
+specification being built.
+An example can be found in <code>chapters/videocoding.adoc</code>.</p>
+</div>
+<div class="paragraph">
+<p>Most extensions are not entirely self-contained, and also require changes in
 existing parts of the specification to document new interactions.
-Such changes should be inline in existing chapters.</p>
+Such changes should be inlined in existing chapters.</p>
 </div>
 <div class="paragraph">
 <p>Extensions may also require small additions to <code>vk.xml</code>, in addition to
@@ -3044,14 +3049,17 @@ It is not necessary to explicitly include the appendices.</p>
 specification.
 They often add an entirely new chapter, or a new section of an existing
 chapter, defining the new commands, structures, and enumerants.
-For example, in the case of <code>VK_EXT_debug_marker</code>, it adds a new section
-of the &#8220;Debugging&#8221; chapter in <code>chapters/debugging.adoc</code>, by including
+For example, <code>VK_EXT_debug_marker</code> adds a new section of the
+&#8220;Debugging&#8221; chapter in <code>chapters/debugging.adoc</code>.
 in that file:</p>
 <div class="listingblock">
 <div class="title">Example Markup</div>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="asciidoc">ifdef::VK_EXT_debug_marker[]
-include::{chapters}/VK_EXT_debug_marker/wsi.adoc[]
+[[debugging-debug-markers]]
+== Debug Markers
+
+...
 endif::VK_EXT_debug_marker[]</code></pre>
 </div>
 </div>
@@ -3060,16 +3068,20 @@ endif::VK_EXT_debug_marker[]</code></pre>
 <p>In every other place where the extension alters the behavior of the core
 Specification, make such changes and protect the modifications with the
 same asciidoc conditionals.
-For example, <code>VK_KHR_surface</code> adds new error codes to Vulkan.
-These are added to <code>chapters/fundamentals.adoc</code> in the &#8220;Return Codes&#8221;
-section as follows:</p>
+For example, <code>VK_KHR_surface</code> adds a new valid usage statement to
+<code>vkEndCommandBuffer</code> in <code>chapters/cmdbuffers.adoc</code>, which is protected
+as follows:</p>
 <div class="listingblock">
 <div class="title">Example Markup</div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="asciidoc">... list of existing error codes
-ifdef::VK_KHR_surface[]
-include::{chapters}/VK_KHR_surface/VkResultErrorDescriptions_surface.adoc[]
-endif::VK_KHR_surface[]</code></pre>
+<pre class="rouge highlight"><code data-lang="asciidoc">... previously defined valid usage statements
+ifdef::VK_EXT_debug_marker[]
+  * [[VUID-vkEndCommandBuffer-commandBuffer-00062]]
+    If pname:commandBuffer is a secondary command buffer, there must: not be
+    an outstanding flink:vkCmdDebugMarkerBeginEXT command recorded to
+    pname:commandBuffer that has not previously been ended by a call to
+    flink:vkCmdDebugMarkerEndEXT
+endif::VK_EXT_debug_marker[]</code></pre>
 </div>
 </div>
 </li>
@@ -3085,14 +3097,11 @@ and OR constructs</a>.</p>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="asciidoc">ifdef::VK_KHR_foo[]
 ... discussion of VK_KHR_foo ...
-ifdef::VK_KHR_fum[]
-... discussion of interactions between VK_KHR_foo and VK_KHR_fum ...
-endif::VK_KHR_fum[]
 endif::VK_KHR_foo[]
-
-ifdef::VK_KHR_fum[]
-... discussion of VK_KHR_fum ...
-endif::VK_KHR_fum[]</code></pre>
+ifdef::VK_KHR_foo+VK_KHR_fum[]
+... discussion of interactions between VK_KHR_foo and VK_KHR_fum when both
+are defined ...
+endif::VK_KHR_foo+VK_KHR_fum[]</code></pre>
 </div>
 </div>
 </li>
@@ -3108,24 +3117,21 @@ the previously-new extension (A).</p>
 </li>
 <li>
 <p>For vendor extensions, changes made to existing core Specification
-source files and to <code>vk.xml</code> all fall under the Contributor License
-Agreement.
-Vendors may use their own copyright on new files they add to the
-repository, although that copyright must be compatible with the
-Specification copyright.</p>
+source files and to <code>vk.xml</code> normally fall under the Contributor License
+Agreement, which assigns copyright to Khronos.
+Entirely new files added by vendors can use their own copyright
+attribution.
+Vendors may add their own copyright attribution when they make changes
+to existing markup files, although this is discouraged.
+In all cases, the copyright <strong>license</strong> terms must be the same as the rest
+of the Specification repository.</p>
 </li>
 <li>
-<p>In most cases, there will be at most two new files added to the
-specification: <code>extensions/<strong>extension_name</strong>.adoc</code>, and
-<code>chapters/<strong>extension_name</strong>.adoc</code>.
-If you need more than one new file in either the <code>chapters/</code> or
-<code>extensions/</code> directories, create a subdirectory named with the
-extension name and place the new files there.
-For example, instead of <code>chapters/VK_KHR_android_surface.adoc</code>, there is
-<code>chapters/VK_KHR_android_surface/platformCreateSurface_android.adoc</code> and
-<code>chapters/VK_KHR_android_surface/platformQuerySupport_android.adoc</code>,
-both of which are conditionally included elsewhere in the core
-specification files.</p>
+<p>In most cases, there will be no new files added to the Specification,
+only changes.
+When a new chapter and/or appendix is added, there will be new files
+<code>extensions/<strong>extension_name</strong>.adoc</code> and/or
+<code>chapters/<strong>extension_name</strong>.adoc</code>.</p>
 </li>
 <li>
 <p>Valid usage statements referring to interactions between structures in a
@@ -8163,6 +8169,11 @@ to by the Vulkan Working Group.</p>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2025-12-09 - Update the <a href="#extensions">API Versions, Extensions, and
+Layers</a> section to discourage adding new markup files other than entirely
+new chapters or appendices (internal MR 7893).</p>
+</li>
 <li>
 <p>2025-11-13 - Require use of &#8220;for each element&#8221; when writing
 <a href="#sample-writing-explicit-vu">explicit valid usage statements</a> to be
