@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.338,</span>
-<span id="revdate">2026-01-12 05:00:19Z</span>
-<br><span id="revremark">from git branch: github-main commit: 77466c6baac3c9fade77eda4a0db7158c809e98a</span>
+<span id="revnumber">version 1.4.339,</span>
+<span id="revdate">2026-01-16 02:40:55Z</span>
+<br><span id="revremark">from git branch: github-main commit: 0dabb0dc0b0299448d4f1bfd182705c2257f8d63</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1027,15 +1027,26 @@ pre.rouge .w {
 </li>
 <li><a href="#tag-type">11. API Type (<code>type</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_type_tags">11.1. Attributes of <code>type</code> Tags</a></li>
-<li><a href="#_contents_of_type_tags">11.2. Contents of <code>type</code> Tags</a>
+<li><a href="#_shared_attributes_of_type_tags">11.1. Shared Attributes of <code>type</code> Tags</a></li>
+<li><a href="#tag-types:declarations">11.2. C Type Declarations</a>
 <ul class="sectlevel3">
-<li><a href="#_enumerated_types_category_enum">11.2.1. Enumerated Types - <code>category</code> <code>"enum"</code></a></li>
-<li><a href="#_structure_types_category_struct_or_union">11.2.2. Structure Types - <code>category</code> <code>"struct"</code> or <code>"union"</code></a></li>
-<li><a href="#_all_other_types">11.2.3. All Other Types</a></li>
+<li><a href="#_constraints_on_type_categories">11.2.1. Constraints on Type Categories</a></li>
 </ul>
 </li>
-<li><a href="#tag-types:example">11.3. Example of a <code>types</code> Tag</a></li>
+<li><a href="#_contents_of_type_tags">11.3. Contents of <code>type</code> Tags</a>
+<ul class="sectlevel3">
+<li><a href="#_dependency_relationships">11.3.1. Dependency Relationships</a></li>
+<li><a href="#_base_types_category_basetype">11.3.2. Base Types - <code>category</code> <code>"basetype"</code></a></li>
+<li><a href="#_bitmask_types_category_bitmask">11.3.3. Bitmask Types - <code>category</code> <code>"bitmask"</code></a></li>
+<li><a href="#_macro_definitions_category_define">11.3.4. Macro Definitions - <code>category</code> <code>"define"</code></a></li>
+<li><a href="#_enumeranted_type_references_category_enum">11.3.5. Enumeranted Type References - <code>category</code> <code>"enum"</code></a></li>
+<li><a href="#_function_pointers_category_funcpointer">11.3.6. Function Pointers - <code>category</code> <code>"funcpointer"</code></a></li>
+<li><a href="#_handle_types_category_handle">11.3.7. Handle Types - <code>category</code> <code>"handle"</code></a></li>
+<li><a href="#_include_files_category_include">11.3.8. Include Files - <code>category</code> <code>"include"</code></a></li>
+<li><a href="#_structure_types_category_struct_or_union">11.3.9. Structure Types - <code>category</code> <code>"struct"</code> or <code>"union"</code></a></li>
+</ul>
+</li>
+<li><a href="#tag-types:example">11.4. Example of a <code>types</code> Tag</a></li>
 </ul>
 </li>
 <li><a href="#tag-enums">12. Enumerant Blocks (<code>enums</code> Tag)</a>
@@ -1066,7 +1077,7 @@ pre.rouge .w {
 <li><a href="#tag-command">16. Commands (<code>command</code> Tag)</a>
 <ul class="sectlevel2">
 <li><a href="#_attributes_of_command_tags">16.1. Attributes of <code>command</code> Tags</a></li>
-<li><a href="#_contents_of_command_tags">16.2. Contents of <code>command</code> Tags</a></li>
+<li><a href="#tag-command:content">16.2. Contents of <code>command</code> Tags</a></li>
 <li><a href="#tag-command:proto">16.3. Command Prototype (<code>proto</code> Tags)</a>
 <ul class="sectlevel3">
 <li><a href="#_attributes_of_proto_tags">16.3.1. Attributes of <code>proto</code> Tags</a></li>
@@ -2011,19 +2022,15 @@ the scope of the Vulkan API, such as an X11 <code>VisualID</code> or a Windows
 header.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_type_tags"><a class="anchor" href="#_attributes_of_type_tags"></a>11.1. Attributes of <code>type</code> Tags</h3>
+<h3 id="_shared_attributes_of_type_tags"><a class="anchor" href="#_shared_attributes_of_type_tags"></a>11.1. Shared Attributes of <code>type</code> Tags</h3>
+<div class="paragraph">
+<p>All <code>type</code> tags may include these attributes:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>requires</code> - optional.
-Another type name this type requires to complete its definition.</p>
-</li>
-<li>
-<p><code>name</code> - optional.
-Name of this type (if not defined in the tag body).</p>
-</li>
-<li>
-<p><code>alias</code> - optional.
+<p><code>alias</code> - optional (unless not allowed by other tags, as defined
+below).
 Another type name which this type is an alias of.
 Must match the name of another <code>type</code> element.
 This is typically used when promoting a type defined by an extension to
@@ -2040,7 +2047,8 @@ attribute.
 May be used to address subtle incompatibilities.</p>
 </li>
 <li>
-<p><code>category</code> - optional.
+<p><code>category</code> - optional (unless not allowed by other tags, as defined
+below).
 A string which indicates that this type contains a more complex
 structured definition.
 At present the only accepted categories are <code>basetype</code>, <code>bitmask</code>,
@@ -2050,6 +2058,10 @@ and <code>union</code>, as described below.</p>
 <li>
 <p><code>comment</code> - optional.
 Arbitrary string (unused).</p>
+</li>
+<li>
+<p><code>requires</code> - optional.
+Another type name this type requires to complete its definition.</p>
 </li>
 <li>
 <p><code>deprecated</code> - optional.
@@ -2069,17 +2081,202 @@ instead.</p>
 </div>
 </li>
 <li>
-<p><code>parent</code> - only applicable if <code>"category"</code> is <code>handle</code>.
-Notes another type with the <code>handle</code> category that acts as a parent
-object for this type.</p>
+<p><code>name</code> - optional (unless required by other tags, as described
+below).
+Name of this type (if not defined in the tag body).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag-types:declarations"><a class="anchor" href="#tag-types:declarations"></a>11.2. C Type Declarations</h3>
+<div class="paragraph">
+<p>Several <code>type</code> <code>category</code> categories permit or require a C type
+declaration in the tag content.
+This is free-form text which <strong class="purple">must</strong> be legal C, but the content can, and
+sometimes must contain embedded tag metadata:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>type</code> - optional.
+May appear multiple times.
+Contains text which is a valid type name found in another <code>type</code>
+tag, and indicates that this type must be previously defined for the
+definition of the type to succeed.</p>
 </li>
 <li>
-<p><code>returnedonly</code> - only applicable if <code>"category"</code> is <code>struct</code> or
-<code>union</code>.
-Notes that this struct/union is going to be filled in by the API, rather
-than an application filling it out and passing it to the API.</p>
-<div class="openblock">
-<div class="content">
+<p><code>name</code> - contains the name of this type (if not defined in the
+<code>name</code> attribute).</p>
+</li>
+<li>
+<p><code>comment</code> - optional.
+Contains an arbitrary string (unused).</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_constraints_on_type_categories"><a class="anchor" href="#_constraints_on_type_categories"></a>11.2.1. Constraints on Type Categories</h4>
+<div class="paragraph">
+<p>There is not a hard restriction on which sorts of definitions may be made in
+a given category, but the intended purpose of each category should be
+respected.
+In particular, when generating header files, types within each category are
+grouped together, and categories are generated in the order given by the
+following list.</p>
+</div>
+<div class="paragraph">
+<p>If this recommendation is not followed, it is possible that the resulting
+header file will not compile due to out-of-order type dependencies.</p>
+</div>
+<div class="paragraph">
+<p>The intended purpose of each category is:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>basetype</code> - built-in C language types; scalar API typedefs, such as the
+definition of <code>VkFlags</code>; and types defined by external APIs, such as an
+underlying OS or window system.</p>
+</li>
+<li>
+<p><code>bitmask</code> - enumeration types whose members are bitmasks.</p>
+</li>
+<li>
+<p><code>define</code> - C macro <code>#define</code> directives.</p>
+</li>
+<li>
+<p><code>enum</code> - enumerated types.</p>
+</li>
+<li>
+<p><code>funcpointer</code> - C function pointer typedefs.</p>
+</li>
+<li>
+<p><code>handle</code> - scalar API types defined using platform-dependent macros,
+such as <code>VkInstance</code>.</p>
+</li>
+<li>
+<p><code>include</code> (<code>#include</code>) directives).</p>
+</li>
+<li>
+<p><code>struct</code> and <code>union</code> - the corresponding C aggregate types.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contents_of_type_tags"><a class="anchor" href="#_contents_of_type_tags"></a>11.3. Contents of <code>type</code> Tags</h3>
+<div class="paragraph">
+<p>The valid combinations of additional attributes, and valid contents of
+<code>type</code> tags are defined below.</p>
+</div>
+<div class="sect3">
+<h4 id="_dependency_relationships"><a class="anchor" href="#_dependency_relationships"></a>11.3.1. Dependency Relationships</h4>
+<div class="paragraph">
+<p>When <strong>both</strong> the <code>name</code> and <code>requires</code> tags are present, but the
+<code>category</code> tag is not present, the tag simply defines a dependency
+relationship - whatever required the specified <code>name</code> will also require
+the specified <code>requires</code>.</p>
+</div>
+<div class="paragraph">
+<p>This form is used when referring to external header files that define
+multiple external types, such as the <code>X11/Xlib.h</code> header which defines X11
+types such as <code>Display</code> and <code>VisualID</code>.</p>
+</div>
+<div class="paragraph">
+<p>No additional attributes are allowed for dependency relationships, including
+<code>alias</code>.</p>
+</div>
+<div class="paragraph">
+<p>No content is allowed for dependency relationships.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_base_types_category_basetype"><a class="anchor" href="#_base_types_category_basetype"></a>11.3.2. Base Types - <code>category</code> <code>"basetype"</code></h4>
+<div class="paragraph">
+<p>Base types are scalar or incomplete types, either external such as Android&#8217;s
+<code>ANativeWindow</code> or Vulkan types such as <code>VkBool32</code>.</p>
+</div>
+<div class="paragraph">
+<p>No additional attributes are allowed for base types, including <code>alias</code>.</p>
+</div>
+<div class="paragraph">
+<p>Base type content consists of a <a href="#tag-types:declarations">C Type
+Declaration</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_bitmask_types_category_bitmask"><a class="anchor" href="#_bitmask_types_category_bitmask"></a>11.3.3. Bitmask Types - <code>category</code> <code>"bitmask"</code></h4>
+<div class="paragraph">
+<p>Bitmask types are scalar types representing a mask of 32 or 64 bits, as
+typedefs of <code>VkFlags</code> or <code>VkFlags64</code>.</p>
+</div>
+<div class="paragraph">
+<p>If the <code>alias</code> attribute is specified, the <code>name</code> attribute must also
+be specified, and no content is allowed.</p>
+</div>
+<div class="paragraph">
+<p>Otherwise, the <code>name</code> is optional and is normally not provided.
+Other attributes which may be specified in this case are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>requires</code> - containing the name of a 32-bit <code>Vk*FlagBits</code> <code>enum</code>
+type defining individual flag values.</p>
+</li>
+<li>
+<p><code>bitvalues</code> - contains the name of a 64-bit <code>Vk*FlagBits2</code> <code>enum</code>
+type defining individual flag values.
+This is used instead of <code>requires</code> because these types do not define
+an actual C enumerated types for their flag values, defining them simply
+as <code>uint64_t</code> values.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Bitmask type content consists of a <a href="#tag-types:declarations">C Type
+Declaration</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_macro_definitions_category_define"><a class="anchor" href="#_macro_definitions_category_define"></a>11.3.4. Macro Definitions - <code>category</code> <code>"define"</code></h4>
+<div class="paragraph">
+<p>Macro definitions are uncommon and used for purposes such as the Vulkan API
+version defined by the header file, or for assembling a version number from
+major, minor, release, and variant numbers.</p>
+</div>
+<div class="paragraph">
+<p>The <code>name</code> is optional and is normally not provided, being specified
+in the content instead.</p>
+</div>
+<div class="paragraph">
+<p>Macro definition content consists of a &lt;&lt;<code>types</code>:declarations, C Type
+Declaration&gt;&gt;.
+However, unlike most such declarations, the content does not actually define
+a type.
+Instead, the content is a legal C <code>#define</code> statement.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_enumeranted_type_references_category_enum"><a class="anchor" href="#_enumeranted_type_references_category_enum"></a>11.3.5. Enumeranted Type References - <code>category</code> <code>"enum"</code></h4>
+<div class="paragraph">
+<p>Enumeranted types refer to <code>enums</code> tags where individual enumerants for
+the type are defined.</p>
+</div>
+<div class="paragraph">
+<p>The <code>name</code> attribute must be specified.</p>
+</div>
+<div class="paragraph">
+<p>If the <code>alias</code> attribute is specified, <code>name</code> is declared as an alias
+of that enumerated type.</p>
+</div>
+<div class="paragraph">
+<p>Otherwise, <code>name</code> must match the <code>name</code> of a <code>enum</code> which actually
+defines individual enumerant values.
+Those values are used to generate the type declaration.</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2088,80 +2285,206 @@ than an application filling it out and passing it to the API.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If the <code>returnedonly</code> attribute is true, the <code>pNext</code> member of that
-structure must not be <code>const</code>.
-This is now enforced by CI.</p>
+<p>The <code>enums</code> tag is not redundant.
+It is simpler to use <code>enums</code> as a container that is indirectly referred
+to, than to have included the enumerant definitions inside the type tag.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>No content is allowed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_function_pointers_category_funcpointer"><a class="anchor" href="#_function_pointers_category_funcpointer"></a>11.3.6. Function Pointers - <code>category</code> <code>"funcpointer"</code></h4>
+<div class="paragraph">
+<p>Function pointer types represent callback functions passed by an application
+to Vulkan API commands for purposes such as allocations and debugging.</p>
+</div>
+<div class="paragraph">
+<p>The <code>name</code> is optional and is normally not provided.</p>
+</div>
+<div class="paragraph">
+<p>No additional attributes are allowed for function pointer types, including
+<code>alias</code>.</p>
+</div>
+<div class="paragraph">
+<p>The content of a function pointer tag is structurally identical to the
+content of a <a href="#tag-command:content"><code>command</code></a> tag.
+Refer to that tag for the allowed content.
+However, instead of generating a declaratio of a function prototype and
+corresponding pointer to that function, only the function pointer is
+generated.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Many attributes are supported for <code>command</code> <code>param</code> tags, primarily used
+to generate valid usage statements, which are only relevant when calling
+<strong>into</strong> Vulkan - not in callbacks <strong>from</strong> it.</p>
+</div>
+<div class="paragraph">
+<p>While these attributes are syntactically legal for function pointer types,
+they are not used when generating the function pointer and should not
+be included.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_handle_types_category_handle"><a class="anchor" href="#_handle_types_category_handle"></a>11.3.7. Handle Types - <code>category</code> <code>"handle"</code></h4>
+<div class="paragraph">
+<p>Handle types are scalar types representing a handle to an object in the
+Vulkan implementation, such as <code>VkDevice</code> or <code>VkInstance</code>.
+They are defined using compile time macros, since the representation of a
+handle differs depending on the ABI and API variant being compiled for.</p>
 </div>
+<div class="paragraph">
+<p>If the <code>alias</code> attribute is specified, the <code>name</code> attribute must also
+be specified, and no content is allowed.</p>
+</div>
+<div class="paragraph">
+<p>Otherwise, the <code>name</code> is optional and is normally not provided.
+Other attributes which may be specified in this case are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>parent</code> - optional.
+Name of another handle type which this type is a subclass of, such as
+<code>parent="VkDevice"</code> for a <code>VkQueue</code> handle.</p>
 </li>
 <li>
-<p><code>structextends</code> only applicable if category is <code>struct</code> or <code>union</code>.
-This is a comma-separated list of structures whose <code>pNext</code> can include
-this type.
-This should usually only list the top-level structure that is extended,
-for all possible extending structures.
-This will generate a validity statement on the top level structure that
-validates the entire chain in one go, rather than each extending
-structure repeating the list of valid structs.
-There is no need to set the <code>noautovalidity</code> attribute on the <code>pNext</code>
-members of extending structures.</p>
-</li>
-<li>
-<p><code>allowduplicate</code> - only applicable if <code>category</code> is <code>"struct"</code>.
-If <code>"true"</code>, then structures whose <code>pNext</code> chains include this structure
-may include more than one instance of it.</p>
-</li>
-<li>
-<p><code>objtypeenum</code> - only applicable at present if <code>category</code> is
-<code>"handle"</code>.
-Specifies the name of a <code>VkObjectType</code> enumerant which corresponds to
-this type.
-The enumerant must be defined.</p>
-</li>
-<li>
-<p><code>requiredlimittype</code> - only applicable if <code>"category"</code> is <code>struct</code> or
-<code>union</code>.
-If <code>"true"</code>, then this type&#8217;s <code>member</code> tags, other than <code>sType</code> and
-<code>pNext</code>, must include <code>limittype</code> attributes.
-Defaults to <code>"false"</code>.</p>
+<p><code>objtypeenum</code> - required.
+Name of a <code>VkObjectType</code> enumerant which specifies this handle type.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_contents_of_type_tags"><a class="anchor" href="#_contents_of_type_tags"></a>11.2. Contents of <code>type</code> Tags</h3>
 <div class="paragraph">
-<p>The valid contents depend on the <code>category</code> attribute.</p>
-</div>
-<div class="sect3">
-<h4 id="_enumerated_types_category_enum"><a class="anchor" href="#_enumerated_types_category_enum"></a>11.2.1. Enumerated Types - <code>category</code> <code>"enum"</code></h4>
-<div class="paragraph">
-<p>If the <code>category</code> tag has the value <code>enum</code>, the type is a C enumeration.
-The body of the tag is ignored in this case.
-The value of the <code>name</code> attribute must be provided and must match the
-<code>name</code> attribute of a <a href="#tag-enums"><code>enums</code></a> tag.
-The enumerant values defined within the <code>enums</code> tag are used to generate a
-C <code>enum</code> type declaration.</p>
+<p>Handle content consists of a &lt;&lt;<code>types</code>:declarations, C Type Declaration&gt;&gt;.
+The declaration should use the <code>VK_DEFINE_HANDLE</code> or
+<code>VK_DEFINE_NON_DISPATCHABLE_HANDLE</code> macros with the handle <code>name</code> as an
+argument.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_structure_types_category_struct_or_union"><a class="anchor" href="#_structure_types_category_struct_or_union"></a>11.2.2. Structure Types - <code>category</code> <code>"struct"</code> or <code>"union"</code></h4>
+<h4 id="_include_files_category_include"><a class="anchor" href="#_include_files_category_include"></a>11.3.8. Include Files - <code>category</code> <code>"include"</code></h4>
 <div class="paragraph">
-<p>If the <code>category</code> tag has the values <code>struct</code> or <code>union</code>, the type is a C
-structure or union, respectively.
-In this case, the <code>name</code> attribute must be provided, and the contents of
-the <code>type</code> tag are a series of <code>member</code> tags defining the members of the
-aggregate type, in order, interleaved with any number of <code>comment</code> tags.</p>
+<p>Include file definitions are uncommon.
+They are used to define C <code>#include</code> files needed by the Vulkan headers to
+define external types, including video codec headers; and to pull in the
+platform-dependent <code>vk_platform.h</code> header included with the Vulkan SDK.</p>
+</div>
+<div class="paragraph">
+<p>The <code>name</code> attribute is required.
+It is usually the pathname of the external header file to include.</p>
+</div>
+<div class="paragraph">
+<p>No additional attributes are allowed for function pointer types, including
+<code>alias</code>.</p>
+</div>
+<div class="paragraph">
+<p>If present, include file content should be a C <code>#include</code> directive for the
+specified <code>name</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Include files which are external headers, such as <code>X11/Xlib.h</code>, usually do
+not have tag content.
+These headers can be included under application control from the
+platform-dependent <code>vulkan.h</code> header, or explicitly included by the
+application.</p>
+</div>
+<div class="paragraph">
+<p>Include files which are Vulkan video codec headers are not
+platform-dependent, but included with the Vulkan SDK.
+Tag content for these files explicitly includes them.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_structure_types_category_struct_or_union"><a class="anchor" href="#_structure_types_category_struct_or_union"></a>11.3.9. Structure Types - <code>category</code> <code>"struct"</code> or <code>"union"</code></h4>
+<div class="paragraph">
+<p>Structure and union types define the corresponding C types.</p>
+</div>
+<div class="paragraph">
+<p>If the <code>alias</code> attribute is specified, the <code>name</code> attribute must also
+be specified, and no content is allowed.</p>
+</div>
+<div class="paragraph">
+<p>Otherwise, the <code>name</code> is required.
+Many other attributes may be specified</p>
+</div>
+<div class="paragraph">
+<p>Other attributes which may be specified in this case are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>allowduplicate</code> - optional.
+Must be <code>"true"</code> or <code>"false"</code>.
+The default value if unspecified is <code>"false"</code>.
+If <code>"true"</code>, then more than one instance of this type may be present in
+a <code>pNext</code> chain.</p>
+</li>
+<li>
+<p><code>requiredlimittype</code> - optional.
+If provided, the attribute value must be <code>"true"</code>.
+The default value if unspecified is <code>"false"</code>.
+If <code>"true"</code>, then this type&#8217;s <code>member</code> tags, other than <code>sType</code> and
+<code>pNext</code>, must include <code>limittype</code> attributes.</p>
+</li>
+<li>
+<p><code>returnedonly</code> - optional.
+If provided, the attribute value must be <code>"true"</code>.
+The default value if unspecified is <code>"false"</code>.
+If <code>"true"</code>, it indicates that this type will always be filled in
+(returned by) the API from a query, rather than filled in by an
+application passing it to the API.
+In this case, the type&#8217;s <code>pNext</code> <code>member</code> must be declared <code>const</code>.</p>
+</li>
+<li>
+<p><code>structextends</code> - optional.
+This is a comma-separated list of structures whose <code>pNext</code> chain can
+include this type.
+This should only list the top-level structure that is extended, for all
+possible extending structures.
+This will generate a validity statement on the top level structure that
+validates the entire chain at once, rather than each extending structure
+repeating the list of valid structs.
+There is no need to set the <code>noautovalidity</code> attribute on the <code>pNext</code>
+members of extending structures.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Struct and union content is a series of <code>member</code> tags defining the members
+of the aggregate type, in order, interleaved with any number of <code>comment</code>
+tags.</p>
 </div>
 <div class="sect4">
 <h5 id="_structure_member_member_tags"><a class="anchor" href="#_structure_member_member_tags"></a>Structure Member (<code>member</code>) Tags</h5>
 <div class="paragraph">
-<p>The <code>member</code> tag defines the type and name of a structure or union member.</p>
+<p>The <code>member</code> tag defines the type and name of a structure or union member.
+Member tags may define many attributes providing metadata about that member.</p>
 </div>
 </div>
 <div class="sect4">
@@ -2169,69 +2492,23 @@ aggregate type, in order, interleaved with any number of <code>comment</code> ta
 <div class="ulist">
 <ul>
 <li>
+<p><code>altlen</code> - if the <code>len</code> attribute (see below) is also specified,
+and contains a <code>latexmath:</code> equation, this contains one or more of the
+other options for representing an array length defined for that
+attribute, separated by commas (one for each array indirection).
+This attribute is for consumers of the XML who need to generate
+validation code from the allowed length without wanting to parse
+arbitrary LaTeX formatting.</p>
+</li>
+<li>
 <p><code>api</code> - optional <a href="#schema:apiname">API names</a> for which this
 definition is specialized, so that different APIs may have different
 definitions for the same type.
 This definition is only used if the requested API name matches the
 attribute.
-May be used to address subtle incompatibilities.</p>
-</li>
-<li>
-<p><code>values</code> - only valid on the <code>sType</code> member of a struct.
-This is a comma-separated list of enumerant values that are valid for
-the structure type; usually there is only a single value.</p>
-</li>
-<li>
-<p><code>len</code> - valid length of the data described by the member.
-If the member is a static array, <code>len</code> must be less than or equal
-to the size of the array; if not present for a static array, all
-elements of the array are considered valid.
-If the member is a pointer, <code>len</code> is the length of the pointed-to
-data.
-<code>len</code> must contain one or more expressions defining length (one for
-each array indirection), separated by commas.
-Each expression may be one of:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>an equation in math markup for incorporation in the specification (a
-LaTeX math expression delimited by <code><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">‘</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span><span class="mord">‘</span></span></span></span></code>.
-The only variables in the equation should be the names of members of
-the structure;</p>
-</li>
-<li>
-<p>the name of another member of the structure specifying the length
-for the corresponding indirection;</p>
-</li>
-<li>
-<p><code>"null-terminated"</code>, indicating a pointer to a null-terminated UTF-8
-string;</p>
-</li>
-<li>
-<p><code>"1"</code> to indicate it is just a pointer (used for nested pointers);</p>
-</li>
-<li>
-<p>a C99 expression that refers to another member of the structure
-indirectly specifying the length for the corresponding indirection;</p>
-</li>
-<li>
-<p>or a custom expression that cannot be used directly by code generation
-and needs manual handling.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>altlen</code> - if the <code>len</code> attribute is specified, and contains a
-<code>latexmath:</code> equation, this contains one or more of the other options
-above, separated by commas (one for each array indirection).
-This attribute is intended to support consumers of the XML who need to
-generate validation code from the allowed length.</p>
-</li>
-<li>
-<p><code>stride</code> - if the member is an array, stride specifies the name of
-another member containing the byte stride between consecutive elements
-in the array. The array is assumed to be tightly packed if omitted.</p>
+May be used to address subtle incompatibilities.
+This is the only case in which the same <code>member</code> <code>name</code> may appear
+multiple times.</p>
 </li>
 <li>
 <p><code>deprecated</code> - optional.
@@ -2250,69 +2527,70 @@ operates.</p>
 </div>
 </li>
 <li>
-<p><code>externsync</code> - denotes that the member should be externally
-synchronized when accessed by Vulkan</p>
+<p><code>externsync</code> - optional.
+If provided, the attribute value must be <code>"true"</code>.
+The default value if unspecified is <code>"false"</code>.
+If <code>"true"</code>, it indicates whether the member should be externally
+synchronized when accessed by Vulkan.</p>
 </li>
 <li>
-<p><code>optional</code> - optional.
-A value of <code>"true"</code> specifies that this member can be omitted by
-providing <code>NULL</code> (for pointers), <code>VK_NULL_HANDLE</code> (for handles), or 0
-(for other scalar types).
-If not present, the value is assumed to be <code>"false"</code> (the member must
-not be omitted).
-If the member is a pointer to one of those types, multiple values may be
-provided, separated by commas - one for each pointer indirection.
-Structure members with name <code>pNext</code> must always be specified with
-<code>optional="true"</code>, since there is no requirement that any member of a
-<code>pNext</code> chain have a following member in the chain.</p>
-<div class="openblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>While the <code>optional</code> attribute can be used for scalar types such as
-integers, it does not affect the output generators included with the
-<a href="#vulkan-spec">Vulkan API Specification</a>.
-In this case, the attribute serves only as an indicator to human readers of
-the XML.</p>
-</div>
-<div class="paragraph">
-<p>Explicitly specifying <code>optional="false"</code> is not supported, but
-<code>optional="false,true"</code> is supported for a pointer type.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
+<p><code>featurelink</code> - optional.
+This attribute is only used for members representing a boolean API
+feature, when the anchor link in the Vulkan Specification does not match
+the member <code>name</code>.
+Used for features in extensions that were later promoted but with
+changes.
+The attribute value should be a feature name for which a corresponding
+<code>features-<strong>name</strong></code> anchor exists.</p>
+</li>
+<li>
+<p><code>len</code> - optional.
+Valid length of the data array described by the member, in array
+elements.
+If the member is a static array, the length must be less than or equal
+to the size of the array.
+If not present for a static array, all elements of the array are
+considered valid.
+If the member is a pointer, <code>len</code> is the length of the pointed-to
+data.
+<code>len</code> must contain one or more expressions defining length (one for
+each level of array indirection), separated by commas.
+Each expression may be one of:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>an equation in math markup for incorporation in the specification (a
+LaTeX math expression delimited by <code><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">‘</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span><span class="mord">‘</span></span></span></span></code>.
+The only variables in the equation should be the names of members of
+the structure. Use the <code>altlen</code> attribute in this case to provide
+both human- and code-friendly representations of the length.</p>
+</li>
+<li>
+<p>the name of another <code>member</code> of the structure specifying the length
+for the corresponding indirection;</p>
+</li>
+<li>
+<p><code>"null-terminated"</code>, indicating a pointer to a null-terminated UTF-8
+string;</p>
+</li>
+<li>
+<p><code>"1"</code> indicating it is just a pointer (used for nested pointers);</p>
+</li>
+<li>
+<p>a C99 expression that refers to another member of the structure,
+indirectly specifying the length for the corresponding indirection;</p>
+</li>
+<li>
+<p>or a custom expression that cannot be used directly by code generation
+and needs manual handling in generators.</p>
+</li>
+</ul>
 </div>
 </li>
 <li>
-<p><code>selector</code> - optional.
-If the member is a union, <code>selector</code> identifies another member of the
-struct that is used to select which of that union&#8217;s members are valid.</p>
-</li>
-<li>
-<p><code>selection</code> - optional.
-For a member of a union, <code>selection</code> identifies one or more
-comma-separated values of the <code>selector</code> that indicate this member
-is valid.</p>
-</li>
-<li>
-<p><code>noautovalidity</code> - prevents automatic validity language being
-generated for the tagged item.
-Only suppresses item-specific validity - parenting issues etc.
-are still captured.
-It must also be used for structures that have no implicit validity when
-such structure has explicit validity.</p>
-</li>
-<li>
-<p><code>limittype</code> - only applicable for members of
+<p><code>limittype</code> - optional.
+Specifies the type of a device limit corresponding to the <code>member</code>.
+Only applicable for members of
 <code>VkFormatProperties</code>, <code>VkFormatProperties2</code>,
 <code>VkPhysicalDeviceProperties</code>, <code>VkPhysicalDeviceProperties2</code>,
 <code>VkPhysicalDeviceLimits</code>, <code>VkQueueFamilyProperties</code>,
@@ -2320,9 +2598,8 @@ such structure has explicit validity.</p>
 <code>VkSparseImageFormatProperties2</code>, <code>VkVideoCapabilitiesKHR</code>,
 <code>VkVideoFormatPropertiesKHR</code>, and structures extending or members of
 any of those structures.
-Specifies the type of a device limit.
-This type describes how a value should be compared with the value of a
-member in order to check whether it fits the limit.
+The attribute value describes how a value should be compared with the
+value of a member in order to check whether it fits the limit.
 Valid <code>limittype</code> values are:</p>
 <div class="ulist">
 <ul>
@@ -2357,24 +2634,97 @@ presence of a capability.</p>
 <p><code>"exact"</code> specifies a limit that must exactly match the member value.</p>
 </li>
 <li>
-<p><code>"noauto"</code> limits cannot be trivially compared.
-This is the default value, if unspecified.</p>
+<p><code>"noauto"</code> limits cannot be trivially compared and must be manually
+handled in generators.
+<code>"noauto"</code> is the default value, if <code>limittype</code> is needed but
+unspecified.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><code>objecttype</code> - only applicable for members which are <code>uint64_t</code>
-values representing a Vulkan object handle.
-Specifies the name of another member which must be a <code>VkObjectType</code> or
-<code>VkDebugReportObjectTypeEXT</code> value specifying the type of object the
-handle refers to.</p>
+<p><code>noautovalidity</code> - optional.
+If provided, the attribute value must be <code>"true"</code>.
+The default value if unspecified is <code>"false"</code>.
+If <code>"true"</code>, it prevents automatic validity language being generated for
+the <code>member</code>.
+Note that this only suppresses item-specific validity - parenting
+relationships, for example, are still generated.</p>
 </li>
 <li>
-<p><code>featurelink</code> - only applicable for members representing a Boolean API
-feature. Specifies that the feature has a link in the specification that
-does not match the name of the feature. Typically for features in
-extensions that were later promoted but with changes.</p>
+<p><code>objecttype</code> - optional.
+Only applicable for members which are Vulkan object handles.
+The attribute value is the name of another <code>member</code>, whose value must
+be a <code>VkObjectType</code> or <code>VkDebugReportObjectTypeEXT</code> value specifying the
+type of object the handle refers to.</p>
+</li>
+<li>
+<p><code>optional</code> - optional.
+Must be <code>"true"</code> or <code>"false"</code>.
+The default value if unspecified is <code>"false"</code>.
+<code>"true"</code> specifies that this member can contain a sentinel value
+indicating that no corresponding object or explicit value is referred
+to: <code>NULL</code> for pointers, <code>VK_NULL_HANDLE</code> for handles, or 0 for other
+scalar types.
+<code>"false"</code> specifies that the member must contain a value object
+reference or explicit value.
+If the member is a pointer, multiple values may be provided, separated
+by commas - one for each pointer indirection.
+Structure members with <code>name</code> <code>pNext</code> must always be specified with
+<code>optional="true"</code>, since there is no requirement that any member of a
+<code>pNext</code> chain have a following member in the chain.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>While the <code>optional</code> attribute can be used for scalar types such as
+integers, it does not affect the output generators included with the
+<a href="#vulkan-spec">Vulkan API Specification</a>.
+In this case, the attribute serves only as an indicator to human readers of
+the XML.</p>
+</div>
+<div class="paragraph">
+<p>Explicitly specifying <code>optional="false"</code> is not supported, but
+<code>optional="false,true"</code> is supported for a pointer type.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><code>selection</code> - optional.
+For a member of a union, <code>selection</code> identifies one or more
+comma-separated values of the <code>selector</code> that indicate this member
+is valid.</p>
+</li>
+<li>
+<p><code>selector</code> - optional.
+For a member of a union, <code>selector</code> is the name of another member of
+the type that is used to select which of that union&#8217;s members are valid.</p>
+</li>
+<li>
+<p><code>stride</code> - optional.
+If the member is an array, <code>stride</code> is the name of another member of
+the type containing the byte stride between consecutive elements in the
+array.
+The array is assumed to be tightly packed if omitted.</p>
+</li>
+<li>
+<p><code>values</code> - optional.
+This attribute must be provided for the <code>sType</code> <code>member</code> of a
+structure, but may not be provided for other members.
+The attribute value is a comma-separated list of names of enumerants
+that are valid for the structure type.
+Usually there is only a single value.</p>
 </li>
 </ul>
 </div>
@@ -2382,119 +2732,37 @@ extensions that were later promoted but with changes.</p>
 <div class="sect4">
 <h5 id="_contents_of_member_tags"><a class="anchor" href="#_contents_of_member_tags"></a>Contents of <code>member</code> Tags</h5>
 <div class="paragraph">
-<p>The text elements of a <code>member</code> tag, with all other tags removed, is a
-legal C declaration of a struct or union member.
-In addition it may contain several semantic tags:</p>
+<p>Member content consists of a &lt;&lt;<code>types</code>:declarations, C Type Declaration&gt;&gt;.
+In addition to the allowed tags for such a declaration,
+the following tags are supported:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>type</code> tag is optional.
-It contains text which is a valid type name found in another <code>type</code>
-tag, and indicates that this type must be previously defined for the
-definition of the command to succeed.</p>
+<p><code>name</code> tag - required.
+Contains the struct or union member name being described.
+Unlike other C type declarations, the <code>name</code> tag must always be
+provided in <code>member</code> tags.</p>
 </li>
 <li>
-<p>The <code>name</code> tag is required, and contains the struct/union member name
-being described.</p>
+<p><code>enum</code> - optional.
+May appear multiple times.
+Contains a valid enumerant name found in another <code>type</code> tag, and which
+must be previously defined for the definition of the struct or union to
+be complete.
+Normally this is used only to semantically tag static array lengths.</p>
 </li>
 <li>
-<p>The <code>enum</code> tag is optional.
-It contains text which is a valid enumerant name found in another
-<code>type</code> tag, and indicates that this enumerant must be previously
-defined for the definition of the command to succeed.
-Typically this is used to semantically tag static array lengths.</p>
-</li>
-<li>
-<p>The <code>comment</code> tag is optional.
-It contains an arbitrary string (unused).</p>
+<p><code>comment</code> - optional.
+Contains an arbitrary string (unused).</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_all_other_types"><a class="anchor" href="#_all_other_types"></a>11.2.3. All Other Types</h4>
-<div class="paragraph">
-<p>If the <code>category</code> attribute is one of <code>basetype</code>, <code>bitmask</code>, <code>define</code>,
-<code>funcpointer</code>, <code>group</code>, <code>handle</code> or <code>include</code>, or is not specified, <code>type</code>
-contains text which is legal C code for a type declaration.
-It may also contain embedded tags:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>type</code> - nested type tags contain other type names which are required
-by the definition of this type.</p>
-</li>
-<li>
-<p><code>apientry</code>/ - insert a platform calling convention macro here during
-header generation, used mostly for function pointer types.</p>
-</li>
-<li>
-<p><code>name</code> - contains the name of this type (if not defined in the tag
-attributes).</p>
-</li>
-<li>
-<p><code>bitvalues</code> - contains the name of the enumeration defining flag
-values for a <code>bitmask</code> type.
-Ignored for other types.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>There is no restriction on which sorts of definitions may be made in a given
-category, although the contents of tags with <code>category</code> <code>enum</code>, <code>struct</code>
-or <code>union</code> are interpreted specially as described above.</p>
-</div>
-<div class="paragraph">
-<p>However, when generating the header, types within each category are grouped
-together, and categories are generated in the order given by the following
-list.
-Therefore, types in a category should correspond to the intended purpose
-given for that category.
-If this recommendation is not followed, it is possible that the resulting
-header file will not compile due to out-of-order type dependencies.
-The intended purpose of each category is:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>include</code> (<code>#include</code>) directives)</p>
-</li>
-<li>
-<p><code>define</code> (macro <code>#define</code> directives)</p>
-</li>
-<li>
-<p><code>basetype</code> (built-in C language types; scalar API typedefs, such as the
-definition of <code>VkFlags</code>; and types defined by external APIs, such as an
-underlying OS or window system</p>
-</li>
-<li>
-<p><code>handle</code> (invocations of macros defining scalar types such as
-<code>VkInstance</code>)</p>
-</li>
-<li>
-<p><code>enum</code> (enumeration types and <code>#define</code> for constant values)</p>
-</li>
-<li>
-<p><code>group</code> (currently unused)</p>
-</li>
-<li>
-<p><code>bitmask</code> (enumeration types whose members are bitmasks)</p>
-</li>
-<li>
-<p><code>funcpointer</code> (function pointer typedefs)</p>
-</li>
-<li>
-<p><code>struct</code> and <code>union</code> together (struct and union types)</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tag-types:example"><a class="anchor" href="#tag-types:example"></a>11.3. Example of a <code>types</code> Tag</h3>
+<h3 id="tag-types:example"><a class="anchor" href="#tag-types:example"></a>11.4. Example of a <code>types</code> Tag</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="xml"><span class="nt">&lt;types&gt;</span>
@@ -3005,7 +3273,7 @@ May be used to address subtle incompatibilities.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_contents_of_command_tags"><a class="anchor" href="#_contents_of_command_tags"></a>16.2. Contents of <code>command</code> Tags</h3>
+<h3 id="tag-command:content"><a class="anchor" href="#tag-command:content"></a>16.2. Contents of <code>command</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -6180,6 +6448,14 @@ Changes to the <code>.xml</code> files and Python scripts are logged in GitHub h
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2026-01-14 - Update the <code>type</code> <code>category</code> <code>funcpointer</code> schema to
+support better semantic tagging, using the same syntax as <code>command</code>
+tags.
+Heavily refactor the <a href="#tag-type"><code>type</code></a> tag descriptions to
+separately describe the different categories of types, and their allowed
+schema (internal issue 5).</p>
+</li>
 <li>
 <p>2025-11-11 - Update the <code>returnedonly</code> attribute of <a href="#tag-type">structure type tags</a> to note that <code>pNext</code> members must not be <code>const</code>
 if <code>returnedonly</code> is true (internal issue 2734).</p>
