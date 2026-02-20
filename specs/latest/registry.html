@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.343,</span>
-<span id="revdate">2026-02-06 04:34:06Z</span>
-<br><span id="revremark">from git branch: github-main commit: fb8116669f76e26bdab4c7ad0bf1cafdeff484dc</span>
+<span id="revnumber">version 1.4.344,</span>
+<span id="revdate">2026-02-19 23:51:15Z</span>
+<br><span id="revremark">from git branch: github-main commit: 6aefabc0ad51073cf060e384ce43a59250d4d69c</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2520,8 +2520,7 @@ Possible values are:</p>
 <p><code>"true"</code> - marked as legacy, but no explanation given.</p>
 </li>
 <li>
-<p><code>"ignored"</code> - functionality described by this member no longer
-operates.</p>
+<p><code>"ignored"</code> - functionality described by this member is ignored.</p>
 </li>
 </ul>
 </div>
@@ -2952,7 +2951,7 @@ Possible values are:</p>
 <p><code>"true"</code> - marked as legacy, but no explanation given.</p>
 </li>
 <li>
-<p><code>"ignored"</code> - functionality described by this enum no longer operates.</p>
+<p><code>"ignored"</code> - functionality described by this enum is ignored.</p>
 </li>
 <li>
 <p><code>"aliased"</code> - an old name not following Vulkan conventions.
@@ -2984,7 +2983,49 @@ An enumerant alias is simply a different <code>name</code> for the exact same
 </li>
 <li>
 <p><code>protect</code> - optional.
-An additional preprocessor token used to protect an enum definition.</p>
+An additional preprocessor token or boolean expression used to protect an
+enum definition with conditional compilation directives in generated
+headers.
+May be a single preprocessor token (e.g. <code>VK_USE_PLATFORM_WIN32_KHR</code>) or
+a boolean expression using the same syntax as <code>depends</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>,</code> for logical OR</p>
+</li>
+<li>
+<p><code>+</code> for logical AND</p>
+</li>
+<li>
+<p><code>()</code> for grouping</p>
+<div class="paragraph">
+<p><code>,</code> and <code>+</code> are of equal precedence, and lower than <code>()</code>.
+Expressions are evaluated left-to-right for operators of the same precedence.</p>
+</div>
+<div class="paragraph">
+<p>Single tokens generate <code>#ifdef</code> directives in the output header, while
+expressions generate <code>#if</code> directives with <code>defined()</code> macros around each
+term.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>protect="VK_A"</code> generates <code>#ifdef VK_A</code></p>
+</li>
+<li>
+<p><code>protect="VK_A,VK_B"</code> generates <code>#if defined(VK_A) || defined(VK_B)</code></p>
+</li>
+<li>
+<p><code>protect="VK_A+VK_B"</code> generates <code>#if defined(VK_A) &amp;&amp; defined(VK_B)</code></p>
+</li>
+<li>
+<p><code>protect="(VK_A+VK_B),VK_C"</code> generates
+<code>#if (defined(VK_A) &amp;&amp; defined(VK_B)) || defined(VK_C)</code></p>
 </li>
 </ul>
 </div>
@@ -3698,10 +3739,13 @@ Used when ordering by <code>name</code> is insufficient.</p>
 </li>
 <li>
 <p><code>protect</code> - optional.
-An additional preprocessor token used to protect a feature definition.
+An additional preprocessor token or boolean expression used to protect a
+feature definition.
 Usually another feature or extension <code>name</code>.
 Used when the definition of a feature or extension requires another to
-be defined first.</p>
+be defined first.
+Supports boolean expressions using the same syntax as <code>depends</code>
+(see <code>protect</code> under <a href="#tag-enum"><code>enum</code></a> for details).</p>
 </li>
 <li>
 <p><code>comment</code> - optional.
@@ -3948,11 +3992,13 @@ logical AND, and must be replaced by <code>+</code> in the <code>depends</code> 
 </li>
 <li>
 <p><code>protect</code> - optional.
-An additional preprocessor token used to protect an extension
-definition.
+An additional preprocessor token or boolean expression used to protect an
+extension definition.
 Usually another feature or extension <code>name</code>.
 Used when the definition of a feature or extension requires another to
-be defined first.</p>
+be defined first.
+Supports boolean expressions using the same syntax as <code>depends</code>
+(see <code>protect</code> under <a href="#tag-enum"><code>enum</code></a> for details).</p>
 </li>
 <li>
 <p><code>platform</code> - optional.
@@ -4414,8 +4460,10 @@ It may also be used when token names have been changed as a result of
 profile changes, or for consistency purposes.</p>
 </li>
 <li>
-<p><code>protect</code> - define a preprocessor protection symbol for the enum in
-the same fashion as an <code>enum</code> tag in an <a href="#tag-enum"><code>enums</code></a> block.</p>
+<p><code>protect</code> - define a preprocessor protection symbol or boolean
+expression for the enum in the same fashion as an <code>enum</code> tag in an
+<a href="#tag-enum"><code>enums</code></a> block.
+See <code>protect</code> under <a href="#tag-enum"><code>enum</code></a> for syntax details.</p>
 </li>
 </ul>
 </div>
@@ -6448,6 +6496,15 @@ Changes to the <code>.xml</code> files and Python scripts are logged in GitHub h
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2026-02-18 - Update the <code>enum</code> and <code>member</code> <code>deprecated</code>
+attribute to describe <code>"ignored"</code> consistently with the generators and
+specification (internal MR 7998).</p>
+</li>
+<li>
+<p>2026-01-16 - Add support for boolean expressions in the <code>protect</code>
+attribute of several tags.</p>
+</li>
 <li>
 <p>2026-01-14 - Update the <code>type</code> <code>category</code> <code>funcpointer</code> schema to
 support better semantic tagging, using the same syntax as <code>command</code>

@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>Vulkan<sup>®</sup> Documentation and Extensions: Procedures and Conventions</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech, Tobias Hector</span><br>
-<span id="revnumber">version 1.4.343,</span>
-<span id="revdate">2026-02-06 04:34:06Z</span>
-<br><span id="revremark">from git branch: github-main commit: fb8116669f76e26bdab4c7ad0bf1cafdeff484dc</span>
+<span id="revnumber">version 1.4.344,</span>
+<span id="revdate">2026-02-19 23:51:15Z</span>
+<br><span id="revremark">from git branch: github-main commit: 6aefabc0ad51073cf060e384ce43a59250d4d69c</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -973,7 +973,7 @@ pre.rouge .w {
 <ul class="sectlevel2">
 <li><a href="#_general_naming_rules">2.1. General Naming Rules</a></li>
 <li><a href="#naming-preprocessor">2.2. Preprocessor Defines</a></li>
-<li><a href="#_type_names">2.3. Type Names</a>
+<li><a href="#naming-typenames">2.3. Type Names</a>
 <ul class="sectlevel3">
 <li><a href="#naming-extension-structures">2.3.1. Extending Structure Names</a></li>
 </ul>
@@ -1447,14 +1447,33 @@ identifier was.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_type_names"><a class="anchor" href="#_type_names"></a>2.3. Type Names</h3>
+<h3 id="naming-typenames"><a class="anchor" href="#naming-typenames"></a>2.3. Type Names</h3>
 <div class="paragraph">
 <p>Type names are declared with no separator between words.
 Each word starts with a capital letter, and every other character in each
 word is lower case.</p>
 </div>
 <div class="paragraph">
-<p>Each type name is prefixed with <code>Vk</code>.</p>
+<p>Type names are prefixed with <code>Vk</code>, except for external type names used when
+integrating with platform APIs and window systems.</p>
+</div>
+<div class="paragraph">
+<p>Type names must not match the names of the command parameter or structure
+member they apply to.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c"><span class="c1">// Disallowed, type name identical to member name</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">VkExample</span> <span class="p">{</span>
+    <span class="n">ubm_device</span>  <span class="n">ubm_device</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">VkExample</span><span class="p">;</span>
+
+<span class="c1">// Allowed</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">VkExample</span> <span class="p">{</span>
+    <span class="n">ubm_device</span>  <span class="n">device</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">VkExample</span><span class="p">;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>This rule applies to all type definitions except <a href="#naming-funcpointers">function pointer types</a>, including struct and union types, handles, base
@@ -8172,6 +8191,10 @@ to by the Vulkan Working Group.</p>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2026-02-18 - Disallow <a href="#naming-typenames">type names</a> matching command
+parameter or structure member names (public issue 2679).</p>
+</li>
 <li>
 <p>2026-02-03 - Expand the <a href="#markup-sample-section-tables">Tables</a> section
 to require an explicit anchor (public issue 2670).</p>
