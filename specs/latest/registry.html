@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.344,</span>
-<span id="revdate">2026-02-19 23:51:15Z</span>
-<br><span id="revremark">from git branch: github-main commit: 6aefabc0ad51073cf060e384ce43a59250d4d69c</span>
+<span id="revnumber">version 1.4.345,</span>
+<span id="revdate">2026-03-05 23:45:36Z</span>
+<br><span id="revremark">from git branch: github-main commit: b0b699e446e3eab9bc0d6b192599871eecf25e1e</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2769,8 +2769,8 @@ Contains an arbitrary string (unused).</p>
     <span class="nt">&lt;type</span> <span class="na">requires=</span><span class="s">"stddef"</span><span class="nt">&gt;</span>typedef ptrdiff_t <span class="nt">&lt;name&gt;</span>VKlongint<span class="nt">&lt;/name&gt;</span>;<span class="nt">&lt;/type&gt;</span>
     <span class="nt">&lt;type</span> <span class="na">name=</span><span class="s">"VkEnum"</span> <span class="na">category=</span><span class="s">"enum"</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;type</span> <span class="na">category=</span><span class="s">"struct"</span> <span class="na">name=</span><span class="s">"VkStruct"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;member&gt;&lt;type&gt;</span>VkEnum<span class="nt">&lt;/type&gt;</span> <span class="nt">&lt;name&gt;</span>srcEnum<span class="nt">&lt;/name&gt;&lt;/member&gt;</span>
         <span class="nt">&lt;member&gt;&lt;type&gt;</span>VkEnum<span class="nt">&lt;/type&gt;</span> <span class="nt">&lt;name&gt;</span>dstEnum<span class="nt">&lt;/name&gt;&lt;/member&gt;</span>
+        <span class="nt">&lt;member&gt;&lt;type&gt;</span>Vklongint<span class="nt">&lt;/type&gt;</span> <span class="nt">&lt;name&gt;</span>dstVal<span class="nt">&lt;/name&gt;&lt;/member&gt;</span>
     <span class="nt">&lt;/type&gt;</span>
 <span class="nt">&lt;/types&gt;</span>
 
@@ -2789,7 +2789,7 @@ generation, it will result in the following declarations:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stddef.h&gt;</span><span class="cp">
-</span><span class="k">typedef</span> <span class="kt">ptrdiff_t</span> <span class="n">VKlongint</span><span class="p">.</span>
+</span><span class="k">typedef</span> <span class="kt">ptrdiff_t</span> <span class="n">VKlongint</span><span class="p">;</span>
 
 <span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span>
     <span class="n">VK_ENUM_ZERO</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
@@ -2798,7 +2798,7 @@ generation, it will result in the following declarations:</p>
 
 <span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
     <span class="n">VkEnum</span>    <span class="n">dstEnum</span><span class="p">;</span>
-    <span class="n">VkLongint</span> <span class="n">dstVal</span><span class="p">;</span>
+    <span class="n">Vklongint</span> <span class="n">dstVal</span><span class="p">;</span>
 <span class="p">}</span> <span class="n">VkStruct</span><span class="p">;</span></code></pre>
 </div>
 </div>
@@ -4352,6 +4352,10 @@ Name of the command.</p>
 <p><code>comment</code> - optional.
 Arbitrary string (unused).</p>
 </li>
+<li>
+<p><code>supersededby</code> - optional.
+Name of command it is superseded by, <code>deprecate</code> block only.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -4379,6 +4383,10 @@ may have different values for the same token.
 This definition is only used if the requested API name matches the
 attribute.
 May be used to address subtle incompatibilities.</p>
+</li>
+<li>
+<p><code>supersededby</code> - optional.
+Name of enum it is superseded by, <code>deprecate</code> block only.</p>
 </li>
 </ul>
 </div>
@@ -4577,6 +4585,10 @@ Name of the type.</p>
 <li>
 <p><code>comment</code> - optional.
 Arbitrary string (unused).</p>
+</li>
+<li>
+<p><code>supersededby</code> - optional.
+Name of type it is superseded by, <code>deprecate</code> block only.</p>
 </li>
 </ul>
 </div>
