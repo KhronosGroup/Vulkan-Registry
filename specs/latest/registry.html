@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.345,</span>
-<span id="revdate">2026-03-05 23:45:36Z</span>
-<br><span id="revremark">from git branch: github-main commit: b0b699e446e3eab9bc0d6b192599871eecf25e1e</span>
+<span id="revnumber">version 1.4.346,</span>
+<span id="revdate">2026-03-13 00:42:18Z</span>
+<br><span id="revremark">from git branch: github-main commit: b71f0036e3f00fa0cda4d888a53f6081c62b4648</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -3037,14 +3037,42 @@ term.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Using <code>alias</code> on an <code>enum</code> means you want the <code>name</code> defined by the
-tag to be treated as an alias of the token name in the <code>alias</code> attribute
-value.
-For example, the following tag defines <code>VK_ALIAS</code> as an alias of <code>VK_VALUE</code>:</p>
+<p>Tagging two enums with the same value and no other context will result in an
+error during spec generation, to avoid accidental aliasing.
+However there are times where aliasing is deliberate and desirable.
+Using <code>alias</code> on an <code>enum</code> indicates that two values are deliberate
+aliases of each other.
+For example, the following tag defines <code>VK_ENUM_TYPE_NEW</code> as a new alias of
+<code>VK_ENUM_TYPE_ORIGINAL</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="xml"><span class="nt">&lt;enum</span> <span class="na">name=</span><span class="s">"VK_ALIAS"</span> <span class="na">alias=</span><span class="s">"VK_VALUE"</span><span class="nt">&gt;</span></code></pre>
+<pre class="rouge highlight"><code data-lang="xml"><span class="nt">&lt;enum</span> <span class="na">extends=</span><span class="s">"VkEnumType"</span> <span class="na">name=</span><span class="s">"VK_ENUM_TYPE_NEW"</span> <span class="na">alias=</span><span class="s">"VK_ENUM_TYPE_ORIGINAL"</span><span class="nt">&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Typically this will result in a C definition explicitly aliasing the other:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c"><span class="n">VK_ENUM_TYPE_NEW</span> <span class="o">=</span> <span class="n">VK_ENUM_TYPE_ORIGINAL</span><span class="p">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Providing a <code>bitpos</code> or <code>value</code> tag alongside the <code>alias</code> tag will
+still indicate that the aliasing is deliberate:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="xml"><span class="nt">&lt;enum</span> <span class="na">extends=</span><span class="s">"VkEnumType"</span> <span class="na">value=</span><span class="s">"0"</span> <span class="na">name=</span><span class="s">"VK_ENUM_TYPE_NEW"</span> <span class="na">alias=</span><span class="s">"VK_ENUM_TYPE_ORIGINAL"</span><span class="nt">&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>However the generated C will use the <code>bitpos</code> or <code>value</code> instead:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c"><span class="n">VK_ENUM_TYPE_NEW</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span></code></pre>
 </div>
 </div>
 </td>
