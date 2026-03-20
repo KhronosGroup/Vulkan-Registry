@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.346,</span>
-<span id="revdate">2026-03-13 00:42:18Z</span>
-<br><span id="revremark">from git branch: github-main commit: b71f0036e3f00fa0cda4d888a53f6081c62b4648</span>
+<span id="revnumber">version 1.4.347,</span>
+<span id="revdate">2026-03-20 00:31:21Z</span>
+<br><span id="revremark">from git branch: github-main commit: 6c112cf1c56fec91d5aa4370fb62cfee25618684</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2520,7 +2520,7 @@ Possible values are:</p>
 <p><code>"true"</code> - marked as legacy, but no explanation given.</p>
 </li>
 <li>
-<p><code>"ignored"</code> - functionality described by this member is ignored.</p>
+<p><code>"unused"</code> - this member is not used by the implementation.</p>
 </li>
 </ul>
 </div>
@@ -2951,7 +2951,7 @@ Possible values are:</p>
 <p><code>"true"</code> - marked as legacy, but no explanation given.</p>
 </li>
 <li>
-<p><code>"ignored"</code> - functionality described by this enum is ignored.</p>
+<p><code>"unused"</code> - this is not used by the implementation.</p>
 </li>
 <li>
 <p><code>"aliased"</code> - an old name not following Vulkan conventions.
@@ -6536,6 +6536,10 @@ Changes to the <code>.xml</code> files and Python scripts are logged in GitHub h
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2026-03-04 - Update the <code>"ignored"</code> value for the <code>deprecated</code>
+attribute to match updated spec (internal issue 4725), rename to "unused".</p>
+</li>
 <li>
 <p>2026-02-18 - Update the <code>enum</code> and <code>member</code> <code>deprecated</code>
 attribute to describe <code>"ignored"</code> consistently with the generators and

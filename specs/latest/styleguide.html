@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>Vulkan<sup>®</sup> Documentation and Extensions: Procedures and Conventions</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech, Tobias Hector</span><br>
-<span id="revnumber">version 1.4.346,</span>
-<span id="revdate">2026-03-13 00:42:18Z</span>
-<br><span id="revremark">from git branch: github-main commit: b71f0036e3f00fa0cda4d888a53f6081c62b4648</span>
+<span id="revnumber">version 1.4.347,</span>
+<span id="revdate">2026-03-20 00:31:21Z</span>
+<br><span id="revremark">from git branch: github-main commit: 6c112cf1c56fec91d5aa4370fb62cfee25618684</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -6943,7 +6943,7 @@ example description to explain how and why it looks as it does.</p>
 </div>
 <div id="vkCreateCommandPool" class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="c++"><span class="c1">// Provided by VK_VERSION_1_0</span>
+<pre class="rouge highlight"><code data-lang="c"><span class="c1">// Provided by VK_VERSION_1_0</span>
 <span class="n">VkResult</span> <span class="nf">vkCreateCommandPool</span><span class="p">(</span>
     <span class="n">VkDevice</span>                                    <span class="n">device</span><span class="p">,</span>
     <span class="k">const</span> <span class="n">VkCommandPoolCreateInfo</span><span class="o">*</span>              <span class="n">pCreateInfo</span><span class="p">,</span>
@@ -7210,8 +7210,8 @@ described next.</p>
 </div>
 <div id="VkCommandPoolCreateInfo" class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="c++"><span class="c1">// Provided by VK_VERSION_1_0</span>
-<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">VkCommandPoolCreateInfo</span> <span class="p">{</span>
+<pre class="rouge highlight"><code data-lang="c"><span class="c1">// Provided by VK_VERSION_1_0</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">VkCommandPoolCreateInfo</span> <span class="p">{</span>
     <span class="n">VkStructureType</span>             <span class="n">sType</span><span class="p">;</span>
     <span class="k">const</span> <span class="kt">void</span><span class="o">*</span>                 <span class="n">pNext</span><span class="p">;</span>
     <span class="n">VkCommandPoolCreateFlags</span>    <span class="n">flags</span><span class="p">;</span>
@@ -7428,7 +7428,7 @@ specify usage behavior for a command pool are:</p>
 </div>
 <div id="VkCommandPoolCreateFlagBits" class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="c++"><span class="c1">// Provided by VK_VERSION_1_0</span>
+<pre class="rouge highlight"><code data-lang="c"><span class="c1">// Provided by VK_VERSION_1_0</span>
 <span class="k">typedef</span> <span class="k">enum</span> <span class="n">VkCommandPoolCreateFlagBits</span> <span class="p">{</span>
     <span class="n">VK_COMMAND_POOL_CREATE_TRANSIENT_BIT</span> <span class="o">=</span> <span class="mh">0x00000001</span><span class="p">,</span>
     <span class="n">VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT</span> <span class="o">=</span> <span class="mh">0x00000002</span><span class="p">,</span>
