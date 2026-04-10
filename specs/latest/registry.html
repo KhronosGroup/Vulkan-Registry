@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.348,</span>
-<span id="revdate">2026-04-03 02:13:57Z</span>
-<br><span id="revremark">from git branch: github-main commit: 6019efe93eca7bfa7a692316d91a9465eb457d60</span>
+<span id="revnumber">version 1.4.349,</span>
+<span id="revdate">2026-04-10 00:31:41Z</span>
+<br><span id="revremark">from git branch: github-main commit: ab80b9e8dd1c08b14c9536c37a31182114ae72ee</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2987,7 +2987,8 @@ An additional preprocessor token or boolean expression used to protect an
 enum definition with conditional compilation directives in generated
 headers.
 May be a single preprocessor token (e.g. <code>VK_USE_PLATFORM_WIN32_KHR</code>) or
-a boolean expression using the same syntax as <code>depends</code>:</p>
+a boolean expression using the same syntax as <code>depends</code>, extended with
+support for logical NOT:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -2998,14 +2999,17 @@ a boolean expression using the same syntax as <code>depends</code>:</p>
 </li>
 <li>
 <p><code>()</code> for grouping</p>
+</li>
+<li>
+<p><code>!</code> prefix on a token for logical NOT</p>
 <div class="paragraph">
 <p><code>,</code> and <code>+</code> are of equal precedence, and lower than <code>()</code>.
 Expressions are evaluated left-to-right for operators of the same precedence.</p>
 </div>
 <div class="paragraph">
-<p>Single tokens generate <code>#ifdef</code> directives in the output header, while
-expressions generate <code>#if</code> directives with <code>defined()</code> macros around each
-term.</p>
+<p>Single tokens (with no operators) generate <code>#ifdef</code> directives in the output
+header, while expressions generate <code>#if</code> directives with <code>defined()</code> macros
+around each term (and <code>!defined()</code> for negated terms).</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -3026,6 +3030,9 @@ term.</p>
 <li>
 <p><code>protect="(VK_A+VK_B),VK_C"</code> generates
 <code>#if (defined(VK_A) &amp;&amp; defined(VK_B)) || defined(VK_C)</code></p>
+</li>
+<li>
+<p><code>protect="VK_A+!VK_B"</code> generates <code>#if defined(VK_A) &amp;&amp; !defined(VK_B)</code></p>
 </li>
 </ul>
 </div>
@@ -6536,6 +6543,11 @@ Changes to the <code>.xml</code> files and Python scripts are logged in GitHub h
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2026-04-07 - Add support for <code>!</code> (logical NOT) prefix on tokens in
+<code>protect</code> boolean expressions, generating <code>!defined()</code> in output
+headers.</p>
+</li>
 <li>
 <p>2026-03-04 - Update the <code>"ignored"</code> value for the <code>deprecated</code>
 attribute to match updated spec (internal issue 4725), rename to "unused".</p>
