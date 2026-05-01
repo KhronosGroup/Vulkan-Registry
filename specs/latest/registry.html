@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.349,</span>
-<span id="revdate">2026-04-10 00:31:41Z</span>
-<br><span id="revremark">from git branch: github-main commit: ab80b9e8dd1c08b14c9536c37a31182114ae72ee</span>
+<span id="revnumber">version 1.4.350,</span>
+<span id="revdate">2026-05-01 01:36:47Z</span>
+<br><span id="revremark">from git branch: github-main commit: 81b1d516cbf42f04a3c7f781977c499945b5e5dc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2520,7 +2520,7 @@ Possible values are:</p>
 <p><code>"true"</code> - marked as legacy, but no explanation given.</p>
 </li>
 <li>
-<p><code>"unused"</code> - this member is not used by the implementation.</p>
+<p><code>"unused"</code> - this member is not used by the implementation and must be 0.</p>
 </li>
 </ul>
 </div>
@@ -2951,7 +2951,7 @@ Possible values are:</p>
 <p><code>"true"</code> - marked as legacy, but no explanation given.</p>
 </li>
 <li>
-<p><code>"unused"</code> - this is not used by the implementation.</p>
+<p><code>"unused"</code> - this enum is not used by the implementation and must not be passed to the API.</p>
 </li>
 <li>
 <p><code>"aliased"</code> - an old name not following Vulkan conventions.
