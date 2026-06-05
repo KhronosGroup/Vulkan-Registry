@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.352,</span>
-<span id="revdate">2026-05-15 02:39:49Z</span>
-<br><span id="revremark">from git branch: github-main commit: e2843a23d3c5a2c5e93e27d3b0fcd2c1087b0b64</span>
+<span id="revnumber">version 1.4.353,</span>
+<span id="revdate">2026-06-04 23:56:42Z</span>
+<br><span id="revremark">from git branch: github-main commit: 4abe0260bbd8e59930786eed645481808a3fe6f1</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2541,6 +2541,23 @@ Used for features in extensions that were later promoted but with
 changes.
 The attribute value should be a feature name for which a corresponding
 <code>features-<strong>name</strong></code> anchor exists.</p>
+</li>
+<li>
+<p><code>flagsextend</code> - optional.
+Name of a structure extending the structure this member belongs to.
+If present in the <code>pNext</code> chain, the <code>flagsextendmember</code> of that
+structure will be used, instead of the flags value specified by this
+member.</p>
+</li>
+<li>
+<p><code>flagsextendmember</code> - optional.
+Name of a member within the <code>flagsextend</code> structure specifying the
+flags value that is used, instead of the flags value specified by this
+member.
+<code>flagsextend</code> and <code>flagsextendmember</code> are used to inform
+generation of implicit valid usage statements and validation layer code.
+If one of <code>flagsextend</code> and <code>flagsextendmember</code> is defined, the
+other must be defined as well.</p>
 </li>
 <li>
 <p><code>len</code> - optional.
@@ -6547,6 +6564,11 @@ Changes to the <code>.xml</code> files and Python scripts are logged in GitHub h
 <p>2026-04-07 - Add support for <code>!</code> (logical NOT) prefix on tokens in
 <code>protect</code> boolean expressions, generating <code>!defined()</code> in output
 headers.</p>
+</li>
+<li>
+<p>2026-03-31 - Add <code>flagsextend</code> and <code>flagsextendmember</code> attributes
+to <code>struct</code> <code>member</code> tags, to specify a 64-bit flags value replacing
+a 32-bit flags value (internal issue 4589).</p>
 </li>
 <li>
 <p>2026-03-04 - Update the <code>"ignored"</code> value for the <code>deprecated</code>

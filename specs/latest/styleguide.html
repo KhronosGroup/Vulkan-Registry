@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>Vulkan<sup>®</sup> Documentation and Extensions: Procedures and Conventions</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech, Tobias Hector</span><br>
-<span id="revnumber">version 1.4.352,</span>
-<span id="revdate">2026-05-15 02:39:49Z</span>
-<br><span id="revremark">from git branch: github-main commit: e2843a23d3c5a2c5e93e27d3b0fcd2c1087b0b64</span>
+<span id="revnumber">version 1.4.353,</span>
+<span id="revdate">2026-06-04 23:56:42Z</span>
+<br><span id="revremark">from git branch: github-main commit: 4abe0260bbd8e59930786eed645481808a3fe6f1</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2170,9 +2170,10 @@ the following exception:</p>
 <dd>
 <p>Related to a mipmap.
 Use &#8220;mipmap&#8221; in full only when it is a standalone term.
-If referred to some associating with a mipmap, such as levels, sampling
-mode, size, tail images, etc., use &#8220;mip&#8221; as a standalone prefix word,
-e.g. <code>maxMipLevels</code>, <code>VK_MIP_MODE</code>, etc.
+If referring to something associated with a mipmap, such as levels,
+sampling mode, size, tail images, etc., use &#8220;mip&#8221; as a standalone
+prefix word, e.g. <code>maxMipLevels</code>, <a href="#VK_REMAINING_MIP_LEVELS">VK_REMAINING_MIP_LEVELS</a>,
+etc.
 This is analogous to the <a href="#writing-compound-words">spelling conventions
 for mip-related terms</a></p>
 </dd>
@@ -5561,8 +5562,8 @@ and other external software</p>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>enumerant</code> specifies</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>enumerant</code> indicates (denotes)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ename&#x3a;enumerant specifies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ename&#x3a;enumerant indicates (denotes)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">When giving a brief description of enums in an enumerated
                   type.
                   It is often appropriate to use &#8220;enumerant <em>is</em>&#8221; when
@@ -5575,21 +5576,21 @@ and other external software</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Such as &#8220;enabled on&#8221; or &#8220;executed on&#8221;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parameter</code> are/is</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parameter</code> specifies (denotes, indicates)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pname&#x3a;parameter are/is</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pname&#x3a;parameter specifies (denotes, indicates)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">In cases when <em>are</em> or <em>is</em> are not grammatically
                   appropriate, <em>specifies</em> may be used instead.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parameter</code> is</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">the value of <code>parameter</code> is</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pname&#x3a;parameter_ is</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the value of pname&#x3a;parameter_ is</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">In rare cases, <em>the value of</em> is appropriate. See the
                   existing specification language for examples.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parameter</code> is a <em>typename</em> containing / controlling / defining /
+<td class="tableblock halign-left valign-top"><p class="tableblock">pname&#x3a;parameter_ is a <em>typename</em> containing / controlling / defining /
   describing / specifying / etc.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parameter</code> is a <em>typename</em> that/which contains
+<td class="tableblock halign-left valign-top"><p class="tableblock">pname&#x3a;parameter_ is a <em>typename</em> that/which contains
                   (controls, defines, describes, specifies, etc.)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Commonly used for more nuanced descriptions of parameters
                   or structure members</p></td>
