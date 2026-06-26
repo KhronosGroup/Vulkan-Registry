@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.354,</span>
-<span id="revdate">2026-06-11 23:43:36Z</span>
-<br><span id="revremark">from git branch: github-main commit: ea5259d68356334a2928d5d6c327ccaea2f2af08</span>
+<span id="revnumber">version 1.4.355,</span>
+<span id="revdate">2026-06-26 02:59:43Z</span>
+<br><span id="revremark">from git branch: github-main commit: 8bd7db8d668381b529b3a2065e65aacdcd244ee2</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1303,8 +1303,6 @@ pre.rouge .w {
 </ul>
 </div>
 </div>
-<div id="loading_msg" class="hidden" hidden><p>Loading&hellip; please wait.</p></div>
-<!--ChunkedSearchboxMarker-->
 <div id="content" class="loadable" ><script>hideLoadableContent();</script>
 <div id="preamble">
 <div class="sectionbody">
@@ -2759,6 +2757,15 @@ the following tags are supported:</p>
 Contains the struct or union member name being described.
 Unlike other C type declarations, the <code>name</code> tag must always be
 provided in <code>member</code> tags.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>alias</code> - optional. Another union member name or extension name which
+this member is an alias of.
+Alias chaining (A aliases B aliases C) is not supported.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><code>enum</code> - optional.
@@ -2788,6 +2795,10 @@ Contains an arbitrary string (unused).</p>
     <span class="nt">&lt;type</span> <span class="na">category=</span><span class="s">"struct"</span> <span class="na">name=</span><span class="s">"VkStruct"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;member&gt;&lt;type&gt;</span>VkEnum<span class="nt">&lt;/type&gt;</span> <span class="nt">&lt;name&gt;</span>dstEnum<span class="nt">&lt;/name&gt;&lt;/member&gt;</span>
         <span class="nt">&lt;member&gt;&lt;type&gt;</span>Vklongint<span class="nt">&lt;/type&gt;</span> <span class="nt">&lt;name&gt;</span>dstVal<span class="nt">&lt;/name&gt;&lt;/member&gt;</span>
+    <span class="nt">&lt;/type&gt;</span>
+    <span class="nt">&lt;type</span> <span class="na">category=</span><span class="s">"struct"</span> <span class="na">name=</span><span class="s">"VkPhysicalDeviceVulkan12Features"</span> <span class="na">structextends=</span><span class="s">"VkPhysicalDeviceFeatures2,VkDeviceCreateInfo"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;member&gt;&lt;type&gt;</span>VkBool32<span class="nt">&lt;/type&gt;</span> <span class="nt">&lt;name</span> <span class="na">alias=</span><span class="s">"VK_KHR_sampler_mirror_clamp_to_edge"</span><span class="nt">&gt;</span>samplerMirrorClampToEdge<span class="nt">&lt;/name&gt;&lt;/member&gt;</span>
+        <span class="nt">&lt;member&gt;&lt;type&gt;</span>VkBool32<span class="nt">&lt;/type&gt;</span> <span class="nt">&lt;name</span> <span class="na">alias=</span><span class="s">"VkPhysicalDevice8BitStorageFeatures::storageBuffer8BitAccess"</span><span class="nt">&gt;</span>storageBuffer8BitAccess<span class="nt">&lt;/name&gt;&lt;comment&gt;</span>8-bit integer variables supported in StorageBuffer<span class="nt">&lt;/comment&gt;&lt;/member&gt;</span>
     <span class="nt">&lt;/type&gt;</span>
 <span class="nt">&lt;/types&gt;</span>
 
@@ -6560,6 +6571,10 @@ Changes to the <code>.xml</code> files and Python scripts are logged in GitHub h
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2026-06-15 - Add <code>alias</code> attribute to the <code>name</code> tag within structure
+and union <code>member</code> tags to support member aliasing.</p>
+</li>
 <li>
 <p>2026-04-07 - Add support for <code>!</code> (logical NOT) prefix on tokens in
 <code>protect</code> boolean expressions, generating <code>!defined()</code> in output
