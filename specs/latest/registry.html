@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.355,</span>
-<span id="revdate">2026-06-26 02:59:43Z</span>
-<br><span id="revremark">from git branch: github-main commit: 8bd7db8d668381b529b3a2065e65aacdcd244ee2</span>
+<span id="revnumber">version 1.4.356,</span>
+<span id="revdate">2026-07-03 02:24:10Z</span>
+<br><span id="revremark">from git branch: github-main commit: 73836865422f9e28e17069a96cceef6d0ece1ff8</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -4726,6 +4726,11 @@ must be from the same structure.</p>
 <p><code>comment</code> - optional.
 Arbitrary string (unused).</p>
 </li>
+<li>
+<p><code>supersededby</code> - optional.
+Name of the feature, command, or other interface it is superseded by,
+<code>deprecate</code> block only.</p>
+</li>
 </ul>
 </div>
 <div class="admonitionblock note">
@@ -6571,6 +6576,12 @@ Changes to the <code>.xml</code> files and Python scripts are logged in GitHub h
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2026-07-01 - Allow <a href="#tag-required-feature"><code>feature</code></a> tags inside
+<code>deprecate</code> blocks, so a feature structure member can be marked legacy
+without adding <code>deprecated</code> directly to its <code>member</code> tag (internal
+MR 8301).</p>
+</li>
 <li>
 <p>2026-06-15 - Add <code>alias</code> attribute to the <code>name</code> tag within structure
 and union <code>member</code> tags to support member aliasing.</p>
