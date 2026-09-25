@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.363,</span>
-<span id="revdate">2026-09-18 00:15:39Z</span>
-<br><span id="revremark">from git branch: github-main commit: 560d4305e8a6466fa7d07c83ca09429e4d010ff9</span>
+<span id="revnumber">version 1.4.364,</span>
+<span id="revdate">2026-09-24 23:53:52Z</span>
+<br><span id="revremark">from git branch: github-main commit: 01aaacd99480487bf63830959513c5ca8ceb996d</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1122,9 +1122,9 @@ pre.rouge .w {
 <li><a href="#_contents_of_require_remove_and_deprecate_tags">20.5. Contents of <code>require</code>, <code>remove</code>, and <code>deprecate</code> Tags</a>
 <ul class="sectlevel3">
 <li><a href="#_comment_tags">20.5.1. Comment Tags</a></li>
-<li><a href="#_command_tags">20.5.2. Command Tags</a></li>
-<li><a href="#_enum_tags">20.5.3. Enum Tags</a></li>
-<li><a href="#_type_tags">20.5.4. Type Tags</a></li>
+<li><a href="#tag-required-command">20.5.2. Command Tags</a></li>
+<li><a href="#tag-required-enum">20.5.3. Enum Tags</a></li>
+<li><a href="#tag-required-type">20.5.4. Type Tags</a></li>
 </ul>
 </li>
 <li><a href="#tag-required-examples">20.6. Examples of Extension Enumerants</a>
@@ -1165,141 +1165,166 @@ pre.rouge .w {
 <li><a href="#_contents_of_spirvimageformat_tags">25.2. Contents of <code>spirvimageformat</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-spirvextensions">26. SPIR-V Extensions (<code>spirvextensions</code> Tag)</a>
+<li><a href="#tag-dynamicstates">26. Dynamic States (<code>dynamicstates</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_spirvextensions_tags">26.1. Attributes of <code>spirvextensions</code> Tags</a></li>
-<li><a href="#_contents_of_spirvextensions_tags">26.2. Contents of <code>spirvextensions</code> Tags</a></li>
+<li><a href="#_attributes_of_dynamicstates_tags">26.1. Attributes of <code>dynamicstates</code> Tags</a></li>
+<li><a href="#_contents_of_dynamicstates_tags">26.2. Contents of <code>dynamicstates</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-spirvextension">27. SPIR-V Extension (<code>spirvextension</code> Tag)</a>
+<li><a href="#tag-dynamicstate">27. Dynamic State (<code>dynamicstate</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_spirvextension_tags">27.1. Attributes of <code>spirvextension</code> Tags</a></li>
-<li><a href="#_contents_of_spirvextension_tags">27.2. Contents of <code>spirvextension</code> Tags</a></li>
-<li><a href="#_example_of_a_spirvextensions_tag">27.3. Example of a <code>spirvextensions</code> Tag</a></li>
+<li><a href="#_attributes_of_dynamicstate_tags">27.1. Attributes of <code>dynamicstate</code> Tags</a></li>
+<li><a href="#_contents_of_dynamicstate_tags">27.2. Contents of <code>dynamicstate</code> Tags</a></li>
+<li><a href="#_example_of_a_dynamicstate_tag">27.3. Example of a <code>dynamicstate</code> Tag</a></li>
 </ul>
 </li>
-<li><a href="#tag-spirvcapabilities">28. SPIR-V Capabilities (<code>spirvcapabilities</code> Tag)</a>
+<li><a href="#tag-dynamicstatecmd">28. Dynamic State Command (<code>dynamicstatecmd</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_spirvcapabilities_tags">28.1. Attributes of <code>spirvcapabilities</code> Tags</a></li>
-<li><a href="#_contents_of_spirvcapabilities_tags">28.2. Contents of <code>spirvcapabilities</code> Tags</a></li>
+<li><a href="#_attributes_of_dynamicstatecmd_tags">28.1. Attributes of <code>dynamicstatecmd</code> Tags</a></li>
+<li><a href="#_contents_of_dynamicstatecmd_tags">28.2. Contents of <code>dynamicstatecmd</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-spirvcapability">29. SPIR-V Capability (<code>spirvcapability</code> Tag)</a>
+<li><a href="#tag-statecondition">29. State Condition (<code>statecondition</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_spirvcapability_tags">29.1. Attributes of <code>spirvcapability</code> Tags</a></li>
-<li><a href="#_contents_of_spirvcapability_tags">29.2. Contents of <code>spirvcapability</code> Tags</a></li>
-<li><a href="#_example_of_a_spirvcapabilities_tag">29.3. Example of a <code>spirvcapabilities</code> Tag</a></li>
+<li><a href="#_attributes_of_statecondition_tags">29.1. Attributes of <code>statecondition</code> Tags</a></li>
+<li><a href="#_contents_of_statecondition_tags">29.2. Contents of <code>statecondition</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-spirvenable">30. SPIR-V Enables (<code>enable</code> Tag)</a>
+<li><a href="#tag-spirvextensions">30. SPIR-V Extensions (<code>spirvextensions</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_for_api_version_number_enables">30.1. Attributes for API Version Number Enables</a></li>
-<li><a href="#_attributes_for_api_extension_enables">30.2. Attributes for API Extension Enables</a></li>
-<li><a href="#_attributes_for_api_feature_enables">30.3. Attributes for API Feature Enables</a></li>
-<li><a href="#_attributes_for_api_property_enables">30.4. Attributes for API Property Enables</a></li>
-<li><a href="#_contents_of_enable_tags">30.5. Contents of <code>enable</code> Tags</a></li>
+<li><a href="#_attributes_of_spirvextensions_tags">30.1. Attributes of <code>spirvextensions</code> Tags</a></li>
+<li><a href="#_contents_of_spirvextensions_tags">30.2. Contents of <code>spirvextensions</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-syncstage">31. Sync Stage (<code>syncstage</code> Tag)</a>
+<li><a href="#tag-spirvextension">31. SPIR-V Extension (<code>spirvextension</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_syncstage_tags">31.1. Attributes of <code>syncstage</code> Tags</a></li>
-<li><a href="#_contents_of_syncstage_tags">31.2. Contents of <code>syncstage</code> Tags</a></li>
+<li><a href="#_attributes_of_spirvextension_tags">31.1. Attributes of <code>spirvextension</code> Tags</a></li>
+<li><a href="#_contents_of_spirvextension_tags">31.2. Contents of <code>spirvextension</code> Tags</a></li>
+<li><a href="#_example_of_a_spirvextensions_tag">31.3. Example of a <code>spirvextensions</code> Tag</a></li>
 </ul>
 </li>
-<li><a href="#tag-syncaccess">32. Sync Access (<code>syncaccess</code> Tag)</a>
+<li><a href="#tag-spirvcapabilities">32. SPIR-V Capabilities (<code>spirvcapabilities</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_syncaccess_tags">32.1. Attributes of <code>syncaccess</code> Tags</a></li>
-<li><a href="#_contents_of_syncaccess_tags">32.2. Contents of <code>syncaccess</code> Tags</a></li>
+<li><a href="#_attributes_of_spirvcapabilities_tags">32.1. Attributes of <code>spirvcapabilities</code> Tags</a></li>
+<li><a href="#_contents_of_spirvcapabilities_tags">32.2. Contents of <code>spirvcapabilities</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-syncpipeline">33. Sync Pipeline (<code>syncpipeline</code> Tag)</a>
+<li><a href="#tag-spirvcapability">33. SPIR-V Capability (<code>spirvcapability</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_syncpipeline_tags">33.1. Attributes of <code>syncpipeline</code> Tags</a></li>
-<li><a href="#_contents_of_syncpipeline_tags">33.2. Contents of <code>syncpipeline</code> Tags</a></li>
+<li><a href="#_attributes_of_spirvcapability_tags">33.1. Attributes of <code>spirvcapability</code> Tags</a></li>
+<li><a href="#_contents_of_spirvcapability_tags">33.2. Contents of <code>spirvcapability</code> Tags</a></li>
+<li><a href="#_example_of_a_spirvcapabilities_tag">33.3. Example of a <code>spirvcapabilities</code> Tag</a></li>
 </ul>
 </li>
-<li><a href="#tag-syncpipelinestage">34. Sync Pipeline Stage (<code>syncpipelinestage</code> Tag)</a>
+<li><a href="#tag-spirvenable">34. SPIR-V Enables (<code>enable</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_syncpipelinestage_tags">34.1. Attributes of <code>syncpipelinestage</code> Tags</a></li>
-<li><a href="#_contents_of_syncpipeline_tags_2">34.2. Contents of <code>syncpipeline</code> Tags</a></li>
+<li><a href="#_attributes_for_api_version_number_enables">34.1. Attributes for API Version Number Enables</a></li>
+<li><a href="#_attributes_for_api_extension_enables">34.2. Attributes for API Extension Enables</a></li>
+<li><a href="#_attributes_for_api_feature_enables">34.3. Attributes for API Feature Enables</a></li>
+<li><a href="#_attributes_for_api_property_enables">34.4. Attributes for API Property Enables</a></li>
+<li><a href="#_contents_of_enable_tags">34.5. Contents of <code>enable</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-syncsupport">35. Sync Support (<code>syncsupport</code> Tag)</a>
+<li><a href="#tag-syncstage">35. Sync Stage (<code>syncstage</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_syncsupport_tags">35.1. Attributes of <code>syncsupport</code> Tags</a></li>
+<li><a href="#_attributes_of_syncstage_tags">35.1. Attributes of <code>syncstage</code> Tags</a></li>
+<li><a href="#_contents_of_syncstage_tags">35.2. Contents of <code>syncstage</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-syncequivalent">36. Sync Equivalent (<code>syncequivalent</code> Tag)</a>
+<li><a href="#tag-syncaccess">36. Sync Access (<code>syncaccess</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_syncequivalent_tags">36.1. Attributes of <code>syncequivalent</code> Tags</a></li>
+<li><a href="#_attributes_of_syncaccess_tags">36.1. Attributes of <code>syncaccess</code> Tags</a></li>
+<li><a href="#_contents_of_syncaccess_tags">36.2. Contents of <code>syncaccess</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videocodecs">37. Video Codecs (<code>videocodecs</code> Tag)</a></li>
-<li><a href="#tag-videocodec">38. Video Codec (<code>videocodec</code> Tag)</a>
+<li><a href="#tag-syncpipeline">37. Sync Pipeline (<code>syncpipeline</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videocodec_tags">38.1. Attributes of <code>videocodec</code> Tags</a></li>
+<li><a href="#_attributes_of_syncpipeline_tags">37.1. Attributes of <code>syncpipeline</code> Tags</a></li>
+<li><a href="#_contents_of_syncpipeline_tags">37.2. Contents of <code>syncpipeline</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videoprofiles">39. Video Profiles (<code>videoprofiles</code> Tag)</a>
+<li><a href="#tag-syncpipelinestage">38. Sync Pipeline Stage (<code>syncpipelinestage</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videoprofiles_tags">39.1. Attributes of <code>videoprofiles</code> Tags</a></li>
+<li><a href="#_attributes_of_syncpipelinestage_tags">38.1. Attributes of <code>syncpipelinestage</code> Tags</a></li>
+<li><a href="#_contents_of_syncpipeline_tags_2">38.2. Contents of <code>syncpipeline</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videoprofilemember">40. Video Profile Member (<code>videoprofilemember</code> Tag)</a>
+<li><a href="#tag-syncsupport">39. Sync Support (<code>syncsupport</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videoprofilemember_tags">40.1. Attributes of <code>videoprofilemember</code> Tags</a></li>
+<li><a href="#_attributes_of_syncsupport_tags">39.1. Attributes of <code>syncsupport</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videoprofile">41. Video Profile (<code>videoprofile</code> Tag)</a>
+<li><a href="#tag-syncequivalent">40. Sync Equivalent (<code>syncequivalent</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videoprofile_tags">41.1. Attributes of <code>videoprofile</code> Tags</a></li>
+<li><a href="#_attributes_of_syncequivalent_tags">40.1. Attributes of <code>syncequivalent</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videocapabilities">42. Video Capabilities (<code>videocapabilities</code> Tag)</a>
+<li><a href="#tag-videocodecs">41. Video Codecs (<code>videocodecs</code> Tag)</a></li>
+<li><a href="#tag-videocodec">42. Video Codec (<code>videocodec</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videocapabilities_tags">42.1. Attributes of <code>videocapabilities</code> Tags</a></li>
+<li><a href="#_attributes_of_videocodec_tags">42.1. Attributes of <code>videocodec</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videoformat">43. Video Format (<code>videoformat</code> Tag)</a>
+<li><a href="#tag-videoprofiles">43. Video Profiles (<code>videoprofiles</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videoformat_tags">43.1. Attributes of <code>videoformat</code> Tags</a></li>
+<li><a href="#_attributes_of_videoprofiles_tags">43.1. Attributes of <code>videoprofiles</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videoformatproperties">44. Video Format Properties (<code>videoformatproperties</code> Tag)</a>
+<li><a href="#tag-videoprofilemember">44. Video Profile Member (<code>videoprofilemember</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videoformatproperties_tags">44.1. Attributes of <code>videoformatproperties</code> Tags</a></li>
+<li><a href="#_attributes_of_videoprofilemember_tags">44.1. Attributes of <code>videoprofilemember</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#tag-videorequirecapabilities">45. Video Capability Prerequisites (<code>videorequirecapabilities</code> Tag)</a>
+<li><a href="#tag-videoprofile">45. Video Profile (<code>videoprofile</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_attributes_of_videorequirecapabilities_tags">45.1. Attributes of <code>videorequirecapabilities</code> Tags</a></li>
+<li><a href="#_attributes_of_videoprofile_tags">45.1. Attributes of <code>videoprofile</code> Tags</a></li>
 </ul>
 </li>
-<li><a href="#examples">46. Examples / FAQ / How Do I?</a>
+<li><a href="#tag-videocapabilities">46. Video Capabilities (<code>videocapabilities</code> Tag)</a>
 <ul class="sectlevel2">
-<li><a href="#_general_strategy">46.1. General Strategy</a></li>
-<li><a href="#_api_feature_dependencies">46.2. API Feature Dependencies</a>
+<li><a href="#_attributes_of_videocapabilities_tags">46.1. Attributes of <code>videocapabilities</code> Tags</a></li>
+</ul>
+</li>
+<li><a href="#tag-videoformat">47. Video Format (<code>videoformat</code> Tag)</a>
+<ul class="sectlevel2">
+<li><a href="#_attributes_of_videoformat_tags">47.1. Attributes of <code>videoformat</code> Tags</a></li>
+</ul>
+</li>
+<li><a href="#tag-videoformatproperties">48. Video Format Properties (<code>videoformatproperties</code> Tag)</a>
+<ul class="sectlevel2">
+<li><a href="#_attributes_of_videoformatproperties_tags">48.1. Attributes of <code>videoformatproperties</code> Tags</a></li>
+</ul>
+</li>
+<li><a href="#tag-videorequirecapabilities">49. Video Capability Prerequisites (<code>videorequirecapabilities</code> Tag)</a>
+<ul class="sectlevel2">
+<li><a href="#_attributes_of_videorequirecapabilities_tags">49.1. Attributes of <code>videorequirecapabilities</code> Tags</a></li>
+</ul>
+</li>
+<li><a href="#examples">50. Examples / FAQ / How Do I?</a>
+<ul class="sectlevel2">
+<li><a href="#_general_strategy">50.1. General Strategy</a></li>
+<li><a href="#_api_feature_dependencies">50.2. API Feature Dependencies</a>
 <ul class="sectlevel3">
-<li><a href="#_api_feature_walkthrough">46.2.1. API Feature Walkthrough</a></li>
+<li><a href="#_api_feature_walkthrough">50.2.1. API Feature Walkthrough</a></li>
 </ul>
 </li>
-<li><a href="#compile-time-constants">46.3. How to Add a Compile Time Constant</a></li>
-<li><a href="#compile-time-constants-format">46.4. Allowed Format of Compile Time Constants</a></li>
-<li><a href="#_how_to_add_a_struct_or_union_type">46.5. How to Add a Struct or Union Type</a></li>
-<li><a href="#_how_to_add_an_enumerated_type">46.6. How to Add an Enumerated Type</a></li>
-<li><a href="#adding-bitflags">46.7. How to Add Bit Flags</a>
+<li><a href="#compile-time-constants">50.3. How to Add a Compile Time Constant</a></li>
+<li><a href="#compile-time-constants-format">50.4. Allowed Format of Compile Time Constants</a></li>
+<li><a href="#_how_to_add_a_struct_or_union_type">50.5. How to Add a Struct or Union Type</a></li>
+<li><a href="#_how_to_add_an_enumerated_type">50.6. How to Add an Enumerated Type</a></li>
+<li><a href="#adding-bitflags">50.7. How to Add Bit Flags</a>
 <ul class="sectlevel3">
-<li><a href="#_32_bit_flags">46.7.1. 32-bit Flags</a></li>
+<li><a href="#_32_bit_flags">50.7.1. 32-bit Flags</a></li>
 </ul>
 </li>
-<li><a href="#_how_to_add_a_command">46.8. How to Add a Command</a></li>
-<li><a href="#_more_complicated_api_representations">46.9. More Complicated API Representations</a></li>
-<li><a href="#_more_complicated_output_formats_and_other_languages">46.10. More Complicated Output Formats and Other Languages</a></li>
-<li><a href="#_additional_semantic_tagging">46.11. Additional Semantic Tagging</a></li>
-<li><a href="#general:stability">46.12. Stability of the XML Database and Schema</a></li>
+<li><a href="#_how_to_add_a_command">50.8. How to Add a Command</a></li>
+<li><a href="#_more_complicated_api_representations">50.9. More Complicated API Representations</a></li>
+<li><a href="#_more_complicated_output_formats_and_other_languages">50.10. More Complicated Output Formats and Other Languages</a></li>
+<li><a href="#_additional_semantic_tagging">50.11. Additional Semantic Tagging</a></li>
+<li><a href="#general:stability">50.12. Stability of the XML Database and Schema</a></li>
 </ul>
 </li>
-<li><a href="#changelog">47. Change Log</a></li>
+<li><a href="#changelog">51. Change Log</a></li>
 </ul>
 </div>
 </div>
@@ -1704,6 +1729,11 @@ Usually only one tag is used, wrapping many extensions.</p>
 <li>
 <p><a href="#tag-formats"><code>formats</code></a> - defines properties of image formats.
 Only one tag is used, wrapping all the formats.</p>
+</li>
+<li>
+<p><a href="#tag-dynamicstates"><code>dynamicstates</code></a> - defines properties for
+dynamic state.
+Only one tag is used, wrapping all the1 <code>VkDynamicState</code> enums.</p>
 </li>
 <li>
 <p><a href="#tag-spirvextensions"><code>spirvextensions</code></a> - defines relationship
@@ -4399,7 +4429,7 @@ the tagged functionality is deprecated.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_command_tags"><a class="anchor" href="#_command_tags"></a>20.5.2. Command Tags</h4>
+<h4 id="tag-required-command"><a class="anchor" href="#tag-required-command"></a>20.5.2. Command Tags</h4>
 <div class="paragraph">
 <p><code>command</code> specifies a required, removed, or deprecated command defined in a
 <code>commands</code> block.
@@ -4416,6 +4446,38 @@ Name of the command.</p>
 Arbitrary string (unused).</p>
 </li>
 <li>
+<p><code>protect</code> - optional.
+If present, generates additional compile time conditional protection
+around the command definition in generated C headers.
+Body must be a name that can be tested using the C preprocessor
+<code>defined()</code> directive, and should be a single API core version name,
+extension name, or a symbol defined by the header boilerplate discussed
+in the &#8220;API Boilerplate&#8221; appendix of the Vulkan Specification.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>protect</code> exists for unusual dependencies that cannot be fully determined
+by the generator scripts that create the header files.
+In particular, a provisional extension appearing in <code>vulkan_beta.h</code> with an
+interaction with a platform extension appearing in a header other than
+<code>vulkan_core.h</code> will need to use this attribute to prevent compilation
+failures when the platform header is not included prior to the beta header.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
 <p><code>supersededby</code> - optional.
 Name of command it is superseded by, <code>deprecate</code> block only.</p>
 </li>
@@ -4423,7 +4485,7 @@ Name of command it is superseded by, <code>deprecate</code> block only.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_enum_tags"><a class="anchor" href="#_enum_tags"></a>20.5.3. Enum Tags</h4>
+<h4 id="tag-required-enum"><a class="anchor" href="#tag-required-enum"></a>20.5.3. Enum Tags</h4>
 <div class="paragraph">
 <p><code>enum</code> specifies a required, removed, or deprecated enumerant defined in an <code>enums</code>
 block.
@@ -4629,7 +4691,7 @@ are given below.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_type_tags"><a class="anchor" href="#_type_tags"></a>20.5.4. Type Tags</h4>
+<h4 id="tag-required-type"><a class="anchor" href="#tag-required-type"></a>20.5.4. Type Tags</h4>
 <div class="paragraph">
 <p><code>type</code> specifies a required, removed, or deprecated type defined in a <code>types</code>
 block.
@@ -4652,6 +4714,14 @@ Arbitrary string (unused).</p>
 <li>
 <p><code>supersededby</code> - optional.
 Name of type it is superseded by, <code>deprecate</code> block only.</p>
+</li>
+<li>
+<p><code>protect</code> - optional.
+If present, generates additional compile time conditional protection
+around the type definition in generated C headers.
+The allowed values and the use cases for this tag
+are the same as the <code>protect</code> attribute of <code>command</code>
+tags in <a href="#tag-required-command"><code>require</code></a> tags.</p>
 </li>
 </ul>
 </div>
@@ -5066,14 +5136,178 @@ Example: <code>name="R11fG11fB10f"</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-spirvextensions"><a class="anchor" href="#tag-spirvextensions"></a>26. SPIR-V Extensions (<code>spirvextensions</code> Tag)</h2>
+<h2 id="tag-dynamicstates"><a class="anchor" href="#tag-dynamicstates"></a>26. Dynamic States (<code>dynamicstates</code> Tag)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>dynamicstates</code> tag contains definitions of each of the logical pipeline
+dynamic states which are defined for the API.</p>
+</div>
+<div class="sect2">
+<h3 id="_attributes_of_dynamicstates_tags"><a class="anchor" href="#_attributes_of_dynamicstates_tags"></a>26.1. Attributes of <code>dynamicstates</code> Tags</h3>
+<div class="paragraph">
+<p>None.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contents_of_dynamicstates_tags"><a class="anchor" href="#_contents_of_dynamicstates_tags"></a>26.2. Contents of <code>dynamicstates</code> Tags</h3>
+<div class="paragraph">
+<p>A <code>dynamicstates</code> block contains zero or more <code>dynamicstate</code> tags, each
+describing a logical dynamic state, in arbitrary order.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tag-dynamicstate"><a class="anchor" href="#tag-dynamicstate"></a>27. Dynamic State (<code>dynamicstate</code> Tag)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dynamic states are described in individual <code>dynamicstate</code> tags.
+This tag groups related Vulkan commands and contains information specifying
+the shader stages, pipeline substates, and conditions associated with the logical state.</p>
+</div>
+<div class="sect2">
+<h3 id="_attributes_of_dynamicstate_tags"><a class="anchor" href="#_attributes_of_dynamicstate_tags"></a>27.1. Attributes of <code>dynamicstate</code> Tags</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name</code> - required.
+The logical name of the dynamic state group.
+Example: <code>name="viewport"</code>.</p>
+</li>
+<li>
+<p><code>shaderstage</code> - optional.
+The shader stage or stages affected by the dynamic state.
+Example: <code>shaderstage="VK_SHADER_STAGE_ALL"</code>.</p>
+</li>
+<li>
+<p><code>pipelinesubstate</code> - optional.
+A comma-separated list specifying the Graphics Pipeline Library sub-states this dynamic state maps to.
+Allowed tokens:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"Vertex Input"</code></p>
+</li>
+<li>
+<p><code>"Pre-Rasterization Shader"</code></p>
+</li>
+<li>
+<p><code>"Fragment Shader"</code></p>
+</li>
+<li>
+<p><code>"Fragment Output"</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>requiresrasterization</code> - optional.
+Set to <code>"true"</code> if setting/using this dynamic state requires rasterization to be enabled (<code>rasterizerDiscardEnable</code> set to <code>VK_FALSE</code>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contents_of_dynamicstate_tags"><a class="anchor" href="#_contents_of_dynamicstate_tags"></a>27.2. Contents of <code>dynamicstate</code> Tags</h3>
+<div class="paragraph">
+<p>One or more <a href="#tag-dynamicstatecmd"><code>dynamicstatecmd</code></a> tags.
+Zero or more <a href="#tag-enable"><code>enable</code></a> tags, and zero or more <a href="#tag-statecondition"><code>statecondition</code></a> tags, in arbitrary order.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_of_a_dynamicstate_tag"><a class="anchor" href="#_example_of_a_dynamicstate_tag"></a>27.3. Example of a <code>dynamicstate</code> Tag</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="xml"><span class="nt">&lt;dynamicstate</span> <span class="na">name=</span><span class="s">"lineStipple"</span>
+              <span class="na">shaderstage=</span><span class="s">"VK_SHADER_STAGE_ALL"</span>
+              <span class="na">pipelinesubstate=</span><span class="s">"Pre-Rasterization Shader"</span>
+              <span class="na">requiresrasterization=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dynamicstatecmd</span> <span class="na">name=</span><span class="s">"vkCmdSetLineStipple"</span> <span class="na">pipeline=</span><span class="s">"VK_DYNAMIC_STATE_LINE_STIPPLE"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;enable</span> <span class="na">struct=</span><span class="s">"VkPhysicalDeviceLineRasterizationFeaturesKHR"</span> <span class="na">feature=</span><span class="s">"stippledRectangularLines"</span> <span class="na">requires=</span><span class="s">"VK_KHR_line_rasterization"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;statecondition</span> <span class="na">state=</span><span class="s">"lineStippleEnable"</span> <span class="na">special=</span><span class="s">"stippledLineTopology"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/dynamicstate&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tag-dynamicstatecmd"><a class="anchor" href="#tag-dynamicstatecmd"></a>28. Dynamic State Command (<code>dynamicstatecmd</code> Tag)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>dynamicstatecmd</code> tag maps a specific Vulkan command to its associated <code>VkDynamicState</code> enum.</p>
+</div>
+<div class="sect2">
+<h3 id="_attributes_of_dynamicstatecmd_tags"><a class="anchor" href="#_attributes_of_dynamicstatecmd_tags"></a>28.1. Attributes of <code>dynamicstatecmd</code> Tags</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name</code> - required.
+The name of the Vulkan command used to set the dynamic state.
+Example: <code>name="vkCmdSetViewport"</code>.</p>
+</li>
+<li>
+<p><code>pipeline</code> - required.
+The name of the <code>VkDynamicState</code> enum required to use this command dynamically.
+Example: <code>pipeline="VK_DYNAMIC_STATE_VIEWPORT"</code>.</p>
+</li>
+<li>
+<p><code>pipelineonly</code> - optional.
+Set to <code>"true"</code> if the command is only applicable to pipelines and cannot be used with shader objects.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contents_of_dynamicstatecmd_tags"><a class="anchor" href="#_contents_of_dynamicstatecmd_tags"></a>28.2. Contents of <code>dynamicstatecmd</code> Tags</h3>
+<div class="paragraph">
+<p>None.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tag-statecondition"><a class="anchor" href="#tag-statecondition"></a>29. State Condition (<code>statecondition</code> Tag)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>statecondition</code> tag specifies a precursor dynamic state or special execution context condition required prior to drawing.
+If there are multiple conditions they are AND together</p>
+</div>
+<div class="sect2">
+<h3 id="_attributes_of_statecondition_tags"><a class="anchor" href="#_attributes_of_statecondition_tags"></a>29.1. Attributes of <code>statecondition</code> Tags</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>state</code> - optional.
+The name of another dynamic state value that must be set/enabled prior to drawing.
+Example: <code>state="VK_DYNAMIC_STATE_DEPTH_TEST_ENABLE"</code>.</p>
+</li>
+<li>
+<p><code>special</code> - optional.
+A keyword describing a specific context required for the rule.
+This is done because some requirement are quite complex and more than fits in an XML file
+Example: <code>special="lineTopology"</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contents_of_statecondition_tags"><a class="anchor" href="#_contents_of_statecondition_tags"></a>29.2. Contents of <code>statecondition</code> Tags</h3>
+<div class="paragraph">
+<p>None.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tag-spirvextensions"><a class="anchor" href="#tag-spirvextensions"></a>30. SPIR-V Extensions (<code>spirvextensions</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>spirvextensions</code> tag contains definitions of each of the SPIR-V
 extensions which are defined for the API.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_spirvextensions_tags"><a class="anchor" href="#_attributes_of_spirvextensions_tags"></a>26.1. Attributes of <code>spirvextensions</code> Tags</h3>
+<h3 id="_attributes_of_spirvextensions_tags"><a class="anchor" href="#_attributes_of_spirvextensions_tags"></a>30.1. Attributes of <code>spirvextensions</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5084,7 +5318,7 @@ Arbitrary string (unused).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_contents_of_spirvextensions_tags"><a class="anchor" href="#_contents_of_spirvextensions_tags"></a>26.2. Contents of <code>spirvextensions</code> Tags</h3>
+<h3 id="_contents_of_spirvextensions_tags"><a class="anchor" href="#_contents_of_spirvextensions_tags"></a>30.2. Contents of <code>spirvextensions</code> Tags</h3>
 <div class="paragraph">
 <p>Each <code>spirvextensions</code> block contains zero or more <code>spirvextension</code> tags, each
 describing a single SPIR-V extension, in arbitrary order.</p>
@@ -5093,14 +5327,14 @@ describing a single SPIR-V extension, in arbitrary order.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-spirvextension"><a class="anchor" href="#tag-spirvextension"></a>27. SPIR-V Extension (<code>spirvextension</code> Tag)</h2>
+<h2 id="tag-spirvextension"><a class="anchor" href="#tag-spirvextension"></a>31. SPIR-V Extension (<code>spirvextension</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>SPIR-V extensions are described in individual <code>spirvextension</code> tags.
 A SPIR-V extension is enabled by API versions or extensions.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_spirvextension_tags"><a class="anchor" href="#_attributes_of_spirvextension_tags"></a>27.1. Attributes of <code>spirvextension</code> Tags</h3>
+<h3 id="_attributes_of_spirvextension_tags"><a class="anchor" href="#_attributes_of_spirvextension_tags"></a>31.1. Attributes of <code>spirvextension</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5112,14 +5346,14 @@ Example: <code>name="SPV_KHR_variable_pointers"</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_contents_of_spirvextension_tags"><a class="anchor" href="#_contents_of_spirvextension_tags"></a>27.2. Contents of <code>spirvextension</code> Tags</h3>
+<h3 id="_contents_of_spirvextension_tags"><a class="anchor" href="#_contents_of_spirvextension_tags"></a>31.2. Contents of <code>spirvextension</code> Tags</h3>
 <div class="paragraph">
 <p>One or more <a href="#tag-spirvenable"><code>enable</code></a> tags, in arbitrary order.
 Each tag describes a single enabling mechanism for the extension.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_example_of_a_spirvextensions_tag"><a class="anchor" href="#_example_of_a_spirvextensions_tag"></a>27.3. Example of a <code>spirvextensions</code> Tag</h3>
+<h3 id="_example_of_a_spirvextensions_tag"><a class="anchor" href="#_example_of_a_spirvextensions_tag"></a>31.3. Example of a <code>spirvextensions</code> Tag</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="xml"><span class="nt">&lt;spirvextension</span> <span class="na">name=</span><span class="s">"SPV_KHR_multiview"</span><span class="nt">&gt;</span>
@@ -5132,14 +5366,14 @@ Each tag describes a single enabling mechanism for the extension.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-spirvcapabilities"><a class="anchor" href="#tag-spirvcapabilities"></a>28. SPIR-V Capabilities (<code>spirvcapabilities</code> Tag)</h2>
+<h2 id="tag-spirvcapabilities"><a class="anchor" href="#tag-spirvcapabilities"></a>32. SPIR-V Capabilities (<code>spirvcapabilities</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>spirvcapabilities</code> tag contains definitions of each of the SPIR-V
 capabilities which are defined for the API.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_spirvcapabilities_tags"><a class="anchor" href="#_attributes_of_spirvcapabilities_tags"></a>28.1. Attributes of <code>spirvcapabilities</code> Tags</h3>
+<h3 id="_attributes_of_spirvcapabilities_tags"><a class="anchor" href="#_attributes_of_spirvcapabilities_tags"></a>32.1. Attributes of <code>spirvcapabilities</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5150,7 +5384,7 @@ Arbitrary string (unused).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_contents_of_spirvcapabilities_tags"><a class="anchor" href="#_contents_of_spirvcapabilities_tags"></a>28.2. Contents of <code>spirvcapabilities</code> Tags</h3>
+<h3 id="_contents_of_spirvcapabilities_tags"><a class="anchor" href="#_contents_of_spirvcapabilities_tags"></a>32.2. Contents of <code>spirvcapabilities</code> Tags</h3>
 <div class="paragraph">
 <p>Each <code>spirvcapabilities</code> block contains zero or more <code>spirvcapability</code>
 tags, each describing a single SPIR-V capability, in arbitrary order.</p>
@@ -5159,7 +5393,7 @@ tags, each describing a single SPIR-V capability, in arbitrary order.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-spirvcapability"><a class="anchor" href="#tag-spirvcapability"></a>29. SPIR-V Capability (<code>spirvcapability</code> Tag)</h2>
+<h2 id="tag-spirvcapability"><a class="anchor" href="#tag-spirvcapability"></a>33. SPIR-V Capability (<code>spirvcapability</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>SPIR-V capabilities are described in individual <code>spirvcapability</code> tags.
@@ -5167,7 +5401,7 @@ A SPIR-V capability is enabled by API versions, extensions, features, or
 properties.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_spirvcapability_tags"><a class="anchor" href="#_attributes_of_spirvcapability_tags"></a>29.1. Attributes of <code>spirvcapability</code> Tags</h3>
+<h3 id="_attributes_of_spirvcapability_tags"><a class="anchor" href="#_attributes_of_spirvcapability_tags"></a>33.1. Attributes of <code>spirvcapability</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5179,14 +5413,14 @@ Example: <code>name="SPV_KHR_variable_pointers"</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_contents_of_spirvcapability_tags"><a class="anchor" href="#_contents_of_spirvcapability_tags"></a>29.2. Contents of <code>spirvcapability</code> Tags</h3>
+<h3 id="_contents_of_spirvcapability_tags"><a class="anchor" href="#_contents_of_spirvcapability_tags"></a>33.2. Contents of <code>spirvcapability</code> Tags</h3>
 <div class="paragraph">
 <p>One or more <a href="#tag-spirvenable"><code>enable</code></a> tags, in arbitrary order.
 Each tag describes a single enabling mechanism for the capability.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_example_of_a_spirvcapabilities_tag"><a class="anchor" href="#_example_of_a_spirvcapabilities_tag"></a>29.3. Example of a <code>spirvcapabilities</code> Tag</h3>
+<h3 id="_example_of_a_spirvcapabilities_tag"><a class="anchor" href="#_example_of_a_spirvcapabilities_tag"></a>33.3. Example of a <code>spirvcapabilities</code> Tag</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="xml"><span class="nt">&lt;spirvcapability</span> <span class="na">name=</span><span class="s">"ImageCubeArray"</span><span class="nt">&gt;</span>
@@ -5201,7 +5435,7 @@ Each tag describes a single enabling mechanism for the capability.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-spirvenable"><a class="anchor" href="#tag-spirvenable"></a>30. SPIR-V Enables (<code>enable</code> Tag)</h2>
+<h2 id="tag-spirvenable"><a class="anchor" href="#tag-spirvenable"></a>34. SPIR-V Enables (<code>enable</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>enable</code> tag describes a single mechanism in the API which enables a
@@ -5212,7 +5446,7 @@ API may advertise enablement, though not all forms may be used with
 Each form is described separately below.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_for_api_version_number_enables"><a class="anchor" href="#_attributes_for_api_version_number_enables"></a>30.1. Attributes for API Version Number Enables</h3>
+<h3 id="_attributes_for_api_version_number_enables"><a class="anchor" href="#_attributes_for_api_version_number_enables"></a>34.1. Attributes for API Version Number Enables</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5227,7 +5461,7 @@ enabled.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_attributes_for_api_extension_enables"><a class="anchor" href="#_attributes_for_api_extension_enables"></a>30.2. Attributes for API Extension Enables</h3>
+<h3 id="_attributes_for_api_extension_enables"><a class="anchor" href="#_attributes_for_api_extension_enables"></a>34.2. Attributes for API Extension Enables</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5243,7 +5477,7 @@ capability is enabled.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_attributes_for_api_feature_enables"><a class="anchor" href="#_attributes_for_api_feature_enables"></a>30.3. Attributes for API Feature Enables</h3>
+<h3 id="_attributes_for_api_feature_enables"><a class="anchor" href="#_attributes_for_api_feature_enables"></a>34.3. Attributes for API Feature Enables</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5279,7 +5513,7 @@ enabled in the feature structure, the SPIR-V capability is enabled.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_attributes_for_api_property_enables"><a class="anchor" href="#_attributes_for_api_property_enables"></a>30.4. Attributes for API Property Enables</h3>
+<h3 id="_attributes_for_api_property_enables"><a class="anchor" href="#_attributes_for_api_property_enables"></a>34.4. Attributes for API Property Enables</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5318,7 +5552,7 @@ is enabled.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_contents_of_enable_tags"><a class="anchor" href="#_contents_of_enable_tags"></a>30.5. Contents of <code>enable</code> Tags</h3>
+<h3 id="_contents_of_enable_tags"><a class="anchor" href="#_contents_of_enable_tags"></a>34.5. Contents of <code>enable</code> Tags</h3>
 <div class="paragraph">
 <p>None.</p>
 </div>
@@ -5326,13 +5560,13 @@ is enabled.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-syncstage"><a class="anchor" href="#tag-syncstage"></a>31. Sync Stage (<code>syncstage</code> Tag)</h2>
+<h2 id="tag-syncstage"><a class="anchor" href="#tag-syncstage"></a>35. Sync Stage (<code>syncstage</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>syncstage</code> tag contains definitions of each Pipeline stage.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_syncstage_tags"><a class="anchor" href="#_attributes_of_syncstage_tags"></a>31.1. Attributes of <code>syncstage</code> Tags</h3>
+<h3 id="_attributes_of_syncstage_tags"><a class="anchor" href="#_attributes_of_syncstage_tags"></a>35.1. Attributes of <code>syncstage</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5348,7 +5582,7 @@ an alias of <code>name</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_contents_of_syncstage_tags"><a class="anchor" href="#_contents_of_syncstage_tags"></a>31.2. Contents of <code>syncstage</code> Tags</h3>
+<h3 id="_contents_of_syncstage_tags"><a class="anchor" href="#_contents_of_syncstage_tags"></a>35.2. Contents of <code>syncstage</code> Tags</h3>
 <div class="paragraph">
 <p>More information about the Pipeline stage using either
 <code>syncequivalent</code> or <code>syncsupport</code></p>
@@ -5357,13 +5591,13 @@ an alias of <code>name</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-syncaccess"><a class="anchor" href="#tag-syncaccess"></a>32. Sync Access (<code>syncaccess</code> Tag)</h2>
+<h2 id="tag-syncaccess"><a class="anchor" href="#tag-syncaccess"></a>36. Sync Access (<code>syncaccess</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>syncaccess</code> tag contains definitions of each Access mask.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_syncaccess_tags"><a class="anchor" href="#_attributes_of_syncaccess_tags"></a>32.1. Attributes of <code>syncaccess</code> Tags</h3>
+<h3 id="_attributes_of_syncaccess_tags"><a class="anchor" href="#_attributes_of_syncaccess_tags"></a>36.1. Attributes of <code>syncaccess</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5379,7 +5613,7 @@ alias of <code>name</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_contents_of_syncaccess_tags"><a class="anchor" href="#_contents_of_syncaccess_tags"></a>32.2. Contents of <code>syncaccess</code> Tags</h3>
+<h3 id="_contents_of_syncaccess_tags"><a class="anchor" href="#_contents_of_syncaccess_tags"></a>36.2. Contents of <code>syncaccess</code> Tags</h3>
 <div class="paragraph">
 <p>More information about the Access mask using either
 <code>syncequivalent</code> or <code>syncsupport</code></p>
@@ -5388,13 +5622,13 @@ alias of <code>name</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-syncpipeline"><a class="anchor" href="#tag-syncpipeline"></a>33. Sync Pipeline (<code>syncpipeline</code> Tag)</h2>
+<h2 id="tag-syncpipeline"><a class="anchor" href="#tag-syncpipeline"></a>37. Sync Pipeline (<code>syncpipeline</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>syncpipeline</code> tag contains definitions of each type of Pipeline.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_syncpipeline_tags"><a class="anchor" href="#_attributes_of_syncpipeline_tags"></a>33.1. Attributes of <code>syncpipeline</code> Tags</h3>
+<h3 id="_attributes_of_syncpipeline_tags"><a class="anchor" href="#_attributes_of_syncpipeline_tags"></a>37.1. Attributes of <code>syncpipeline</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5405,7 +5639,7 @@ A unique string identifying the pipeline.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_contents_of_syncpipeline_tags"><a class="anchor" href="#_contents_of_syncpipeline_tags"></a>33.2. Contents of <code>syncpipeline</code> Tags</h3>
+<h3 id="_contents_of_syncpipeline_tags"><a class="anchor" href="#_contents_of_syncpipeline_tags"></a>37.2. Contents of <code>syncpipeline</code> Tags</h3>
 <div class="paragraph">
 <p>Zero or more <code>syncpipelinestage</code> tags describing each pipeline stage in
 logical order.
@@ -5415,14 +5649,14 @@ Stages have extra attributes describing special ordering within the list.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-syncpipelinestage"><a class="anchor" href="#tag-syncpipelinestage"></a>34. Sync Pipeline Stage (<code>syncpipelinestage</code> Tag)</h2>
+<h2 id="tag-syncpipelinestage"><a class="anchor" href="#tag-syncpipelinestage"></a>38. Sync Pipeline Stage (<code>syncpipelinestage</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>syncpipelinestage</code> tag contains definitions of a stage for a
 <code>syncpipeline</code>.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_syncpipelinestage_tags"><a class="anchor" href="#_attributes_of_syncpipelinestage_tags"></a>34.1. Attributes of <code>syncpipelinestage</code> Tags</h3>
+<h3 id="_attributes_of_syncpipelinestage_tags"><a class="anchor" href="#_attributes_of_syncpipelinestage_tags"></a>38.1. Attributes of <code>syncpipelinestage</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5443,7 +5677,7 @@ this stage.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_contents_of_syncpipeline_tags_2"><a class="anchor" href="#_contents_of_syncpipeline_tags_2"></a>34.2. Contents of <code>syncpipeline</code> Tags</h3>
+<h3 id="_contents_of_syncpipeline_tags_2"><a class="anchor" href="#_contents_of_syncpipeline_tags_2"></a>38.2. Contents of <code>syncpipeline</code> Tags</h3>
 <div class="paragraph">
 <p>A Vulkan <code>VkPipelineStageFlagBits2</code> name of this pipeline stage.</p>
 </div>
@@ -5451,13 +5685,13 @@ this stage.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-syncsupport"><a class="anchor" href="#tag-syncsupport"></a>35. Sync Support (<code>syncsupport</code> Tag)</h2>
+<h2 id="tag-syncsupport"><a class="anchor" href="#tag-syncsupport"></a>39. Sync Support (<code>syncsupport</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>syncsupport</code> tag defines support for a given Sync element.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_syncsupport_tags"><a class="anchor" href="#_attributes_of_syncsupport_tags"></a>35.1. Attributes of <code>syncsupport</code> Tags</h3>
+<h3 id="_attributes_of_syncsupport_tags"><a class="anchor" href="#_attributes_of_syncsupport_tags"></a>39.1. Attributes of <code>syncsupport</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5477,14 +5711,14 @@ This is used to cross-reference with <code>syncstage</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-syncequivalent"><a class="anchor" href="#tag-syncequivalent"></a>36. Sync Equivalent (<code>syncequivalent</code> Tag)</h2>
+<h2 id="tag-syncequivalent"><a class="anchor" href="#tag-syncequivalent"></a>40. Sync Equivalent (<code>syncequivalent</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>syncequivalent</code> tag defines a one-to-many relationship of Sync
 elements</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_syncequivalent_tags"><a class="anchor" href="#_attributes_of_syncequivalent_tags"></a>36.1. Attributes of <code>syncequivalent</code> Tags</h3>
+<h3 id="_attributes_of_syncequivalent_tags"><a class="anchor" href="#_attributes_of_syncequivalent_tags"></a>40.1. Attributes of <code>syncequivalent</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5503,7 +5737,7 @@ OR logical equivalence of the parent <a href="#tag-syncstage"><code>syncstage</c
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videocodecs"><a class="anchor" href="#tag-videocodecs"></a>37. Video Codecs (<code>videocodecs</code> Tag)</h2>
+<h2 id="tag-videocodecs"><a class="anchor" href="#tag-videocodecs"></a>41. Video Codecs (<code>videocodecs</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videocodecs</code> tag contains information about video codecs.</p>
@@ -5511,14 +5745,14 @@ OR logical equivalence of the parent <a href="#tag-syncstage"><code>syncstage</c
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videocodec"><a class="anchor" href="#tag-videocodec"></a>38. Video Codec (<code>videocodec</code> Tag)</h2>
+<h2 id="tag-videocodec"><a class="anchor" href="#tag-videocodec"></a>42. Video Codec (<code>videocodec</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videocodec</code> tag defines a video codec category (e.g. decode or
 encode) or specific video codec (e.g. H.264 decode).</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videocodec_tags"><a class="anchor" href="#_attributes_of_videocodec_tags"></a>38.1. Attributes of <code>videocodec</code> Tags</h3>
+<h3 id="_attributes_of_videocodec_tags"><a class="anchor" href="#_attributes_of_videocodec_tags"></a>42.1. Attributes of <code>videocodec</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5539,7 +5773,7 @@ specific video codec</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videoprofiles"><a class="anchor" href="#tag-videoprofiles"></a>39. Video Profiles (<code>videoprofiles</code> Tag)</h2>
+<h2 id="tag-videoprofiles"><a class="anchor" href="#tag-videoprofiles"></a>43. Video Profiles (<code>videoprofiles</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videoprofiles</code> tag defines video profiles supported by a specific
@@ -5548,7 +5782,7 @@ video profile information included in <code>VkVideoProfileInfoKHR</code> and add
 video codec specific video profile structure member values.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videoprofiles_tags"><a class="anchor" href="#_attributes_of_videoprofiles_tags"></a>39.1. Attributes of <code>videoprofiles</code> Tags</h3>
+<h3 id="_attributes_of_videoprofiles_tags"><a class="anchor" href="#_attributes_of_videoprofiles_tags"></a>43.1. Attributes of <code>videoprofiles</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5561,14 +5795,14 @@ the specific video codec</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videoprofilemember"><a class="anchor" href="#tag-videoprofilemember"></a>40. Video Profile Member (<code>videoprofilemember</code> Tag)</h2>
+<h2 id="tag-videoprofilemember"><a class="anchor" href="#tag-videoprofilemember"></a>44. Video Profile Member (<code>videoprofilemember</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videoprofilemember</code> tag defines video profiles with respect to
 specific video profile structure members.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videoprofilemember_tags"><a class="anchor" href="#_attributes_of_videoprofilemember_tags"></a>40.1. Attributes of <code>videoprofilemember</code> Tags</h3>
+<h3 id="_attributes_of_videoprofilemember_tags"><a class="anchor" href="#_attributes_of_videoprofilemember_tags"></a>44.1. Attributes of <code>videoprofilemember</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5580,14 +5814,14 @@ specific video profile structure members.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videoprofile"><a class="anchor" href="#tag-videoprofile"></a>41. Video Profile (<code>videoprofile</code> Tag)</h2>
+<h2 id="tag-videoprofile"><a class="anchor" href="#tag-videoprofile"></a>45. Video Profile (<code>videoprofile</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videoprofile</code> tag defines a video profile with respect to specific
 video profile structure members.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videoprofile_tags"><a class="anchor" href="#_attributes_of_videoprofile_tags"></a>41.1. Attributes of <code>videoprofile</code> Tags</h3>
+<h3 id="_attributes_of_videoprofile_tags"><a class="anchor" href="#_attributes_of_videoprofile_tags"></a>45.1. Attributes of <code>videoprofile</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5603,14 +5837,14 @@ video profile</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videocapabilities"><a class="anchor" href="#tag-videocapabilities"></a>42. Video Capabilities (<code>videocapabilities</code> Tag)</h2>
+<h2 id="tag-videocapabilities"><a class="anchor" href="#tag-videocapabilities"></a>46. Video Capabilities (<code>videocapabilities</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videocapabilities</code> tag specifies a capability structure that applies
 to the video codec category or specific video codec.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videocapabilities_tags"><a class="anchor" href="#_attributes_of_videocapabilities_tags"></a>42.1. Attributes of <code>videocapabilities</code> Tags</h3>
+<h3 id="_attributes_of_videocapabilities_tags"><a class="anchor" href="#_attributes_of_videocapabilities_tags"></a>46.1. Attributes of <code>videocapabilities</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5622,14 +5856,14 @@ to the video codec category or specific video codec.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videoformat"><a class="anchor" href="#tag-videoformat"></a>43. Video Format (<code>videoformat</code> Tag)</h2>
+<h2 id="tag-videoformat"><a class="anchor" href="#tag-videoformat"></a>47. Video Format (<code>videoformat</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videoformat</code> tag defines a video format category that applies to the
 video codec category or specific video codec.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videoformat_tags"><a class="anchor" href="#_attributes_of_videoformat_tags"></a>43.1. Attributes of <code>videoformat</code> Tags</h3>
+<h3 id="_attributes_of_videoformat_tags"><a class="anchor" href="#_attributes_of_videoformat_tags"></a>47.1. Attributes of <code>videoformat</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5647,14 +5881,14 @@ express disjunction and conjunction, respectively)</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videoformatproperties"><a class="anchor" href="#tag-videoformatproperties"></a>44. Video Format Properties (<code>videoformatproperties</code> Tag)</h2>
+<h2 id="tag-videoformatproperties"><a class="anchor" href="#tag-videoformatproperties"></a>48. Video Format Properties (<code>videoformatproperties</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videoformatproperties</code> tag specifies a video format property
 structure that applies to a video format category.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videoformatproperties_tags"><a class="anchor" href="#_attributes_of_videoformatproperties_tags"></a>44.1. Attributes of <code>videoformatproperties</code> Tags</h3>
+<h3 id="_attributes_of_videoformatproperties_tags"><a class="anchor" href="#_attributes_of_videoformatproperties_tags"></a>48.1. Attributes of <code>videoformatproperties</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5666,7 +5900,7 @@ structure that applies to a video format category.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tag-videorequirecapabilities"><a class="anchor" href="#tag-videorequirecapabilities"></a>45. Video Capability Prerequisites (<code>videorequirecapabilities</code> Tag)</h2>
+<h2 id="tag-videorequirecapabilities"><a class="anchor" href="#tag-videorequirecapabilities"></a>49. Video Capability Prerequisites (<code>videorequirecapabilities</code> Tag)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>videorequirecapabilities</code> tag can be used inside
@@ -5676,7 +5910,7 @@ If more <code>videorequirecapabilities</code> elements are specified, then the
 overall precondition is the conjunction of the individual preconditions.</p>
 </div>
 <div class="sect2">
-<h3 id="_attributes_of_videorequirecapabilities_tags"><a class="anchor" href="#_attributes_of_videorequirecapabilities_tags"></a>45.1. Attributes of <code>videorequirecapabilities</code> Tags</h3>
+<h3 id="_attributes_of_videorequirecapabilities_tags"><a class="anchor" href="#_attributes_of_videorequirecapabilities_tags"></a>49.1. Attributes of <code>videorequirecapabilities</code> Tags</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5698,7 +5932,7 @@ respectively)</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="examples"><a class="anchor" href="#examples"></a>46. Examples / FAQ / How Do I?</h2>
+<h2 id="examples"><a class="anchor" href="#examples"></a>50. Examples / FAQ / How Do I?</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>For people new to the Registry, it will not be immediately obvious how to
@@ -5714,7 +5948,7 @@ Once you are able to regenerate the Vulkan headers from <code>vk.xml</code>, you
 start making changes.</p>
 </div>
 <div class="sect2">
-<h3 id="_general_strategy"><a class="anchor" href="#_general_strategy"></a>46.1. General Strategy</h3>
+<h3 id="_general_strategy"><a class="anchor" href="#_general_strategy"></a>50.1. General Strategy</h3>
 <div class="paragraph">
 <p>If you are <em>adding</em> to the API, perform the following steps to <em>create</em> the
 description of that API element:</p>
@@ -5748,7 +5982,7 @@ dependencies on the changed feature.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_api_feature_dependencies"><a class="anchor" href="#_api_feature_dependencies"></a>46.2. API Feature Dependencies</h3>
+<h3 id="_api_feature_dependencies"><a class="anchor" href="#_api_feature_dependencies"></a>50.2. API Feature Dependencies</h3>
 <div class="paragraph">
 <p>When you add new API elements, they will not result in corresponding changes
 in the generated header unless they are <em>required</em> by the interface being
@@ -5773,7 +6007,7 @@ Some of these tags are used to express extension interactions, and others
 only as a logical grouping mechanism for related parts of that API feature.</p>
 </div>
 <div class="sect3">
-<h4 id="_api_feature_walkthrough"><a class="anchor" href="#_api_feature_walkthrough"></a>46.2.1. API Feature Walkthrough</h4>
+<h4 id="_api_feature_walkthrough"><a class="anchor" href="#_api_feature_walkthrough"></a>50.2.1. API Feature Walkthrough</h4>
 <div class="paragraph">
 <p>This section walks through the first few required API features in the
 <code>vk.xml</code> <code>feature</code> tag, showing how each requirement pulls in type, token,
@@ -6046,7 +6280,7 @@ specified features are generated.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="compile-time-constants"><a class="anchor" href="#compile-time-constants"></a>46.3. How to Add a Compile Time Constant</h3>
+<h3 id="compile-time-constants"><a class="anchor" href="#compile-time-constants"></a>50.3. How to Add a Compile Time Constant</h3>
 <div class="paragraph">
 <p>Go to the desired <code>feature</code> or <code>extension</code> tag.
 Add (if not present) a nested <code>require</code> block labeled</p>
@@ -6088,7 +6322,7 @@ values <code>uint32_t</code>, <code>uint64_t</code>, or <code>float</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="compile-time-constants-format"><a class="anchor" href="#compile-time-constants-format"></a>46.4. Allowed Format of Compile Time Constants</h3>
+<h3 id="compile-time-constants-format"><a class="anchor" href="#compile-time-constants-format"></a>50.4. Allowed Format of Compile Time Constants</h3>
 <div class="paragraph">
 <p>The <code>value</code> attribute must be a legal C99 constant scalar expression when
 evaluated at compilation time.
@@ -6112,7 +6346,7 @@ Allowed expressions are additionally restricted to the following syntax:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_to_add_a_struct_or_union_type"><a class="anchor" href="#_how_to_add_a_struct_or_union_type"></a>46.5. How to Add a Struct or Union Type</h3>
+<h3 id="_how_to_add_a_struct_or_union_type"><a class="anchor" href="#_how_to_add_a_struct_or_union_type"></a>50.5. How to Add a Struct or Union Type</h3>
 <div class="paragraph">
 <p>For this example, assume we want to define a type corresponding to a C
 <code>struct</code> defined as follows:</p>
@@ -6195,7 +6429,7 @@ the <code>category</code> attribute to <code>"union"</code> instead of <code>"st
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_to_add_an_enumerated_type"><a class="anchor" href="#_how_to_add_an_enumerated_type"></a>46.6. How to Add an Enumerated Type</h3>
+<h3 id="_how_to_add_an_enumerated_type"><a class="anchor" href="#_how_to_add_an_enumerated_type"></a>50.6. How to Add an Enumerated Type</h3>
 <div class="paragraph">
 <p>For this example, assume we want to define a type corresponding to a C
 <code>enum</code> defined as follows:</p>
@@ -6262,7 +6496,7 @@ the C header unchanged.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-bitflags"><a class="anchor" href="#adding-bitflags"></a>46.7. How to Add Bit Flags</h3>
+<h3 id="adding-bitflags"><a class="anchor" href="#adding-bitflags"></a>50.7. How to Add Bit Flags</h3>
 <div class="paragraph">
 <p>Bit masks are defined by two types in the xml - the type of the mask itself,
 and the type of the valid flags.</p>
@@ -6373,7 +6607,7 @@ specifying a single bit number, and the resulting value is printed as a
 hexadecimal constant corresponding to that bit.</p>
 </div>
 <div class="sect3">
-<h4 id="_32_bit_flags"><a class="anchor" href="#_32_bit_flags"></a>46.7.1. 32-bit Flags</h4>
+<h4 id="_32_bit_flags"><a class="anchor" href="#_32_bit_flags"></a>50.7.1. 32-bit Flags</h4>
 <div class="paragraph">
 <p>Bit flags can also be defined using 32-bit C enum types.
 Doing so is broadly similar to 64-bit bit flags, but with a few key
@@ -6425,7 +6659,7 @@ The generator scripts will warn about values exceeding this range.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_to_add_a_command"><a class="anchor" href="#_how_to_add_a_command"></a>46.8. How to Add a Command</h3>
+<h3 id="_how_to_add_a_command"><a class="anchor" href="#_how_to_add_a_command"></a>50.8. How to Add a Command</h3>
 <div class="paragraph">
 <p>For this example, assume we want to define the command:</p>
 </div>
@@ -6492,7 +6726,7 @@ described previously.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_more_complicated_api_representations"><a class="anchor" href="#_more_complicated_api_representations"></a>46.9. More Complicated API Representations</h3>
+<h3 id="_more_complicated_api_representations"><a class="anchor" href="#_more_complicated_api_representations"></a>50.9. More Complicated API Representations</h3>
 <div class="paragraph">
 <p>The registry schema can represent a good deal of additional information, for
 example by creating multiple <code>feature</code> tags defining different API
@@ -6502,7 +6736,7 @@ Those capabilities will be documented as they are needed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_more_complicated_output_formats_and_other_languages"><a class="anchor" href="#_more_complicated_output_formats_and_other_languages"></a>46.10. More Complicated Output Formats and Other Languages</h3>
+<h3 id="_more_complicated_output_formats_and_other_languages"><a class="anchor" href="#_more_complicated_output_formats_and_other_languages"></a>50.10. More Complicated Output Formats and Other Languages</h3>
 <div class="paragraph">
 <p>The registry schema is oriented towards C-language APIs.
 Types and commands are defined using syntax which is a subset of C,
@@ -6526,7 +6760,7 @@ text, or specialize the tags by language, to support such generators.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_additional_semantic_tagging"><a class="anchor" href="#_additional_semantic_tagging"></a>46.11. Additional Semantic Tagging</h3>
+<h3 id="_additional_semantic_tagging"><a class="anchor" href="#_additional_semantic_tagging"></a>50.11. Additional Semantic Tagging</h3>
 <div class="paragraph">
 <p>The schema is being extended to support semantic tags describing various
 properties of API features, such as:</p>
@@ -6557,7 +6791,7 @@ Please make suggestions on the GitHub issue tracker.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="general:stability"><a class="anchor" href="#general:stability"></a>46.12. Stability of the XML Database and Schema</h3>
+<h3 id="general:stability"><a class="anchor" href="#general:stability"></a>50.12. Stability of the XML Database and Schema</h3>
 <div class="paragraph">
 <p>The Vulkan XML schema is evolving in response to corresponding changes in
 the Vulkan API and ecosystem.
@@ -6572,10 +6806,16 @@ Changes to the <code>.xml</code> files and Python scripts are logged in GitHub h
 </div>
 </div>
 <div class="sect1">
-<h2 id="changelog"><a class="anchor" href="#changelog"></a>47. Change Log</h2>
+<h2 id="changelog"><a class="anchor" href="#changelog"></a>51. Change Log</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2026-09-17 - Add <code>protect</code> attribute to the <a href="#tag-required-command"><code>type</code></a> tag in <code>require</code> blocks (internal issue 4950).</p>
+</li>
+<li>
+<p>2026-09-09 - Add <code>protect</code> attribute to the <a href="#tag-required-command"><code>command</code></a> tag in <code>require</code> blocks (internal issue 4950).</p>
+</li>
 <li>
 <p>2026-07-01 - Allow <a href="#tag-required-feature"><code>feature</code></a> tags inside
 <code>deprecate</code> blocks, so a feature structure member can be marked legacy
