@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>Vulkan<sup>®</sup> Documentation and Extensions: Procedures and Conventions</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech, Tobias Hector</span><br>
-<span id="revnumber">version 1.4.364,</span>
-<span id="revdate">2026-09-24 23:53:52Z</span>
-<br><span id="revremark">from git branch: github-main commit: 01aaacd99480487bf63830959513c5ca8ceb996d</span>
+<span id="revnumber">version 1.4.365,</span>
+<span id="revdate">2026-10-02 01:41:08Z</span>
+<br><span id="revremark">from git branch: github-main commit: 8c9361ba8180c1f4164c0bf79de2f6e817770b0d</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -6323,6 +6323,11 @@ of a structure as a &#8220;color space&#8221; value.</p>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">time out</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">use case</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">use-&#8288;case</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -6569,8 +6574,36 @@ into a single open block defining a <a href="#writing-refpages">reference page</
 <div class="paragraph">
 <p>There is a considerable amount of math in the documentation, ranging from
 simple arithmetic expressions to complicated conditionals.
-There are two ways of marking up math expressions, described below.</p>
+There are two ways of marking up math expressions, described below.
+In addition to the methods of marking up equations, be consistent in English
+phrasing of math concepts:</p>
 </div>
+<table id="writing-math-phrasing" class="tableblock frame-all grid-all" style="width: 70%;">
+<caption class="title">Table 16. Math Phrasing</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Use Phrasing</th>
+<th class="tableblock halign-left valign-top">Instead Of</th>
+<th class="tableblock halign-left valign-top">greater than or equal to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">equal to or greater than,<br>
+                  equal to or larger than,<br>
+                  larger than or equal to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">less than or equal to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">equal to or less than,<br>
+                  equal to or smaller than,<br>
+                  smaller than or equal to</p></td>
+</tr>
+</tbody>
+</table>
 <div class="sect3">
 <h4 id="_asciidoc_math_markup"><a class="anchor" href="#_asciidoc_math_markup"></a>5.5.1. Asciidoc Math Markup</h4>
 <div class="paragraph">
@@ -6581,7 +6614,7 @@ the corresponding Unicode entities.
 The complete set of these attributes is found in <code>config/attribs.adoc</code>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 16. Spelling</caption>
+<caption class="title">Table 17. Spelling</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -6768,7 +6801,7 @@ everything, though does have some support for AMSMath.</p>
 <p>Some workarounds we use are:</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 70%;">
-<caption class="title">Table 17. LaTeX Math Replacements for KaTeX Compatibility</caption>
+<caption class="title">Table 18. LaTeX Math Replacements for KaTeX Compatibility</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -8185,6 +8218,11 @@ to by the Vulkan Working Group.</p>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2026-09-30 - Add &#8220;timeout&#8221; to the <a href="#writing-compound-words">compound
+words</a> table and add a table for <a href="#writing-math-phrasing">consistent
+phrasing of math concepts in English</a></p>
+</li>
 <li>
 <p>2026-02-18 - Disallow <a href="#naming-typenames">type names</a> matching command
 parameter or structure member names (public issue 2679).</p>
