@@ -954,9 +954,9 @@ pre.rouge .w {
 <h1>Vulkan<sup>®</sup> Documentation and Extensions: Procedures and Conventions</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech, Tobias Hector</span><br>
-<span id="revnumber">version 1.4.365,</span>
-<span id="revdate">2026-10-02 01:41:08Z</span>
-<br><span id="revremark">from git branch: github-main commit: 8c9361ba8180c1f4164c0bf79de2f6e817770b0d</span>
+<span id="revnumber">version 1.4.366,</span>
+<span id="revdate">2026-10-23 00:57:45Z</span>
+<br><span id="revremark">from git branch: github-main commit: a8b088a3fae12c8575407ea90c7c09bd653db923</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -5750,6 +5750,10 @@ The following lists provides some guidance, but are not complete.</p>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">app</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">information</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">info</p></td>
 </tr>
@@ -6225,6 +6229,11 @@ of a structure as a &#8220;color space&#8221; value.</p>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">any-hit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">any hit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Convention for ray tracing APIs</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">bit plane</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">bit&#8288;plane</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -6267,9 +6276,15 @@ of a structure as a &#8220;color space&#8221; value.</p>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">full-screen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">full&#8288;screen,<br>
+                  full screen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See VK_EXT_full_screen_exclusive issues</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GitHub</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Git&#8288;hub</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Site&#8217;s preferred spelling</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Site preferred spelling</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">indirect (drawing/dispatching) command</p></td>
@@ -6581,22 +6596,23 @@ phrasing of math concepts:</p>
 <table id="writing-math-phrasing" class="tableblock frame-all grid-all" style="width: 70%;">
 <caption class="title">Table 16. Math Phrasing</caption>
 <colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 60%;">
+<col style="width: 50%;">
+<col style="width: 50%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Use Phrasing</th>
 <th class="tableblock halign-left valign-top">Instead Of</th>
-<th class="tableblock halign-left valign-top">greater than or equal to</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">greater than or equal to</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">equal to or greater than,<br>
                   equal to or larger than,<br>
                   larger than or equal to</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">less than or equal to</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">equal to or less than,<br>
                   equal to or smaller than,<br>
@@ -7317,7 +7333,7 @@ on queues from the same queue family.</p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
+<div id="sample-command-sType-pNext" class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
