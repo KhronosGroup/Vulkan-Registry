@@ -523,6 +523,12 @@ tbody tr th { display: table-cell; line-height: 1.4; background: #eee; }
 
 tbody tr th, tbody tr th p, tfoot tr th, tfoot tr th p { color: #222; font-weight: bold; }
 
+/* Tables whose first column is marked up as row headers (cols="1h") only for
+   accessibility; keep the cells looking like ordinary data cells. */
+table.plain-row-headers tbody tr th { background: none; }
+
+table.plain-row-headers tbody tr th, table.plain-row-headers tbody tr th p { font-weight: normal; }
+
 p.tableblock > code:only-child { background: none; padding: 0; }
 
 p.tableblock { font-size: 1em; }
@@ -954,9 +960,9 @@ pre.rouge .w {
 <h1>Vulkan<sup>®</sup> Documentation and Extensions: Procedures and Conventions</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech, Tobias Hector</span><br>
-<span id="revnumber">version 1.4.368,</span>
-<span id="revdate">2026-11-06 01:32:02Z</span>
-<br><span id="revremark">from git branch: github-main commit: fa30d4e312e843193601be7cb926c7e25d9ec885</span>
+<span id="revnumber">version 1.4.369,</span>
+<span id="revdate">2026-11-20 01:04:25Z</span>
+<br><span id="revremark">from git branch: github-main commit: 33d3353757d83d6aca683120114fe74cc4eaf8fb</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1090,17 +1096,18 @@ pre.rouge .w {
 <ul class="sectlevel3">
 <li><a href="#_use_the_oxford_comma_serial_comma">5.1.1. Use the Oxford Comma (Serial Comma)</a></li>
 <li><a href="#writing-titlecase">5.1.2. Use AP Title Case for Chapter and Section Titles</a></li>
-<li><a href="#write-active">5.1.3. Use the Active Voice</a></li>
-<li><a href="#_date_format">5.1.4. Date Format</a></li>
-<li><a href="#writing-misc-a-an">5.1.5. A/An and Markup Macros</a></li>
-<li><a href="#_numbers_in_text">5.1.6. Numbers in Text</a></li>
-<li><a href="#writing-conventions">5.1.7. Use American Spelling Conventions</a></li>
-<li><a href="#writing-inclusivity">5.1.8. Use Inclusive Language</a></li>
-<li><a href="#writing-mustbe">5.1.9. Avoid Use of &#8220;set to&#8221; Where Possible</a></li>
-<li><a href="#writing-pointers-instances">5.1.10. Describing Pointers, Handles, Structures, and Arrays</a></li>
-<li><a href="#writing-arrays">5.1.11. Describing Properties of Array Elements</a></li>
-<li><a href="#writing-compound-words">5.1.12. Compound Words and Preferred Orthography</a></li>
-<li><a href="#writing-references">5.1.13. References</a></li>
+<li><a href="#writing-propernoun">5.1.3. Capitalize Proper Nouns, not Common Nouns</a></li>
+<li><a href="#write-active">5.1.4. Use the Active Voice</a></li>
+<li><a href="#_date_format">5.1.5. Date Format</a></li>
+<li><a href="#writing-misc-a-an">5.1.6. A/An and Markup Macros</a></li>
+<li><a href="#_numbers_in_text">5.1.7. Numbers in Text</a></li>
+<li><a href="#writing-conventions">5.1.8. Use American Spelling Conventions</a></li>
+<li><a href="#writing-inclusivity">5.1.9. Use Inclusive Language</a></li>
+<li><a href="#writing-mustbe">5.1.10. Avoid Use of &#8220;set to&#8221; Where Possible</a></li>
+<li><a href="#writing-pointers-instances">5.1.11. Describing Pointers, Handles, Structures, and Arrays</a></li>
+<li><a href="#writing-arrays">5.1.12. Describing Properties of Array Elements</a></li>
+<li><a href="#writing-compound-words">5.1.13. Compound Words and Preferred Orthography</a></li>
+<li><a href="#writing-references">5.1.14. References</a></li>
 </ul>
 </li>
 <li><a href="#writing-undefined">5.2. Describing Undefined Behavior</a></li>
@@ -1226,7 +1233,7 @@ creating formal Vulkan extensions and layers.</p>
 <p><a href="#markup">Markup Style</a> - the required and recommended markup style for
 writing asciidoc and XML source that follows consistent formatting and
 layout guidelines, tags special terms and phrases for proper processing
-by the specification generation tools, etc.</p>
+by the Specification generation tools, etc.</p>
 </li>
 <li>
 <p><a href="#writing">Writing Style</a> - the required and recommended writing style
@@ -1739,7 +1746,7 @@ If the results are not invariant, the lifetime of the results should be
 clearly described in the command description.
 See
 <a href="html/vkspec.html#fundamentals-commandsyntax-results-lifetime">Lifetime
-of Retrieved Results</a> in the specification for more information.</p>
+of Retrieved Results</a> in the Specification for more information.</p>
 </div>
 <div class="paragraph">
 <p>These commands fall into two categories from a naming perspective:</p>
@@ -2387,7 +2394,7 @@ their inclusion.</p>
 <div class="paragraph">
 <p>Published extensions are documented as part of the default branch (<code>main</code>)
 of the <a href="#vulkan-docs">KhronosGroup/Vulkan-Docs</a> project.
-They can optionally be included or excluded when generating specifications.</p>
+They can optionally be included or excluded when generating Specifications.</p>
 </div>
 </td>
 </tr>
@@ -2618,14 +2625,14 @@ section above.</p>
 the <strong>Vulkan API Registry</strong>.
 The registry is kept in <code>xml/vk.xml</code> in the default branch (<code>main</code>) of the
 <a href="#vulkan-docs">KhronosGroup/Vulkan-Docs</a> project, containing the most
-recently released Vulkan API specification.
+recently released Vulkan API Specification.
 The registry contains reserved author IDs, core and extension interface
 definitions, definitions of individual commands and structures, and other
 information which must be agreed on by all implementations.
 The registry is used to maintain a single, consistent global namespace for
 the registered entities, to generate the Khronos-supplied Vulkan header
 files, and to create a variety of related documentation used in generating
-the API specification and reference pages.
+the API Specification and reference pages.
 Other uses of the registry outside Khronos include the LunarG Loader and
 Validation Layers, and a variety of language bindings.</p>
 </div>
@@ -2744,7 +2751,7 @@ those additions to <code>vk.xml</code>.</p>
 <div class="paragraph">
 <p>Registration for Khronos members is handled by filing a merge request in the
 internal gitlab repository modifying <code>vk.xml</code> in the default branch,
-containing the core specification against which the extension or layer will
+containing the core Specification against which the extension or layer will
 be written.
 Registration is not complete until the registry maintainer has validated and
 accepted the merge.</p>
@@ -2757,7 +2764,7 @@ must register with Khronos by creating a GitHub account, and registering
 their author ID and/or FQDNs to that account.
 They can then submit new extension registration requests by proposing merges
 to <code>vk.xml</code>.
-On acceptance of the merge, the extension will be registered, though its
+On acceptance of the merge the extension will be registered, though its
 specification need not be checked into the Khronos GitHub repository at that
 point.</p>
 </div>
@@ -2786,12 +2793,12 @@ accepted into the default branch.</p>
 <p>Publish the extension to Khronos using the previously registered
 extension number, by submitting merge requests to the default branch
 defining the changes specific to the extension.
-Changes to both the specification source, and to <code>vk.xml</code> will be
+Changes to both the Specification source, and to <code>vk.xml</code> will be
 needed.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Extension changes to the specification source must be protected by
+<p>Extension changes to the Specification source must be protected by
 asciidoc conditionals as described in the
 <a href="#extensions-documenting">Documenting Extensions</a> section.</p>
 </li>
@@ -2834,7 +2841,7 @@ default branch.</p>
 <h3 id="extensions-documenting"><a class="anchor" href="#extensions-documenting"></a>3.10. Documenting API Versions and Extensions</h3>
 <div class="paragraph">
 <p>API versions and extensions are documented as modifications to the Vulkan
-specification.
+Specification.
 Changes specific to a version or extension are protected by asciidoc
 conditionals.
 The changes are only visible in generated documentation when the
@@ -2847,17 +2854,17 @@ extensions; and core API with all registered extensions.</p>
 <h4 id="extensions-documenting-extensions"><a class="anchor" href="#extensions-documenting-extensions"></a>3.10.1. Changes for New Extensions</h4>
 <div class="paragraph">
 <p>If a new extension, or a related group of them is of sufficient scope to
-require a new chapter of the specification, localize such changes into a new
+require a new chapter of the Specification, localize such changes into a new
 asciidoc file.
 Include the new chapter file at a relevant point in <code>vkspec.adoc</code> so it is
-incorporated in the specification build, with appropriate asciidoc
+incorporated in the Specification build, with appropriate asciidoc
 conditional protections so it is only included when needed for the
-specification being built.
+Specification being built.
 An example can be found in <code>chapters/videocoding.adoc</code>.</p>
 </div>
 <div class="paragraph">
 <p>Most extensions are not entirely self-contained, and also require changes in
-existing parts of the specification to document new interactions.
+existing parts of the Specification to document new interactions.
 Such changes should be inlined in existing chapters.</p>
 </div>
 <div class="paragraph">
@@ -2891,7 +2898,7 @@ Some aspects of the changes for this example extension are described below.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>All extensions must add an appendix to the Vulkan specification.
+<p>All extensions must add an appendix to the Vulkan Specification.
 The appendix can be modeled after the <code>VK_KHR_shader_float_controls</code>
 extension in <code>appendices/VK_KHR_shader_float_controls.adoc</code>.
 It contains metainformation about the extension as well as code
@@ -3059,7 +3066,7 @@ It is not necessary to explicitly include the appendices.</p>
 </li>
 <li>
 <p>Extensions usually make significant additions and changes to the Vulkan
-specification.
+Specification.
 They often add an entirely new chapter, or a new section of an existing
 chapter, defining the new commands, structures, and enumerants.
 For example, <code>VK_EXT_debug_marker</code> adds a new section of the
@@ -3101,7 +3108,7 @@ endif::VK_EXT_debug_marker[]</code></pre>
 <li>
 <p>If two extensions interact, the asciidoc conditionals must be carefully
 structured so as to properly document the interactions if the
-specification is built with both extensions.
+Specification is built with both extensions.
 Asciidoc conditionals allow
 <a href="https://docs.asciidoctor.org/asciidoc/latest/directives/ifdef-ifndef/#checking-multiple-attributes">AND
 and OR constructs</a>.</p>
@@ -3256,12 +3263,12 @@ Group.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>New API versions will be more tightly integrated into the specification
+<p>New API versions will be more tightly integrated into the Specification
 sources than extensions, although it is still helpful to partition
 changes into new files when they are sufficiently self-contained.</p>
 </li>
 <li>
-<p>New API versions must add an appendix to the Vulkan specification.
+<p>New API versions must add an appendix to the Vulkan Specification.
 Unlike the extension appendices, this appendix simply summarizes release
 information (dates of Ratification by the Khronos Board of Promoters,
 and of public release), the contributor list, and high-level
@@ -3271,7 +3278,7 @@ extensions promoted to core status in this version).</p>
 <ul>
 <li>
 <p>TBD - we might choose to include a new API summary with links into the
-specification body for new features, as well.</p>
+Specification body for new features, as well.</p>
 </li>
 </ul>
 </div>
@@ -3285,7 +3292,7 @@ changes to existing language, to new commands and structures, to adding
 entire new chapters.
 New chapters must be defined in separate files under the <code>chapters/</code>
 directory, and included at an appropriate point in <code>vkspec.adoc</code> or
-other specification source files.
+other Specification source files.
 Other changes and additions are included inline in existing chapters.</p>
 </li>
 <li>
@@ -3310,14 +3317,14 @@ endif::VK_VERSION_1_1[]</code></pre>
 </div>
 </li>
 <li>
-<p>The specification must continue to be a valid document when the new
+<p>The Specification must continue to be a valid document when the new
 version is <strong>not</strong> defined, so that (for example) the Vulkan 1.1 branch
-specification can continue to be updated.</p>
+Specification can continue to be updated.</p>
 </li>
 <li>
 <p>TBD - how to deprecate extensions which have been promoted to core
 status in the new version, while continuing to have those extensions
-appear then older versions of the specification are being built.</p>
+appear then older versions of the Specification are being built.</p>
 </li>
 <li>
 <p>The same constraints <a href="#extensions-documenting-extensions">described
@@ -3537,7 +3544,7 @@ This usage occurs when the flags are intended for future expansion.
 In this case, even though the corresponding bitmask type is not yet useful,
 the (empty) bitmask type should be defined in <code>vk.xml</code>.
 The empty bitmask type and corresponding flags type should be given
-boilerplate definitions in the specification.</p>
+boilerplate definitions in the Specification.</p>
 </div>
 </div>
 <div class="sect2">
@@ -4067,7 +4074,7 @@ file), and follow the title by a blank line, to set off sections visibly.</p>
 <p>When using the asciidoc <code>include::</code> directive anywhere other than the
 top-level file of the document, always use a full (absolute) path to the
 file being included.
-To make this easier, the specification build process defines several
+To make this easier, the Specification build process defines several
 attributes which refer to different paths in the document tree:</p>
 </div>
 <div class="ulist">
@@ -4085,7 +4092,7 @@ appendices.</p>
 files such as API includes.</p>
 </li>
 <li>
-<p><code>{config}</code> - path to configuration files used in the specification
+<p><code>{config}</code> - path to configuration files used in the Specification
 toolchain.</p>
 </li>
 </ul>
@@ -4635,6 +4642,37 @@ two specifications with the script we currently use.
 By using the <code>{imageopts}</code> asciidoc attribute, this behavior can be
 controlled.</p>
 </div>
+<div class="paragraph">
+<p>Every figure must have a text alternative, supplied with the <code>alt=</code>
+attribute.
+Describe what the figure shows, including any labels and values that carry
+meaning, rather than repeating the caption:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example Markup with Alternative Text</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">image::{images}/imagename.svg[align="center",alt="What the figure shows",title="Figure caption",opts="{imageopts}"]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the image is inlined, Asciidoctor discards <code>alt=</code>, so the spec build
+loads <code>config/inline_svg_alt.rb</code>, which copies it onto the inlined <code>&lt;svg&gt;</code>
+element as <code>role="img"</code> and <code>aria-label</code>.
+To list inlined images that have no <code>alt=</code>, build with <code>make
+EXTRAATTRIBS='-a warn-missing-alt' html</code>; the warnings are off by default.
+Do not rely on the <code>alt=</code> text Asciidoctor generates from the file name; it
+is not used.</p>
+</div>
+<div class="sect4">
+<h5 id="markup-svg-colors"><a class="anchor" href="#markup-svg-colors"></a>Colors in SVG Figures</h5>
+<div class="paragraph">
+<p>Text and thin lines in figures must have at least the contrast against the
+background that WCAG 2.1 requires: 4.5:1 for text and 3:1 for graphical
+objects.
+Pure red (<code>#ff0000</code>) on white is only 4.0:1, so use the darker <code>#cc0000</code>
+(5.9:1) for red text and lines in new or revised SVG files.</p>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="markup-sample-section-captions"><a class="anchor" href="#markup-sample-section-captions"></a>4.5.9. Longer Captions</h4>
@@ -4666,7 +4704,7 @@ However, the flexibility of CSS stylesheets is not available in PDF layout
 using the existing PDF toolchain and YML stylesheets.</p>
 </div>
 <div class="paragraph">
-<p>Explicit indentation should be used sparingly in the specification, but one
+<p>Explicit indentation should be used sparingly in the Specification, but one
 place it is useful is with equations.
 Using <a href="#writing-math">asciidoc math markup</a>, the easiest way to produce
 indentation is with a list where the leading bullet or descriptive text is
@@ -5064,7 +5102,7 @@ places such as section titles, captions, and link text.
 When prime symbols are needed, use the Unicode ``prime'' symbol.
 Several predefined asciidoc attributes are available to help with this,
 including symbols for Y′C<sub>B</sub>C<sub>R</sub> and R′G′B′ because they are frequently
-used in the specification.</p>
+used in the Specification.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 30%;">
 <caption class="title">Table 7. Prime Attributes (correct)</caption>
@@ -5117,7 +5155,7 @@ Backtick markup is used for the C <code>NULL</code> macro.</p>
 are defined in the documents, as well as being added to the formal Glossary
 appendix in the <a href="#vulkan-spec">Vulkan API Specification</a>.
 However, we will probably change to using custom macros soon, to enable
-linkage between the glossary and definitions in the specification body.</p>
+linkage between the glossary and definitions in the Specification body.</p>
 </div>
 <div class="listingblock">
 <div class="title">Example Markup</div>
@@ -5653,7 +5691,7 @@ Some terms above are instead checked by the <code>check-writing</code> build tar
 <div class="sect3">
 <h4 id="markup-avoid-contractions"><a class="anchor" href="#markup-avoid-contractions"></a>4.8.1. Avoid Abbreviations and Contractions</h4>
 <div class="paragraph">
-<p>Abbreviations and contractions make the specification sound less formal.
+<p>Abbreviations and contractions make the Specification sound less formal.
 Avoid using them in specification text.
 The following lists provides some guidance, but are not complete.</p>
 </div>
@@ -5918,7 +5956,22 @@ The summary here is from a commercial website.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="write-active"><a class="anchor" href="#write-active"></a>5.1.3. Use the Active Voice</h4>
+<h4 id="writing-propernoun"><a class="anchor" href="#writing-propernoun"></a>5.1.3. Capitalize Proper Nouns, not Common Nouns</h4>
+<div class="paragraph">
+<p><strong>Correct:</strong> The Vulkan Specification.</p>
+</div>
+<div class="paragraph">
+<p><strong>Correct:</strong> The SPIR-V Specification.</p>
+</div>
+<div class="paragraph">
+<p><strong>Correct:</strong> The specification of this extension&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p><strong>Incorrect:</strong> The Vulkan specification.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="write-active"><a class="anchor" href="#write-active"></a>5.1.4. Use the Active Voice</h4>
 <div class="paragraph">
 <p>The passive voice is often imprecise.</p>
 </div>
@@ -5940,7 +5993,7 @@ calling&#8221;</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_date_format"><a class="anchor" href="#_date_format"></a>5.1.4. Date Format</h4>
+<h4 id="_date_format"><a class="anchor" href="#_date_format"></a>5.1.5. Date Format</h4>
 <div class="paragraph">
 <p>Whenever possible, write dates in the <a href="#iso-8601">ISO 8601</a> format:
 YYYY-MM-DD.</p>
@@ -5962,7 +6015,7 @@ the month.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="writing-misc-a-an"><a class="anchor" href="#writing-misc-a-an"></a>5.1.5. A/An and Markup Macros</h4>
+<h4 id="writing-misc-a-an"><a class="anchor" href="#writing-misc-a-an"></a>5.1.6. A/An and Markup Macros</h4>
 <div class="paragraph">
 <p>Use &#8220;a&#8221; and &#8220;an&#8221;
 <a href="https://www.grammar.com/a-vs-an-when-to-use/">correctly</a>, based on the
@@ -5999,7 +6052,7 @@ That starts with a vowel, so the temptation is to say</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_numbers_in_text"><a class="anchor" href="#_numbers_in_text"></a>5.1.6. Numbers in Text</h4>
+<h4 id="_numbers_in_text"><a class="anchor" href="#_numbers_in_text"></a>5.1.7. Numbers in Text</h4>
 <div class="paragraph">
 <p>When describing the need for a small number of objects, smaller than ten,
 spell the number out (e.g. &#8220;one&#8221;).
@@ -6014,7 +6067,7 @@ applications, this value is 1.&#8221;</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="writing-conventions"><a class="anchor" href="#writing-conventions"></a>5.1.7. Use American Spelling Conventions</h4>
+<h4 id="writing-conventions"><a class="anchor" href="#writing-conventions"></a>5.1.8. Use American Spelling Conventions</h4>
 <div class="paragraph">
 <p>In case of conflict, use American rather than British spelling conventions,
 except for noted exceptions in the table below.</p>
@@ -6068,7 +6121,7 @@ compression standards and headers using that spelling.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="writing-inclusivity"><a class="anchor" href="#writing-inclusivity"></a>5.1.8. Use Inclusive Language</h4>
+<h4 id="writing-inclusivity"><a class="anchor" href="#writing-inclusivity"></a>5.1.9. Use Inclusive Language</h4>
 <div class="paragraph">
 <p>The Vulkan Working Group has begun to apply the
 <a href="https://www.khronos.org/about/inclusive-language">Khronos Inclusive
@@ -6110,7 +6163,7 @@ control their choices.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="writing-mustbe"><a class="anchor" href="#writing-mustbe"></a>5.1.9. Avoid Use of &#8220;set to&#8221; Where Possible</h4>
+<h4 id="writing-mustbe"><a class="anchor" href="#writing-mustbe"></a>5.1.10. Avoid Use of &#8220;set to&#8221; Where Possible</h4>
 <div class="paragraph">
 <p>When describing a parameter or member that is required to be, or not to be a
 specific value, avoid extraneous use of &#8220;set to&#8221;.
@@ -6124,7 +6177,7 @@ described, &#8220;set to&#8221; sometimes makes language flow more naturally.</p
 </div>
 </div>
 <div class="sect3">
-<h4 id="writing-pointers-instances"><a class="anchor" href="#writing-pointers-instances"></a>5.1.10. Describing Pointers, Handles, Structures, and Arrays</h4>
+<h4 id="writing-pointers-instances"><a class="anchor" href="#writing-pointers-instances"></a>5.1.11. Describing Pointers, Handles, Structures, and Arrays</h4>
 <div class="paragraph">
 <p>When describing pointer parameters or members, use &#8220;is a pointer to&#8221;
 rather than more informal phrasing such as &#8220;points to&#8221;.</p>
@@ -6165,7 +6218,7 @@ The same principle applies when describing a handle which may be
 </div>
 </div>
 <div class="sect3">
-<h4 id="writing-arrays"><a class="anchor" href="#writing-arrays"></a>5.1.11. Describing Properties of Array Elements</h4>
+<h4 id="writing-arrays"><a class="anchor" href="#writing-arrays"></a>5.1.12. Describing Properties of Array Elements</h4>
 <div class="paragraph">
 <p>Many Vulkan parameters are arrays, or pointers to arrays.
 When describing array elements, use the terminology &#8220;each element&#8221; when
@@ -6200,7 +6253,7 @@ For example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="writing-compound-words"><a class="anchor" href="#writing-compound-words"></a>5.1.12. Compound Words and Preferred Orthography</h4>
+<h4 id="writing-compound-words"><a class="anchor" href="#writing-compound-words"></a>5.1.13. Compound Words and Preferred Orthography</h4>
 <div class="paragraph">
 <p>Unless there is longstanding precedent in computer science literature, or
 the word is a <a href="#spelling-exception-table">noted exception</a>, do not
@@ -6435,10 +6488,10 @@ This list is not intended to be complete.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="writing-references"><a class="anchor" href="#writing-references"></a>5.1.13. References</h4>
+<h4 id="writing-references"><a class="anchor" href="#writing-references"></a>5.1.14. References</h4>
 <div class="paragraph">
 <p>When citing external references, use the appropriate <a href="#acm-references">Association for Computing Machinery Citation Style</a>.
-Most citations in our specifications should follow the <em>For an online
+Most citations in our Specifications should follow the <em>For an online
 document/WWW resource</em> style, using the actual date on the document being
 referenced rather than the document retrieval date.
 See the <a href="#vulkan-spec">Vulkan API Specification</a> citation in this document
@@ -6538,10 +6591,10 @@ Occasional non-normative explanations can be included in the
 codes for the command in the <code>errorcodes</code> XML attribute for the command.
 Almost all such commands may return the <a href="#VkResult">VK_ERROR_OUT_OF_HOST_MEMORY</a>
 error code.
-Any exceptions to this rule should be carefully considered by the
-specification author, and a rationale for this anomalous behavior may be
-provided in a NOTE or in the Issues section of the extension appendix
-corresponding to the new command.</p>
+Any exceptions to this rule should be carefully considered by the author,
+and a rationale for this anomalous behavior may be provided in a NOTE or in
+the Issues section of the extension appendix corresponding to the new
+command.</p>
 </div>
 <div class="paragraph">
 <p>See the &#8220;Return Codes&#8221; section of the <a href="#vulkan-spec">Vulkan API
@@ -6554,7 +6607,7 @@ Specification</a> for additional information.</p>
 <div class="paragraph">
 <p>Language specifying behavior of a command or structure that does not
 originate in an extension should be placed in a single contiguous region of
-the specification.</p>
+the Specification.</p>
 </div>
 <div class="paragraph">
 <p>When defining a new command or structure from an extension that introduces
@@ -6860,7 +6913,7 @@ everything, though does have some support for AMSMath.</p>
 currently supported LaTeX functionality</a>.
 You can also use the <a href="https://khan.github.io/KaTeX/">live katex preview
 tool</a> on the KaTeX website to double check support, without building the
-whole specification.</p>
+entire Specification.</p>
 </div>
 <div class="paragraph">
 <p>Note that we use a locally-cached copy of KaTeX which may lag the latest
@@ -6885,7 +6938,7 @@ supported for both.</p>
 </div>
 <div class="paragraph">
 <p>This example is among the most complex expressions in the Vulkan
-specification:</p>
+Specification:</p>
 </div>
 <div class="stemblock">
 <div class="content">
@@ -7371,7 +7424,7 @@ based on.
 <p>These entries should be short and functional, without describing details of
 e.g. new enumerant values, function of individual parameter settings, etc.
 They can refer to other types using the appropriate *link: macros or to
-related sections of the specification using asciidoc <code>xref</code> macros.</p>
+related sections of the Specification using asciidoc <code>xref</code> macros.</p>
 </div>
 <div class="paragraph">
 <p>In rare cases, a member description will cover multiple paragraphs.
@@ -7614,7 +7667,7 @@ conditionals around such clauses.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Prior to specification update 1.3.255, there were stronger restrictions on
+<p>Prior to Specification update 1.3.255, there were stronger restrictions on
 placement of asciidoc conditionals that have been relaxed, allowing writing
 such valid usage statements in a more natural manner and with less
 duplication of language.</p>
@@ -7693,7 +7746,7 @@ For example:</p>
 <p>Finally, the original feature section needs to define the <code>:refpage:</code>
 attribute to match the name of the feature, as this is used to correctly
 generate links to expanded common valid usage statements in the built
-specification.</p>
+Specification.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -7717,7 +7770,7 @@ usage statement), the original VUs can be left intact.</p>
 <p>Sometimes an enumerated type has all values defined by extensions, and each
 enumerated value defined by the type will be surrounded by an asciidoc
 conditional for the corresponding extension.
-When a specification is built without any of those extensions enabled, the
+When a Specification is built without any of those extensions enabled, the
 type should still be included, even though it is empty.
 In this case, the enumerated value descriptions must be followed by one
 additional conditional section which is only included when <strong>none</strong> of the
@@ -7742,7 +7795,7 @@ ifndef::VK_KHR_push_descriptor[]
 [NOTE]
 ====
 All bits for this type are defined by extensions, and none of those
-extensions are enabled in this build of the specification.
+extensions are enabled in this build of the Specification.
 ====
 endif::VK_KHR_push_descriptor[]</code></pre>
 </div>
@@ -7807,7 +7860,7 @@ This attribute is optional.</p>
 </li>
 <li>
 <p><strong>anchor</strong> - anchor name at which this reference page is fully described
-in the API specification document.
+in the API Specification document.
 This attribute is optional except for the non-API block types, which do
 not correspond to Vulkan APIs.</p>
 </li>
@@ -7898,12 +7951,12 @@ will extract the wrong text - and the language will be structurally
 incorrect, as well.
 The extraction process is somewhat fragile, so care should be taken and the
 results of reference page extraction verified after making changes to that
-portion of the specification source.</p>
+portion of the Specification source.</p>
 </div>
 <div class="paragraph">
 <p>Content that should only appear in reference pages, such as
 developer-oriented guidelines for reference pages describing extensions, may
-be conditionally included in the specification as follows:</p>
+be conditionally included in the Specification as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -7912,7 +7965,7 @@ be conditionally included in the specification as follows:</p>
 === Refpage-Only Section
 
 *This section will appear only when generating an extension refpage,
-but not in the specification extensions appendix.*
+but not in the Specification extensions appendix.*
 
 endif::isrefpage[]</code></pre>
 </div>
@@ -7983,7 +8036,7 @@ mostly irrelevant.</p>
 </div>
 <div class="paragraph">
 <p>Text in images should usually appear at 12 point type so as to match that in
-the body of the specification, though 10 point text can be used sparingly
+the body of the Specification, though 10 point text can be used sparingly
 where necessary (however this is often indicative of the diagram being too
 cramped, so authors should consider scaling or reworking the diagram
 instead).
@@ -8138,7 +8191,7 @@ needed only in the published Specification sources and outputs.
 Therefore, authors of extensions, or other branches adding valid usage
 statements, are not themselves responsible for adding tags in their
 branches.
-The specification editors will take care of this as part of the process of
+The Specification editors will take care of this as part of the process of
 publishing updates.
 For reference purposes, this process is described below:</p>
 </div>
@@ -8234,6 +8287,10 @@ to by the Vulkan Working Group.</p>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
+<li>
+<p>2026-09-30 - Add the <a href="#writing-propernoun">Capitalize Proper Nouns, not
+Common Nouns</a> section (internal issue 5051).</p>
+</li>
 <li>
 <p>2026-09-30 - Add &#8220;timeout&#8221; to the <a href="#writing-compound-words">compound
 words</a> table and add a table for <a href="#writing-math-phrasing">consistent

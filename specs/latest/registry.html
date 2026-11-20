@@ -523,6 +523,12 @@ tbody tr th { display: table-cell; line-height: 1.4; background: #eee; }
 
 tbody tr th, tbody tr th p, tfoot tr th, tfoot tr th p { color: #222; font-weight: bold; }
 
+/* Tables whose first column is marked up as row headers (cols="1h") only for
+   accessibility; keep the cells looking like ordinary data cells. */
+table.plain-row-headers tbody tr th { background: none; }
+
+table.plain-row-headers tbody tr th, table.plain-row-headers tbody tr th p { font-weight: normal; }
+
 p.tableblock > code:only-child { background: none; padding: 0; }
 
 p.tableblock { font-size: 1em; }
@@ -954,9 +960,9 @@ pre.rouge .w {
 <h1>The Khronos<sup>®</sup> Vulkan<sup>®</sup> API Registry</h1>
 <div class="details">
 <span id="author" class="author">Jon Leech</span><br>
-<span id="revnumber">version 1.4.368,</span>
-<span id="revdate">2026-11-06 01:32:02Z</span>
-<br><span id="revremark">from git branch: github-main commit: fa30d4e312e843193601be7cb926c7e25d9ec885</span>
+<span id="revnumber">version 1.4.369,</span>
+<span id="revdate">2026-11-20 01:04:25Z</span>
+<br><span id="revremark">from git branch: github-main commit: 33d3353757d83d6aca683120114fe74cc4eaf8fb</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1348,7 +1354,7 @@ pre.rouge .w {
 <p>This document describes the Khronos Vulkan API Registry schema, and provides
 some additional information about using the registry and scripts to generate
 a variety of outputs, including C header files as well as several types of
-asciidoc include files used in the Vulkan API specification and reference
+asciidoc include files used in the Vulkan API Specification and reference
 pages.
 The underlying XML files and scripts are located on the Khronos public
 GitHub server at URL</p>
@@ -1642,8 +1648,8 @@ the API profile requested.</p>
 <div class="paragraph">
 <p>Specific API versions features and extensions can be tagged as belonging to
 classes of features with the use of <em>API names</em>.
-This is intended to allow multiple closely-related API specifications in the
-same family - such as desktop and mobile specifications - to share the same
+This is intended to allow multiple closely-related API Specifications in the
+same family - such as desktop and mobile Specifications - to share the same
 XML.
 An API name is an arbitrary alphanumeric string, although it should be
 chosen to match the corresponding API.
@@ -2603,7 +2609,7 @@ Each expression may be one of:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>an equation in math markup for incorporation in the specification (a
+<p>an equation in math markup for incorporation in the Specification (a
 LaTeX math expression delimited by <code><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">‘</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span><span class="mord">‘</span></span></span></span></code>.
 The only variables in the equation should be the names of members of
 the structure. Use the <code>altlen</code> attribute in this case to provide
@@ -3447,7 +3453,7 @@ Contains a list of <code>param</code> tags, each containing asciidoc source text
 describing an object which is not a parameter of the command but is
 related to one, and which also <a href="#tag-command:param:attr">requires
 external synchronization</a>.
-The text is intended to be incorporated into the API specification.</p>
+The text is intended to be incorporated into the API Specification.</p>
 </li>
 </ul>
 </div>
@@ -3536,7 +3542,7 @@ Each expression may be one of:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>an equation in math markup for incorporation in the specification (a
+<p>an equation in math markup for incorporation in the Specification (a
 LaTeX math expression delimited by <code><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">‘</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span><span class="mord">‘</span></span></span></span></code>.
 The only variables in the equation should be the names of parameters of
 the command;</p>
@@ -3875,7 +3881,7 @@ attributes</a>.</p>
 <p>The <code>name</code> attribute used for Vulkan core versions, such as
 <code>"VK_VERSION_1_0"</code>, is not an API construct.
 It is used only as a preprocessor guard in the headers, and an asciidoctor
-conditional in the specification sources.
+conditional in the Specification sources.
 The similar <code>"VK_API_VERSION_1_0"</code> symbols are part of the API and their
 values are packed integers containing Vulkan core version numbers.</p>
 </div>
@@ -4298,7 +4304,7 @@ by this version.
 Extensions should never deprecate interfaces, although this usage is allowed
 by the schema.
 For historical reasons, the <code>deprecate</code> block is still called 'deprecate',
-but we now use the terms 'legacy' or 'superseded' in the specification instead.</p>
+but we now use the terms 'legacy' or 'superseded' in the Specification instead.</p>
 </div>
 <div class="paragraph">
 <p>Except for the tag name and behavior, the contents of <code>require</code>, <code>remove</code>
@@ -4411,7 +4417,7 @@ String containing the name of an asciidoc anchor in the <a href="#vulkan-spec">V
 <div class="ulist">
 <ul>
 <li>
-<p><code>explanation</code> - a link to an explanation in the specification of why
+<p><code>explanation</code> - a link to an explanation in the Specification of why
 the tagged functionality is deprecated.</p>
 </li>
 </ul>
@@ -6751,7 +6757,7 @@ Python scripts.
 This output generator is specialized for C, but the design of the scripts is
 intended to support writing output generators for other languages as well as
 purposes such as documentation (e.g. generating asciidoc fragments
-corresponding to types and commands for use in the API specification and
+corresponding to types and commands for use in the API Specification and
 reference pages).
 When targeting other languages, the amount of parsing required to convert
 type declarations into other languages is small.
@@ -6843,7 +6849,7 @@ attribute to match updated spec (internal issue 4725), rename to "unused".</p>
 <li>
 <p>2026-02-18 - Update the <code>enum</code> and <code>member</code> <code>deprecated</code>
 attribute to describe <code>"ignored"</code> consistently with the generators and
-specification (internal MR 7998).</p>
+Specification (internal MR 7998).</p>
 </li>
 <li>
 <p>2026-01-16 - Add support for boolean expressions in the <code>protect</code>
@@ -7031,7 +7037,7 @@ attribute of structure <code>member</code> tags can be applied (internal issue
 <p>2022-06-08 - Update description of <code>extension</code> <code>requires</code> attribute
 such that the specified extensions must be <strong>enabled</strong>, not just
 <strong>supported</strong>. This is consistent with the following NOTE, the
-specification description of &#8220;required extensions&#8221;, and actual use in
+Specification description of &#8220;required extensions&#8221;, and actual use in
 the XML of this attribute (internal issue 3116).</p>
 </li>
 <li>
@@ -7198,11 +7204,11 @@ transformation tools.</p>
 </li>
 <li>
 <p>2017-02-20 - Change to asciidoctor markup and move into the
-specification source directory for ease of building.</p>
+Specification source directory for ease of building.</p>
 </li>
 <li>
 <p>2016-09-27 - Remove <code>validity</code> and <code>usage</code> tags, since these
-explicit usage statements have been moved to the specification source.</p>
+explicit usage statements have been moved to the Specification source.</p>
 </li>
 <li>
 <p>2016-08-26 - Update for the single-branch model.</p>
